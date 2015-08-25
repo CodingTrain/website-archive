@@ -1,0 +1,449 @@
+1
+00:00:02,003 --> 00:00:05,000
+We're gonna pause for a moment, it's not really a
+pause but I wanna,
+
+2
+00:00:05,000 --> 00:00:08,007
+we're on this train on
+
+3
+00:00:08,007 --> 00:00:11,437
+fundamentals and computation. We're just plowing
+through all these concepts
+
+4
+00:00:11,509 --> 00:00:14,843
+we'll stop for a moment and just talk about
+
+5
+00:00:14,853 --> 00:00:17,930
+a function in Processing that you might not see
+
+6
+00:00:17,093 --> 00:00:21,622
+in a lot of examples but you will 
+inevitably wanna use
+
+7
+00:00:21,632 --> 00:00:24,151
+all the time: 'println'
+
+8
+00:00:24,439 --> 00:00:27,680
+or 'print line' and it gets some 
+argument here
+
+9
+00:00:27,068 --> 00:00:30,587
+here's the thing, you know
+
+10
+00:00:31,199 --> 00:00:34,203
+stuff is gonna go wrong all the time. you're
+gonna write some code,
+
+11
+00:00:34,239 --> 00:00:39,100
+you're gonna run it, it will have an error, you gonna fix the error,
+you're gonna run it but it's not gonna do 
+what you expected it to do
+
+12
+00:00:39,001 --> 00:00:43,980
+you're gonna feel sad and stressed out, you know you'll
+get some tea, you'll relax, you'll ask a friend
+
+13
+00:00:44,009 --> 00:00:47,017
+things will eventually be okay but there
+is a process there about figuring out
+
+14
+00:00:47,089 --> 00:00:49,298
+and this is really what I wanna say,
+
+15
+00:00:49,329 --> 00:00:52,960
+is that it's very different this scenario
+where your code does not run
+
+16
+00:00:52,096 --> 00:00:52,101
+and you get an error
+
+17
+00:00:53,046 --> 00:00:56,665
+because you got a typo and your code runs, there are no
+errors
+
+18
+00:00:57,079 --> 00:01:00,764
+but it doesn't do what you imagine it to do,
+there's lots and lotsa
+
+19
+00:01:00,829 --> 00:01:03,850
+debugging, or the
+
+20
+00:01:03,085 --> 00:01:07,018
+debugging techniques, to get the bugs out
+of your program
+
+21
+00:01:07,078 --> 00:01:11,046
+there's a lot of strategies for doing that
+hopefully we'll see as I make these
+
+22
+00:01:11,056 --> 00:01:12,405
+videos and
+
+23
+00:01:12,439 --> 00:01:16,131
+you know there's any good thing about
+not rehearsing or planning any of these videos, hopefully
+
+24
+00:01:16,159 --> 00:01:17,682
+I will make mistakes as of
+
+25
+00:01:17,689 --> 00:01:21,380
+kind of doing examples they will see some
+debugging during the course of these videos
+
+26
+00:01:21,038 --> 00:01:21,075
+but
+
+27
+00:01:21,075 --> 00:01:25,096
+we haven't got very far yet so
+we're not really ready for all the tools we
+
+28
+00:01:25,096 --> 00:01:26,011
+might have but
+
+29
+00:01:26,061 --> 00:01:29,600
+this is a tool for figuring out when
+something goes wrong
+
+30
+00:01:29,619 --> 00:01:33,240
+that you might wanna have at your
+disposal right now.
+
+31
+00:01:33,024 --> 00:01:36,071
+so let's look at what this does: the first
+thing that I should just say
+
+32
+00:01:36,071 --> 00:01:40,410
+if you have, you can put anything in
+here: I can write,
+
+33
+00:01:40,439 --> 00:01:44,310
+in quotes, the word 'hello' 
+and this will print
+
+34
+00:01:44,031 --> 00:01:47,730
+'hello' to Processing's message console.
+
+35
+00:01:48,009 --> 00:01:51,460
+Where is the message console? Right, there's
+like the tool bar up here
+
+36
+00:01:51,046 --> 00:01:52,050
+you have some code you've written
+
+37
+00:01:52,086 --> 00:01:55,091
+there's a little, there's a place down here
+where those errors
+
+38
+00:01:55,091 --> 00:01:59,000
+appear, right? Where messages are spit out if
+something goes wrong with your program
+
+39
+00:01:59,010 --> 00:02:03,006
+you can print stuff to down there
+yourself, it's not part of the
+
+40
+00:02:03,006 --> 00:02:04,059
+application window
+
+41
+00:02:04,059 --> 00:02:07,098
+but it's extra information as the
+programs running, so you could put
+
+42
+00:02:07,098 --> 00:02:10,960
+a string of characters in there, 
+you could put a number in there
+
+43
+00:02:11,001 --> 00:02:13,592
+but you could also do 
+something like this:
+
+44
+00:02:13,612 --> 00:02:18,007
+'println circleX' and you will see
+
+45
+00:02:18,012 --> 00:02:21,093
+the value of circle X printed out down
+there. Why would this be useful?
+
+46
+00:02:21,093 --> 00:02:24,045
+So let's go over here look at the
+program. This is what we've been
+
+47
+00:02:24,075 --> 00:02:25,075
+working on.
+
+48
+00:02:25,075 --> 00:02:30,013
+it's a program that draws a circle on the
+screen with an initial location, maybe
+
+49
+00:02:30,023 --> 00:02:32,034
+that circle's location changes
+
+50
+00:02:32,034 --> 00:02:35,980
+and if we run we can look at it and see 
+there's no circle, what's going on?
+
+51
+00:02:36,002 --> 00:02:39,067
+I have a variable called circleX,
+I am drawing the ellipse at circleX
+
+52
+00:02:39,085 --> 00:02:43,083
+and I have this line of code 
+but I don't see the circle.
+
+53
+00:02:43,083 --> 00:02:46,089
+So obviously this is a canned scenario
+that I've created
+
+54
+00:02:46,089 --> 00:02:49,092
+perhaps you can just look at the scenario
+and already see what the problem is
+
+55
+00:02:49,092 --> 00:02:50,994
+but let's pretend that you can't
+
+56
+00:02:51,014 --> 00:02:54,015
+so one strategy we have is to say
+
+57
+00:02:54,015 --> 00:02:58,094
+println (circleX) and when I run this program
+
+58
+00:02:58,094 --> 00:03:03,009
+now we can see down here, look the
+message console, all these values are
+
+59
+00:03:03,069 --> 00:03:03,902
+printing out
+
+60
+00:03:04,042 --> 00:03:08,046
+this is the current value of circleX,
+now we look at this and we know instantly
+
+61
+00:03:08,082 --> 00:03:13,017
+okay I know why I'm not seeing it on the
+screen: the value of circleX is a
+
+62
+00:03:13,037 --> 00:03:17,042
+really high negative number, there's no
+negative pixels on the screen,
+
+63
+00:03:17,042 --> 00:03:18,018
+Processing is like pretending to draw
+
+64
+00:03:18,028 --> 00:03:21,086
+it way off so that's why we don't see it.
+that's what broken
+
+65
+00:03:21,086 --> 00:03:26,069
+okay so how now like his a clue at least
+two figuring out what the problem is
+
+66
+00:03:26,079 --> 00:03:30,085
+now I could guess like well maybe I
+should comment out this line of code
+
+67
+00:03:30,085 --> 00:03:34,008
+and run it again, what's the value
+of circleX?
+
+68
+00:03:34,015 --> 00:03:37,026
+oh, it's 0 all the time, that make sense, that
+was its
+
+69
+00:03:37,026 --> 00:03:38,085
+initial value
+
+70
+00:03:38,319 --> 00:03:44,480
+and so this line of code but somehow
+we're making it negative
+
+71
+00:03:44,048 --> 00:03:48,577
+Oh, of course, I'm adding 
+a random number between
+
+72
+00:03:48,609 --> 00:03:52,760
+-2 and 0 so I'm never
+incrementing it by a positive number
+
+73
+00:03:52,076 --> 00:03:56,905
+circleX starts at 0 and only ever
+gets to be negative. Ah, what I meant to do was
+
+74
+00:03:56,939 --> 00:03:58,790
+say not between -2 and 0 but
+
+75
+00:03:58,849 --> 00:04:03,700
+between 0 and 2 and now I run my
+program, oh, it's on the screen
+
+76
+00:04:03,007 --> 00:04:08,347
+it's moving and I see that the value of
+circleX is now positive
+
+77
+00:04:08,437 --> 00:04:14,326
+I mean this is a really quick video 
+just to show you that
+
+78
+00:04:14,326 --> 00:04:16,042
+this is a tool that's available to you
+
+79
+00:04:16,048 --> 00:04:19,399
+you might kinda practice with it, you can do
+interesting things like
+
+80
+00:04:19,004 --> 00:04:23,055
+you can actually, say, put a string
+of characters in here
+
+81
+00:04:23,091 --> 00:04:27,019
+with the plus sign, so if i write the
+code like this
+
+82
+00:04:27,069 --> 00:04:31,108
+this isn't 'adding' but in the case of
+print line, we're going to see more about his
+
+83
+00:04:31,729 --> 00:04:32,785
+when we learn about strings later,
+
+84
+00:04:33,289 --> 00:04:37,070
+we want a print line circleX, colon, 
+and then the value
+
+85
+00:04:37,007 --> 00:04:40,032
+circleX, so, oops, so if I run it
+
+86
+00:04:40,032 --> 00:04:43,988
+we can see that's what's being printed
+out now down there
+
+87
+00:04:44,008 --> 00:04:47,011
+circleX, colon,and this is useful
+if you wanna print
+
+88
+00:04:47,038 --> 00:04:51,090
+multiple values out, and you need to label
+them, and you can go all sorts of crazy with this!
+
+89
+00:04:51,009 --> 00:04:52,025
+and I would ...
+
+90
+00:04:52,036 --> 00:04:57,069
+stop recording and just make 
+lots of pretty, like elaborate,
+
+91
+00:04:57,119 --> 00:04:58,012
+print line statements on my own
+
+92
+00:04:58,093 --> 00:05:03,017
+cause I enjoy doing that but, uhm, I don't
+think you need to worry too much about this
+
+93
+00:05:03,032 --> 00:05:06,063
+most the stuff you're doing right now you
+going to be able to fix and solve
+
+94
+00:05:06,063 --> 00:05:09,069
+through trial and error, kind of creating
+these simply programs.
+
+95
+00:05:09,069 --> 00:05:12,069
+this is just a quick little video to
+show you about 'println'.
+
+96
+00:05:12,069 --> 00:05:14,735
+and hopefully that was useful!

@@ -1,0 +1,277 @@
+1
+00:00:01,000 --> 00:00:03,074
+Okay, look, let's take a step back for a
+second
+
+2
+00:00:03,074 --> 00:00:06,089
+and let me introduce myself a little
+more properly.
+
+3
+00:00:06,089 --> 00:00:09,095
+My name is (this is absurd but I'm writing
+my name over here
+
+4
+00:00:09,095 --> 00:00:12,654
+on the board but) my name is [enunciating]
+Daniel Sheef Mon
+
+5
+00:00:13,509 --> 00:00:17,330
+pronounced 'Shiffman'
+
+6
+00:00:17,033 --> 00:00:20,042
+but I don't know, you can say Sheef Mon
+if you want
+
+7
+00:00:20,042 --> 00:00:24,651
+and I work at a place called ITP which
+you can find out more about
+
+8
+00:00:25,029 --> 00:00:25,800
+ITP.nyu.edu
+
+9
+00:00:25,008 --> 00:00:28,054
+It's a two-year graduate program and I
+
+10
+00:00:29,026 --> 00:00:32,073
+teach a lot of programming courses here,
+One of which
+
+11
+00:00:32,073 --> 00:00:35,095
+in particular is a course called
+'Introduction
+
+12
+00:00:35,095 --> 00:00:38,454
+to Computational Media' in which the students 
+
+13
+00:00:39,309 --> 00:00:43,800
+learn - most them for the very first time -
+how to program the computer
+
+14
+00:00:43,008 --> 00:00:47,033
+and we use for that course something
+else that I participate
+
+15
+00:00:48,005 --> 00:00:54,444
+in developing, called, 'Processing,' and you
+can find out more about Processing
+
+16
+00:00:54,489 --> 00:00:58,587
+at Processing.org so this is who I am
+the kind of context, at least, of what I'm
+
+17
+00:00:59,469 --> 00:00:59,930
+doing
+
+18
+00:00:59,093 --> 00:01:03,175
+I imagine I'm making these videos just to
+try them, to learn more about teaching -
+
+19
+00:01:04,075 --> 00:01:07,096
+to learn more about teaching in
+this strange
+
+20
+00:01:07,096 --> 00:01:12,111
+new context as well as to supplement the
+course that I'm teaching here
+
+21
+00:01:13,011 --> 00:01:16,084
+but it is my hope that all the things
+will kind of feed into each other in a nice
+
+22
+00:01:16,084 --> 00:01:19,149
+way and that there will be some
+population, however small, whether it's
+
+23
+00:01:20,049 --> 00:01:23,090
+three people - three hundred - three
+thousand - three billion - that are
+
+24
+00:01:23,009 --> 00:01:26,065
+interested in this content and that this
+stuff that I'm going to talk about
+
+25
+00:01:27,046 --> 00:01:30,064
+and demonstrate over many many many many
+many videos
+
+26
+00:01:30,064 --> 00:01:33,069
+on will be interesting to help you
+with - [humorously] I don't know -
+
+27
+00:01:34,014 --> 00:01:38,043
+I'm really trying too hard to justify this, but
+I'm just doing it, you can turn it off at
+
+28
+00:01:38,043 --> 00:01:41,059
+anytime you like. Okay now, who are you?
+
+29
+00:01:41,059 --> 00:01:44,268
+I don't know. I would be interested in
+hearing from you.
+
+30
+00:01:44,799 --> 00:01:48,210
+But let me say a few things: this video
+series
+
+31
+00:01:48,021 --> 00:01:51,022
+is for the complete and total beginner.
+
+32
+00:01:51,031 --> 00:01:52,080
+You don't need to know anything.
+
+33
+00:01:52,008 --> 00:01:55,017
+That's not entirely true. You do need to
+access to a computer -
+
+34
+00:01:55,089 --> 00:01:57,168
+you probably already do if you're
+watching this video - you need to know
+
+35
+00:01:58,068 --> 00:01:58,157
+some basic stuff:
+
+36
+00:01:59,057 --> 00:02:02,058
+how to download a piece of software, how to
+install it,
+
+37
+00:02:02,067 --> 00:02:05,082
+yeah, how to type - that kind of stuff
+but really that's it.
+
+38
+00:02:05,082 --> 00:02:09,083
+I will assume no knowledge whatsoever
+about anything that has to do with
+
+39
+00:02:09,083 --> 00:02:09,161
+programming.
+
+40
+00:02:10,061 --> 00:02:13,067
+we're going to really, really slowly in
+great detail
+
+41
+00:02:13,067 --> 00:02:16,081
+build-up stuff from the beginning.
+
+42
+00:02:16,081 --> 00:02:19,176
+So if you already know some stuff about
+programming, the nice thing about these
+
+43
+00:02:20,076 --> 00:02:21,170
+video series is I'm trying to keep the videos
+
+44
+00:02:22,007 --> 00:02:25,076
+to between 2 and 20 minutes.
+
+45
+00:02:26,039 --> 00:02:29,090
+really I want them to be like 5 or 10 minute videos
+but you can just skip some
+
+46
+00:02:29,009 --> 00:02:32,011
+You can jump ahead. If all you're
+interested in how to, like, parse
+
+47
+00:02:33,001 --> 00:02:37,035
+a JSON feed and get it into your Processing sketch,
+that's probably going to be video, like, number 50
+
+48
+00:02:37,044 --> 00:02:37,051
+or 30
+
+49
+00:02:38,014 --> 00:02:41,028
+or 22 - somewhere further
+ahead
+
+50
+00:02:41,028 --> 00:02:44,100
+(it's not made yet, by the way. It doesn't exist)
+but you can jump ahead and do that.
+
+51
+00:02:45,000 --> 00:02:48,001
+The other thing I should mention it I made some
+videos last year
+
+52
+00:02:48,001 --> 00:02:52,006
+so as you're watching them if you suddenly
+think that I look much younger
+
+53
+00:02:52,015 --> 00:02:55,053
+or have a strangely different length of beard,
+
+54
+00:02:55,053 --> 00:02:59,055
+it's because some of the videos from last year are going
+to be kind of spliced in here although I may end
+
+55
+00:02:59,055 --> 00:02:59,094
+up
+
+56
+00:02:59,094 --> 00:03:03,142
+remaking them if they're out-of-date
+or needing some
+
+57
+00:03:04,042 --> 00:03:07,073
+extra touch-up - or that sort of thing.
+
+58
+00:03:07,073 --> 00:03:10,091
+So that's who I am. That's who you are -
+
+59
+00:03:10,091 --> 00:03:12,152
+- or maybe you are, and you can let me know if
+you are somebody different.
+

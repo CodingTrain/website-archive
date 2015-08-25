@@ -1,0 +1,1535 @@
+1
+00:00:01,054 --> 00:00:03,213
+Okay. Here we are.
+
+2
+00:00:03,699 --> 00:00:06,910
+We have done so much already, but yet
+so
+
+3
+00:00:06,091 --> 00:00:10,813
+little! We have so much more to go! But
+today is a moment, a big moment.
+
+4
+00:00:11,003 --> 00:00:15,356
+If you were waiting to do something real.
+To really sink your teeth into
+
+5
+00:00:15,356 --> 00:00:18,381
+programming. This is the 
+moment we're really going to do that.
+
+6
+00:00:18,381 --> 00:00:21,810
+We're going to talk about, in this video:
+variables. Now,
+
+7
+00:00:22,001 --> 00:00:26,500
+why do we need a variable? 
+Well, first, where are we so far even?
+
+8
+00:00:26,599 --> 00:00:31,480
+We've kind of got the idea we can write
+these functions, issue these commands to
+
+9
+00:00:31,048 --> 00:00:33,362
+draw something on the screen,
+based on numbers.
+
+10
+00:00:33,412 --> 00:00:37,121
+We now understand that there's a flow,
+that the program begins,
+
+11
+00:00:37,329 --> 00:00:41,180
+that it runs and it loops over time.
+We also
+
+12
+00:00:41,018 --> 00:00:44,823
+understand that we can vary what we draw
+each time, right?
+
+13
+00:00:44,893 --> 00:00:47,941
+We could say: 'hey, draw something at the
+mouse location'. But
+
+14
+00:00:48,041 --> 00:00:51,627
+is this really what we want to do?
+Let's give ourselves a new goal.
+
+15
+00:00:51,727 --> 00:00:54,756
+You thought we were going to have
+an exciting goal and in many ways
+
+16
+00:00:54,899 --> 00:00:55,913
+perhaps it is, but...
+
+17
+00:00:56,039 --> 00:00:59,050
+Okay, so let's take a look for a second.
+This is ultimately...
+
+18
+00:00:59,005 --> 00:01:01,638
+Gonna run this little application that was made
+in Processing.
+
+19
+00:01:01,728 --> 00:01:03,102
+Take a look at this beautiful
+
+20
+00:01:03,102 --> 00:01:07,937
+Processing sketch: it's so nice, just cute
+and it's simple and
+
+21
+00:01:08,047 --> 00:01:11,056
+fun and, well, whatever. I don't know what
+I'm saying.
+
+22
+00:01:11,159 --> 00:01:15,010
+Okay, so here we go... 
+What's happening?
+
+23
+00:01:15,001 --> 00:01:18,227
+There's a white circle and it's bouncing
+around the screen.
+
+24
+00:01:18,267 --> 00:01:22,070
+This is our goal now. Now, the first 
+thing we should notice about this
+
+25
+00:01:22,070 --> 00:01:26,069
+is I'm not moving the mouse, right?
+I don't have the mouse here trying to, like,
+
+26
+00:01:26,069 --> 00:01:26,979
+move it around.
+
+27
+00:01:26,979 --> 00:01:30,820
+It is moving autonomously, but we know we
+need to vary
+
+28
+00:01:30,082 --> 00:01:34,889
+where we draw it each frame. Draw it here,
+draw it there, draw it here, draw it there,
+
+29
+00:01:34,889 --> 00:01:36,119
+draw it here, draw it there...
+
+30
+00:01:35,228 --> 00:01:38,669
+Right? Draw at this X-Y, then this X-Y, 
+then this X-Y.
+
+31
+00:01:38,739 --> 00:01:40,545
+We need some mechanism
+
+32
+00:01:40,865 --> 00:01:46,717
+for dynamically storing, for storing the
+dynamic value, which is its location.
+
+33
+00:01:46,767 --> 00:01:50,484
+This is a variable. 
+'mouseX' is a variable
+
+34
+00:01:50,544 --> 00:01:54,383
+it's a word, a name that stands for the
+
+35
+00:01:54,383 --> 00:01:57,387
+X location of the mouse. 
+Now we need a new variable:
+
+36
+00:01:57,549 --> 00:02:01,923
+'circleX' we'll call it, that stands for
+the current location of the circle.
+
+37
+00:02:02,553 --> 00:02:05,502
+But if I go into a Processing sketch and 
+this isn't,
+
+38
+00:02:05,502 --> 00:02:08,470
+uhm, this is not the code for that
+bouncing ball,
+
+39
+00:02:08,568 --> 00:02:12,363
+but this is the code we're gonna 
+start with, right? We have this...
+
+40
+00:02:12,409 --> 00:02:15,425
+we have this sketch, that all
+it does is draw a circle at
+
+41
+00:02:15,569 --> 00:02:19,040
+0, 180 over and over again. 
+What if I go and type in,
+
+42
+00:02:19,379 --> 00:02:22,840
+right, if I go and type in mouse X. 
+This is where we've been.
+
+43
+00:02:22,989 --> 00:02:26,730
+Right, no problem now it's where the
+mouse is, aha...
+
+44
+00:02:27,130 --> 00:02:30,196
+I if I go and type in 'circleX'.
+
+45
+00:02:30,269 --> 00:02:34,119
+First of all, it doesn't turn pink. 
+Processing has no idea what 'circleX' is
+
+46
+00:02:34,119 --> 00:02:38,852
+and if I run it, it says at the bottom:
+can't find anything
+
+47
+00:02:39,779 --> 00:02:42,047
+can't... cannot find anything
+
+48
+00:02:42,047 --> 00:02:44,762
+named 'circleX'. This is saddest
+error message ever to
+
+49
+00:02:44,842 --> 00:02:48,766
+happen in our life. Processing can't--
+it doesn't know, it needs our help.
+
+50
+00:02:48,786 --> 00:02:49,837
+It needs us to say:
+
+51
+00:02:49,837 --> 00:02:53,261
+This is what circle X is, this is how
+I'm going to use it,
+
+52
+00:02:53,261 --> 00:02:56,623
+go and be happy and draw your circles
+at circleX.
+
+53
+00:02:56,623 --> 00:02:59,434
+So that's really where we're gonna go.
+What is a variable?
+
+54
+00:03:00,934 --> 00:03:03,543
+A variable is... 
+Okay, technically speaking
+
+55
+00:03:03,549 --> 00:03:07,200
+a variable is-- Computer has this thing
+called RAM. This is gonna be my
+
+56
+00:03:07,002 --> 00:03:10,002
+brilliant drawing of the computer's RAM.
+
+57
+00:03:10,172 --> 00:03:14,391
+RAM stands for Random Access Memory.
+
+58
+00:03:14,391 --> 00:03:18,059
+It's the memory of the computer you,
+some.. you might think of it as the
+
+59
+00:03:18,059 --> 00:03:21,118
+brain of the computer. Though
+that's quite flawed in many ways.
+
+60
+00:03:21,178 --> 00:03:25,297
+But it's a place where information is
+stored. Somewhere, in the computer's memory
+
+61
+00:03:25,919 --> 00:03:28,033
+is the value
+
+62
+00:03:28,389 --> 00:03:32,905
+of 'mouseX', right? The computer is always
+storing where the mouse currently is,
+
+63
+00:03:32,905 --> 00:03:35,120
+because lots of programs 
+need access to that.
+
+64
+00:03:35,120 --> 00:03:37,976
+What we want to do is
+create our own variable.
+
+65
+00:03:37,976 --> 00:03:42,755
+'mouseX' is a built-in variable.
+We can figure this as
+
+66
+00:03:42,879 --> 00:03:46,591
+a built-in.. Oh, I'm totally off...
+
+67
+00:03:46,591 --> 00:03:51,029
+I need a new, uhm, I need a new..
+
+68
+00:03:51,061 --> 00:03:54,280
+a piece of tape to show me where I can
+draw, but--
+
+69
+00:03:54,379 --> 00:03:58,530
+'mouseX' is known as a built-in variable,
+
+70
+00:03:58,543 --> 00:04:01,624
+meaning: Processing just knows what is
+almost magically.
+
+71
+00:04:01,624 --> 00:04:03,835
+Of course, that was implemented 
+by somebody.
+
+72
+00:04:03,835 --> 00:04:08,032
+What we need now is a pointer
+
+73
+00:04:09,322 --> 00:04:11,689
+to some place in the computer's memory
+
+74
+00:04:11,689 --> 00:04:15,640
+that we're gonna call 'circleX'. That
+we're going to store some value.
+
+75
+00:04:15,739 --> 00:04:19,869
+And what is this? We're gonna call this
+a user
+
+76
+00:04:20,839 --> 00:04:23,711
+defined variable.
+
+77
+00:04:23,772 --> 00:04:29,018
+So we learned about built-in variables.
+Forgot to turn the timer on. It's few minutes so far
+
+78
+00:04:29,018 --> 00:04:33,199
+and now, uhm, we want to talk about
+
+79
+00:04:33,199 --> 00:04:36,568
+user-defined variables. We're going to
+make up our own variable
+
+80
+00:04:36,568 --> 00:04:40,059
+and if we can make up one variable, that
+means we can make up
+
+81
+00:04:40,059 --> 00:04:43,708
+a thousand variables, ten thousand 
+variables. We can start to create
+
+82
+00:04:43,708 --> 00:04:47,199
+enormously complex programs that are
+storing vast amounts of information
+
+83
+00:04:47,199 --> 00:04:48,173
+for tons of things.
+
+84
+00:04:48,173 --> 00:04:54,120
+But we're gonna start with one variable,
+for one circle's location. Okay.
+
+85
+00:04:54,012 --> 00:04:59,575
+So, whenever we're going to use a
+user-defined variable in our program...
+
+86
+00:04:59,575 --> 00:05:03,896
+Again - why? To store information we talk
+about, this data of a program,
+
+87
+00:05:04,656 --> 00:05:07,589
+locations of things, colours of things, 
+a score,
+
+88
+00:05:07,649 --> 00:05:12,400
+a level, all sorts of stuff... 
+We need to do this in three steps.
+
+89
+00:05:12,833 --> 00:05:16,342
+Where am I going to do this?
+The first step...
+
+90
+00:05:16,639 --> 00:05:19,651
+Ah, we'll just do this over here. 
+What we're going to say is:
+
+91
+00:05:19,759 --> 00:05:24,139
+we have to declare the variable.
+
+92
+00:05:24,139 --> 00:05:28,228
+Can you see that? Yes, you can.
+Declare that--
+
+93
+00:05:28,228 --> 00:05:31,136
+Our intention is to have a variable.
+
+94
+00:05:32,019 --> 00:05:35,240
+The second step is to
+
+95
+00:05:35,024 --> 00:05:39,761
+initialize the variable.
+
+96
+00:05:40,691 --> 00:05:44,470
+Meaning: we're going to have a variable
+and this is going to be
+
+97
+00:05:44,499 --> 00:05:48,270
+its first value. The value that is
+holding onto that. It's stored in when the
+
+98
+00:05:48,287 --> 00:05:49,580
+program begins.
+
+99
+00:05:50,460 --> 00:05:57,223
+And the third step:
+use the variable.
+
+100
+00:05:58,003 --> 00:05:59,962
+Now, technically speaking...
+
+101
+00:06:00,029 --> 00:06:03,833
+I would suggest, I would argue, that this
+third step is optional.
+
+102
+00:06:03,969 --> 00:06:08,599
+I mean, it's all optional. None of us has 
+to do any of this if we don't want to
+
+103
+00:06:08,599 --> 00:06:11,799
+or don't need to in our lives. 
+But certainly...
+
+104
+00:06:11,799 --> 00:06:14,873
+if we've decided, we've made the choice
+that we're going to declare variable,
+
+105
+00:06:14,889 --> 00:06:15,923
+initialize it,
+
+106
+00:06:15,993 --> 00:06:19,272
+it would make sense to use that
+variable. It's kind of, like
+
+107
+00:06:19,779 --> 00:06:22,821
+if a variable is declared and
+initialized in the forest,
+
+108
+00:06:23,199 --> 00:06:26,203
+but is it used? 
+Does it make
+
+109
+00:06:26,359 --> 00:06:29,624
+a pixel on the screen? I don't know
+where is that going? But
+
+110
+00:06:29,849 --> 00:06:34,496
+uhm, but but but but certainly we cannot
+use a variable without having
+
+111
+00:06:34,496 --> 00:06:35,825
+declared it.
+
+112
+00:06:35,825 --> 00:06:39,685
+And there are some cases where, you know,
+well, let's not get into that. Let's just
+
+113
+00:06:39,685 --> 00:06:45,373
+I, you know, so sometimes... I would
+like to just sort of start over but I'm
+
+114
+00:06:45,373 --> 00:06:48,704
+just-- I'm on a mission which is just
+record no matter what this--
+
+115
+00:06:48,759 --> 00:06:53,330
+this lesson. So, uhm, you know also
+there are some indices where we don't have
+
+116
+00:06:53,033 --> 00:06:56,739
+to initialize the variable. Maybe it just
+gets a default value by accident,
+
+117
+00:06:56,743 --> 00:06:58,652
+but I think it's very good practice
+
+118
+00:06:58,652 --> 00:07:02,310
+if we're going to say we're going to use
+a variable, to always know and declare
+
+119
+00:07:02,310 --> 00:07:04,829
+and initialize exactly what that first value
+is going to be. Okay.
+
+120
+00:07:04,839 --> 00:07:09,342
+So, these are our three steps. I'm going to 
+do this very slowly, right?
+
+121
+00:07:09,342 --> 00:07:10,891
+We know we want, eventually,
+
+122
+00:07:10,909 --> 00:07:15,187
+to be able to do something like this:
+To draw our ellipse,
+
+123
+00:07:15,187 --> 00:07:19,756
+at 'circleX'. Draw our ellipse
+at 'circleX'.
+
+124
+00:07:20,326 --> 00:07:24,091
+And 'circleX' is our variable. 
+This is, in a way, step 3.
+
+125
+00:07:24,091 --> 00:07:27,077
+This is using the variable.
+But we missed the two most--
+
+126
+00:07:27,077 --> 00:07:31,992
+the two important steps we need if we're
+using a variable. We must declare
+
+127
+00:07:32,012 --> 00:07:36,449
+and initialize. Okay. So how do we...
+let's start with 'declare'.
+
+128
+00:07:36,449 --> 00:07:40,023
+How do we declare a variable?
+Well, we say,
+
+129
+00:07:40,033 --> 00:07:43,754
+with written proclamation: 
+'this is our variable'.
+
+130
+00:07:43,754 --> 00:07:48,493
+We have to give it two things. 
+We have to give it a type
+
+131
+00:07:50,233 --> 00:07:51,871
+and a name.
+
+132
+00:07:52,231 --> 00:07:55,954
+Followed by a semicolon. 
+So this is the syntax
+
+133
+00:07:56,004 --> 00:08:00,055
+for declaring a variable: a type followed
+by a name.
+
+134
+00:08:00,055 --> 00:08:03,219
+Now, what is this thing 
+we're saying is a type?
+
+135
+00:08:03,219 --> 00:08:06,877
+We mean by that: data type.
+
+136
+00:08:07,007 --> 00:08:10,266
+Now, some languages and, in fact, this is
+perhaps
+
+137
+00:08:10,266 --> 00:08:14,027
+one thing about writing in Processing,
+which is Java, which makes getting
+
+138
+00:08:14,027 --> 00:08:15,799
+started a little bit harder,
+
+139
+00:08:15,799 --> 00:08:20,010
+is that it's a strictly typed language.
+Meaning, when you say you're going to use
+
+140
+00:08:20,010 --> 00:08:24,166
+a variable, I need to say: 'I'm going to use
+a variable of this type'. Meaning, a number,
+
+141
+00:08:24,166 --> 00:08:27,257
+a bunch of-- you know, a string
+of characters.
+
+142
+00:08:27,257 --> 00:08:30,912
+Uhm, all sorts of possibilities. A lot of
+languages allow you to just say:
+
+143
+00:08:30,912 --> 00:08:33,831
+'Eh, it's a variable, put the stuff in it'. 
+You know, you don't need to know
+
+144
+00:08:33,831 --> 00:08:35,594
+what type it is. You'll know 
+what type it is when I
+
+145
+00:08:35,594 --> 00:08:38,879
+give you the value and it'll be up this type.
+But we have a strictly typed language.
+
+146
+00:08:38,879 --> 00:08:40,505
+We need to always declare the type.
+
+147
+00:08:40,505 --> 00:08:42,743
+What are some possible types?
+
+148
+00:08:43,096 --> 00:08:49,075
+'int' is a possible type. Meaning,
+integer or a whole number like -3,
+
+149
+00:08:49,075 --> 00:08:52,958
+0, 14, 291, etc.
+
+150
+00:08:52,958 --> 00:08:54,961
+That is a possible type.
+
+151
+00:08:54,961 --> 00:09:00,007
+'float' is a possible type. Meaning,
+a decimal number or floating-point
+
+152
+00:09:00,007 --> 00:09:07,353
+number. A decimal number, something like
+2.3, say, 9317...
+
+153
+00:09:07,353 --> 00:09:10,528
+That's a great, that's a lovely...
+One of my favourite floats.
+
+154
+00:09:10,668 --> 00:09:13,986
+-0.111113, right.
+
+155
+00:09:13,986 --> 00:09:17,007
+These are all possible floats.
+And you know what?
+
+156
+00:09:17,237 --> 00:09:21,178
+There's a lot of other data types, too.
+There's 'char' for a character,
+
+157
+00:09:21,178 --> 00:09:25,136
+'byte' which is a value between 0 and 255.
+I could keep going.
+
+158
+00:09:25,136 --> 00:09:27,954
+But we don't really need to worry
+ourselves with the, all the
+
+159
+00:09:27,954 --> 00:09:31,102
+possible types. You can look
+them up in the Processing reference.
+
+160
+00:09:31,102 --> 00:09:31,944
+We're gonna start
+
+161
+00:09:31,944 --> 00:09:35,017
+just by thinking of two possibilities
+'int' or 'float'. This will
+
+162
+00:09:35,017 --> 00:09:39,146
+kind of get us, get us going. The truth of
+the matter is when we're beginning,
+
+163
+00:09:39,146 --> 00:09:43,030
+in this beginning process of learning to
+program graphics in Processing:
+
+164
+00:09:43,003 --> 00:09:46,680
+all we really need is 'float' and we'll
+see that in a moment.
+
+165
+00:09:46,680 --> 00:09:50,305
+But, uhm, for now let's think about
+'int'. Let's start with integer.
+
+166
+00:09:51,025 --> 00:09:53,119
+So, type. The type of
+
+167
+00:09:53,119 --> 00:09:57,098
+our variable: 'int' and now
+we need a name.
+
+168
+00:09:57,098 --> 00:10:03,021
+So, what is that name?
+That name can be
+
+169
+00:10:03,021 --> 00:10:07,012
+absolutely anything your heart desires.
+
+170
+00:10:07,612 --> 00:10:09,834
+Uhm, 'striped kitty cat'.
+
+171
+00:10:09,834 --> 00:10:15,421
+That's the name of my variable. Uhm, 
+'Cleopatra', that's the name of my variable.
+
+172
+00:10:15,421 --> 00:10:19,385
+Uhm, 'blueberry pancakes' that's the name
+of my variable. You see--
+
+173
+00:10:19,385 --> 00:10:21,529
+it can be anything you want.
+But most of the time
+
+174
+00:10:21,529 --> 00:10:24,598
+you want a variable name that,
+
+175
+00:10:24,598 --> 00:10:29,466
+that works with what it is you're using
+it for. So we know our intention is
+
+176
+00:10:29,466 --> 00:10:32,872
+to create this variable that's going to
+be used to store
+
+177
+00:10:32,872 --> 00:10:34,473
+the X location of our circle.
+
+178
+00:10:34,473 --> 00:10:38,432
+So we're going to pick the variable name
+'circleX'. We might have picked
+
+179
+00:10:38,432 --> 00:10:41,244
+just a name 'X'. There are very few
+
+180
+00:10:41,244 --> 00:10:44,249
+rules in terms of what names
+you can and cannot use.
+
+181
+00:10:44,249 --> 00:10:48,466
+Uhm, you must start-- your variable names
+can have letters and numbers in them.
+
+182
+00:10:48,466 --> 00:10:51,975
+But you cannot start with a number. 
+Other things are:
+
+183
+00:10:51,975 --> 00:10:53,919
+the convention is to always have
+
+184
+00:10:53,919 --> 00:10:57,086
+your variable name be lower case. And--
+
+185
+00:10:57,086 --> 00:11:00,729
+the other thing you probably want to do
+is avoid using
+
+186
+00:11:00,729 --> 00:11:04,402
+words that are obviously keywords for
+other things in Processing.
+
+187
+00:11:04,402 --> 00:11:06,900
+Like perhaps you don't want
+your variable name to be
+
+188
+00:11:06,900 --> 00:11:09,941
+'setup' or 'draw' or
+'mouseX', for example,
+
+189
+00:11:09,941 --> 00:11:13,360
+because those are reserved essentially
+for other things in Processsing.
+
+190
+00:11:13,360 --> 00:11:14,091
+But 'circleX'
+
+191
+00:11:14,091 --> 00:11:17,874
+is a perfectly, lovely variable name,
+that makes us very happy
+
+192
+00:11:17,904 --> 00:11:18,446
+and
+
+193
+00:11:18,456 --> 00:11:22,025
+it's not too long to type, it says what
+it's doing, it's an integer.
+
+194
+00:11:22,025 --> 00:11:25,569
+We're in good shape. So now we can walk
+over to our program
+
+195
+00:11:25,569 --> 00:11:26,758
+and we need to figure out
+
+196
+00:11:26,758 --> 00:11:30,152
+where do we--, where do we put this 
+variable declaration.
+
+197
+00:11:30,522 --> 00:11:34,856
+Well, the answer to that question,
+right now at this moment for us
+
+198
+00:11:34,856 --> 00:11:38,467
+is going to be: at the top of our program.
+So the true--
+
+199
+00:11:38,467 --> 00:11:42,082
+the truth is we're going to see as we
+create more and more complex programs
+
+200
+00:11:42,082 --> 00:11:44,780
+variable declarations can happen in all
+sorts of places.
+
+201
+00:11:44,780 --> 00:11:47,554
+But for now we're going to say:
+'hey, all of the variables
+
+202
+00:11:47,554 --> 00:11:55,040
+we intend to use, they all become, they all
+are-- they're all declared at the top of the
+
+203
+00:11:55,040 --> 00:11:58,748
+program. I listed my variables: 'circleX',
+'circleY', 'circleWidth',
+
+204
+00:11:58,748 --> 00:12:02,207
+'circleHeight', 'circleSpeed'.
+All these things that I might
+
+205
+00:12:02,207 --> 00:12:06,750
+start using to store the data of how the
+circle is going to move and be drawn,
+
+206
+00:12:06,750 --> 00:12:09,151
+they would all be up here at the top.
+
+207
+00:12:09,916 --> 00:12:15,042
+Okay. So, that is step one. Step two is
+
+208
+00:12:15,042 --> 00:12:18,571
+initialize the variable. We need to get
+that variable
+
+209
+00:12:18,589 --> 00:12:21,830
+an initial value. Uhm, this, by the way,
+
+210
+00:12:21,083 --> 00:12:25,944
+is a new kind of line of code--
+Something I didn't really mention.
+
+211
+00:12:26,004 --> 00:12:29,625
+I really feel like today I'm totally just
+talking to myself. I need to check
+
+212
+00:12:29,625 --> 00:12:30,884
+this recording.
+
+213
+00:12:31,445 --> 00:12:34,061
+Eh. But, uhm, something I--
+
+214
+00:12:34,061 --> 00:12:38,028
+that, that you might have noticed,
+is that we've been writing
+
+215
+00:12:38,028 --> 00:12:42,616
+lines of code. All of our lines of code
+have actually been function. Eh.
+
+216
+00:12:43,416 --> 00:12:49,642
+Have been function calls. This is
+a kind of line of code,
+
+217
+00:12:49,642 --> 00:12:53,211
+that we've been writing. Uhm, line
+
+218
+00:12:53,339 --> 00:12:56,750
+100, 50, 200, 100, right.
+
+219
+00:12:56,075 --> 00:13:00,284
+This is a function call: function
+name, arguments, semicolon.
+
+220
+00:13:00,339 --> 00:13:05,190
+We are about to learn about a new kind
+of a line of code that we can write.
+
+221
+00:13:05,190 --> 00:13:08,006
+So far, all over our programs have
+only had function calls.
+
+222
+00:13:08,006 --> 00:13:12,105
+Size, background, line, fill, stroke.
+We are going to write
+
+223
+00:13:12,105 --> 00:13:16,395
+a line of code known as an assignment
+operation.
+
+224
+00:13:17,265 --> 00:13:20,212
+An assignment operation is something
+
+225
+00:13:20,267 --> 00:13:23,783
+equals something semicolon.
+We are going to
+
+226
+00:13:23,783 --> 00:13:28,178
+assign the value of something to
+some other values and that's what we do
+
+227
+00:13:28,178 --> 00:13:30,113
+when we initialize a variable.
+
+228
+00:13:30,173 --> 00:13:32,696
+'circleX'
+
+229
+00:13:32,796 --> 00:13:36,010
+equals 50. We are assigning
+
+230
+00:13:36,010 --> 00:13:38,948
+the value of 'circleX', we are assigning
+fift--
+
+231
+00:13:38,948 --> 00:13:42,147
+We-- we are setting 'circleX' equal to 50.
+
+232
+00:13:42,147 --> 00:13:45,389
+We're assigning-- I kinda have trouble
+
+233
+00:13:45,389 --> 00:13:48,755
+using the word 'assign' in the sentence 
+here. I'm sure you could just
+
+234
+00:13:48,755 --> 00:13:49,969
+pause video and be like:
+
+235
+00:13:49,969 --> 00:13:54,714
+'here's what it is'. Uhm, but we're
+assigning circleX's value to 50, okay?
+
+236
+00:13:54,714 --> 00:13:58,684
+So, uhm, this may seem like so obvious
+but it's really important to
+
+237
+00:13:58,684 --> 00:14:00,303
+realize that we're not--
+
+238
+00:14:00,303 --> 00:14:02,968
+we're not sort of asking like is
+'circleX' equal to 50.
+
+239
+00:14:02,968 --> 00:14:08,271
+We're not calculating something at 'circleX'.
+We're just saying: whatever is over here
+
+240
+00:14:08,271 --> 00:14:09,285
+store that value of 50.
+
+241
+00:14:09,285 --> 00:14:12,628
+And, in fact, we could have done--
+we can do an assignment operations
+
+242
+00:14:12,628 --> 00:14:15,964
+mathematical calculations here.
+So I could say 50
+
+243
+00:14:15,964 --> 00:14:19,084
++ 5 * 2, right?
+
+244
+00:14:19,084 --> 00:14:22,431
+Now, why would I do that?
+I would have just written 60
+
+245
+00:14:22,431 --> 00:14:25,461
+if I wanted to do that, but we're
+gonna start to see sometimes
+
+246
+00:14:25,461 --> 00:14:28,432
+you might want to have an assignment 
+operation with a more complex thought.
+
+247
+00:14:28,432 --> 00:14:30,924
+Okay, but I digress a little bit as I am..
+
+248
+00:14:31,004 --> 00:14:34,955
+Have to do here and we are now-- This is
+our initialization.
+
+249
+00:14:34,955 --> 00:14:38,058
+We are assign--, writing an assignment
+operation.
+
+250
+00:14:38,058 --> 00:14:41,675
+The 'circleX' is set to the value of 50.
+So let's go,
+
+251
+00:14:41,675 --> 00:14:45,532
+look at where we wanna write that line
+of code in our program.
+
+252
+00:14:45,532 --> 00:14:50,099
+Okay, we want 'circleX'
+to begin its life
+
+253
+00:14:50,099 --> 00:14:53,863
+with the value of 50. Look at
+the flow of our program.
+
+254
+00:14:53,863 --> 00:14:57,819
+We have a declared variable, 'setup'
+happens once, 'draw' happens over and over
+
+255
+00:14:57,819 --> 00:14:58,563
+again.
+
+256
+00:14:58,563 --> 00:15:02,289
+We want to initialize circleX's value
+in 'setup'. That's where we'll give it
+
+257
+00:15:02,289 --> 00:15:05,612
+its first value. 'circleX' equals 50.
+
+258
+00:15:05,612 --> 00:15:10,163
+We run this program, oh my goodness,
+this is super amazing and wonderful.
+
+259
+00:15:10,163 --> 00:15:13,444
+We have a user-defined variable, we 
+declared it, we gave it a type, we gave it
+
+260
+00:15:13,444 --> 00:15:16,312
+initial value, now we're using it 
+and the circle is at the value of 50.
+
+261
+00:15:16,312 --> 00:15:20,816
+This is going to open up huge amount
+of possibilities. This is fantastic.
+
+262
+00:15:21,526 --> 00:15:23,359
+Okay, a bit, oh--
+
+263
+00:15:23,359 --> 00:15:26,037
+That's probably making weird sounds
+on the microphone. Okay.
+
+264
+00:15:26,037 --> 00:15:30,072
+So, a bit--, ah, again--
+Any questions?
+
+265
+00:15:30,072 --> 00:15:33,038
+When I do this live you can ask a
+question. Okay, so, uhm--
+
+266
+00:15:33,038 --> 00:15:36,350
+I want to mention.. there's a few
+things we need to mention here.
+
+267
+00:15:36,350 --> 00:15:39,281
+Number one is, ah, look, ah--
+
+268
+00:15:40,774 --> 00:15:43,205
+Look, these were--
+
+269
+00:15:43,205 --> 00:15:47,669
+We separated these two steps. We
+declared this variable in 'set--'
+
+270
+00:15:47,679 --> 00:15:51,904
+at the top of our program, we initialized
+it in 'setup'
+
+271
+00:15:52,004 --> 00:15:56,028
+and as we see, we're using the variable
+right where we said:
+
+272
+00:15:56,028 --> 00:16:00,475
+ellipse(circleX, ..., etc).
+
+273
+00:16:00,475 --> 00:16:03,081
+We're doing that in 'draw'.
+
+274
+00:16:03,081 --> 00:16:07,971
+So, this is sort of like I really nice
+simple scenario. It is as simple as it gets:
+
+275
+00:16:07,971 --> 00:16:11,488
+declare the variable, give it initial
+value, draw something at that value.
+
+276
+00:16:11,498 --> 00:16:14,094
+But the truth of the matter is...
+the, the--, these--
+
+277
+00:16:14,094 --> 00:16:18,023
+how these things are happening. It's
+going to be a lot more flexible as we
+
+278
+00:16:18,023 --> 00:16:20,084
+look at more complex examples.
+
+279
+00:16:20,084 --> 00:16:24,180
+Now, let me say a couple things here.
+One is--, one thing I'll say is...
+
+280
+00:16:24,180 --> 00:16:28,347
+It, it-- you know this-- this first
+two steps can, in
+
+281
+00:16:28,347 --> 00:16:32,214
+most cases, be combined into
+one line of code, right?
+
+282
+00:16:32,214 --> 00:16:37,074
+I don't need to say: int circleX
+and then circleX = 50.
+
+283
+00:16:37,074 --> 00:16:42,351
+I can write this all out as...
+So steps...
+
+284
+00:16:42,351 --> 00:16:48,827
+1 and 2 combined. This is what you're
+going to find you're doing a lot
+
+285
+00:16:48,827 --> 00:16:53,146
+is int circleX = 50. Right?
+
+286
+00:16:53,146 --> 00:16:56,170
+So this is just doing all of that
+in one step:
+
+287
+00:16:56,170 --> 00:17:01,062
+declaring a new variable named 'circleX'
+of type int and its initial value is 50.
+
+288
+00:17:01,062 --> 00:17:04,219
+Great, now... So now we've seen that
+and that's one thing
+
+289
+00:17:04,219 --> 00:17:07,847
+I wanted to-- That's one thing
+I wanted to say. Uhm, okay.
+
+290
+00:17:07,878 --> 00:17:12,201
+So, let's, uhm... We can change that--
+You know, the thing is though
+
+291
+00:17:12,211 --> 00:17:14,107
+Hah!
+
+292
+00:17:14,467 --> 00:17:18,189
+You can do that. I kind of like it this
+way, because, you know, I'm the anon
+
+293
+00:17:18,189 --> 00:17:20,441
+retentive Processing programmer
+apparently, but...
+
+294
+00:17:20,441 --> 00:17:25,079
+There are some scenarios where you want
+to do something more with your code that's
+
+295
+00:17:25,079 --> 00:17:29,268
+happening in 'setup' and you need to
+actually initialize the value separately
+
+296
+00:17:29,268 --> 00:17:30,503
+from declaring it.
+
+297
+00:17:30,503 --> 00:17:34,240
+This obviously is not that case. Okay.
+So where are we? Uhm, somebody,
+
+298
+00:17:34,303 --> 00:17:38,138
+again will please download this and
+edit. I think you probably can take
+
+299
+00:17:38,138 --> 00:17:40,855
+3 or 4 minutes out of this video
+where I lose my train of thought.
+
+300
+00:17:40,855 --> 00:17:43,053
+But okay. What are we doing?
+We want to have
+
+301
+00:17:43,053 --> 00:17:46,641
+that circle move. That's what
+we're going to look at
+
+302
+00:17:46,681 --> 00:17:50,009
+in the next video. We are going
+to take this circle
+
+303
+00:17:50,081 --> 00:17:54,100
+and start to move it, start to
+assign new values to it in 'draw'.
+
+304
+00:17:54,177 --> 00:17:58,074
+We're gonna look at how we can use
+random, to do also some other things.
+
+305
+00:17:58,074 --> 00:18:01,418
+We're going to start to see what
+happens when we manipulate the value
+
+306
+00:18:01,418 --> 00:18:05,971
+of variable in 'draw'. So, what I would
+suggest to you as a little exercise...
+
+307
+00:18:05,971 --> 00:18:09,088
+I mean, this was kind of a long
+explanation just of the basics
+
+308
+00:18:09,088 --> 00:18:11,131
+of what a variable is and setting it up.
+
+309
+00:18:11,311 --> 00:18:15,673
+Uhm, go to your program, make-- set
+yourself up with a simple sketch.
+
+310
+00:18:15,673 --> 00:18:18,107
+A sketch that has, you know, 
+one or two shapes
+
+311
+00:18:18,767 --> 00:18:23,008
+and think of what the parameter of that 
+shape is its location, its size, its color
+
+312
+00:18:23,017 --> 00:18:26,486
+and see if you can start to declare some
+variables. Make 2 or 3 variables
+
+313
+00:18:26,486 --> 00:18:27,797
+at the top of your program.
+
+314
+00:18:28,007 --> 00:18:32,581
+Set those-- initialize those variables, use 
+those variables when you draw those shapes
+
+315
+00:18:32,581 --> 00:18:35,739
+and run it. Make sure you have no syntax
+errors, see if you can get used to that.
+
+316
+00:18:35,739 --> 00:18:36,992
+Now, we didn't do floats.
+
+317
+00:18:37,002 --> 00:18:38,253
+We didn't actually look at,
+we can have
+
+318
+00:18:38,253 --> 00:18:42,042
+a variable that's of type 'color'. Which if
+you look through the Processing examples
+
+319
+00:18:42,042 --> 00:18:43,332
+you'll see some of that.
+
+320
+00:18:43,332 --> 00:18:46,266
+So, that's something I should probably
+fill in a video at some point.
+
+321
+00:18:46,266 --> 00:18:49,399
+But, uhm, in the next video 
+we're gonna start to see
+
+322
+00:18:49,399 --> 00:18:53,760
+a bit more about manipulating the--
+the values of variables
+
+323
+00:18:54,000 --> 00:18:57,783
+in 'draw' by moving that circle
+and also by using random.
+
+324
+00:18:57,783 --> 00:19:01,747
+Okay. Thanks and I'm going
+to stop this now.
