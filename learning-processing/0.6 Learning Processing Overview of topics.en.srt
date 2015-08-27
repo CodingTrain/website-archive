@@ -1,0 +1,1012 @@
+1
+00:00:02,590 --> 00:00:04,950
+okay this is the last introductory video
+
+2
+00:00:04,993 --> 00:00:08,293
+before we get into the actual stuff - 
+it really is the
+
+3
+00:00:08,293 --> 00:00:13,079
+exciting part where you're going to look
+at examples, start writing your own code,
+
+4
+00:00:13,079 --> 00:00:16,110
+start making stuff, coming up with your
+ideas, trying things out -
+
+5
+00:00:16,110 --> 00:00:19,599
+before you start making things, I just
+want to give you an overview
+
+6
+00:00:19,599 --> 00:00:23,100
+as to what my plan is for all these
+videos, so
+
+7
+00:00:23,100 --> 00:00:28,283
+there's a key thing here -
+pick up some energy back here, run in
+
+8
+00:00:28,283 --> 00:00:29,378
+place, run in place - okay
+
+9
+00:00:29,378 --> 00:00:32,940
+there's a key thing here. 
+I want these videos to cover
+
+10
+00:00:32,940 --> 00:00:36,772
+the fundamentals of computation, 
+the fundamental building blocks
+
+11
+00:00:36,772 --> 00:00:38,532
+of computer programming,
+
+12
+00:00:38,532 --> 00:00:42,323
+and really, there is a short list of
+things that you need to know and
+
+13
+00:00:42,323 --> 00:00:44,627
+understand, there are these core 
+elements that will go across
+
+14
+00:00:44,627 --> 00:00:48,585
+any type of software development, 
+creative coding,
+
+15
+00:00:48,585 --> 00:00:51,021
+computer science, whatever 
+you want to call it,
+
+16
+00:00:51,021 --> 00:00:55,437
+writing code on your computer,
+and really actually
+
+17
+00:00:55,437 --> 00:01:00,656
+three categories, so, any computer
+program that runs
+
+18
+00:01:00,656 --> 00:01:04,946
+needs to have data associated with it,
+right, it needs to store information about
+
+19
+00:01:04,946 --> 00:01:07,977
+itself, colors, you know,
+
+20
+00:01:07,977 --> 00:01:12,081
+sometimes I wish I didn't do this but
+just to think about
+
+21
+00:01:12,081 --> 00:01:13,705
+game programming for a second
+
+22
+00:01:13,705 --> 00:01:16,728
+if you were creating the game 
+Space Invaders
+
+23
+00:01:16,728 --> 00:01:20,633
+you may need to keep track of the space
+ship's position on the screen,
+
+24
+00:01:20,633 --> 00:01:23,288
+which level is the game on,
+
+25
+00:01:23,288 --> 00:01:27,308
+what's the current players score, 
+there are elements data
+
+26
+00:01:27,308 --> 00:01:30,881
+that a computer program needs to keep in
+mind as it's running, and this is actually
+
+27
+00:01:30,881 --> 00:01:32,217
+one of the first things
+
+28
+00:01:32,217 --> 00:01:35,298
+we will learn about which is
+this concept of a variable
+
+29
+00:01:35,298 --> 00:01:37,901
+this thing that stores data.
+
+30
+00:01:37,901 --> 00:01:43,255
+In addition, I'm gonna go out over here, in
+addition to this idea of a variable which
+
+31
+00:01:43,255 --> 00:01:47,490
+individual piece of data - is an
+
+32
+00:01:47,490 --> 00:01:50,210
+Okay, don't worry, everything's okay, there's
+a floor, and I just dropped the cap -
+
+33
+00:01:51,030 --> 00:01:53,478
+in addition to a variable which is
+an individual piece of data
+
+34
+00:01:53,478 --> 00:01:55,295
+we're also going to learn about
+
+35
+00:01:55,295 --> 00:01:58,534
+something called an array, which we
+could also think of
+
+36
+00:01:58,534 --> 00:02:01,701
+as a list, so what about a list of data
+
+37
+00:02:01,701 --> 00:02:05,283
+instead of like a spaceship as an
+individual location, what if there are
+
+38
+00:02:05,283 --> 00:02:06,512
+10 enemies on screen
+
+39
+00:02:06,512 --> 00:02:11,595
+could we have a list of enemy locations? So
+any computer program needs to store data
+
+40
+00:02:11,595 --> 00:02:15,657
+we're gonna learn about variables and arrays. The
+other thing that we need to really
+
+41
+00:02:15,657 --> 00:02:20,344
+learn about is this idea of control. How
+do we control the flow
+
+42
+00:02:20,344 --> 00:02:24,238
+of a computer program, how do we
+control the path by which it takes,
+
+43
+00:02:24,238 --> 00:02:28,801
+right, if the spaceship - 
+I wish I could think of
+
+44
+00:02:28,801 --> 00:02:32,561
+something less violent - 
+shoots its laser
+
+45
+00:02:32,561 --> 00:02:37,247
+and hits the enemy its score goes up, 
+right, how do we control that,
+
+46
+00:02:37,247 --> 00:02:40,904
+how do we control that process,
+
+47
+00:02:40,904 --> 00:02:45,966
+if the player dropped a seed and a
+flower blooms,
+
+48
+00:02:45,966 --> 00:02:47,561
+that's a nicer way of thinking about it, so,
+
+49
+00:02:47,561 --> 00:02:51,601
+we want to look at this idea of
+conditionals, conditional logic,
+
+50
+00:02:51,601 --> 00:02:55,810
+if statements, if this condition is met
+
+51
+00:02:55,810 --> 00:02:59,307
+then the program executes this
+instruction, alright,
+
+52
+00:02:59,307 --> 00:03:02,411
+that's something we're gonna look at.
+Another control structure we're gonna
+
+53
+00:03:02,411 --> 00:03:05,130
+is a loop, right, this idea repeating
+
+54
+00:03:05,130 --> 00:03:08,672
+if we have 100 enemy spaceships,
+
+55
+00:03:08,672 --> 00:03:12,349
+do we want to have a hundred lines of
+code - draw spaceship one
+
+56
+00:03:12,349 --> 00:03:16,399
+draw space ship two, draw space ship three - 
+no, we want to have this loop
+
+57
+00:03:16,399 --> 00:03:19,941
+draw every spaceship, for every spaceship
+
+58
+00:03:19,941 --> 00:03:24,127
+draw it on the screen, so this is this
+idea, really simple, these are these
+
+59
+00:03:24,127 --> 00:03:25,461
+fundamentals, we're gonna have
+
+60
+00:03:25,461 --> 00:03:29,408
+a set of videos about each one of these -
+how do we deal with a variable,
+
+61
+00:03:29,408 --> 00:03:32,940
+how do we deal with a conditional ,how do we
+deal with a loop, how do we deal with an array
+
+62
+00:03:37,669 --> 00:03:39,220
+thinking about
+
+63
+00:03:32,940 --> 00:03:37,669
+but another thing that's going to be
+very primary to this video series is
+
+64
+00:03:39,220 --> 00:03:42,532
+organizing, I want to say organization,
+
+65
+00:03:42,532 --> 00:03:45,980
+thinking about how you organize your
+code, so
+
+66
+00:03:45,980 --> 00:03:49,408
+when we first start we're gonna be
+reading very simple instructions,
+
+67
+00:03:49,408 --> 00:03:52,742
+line, fill, which is set a color,
+
+68
+00:03:52,742 --> 00:03:56,198
+rectangle, ellipse, just for drawing stuff
+on the screen
+
+69
+00:03:56,198 --> 00:04:00,196
+but as we write larger and larger
+programs we need to encapsulate
+
+70
+00:04:00,196 --> 00:04:03,092
+ideas into kinda their own mini-programs in
+
+71
+00:04:03,092 --> 00:04:06,947
+a way, so, the two kind of key principles
+
+72
+00:04:06,947 --> 00:04:10,206
+of organization that we're going to look at is how
+to write a function,
+
+73
+00:04:10,206 --> 00:04:14,144
+what if we figure out a nice way of drawing
+
+74
+00:04:14,144 --> 00:04:17,269
+a flower pattern on the screen, right,
+
+75
+00:04:17,269 --> 00:04:20,499
+I can't draw, this is a flower, right,
+
+76
+00:04:20,499 --> 00:04:24,583
+if we figure out how to draw a flower
+and we want to have 10 flowers on the screen
+
+77
+00:04:24,583 --> 00:04:29,475
+are we gonna rewrite all the code for
+drawing a flower 10 times, maybe that was
+
+78
+00:04:29,475 --> 00:04:31,570
+a hundred lines of code just to get this
+pattern,
+
+79
+00:04:31,570 --> 00:04:36,088
+could we just take this entire idea of a
+flower and put it in its own function
+
+80
+00:04:36,088 --> 00:04:40,589
+so that anytime you want a flower on
+screen we have a new command so to speak
+
+81
+00:04:40,589 --> 00:04:41,161
+we can just say
+
+82
+00:04:41,161 --> 00:04:44,421
+"flower", and even more than this idea of
+functions,
+
+83
+00:04:44,421 --> 00:04:47,181
+a key principle we wanna look at is objects,
+
+84
+00:04:47,181 --> 00:04:50,275
+object-oriented programming. This, to me,
+
+85
+00:04:50,275 --> 00:04:54,440
+is one of the ways that I really
+started to feel comfortable
+
+86
+00:04:54,440 --> 00:04:55,264
+writing software,
+
+87
+00:04:55,264 --> 00:04:58,955
+is once I got to the point of learning
+object-oriented programming
+
+88
+00:04:58,955 --> 00:05:03,057
+and understanding something and the
+screen treating at in this way we look
+
+89
+00:05:03,057 --> 00:05:03,586
+at the world,
+
+90
+00:05:03,586 --> 00:05:07,746
+this is an object, this object had data
+associated with it,
+
+91
+00:05:07,746 --> 00:05:13,624
+its color is black, it is a dry erase
+marker, that may be a
+
+92
+00:05:13,624 --> 00:05:17,221
+piece of data, rather than a permanent
+marker, and it has functionality,
+
+93
+00:05:17,221 --> 00:05:21,874
+this thing I could say draw, I could take
+its cap on and off, right,
+
+94
+00:05:21,874 --> 00:05:25,324
+remove cap, add cap, so this idea of taking
+something like a flower
+
+95
+00:05:25,324 --> 00:05:26,632
+and turning into an object
+
+96
+00:05:26,632 --> 00:05:30,246
+there's data about this flower, how big
+how small is it, what color is it,
+
+97
+00:05:30,246 --> 00:05:34,615
+and it might have functionality, it could
+grow, the pedals could fall,
+
+98
+00:05:34,615 --> 00:05:38,830
+so this idea of something happening in a
+computer graphics application
+
+99
+00:05:38,830 --> 00:05:42,661
+being packaged up into this object. Now
+this sounds very theoretical and grand,
+
+100
+00:05:42,661 --> 00:05:45,181
+or perhaps confusing right now,
+
+101
+00:05:45,181 --> 00:05:47,130
+but we're going to get into the details of how to
+
+102
+00:05:47,130 --> 00:05:51,391
+take a program which has variables
+and conditionals and loops and all this logic and
+
+103
+00:05:51,391 --> 00:05:55,420
+all this data and how to organize it 
+into a way that we can just say
+
+104
+00:05:55,420 --> 00:05:59,513
+"hey, there are seed objects and there
+are flower objects and there is grass
+
+105
+00:05:59,513 --> 00:06:00,878
+objects and therefore
+
+106
+00:06:00,878 --> 00:06:04,574
+if we were creating some kind of garden
+simulation,
+
+107
+00:06:04,574 --> 00:06:07,691
+for example. So these are all the things
+we want to learn.
+
+108
+00:06:07,691 --> 00:06:11,043
+In some programming courses,
+
+109
+00:06:11,043 --> 00:06:13,950
+something like object-oriented
+programming might be something that comes
+
+110
+00:06:13,950 --> 00:06:16,873
+very very late in the game, almost
+at the very end or
+
+111
+00:06:16,873 --> 00:06:19,677
+perhaps in like a second semester even as
+an advanced topic,
+
+112
+00:06:19,677 --> 00:06:21,210
+but we're going to get to objects
+
+113
+00:06:21,210 --> 00:06:24,072
+pretty quickly because I want that to be
+a fundamental way
+
+114
+00:06:24,072 --> 00:06:28,864
+that we look at creating examples and
+creating projects in Processing, so
+
+115
+00:06:28,864 --> 00:06:32,894
+this is kinda, this is the list of
+fundamentals, right,
+
+116
+00:06:32,894 --> 00:06:35,278
+these are kind of computer science
+fundamentals,
+
+117
+00:06:35,278 --> 00:06:36,883
+I use the word computer science
+
+118
+00:06:36,883 --> 00:06:39,800
+I, like, "demerit!", my goal is to
+
+119
+00:06:39,800 --> 00:06:44,403
+never mention the term computer science in
+any these videos, anyway, I'll go
+
+120
+00:06:44,403 --> 00:06:47,016
+off on that ran or tangent, not rant, 
+I don't like "rant",
+
+121
+00:06:47,016 --> 00:06:50,049
+but anyway, edit this out please,
+somebody, okay,
+
+122
+00:06:50,049 --> 00:06:53,278
+so these are the fundamentals, the things
+
+123
+00:06:53,278 --> 00:06:58,381
+that will transfer to any programming language 
+and environment, these are
+
+124
+00:06:58,381 --> 00:07:01,525
+the kind of core elements, we want to understand
+these in great detail,
+
+125
+00:07:01,525 --> 00:07:06,432
+without any fear or sadness, we just want to
+feel happy and comfortable about all these things
+
+126
+00:07:06,432 --> 00:07:07,525
+and start to practice
+
+127
+00:07:07,525 --> 00:07:09,921
+writing programs,
+
+128
+00:07:09,921 --> 00:07:14,047
+but once we get through this I also want to
+take a look at
+
+129
+00:07:14,047 --> 00:07:19,306
+some applications, so what are some types
+of things that one might do, for example
+
+130
+00:07:19,306 --> 00:07:23,056
+I really wanna look at images, 
+how do we load images
+
+131
+00:07:23,056 --> 00:07:25,587
+and draw images to the screen, how do we read
+
+132
+00:07:25,587 --> 00:07:30,814
+the pixels of an image and manipulate
+and do image processing, how do we do the
+
+133
+00:07:30,814 --> 00:07:32,203
+kinds of things that might happen
+
+134
+00:07:32,203 --> 00:07:35,109
+in a piece software like Photoshop, how do we 
+write that stuff from scratch
+
+135
+00:07:35,109 --> 00:07:39,188
+with code, what happens if we use a
+moving image like a camera
+
+136
+00:07:39,188 --> 00:07:42,723
+or a video, can we do things like
+computer vision,
+
+137
+00:07:42,723 --> 00:07:47,323
+how do we write
+software that can find somebody's face,
+
+138
+00:07:47,323 --> 00:07:51,209
+how do we write software that can track
+the skeleton, the human body, with the Kinect
+
+139
+00:07:51,209 --> 00:07:55,237
+so I wanna have a set of
+videos about
+
+140
+00:07:55,237 --> 00:07:58,877
+images and pixels. 
+I also want to look at
+
+141
+00:07:58,877 --> 00:08:04,092
+data as a topic, so what does it
+mean to load data into a program
+
+142
+00:08:04,092 --> 00:08:07,435
+what are the kinds of ways
+of loading data, there's
+
+143
+00:08:07,435 --> 00:08:11,806
+plain text, and XML, and JSON,
+
+144
+00:08:11,806 --> 00:08:14,196
+and there are all sorts of
+
+145
+00:08:14,196 --> 00:08:18,789
+data classes in Processing that allow
+you to load data, parse data,
+
+146
+00:08:18,789 --> 00:08:22,424
+and draw stuff based on that data, so what
+does it mean to connect to,
+
+147
+00:08:22,424 --> 00:08:25,475
+you know, data that's local versus data
+that on a server,
+
+148
+00:08:25,475 --> 00:08:30,418
+I wanna look at a whole set examples,
+what does it mean to work with text,
+
+149
+00:08:30,418 --> 00:08:34,090
+strings, what does it mean to read a
+novel and count all the words
+
+150
+00:08:34,090 --> 00:08:39,285
+in that novel, to do a concordance, so I
+wanna have a set of videos that
+
+151
+00:08:39,285 --> 00:08:42,983
+deal with data, and I haven't 
+made these videos yet,
+
+152
+00:08:42,983 --> 00:08:45,111
+so I totally don't know exactly what we're gonna do,
+we could think about,
+
+153
+00:08:45,111 --> 00:08:48,265
+what about 3D graphics, so I guess what I meant
+
+154
+00:08:48,265 --> 00:08:51,400
+is like topics, so this video series is going to
+
+155
+00:08:51,400 --> 00:08:56,565
+start with the fundamentals, all the
+fundamental tools of computation, and in there
+
+156
+00:08:56,565 --> 00:08:58,388
+we're also going to have to learn about
+
+157
+00:08:58,388 --> 00:09:02,863
+pixels and drawing and color and shape,
+some basic computer graphic stuff, but
+
+158
+00:09:02,863 --> 00:09:06,637
+really we're going to focus on these
+fundamental core concepts of computation,
+
+159
+00:09:06,637 --> 00:09:09,741
+and from there, once we have all this bag of tricks
+
+160
+00:09:09,741 --> 00:09:12,700
+we're going to reinforce those ideas, do
+them over and over again,
+
+161
+00:09:12,700 --> 00:09:13,626
+practice with them
+
+162
+00:09:13,626 --> 00:09:16,855
+through a set of topics: 
+images, pixels, data,
+
+163
+00:09:16,855 --> 00:09:20,687
+3D graphics, I could come up
+with some others
+
+164
+00:09:20,687 --> 00:09:23,842
+but is a pretty good starting point right now.
+
+165
+00:09:23,842 --> 00:09:28,021
+Integration with the web, perhaps,
+what is this landscape
+
+166
+00:09:28,021 --> 00:09:32,301
+of, could we do Processing on the web,
+there's this thing called Processing.js,
+
+167
+00:09:32,301 --> 00:09:33,041
+which is JavaScript,
+
+168
+00:09:33,041 --> 00:09:35,926
+we might try to look at that at
+some point in the video series.
+
+169
+00:09:35,926 --> 00:09:39,011
+So I think I'm kind of done 
+with talking about this but
+
+170
+00:09:39,011 --> 00:09:43,187
+just to kind of like walk through the
+order, this is gonna help me, you can stop,
+
+171
+00:09:43,187 --> 00:09:45,415
+I'm just gonna organize my own
+thoughts, and
+
+172
+00:09:45,415 --> 00:09:49,936
+I'm gonna keep recording, why not, right,
+this might be a bad idea,
+
+173
+00:09:49,936 --> 00:09:53,531
+okay, so, we're in the intro
+
+174
+00:09:53,531 --> 00:09:57,726
+videos right now, so we're kind of going to be done
+with the intro videos
+
+175
+00:09:57,726 --> 00:10:01,767
+and actually we're gonna, I guess there's 
+something right before that which is the basics
+
+176
+00:10:01,767 --> 00:10:05,362
+of drawing in Processing, which we're going 
+to start with, I'll call this like
+
+177
+00:10:05,362 --> 00:10:08,592
+"1", this will be "2", once we get through the
+basics of drawing,
+
+178
+00:10:08,592 --> 00:10:12,452
+we're going to look at variables, 
+that'll be the sort of
+
+179
+00:10:12,452 --> 00:10:15,505
+videos called number three, 
+then, this would be like
+
+180
+00:10:15,505 --> 00:10:19,733
+if this were a course, if you were
+taking a class,
+
+181
+00:10:19,733 --> 00:10:23,619
+if this were anything other than just me
+in this weird room rambling,
+
+182
+00:10:23,619 --> 00:10:28,151
+then this would be like week one,
+week two, week three, and in fact these
+
+183
+00:10:28,151 --> 00:10:31,556
+videos are intended to go along with
+this course that I am teaching here which is
+
+184
+00:10:31,556 --> 00:10:35,637
+divided into weeks, and this would
+really actually be week one,
+
+185
+00:10:35,637 --> 00:10:36,836
+intro and drawing,
+
+186
+00:10:36,836 --> 00:10:39,962
+so I'll keep that, so this
+would be variables,
+
+187
+00:10:39,962 --> 00:10:44,692
+then we're going to look at
+conditionals and loops,
+
+188
+00:10:44,692 --> 00:10:48,114
+after that we will get
+
+189
+00:10:48,114 --> 00:10:51,907
+to arrays, I think I got this right,
+
+190
+00:10:51,907 --> 00:10:56,668
+and then after that we will look at
+functions, after that we will look at
+
+191
+00:10:56,668 --> 00:11:00,656
+objects. So it's kind of like half a semester,
+
+192
+00:11:00,656 --> 00:11:05,673
+six weeks, this is grossly accelerated
+in many ways,
+
+193
+00:11:05,673 --> 00:11:08,705
+you need a lifetime to really master all this stuff,
+
+194
+00:11:08,705 --> 00:11:13,497
+I need lots more time myself, but this will be
+
+195
+00:11:13,497 --> 00:11:17,403
+a kind of six-week or six video sections
+
+196
+00:11:17,403 --> 00:11:20,697
+through all these topics, and again 
+after that, seven
+
+197
+00:11:20,697 --> 00:11:24,516
+would be images, eight would be data, maybe
+I'll do that in a different order,
+
+198
+00:11:24,516 --> 00:11:26,068
+nine would be 3D graphics, so
+
+199
+00:11:26,068 --> 00:11:29,026
+we'll kinda get to all this stuff.
+
+200
+00:11:29,026 --> 00:11:33,027
+Okay, so this hopefully gives you a
+nice overview,
+
+201
+00:11:33,027 --> 00:11:37,432
+I've kind of wrapped up this introductory
+stuff, I feel like these were
+
+202
+00:11:37,432 --> 00:11:41,287
+kind of challenging videos to make in the
+sense that they're very
+
+203
+00:11:41,287 --> 00:11:46,244
+kinda, it's less kind of how-to and
+looking at stuff step-by-step and more
+
+204
+00:11:46,244 --> 00:11:49,305
+just kinda rambling through general
+concepts, and I feel like I missed so many
+
+205
+00:11:49,305 --> 00:11:50,305
+things I meant to say,
+
+206
+00:11:50,305 --> 00:11:52,533
+so someday I may go back and add things in
+
+207
+00:11:52,533 --> 00:11:57,297
+or write some stuff in the
+descriptions but if something is missing
+
+208
+00:11:57,297 --> 00:11:58,647
+or something is confusing you,
+
+209
+00:11:58,647 --> 00:12:02,460
+please, at this point I guess your way
+to interact is to use the comments,
+
+210
+00:12:02,460 --> 00:12:06,253
+write a comment, ask a question there
+and we could start with a
+
+211
+00:12:06,253 --> 00:12:07,380
+dialogue that way,
+
+212
+00:12:07,380 --> 00:12:11,032
+although the videos may end up also
+somewhere else embedded
+
+213
+00:12:11,032 --> 00:12:13,219
+into some sort of site that has them as well.
+
+214
+00:12:13,219 --> 00:12:17,719
+Okay, so that's that so I will see you
+
+215
+00:12:17,719 --> 00:12:20,281
+another time, I thank you, I bid you
+
+216
+00:12:20,281 --> 00:12:24,781
+"adieu," apparently I'm getting into 
+some French stuff in these videos
+
+217
+00:12:24,781 --> 00:12:27,634
+okay, au revoir!

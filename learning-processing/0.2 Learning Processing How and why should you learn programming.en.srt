@@ -1,0 +1,639 @@
+1
+00:00:03,314 --> 00:00:04,764
+Okay, so let's ask the question:
+
+2
+00:00:04,764 --> 00:00:08,888
+Why should you learn to program the computer?
+
+3
+00:00:08,888 --> 00:00:12,521
+and really, but, you know, 
+we would first have to admit that
+
+4
+00:00:12,521 --> 00:00:15,696
+the answer to that question might be.
+"Hello, no,
+
+5
+00:00:15,696 --> 00:00:18,978
+I don't need to do this I'm interested in lots of stuff
+
+6
+00:00:18,978 --> 00:00:23,509
+and this does not interest me", 
+and that's pretty reasonable, I mean first of all
+
+7
+00:00:23,509 --> 00:00:26,402
+you should make sure you go outside, run around,
+
+8
+00:00:26,402 --> 00:00:28,320
+physical exercise is very important,
+
+9
+00:00:28,320 --> 00:00:31,309
+food is delicious, talking to people is wonderful
+
+10
+00:00:31,309 --> 00:00:37,163
+I don't know, hobbies, I like playing cards, 
+I like musical theatre, I don't necessarily need
+
+11
+00:00:37,163 --> 00:00:38,257
+programming for those things
+
+12
+00:00:38,257 --> 00:00:41,100
+so you, you can go and have a very full life
+
+13
+00:00:41,100 --> 00:00:45,798
+and just stop these videos and really be
+a happy person. At the same time,
+
+14
+00:00:45,798 --> 00:00:50,247
+let's just make, let's just, let's just 
+admit something: you probably use the
+
+15
+00:00:50,247 --> 00:00:51,172
+computer a lot.
+
+16
+00:00:51,172 --> 00:00:55,651
+you probably, it's probably a tool for work, family,
+
+17
+00:00:55,671 --> 00:01:00,913
+social, you use it, right, and 
+how do you use it,
+
+18
+00:01:00,913 --> 00:01:02,785
+let's say you've never written a line of code
+
+19
+00:01:02,785 --> 00:01:05,195
+before in your life. You probably do 
+things like you use
+
+20
+00:01:05,245 --> 00:01:08,774
+Chrome, or you use Photoshop,
+
+21
+00:01:08,774 --> 00:01:13,504
+or you use Word, we could keep
+
+22
+00:01:13,504 --> 00:01:17,243
+making a long list of stuff there. 
+What are all these things?
+
+23
+00:01:17,243 --> 00:01:20,471
+Software! Who made these things?
+
+24
+00:01:20,471 --> 00:01:24,055
+Not you, right? So, you know, they're great!
+
+25
+00:01:24,055 --> 00:01:27,201
+Photoshop is really good and an 
+amazing piece of software
+
+26
+00:01:27,201 --> 00:01:31,220
+made by very large company and 
+lots of people and you need Photoshop,
+
+27
+00:01:31,220 --> 00:01:34,222
+you have an image, you wanna get rid 
+of the red eye
+
+28
+00:01:34,222 --> 00:01:38,678
+you wanna make it brighter you wanna 
+do some kind of, I don't know, filter on it to make
+
+29
+00:01:38,678 --> 00:01:39,576
+it look like it was
+
+30
+00:01:39,576 --> 00:01:41,970
+taken thirty years ago, 
+I don't know if Photoshop does that,
+
+31
+00:01:41,970 --> 00:01:48,020
+you use Photoshop, but there are limits 
+to what Photoshop can do
+
+32
+00:01:48,020 --> 00:01:51,197
+it is a tool with a set of features that are provided
+
+33
+00:01:51,197 --> 00:01:53,780
+to you via an interface and you
+
+34
+00:01:53,780 --> 00:01:56,780
+can't make it do more that it does and
+in fact
+
+35
+00:01:56,780 --> 00:02:00,039
+if you want to be creative if you 
+wanna develop your own
+
+36
+00:02:00,039 --> 00:02:03,863
+ideas whether they're art or
+
+37
+00:02:03,863 --> 00:02:07,332
+a commercial product or some just 
+weird strange exploration
+
+38
+00:02:07,332 --> 00:02:11,122
+you don't wanna, you don't wanna be 
+limited by the tools that are provided
+
+39
+00:02:11,122 --> 00:02:11,789
+for you
+
+40
+00:02:11,789 --> 00:02:16,475
+you want to start with a blank slate, you know,
+if you want to create a new image
+
+41
+00:02:16,475 --> 00:02:18,402
+processing filter that doesn't exist
+
+42
+00:02:18,402 --> 00:02:21,967
+you could do that. In this video series
+
+43
+00:02:21,967 --> 00:02:25,760
+you will learn to do that, and it's not very hard!
+
+44
+00:02:25,760 --> 00:02:30,589
+I mean, there are aspects of programming 
+that are incredibly hard this won't be easy
+
+45
+00:02:30,589 --> 00:02:31,746
+don't get me wrong
+
+46
+00:02:31,746 --> 00:02:36,006
+but this is really what we're talking about 
+here everything that you do
+
+47
+00:02:36,006 --> 00:02:40,338
+whether it's working with images, 
+working with animation,
+
+48
+00:02:40,338 --> 00:02:43,078
+writing, checking your email,
+
+49
+00:02:43,078 --> 00:02:47,901
+interfacing with hardware, robotics,
+
+50
+00:02:47,901 --> 00:02:52,921
+everything that you do digitally starts 
+from somewhere, somebody wrote the
+
+51
+00:02:52,921 --> 00:02:54,077
+software to make this stuff
+
+52
+00:02:54,077 --> 00:02:58,149
+work why couldn't that person be you? 
+what types of things could you invent?
+
+53
+00:02:58,149 --> 00:03:01,473
+what types of ideas could you come up with
+if you weren't limited
+
+54
+00:03:01,473 --> 00:03:05,025
+to the list of tools that you can download, purchase,
+
+55
+00:03:05,025 --> 00:03:09,994
+and get from, you know, other individuals 
+might have released as open source
+
+56
+00:03:09,994 --> 00:03:11,044
+or big companies,
+
+57
+00:03:11,044 --> 00:03:14,308
+let's break all those bonds, 
+let's write your own software,
+
+58
+00:03:14,308 --> 00:03:15,864
+and that sounds very grand
+
+59
+00:03:15,864 --> 00:03:19,093
+and ridiculous and then we're gonna be like 
+and now what you're gonna learn is
+
+60
+00:03:19,093 --> 00:03:23,500
+there's a red circle on the screen and it moves 
+back and forth so don't me wrong,
+
+61
+00:03:23,500 --> 00:03:26,090
+this is going to be a slow process this is 
+really just the beginning
+
+62
+00:03:26,090 --> 00:03:29,374
+I'm gonna show you some basic stuff 
+you're gonna have to take it much farther
+
+63
+00:03:29,374 --> 00:03:32,478
+but this will get you started in that direction if you
+
+64
+00:03:32,478 --> 00:03:37,774
+and hopefully will be great. now there's also
+the question, if this is maybe
+
+65
+00:03:37,774 --> 00:03:39,456
+why you should learn, how you should learn
+
+66
+00:03:39,456 --> 00:03:42,518
+that's a more complicated one
+
+67
+00:03:42,518 --> 00:03:46,549
+I'm not prepared to answer it, I'm just 
+gonna try as best I can
+
+68
+00:03:46,549 --> 00:03:50,580
+to communicate to you and provide
+resources but again this just brings up the
+
+69
+00:03:50,580 --> 00:03:52,642
+question there are so many resources online
+
+70
+00:03:52,642 --> 00:03:56,696
+that are terrific there are online courses 
+you could take there's Code Academy,
+
+71
+00:03:56,696 --> 00:03:58,861
+there's the Khan Academy, there's Udacity
+
+72
+00:03:58,861 --> 00:04:02,089
+there's schools you can go to, there's a new
+
+73
+00:04:02,089 --> 00:04:07,414
+experimental school called the School
+for Poetic Computation that's opening
+
+74
+00:04:07,414 --> 00:04:10,766
+there's lots of stuff out there so this
+is just a little resource
+
+75
+00:04:10,766 --> 00:04:14,729
+through video, I'll try to supplement it with
+code examples online
+
+76
+00:04:14,729 --> 00:04:19,162
+with links below the video I might
+hopefully create a site with some other
+
+77
+00:04:19,162 --> 00:04:20,921
+tools at some point but right now
+
+78
+00:04:20,921 --> 00:04:24,713
+me talking, examples you can download, 
+diagrams,
+
+79
+00:04:24,713 --> 00:04:28,942
+but there is something I think
+is important to mention here which is
+
+80
+00:04:28,942 --> 00:04:31,169
+a lot of the tools that you might - first of all,
+
+81
+00:04:31,169 --> 00:04:34,701
+you know what's a nice way to learn? 
+Find a friend,
+
+82
+00:04:34,701 --> 00:04:37,994
+find someone you don't even know, 
+sit in a room with other people
+
+83
+00:04:37,994 --> 00:04:41,283
+try to program with them, ask them
+questions, look at what they're doing, try
+
+84
+00:04:41,283 --> 00:04:42,918
+to explain your program to a friend,
+
+85
+00:04:42,918 --> 00:04:48,138
+be with people, right, we can all try to
+design the most fancy, best whatever
+
+86
+00:04:48,138 --> 00:04:48,969
+online
+
+87
+00:04:48,969 --> 00:04:52,626
+tool that will like show you the steps
+and give you immediate feedback and step
+
+88
+00:04:52,626 --> 00:04:54,354
+you through give you this exercise and
+
+89
+00:04:54,354 --> 00:04:57,178
+give you all this, right, but being
+with people
+
+90
+00:04:57,178 --> 00:05:01,718
+and talking to people talking through
+your ideas, that is probably the best way
+
+91
+00:05:01,718 --> 00:05:03,874
+to learn, now that's not what's happening
+here
+
+92
+00:05:03,874 --> 00:05:07,812
+I'm by myself which is a little bit
+weird but I'm getting used to it
+
+93
+00:05:07,812 --> 00:05:10,668
+a lot more used to it than I 
+was before
+
+94
+00:05:10,668 --> 00:05:15,217
+but one thing I will say also that's a
+little bit different here is a lot of
+
+95
+00:05:15,217 --> 00:05:16,476
+the tools
+
+96
+00:05:16,476 --> 00:05:19,758
+and courses, you know, that you might take
+whether it's a high school class a
+
+97
+00:05:19,758 --> 00:05:21,675
+college class an online class
+
+98
+00:05:21,675 --> 00:05:25,133
+firstof all they might have the word "Computer Science" in them -
+
+99
+00:05:25,133 --> 00:05:29,393
+Computer Science is a really great
+
+100
+00:05:29,393 --> 00:05:32,393
+field of research and study of the
+science of computing,
+
+101
+00:05:32,393 --> 00:05:35,880
+this is not that, we're just learning
+about computation
+
+102
+00:05:35,880 --> 00:05:39,578
+how to write programming, how to write code, 
+how to program and applying it
+
+103
+00:05:39,578 --> 00:05:43,296
+to whatever you might be interested in.
+are you interested in biology and could
+
+104
+00:05:43,296 --> 00:05:45,765
+the tools of computation help you there? 
+Are you interested in music
+
+105
+00:05:45,765 --> 00:05:48,994
+and could the tools of computation be
+something you could use
+
+106
+00:05:48,994 --> 00:05:49,726
+with music and
+
+107
+00:05:49,726 --> 00:05:52,837
+this is the other thing, that I don't have a test
+for you to take
+
+108
+00:05:52,837 --> 00:05:55,015
+don't have something to say like
+
+109
+00:05:55,015 --> 00:05:57,858
+"and you will make this" when you're
+finished with these videos the point
+
+110
+00:05:57,858 --> 00:05:58,651
+of these videos
+
+111
+00:05:58,651 --> 00:06:03,099
+is for you to have a creative idea and
+you don't have to have that now
+
+112
+00:06:03,099 --> 00:06:06,596
+you might get inspired or try experiment
+s and it doesn't have to have any
+
+113
+00:06:06,596 --> 00:06:07,813
+practical value, now
+
+114
+00:06:07,813 --> 00:06:12,282
+you might want to get a job which 
+I think is important in a lot of ways,
+
+115
+00:06:12,282 --> 00:06:13,594
+but you might also just
+
+116
+00:06:13,594 --> 00:06:17,209
+feel like "I like sorbet,
+
+117
+00:06:17,209 --> 00:06:20,742
+and I like bugs,
+
+118
+00:06:20,742 --> 00:06:25,469
+particularly spiders, and I'm going to create 
+a simulation of spiders eating sorbet,"
+
+119
+00:06:25,469 --> 00:06:28,489
+which actually makes no sense
+whatsoever but that's the point
+
+120
+00:06:28,489 --> 00:06:32,147
+you might have some idea that apparently
+doesn't have any practical value that
+
+121
+00:06:32,147 --> 00:06:34,905
+makes any sense but you just want to
+explore it could be a visual idea
+
+122
+00:06:34,905 --> 00:06:38,696
+a it could be a musical idea could be a
+website, an app,
+
+123
+00:06:38,696 --> 00:06:42,738
+you know, this isn't really going to
+be about making products and apps
+
+124
+00:06:42,738 --> 00:06:44,758
+and stuff for the web, as you're gonna see, as 
+much
+
+125
+00:06:44,758 --> 00:06:50,258
+but the point is you will develop 
+your own ideas and make
+
+126
+00:06:50,258 --> 00:06:50,882
+them and
+
+127
+00:06:50,882 --> 00:06:53,840
+hopefully share them with others in some way, so
+
+128
+00:06:53,840 --> 00:06:58,101
+I will try to give little exercises and little
+
+129
+00:06:58,101 --> 00:06:58,778
+questions
+
+130
+00:06:58,778 --> 00:07:04,047
+and push in particular directions but
+how you will learn in this particular
+
+131
+00:07:04,047 --> 00:07:04,715
+context
+
+132
+00:07:04,715 --> 00:07:09,349
+will be about coming up with your own
+creative project ideas and using the
+
+133
+00:07:09,349 --> 00:07:10,818
+tools of computation
+
+134
+00:07:10,818 --> 00:07:15,526
+to realize those ideas and hopefully that
+will be a nice thing.
+
+135
+00:07:15,526 --> 00:07:19,057
+If anybody has success with that and finds it
+
+136
+00:07:19,057 --> 00:07:21,933
+useful I'd be thrilled to know. 
+Okay, so that's the end of
+
+137
+00:07:21,933 --> 00:07:26,098
+this particular introductory video 
+and I think the
+
+138
+00:07:26,098 --> 00:07:29,858
+next one is, I'm going to talk about
+
+139
+00:07:29,858 --> 00:07:33,569
+actually "What is programming, what does 
+it mean to write, what is programming,
+
+140
+00:07:33,579 --> 00:07:36,157
+what is an algorithm, what does it mean
+to program the computer?"
