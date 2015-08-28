@@ -1,0 +1,743 @@
+1
+00:00:02,028 --> 00:00:04,396
+hi, so by now if you're here
+
+2
+00:00:04,396 --> 00:00:07,457
+you've probably watched some videos 
+about variables
+
+3
+00:00:07,470 --> 00:00:10,170
+and some videos about conditional statements
+
+4
+00:00:10,170 --> 00:00:15,065
+in this video we are going to somehow combine 
+those two in an interesting new way
+
+5
+00:00:15,065 --> 00:00:16,034
+and we're going to look at
+
+6
+00:00:16,034 --> 00:00:18,357
+what it means to have a variable of type boolean,
+right?
+
+7
+00:00:18,357 --> 00:00:22,023
+what is a variable? 
+a variable is a type like an integer,
+
+8
+00:00:22,023 --> 00:00:26,314
+it is a name, like we might make up the name 'x',
+
+9
+00:00:26,314 --> 00:00:28,044
+and we might give it an initial value
+
+10
+00:00:28,044 --> 00:00:30,981
+so this is a totally reasonable variable:
+
+11
+00:00:30,981 --> 00:00:33,512
+the integer x, that you can't exactly see
+
+12
+00:00:33,512 --> 00:00:35,957
+cause [inintelligible]
+
+13
+00:00:35,957 --> 00:00:37,461
+x equals 100
+
+14
+00:00:37,461 --> 00:00:41,126
+let's, this is crazy, I'm totally 
+out of sync here
+
+15
+00:00:41,126 --> 00:00:43,853
+but let's make a variable now that has
+
+16
+00:00:43,853 --> 00:00:50,874
+a type boolean, 'going' equals false
+
+17
+00:00:50,874 --> 00:00:53,521
+this is the type of the variable
+
+18
+00:00:53,521 --> 00:00:55,812
+it is not a number, it is not a string,
+
+19
+00:00:55,812 --> 00:00:58,164
+it is not other types of variables,
+
+20
+00:00:58,164 --> 00:01:00,041
+that you may or may not have learned about,
+
+21
+00:01:00,041 --> 00:01:02,520
+it is a boolean. that means it only has one
+
+22
+00:01:02,520 --> 00:01:05,393
+possible, two possible values: true or false
+
+23
+00:01:05,393 --> 00:01:07,301
+you could use an integer in many ways
+
+24
+00:01:07,301 --> 00:01:11,444
+and have the integer either be 0, for false,
+or 1, for true
+
+25
+00:01:11,444 --> 00:01:13,476
+but there are many other numbers
+
+26
+00:01:13,476 --> 00:01:15,144
+that piece of data could be
+
+27
+00:01:15,144 --> 00:01:18,144
+in this case the piece of data can only 
+be false or true
+
+28
+00:01:18,144 --> 00:01:20,433
+and if you remember, a conditional statement
+
+29
+00:01:22,623 --> 00:01:29,956
+is an expression : if, some expression, evaluates
+to true, execute some code
+
+30
+00:01:29,956 --> 00:01:33,653
+guess what? a boolean variable evaluates
+
+31
+00:01:33,653 --> 00:01:35,777
+to true or false, right?
+
+32
+00:01:35,777 --> 00:01:41,327
+this boolean 'going' is false, so 'if going', 
+meaning it's not, we're not going to
+
+33
+00:01:41,327 --> 00:01:43,203
+execute this code because 'going' is false.
+
+34
+00:01:43,203 --> 00:01:47,223
+but if I change its value to true
+
+35
+00:01:47,223 --> 00:01:49,608
+then this code will become executed.
+
+36
+00:01:49,608 --> 00:01:53,306
+so, let's look at a way that we might
+use this in an example.
+
+37
+00:01:55,596 --> 00:01:57,972
+here is a very simple example,
+
+38
+00:01:57,972 --> 00:02:00,387
+it has a circle moving across the screen
+
+39
+00:02:00,387 --> 00:02:03,616
+size(), background(), an ellipse drawing at x,
+
+40
+00:02:03,616 --> 00:02:09,022
+x = x+2. what if I don't want this circle to start
+
+41
+00:02:09,022 --> 00:02:10,939
+until I click the mouse?
+
+42
+00:02:10,939 --> 00:02:12,844
+well, you might think I would do something like
+
+43
+00:02:12,844 --> 00:02:18,741
+ah, if mousePressed and then run this
+
+44
+00:02:18,741 --> 00:02:20,427
+and now, ah, the circle is not moving
+
+45
+00:02:20,427 --> 00:02:22,458
+if I click the mouse it is moving
+
+46
+00:02:22,458 --> 00:02:23,947
+if I let go of the mouse it stopped
+
+47
+00:02:23,947 --> 00:02:25,689
+but what if I just want the event
+
+48
+00:02:25,689 --> 00:02:27,353
+of clicking the mouse to trigger the circle
+
+49
+00:02:27,353 --> 00:02:30,677
+to move from now on and forever 
+going forward?
+
+50
+00:02:30,677 --> 00:02:33,876
+so, to do that, what if I made up my own variable
+
+51
+00:02:33,876 --> 00:02:35,572
+like 'going'?
+
+52
+00:02:35,572 --> 00:02:39,572
+and we say: boolean going equals false
+
+53
+00:02:39,572 --> 00:02:41,061
+and run this code
+
+54
+00:02:41,061 --> 00:02:42,280
+it's not moving!
+
+55
+00:02:42,280 --> 00:02:45,715
+now if I change the value of 'going' to true
+
+56
+00:02:45,715 --> 00:02:48,383
+it's moving, because 'going' is true,
+
+57
+00:02:48,383 --> 00:02:49,707
+so this code is being executed.
+
+58
+00:02:49,707 --> 00:02:53,372
+so now all you need to do 
+is change the value of 'going'
+
+59
+00:02:53,372 --> 00:02:56,466
+from false to true the moment that I want
+the circle start moving
+
+60
+00:02:56,466 --> 00:02:57,966
+when I click the mouse.
+
+61
+00:02:57,966 --> 00:02:59,873
+so in this case right here
+
+62
+00:02:59,873 --> 00:03:05,101
+let's start with 'going' as false, and then when
+in mousePressed, this is an event
+
+63
+00:03:05,101 --> 00:03:07,278
+that's triggered as soon as the user clicks
+the mouse
+
+64
+00:03:07,278 --> 00:03:13,213
+let's set: going = true, and it bothers me that 
+you can't see all of the code here
+
+65
+00:03:13,213 --> 00:03:16,442
+so I'm just gonna make this fit here.
+
+66
+00:03:16,442 --> 00:03:18,828
+now we can see: ok, going is false
+
+67
+00:03:18,828 --> 00:03:22,753
+so when we run it, it's not moving
+
+68
+00:03:22,753 --> 00:03:24,723
+it's not moving because going is false
+
+69
+00:03:24,723 --> 00:03:26,106
+but now when I click the mouse
+
+70
+00:03:27,626 --> 00:03:29,276
+going becomes true
+and it moves.
+
+71
+00:03:29,276 --> 00:03:30,515
+ah, I'm gonna stop it!
+click the mouse!
+
+72
+00:03:30,515 --> 00:03:33,899
+ah, no matter what, when I click the mouse
+now going is true
+
+73
+00:03:33,899 --> 00:03:36,294
+what if want going to become false?
+
+74
+00:03:37,874 --> 00:03:39,325
+here's a neat little trick:
+
+75
+00:03:44,615 --> 00:03:45,846
+we have time for this,
+
+76
+00:03:45,846 --> 00:03:48,709
+you have time for this, 
+I have somewhere I need to be
+
+77
+00:03:48,709 --> 00:03:50,252
+but I'm making this video anyway
+
+78
+00:03:50,252 --> 00:03:59,562
+so, in mousePressed we are saying: 
+going equals true
+
+79
+00:03:59,562 --> 00:04:02,918
+but what if I want going to only become true
+
+80
+00:04:02,918 --> 00:04:07,157
+if it wasn't true, and if going was already true
+I want going now to be false
+
+81
+00:04:08,027 --> 00:04:09,241
+in other words I want to say:
+
+82
+00:04:09,241 --> 00:04:17,634
+if going ... then going equals false, right?
+
+83
+00:04:17,634 --> 00:04:21,488
+if going is true then set going equal to false,
+
+84
+00:04:21,488 --> 00:04:26,784
+otherwise set going equal to true
+
+85
+00:04:26,784 --> 00:04:31,352
+so: if going is true, set going to false
+
+86
+00:04:31,352 --> 00:04:33,611
+otherwise, if going is false, 
+set it equal to true.
+
+87
+00:04:33,611 --> 00:04:34,705
+let's go implement that!
+
+88
+00:04:35,835 --> 00:04:38,873
+ok, so I'm down here, and I'm going
+to implement this.
+
+89
+00:04:40,513 --> 00:04:46,224
+if going, and by the way, you could have written it
+like this: if going == true
+
+90
+00:04:47,824 --> 00:04:51,049
+but that's really long-winded,
+going is just true or false,
+
+91
+00:04:51,049 --> 00:04:53,975
+and a boolean expression evaluates to 
+true or false
+
+92
+00:04:53,975 --> 00:04:56,779
+so I can really just say: if (going == true)
+I can just say if (going)
+
+93
+00:04:56,779 --> 00:04:58,860
+by the way, if (going == false) 
+is the same as saying: if (!going)
+
+94
+00:04:58,860 --> 00:05:09,483
+that exclamation point is NOT, is not going,
+my ... a little bigger here
+
+95
+00:05:09,483 --> 00:05:13,941
+hopefully you can read this.
+
+96
+00:05:13,941 --> 00:05:21,035
+ok, so remember: if it's going then 
+going should be false
+
+97
+00:05:21,035 --> 00:05:24,086
+otherwise let's say going is true
+
+98
+00:05:24,086 --> 00:05:25,649
+let's run this now, right?
+
+99
+00:05:25,649 --> 00:05:28,439
+so going is false right now, so when I click 
+the mouse
+
+100
+00:05:28,439 --> 00:05:33,397
+[inintelligible]
+
+101
+00:05:33,397 --> 00:05:36,625
+now if I click the mouse again,
+going is true, ah, going is set to false
+
+102
+00:05:36,625 --> 00:05:38,687
+oh, what a magical thing just happened!
+
+103
+00:05:38,687 --> 00:05:40,657
+ready? start ... stop ... start ... stop
+
+104
+00:05:40,657 --> 00:05:42,031
+oh, it's gonna leave the screen.
+
+105
+00:05:42,031 --> 00:05:45,125
+ok, but, maybe you thought this was all
+
+106
+00:05:45,125 --> 00:05:46,478
+there's one more piece of this,
+
+107
+00:05:46,478 --> 00:05:50,584
+this is fine and good and perfectly reasonable
+
+108
+00:05:50,584 --> 00:05:53,240
+it is rather long-winded
+
+109
+00:05:54,260 --> 00:05:58,604
+we as programmers, sometimes our whole life
+is just trying to make things shorter,
+
+110
+00:05:58,604 --> 00:06:00,041
+although that's not really any point of that,
+
+111
+00:06:00,041 --> 00:06:01,103
+you might also just make things longer,
+
+112
+00:06:01,103 --> 00:06:03,592
+it's good for things to be clear, readable, 
+but anyway,
+
+113
+00:06:03,592 --> 00:06:04,925
+if we want to make this shorter,
+
+114
+00:06:06,845 --> 00:06:08,944
+let's examine this statement
+
+115
+00:06:08,944 --> 00:06:12,238
+going = ! going ;
+
+116
+00:06:12,238 --> 00:06:15,737
+this seems like it must be some sort of 
+illegal code
+
+117
+00:06:15,737 --> 00:06:17,028
+that you could not possibly write
+
+118
+00:06:17,028 --> 00:06:19,288
+and it's self-referential and circular in some way
+
+119
+00:06:19,288 --> 00:06:20,725
+it's not gonna work, but in fact
+
+120
+00:06:20,725 --> 00:06:24,100
+this is exactly what we want in this particular case
+
+121
+00:06:24,100 --> 00:06:27,579
+let's think about this again
+
+122
+00:06:27,579 --> 00:06:30,548
+let's say x = y + z
+
+123
+00:06:30,548 --> 00:06:32,444
+if we have a statement like this,
+
+124
+00:06:32,444 --> 00:06:35,505
+remember we evaluate this side of the equation
+
+125
+00:06:35,505 --> 00:06:37,860
+and store the result over here
+
+126
+00:06:37,860 --> 00:06:40,234
+so we're going to do the same thing here
+
+127
+00:06:40,234 --> 00:06:41,963
+we evaluate this side of the equation
+
+128
+00:06:41,963 --> 00:06:43,193
+and store the result here
+
+129
+00:06:43,193 --> 00:06:45,378
+it's kind of like how, when you say
+
+130
+00:06:45,378 --> 00:06:47,952
+x = x + 1 , this seems a little strange
+
+131
+00:06:47,952 --> 00:06:49,952
+it equals itself plus 1?
+
+132
+00:06:49,952 --> 00:06:52,681
+but it's not big deal, 
+if it were 5 then 5+1=6
+
+133
+00:06:52,681 --> 00:06:54,628
+and now x equals to 6, 
+this is an operation
+
+134
+00:06:54,628 --> 00:06:56,691
+that increments x over and over again
+
+135
+00:06:56,691 --> 00:07:00,856
+5 becomes 6 becomes 7,
+I'm talking way too fast in this video,
+
+136
+00:07:00,856 --> 00:07:05,376
+but here, let's say going is true
+
+137
+00:07:06,806 --> 00:07:10,252
+what is not true? 
+not true is false
+
+138
+00:07:10,252 --> 00:07:15,896
+let's say going is false,
+what is not false? true!
+
+139
+00:07:15,896 --> 00:07:21,886
+so going equals not itself
+just takes the value of going,
+
+140
+00:07:21,886 --> 00:07:26,053
+if it's true it turns it into false,
+if it's false it turns it into true!
+
+141
+00:07:26,053 --> 00:07:27,886
+that might give you a little bit of a headache
+
+142
+00:07:27,886 --> 00:07:29,740
+but I think that as you start to think about it
+
+143
+00:07:29,740 --> 00:07:31,374
+and write it down and think about it again
+
+144
+00:07:31,374 --> 00:07:32,875
+it will start to make more and more sense
+
+145
+00:07:32,875 --> 00:07:37,407
+so let's go back over here and let's
+look at what he can write here now
+
+146
+00:07:37,407 --> 00:07:40,893
+going equals not going, ok?
+
+147
+00:07:40,893 --> 00:07:43,332
+going is currently false, 
+so as soon as I click the mouse
+
+148
+00:07:43,332 --> 00:07:46,247
+going is going to equal not false, 
+which is true
+
+149
+00:07:46,247 --> 00:07:50,113
+and when I click the mouse again,
+going is going to equal not true
+
+150
+00:07:50,113 --> 00:07:51,081
+which is false.
+
+151
+00:07:51,081 --> 00:07:53,561
+so this is just a little bit of an inkling
+
+152
+00:07:53,561 --> 00:07:55,060
+of what it means to use a variable
+
+153
+00:07:55,060 --> 00:07:57,560
+with a type of boolean
+
+154
+00:07:57,560 --> 00:08:00,893
+it's just a little bit of a helper, 
+it's kind of like we can store
+
+155
+00:08:00,893 --> 00:08:03,777
+the value of a switch in our program
+
+156
+00:08:03,777 --> 00:08:06,601
+we can always know is that switch on
+or is that switch off?
+
+157
+00:08:06,601 --> 00:08:08,912
+and at any point we could act 
+upon that
+
+158
+00:08:08,912 --> 00:08:11,570
+if the switch is on, do this code,
+if it's off do this other code.
+
+159
+00:08:11,570 --> 00:08:14,028
+and we can also change the value of that switch
+
+160
+00:08:14,028 --> 00:08:17,527
+by turning it on, setting it to true,
+or turning it off, setting it to false.
+
+161
+00:08:17,527 --> 00:08:21,015
+usually at the end of these videos
+I give some sort of exercise
+
+162
+00:08:21,015 --> 00:08:22,348
+but I can't think of one right now
+
+163
+00:08:22,348 --> 00:08:25,657
+but what you might do is find some 
+program that you wrote
+
+164
+00:08:25,657 --> 00:08:30,598
+and see where you might store
+a value of true or false
+
+165
+00:08:30,598 --> 00:08:35,504
+and act upon that. that could be something
+that you could do.
+
+166
+00:08:35,504 --> 00:08:37,646
+I'll think of something better later!
+
+167
+00:08:37,646 --> 00:08:38,764
+maybe put it in the notes
+
+168
+00:08:38,764 --> 00:08:40,763
+ok, I'm gonna stop this video
+
+169
+00:08:40,763 --> 00:08:42,616
+and you're going to enjoy the rest of your day
+
+170
+00:08:42,616 --> 00:08:45,179
+I'm over here and I'm going now.
+
+171
+00:08:45,179 --> 00:08:46,314
+my going is true!
+
+172
+00:08:46,314 --> 00:08:46,752
+ok, bye

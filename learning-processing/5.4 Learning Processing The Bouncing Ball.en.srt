@@ -1,0 +1,916 @@
+1
+00:00:00,985 --> 00:00:03,908
+Ok, so we're getting to an exciting moment!
+
+2
+00:00:03,908 --> 00:00:05,536
+this is an exciting moment in time,
+
+3
+00:00:05,536 --> 00:00:09,917
+you know, what are we really doing here? 
+I have no idea but we are
+
+4
+00:00:09,917 --> 00:00:11,145
+getting to the point where
+
+5
+00:00:11,145 --> 00:00:16,801
+we are almost ready for this circle,
+when it reaches this edge of the window
+
+6
+00:00:16,801 --> 00:00:18,655
+to turn around and come back!
+
+7
+00:00:18,655 --> 00:00:20,919
+come on, you can do it! ok, almost!
+
+8
+00:00:20,919 --> 00:00:22,553
+we are getting there, we are ready to do that!
+
+9
+00:00:22,553 --> 00:00:24,083
+so how are we going to do that?
+
+10
+00:00:25,263 --> 00:00:26,646
+we're going to use a conditional statement
+
+11
+00:00:26,646 --> 00:00:29,177
+that's what the last two videos, 
+that you may or may not have watched,
+
+12
+00:00:29,177 --> 00:00:34,719
+(unintelligible) complete disasters ...
+(unintelligible)
+
+13
+00:00:34,739 --> 00:00:36,862
+we're demonstrating how conditional 
+statements work.
+
+14
+00:00:36,862 --> 00:00:41,424
+well, let's take a look at our scenario here:
+
+15
+00:00:41,424 --> 00:00:43,833
+we have a Processing window,
+we've got a circle in that Processing window.
+
+16
+00:00:43,833 --> 00:00:51,674
+the circle is draw at an x-location of circleX,
+that is the circle's x-location
+
+17
+00:00:51,674 --> 00:00:55,643
+the circle moves every frame a certain amount
+
+18
+00:00:55,643 --> 00:01:02,725
+in our program here we can see it says:
+circleX = circleX + 2;
+
+19
+00:01:02,725 --> 00:01:09,392
+so it moves 2 pixels every frame, 
+and we can think of that as
+
+20
+00:01:09,392 --> 00:01:15,339
+the xSpeed, for example, 
+that's the speed it's moving along the x-axis
+
+21
+00:01:15,339 --> 00:01:19,119
+you know, this should really ring a bell for you!
+
+22
+00:01:20,059 --> 00:01:23,379
+what's the thing that we wanna add 
+to our program if we're talking about
+
+23
+00:01:23,379 --> 00:01:27,483
+the fact that there is this value that goes here 
+that we could name xSpeed?
+
+24
+00:01:27,483 --> 00:01:29,378
+well, we should have a variable for that!
+
+25
+00:01:29,378 --> 00:01:31,712
+and I kinda jumped the gun with this
+
+26
+00:01:31,712 --> 00:01:33,242
+because that's something we're going to discover
+
+27
+00:01:33,242 --> 00:01:35,159
+if I had not mentioned that right now, we would
+
+28
+00:01:35,159 --> 00:01:38,888
+discover this in a moment, we need that to be 
+a variable to execute our task
+
+29
+00:01:38,888 --> 00:01:41,886
+but I'm just gonna add another variable at the top
+
+30
+00:01:41,886 --> 00:01:43,992
+I'm going to call it xSpeed = 2;
+
+31
+00:01:43,992 --> 00:01:47,116
+and we're going to say: 
+circleX = circleX + xSpeed;
+
+32
+00:01:47,116 --> 00:01:50,123
+the nice thing about this is if I decide I want
+the circle to be really slow
+
+33
+00:01:50,123 --> 00:01:52,700
+because I want it to be really dramatic
+
+34
+00:01:52,700 --> 00:01:58,605
+I could change that to .2 and you see
+we're moving very, very, very , very slowly
+
+35
+00:01:58,605 --> 00:02:01,366
+across the screen. so we let that go for a little bit
+
+36
+00:02:01,366 --> 00:02:04,333
+we can talk and see if we can get back here
+before it reaches the end
+
+37
+00:02:04,333 --> 00:02:06,121
+that's a good challenge!
+still only two minutes so far!
+
+38
+00:02:06,121 --> 00:02:07,055
+we're doing well!
+
+39
+00:02:07,475 --> 00:02:09,823
+ok, so first we have to decide for ourselves
+
+40
+00:02:09,823 --> 00:02:13,781
+what's our condition for when the circle
+reaches the edge?
+
+41
+00:02:13,781 --> 00:02:18,132
+well, you can say: if the circle's x-location
+
+42
+00:02:18,132 --> 00:02:20,801
+is at the width of the window,
+
+43
+00:02:20,801 --> 00:02:22,832
+but what does it mean to say: 
+at the width of the window?
+
+44
+00:02:22,832 --> 00:02:25,800
+maybe you want to say:
+if it EQUALS the width of the window
+
+45
+00:02:25,800 --> 00:02:34,538
+if circleX equals width
+
+46
+00:02:34,538 --> 00:02:37,506
+turn around, that's what we want to say
+
+47
+00:02:37,506 --> 00:02:38,944
+turn around.
+
+48
+00:02:40,694 --> 00:02:42,299
+so this is reasonable but it's a bit
+
+49
+00:02:42,299 --> 00:02:43,663
+of a problem - it's not there yet!
+
+50
+00:02:43,663 --> 00:02:46,193
+the little ball is still going! 
+let's go over there and stop it!
+
+51
+00:02:46,193 --> 00:02:48,497
+ok, let's add that bit of code
+
+52
+00:02:49,617 --> 00:02:57,214
+and I'm gonna say: if circleX equals 
+the width of the window
+
+53
+00:02:57,214 --> 00:02:59,912
+do something. now, I'm gonna just 
+print a statement
+
+54
+00:02:59,912 --> 00:03:01,599
+turn around
+
+55
+00:03:04,559 --> 00:03:08,900
+so, and I will also not have it go .2 pixels, 
+let's have it go at 2 pixels
+
+56
+00:03:08,900 --> 00:03:12,119
+and let's run and see what happens
+
+57
+00:03:15,259 --> 00:03:17,378
+oh, I lost my line of code ...
+
+58
+00:03:17,378 --> 00:03:24,953
+so [unintelligible] 
+circleX = circleX + xSpeed;
+
+59
+00:03:28,073 --> 00:03:28,866
+run this again
+
+60
+00:03:28,866 --> 00:03:31,272
+it's going, it's going, it's going
+
+61
+00:03:31,272 --> 00:03:34,002
+in a moment we should see a little message
+
+62
+00:03:34,002 --> 00:03:36,762
+pop up ... ah, you saw that?
+
+63
+00:03:36,762 --> 00:03:38,333
+so it reached the edge and printed 'turn around'
+
+64
+00:03:38,333 --> 00:03:39,701
+I'm sure you can't read it says 'turn around'
+
+65
+00:03:39,701 --> 00:03:40,857
+but it says 'turn around'
+
+66
+00:03:42,277 --> 00:03:44,993
+hm, is that out the screen? 
+no, it's not out of the screen
+
+67
+00:03:44,993 --> 00:03:46,252
+it's just out of my preview
+
+68
+00:03:46,252 --> 00:03:50,012
+just ignore me, this is all magic
+how this all works
+
+69
+00:03:50,012 --> 00:03:53,835
+ok, see this is the problem: 
+I'm just like losing my train of thought
+
+70
+00:03:53,835 --> 00:03:54,606
+and a minute goes by
+
+71
+00:03:54,606 --> 00:03:57,155
+ok, we see, but what's the problem 
+with this statement?
+
+72
+00:03:57,155 --> 00:04:00,064
+this is a big problem, 
+this is kind of good but it's not great
+
+73
+00:04:00,064 --> 00:04:07,613
+what if I'd say: xSpeed = 2.8whatever
+this is really important, this is exactly
+
+74
+00:04:07,613 --> 00:04:10,584
+what I always imagined xSpeed to be!
+
+75
+00:04:10,584 --> 00:04:16,165
+I mean, come on, 2.8whatever, 
+that's such a good speed! right?
+
+76
+00:04:16,165 --> 00:04:21,245
+ok, here it goes, it's gonna get to the edge ...
+
+77
+00:04:21,245 --> 00:04:23,192
+nothing printed out! why?
+
+78
+00:04:23,192 --> 00:04:25,153
+because if you add this up a bunch of times
+
+79
+00:04:25,153 --> 00:04:28,475
+it's not going to be exactly 360 pixels
+
+80
+00:04:28,475 --> 00:04:32,237
+so a much better way of doing this
+would be to say:
+
+81
+00:04:32,237 --> 00:04:36,089
+if circleX is greater than, or equal to, width
+
+82
+00:04:36,089 --> 00:04:40,556
+this way if it just so happens that it's here
+and the next frame it would be here
+
+83
+00:04:40,556 --> 00:04:42,361
+we're still gonna register that!
+
+84
+00:04:42,361 --> 00:04:46,443
+as long as it's gotten past the window
+now we wanna execute some task
+
+85
+00:04:46,443 --> 00:04:50,276
+so it's a little bit of a digression, just with 
+how you deal with something along the edge
+
+86
+00:04:50,276 --> 00:04:51,880
+but an important one nonetheless.
+
+87
+00:04:51,880 --> 00:04:54,506
+'greater than' is much better than 'equals to'
+
+88
+00:04:54,506 --> 00:04:57,118
+ok, we're at 5 minutes, that's ok
+
+89
+00:04:57,118 --> 00:05:01,846
+ok, so now we're good and we're going to say:
+if it's greater than width
+
+90
+00:05:01,846 --> 00:05:04,639
+now just to be simple for a second,
+
+91
+00:05:05,739 --> 00:05:10,866
+I'm gonna say, how would you say? ok, 
+what would you write there
+
+92
+00:05:10,866 --> 00:05:12,503
+to have it turn around?
+
+93
+00:05:12,503 --> 00:05:14,565
+well, how do you get it to go forward?
+
+94
+00:05:14,565 --> 00:05:19,263
+to get it to go forward you say:
+circleX = circleX + xSpeed; right?
+
+95
+00:05:19,263 --> 00:05:24,794
+so to go backwards you'd say:
+circleX = circleX - xSpeed;
+
+96
+00:05:24,794 --> 00:05:28,086
+so if it gets greater than width then
+why we don't just tell it to go backwards?
+
+97
+00:05:28,086 --> 00:05:31,542
+ok, that sounds good! I don't know, 
+I like your line of reasoning there!
+
+98
+00:05:31,542 --> 00:05:32,697
+that was pretty reasonable!
+
+99
+00:05:32,697 --> 00:05:33,832
+that was what you were thinking, right?
+
+100
+00:05:33,832 --> 00:05:35,700
+that's not what I was thinking
+but that's because I already did it before
+
+101
+00:05:35,700 --> 00:05:40,093
+so, circleX = circleX - xSpeed;
+
+102
+00:05:40,093 --> 00:05:42,501
+let's run that! that seems pretty good.
+
+103
+00:05:42,501 --> 00:05:45,885
+it's getting to the edge,
+
+104
+00:05:45,885 --> 00:05:46,881
+very dramatic, what's going to happen?
+
+105
+00:05:46,881 --> 00:05:48,085
+boo, that's kind of a good effect
+
+106
+00:05:48,085 --> 00:05:49,614
+we got it to stop at the edge
+
+107
+00:05:49,614 --> 00:05:50,650
+this is a big moment for us!
+
+108
+00:05:50,650 --> 00:05:53,406
+it stopped at the edge. but is it
+really stopping at the edge?
+
+109
+00:05:53,406 --> 00:05:56,971
+this is where you really, 
+first of all we could debug this problem
+
+110
+00:05:56,971 --> 00:06:00,343
+by putting a print statement in there
+and see what the value of circleX is
+
+111
+00:06:00,343 --> 00:06:04,255
+but this is not right, we need to figure out 
+how to get it to turn around
+
+112
+00:06:05,695 --> 00:06:08,061
+it's not turning around. so what's happening here?
+
+113
+00:06:08,061 --> 00:06:12,996
+ok, so let's just say for a moment
+that the value of circleX starts at 0
+
+114
+00:06:12,996 --> 00:06:14,993
+and let's give it a speed of 10
+
+115
+00:06:15,833 --> 00:06:17,724
+so it's like superfast
+
+116
+00:06:17,724 --> 00:06:21,626
+this is like the fastest circle moving across
+the screen I've ever seen
+
+117
+00:06:21,626 --> 00:06:22,454
+boom, it's stuck there
+
+118
+00:06:22,454 --> 00:06:24,806
+it's 10, is that greater than width?
+
+119
+00:06:24,806 --> 00:06:27,151
+no, so it's 20, is that greater than width? no.
+
+120
+00:06:27,151 --> 00:06:28,597
+so it's 30, it's that greater than width? no.
+
+121
+00:06:28,597 --> 00:06:31,381
+it's doing that over and over again, 
+eventually it gets to be 350,
+
+122
+00:06:31,381 --> 00:06:35,702
+is that greater than width? no, 360? no.
+370? yes!
+
+123
+00:06:35,702 --> 00:06:44,158
+so we know say circleX is 370 which equals
+370-10=360, is that greater than width?
+
+124
+00:06:44,158 --> 00:06:48,889
+no. so it's stuck at the edge, 
+we don't wanna ...
+
+125
+00:06:48,889 --> 00:06:52,645
+what this code is saying, is that 
+when it gets to the edge, have it go
+
+126
+00:06:52,645 --> 00:06:54,615
+back one time, and then keep going forward
+
+127
+00:06:54,615 --> 00:06:58,252
+and then go back one time, and keep
+going forward. we don't want to do that!
+
+128
+00:06:58,252 --> 00:07:01,135
+we want to say: have it permanently start
+to go backwards!
+
+129
+00:07:01,135 --> 00:07:03,927
+so how do we have it permanently 
+start to go backwards?
+
+130
+00:07:03,927 --> 00:07:06,959
+well, why is it permanently going forward
+in the first place?
+
+131
+00:07:06,959 --> 00:07:11,311
+it's permanently going forwards 
+because its xSpeed is 10.
+
+132
+00:07:11,311 --> 00:07:15,706
+so what if I actually here manipulate its
+xSpeed value and said:
+
+133
+00:07:15,706 --> 00:07:17,781
+xSpeed = -10; ?
+
+134
+00:07:19,951 --> 00:07:25,061
+it's zooming across and BOOM, it's
+zooming back again, and oh, it's gone again!
+
+135
+00:07:25,061 --> 00:07:27,851
+we can accomplish that though!
+we can deal with that!
+
+136
+00:07:27,851 --> 00:07:28,685
+we can handle it!
+
+137
+00:07:28,685 --> 00:07:35,143
+if circleX is less than 0
+set it to go forward
+
+138
+00:07:35,143 --> 00:07:39,615
+boom ... boom ... boom ...
+
+139
+00:07:39,615 --> 00:07:41,106
+we have a bouncing ball!!
+
+140
+00:07:41,106 --> 00:07:43,276
+ladies and gentlemen,
+this is very exciting!
+
+141
+00:07:43,276 --> 00:07:44,179
+this is a big moment!
+
+142
+00:07:44,179 --> 00:07:47,318
+what we have now is two conditional statements
+
+143
+00:07:47,318 --> 00:07:53,338
+one ... one ... I'm so confused 
+I wish to be drawing this but
+
+144
+00:07:53,338 --> 00:07:54,484
+now I just got this thing here
+
+145
+00:07:54,484 --> 00:08:00,380
+one is telling it to whenever it reaches 
+the right hand-side of the screen
+
+146
+00:08:00,380 --> 00:08:02,037
+to set its speed to be negative
+
+147
+00:08:02,037 --> 00:08:05,525
+and whenever it reaches the left-hand side 
+of the screen to set its speed to positive
+
+148
+00:08:05,525 --> 00:08:06,862
+here is the thing:
+
+149
+00:08:06,862 --> 00:08:10,786
+if you're thinking about this, 
+if you've learned about,
+
+150
+00:08:10,786 --> 00:08:14,108
+if you've watched our overly long video
+about logical operators
+
+151
+00:08:14,108 --> 00:08:15,347
+that had AND and OR in it
+
+152
+00:08:15,347 --> 00:08:18,711
+could we say more generically:
+
+153
+00:08:18,711 --> 00:08:21,306
+if it gets to one side of the screen
+
+154
+00:08:23,106 --> 00:08:27,355
+or if it reaches the other side of the screen
+
+155
+00:08:27,355 --> 00:08:28,598
+turn around!
+
+156
+00:08:29,648 --> 00:08:32,208
+how could we say: turn around?
+
+157
+00:08:35,018 --> 00:08:36,105
+well, let's think for a moment:
+
+158
+00:08:39,495 --> 00:08:44,334
+10 means going this way,
+-10 means going this way,
+
+159
+00:08:44,334 --> 00:08:47,686
+so if the value is 10 ,
+we want it to switch to -10
+
+160
+00:08:47,686 --> 00:08:51,157
+if the value is -10 
+then we want to switch it to be 10
+
+161
+00:08:51,157 --> 00:08:53,293
+how do we reverse the polarity of a number?
+
+162
+00:08:53,293 --> 00:08:56,206
+if it's positive to make it negative,
+if it's negative to make it positive?
+
+163
+00:08:56,206 --> 00:08:58,706
+multiply it by -1 !
+
+164
+00:08:58,706 --> 00:08:59,967
+then we get -10
+
+165
+00:08:59,967 --> 00:09:01,072
+10 times -1 is - 10
+
+166
+00:09:01,072 --> 00:09:04,955
+-10 times - 1 is 10
+
+167
+00:09:04,955 --> 00:09:05,414
+genius!
+
+168
+00:09:05,414 --> 00:09:14,060
+so here we go and we say:
+xSpeed equals xSpeed times -1
+
+169
+00:09:15,410 --> 00:09:19,705
+and we now have exactly the same effect
+
+170
+00:09:19,705 --> 00:09:21,412
+but we've reduced it into one statement
+
+171
+00:09:21,412 --> 00:09:24,496
+if it's greater than width
+OR if it's less than 0
+
+172
+00:09:24,496 --> 00:09:26,601
+reverse the speed of that
+
+173
+00:09:26,601 --> 00:09:30,046
+now there's a couple of things you might
+try to do as an exercise now that
+
+174
+00:09:30,046 --> 00:09:32,391
+you've watched this video:
+1. add y
+
+175
+00:09:32,391 --> 00:09:34,381
+try to bounce it along the y-axis
+
+176
+00:09:34,381 --> 00:09:38,672
+2. is having it speed up or slow down
+
+177
+00:09:38,672 --> 00:09:40,597
+each time it hits the wall
+
+178
+00:09:40,597 --> 00:09:42,732
+this is kind of an interesting problem
+
+179
+00:09:42,732 --> 00:09:43,824
+and I'm actually gonna show you 
+in a second
+
+180
+00:09:43,824 --> 00:09:47,400
+so if you don't want the answer to how you can
+slow it down, pause the video for a second
+
+181
+00:09:47,400 --> 00:10:03,786
+[unrelated stuff]
+
+182
+00:10:03,786 --> 00:10:05,264
+so, the other things that you should try is
+
+183
+00:10:05,264 --> 00:10:09,523
+to think about gravity, so how do you 
+make gravity work. and maybe I'll
+
+184
+00:10:09,523 --> 00:10:12,460
+do a little video about that but 
+that's sort of part 3, that's a litte advanced
+
+185
+00:10:12,460 --> 00:10:14,584
+we have this system where we
+[unintelligible] three exercises
+
+186
+00:10:14,584 --> 00:10:19,741
+like right below you, like on this browser page,
+but whatever ...
+
+187
+00:10:19,741 --> 00:10:23,241
+so, anyway, just as an interesting little token
+
+188
+00:10:23,241 --> 00:10:26,458
+we could do something like have it 
+always slow down.
+
+189
+00:10:26,458 --> 00:10:28,156
+this is gonna cause us a problem though
+
+190
+00:10:28,156 --> 00:10:37,966
+watch, aaah, [unrelated]
+
+191
+00:10:37,966 --> 00:10:39,583
+so I'm actually gonna leave this here
+
+192
+00:10:39,583 --> 00:10:41,843
+I'm gonna leave this as this open question
+
+193
+00:10:41,843 --> 00:10:43,487
+why did this not work?
+
+194
+00:10:43,487 --> 00:10:45,862
+why did it suddenly get stuck?
+
+195
+00:10:45,862 --> 00:10:48,363
+I mean if I increase the speed, it's not 
+gonna get stuck
+
+196
+00:10:48,363 --> 00:10:54,008
+and let's start it a little slower
+cause it's gonna happen to quickly
+
+197
+00:10:54,008 --> 00:10:58,238
+so let's say each time it hits a boundary
+speed up a little bit
+
+198
+00:10:58,238 --> 00:11:00,382
+multiply yourself by 1.1
+
+199
+00:11:00,382 --> 00:11:02,038
+so you're speeding up by 10%
+
+200
+00:11:02,038 --> 00:11:04,173
+you can see each time it hits the wall
+
+201
+00:11:04,173 --> 00:11:05,673
+it starts to go a little bit faster
+
+202
+00:11:05,673 --> 00:11:11,224
+faster ... and faster ... and faster...
+
+203
+00:11:11,224 --> 00:11:12,383
+you can watch it on your own time
+
+204
+00:11:12,383 --> 00:11:15,306
+cause I only got ...although we're still recording ...
+
+205
+00:11:15,306 --> 00:11:16,983
+I still got 10 seconds left
+
+206
+00:11:16,983 --> 00:11:19,444
+but as an exercise and I get back to this:
+
+207
+00:11:19,444 --> 00:11:23,411
+why does this break it?
+figure that out!
