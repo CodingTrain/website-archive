@@ -1,0 +1,1283 @@
+1
+00:00:02,802 --> 00:00:08,142
+This next video - hi, by the way -
+is about color.
+
+2
+00:00:08,142 --> 00:00:12,805
+So like the previous video that I just made,
+I looked at shapes,
+
+3
+00:00:12,805 --> 00:00:17,672
+drawing shapes into a canvas,
+using beginner steps with p5js.
+
+4
+00:00:17,672 --> 00:00:21,161
+Maybe you made something
+just with shapes,
+
+5
+00:00:21,161 --> 00:00:25,484
+the natural next step is to make
+stuff have some color.
+
+6
+00:00:25,484 --> 00:00:33,358
+so maybe you had a canvas,
+perhaps with a rectangle on it,
+
+7
+00:00:33,358 --> 00:00:36,323
+maybe it has an ellipse on it,
+
+8
+00:00:36,323 --> 00:00:38,388
+maybe it has some lines on it,
+
+9
+00:00:38,388 --> 00:00:40,501
+perhaps you came up with 
+something much more interesting design
+
+10
+00:00:40,501 --> 00:00:41,225
+than this.
+
+11
+00:00:41,225 --> 00:00:46,920
+And now we have to ask the question:
+How do I, everything was just black lines
+
+12
+00:00:46,920 --> 00:00:48,792
+and white interiors.
+
+13
+00:00:48,792 --> 00:00:52,792
+So how do I color these shapes?
+
+14
+00:00:53,802 --> 00:00:57,984
+So, to draw these shapes we learned
+a bunch of commands,
+
+15
+00:00:57,984 --> 00:01:00,021
+but really the word we should
+be using is 'functions'!
+
+16
+00:01:00,021 --> 00:01:09,430
+I showed you a bunch of functions:
+rect(), ellipse(), line().
+
+17
+00:01:09,430 --> 00:01:12,636
+These are three functions:
+rect() draws a rectangle,
+
+18
+00:01:12,636 --> 00:01:13,668
+ellipse() draws an ellipse,
+
+19
+00:01:13,668 --> 00:01:14,573
+line() draws a line.
+
+20
+00:01:14,573 --> 00:01:17,283
+These are for drawing.
+
+21
+00:01:17,283 --> 00:01:19,698
+Now for color there are also functions.
+
+22
+00:01:19,698 --> 00:01:22,332
+And I think there are three
+relevant ones that I want
+
+23
+00:01:22,332 --> 00:01:23,332
+to look at in this video.
+
+24
+00:01:23,332 --> 00:01:26,301
+background(),
+
+25
+00:01:28,511 --> 00:01:31,427
+stroke(),
+
+26
+00:01:31,427 --> 00:01:33,321
+and fill().
+
+27
+00:01:34,391 --> 00:01:38,514
+The background function will
+set a color for the background,
+
+28
+00:01:38,514 --> 00:01:41,915
+the entire canvas ... what is the color
+that is in the background
+
+29
+00:01:41,915 --> 00:01:46,448
+of the canvas? Although the word 'background'
+is a little bit of a misnomer here
+
+30
+00:01:46,448 --> 00:01:49,837
+even though I'm going to use it
+to set the background,
+
+31
+00:01:49,837 --> 00:01:54,001
+the order of when we call 
+these functions is quite crucial!
+
+32
+00:01:54,961 --> 00:01:57,149
+And I will show you that as well.
+
+33
+00:01:57,149 --> 00:02:03,801
+stroke() is the function that
+sets the color for the outline of a shape.
+
+34
+00:02:03,801 --> 00:02:06,668
+So what is the color 
+of the pixels of a line?
+
+35
+00:02:06,668 --> 00:02:09,460
+What is the color of the outline
+of a rectangle?
+
+36
+00:02:09,460 --> 00:02:13,561
+And fill() sets the color of 
+the interior of a shape.
+
+37
+00:02:14,611 --> 00:02:20,593
+So let's say the code for this is:
+rect, something or other,
+
+38
+00:02:22,513 --> 00:02:24,864
+ellipse, something or other,
+
+39
+00:02:25,964 --> 00:02:27,561
+line, something or other.
+
+40
+00:02:28,151 --> 00:02:33,221
+So now we need to figure out,
+if I want to set the stroke or
+
+41
+00:02:33,221 --> 00:02:36,917
+the fill for this rectangle, 
+where do I write these functions?
+
+42
+00:02:36,917 --> 00:02:38,545
+Where do I execute these commands?
+
+43
+00:02:39,505 --> 00:02:42,853
+If I want to set the fill or the stroke
+for the circle (the ellipse),
+
+44
+00:02:42,853 --> 00:02:44,066
+where do I write these commands?
+
+45
+00:02:44,066 --> 00:02:47,726
+And now, order of operations has always
+been important but it is particularly
+
+46
+00:02:47,726 --> 00:02:49,884
+important now. When you call these functions
+
+47
+00:02:49,884 --> 00:02:53,421
+it's like setting the color of a pen.
+
+48
+00:02:53,421 --> 00:02:57,581
+So before I draw the rectangle
+I need to set the color of my pen
+
+49
+00:02:57,581 --> 00:02:59,580
+to red or blue etc.
+
+50
+00:02:59,580 --> 00:03:04,745
+So if I wanna set the stroke or fill 
+of this rectangle
+
+51
+00:03:05,985 --> 00:03:14,100
+I need to write these function calls
+before I execute the function rectangle.
+
+52
+00:03:14,100 --> 00:03:16,732
+And then if the next thing
+I do is ellipse()
+
+53
+00:03:16,732 --> 00:03:18,955
+it will also use that same stroke and fill
+
+54
+00:03:18,955 --> 00:03:20,862
+and line() will also use 
+that same stroke,
+
+55
+00:03:20,862 --> 00:03:23,233
+not the fill!, because there
+is no fill for a line.
+
+56
+00:03:23,233 --> 00:03:27,392
+So if I want to then change
+the color, to have a different color
+
+57
+00:03:27,392 --> 00:03:30,924
+for the ellipse then I just need 
+to add another call
+
+58
+00:03:30,924 --> 00:03:34,221
+to stroke() and fill() .
+After I draw that rectangle,
+
+59
+00:03:34,221 --> 00:03:37,285
+I need to set new 'pen colors'
+for that ellipse.
+
+60
+00:03:38,015 --> 00:03:41,414
+So this is part 1.
+
+61
+00:03:41,414 --> 00:03:45,241
+Part 1 is I need to put these things
+in some proper order.
+
+62
+00:03:46,331 --> 00:03:49,804
+Part 2 is 'what do I put inside here?'
+
+63
+00:03:50,394 --> 00:03:52,641
+What do I put inside these functions?
+
+64
+00:03:52,641 --> 00:03:54,533
+stroke(), fill(), background(), etc?
+
+65
+00:03:56,293 --> 00:03:57,501
+That's a very good question!
+
+66
+00:03:57,501 --> 00:03:59,501
+I wish I had time to answer that question.
+
+67
+00:03:59,501 --> 00:04:01,160
+I do. I have to answer it.
+
+68
+00:04:01,160 --> 00:04:04,106
+Ok, so let's erase all of this 
+for a moment,
+
+69
+00:04:06,826 --> 00:04:08,501
+and let's think about color.
+
+70
+00:04:08,501 --> 00:04:11,597
+Now there's a lot of ways 
+to describe color, in the world.
+
+71
+00:04:12,377 --> 00:04:17,630
+I could get some paint, which would 
+just say the word 'red' on the can,
+
+72
+00:04:17,630 --> 00:04:19,357
+that would mean that there's red there,
+
+73
+00:04:19,357 --> 00:04:21,922
+but we need a mechanism,
+a methodology,
+
+74
+00:04:21,922 --> 00:04:23,420
+we need a system for defining color
+
+75
+00:04:23,420 --> 00:04:32,511
+in p5.js, and we're going to use
+[unintelligible]
+
+76
+00:04:32,511 --> 00:04:39,085
+And a basic way that I'm going to look at
+it with you is RGB color.
+
+77
+00:04:39,085 --> 00:04:43,041
+Meaning: a color is a combination
+of an amount of red,
+
+78
+00:04:43,041 --> 00:04:45,897
+an amount of green and
+and amount of blue.
+
+79
+00:04:45,897 --> 00:04:48,865
+So, for example:
+
+80
+00:04:49,815 --> 00:04:56,689
+if I say stroke(255,0,0);
+
+81
+00:04:56,689 --> 00:04:57,960
+what does that mean?
+
+82
+00:04:57,960 --> 00:05:00,865
+Well, stroke() can accept 3 arguments,
+
+83
+00:05:00,865 --> 00:05:03,656
+the first one being the amount of red,
+
+84
+00:05:03,656 --> 00:05:06,060
+the second one being the amount of green,
+
+85
+00:05:06,060 --> 00:05:08,353
+and the third one being the amount of blue.
+
+86
+00:05:09,413 --> 00:05:12,385
+So you can now sort of guess
+... there's clearly
+
+87
+00:05:12,385 --> 00:05:15,804
+no green and blue because 
+I've set their value to 0.
+
+88
+00:05:15,804 --> 00:05:18,645
+However there is some amount of red.
+
+89
+00:05:18,645 --> 00:05:21,948
+255? Does that mean like a little bit of red?
+A lot of red?
+
+90
+00:05:22,808 --> 00:05:25,981
+It turns out it means
+the maximum amount of red!
+
+91
+00:05:25,981 --> 00:05:29,044
+So the range for these arguments
+
+92
+00:05:30,574 --> 00:05:33,321
+is between 0 and 255.
+
+93
+00:05:34,061 --> 00:05:37,177
+Meaning there are 256 possibilities.
+
+94
+00:05:37,177 --> 00:05:43,740
+And I'm spending a minute
+to mention [ramble]
+
+95
+00:05:43,740 --> 00:05:48,501
+this because this way of counting will 
+come up again and again in programming!
+
+96
+00:05:48,501 --> 00:05:51,969
+Let's say I said: 
+the range is between 0 and 9,
+
+97
+00:05:51,969 --> 00:05:55,133
+how many possibilities are there?
+
+98
+00:05:55,133 --> 00:05:56,323
+There's 10, right?
+
+99
+00:05:56,323 --> 00:05:59,101
+I'm just gonna take a moment 
+to prove this to myself:
+
+100
+00:05:59,101 --> 00:06:02,566
+0, 1, 2, 3, 4, 
+5, 6, 7, 8, 9.
+
+101
+00:06:02,566 --> 00:06:04,426
+Woah!
+
+102
+00:06:04,426 --> 00:06:06,400
+Right, I counted to 10!
+
+103
+00:06:06,400 --> 00:06:12,265
+This is confusing. See? 
+I got to 9 but there are 10.
+
+104
+00:06:12,265 --> 00:06:15,205
+0, 1, 2, 3, 4, 
+5, 6, 7, 8, 9.
+
+105
+00:06:15,205 --> 00:06:16,583
+Boy, I really have turned 
+into a crazy person,
+
+106
+00:06:16,583 --> 00:06:17,992
+counting on my fingers
+in a room by myself,
+
+107
+00:06:17,992 --> 00:06:19,349
+with cameras pointing at me!
+
+108
+00:06:19,349 --> 00:06:22,706
+So this is the range.
+Why does it have this range?
+
+109
+00:06:22,706 --> 00:06:25,609
+It has to do with the way
+that information is stored
+
+110
+00:06:25,609 --> 00:06:28,576
+in the computer's memory,
+and bits and binary numbers,
+
+111
+00:06:28,576 --> 00:06:30,512
+and all that stuff, 
+and I would love,
+
+112
+00:06:30,512 --> 00:06:35,272
+no, actually wouldn't love,
+but I could talk about that more.
+
+113
+00:06:35,272 --> 00:06:37,631
+But you can find another video,
+or maybe I make another video,
+
+114
+00:06:37,631 --> 00:06:39,021
+or send me an e-mail or something,
+
+115
+00:06:39,021 --> 00:06:41,148
+we'll find a way to talk about it more.
+
+116
+00:06:41,148 --> 00:06:44,585
+Right now it's easiest for us 
+to just think of: this is the range!
+
+117
+00:06:44,585 --> 00:06:46,553
+And you can change that range too,
+
+118
+00:06:46,553 --> 00:06:49,117
+there's a function in p5 that
+allows you to adjust that range
+
+119
+00:06:49,117 --> 00:06:51,408
+but for now, let's keep that range!
+
+120
+00:06:51,408 --> 00:06:52,814
+0 to 255.
+
+121
+00:06:52,814 --> 00:06:59,781
+So, by the way, fill()
+will also take RGB with a range of 0-255.
+
+122
+00:06:59,781 --> 00:07:06,909
+background() will also take the same range, RGB.
+
+123
+00:07:06,909 --> 00:07:09,168
+So let's go look at that now!
+
+124
+00:07:10,338 --> 00:07:13,137
+Ok, I have preceded here a little program
+
+125
+00:07:13,137 --> 00:07:15,669
+that's drawing this little alien creature
+
+126
+00:07:15,669 --> 00:07:19,752
+and what I would like to do
+is to take a moment
+
+127
+00:07:19,752 --> 00:07:21,125
+to add some color.
+
+128
+00:07:21,125 --> 00:07:24,593
+And this is an excuse to look
+at a couple of other things.
+
+129
+00:07:24,593 --> 00:07:27,397
+Number 1 is: you can add comments
+into your program.
+
+130
+00:07:27,397 --> 00:07:30,333
+The way that you add comments
+is with a slash, slash //
+
+131
+00:07:30,333 --> 00:07:36,061
+If you add // to a line of code the computer
+will completely ignore that line of code!
+
+132
+00:07:36,061 --> 00:07:39,284
+Meaning it's not executed,
+so you can put whatever you want.
+
+133
+00:07:39,284 --> 00:07:42,209
+You could write little notes to yourself,
+or little secret notes to a friend
+
+134
+00:07:42,209 --> 00:07:45,044
+who's looking at your code later, 
+whatever you like to do.
+
+135
+00:07:45,044 --> 00:07:47,304
+But here you can see a typical use.
+
+136
+00:07:47,304 --> 00:07:49,676
+Well, this rectangle is the body of this,
+
+137
+00:07:49,676 --> 00:07:51,000
+this ellipse is the head,
+
+138
+00:07:51,000 --> 00:07:58,565
+these two ellipses are the eyes,
+
+139
+00:07:58,565 --> 00:08:00,633
+and these two lines are the legs.
+
+140
+00:08:00,633 --> 00:08:03,341
+So this is a useful thing
+to get a habit of this now,
+
+141
+00:08:03,341 --> 00:08:06,633
+if you can get yourself to do it
+it will make things easier later.
+
+142
+00:08:06,633 --> 00:08:13,728
+So, for example, if I just add 
+fill(255,0,0); and I hit play,
+
+143
+00:08:13,728 --> 00:08:15,792
+you can see:
+everything is all red,
+
+144
+00:08:15,792 --> 00:08:17,958
+all the shapes have now a fill of red.
+
+145
+00:08:17,958 --> 00:08:23,554
+But if I come down here
+and say: fill(0,255,0);
+
+146
+00:08:23,554 --> 00:08:24,925
+and look what I have done ...
+
+147
+00:08:24,925 --> 00:08:27,425
+no red, all green, no blue.
+
+148
+00:08:27,425 --> 00:08:32,957
+And now you can see
+the eyes have a fill of green.
+
+149
+00:08:32,957 --> 00:08:34,694
+Now does anything come after the eyes?
+
+150
+00:08:34,916 --> 00:08:37,077
+Just the legs. 
+And the legs don't have a fill,
+
+151
+00:08:37,077 --> 00:08:38,662
+so green only affected the eyes.
+
+152
+00:08:38,662 --> 00:08:44,837
+And I could say here:
+fill(0,0,255); and I could hit 'run' again
+
+153
+00:08:44,837 --> 00:08:51,068
+and we see now that the body is red, 
+the eyes are green and the head is blue.
+
+154
+00:08:51,068 --> 00:08:52,213
+Now interestingly,
+
+155
+00:08:52,213 --> 00:08:55,362
+this order of operation is really important!
+
+156
+00:08:55,882 --> 00:08:59,541
+Notice how the head 
+is drawn after the body.
+
+157
+00:08:59,541 --> 00:09:03,898
+Let's just vary briefly,
+move the head
+
+158
+00:09:03,898 --> 00:09:06,297
+above the body,
+
+159
+00:09:06,297 --> 00:09:09,525
+and you can see what's going on here:
+
+160
+00:09:09,525 --> 00:09:12,024
+that rectangle is covering that ellipse.
+
+161
+00:09:12,024 --> 00:09:18,026
+So p5 is going to draw the shapes,
+layer them in the order
+
+162
+00:09:18,026 --> 00:09:20,252
+of the sequence of the code in draw().
+
+163
+00:09:20,252 --> 00:09:21,752
+So that's a key piece!
+
+164
+00:09:21,752 --> 00:09:24,993
+Just in the way that this design works
+
+165
+00:09:24,993 --> 00:09:27,348
+is the head has got to come
+after the body,
+
+166
+00:09:27,348 --> 00:09:31,482
+so that it covers up 
+that top portion of the rectangle.
+
+167
+00:09:31,482 --> 00:09:35,785
+And the same is true
+in terms of fill() and stroke().
+
+168
+00:09:35,785 --> 00:09:38,513
+If I take this red fill and 
+put it after the body,
+
+169
+00:09:39,623 --> 00:09:41,917
+the body is no longer red,
+
+170
+00:09:41,917 --> 00:09:45,471
+because I called fill() after rect().
+
+171
+00:09:45,471 --> 00:09:47,843
+So that red fill has to go before rect()!
+
+172
+00:09:47,843 --> 00:09:50,438
+That's kind of a crucial
+piece of information as well.
+
+173
+00:09:50,438 --> 00:09:51,240
+The other thing
+
+174
+00:09:51,240 --> 00:09:53,532
+we should notice here
+
+175
+00:09:53,532 --> 00:09:55,033
+is that I have background() here.
+
+176
+00:09:55,033 --> 00:09:57,003
+Now let's make background() 
+some ...
+
+177
+00:09:57,003 --> 00:09:59,661
+so, first of all, you can combine, 
+you don't just have to do
+
+178
+00:09:59,661 --> 00:10:00,869
+all red, and no green and no blue.
+
+179
+00:10:00,869 --> 00:10:07,390
+[ramble]
+
+180
+00:10:07,390 --> 00:10:08,921
+You can obviously combine 
+colors,
+
+181
+00:10:08,921 --> 00:10:11,762
+you put red and green together,
+
+182
+00:10:11,762 --> 00:10:12,825
+and you get something,
+
+183
+00:10:12,825 --> 00:10:17,294
+like ... let's put a little red,
+a little green and no blue,
+
+184
+00:10:18,534 --> 00:10:20,814
+you can see you get 
+a different kind of green.
+
+185
+00:10:20,814 --> 00:10:22,181
+Let's put a lot more red ...
+
+186
+00:10:22,181 --> 00:10:25,117
+you get kind of a yellowish,
+greenish thing ...
+
+187
+00:10:26,577 --> 00:10:28,553
+So you can see that
+you can start playing around
+
+188
+00:10:28,553 --> 00:10:30,585
+with different amounts of
+red and green.
+
+189
+00:10:30,585 --> 00:10:32,376
+But notice how that background() there
+
+190
+00:10:32,376 --> 00:10:37,125
+background, you think like, 
+it's drawing the background,
+
+191
+00:10:37,125 --> 00:10:39,542
+so whenever I call background()
+with a color it should put
+
+192
+00:10:39,542 --> 00:10:42,041
+everything behind, 
+but all background() is doing
+
+193
+00:10:42,041 --> 00:10:44,106
+is actually filling the entire canvas 
+with a color.
+
+194
+00:10:44,106 --> 00:10:48,280
+So if I were to take background()
+and put it at the very end
+
+195
+00:10:48,280 --> 00:10:51,737
+of draw() ... you can see background()
+is now called after all the code
+
+196
+00:10:51,737 --> 00:10:54,335
+I won't see anything at all!
+
+197
+00:10:54,335 --> 00:10:57,137
+All those things were drawn, 
+but when we get to the end of draw()
+
+198
+00:10:57,137 --> 00:10:59,701
+to see the results, 
+background() has covered everything!
+
+199
+00:10:59,701 --> 00:11:03,041
+So this is another reason
+why the order of operations is important.
+
+200
+00:11:03,851 --> 00:11:09,169
+And I'm mostly finished now but I want 
+to mention two other things about color!
+
+201
+00:11:10,369 --> 00:11:13,997
+So let's look at something:
+in background(), let's say
+
+202
+00:11:13,997 --> 00:11:18,560
+I put 50, 50,50.
+
+203
+00:11:19,780 --> 00:11:20,938
+What did I get?
+
+204
+00:11:20,938 --> 00:11:22,417
+I got this kind of dark grey.
+
+205
+00:11:22,417 --> 00:11:26,655
+Let's make it: 150,150,150.
+
+206
+00:11:27,705 --> 00:11:29,258
+I got this light grey.
+
+207
+00:11:29,258 --> 00:11:30,549
+So one thing you'll notice:
+
+208
+00:11:30,549 --> 00:11:34,113
+if the red value equals the green value
+equals the blue value
+
+209
+00:11:34,873 --> 00:11:38,448
+you get a greyscale color.
+
+210
+00:11:39,468 --> 00:11:43,386
+All 0 being all black,
+all 255 being all white.
+
+211
+00:11:43,386 --> 00:11:44,114
+Why is this?
+
+212
+00:11:44,114 --> 00:11:49,518
+So the reason why this is,
+is that color here works the same way
+
+213
+00:11:49,518 --> 00:11:51,145
+color works with light.
+
+214
+00:11:51,145 --> 00:11:55,614
+If you take a bright red flashlight,
+and a bright green flashlight
+
+215
+00:11:55,614 --> 00:11:57,842
+and a bright blue flashlight,
+you shine em all together,
+
+216
+00:11:57,842 --> 00:12:00,166
+you add all the colors together,
+adding up colors,
+
+217
+00:12:00,166 --> 00:12:03,501
+you get things brighter and brighter,
+you'll get white.
+
+218
+00:12:03,501 --> 00:12:06,001
+No color, the absence of color,
+is black.
+
+219
+00:12:06,001 --> 00:12:09,685
+So greyscale color is something
+you might want to use kind of often
+
+220
+00:12:09,685 --> 00:12:12,861
+and it's inconvenient to write
+150,150,150
+
+221
+00:12:12,861 --> 00:12:16,090
+so one of the things that you
+can do is also call all these functions
+
+222
+00:12:16,090 --> 00:12:20,331
+background(), stroke() and fill()
+with only a single argument!
+
+223
+00:12:20,331 --> 00:12:23,394
+If you use a single argument
+you get the greyscale color.
+
+224
+00:12:23,394 --> 00:12:24,860
+So that's an important thing.
+
+225
+00:12:24,860 --> 00:12:27,589
+The other thing I should mention,
+
+226
+00:12:27,589 --> 00:12:29,244
+kind of briefly,
+
+227
+00:12:29,244 --> 00:12:32,413
+but we'll have to dive in a little more,
+
+228
+00:12:32,413 --> 00:12:34,349
+these functions,
+
+229
+00:12:34,349 --> 00:12:37,121
+we looked at how these functions
+always take 3 arguments,
+
+230
+00:12:37,121 --> 00:12:39,708
+and now we saw how they
+could take one argument.
+
+231
+00:12:39,708 --> 00:12:42,388
+There's another possibility!
+
+232
+00:12:42,388 --> 00:12:45,289
+They can also take 4 arguments.
+
+233
+00:12:45,289 --> 00:12:50,878
+And that last argument 
+is transparency.
+
+234
+00:12:50,878 --> 00:12:52,941
+Sometimes referred to as 'alpha'.
+
+235
+00:12:52,941 --> 00:12:54,537
+Transparency.
+
+236
+00:12:54,537 --> 00:12:57,472
+All the colors have been fully opaque,
+
+237
+00:12:57,472 --> 00:12:59,138
+so when you put a shape
+on top of another shape
+
+238
+00:12:59,138 --> 00:13:00,909
+it completely blocks out the other shape.
+
+239
+00:13:00,909 --> 00:13:03,234
+But if you want to create the illusion
+of it being see-through,
+
+240
+00:13:03,234 --> 00:13:05,493
+you can add a 4th argument:
+
+241
+00:13:05,493 --> 00:13:08,637
+0 being completely see-through,
+you can't even see the color at all!,
+
+242
+00:13:08,637 --> 00:13:13,461
+255 being 100% opaque,
+that's what we've been doing already.
+
+243
+00:13:13,461 --> 00:13:15,588
+So let's look at that very briefly.
+
+244
+00:13:15,588 --> 00:13:18,329
+I think a nice play to see that
+would be with the head,
+
+245
+00:13:18,329 --> 00:13:20,722
+let's see what we got here ...
+
+246
+00:13:20,722 --> 00:13:23,657
+So remember how that head 
+was covering up this rectangle
+
+247
+00:13:23,657 --> 00:13:29,254
+What if I add a 4th argument 
+to the fill and I say like 100?
+
+248
+00:13:31,044 --> 00:13:35,033
+You can see now that that head 
+is now transparent.
+
+249
+00:13:35,033 --> 00:13:37,937
+So it has its own fill
+but you can see what's behind it.
+
+250
+00:13:37,937 --> 00:13:40,761
+There's obviously a ton of stuff
+that you could do with,
+
+251
+00:13:40,761 --> 00:13:42,586
+colors, and combining,
+and shapes, in a million
+
+252
+00:13:42,586 --> 00:13:44,230
+different ways.
+Hopefully this gives you
+
+253
+00:13:44,230 --> 00:13:47,957
+a basic start and what I would say is
+if you were working on a design
+
+254
+00:13:47,957 --> 00:13:50,813
+that you have done after watching
+a previous video,
+
+255
+00:13:50,813 --> 00:13:52,521
+now try to add some color with it!
+
+256
+00:13:52,521 --> 00:13:56,717
+And again, just to mention, what I would
+recommend you do ...
+
+257
+00:14:00,367 --> 00:14:03,680
+is go to p5js, go to 'reference',
+
+258
+00:14:03,680 --> 00:14:06,217
+go to 'color'
+
+259
+00:14:10,267 --> 00:14:14,441
+and you can see 
+here are the functions
+
+260
+00:14:14,441 --> 00:14:15,813
+that you might want to take a look at.
+
+261
+00:14:15,813 --> 00:14:18,605
+fill(), stroke(), background(),
+by the way,
+
+262
+00:14:18,605 --> 00:14:24,237
+noFill(), if you want to have no color
+for the interior of your shape,
+
+263
+00:14:24,237 --> 00:14:26,268
+noStroke() if you don't want
+to have an outline,
+
+264
+00:14:26,268 --> 00:14:29,770
+colorMode(), that's that function
+I was kind of mentioning you could
+
+265
+00:14:29,770 --> 00:14:33,365
+change the range, if you don't wanna
+have your colors between 0 and 255,
+
+266
+00:14:33,365 --> 00:14:34,574
+you wanna go between 0 and 100,
+
+267
+00:14:34,574 --> 00:14:37,138
+there's also other ways of 
+thinking about color,
+
+268
+00:14:37,138 --> 00:14:38,896
+you can dive into that a bit yourself
+
+269
+00:14:38,896 --> 00:14:42,220
+but again, the nice thing about 
+working with p5 is you can go
+
+270
+00:14:42,220 --> 00:14:44,625
+here and you can just hit 'edit'
+
+271
+00:14:44,625 --> 00:14:47,454
+and you can play around 
+and say: ok, this is greyscale,
+
+272
+00:14:47,454 --> 00:14:50,854
+and I'm gonna change it to RGB,
+
+273
+00:14:50,854 --> 00:14:51,926
+and run it,
+
+274
+00:14:51,926 --> 00:14:52,917
+and see what I get ...
+
+275
+00:14:52,917 --> 00:14:57,483
+but you can see there is lots 
+of different ways you can do color
+
+276
+00:14:57,483 --> 00:15:01,549
+actually in p5 and I barely just
+scratched the surface of it!
+
+277
+00:15:01,549 --> 00:15:04,460
+Ok, but this has got to be the end of this video!
+
+278
+00:15:04,460 --> 00:15:06,145
+15 minutes long, 
+which is a very long time,
+
+279
+00:15:06,145 --> 00:15:08,389
+in the Internet world,
+
+280
+00:15:08,389 --> 00:15:12,517
+and I'm gonna eat some lunch now
+before I fall over!
+
+281
+00:15:12,517 --> 00:15:15,049
+Ok, have a good rest of your day!
+
+282
+00:15:15,049 --> 00:15:16,740
+And I'll be back for more later.

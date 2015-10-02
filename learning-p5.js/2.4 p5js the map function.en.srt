@@ -1,0 +1,716 @@
+1
+00:00:02,406 --> 00:00:09,969
+Hi! So this video I'm making is about
+a function in p5js called map().
+
+2
+00:00:09,969 --> 00:00:15,136
+So there is a very common scenario
+that comes up over and over again
+
+3
+00:00:15,136 --> 00:00:18,978
+in programming graphics, 
+programming interaction,
+
+4
+00:00:18,978 --> 00:00:22,200
+working with data, 
+there is so many places where
+
+5
+00:00:22,200 --> 00:00:26,280
+this scenario comes up
+and so this particular function map()
+
+6
+00:00:26,280 --> 00:00:30,100
+is a nice resolution to this problem.
+
+7
+00:00:30,100 --> 00:00:33,103
+Let me give you a simple version
+of this problem:
+
+8
+00:00:33,103 --> 00:00:36,280
+so let's say we have a canvas,
+
+9
+00:00:38,520 --> 00:00:41,635
+and the canvas has a background color
+
+10
+00:00:43,655 --> 00:00:45,897
+and what you want is
+for this background color
+
+11
+00:00:45,897 --> 00:00:50,427
+to sometimes be black 
+and sometimes be white.
+
+12
+00:00:50,427 --> 00:00:52,605
+So when it's black
+
+13
+00:00:53,155 --> 00:00:56,364
+the color you should put 
+in the background function
+
+14
+00:00:59,294 --> 00:01:00,635
+is 0.
+
+15
+00:01:01,185 --> 00:01:05,895
+When it is white, the color 
+you should put in the background function
+
+16
+00:01:05,895 --> 00:01:07,092
+is 255.
+
+17
+00:01:07,092 --> 00:01:11,927
+So we can say, together, 
+the range for the background function
+
+18
+00:01:11,927 --> 00:01:17,896
+that I want in this particular program
+is a number between 0 and 255.
+
+19
+00:01:17,896 --> 00:01:19,769
+So really a variable might go here
+
+20
+00:01:19,769 --> 00:01:22,560
+like, uh, we'll call it 'col'
+
+21
+00:01:22,560 --> 00:01:26,091
+and 'col' should have a range
+between 0 and 255.
+
+22
+00:01:26,091 --> 00:01:28,801
+Now, how do I want that
+value to be chosen?
+
+23
+00:01:28,801 --> 00:01:31,332
+When should it be black
+and when should it be white?
+
+24
+00:01:31,332 --> 00:01:32,529
+What I would like is:
+
+25
+00:01:32,529 --> 00:01:36,497
+when the mouse pointer is
+at this side of the screen
+
+26
+00:01:36,497 --> 00:01:38,428
+I want the background to be black,
+
+27
+00:01:38,428 --> 00:01:41,155
+and when the mouse pointer is
+at this side of the screen
+
+28
+00:01:41,155 --> 00:01:43,219
+I want the background to be white.
+
+29
+00:01:43,219 --> 00:01:46,497
+So I would like to create a scenario
+where I move the mouse
+
+30
+00:01:46,497 --> 00:01:49,560
+left and right, left and right,
+and I see the background
+
+31
+00:01:49,560 --> 00:01:54,186
+shift from black all the way to white,
+down to grey, darker grey,
+
+32
+00:01:54,186 --> 00:01:56,289
+down to black etc etc.
+
+33
+00:01:56,289 --> 00:01:58,187
+So this is what we want to program.
+
+34
+00:01:59,077 --> 00:02:05,289
+Now let's say this canvas has
+dimensions of 600x400.
+
+35
+00:02:05,289 --> 00:02:09,416
+So mouseX is a variable, if you've
+been watching these videos in sequence
+
+36
+00:02:09,416 --> 00:02:19,081
+[ramble]
+
+37
+00:02:19,081 --> 00:02:21,707
+so if these are the dimensions 
+of the canvas
+
+38
+00:02:21,707 --> 00:02:27,436
+we know that mouseX has a range
+that goes between 0 and 600.
+
+39
+00:02:27,436 --> 00:02:40,600
+[ramble]
+
+40
+00:02:40,600 --> 00:02:43,904
+And the background color we want
+to have a range between 0 and 255.
+
+41
+00:02:43,904 --> 00:02:48,695
+So we need to take this value, with 
+this range, and what we wanna do
+
+42
+00:02:48,695 --> 00:02:51,777
+is map it to this range.
+
+43
+00:02:51,777 --> 00:02:55,393
+When mouseX=0, 
+background color = 0.
+
+44
+00:02:55,393 --> 00:02:59,393
+When mouseX = 600,
+background color = 255.
+
+45
+00:02:59,393 --> 00:03:02,227
+That's kinda like, let's start doing
+that a little bit for a moment
+
+46
+00:03:02,227 --> 00:03:04,019
+without the map function at all.
+
+47
+00:03:05,779 --> 00:03:09,184
+Ok, so here's the program ... I'm actually
+gonna simplify this for a second.
+
+48
+00:03:10,724 --> 00:03:12,944
+var col = 0;
+
+49
+00:03:12,944 --> 00:03:16,268
+I'm gonna say: background color
+contains 'col',
+
+50
+00:03:16,268 --> 00:03:17,539
+and you can see this!
+
+51
+00:03:17,539 --> 00:03:20,848
+So we can see here I am running
+this program, this ellipse
+
+52
+00:03:20,848 --> 00:03:23,608
+is being drawn where the mouse is,
+so we can see, and the background
+
+53
+00:03:23,608 --> 00:03:25,172
+is being color according to that variable (col).
+
+54
+00:03:25,172 --> 00:03:27,837
+The background color is not changing
+because I set it equal to 0,
+
+55
+00:03:27,837 --> 00:03:29,463
+and I never changed it.
+
+56
+00:03:29,463 --> 00:03:31,933
+So now I could try to do some math,
+
+57
+00:03:31,933 --> 00:03:35,578
+like I could just say: 
+col = mouseX;
+
+58
+00:03:35,578 --> 00:03:37,368
+why not? that's pretty good.
+
+59
+00:03:37,368 --> 00:03:40,077
+Whatever the value of mouseX is 
+set the background color to that!
+
+60
+00:03:40,077 --> 00:03:41,558
+So let's see what happens.
+
+61
+00:03:41,558 --> 00:03:42,964
+I'm gonna run this.
+
+62
+00:03:42,964 --> 00:03:45,767
+Look it's working ...
+it's changing but it's already white!
+
+63
+00:03:45,767 --> 00:03:49,579
+Why? Because as soon as I get 
+to the pixel 255
+
+64
+00:03:49,579 --> 00:03:52,764
+that's the full whiteness!
+
+65
+00:03:53,584 --> 00:03:55,928
+So I am not getting this perfect mapping,
+
+66
+00:03:55,928 --> 00:03:59,556
+it's kinda like working but it's
+not exactly right.
+
+67
+00:03:59,556 --> 00:04:01,960
+So I could be approximate, 
+I can say: ok, let's,
+
+68
+00:04:01,960 --> 00:04:05,992
+the canvas is 600 pixels wide, 
+why don't I divide by 2?
+
+69
+00:04:05,992 --> 00:04:09,620
+That's pretty good ... 
+600, or whatever the mouseX is,
+
+70
+00:04:09,620 --> 00:04:11,784
+divide it by 2, that's 
+getting me pretty close
+
+71
+00:04:11,784 --> 00:04:14,524
+It actually kinda looks like it's working
+
+72
+00:04:14,524 --> 00:04:18,056
+and we kind of solved the problem
+but here's the thing:
+
+73
+00:04:18,056 --> 00:04:21,980
+this problem that we have just
+barely solved over there
+
+74
+00:04:21,980 --> 00:04:24,880
+this is a very simplistic view of it.
+
+75
+00:04:24,880 --> 00:04:28,075
+But there's a lot of times where you
+have a sensor, like data coming in
+
+76
+00:04:28,075 --> 00:04:33,189
+from some sensor and the range is between,
+you know, 321 and 1057,
+
+77
+00:04:33,189 --> 00:04:37,949
+and then you wanna map that range 
+to some other set of values
+
+78
+00:04:37,949 --> 00:04:41,783
+and actually that other set of values
+has a range between 20 and 35
+
+79
+00:04:41,783 --> 00:04:43,657
+and the math is a little bit trickier.
+
+80
+00:04:43,657 --> 00:04:46,721
+Or perhaps you want to take a value
+that goes between 0 and 200
+
+81
+00:04:46,721 --> 00:04:50,752
+and invert that and map that between 
+200 down to 0.
+
+82
+00:04:50,752 --> 00:04:52,848
+So there's a lot of more complex scenarios.
+
+83
+00:04:52,848 --> 00:04:58,835
+The map function is a general function
+that will take any range and map
+
+84
+00:04:58,835 --> 00:05:02,241
+a value inside that range to
+a new value in any other range.
+
+85
+00:05:02,241 --> 00:05:05,307
+So, let's take a look ...
+
+86
+00:05:06,177 --> 00:05:08,581
+... how that works in this context.
+
+87
+00:05:12,031 --> 00:05:16,001
+So, first of all, what do I mean by function?
+
+88
+00:05:16,001 --> 00:05:22,230
+So already you know, hopefully,
+about calling functions in p5, right?
+
+89
+00:05:22,230 --> 00:05:28,919
+You might have done this:
+line() is a function that takes 4 arguments.
+
+90
+00:05:28,919 --> 00:05:31,437
+1, 2, 3, 4 ... and what does it do?
+
+91
+00:05:31,437 --> 00:05:36,160
+It draws a line from a point 100,100
+to a point 50,50. Done.
+
+92
+00:05:36,160 --> 00:05:40,096
+So map() is the same thing:
+it's a function that takes
+
+93
+00:05:40,096 --> 00:05:43,887
+some amount of arguments.
+It's actually gonna be 5 arguments.
+
+94
+00:05:43,887 --> 00:05:50,824
+[ramble]
+
+95
+00:05:50,824 --> 00:05:56,855
+map() it takes 5 arguments: 1,2,3,4,5.
+
+96
+00:05:56,855 --> 00:05:57,989
+Can you see all those? Yes.
+
+97
+00:05:57,989 --> 00:06:01,919
+Ok, this seems like: oh, boy, 
+5 arguments! that's terrifying!
+
+98
+00:06:01,919 --> 00:06:03,311
+But actually it's not so bad.
+
+99
+00:06:03,311 --> 00:06:09,875
+So, remember: I have a range
+that goes between 0 and 600,
+
+100
+00:06:09,875 --> 00:06:15,237
+this is the range we know that
+mouseX is, and I wanna map
+
+101
+00:06:15,237 --> 00:06:19,635
+this range to a range between 0 and 255,
+
+102
+00:06:19,635 --> 00:06:22,896
+which is what I want to assign
+to my variable 'col'.
+
+103
+00:06:23,806 --> 00:06:28,422
+So the arguments that map() requires
+are the following:
+
+104
+00:06:28,422 --> 00:06:36,655
+what is the minimum and maximum 
+of my current range? 0 to 600.
+
+105
+00:06:36,655 --> 00:06:44,737
+What is the minimum and maximum
+of my new range? 0 to 255.
+
+106
+00:06:44,737 --> 00:06:47,997
+And what is the value that has this range,
+
+107
+00:06:47,997 --> 00:06:53,333
+which I want to map to the new range?
+Well, in this case it's mouseX.
+
+108
+00:06:53,333 --> 00:06:59,561
+So I want to map mouseX, which I know
+has this range, that's the x values,
+
+109
+00:06:59,561 --> 00:07:02,688
+and I want to map it to
+this range between 0 and 255
+
+110
+00:07:02,688 --> 00:07:03,865
+for the purpose of color.
+
+111
+00:07:03,865 --> 00:07:06,093
+And then when I map it,
+what do I do with it?
+
+112
+00:07:06,093 --> 00:07:13,384
+I want to take the result of that mapping
+and assign the result to my variable 'col'.
+
+113
+00:07:13,384 --> 00:07:17,124
+So this is what's actually something
+quite new about this map() function.
+
+114
+00:07:17,904 --> 00:07:21,757
+The line() function performs a task:
+
+115
+00:07:21,757 --> 00:07:24,852
+line! it draws a line in the canvas.
+
+116
+00:07:27,672 --> 00:07:31,916
+The map() function actually performs
+a calculation and answers a question,
+
+117
+00:07:31,916 --> 00:07:35,176
+it resolves to a single number,
+so I can use that number
+
+118
+00:07:35,176 --> 00:07:38,208
+and assign it back to this variable, ok?
+
+119
+00:07:38,208 --> 00:07:42,143
+So this is kind of a new concept.
+Let's go try to do it in this program.
+
+120
+00:07:42,143 --> 00:07:49,676
+So instead of my goofy-like math here, 
+mouseX/2,
+
+121
+00:07:49,676 --> 00:07:52,207
+what I wanna do now 
+is use that map() function.
+
+122
+00:07:52,207 --> 00:07:54,740
+So I'm gonna go over here 
+and I'm gonna say:
+
+123
+00:07:54,740 --> 00:08:02,468
+map(mouseX, 0, 600, ...
+(oops, I'm gonna zoom back out)
+
+124
+00:08:02,468 --> 00:08:07,777
+and give me a new value within 
+a new range between 0 and 255.
+
+125
+00:08:07,777 --> 00:08:10,726
+So here: mouseX between 0 and 600
+
+126
+00:08:10,726 --> 00:08:12,777
+give me a range between 0 and 255,
+
+127
+00:08:12,777 --> 00:08:14,537
+and assign that to this variable 'col',
+
+128
+00:08:14,537 --> 00:08:16,568
+which I'm then gonna use in background().
+
+129
+00:08:16,568 --> 00:08:18,259
+and watch this ...
+
+130
+00:08:18,259 --> 00:08:21,777
+we can see all the way, 
+perfectly white at pixel 600,
+
+131
+00:08:21,777 --> 00:08:23,466
+perfectly black at pixel 0.
+
+132
+00:08:24,166 --> 00:08:26,371
+Let's have a little more fun with this!
+
+133
+00:08:26,371 --> 00:08:28,726
+Uh, fun is all relative, of course.
+
+134
+00:08:28,726 --> 00:08:32,664
+Let's give ourselves two more variables,
+
+135
+00:08:36,004 --> 00:08:40,665
+so I'm gonna make a variable 'r' and 'b',
+r for red, b for blue,
+
+136
+00:08:40,665 --> 00:08:44,989
+and what I'm going to do is
+I'm going to set the red value
+
+137
+00:08:44,989 --> 00:08:48,633
+equal to that mapping, 
+so you can see now ...
+
+138
+00:08:50,233 --> 00:08:57,520
+blue is at 255, red is at 0,
+and r is getting that mapping with mouseX,
+
+139
+00:08:57,520 --> 00:09:01,601
+so as I move to the right
+I get more pink and purple,
+
+140
+00:09:01,601 --> 00:09:04,102
+all the way back more blue,
+
+141
+00:09:04,102 --> 00:09:06,037
+and here's something interesting
+that I could do with map()
+
+142
+00:09:06,037 --> 00:09:08,455
+let's also map the blue value
+
+143
+00:09:10,255 --> 00:09:16,537
+but instead of saying: when the mouse is at 0, 
+the blue is at 0,
+
+144
+00:09:16,537 --> 00:09:20,360
+when the mouse is at 600, 
+the blue is at 255, let's do the reverse!
+
+145
+00:09:20,360 --> 00:09:23,987
+Let's say that when the mouse it at 0
+we have 255 blue,
+
+146
+00:09:23,987 --> 00:09:27,392
+and when the mouse it all the way
+the other side we have 0 blue.
+
+147
+00:09:27,392 --> 00:09:31,424
+So we can also invert that range,
+which is great that map will do that for us.
+
+148
+00:09:31,424 --> 00:09:36,480
+And ... all the way we can see 
+I get all the way red,
+
+149
+00:09:36,480 --> 00:09:39,456
+all the way blue, and in the middle 
+I've got red and blue together.
+
+150
+00:09:39,456 --> 00:09:45,184
+So, and also by the way, 
+you might take this exercise
+
+151
+00:09:45,184 --> 00:09:48,476
+maybe add mouseY to it, 
+try to map mouseY,
+
+152
+00:09:48,476 --> 00:09:51,349
+there's all sorts of possible things
+you can do with this.
+
+153
+00:09:51,349 --> 00:09:53,817
+So hopefully that gives you a bit 
+of a sense of the map() function
+
+154
+00:09:56,137 --> 00:09:58,583
+and that you found that useful, possibly.
+
+155
+00:09:58,603 --> 00:09:59,745
+Ok, I'm gonna stop this.

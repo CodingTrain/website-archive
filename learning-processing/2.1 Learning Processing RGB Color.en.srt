@@ -1,0 +1,1802 @@
+1
+00:00:00,870 --> 00:00:08,048
+So this third video [inintelligible] 
+forget about the numbers!
+
+2
+00:00:08,048 --> 00:00:11,110
+I'll number them,
+I can't keep track of anything
+
+3
+00:00:11,120 --> 00:00:17,219
+[ramble]
+but ok, so
+
+4
+00:00:17,219 --> 00:00:19,595
+I forgot a couple of things 
+in the previous video that
+
+5
+00:00:19,595 --> 00:00:21,145
+I'm just gonna kind of fill in right here.
+
+6
+00:00:21,145 --> 00:00:23,023
+One is, and I think I showed you this
+
+7
+00:00:23,023 --> 00:00:27,333
+in one of the introductory videos
+about Processing but you should take note
+
+8
+00:00:27,369 --> 00:00:30,649
+of the fact that Processing comes with
+a huge amount of examples
+
+9
+00:00:31,061 --> 00:00:35,205
+So I also encourage you when you're 
+beginning to just go through
+
+10
+00:00:35,205 --> 00:00:39,116
+some of these basic examples - 
+particularly 'form' here
+
+11
+00:00:39,116 --> 00:00:43,635
+you might kind of like ... well, this actually
+has a lot of stuff that we haven't learned yet
+
+12
+00:00:43,635 --> 00:00:46,651
+but you can get kind of a sense 
+what is possible to draw in Processing
+
+13
+00:00:46,651 --> 00:00:50,170
+You might find that useful just to poke
+through a bunch of the examples
+
+14
+00:00:50,170 --> 00:00:51,388
+and see what they do.
+
+15
+00:00:51,388 --> 00:00:54,431
+The other couple things 
+I wanted to mention
+
+16
+00:00:54,431 --> 00:01:01,028
+is that Processing, in addition to having that
+reference, that I showed you on the website,
+
+17
+00:01:01,028 --> 00:01:08,399
+you can also here under 'Help'
+
+18
+00:01:08,399 --> 00:01:10,719
+if you are not online, you can actually
+
+19
+00:01:15,843 --> 00:01:16,415
+get the reference by just clicking this,
+it's going to open the reference page.
+
+20
+00:01:17,361 --> 00:01:19,706
+Processing downloads with the reference as well.
+
+21
+00:01:19,706 --> 00:01:21,161
+So you can actually, from the development 
+environment itself,
+
+22
+00:01:21,161 --> 00:01:23,247
+look up stuff in the reference as well.
+
+23
+00:01:23,247 --> 00:01:31,737
+The last thing that I want to mention is 
+that you might have noticed
+
+24
+00:01:31,737 --> 00:01:35,204
+that text is turning different colors.
+
+25
+00:01:35,204 --> 00:01:41,728
+If I, by accident, delete this 'e',
+we can see that the 'lin' is in black
+
+26
+00:01:41,728 --> 00:01:47,006
+and if I add the 'e' in lowercase it's in blue.
+
+27
+00:01:47,006 --> 00:01:48,994
+So the Processing development environment
+
+28
+00:01:48,994 --> 00:01:51,207
+will color the text that you are writing
+
+29
+00:01:51,207 --> 00:01:55,646
+in different colors just as a little way of 
+helping you along
+
+30
+00:01:55,646 --> 00:02:00,464
+to see that you're spelling things right
+
+31
+00:02:00,464 --> 00:02:03,372
+and what's a known word and what's
+an unknown word
+
+32
+00:02:03,372 --> 00:02:06,617
+but those colors have nothing to do 
+with how you program executes.
+
+33
+00:02:06,617 --> 00:02:09,931
+It's just a visual help to see that you've spelled
+things wrong.
+
+34
+00:02:09,931 --> 00:02:13,856
+So one thing that you might notice 
+when I run this it's gonna say:
+
+35
+00:02:13,856 --> 00:02:18,540
+'The function lin() does not exist'
+because it doesn't exist!
+
+36
+00:02:18,540 --> 00:02:24,564
+But the function line() does exist in Processing
+and I would correct that by typing an 'e'.
+
+37
+00:02:24,564 --> 00:02:32,901
+Ok ...[ramble] ... back to color!
+
+38
+00:02:32,901 --> 00:02:39,664
+[ramble]
+
+39
+00:02:39,664 --> 00:02:42,664
+... so what we've done so far is
+
+40
+00:02:42,664 --> 00:02:46,118
+we've learned about downloading 
+Processing, running Processing,
+
+41
+00:02:46,118 --> 00:02:51,144
+we understand about a computer graphics 
+window, x-axis, y-axis, where the pixels are,
+
+42
+00:02:51,144 --> 00:02:54,742
+we got a sense of different functions 
+we can use to draw to the window
+
+43
+00:02:54,742 --> 00:02:58,392
+but ... what about color?
+
+44
+00:02:58,392 --> 00:03:04,817
+So one thing you'll notice
+if we go back and run this program -
+
+45
+00:03:05,657 --> 00:03:09,421
+you'll notice that the line is black,
+
+46
+00:03:09,438 --> 00:03:12,177
+the rectangle seems to be white but 
+maybe has a black out line,
+
+47
+00:03:12,177 --> 00:03:15,090
+and the back of the window itself is just 
+kind of this grey color.
+
+48
+00:03:15,090 --> 00:03:17,626
+So we've never specified a single color
+
+49
+00:03:17,626 --> 00:03:19,223
+for anything. we didn't say 
+draw a red line,
+
+50
+00:03:19,223 --> 00:03:20,531
+we didn't say draw a blue line,
+
+51
+00:03:20,531 --> 00:03:27,944
+we didn't say draw a rectangle
+with a blue filling and a red outline.
+
+52
+00:03:27,944 --> 00:03:31,570
+Processing just decided to use default colors
+
+53
+00:03:31,570 --> 00:03:33,700
+which you can see are just black and white
+because we didn't specify.
+
+54
+00:03:33,722 --> 00:03:35,862
+but now is the moment that we can start
+
+55
+00:03:35,862 --> 00:03:38,275
+to look at how to specify colors.
+
+56
+00:03:40,280 --> 00:03:42,770
+ok, so how do we do that?
+
+57
+00:03:42,770 --> 00:03:45,147
+So one thing that we should be aware of
+
+58
+00:03:45,147 --> 00:03:46,545
+is that any shape in Processing,
+
+59
+00:03:46,545 --> 00:03:53,700
+take a rectangle, for example,
+
+60
+00:03:53,700 --> 00:04:03,356
+it has both an outline, which we should
+really call a 'stroke',
+
+61
+00:04:03,363 --> 00:04:06,532
+and it has also an interior,
+
+62
+00:04:06,532 --> 00:04:11,130
+which we will call a 'fill'.
+
+63
+00:04:11,130 --> 00:04:13,460
+So 'fill' and 'stroke' are the key words,
+
+64
+00:04:13,460 --> 00:04:16,464
+the function names, 
+that set color in Processing
+
+65
+00:04:16,464 --> 00:04:19,243
+for the outline and the interior of a shape.
+
+66
+00:04:19,243 --> 00:04:23,436
+Now a line has no fill
+because a line only has a stroke.
+
+67
+00:04:23,436 --> 00:04:29,094
+But an ellipse or a rectangle
+has both a stroke, the outline, and a fill.
+
+68
+00:04:29,324 --> 00:04:41,704
+[ramble]
+
+69
+00:04:41,874 --> 00:04:43,346
+So how does this work?
+
+70
+00:04:43,346 --> 00:04:46,210
+Let's say that we have a program which draws
+
+71
+00:04:46,210 --> 00:04:52,650
+a rectangle at 200,150, with 
+a width of 50, and a height of 35 pixels.
+
+72
+00:04:52,662 --> 00:04:57,072
+So this is our program that we are writing.
+
+73
+00:04:57,088 --> 00:04:58,498
+...maybe kind of erase this.
+
+74
+00:04:58,498 --> 00:05:01,331
+How do we set that rectangle's color?
+
+75
+00:05:01,331 --> 00:05:05,114
+The way we set a shape's color
+is by setting the fill or stroke
+
+76
+00:05:05,364 --> 00:05:10,364
+with the lines of code 
+in advance of saying 'rect()'
+
+77
+00:05:10,364 --> 00:05:12,471
+So the order of operations really matters!
+
+78
+00:05:12,471 --> 00:05:16,320
+What we're doing is almost like 
+the Processing program is running
+
+79
+00:05:16,320 --> 00:05:19,512
+and there's like a thing with a pen there
+and it reads:
+
+80
+00:05:19,512 --> 00:05:23,971
+Oh, uhm, stroke blue! Oh, quick,
+let me go get a blue pen!
+
+81
+00:05:23,971 --> 00:05:27,988
+or a red one. Whenever I get to rect() 
+I will draw it with red.
+
+82
+00:05:27,988 --> 00:05:32,580
+And if it says 'stroke black' it'll 
+suddenly switch and get the black pen again!
+
+83
+00:05:32,580 --> 00:05:37,391
+So it's reading the code step by step
+and setting the stroke, setting the fill,
+
+84
+00:05:37,391 --> 00:05:39,660
+for whatever that next shape 
+is going to be.
+
+85
+00:05:39,660 --> 00:05:44,741
+So if I were to say: stroke ...
+
+86
+00:05:44,931 --> 00:05:47,368
+We need some arguments, right?
+
+87
+00:05:47,368 --> 00:05:50,368
+How do we define the arguments for a color?
+
+88
+00:05:50,368 --> 00:05:53,165
+...and we need a fill.
+
+89
+00:05:53,732 --> 00:05:55,607
+So that's a big question!
+
+90
+00:05:55,607 --> 00:05:59,230
+We can see that what we're ultimately
+going to do is we might say:
+
+91
+00:05:59,230 --> 00:06:05,392
+Hey, I wanna have some sort of 
+color - stroke - for the line,
+
+92
+00:06:05,392 --> 00:06:11,920
+and some sort of stroke, 
+and some sort of fill,
+
+93
+00:06:11,920 --> 00:06:14,000
+for that rectangle, right?
+
+94
+00:06:14,000 --> 00:06:17,513
+I wanna give the line a stroke, 
+the rectangle a stroke and a fill.
+
+95
+00:06:17,513 --> 00:06:20,599
+But what are those arguments?
+What are those arguments?
+
+96
+00:06:20,607 --> 00:06:22,930
+How do we define color?
+
+97
+00:06:22,930 --> 00:06:31,154
+[ramble]
+
+98
+00:06:31,154 --> 00:06:36,172
+So first of all there are lots of ways
+to think about color.
+
+99
+00:06:36,172 --> 00:06:39,594
+You might, sometime in your life,
+have done finger-painting,
+
+100
+00:06:39,594 --> 00:06:41,790
+and you had like some primary colors 
+and you could mix them,
+
+101
+00:06:41,790 --> 00:06:46,439
+and get others colors,
+that's a nice way to start thinking!
+
+102
+00:06:46,439 --> 00:06:51,681
+So that's kind of what we're going to do,
+but we are not going to use those ...
+
+103
+00:06:51,681 --> 00:06:57,209
+[ramble]
+
+104
+00:06:57,209 --> 00:07:00,030
+We're going to mix colors,
+but we're going to mix digital color
+
+105
+00:07:00,030 --> 00:07:02,901
+and digital color follows 
+the properties of light.
+
+106
+00:07:02,901 --> 00:07:07,163
+So we need a little bit of red - 
+some amount of red,
+
+107
+00:07:07,163 --> 00:07:10,315
+some amount of green, 
+and some amount of blue.
+
+108
+00:07:10,315 --> 00:07:13,665
+and all of those together will give us a color!
+
+109
+00:07:13,754 --> 00:07:15,235
+So that's what we're going to do.
+
+110
+00:07:15,235 --> 00:07:18,641
+So we need three arguments,
+
+111
+00:07:18,641 --> 00:07:23,081
+and this is what's known as RGB color.
+
+112
+00:07:23,081 --> 00:07:35,181
+[ramble]
+
+113
+00:07:35,611 --> 00:07:39,293
+I wanna mention that we're not gonna 
+get into all of this right now, but
+
+114
+00:07:39,313 --> 00:07:41,825
+Processing allows you to 
+define color in many ways.
+
+115
+00:07:41,825 --> 00:07:44,038
+You can define color based on 
+something called
+
+116
+00:07:44,038 --> 00:07:45,697
+hue, saturation, brightness.
+
+117
+00:07:45,697 --> 00:07:49,305
+You can define color with all sorts of 
+different amounts of ranges,
+
+118
+00:07:49,305 --> 00:07:50,799
+but what we're going to look at
+
+119
+00:07:50,799 --> 00:07:53,169
+is the default way that color works,
+
+120
+00:07:53,169 --> 00:07:56,976
+it's the best way to get started and kind of just
+try stuff out, although I think that
+
+121
+00:07:57,001 --> 00:07:59,553
+looking at hue, saturation, brightness
+is kind of important.
+
+122
+00:07:59,553 --> 00:08:01,662
+That's probably its own video though.
+
+123
+00:08:01,662 --> 00:08:05,442
+The default way is, again, 
+red, green and blue.
+
+124
+00:08:05,442 --> 00:08:10,943
+So the ranges for each one 
+of these values is 0 to 255.
+
+125
+00:08:10,943 --> 00:08:15,755
+So if we say '0 red'
+then that's NO red.
+
+126
+00:08:15,755 --> 00:08:20,869
+If we say '255 red'
+that's A LOT of red, right?
+
+127
+00:08:20,869 --> 00:08:26,526
+So you can imagine what is this color -
+0,255,0
+
+128
+00:08:26,526 --> 00:08:29,957
+if this is, again, RGB color
+and we're saying the fill
+
+129
+00:08:29,957 --> 00:08:32,186
+what would this color be?
+
+130
+00:08:32,186 --> 00:08:37,141
+No red, no blue, but turn
+the green switch all the way on!
+
+131
+00:08:37,141 --> 00:08:39,509
+So that's a green color, right?
+
+132
+00:08:39,509 --> 00:08:43,379
+Let's go take a look at that, 
+to just prove that this works.
+
+133
+00:08:43,379 --> 00:08:46,765
+If I make the interior of this 
+rectangle green
+
+134
+00:08:46,765 --> 00:08:52,689
+and the stroke of the rectangle
+I'm going to say is red
+
+135
+00:08:52,689 --> 00:08:56,070
+and I'm gonna have the stroke of the line,
+just so that we see all three of these,
+
+136
+00:08:56,070 --> 00:08:59,987
+as blue, and we run it again
+we can see now:
+
+137
+00:08:59,987 --> 00:09:05,565
+aha, we have a green rectangle
+with a red outline and a blue line.
+
+138
+00:09:05,565 --> 00:09:09,338
+Why? we have all of that because
+that's what we specified
+
+139
+00:09:09,338 --> 00:09:12,856
+with stroke:
+0 red, 0 green, 255 blue, right?
+
+140
+00:09:12,960 --> 00:09:16,345
+So obviously, 
+this is just sort of a very basic
+
+141
+00:09:16,345 --> 00:09:20,127
+beginning of this, 
+and you might start to mix colors,
+
+142
+00:09:20,127 --> 00:09:25,135
+and imagine: what does
+green and red make
+
+143
+00:09:25,135 --> 00:09:28,635
+for the fill of that rectangle?
+Yellow!
+
+144
+00:09:28,635 --> 00:09:38,105
+So I'm a little color-challenged
+[ramble]
+
+145
+00:09:38,105 --> 00:09:40,335
+but I have a feeling that if you
+found your way here
+
+146
+00:09:40,335 --> 00:09:44,106
+you're interested in design,
+maybe you have some ideas yourself.
+
+147
+00:09:44,106 --> 00:09:49,235
+So what I would say here is this is
+kind of all I have ... in terms of color
+
+148
+00:09:49,235 --> 00:09:52,565
+I would encourage you to 
+start playing around.
+
+149
+00:09:52,573 --> 00:09:55,571
+You might have experience using Photoshop,
+or designing websites,
+
+150
+00:09:55,571 --> 00:09:57,766
+and you've done a lot of stuff
+with color already.
+
+151
+00:09:57,766 --> 00:10:00,586
+Processing actually, by the way, also allows you,
+
+152
+00:10:00,586 --> 00:10:02,674
+this is a bit of a digression,
+
+153
+00:10:02,674 --> 00:10:05,205
+to write your colors this way,
+
+154
+00:10:05,473 --> 00:10:10,559
+so if you've ever done color for
+the web with this hexadecimal notation,
+
+155
+00:10:10,559 --> 00:10:12,637
+you can also do that directly in Processing.
+
+156
+00:10:12,637 --> 00:10:16,567
+But I think I want to focus, really,
+
+157
+00:10:16,567 --> 00:10:21,002
+primarily on this idea of numbers:
+red, green, blue.
+
+158
+00:10:21,002 --> 00:10:22,771
+but ...
+
+159
+00:10:22,771 --> 00:10:26,643
+let me add, we're only at 6 or so minutes,
+
+160
+00:10:26,643 --> 00:10:28,929
+let me add a few more things 
+to this equation.
+
+161
+00:10:28,929 --> 00:10:30,530
+First of all, what if I
+
+162
+00:10:30,530 --> 00:10:35,998
+were to make the fill 
+255,255,255?
+
+163
+00:10:35,998 --> 00:10:39,201
+All the way red, all the way green,
+all the way blue.
+
+164
+00:10:39,201 --> 00:10:40,815
+What do you think you gonna get?
+
+165
+00:10:40,815 --> 00:10:42,469
+- jeopardy music playing -
+
+166
+00:10:42,469 --> 00:10:43,969
+you can run it and you're going to see
+
+167
+00:10:43,969 --> 00:10:46,818
+we have a white rectangle!
+
+168
+00:10:46,818 --> 00:10:49,793
+again, remember this is the properties of light,
+
+169
+00:10:49,793 --> 00:10:54,000
+so if we take all of red, all of green 
+and all of blue,
+
+170
+00:10:54,000 --> 00:10:55,863
+mix them together then we have white light!
+
+171
+00:10:55,863 --> 00:10:59,235
+If we turn all the lights off, 
+if every one of these values
+
+172
+00:10:59,235 --> 00:11:02,102
+is 0: 0,0,0 then we have black.
+
+173
+00:11:02,102 --> 00:11:04,791
+So we only have color
+
+174
+00:11:04,791 --> 00:11:08,668
+in all those sort of areas inbetween,
+so to speak
+
+175
+00:11:08,668 --> 00:11:11,606
+so one thing that I should say
+
+176
+00:11:11,606 --> 00:11:14,458
+is that
+
+177
+00:11:14,458 --> 00:11:19,895
+if you want to do white, right?
+
+178
+00:11:19,899 --> 00:11:25,249
+we said it's fill(255,255,255);
+
+179
+00:11:25,269 --> 00:11:28,969
+or black: (0,0,0);
+
+180
+00:11:28,969 --> 00:11:32,303
+Processing allows you to do something
+with a little bit of shorthand,
+
+181
+00:11:32,303 --> 00:11:35,329
+it would be very inconvenient to always
+have to put all three in there
+
+182
+00:11:35,329 --> 00:11:39,498
+So if you ever specify color 
+with one argument
+
+183
+00:11:39,498 --> 00:11:42,676
+instead of three, it will assume 
+what you meant to do was
+
+184
+00:11:42,676 --> 00:11:45,187
+to use that number for all three values.
+
+185
+00:11:45,187 --> 00:11:48,702
+so I can say:
+
+186
+00:11:48,702 --> 00:12:04,045
+[ramble]
+
+187
+00:12:04,052 --> 00:12:12,033
+I can say fill(255); 
+instead of fill(255,255,255);
+
+188
+00:12:12,033 --> 00:12:15,383
+and get the same result:
+a white rectangle.
+
+189
+00:12:15,383 --> 00:12:17,534
+Which is interesting to note
+because, by the way,
+
+190
+00:12:17,534 --> 00:12:19,837
+what if I say:
+fill(100); ?
+
+191
+00:12:22,663 --> 00:12:27,169
+Notice I have a grey color, a dark grey, 
+not black, because 0 would be black,
+
+192
+00:12:27,169 --> 00:12:29,902
+it turns out that greyscale color,
+by the way,
+
+193
+00:12:29,902 --> 00:12:31,793
+anything greyscale color
+
+194
+00:12:31,793 --> 00:12:36,399
+is a color where red = green = blue.
+
+195
+00:12:36,399 --> 00:12:41,508
+So (100,100,100) is 
+a slightly dark grey
+
+196
+00:12:41,508 --> 00:12:45,234
+that we could give a shorthand
+as just the argument '100'.
+
+197
+00:12:45,234 --> 00:12:48,633
+So we can both specify color as
+
+198
+00:12:48,633 --> 00:12:51,316
+a single value for a greyscale color,
+
+199
+00:12:51,316 --> 00:12:54,241
+or three values for red, green and blue.
+
+200
+00:12:54,241 --> 00:12:57,971
+Two more things I wanna touch on
+in this video:
+
+201
+00:12:57,971 --> 00:13:09,069
+[ramble]
+
+202
+00:13:09,069 --> 00:13:11,234
+So the other thing I wanna mention is
+
+203
+00:13:11,234 --> 00:13:15,562
+by the way, 
+there is a function called background()
+
+204
+00:13:19,322 --> 00:13:23,305
+which allows me to also set the color
+for the background.
+
+205
+00:13:23,305 --> 00:13:25,132
+So there is a black background
+
+206
+00:13:25,132 --> 00:13:27,775
+which I did using a single argument, 
+for greyscale
+
+207
+00:13:27,775 --> 00:13:33,213
+or, I could say: 0,255,0
+
+208
+00:13:33,213 --> 00:13:35,703
+and here's a green background
+with that color.
+
+209
+00:13:35,703 --> 00:13:39,271
+So the background() function 
+fills in the background
+
+210
+00:13:39,271 --> 00:13:42,953
+of your Processing sketch window
+with a color.
+
+211
+00:13:42,953 --> 00:13:45,135
+Now the other thing I should just 
+mention by the way
+
+212
+00:13:45,135 --> 00:13:46,908
+is I have been using the word 'program',
+
+213
+00:13:46,908 --> 00:13:48,941
+your 'application', 
+the 'Processing window',
+
+214
+00:13:48,941 --> 00:13:53,345
+'sketch', I wanna try to now consistently 
+use the word 'sketch'.
+
+215
+00:13:53,345 --> 00:13:56,910
+The word 'sketch' is kind of a word for
+a Processing program
+
+216
+00:13:56,910 --> 00:14:00,469
+we think of this, sort of folder
+of Processing programs
+
+217
+00:14:00,469 --> 00:14:01,795
+as your sketchbook, 
+for this idea that
+
+218
+00:14:01,795 --> 00:14:04,080
+one of the things that Processing 
+allows you to do
+
+219
+00:14:04,080 --> 00:14:06,172
+is very quickly sketch out ideas 
+through code.
+
+220
+00:14:06,172 --> 00:14:08,159
+So I'm just gonna say 
+your Processing sketch
+
+221
+00:14:08,159 --> 00:14:09,476
+now has a green background!
+
+222
+00:14:09,476 --> 00:14:11,399
+However here is something really important!
+
+223
+00:14:11,399 --> 00:14:14,179
+Order of operations is key, right?
+
+224
+00:14:14,179 --> 00:14:16,806
+Just because, what is background 
+actually doing?
+
+225
+00:14:16,806 --> 00:14:19,303
+It fills the screen with a single color!
+
+226
+00:14:19,303 --> 00:14:21,693
+Even though we think of the term 
+'background' as if it should
+
+227
+00:14:21,693 --> 00:14:22,901
+put it behind everything
+
+228
+00:14:22,901 --> 00:14:25,454
+but the order that this code executes
+is quite important!
+
+229
+00:14:25,467 --> 00:14:27,872
+What if I were to put
+background at the end?
+
+230
+00:14:27,872 --> 00:14:28,835
+What do you think is gonna happen?
+
+231
+00:14:28,835 --> 00:14:30,731
+Will it look the same? 
+Clearly no!
+
+232
+00:14:30,731 --> 00:14:32,010
+Otherwise why would I be doing this?
+
+233
+00:14:32,010 --> 00:14:34,545
+Look what happens: I don't see my 
+rectangle and line anymore.
+
+234
+00:14:34,545 --> 00:14:37,898
+Because it drew those lines, 
+drew the rectangle,
+
+235
+00:14:37,898 --> 00:14:40,699
+but then it drew the background 
+on top of it!
+
+236
+00:14:40,699 --> 00:14:45,885
+Once we start doing animation, 
+this idea of where the background goes
+
+237
+00:14:45,885 --> 00:14:48,845
+is going to be truly, truly key.
+
+238
+00:14:48,873 --> 00:14:51,309
+Ok, the other thing I should just 
+point out, by the way,
+
+239
+00:14:51,309 --> 00:14:58,037
+is that if I didn't set a stroke for
+this second rectangle, the stroke,
+
+240
+00:14:58,037 --> 00:15:02,145
+... of course, the background 
+at the end
+
+241
+00:15:02,145 --> 00:15:04,605
+the stroke from the line 
+will carry over,
+
+242
+00:15:04,605 --> 00:15:06,802
+which is very hard for you to see,
+but I can zoom in
+
+243
+00:15:06,802 --> 00:15:11,762
+You can see that both the line and
+(the border of) the rectangle are blue
+
+244
+00:15:11,762 --> 00:15:15,820
+that's because, remember when we set
+the stroke, it's the stroke value
+
+245
+00:15:15,820 --> 00:15:18,076
+for all shapes that are drawn afterwards
+
+246
+00:15:18,076 --> 00:15:21,596
+unless you override that stroke 
+with a new value.
+
+247
+00:15:21,596 --> 00:15:24,044
+I should also just point out:
+look how I am typing this,
+
+248
+00:15:24,044 --> 00:15:30,235
+the actual, these extra line breaks,
+and where I put the stroke and the fill,
+
+249
+00:15:30,235 --> 00:15:31,686
+none of that really matters!
+
+250
+00:15:31,686 --> 00:15:33,605
+I like to put these in little groups
+
+251
+00:15:33,605 --> 00:15:37,277
+cause I'm an obsessive coder who's like
+
+252
+00:15:37,277 --> 00:15:39,298
+ok, let me put size() and background() together,
+
+253
+00:15:39,298 --> 00:15:40,849
+then stroke() and line()
+then stroke(), fill() and rect()
+
+254
+00:15:40,849 --> 00:15:42,808
+I can read it, it makes sense
+
+255
+00:15:42,808 --> 00:15:47,936
+but ... truly, none of that matters
+
+256
+00:15:47,936 --> 00:15:49,789
+in fact this code
+
+257
+00:15:49,789 --> 00:15:53,825
+would execute exactly the same way,
+
+258
+00:15:53,825 --> 00:15:55,428
+but it's much harder to read!
+
+259
+00:15:55,428 --> 00:15:58,241
+because the line breaks 
+don't matter at all.
+
+260
+00:15:58,241 --> 00:16:03,905
+Semicolon is what tells the Processing
+program we've reached the end of a line.
+
+261
+00:16:03,905 --> 00:16:09,535
+..
+So what is important to realize,
+
+262
+00:16:09,535 --> 00:16:13,400
+is that the syntax, spaces and linebreaks,
+
+263
+00:16:13,400 --> 00:16:15,120
+tend to not really matter, right?
+
+264
+00:16:15,120 --> 00:16:17,683
+I could put a lot of spaces here,
+
+265
+00:16:17,683 --> 00:16:19,043
+oops, I put this extra stuff,
+
+266
+00:16:19,043 --> 00:16:21,673
+it's actually gonna run exactly 
+the same way.
+
+267
+00:16:21,673 --> 00:16:24,687
+but there often is a way
+of writing code
+
+268
+00:16:24,687 --> 00:16:28,131
+that feels a little bit more 
+human readable
+
+269
+00:16:28,131 --> 00:16:38,357
+[ramble]
+
+270
+00:16:38,357 --> 00:16:40,705
+I'm gonna do a couple more things
+in this video
+
+271
+00:16:40,705 --> 00:16:43,065
+and maybe I'll fix these later,
+
+272
+00:16:43,065 --> 00:16:48,056
+through some magic way of doing it again
+with better editing, or something,
+
+273
+00:16:48,056 --> 00:16:51,605
+but, ok, so that's what I
+wanted to mention there
+
+274
+00:16:51,605 --> 00:17:01,808
+ok, the other thing,
+[ramble]
+
+275
+00:17:01,808 --> 00:17:02,796
+So here's the other thing,
+
+276
+00:17:02,796 --> 00:17:06,453
+there is something you can 
+put in your code
+
+277
+00:17:06,453 --> 00:17:09,900
+which, in a way, like, doesn't count.
+
+278
+00:17:09,900 --> 00:17:15,167
+if I ever typed: '//' you can see 
+suddenly this line is like a light grey
+
+279
+00:17:15,167 --> 00:17:21,391
+and I can say: this will draw 
+a green rectangle
+
+280
+00:17:21,391 --> 00:17:24,972
+and I can run this program 
+and it still runs.
+
+281
+00:17:24,972 --> 00:17:27,378
+This is what is known as a 
+'code comment'
+
+282
+00:17:27,378 --> 00:17:30,038
+If you ever wanna write annotations
+in your code,
+
+283
+00:17:30,038 --> 00:17:35,840
+You might do something like:
+// TODO: fix this line,
+
+284
+00:17:35,840 --> 00:17:38,306
+I don't like the design
+
+285
+00:17:38,306 --> 00:17:40,488
+you could add comments to yourself
+in the code
+
+286
+00:17:40,488 --> 00:17:42,626
+something that you might
+wanna do later,
+
+287
+00:17:42,626 --> 00:17:45,469
+just explanations of what different
+sections of the code are doing.
+
+288
+00:17:45,469 --> 00:17:50,426
+Right now I feel silly to be doing this,
+because it's so short and obvious
+
+289
+00:17:50,426 --> 00:17:53,356
+what's happening, although 
+you know, these functions
+
+290
+00:17:53,356 --> 00:17:55,272
+and numbers are somewhat cryptic,
+
+291
+00:17:55,272 --> 00:17:59,775
+but your future self will 
+thank your present self later
+
+292
+00:17:59,775 --> 00:18:03,897
+if you get into the habit of 
+writing comments into your code now,
+
+293
+00:18:03,897 --> 00:18:07,555
+because it inevitably will happen
+
+294
+00:18:07,555 --> 00:18:10,506
+that you work on a program
+for quite a while
+
+295
+00:18:10,506 --> 00:18:12,497
+you will go on vacation 
+or do something else
+
+296
+00:18:12,497 --> 00:18:15,521
+that has nothing to do 
+with sitting hunched over your computer,
+
+297
+00:18:15,521 --> 00:18:17,996
+cause that's good for you, 
+and when you come back to it
+
+298
+00:18:17,996 --> 00:18:21,078
+you're not going to remember 
+how it works or what you wanna look at
+
+299
+00:18:21,078 --> 00:18:24,496
+and instead -- but if you have all
+those code comments in there
+
+300
+00:18:24,496 --> 00:18:27,540
+it will allow you to get back
+into it more easily.
+
+301
+00:18:27,540 --> 00:18:29,869
+So get into the habit of doing that now.
+
+302
+00:18:30,829 --> 00:18:34,727
+So we kind of have reached the end
+of this first of three videos here:
+
+303
+00:18:37,796 --> 00:18:39,099
+One, talking about coordinate systems,
+
+304
+00:18:39,099 --> 00:18:41,134
+one looking at Processing and 
+starting to write code,
+
+305
+00:18:41,134 --> 00:18:43,564
+now we saw a little bit about color
+
+306
+00:18:43,564 --> 00:18:48,519
+I'm gonna give you two hints
+of things that you could look at
+
+307
+00:18:48,519 --> 00:18:50,805
+and maybe I will fill them back in
+
+308
+00:18:50,805 --> 00:18:56,974
+and practice with another video later.
+
+309
+00:18:56,974 --> 00:18:59,896
+There is a function called colorMode()
+
+310
+00:19:00,065 --> 00:19:03,768
+that I would encourage you to look up
+in the reference
+
+311
+00:19:03,768 --> 00:19:06,822
+it's like an exercise:
+look up 'colorMode' in the reference.
+
+312
+00:19:06,822 --> 00:19:10,072
+What are some examples?
+Can you change the colorMode
+
+313
+00:19:10,072 --> 00:19:11,997
+and define colors differently?
+
+314
+00:19:11,997 --> 00:19:15,534
+One color mode that you can 
+do in Processing
+
+315
+00:19:15,534 --> 00:19:21,524
+is HSB for hue, saturation, brightness
+
+316
+00:19:21,524 --> 00:19:23,578
+sometimes it's written as HSV,
+
+317
+00:19:23,578 --> 00:19:24,855
+hue, saturation, value
+
+318
+00:19:24,855 --> 00:19:28,209
+but this is another way of defining
+color that's different
+
+319
+00:19:28,209 --> 00:19:33,325
+than RGB: hue being the color on the
+colorwheel, what is the hue of a color?
+
+320
+00:19:33,325 --> 00:19:37,207
+Is it greenish? Blue? Is it really blue?
+Is it really red?
+
+321
+00:19:37,207 --> 00:19:39,995
+Saturation being 'how vibrant is the color?'
+
+322
+00:19:39,995 --> 00:19:42,595
+And brightness being 'how bright
+is that color?'
+
+323
+00:19:42,595 --> 00:19:43,866
+Is it a very dark blue or 
+a really bright blue?
+
+324
+00:19:43,866 --> 00:19:46,860
+So one way you can play with 
+designing colors is
+
+325
+00:19:46,860 --> 00:19:49,964
+hue, saturation, brightness 
+and you can affect that with the colorMode()
+
+326
+00:19:49,964 --> 00:19:52,364
+The other thing that I 
+totally didn't mention at all
+
+327
+00:19:52,364 --> 00:19:59,564
+We said that fill could have one argument,
+which would be a greyscale color
+
+328
+00:19:59,564 --> 00:20:06,313
+We said that fill could have three arguments,
+which would be an RGB color
+
+329
+00:20:06,313 --> 00:20:11,644
+Well here's two other amounts of arguments
+that fill can have:
+
+330
+00:20:11,644 --> 00:20:20,896
+Fill could have 2 arguments,
+which is greyscale + transparency
+
+331
+00:20:20,896 --> 00:20:28,162
+It could also have 4 arguments:
+which is RGB + transparency,
+
+332
+00:20:28,162 --> 00:20:30,898
+often written as 'alpha', 
+the alpha value.
+
+333
+00:20:30,898 --> 00:20:34,439
+An 'alpha' of 0 means 
+completely transparent
+
+334
+00:20:34,439 --> 00:20:37,711
+An 'alpha' of 255 means
+completely opaque
+
+335
+00:20:37,711 --> 00:20:42,673
+Now of course there is no such thing
+as real transparency.
+
+336
+00:20:42,673 --> 00:20:45,655
+It's not that suddenly your physical screen
+will be see-through
+
+337
+00:20:45,655 --> 00:20:48,540
+It is this idea of creating 
+the illusion of transparency,
+
+338
+00:20:48,540 --> 00:20:53,166
+So if you draw a color with no transparency
+you will see that color literally
+
+339
+00:20:53,166 --> 00:20:56,990
+on the screen, if you draw a color with
+some transparency, it will
+
+340
+00:20:56,990 --> 00:20:58,557
+look like it blends through.
+
+341
+00:20:58,557 --> 00:21:00,334
+and I know that I said that
+I wasn't really going to
+
+342
+00:21:00,334 --> 00:21:04,377
+go through this in great detail
+but let's actually just look at this
+
+343
+00:21:04,377 --> 00:21:09,167
+for a second ... let's make this rectangle
+much, much wider,
+
+344
+00:21:09,167 --> 00:21:10,089
+so that we can see it
+
+345
+00:21:10,089 --> 00:21:13,411
+This is our, 
+we have a green background
+
+346
+00:21:13,411 --> 00:21:15,377
+I'm gonna give this a black background,
+
+347
+00:21:15,377 --> 00:21:16,749
+so it's a little bit easier to see,
+
+348
+00:21:16,749 --> 00:21:18,374
+oh, that was not the fill.
+
+349
+00:21:18,374 --> 00:21:22,887
+let's have a nice, bright green rectangle
+which we can see right here
+
+350
+00:21:22,887 --> 00:21:26,105
+What if we were to draw 
+another rectangle on top
+
+351
+00:21:26,105 --> 00:21:27,906
+which is red
+
+352
+00:21:27,946 --> 00:21:37,693
+and we'll do it 150, 50, with 100 pixels
+wide and 300 pixels high, right?
+
+353
+00:21:37,693 --> 00:21:42,443
+Look at that. See that red rectangle
+right on top of that green rectangle?
+
+354
+00:21:42,443 --> 00:21:45,264
+Right, that's 100% opaque.
+
+355
+00:21:45,264 --> 00:21:48,272
+But what if we give it a little bit
+of transparency?
+
+356
+00:21:48,272 --> 00:21:53,459
+0 is completely transparent,
+255 is completely opaque,
+
+357
+00:21:53,459 --> 00:21:57,037
+so 127 will be right in the middle there,
+like 50%,
+
+358
+00:21:57,037 --> 00:22:01,094
+if we do this, look, we can see,
+ah, the camera shut off ...
+
+359
+00:22:01,094 --> 00:22:08,013
+[ramble]
+
+360
+00:22:08,013 --> 00:22:12,817
+You can see now that there is red here
+that is blending with the black behind it
+
+361
+00:22:12,817 --> 00:22:15,326
+and the red here is blending 
+with the green behind it.
+
+362
+00:22:15,326 --> 00:22:20,229
+Blending being, it's almost like it's a 
+tinted lens that we put on top there.
+
+363
+00:22:20,229 --> 00:22:23,169
+So, of course, this opens up another
+can of worms,
+
+364
+00:22:23,169 --> 00:22:25,665
+There are many different ways
+of blending colors
+
+365
+00:22:25,665 --> 00:22:29,130
+this is an infinite world of 
+stuff you can look at and do
+
+366
+00:22:29,130 --> 00:22:31,333
+all of this is contained in the reference
+
+367
+00:22:31,333 --> 00:22:33,794
+and ... examples and 
+through trial and error
+
+368
+00:22:33,794 --> 00:22:37,897
+but this is to give you some beginning steps
+
+369
+00:22:37,897 --> 00:22:40,694
+to get started.
+
+370
+00:22:40,694 --> 00:22:44,041
+So I think in a way you have
+all the tools now
+
+371
+00:22:44,041 --> 00:22:46,866
+you have all the tools 
+to make a first design
+
+372
+00:22:46,866 --> 00:22:48,635
+you know about the coordinate system,
+
+373
+00:22:48,635 --> 00:22:51,062
+you know about basic shapes,
+and you know about color.
+
+374
+00:22:51,062 --> 00:22:57,223
+so make yourself an alien,
+my little example that I always use
+
+375
+00:22:57,223 --> 00:23:02,996
+is like this tiny little thing, person, alien
+whatever you call it, Zoog,
+
+376
+00:23:02,996 --> 00:23:05,464
+You can see there are some ellipses,
+some rectangles and some lines
+
+377
+00:23:05,464 --> 00:23:09,766
+you design something, share it, 
+send it to me,
+
+378
+00:23:09,766 --> 00:23:14,331
+You're gonna start to want to use arcs,
+and curves and triangles,
+
+379
+00:23:14,331 --> 00:23:17,954
+Doing this will force you to dig into 
+the Processing reference a bit more.
+
+380
+00:23:17,954 --> 00:23:24,297
+So I have one more video in this little sequence
+which is about some other advanced
+
+381
+00:23:24,297 --> 00:23:28,806
+drawing functions in Processing, 
+to do more complex shapes
+
+382
+00:23:28,806 --> 00:23:30,371
+which I think I will tack 
+on at some point,
+
+383
+00:23:30,371 --> 00:23:36,816
+but this is the first week or time 
+or whatever , that's your exercise.
+
+384
+00:23:36,816 --> 00:23:39,910
+Ok, thank you, 
+this video is way too long!
+
+385
+00:23:39,910 --> 00:23:43,493
+I should probably cut it into 
+a few different ones but
+
+386
+00:23:43,493 --> 00:23:45,553
+it is what it is right now.
+
+387
+00:23:45,553 --> 00:23:48,484
+I'm going to have something to eat
+
+388
+00:23:48,484 --> 00:23:55,266
+[ramble]
+
+389
+00:23:55,266 --> 00:23:58,883
+See yourself later and I hope
+you are enjoying yourself and your day!
+
+390
+00:23:58,883 --> 00:23:59,378
+Bye!

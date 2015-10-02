@@ -1,0 +1,1113 @@
+1
+00:00:02,551 --> 00:00:06,047
+Hello! Variables, p5js, Javascript!
+
+2
+00:00:06,047 --> 00:00:08,144
+Haha, I'm just speaking in single words.
+
+3
+00:00:08,144 --> 00:00:11,548
+Ok, this is a video where ... 
+The topic I want to look at,
+
+4
+00:00:11,548 --> 00:00:12,645
+it's probably going to be 
+a couple of videos,
+
+5
+00:00:12,645 --> 00:00:15,069
+is variables. But we gotta
+ease our way into it.
+
+6
+00:00:15,069 --> 00:00:19,373
+Before we even know what
+a variable is, let's think about
+
+7
+00:00:19,373 --> 00:00:24,873
+why ... what's missing from the programs
+that you are writing?
+
+8
+00:00:24,873 --> 00:00:28,798
+In the previous video I showed you
+how to draw a static thing to the screen.
+
+9
+00:00:28,798 --> 00:00:31,264
+You could make a rectangle, 
+a circle, color it,
+
+10
+00:00:31,264 --> 00:00:33,860
+and in order to do that, 
+before you can do that,
+
+11
+00:00:33,860 --> 00:00:40,849
+we had to add two 'things',
+
+12
+00:00:40,849 --> 00:00:42,817
+blocks of code I'll call them.
+
+13
+00:00:42,817 --> 00:00:46,993
+A block of code is something 
+that begins with an open curly bracket
+
+14
+00:00:46,993 --> 00:00:49,120
+and ends with a close curly bracket.
+
+15
+00:00:49,120 --> 00:00:53,911
+A setup() block ...
+
+16
+00:00:53,911 --> 00:00:56,981
+and a draw() block.
+
+17
+00:00:56,981 --> 00:00:59,544
+Each of these blocks, by the way,
+
+18
+00:00:59,544 --> 00:01:01,608
+is a function. 
+Functions are these fundamental
+
+19
+00:01:01,608 --> 00:01:04,817
+primary elements of just about how
+everything works in Javascript.
+
+20
+00:01:04,817 --> 00:01:08,721
+So it's gonna be a key topic
+throughout all the videos that I make.
+
+21
+00:01:08,721 --> 00:01:16,077
+And a function is essentially
+a way of organizing a block of code,
+
+22
+00:01:16,077 --> 00:01:18,337
+a bunch of lines of instructions
+all together.
+
+23
+00:01:18,337 --> 00:01:21,480
+There is a bunch of setup instructions,
+there is a bunch of drawing instructions.
+
+24
+00:01:21,480 --> 00:01:25,608
+I said, whenever the last video was,
+
+25
+00:01:25,608 --> 00:01:28,141
+that setup() is a place where
+you put createCanvas().
+
+26
+00:01:28,141 --> 00:01:37,336
+And createCanvas requires two arguments:
+a width and a height.
+
+27
+00:01:37,336 --> 00:01:41,868
+Then you get this nice rectangle on the screen.
+
+28
+00:01:41,868 --> 00:01:43,723
+A canvas for you to draw to.
+
+29
+00:01:43,723 --> 00:01:47,868
+And when it's time to draw to that canvas
+you add some instructions
+
+30
+00:01:47,868 --> 00:01:50,064
+in the draw() function like
+
+31
+00:01:50,064 --> 00:01:52,054
+background()
+
+32
+00:01:53,364 --> 00:01:56,857
+background(0) will give 
+you a black background,
+
+33
+00:01:58,607 --> 00:02:00,921
+and then perhaps you might add 
+something like:
+
+34
+00:02:00,921 --> 00:02:08,421
+ellipse(50,50,75,25), 
+it's a weird looking ellipse,
+
+35
+00:02:08,421 --> 00:02:12,324
+which would then draw, uh, 
+it would more look like this,
+
+36
+00:02:12,324 --> 00:02:14,452
+anyway, something like this, right?
+
+37
+00:02:14,452 --> 00:02:16,016
+So this is what we've got so far:
+
+38
+00:02:16,016 --> 00:02:18,452
+there's a setup() block, 
+and a draw() block.
+
+39
+00:02:18,452 --> 00:02:20,181
+Both of those things are functions.
+
+40
+00:02:21,731 --> 00:02:24,313
+There is a bit more to it 
+than just this idea of
+
+41
+00:02:24,313 --> 00:02:26,005
+ah, createCanvas is in setup()
+
+42
+00:02:26,005 --> 00:02:27,910
+and this stuff is in draw().
+there's a reason why we're putting
+
+43
+00:02:27,910 --> 00:02:29,813
+some things in setup() 
+and some things in draw().
+
+44
+00:02:29,813 --> 00:02:34,281
+And it has to do with the flow
+of a program. (I hope I'm recording)
+
+45
+00:02:34,281 --> 00:02:36,908
+A flow of a program over time.
+
+46
+00:02:37,878 --> 00:02:40,941
+If you've ever used any piece
+of software, you know there's
+
+47
+00:02:40,941 --> 00:02:43,006
+an element of time there:
+you've launched the software,
+
+48
+00:02:43,006 --> 00:02:44,765
+you do some stuff,
+some more things happen,
+
+49
+00:02:44,765 --> 00:02:45,865
+you do some more stuff.
+
+50
+00:02:45,865 --> 00:02:48,365
+It doesn't just start 
+drawing a picture and end.
+
+51
+00:02:48,365 --> 00:02:55,201
+So a p5 sketch, a browser session
+so to speak, happens over time.
+
+52
+00:02:55,201 --> 00:02:58,561
+And these functions are controlling
+that flow.
+
+53
+00:02:58,561 --> 00:03:00,363
+How do they control that flow?
+
+54
+00:03:00,363 --> 00:03:03,993
+setup() happens once, at the beginning.
+
+55
+00:03:03,993 --> 00:03:07,624
+When the program runs, 
+the first thing that happens
+
+56
+00:03:07,624 --> 00:03:09,093
+is setup() and it happens once.
+
+57
+00:03:09,093 --> 00:03:11,801
+Which makes sense: you don't
+want to create a canvas more than once.
+
+58
+00:03:11,801 --> 00:03:13,283
+At the beginning you create the canvas once.
+
+59
+00:03:13,283 --> 00:03:16,481
+draw() however does something
+kind of interesting:
+
+60
+00:03:16,481 --> 00:03:20,593
+it runs the instructions, after setup() finishes
+
+61
+00:03:20,593 --> 00:03:22,188
+these instructions get executed.
+
+62
+00:03:22,188 --> 00:03:25,544
+And when it gets to the end, 
+it goes right back to the beginning.
+
+63
+00:03:25,544 --> 00:03:28,157
+background > ellipse > end, 
+right back to background.
+
+64
+00:03:28,157 --> 00:03:29,853
+background > ellipse > end, 
+right back to background.
+
+65
+00:03:29,853 --> 00:03:33,689
+This is now as a loop.
+And it essentially happens forever.
+
+66
+00:03:34,469 --> 00:03:37,061
+It happens forever until a user
+closes the window.
+
+67
+00:03:37,061 --> 00:03:41,177
+You know, there's obviously a lot more to this,
+you could stop and start it,
+
+68
+00:03:41,177 --> 00:03:43,321
+or have lots of other things happening,
+but this is our basic
+
+69
+00:03:43,321 --> 00:03:46,209
+beginning flow for the program:
+
+70
+00:03:46,209 --> 00:03:48,772
+setup() happens once,
+draw() loops over and over again.
+
+71
+00:03:48,772 --> 00:03:52,873
+I wonder how many times I have talked
+about setup() and draw() in my life?
+
+72
+00:03:52,873 --> 00:03:57,532
+Probably like 250 ...
+but I enjoy just as much this time
+
+73
+00:03:57,532 --> 00:04:00,032
+as any other time. By Gosh!
+
+74
+00:04:00,032 --> 00:04:03,241
+Ok, let's go over and prove this point here.
+
+75
+00:04:03,241 --> 00:04:07,132
+So here is a p5 sketch,
+and you can see that it is exactly
+
+76
+00:04:07,132 --> 00:04:10,001
+the same format that I looked at
+at the board:
+
+77
+00:04:10,001 --> 00:04:12,601
+there is a setup() function at the top,
+with createCanvas(),
+
+78
+00:04:12,601 --> 00:04:13,792
+and there are a bunch of drawing things.
+
+79
+00:04:13,792 --> 00:04:16,533
+This is a nice example 
+that Lauren McCarthy prepared,
+
+80
+00:04:16,533 --> 00:04:18,196
+unknowingly, for me!
+
+81
+00:04:18,196 --> 00:04:21,500
+And if I run it you can see,
+I love these colors,
+
+82
+00:04:21,500 --> 00:04:23,794
+I love the pink circle,
+and I love the blue square.
+
+83
+00:04:23,794 --> 00:04:26,665
+Now it doesn't look like anything's
+happening over time
+
+84
+00:04:26,665 --> 00:04:28,861
+because it's just like a static picture.
+
+85
+00:04:28,861 --> 00:04:31,393
+It's beautiful but it doesn't move!
+
+86
+00:04:31,393 --> 00:04:34,793
+And maybe that's ok, 
+maybe all we wanna do in life
+
+87
+00:04:34,793 --> 00:04:37,293
+is static pictures ... but assuming
+you wanna make things move
+
+88
+00:04:37,293 --> 00:04:41,780
+... it's drawing the same thing
+over and over again.
+
+89
+00:04:41,780 --> 00:04:43,520
+What do we need to do?
+
+90
+00:04:43,520 --> 00:04:48,313
+We need to vary what happens 
+every time draw() executes.
+
+91
+00:04:48,313 --> 00:04:51,280
+draw() executes once,
+twice, third time,
+
+92
+00:04:51,280 --> 00:04:53,216
+fourth time, fifth time ...
+
+93
+00:04:53,216 --> 00:04:55,217
+What if something different happened?
+
+94
+00:04:55,217 --> 00:04:58,121
+What if the first time the circle
+appears up there,
+
+95
+00:04:58,121 --> 00:04:59,844
+then the second time it appears
+down here,
+
+96
+00:04:59,844 --> 00:05:01,153
+the third time it appears down here?
+
+97
+00:05:01,153 --> 00:05:03,153
+You'll have the illusion
+that it's moving down.
+
+98
+00:05:03,153 --> 00:05:07,381
+Or, even better yet, what if
+you could just say:
+
+99
+00:05:07,381 --> 00:05:10,269
+every time through draw() 
+draw the circle where the mouse is?
+
+100
+00:05:10,269 --> 00:05:16,673
+So I could do something like:
+ellipse ... where the mouse is ...
+
+101
+00:05:16,673 --> 00:05:17,736
+Right? That should be fine.
+
+102
+00:05:17,736 --> 00:05:19,477
+I'm sure that's gonna work ...
+
+103
+00:05:19,477 --> 00:05:22,945
+I'm being facetious, I guess, 
+but now ... you can see
+
+104
+00:05:22,945 --> 00:05:24,140
+that I have an error here.
+
+105
+00:05:24,140 --> 00:05:26,041
+So this is obviously like 
+'expected parenthesis'.
+
+106
+00:05:26,041 --> 00:05:27,833
+This is obviously not correct syntax.
+
+107
+00:05:29,213 --> 00:05:35,321
+p5, Javascript, ... cannot understand
+your regular old English language speak thing.
+
+108
+00:05:35,321 --> 00:05:42,060
+However, this is such a common problem,
+that p5 has as a part of its library
+
+109
+00:05:42,060 --> 00:05:45,225
+a variable called mouseX.
+
+110
+00:05:45,225 --> 00:05:48,693
+So I'm gonna put mouseX in here,
+
+111
+00:05:48,693 --> 00:05:52,580
+you can see that it's a nice purple color, right?
+
+112
+00:05:52,580 --> 00:05:58,453
+Because the p5 editor recognized that 
+as a built-in keyword, a variable,
+
+113
+00:05:58,453 --> 00:06:01,809
+and what this means is 
+mouseX is a word
+
+114
+00:06:01,809 --> 00:06:03,340
+that stands for something.
+
+115
+00:06:03,340 --> 00:06:07,213
+'100' is a number that
+stands for the number 100.
+
+116
+00:06:07,213 --> 00:06:08,921
+And it can always only 
+be the number 100.
+
+117
+00:06:08,921 --> 00:06:12,485
+But mouseX is actually referring
+to something stored
+
+118
+00:06:12,485 --> 00:06:14,453
+in the computer's memory,
+that changes based
+
+119
+00:06:14,453 --> 00:06:15,985
+on how the user moves the mouse.
+
+120
+00:06:15,985 --> 00:06:18,341
+So if I run this program again,
+
+121
+00:06:19,111 --> 00:06:22,372
+we can see mouseX is 100,
+maybe 200, maybe 300,
+
+122
+00:06:22,372 --> 00:06:25,632
+so now we can see that no matter
+what I do ...
+
+123
+00:06:25,632 --> 00:06:28,164
+draw() is happening over and over again,
+
+124
+00:06:28,164 --> 00:06:30,601
+and it's always drawing an ellipse
+where the mouse is.
+
+125
+00:06:30,601 --> 00:06:34,809
+Wow, this is really ... I mean, if you 
+haven't done this before
+
+126
+00:06:34,809 --> 00:06:36,132
+hopefully this is kind of interesting!
+
+127
+00:06:37,372 --> 00:06:39,860
+Ok, so there's a couple more things,
+
+128
+00:06:39,860 --> 00:06:42,037
+another thing we can look at here
+which is kind of amazing.
+
+129
+00:06:43,087 --> 00:06:46,632
+Now, what happens then if I take
+some other things
+
+130
+00:06:46,632 --> 00:06:47,601
+and put them in setup()?
+
+131
+00:06:47,601 --> 00:06:48,941
+Like this background() function.
+
+132
+00:06:48,941 --> 00:06:50,392
+I'm gonna put this in setup().
+
+133
+00:06:50,392 --> 00:06:54,684
+Remember: 
+setup() happens just once!
+
+134
+00:06:54,684 --> 00:06:57,829
+draw() loops over and over again.
+
+135
+00:06:59,359 --> 00:07:01,830
+I haven't rerun it yet.
+This is what happened
+
+136
+00:07:01,830 --> 00:07:03,685
+when its background()
+was in draw(), right?
+
+137
+00:07:03,685 --> 00:07:07,424
+The background is always being filled,
+and then the ellipse is drawn.
+
+138
+00:07:07,424 --> 00:07:09,681
+Background is filled, then the ellipse is drawn.
+
+139
+00:07:09,681 --> 00:07:12,461
+What happens if the background
+is drawn only once in setup()?
+
+140
+00:07:12,461 --> 00:07:14,183
+You know, think about that for a second!
+
+141
+00:07:17,903 --> 00:07:19,089
+Now I'm gonna run this again.
+
+142
+00:07:20,759 --> 00:07:24,460
+Look at this!
+Every single ellipse, from the history
+
+143
+00:07:24,460 --> 00:07:27,684
+of moving, every time I moved it,
+is now visible.
+
+144
+00:07:27,684 --> 00:07:30,785
+This is because we only drew
+that yellow background once ,
+
+145
+00:07:30,785 --> 00:07:35,204
+and everything is drawn sequentially,
+so this illusion of something moving around
+
+146
+00:07:35,204 --> 00:07:40,381
+the screen only exists if you erase
+the background each time
+
+147
+00:07:40,381 --> 00:07:41,672
+through draw() before you draw
+the next thing.
+
+148
+00:07:41,672 --> 00:07:43,140
+So this is something that you can play with,
+
+149
+00:07:43,140 --> 00:07:47,241
+and in fact, this is a pretty quick
+path, if I get rid of this rectangle,
+
+150
+00:07:47,241 --> 00:07:50,609
+and I say like 'noStroke();'
+
+151
+00:07:50,609 --> 00:07:53,045
+and I also add 'mouseY' here
+
+152
+00:07:53,045 --> 00:07:54,576
+and I run this.
+
+153
+00:07:56,016 --> 00:07:57,981
+Now you can see I've made a
+painting program,
+
+154
+00:07:57,981 --> 00:08:01,013
+which is pretty nice,
+like, ah, maybe I give it
+
+155
+00:08:01,013 --> 00:08:02,577
+a little alpha,
+
+156
+00:08:02,577 --> 00:08:05,305
+which is the 4th argument,
+
+157
+00:08:05,305 --> 00:08:08,660
+maybe I make that a little bit smaller,
+
+158
+00:08:08,660 --> 00:08:10,596
+and I run it again.
+
+159
+00:08:10,596 --> 00:08:13,433
+You can see here is a little program
+that I can use to kind of paint
+
+160
+00:08:13,433 --> 00:08:14,628
+something with my mouse.
+
+161
+00:08:14,628 --> 00:08:18,432
+So this is actually a great 
+stopping point for this video.
+
+162
+00:08:18,432 --> 00:08:22,500
+I wanna look in the next video
+at how you make your own variables.
+
+163
+00:08:22,500 --> 00:08:25,596
+Oh, actually, no, 
+I have one more thing!
+
+164
+00:08:25,596 --> 00:08:33,137
+[ramble]
+
+165
+00:08:33,137 --> 00:08:36,105
+So in this painting program there is
+one more thing that I want to show you
+
+166
+00:08:36,105 --> 00:08:36,973
+that I think is really, really key.
+
+167
+00:08:36,973 --> 00:08:41,398
+Ok, so, let's go back 
+to the board over here ...
+
+168
+00:08:42,428 --> 00:08:46,833
+and we have setup(), 
+that is a function that runs ONCE,
+
+169
+00:08:46,833 --> 00:08:47,962
+at the beginning.
+
+170
+00:08:47,962 --> 00:08:51,638
+We have draw() that's a function
+that happens over and over again.
+
+171
+00:08:51,638 --> 00:08:54,492
+Let's add one more function.
+
+172
+00:08:54,492 --> 00:08:57,865
+And I don't have a lot of room
+on the whiteboard
+
+173
+00:08:57,865 --> 00:09:01,157
+so I'm just gonna erase draw()
+for a second to put it here.
+
+174
+00:09:02,577 --> 00:09:06,365
+And I'm gonna say: what if I have ... 
+pretend draw() is still there,
+
+175
+00:09:08,725 --> 00:09:12,044
+and has a background and an ellipse,
+
+176
+00:09:12,044 --> 00:09:14,221
+I'm gonna add another function
+
+177
+00:09:14,221 --> 00:09:21,321
+and I'm going to call it
+mousePressed() { }
+
+178
+00:09:21,321 --> 00:09:26,241
+So I have now complicated 
+the flow of the program even more,
+
+179
+00:09:26,241 --> 00:09:27,741
+in an interesting way.
+
+180
+00:09:27,741 --> 00:09:31,678
+setup() happens once,
+and only once at the beginning,
+
+181
+00:09:31,678 --> 00:09:37,821
+draw() loops over and over again,
+it's just draws like a crazy person!
+
+182
+00:09:37,821 --> 00:09:42,134
+[ramble]
+
+183
+00:09:42,134 --> 00:09:47,581
+mousePressed() is a very patient person,
+quietly sitting aside,
+
+184
+00:09:47,581 --> 00:09:50,436
+just waiting and waiting,
+in fact mousePressed() might
+
+185
+00:09:50,436 --> 00:09:51,501
+never ever happen!
+
+186
+00:09:51,501 --> 00:09:54,741
+The program could run and
+the code there will never occur.
+
+187
+00:09:54,741 --> 00:09:57,373
+So this is what's known,
+and this is also a key concept
+
+188
+00:09:57,373 --> 00:09:59,324
+in Javascript, there's gonna be 
+so much more to this,
+
+189
+00:09:59,324 --> 00:10:01,064
+as an event!
+
+190
+00:10:01,064 --> 00:10:03,792
+When the user clicks the mouse
+
+191
+00:10:03,792 --> 00:10:07,164
+the code here is executed.
+
+192
+00:10:07,164 --> 00:10:10,229
+So draw is just drawing and drawing
+and drawing etc, the user clicks the mouse,
+
+193
+00:10:10,229 --> 00:10:12,601
+we take a break from draw()
+for a second,
+
+194
+00:10:12,601 --> 00:10:14,457
+we run the code in mousePressed();
+
+195
+00:10:14,457 --> 00:10:16,393
+and then draw() loops, loops, loops.
+
+196
+00:10:16,393 --> 00:10:18,601
+The computer is doing this, the browser
+
+197
+00:10:18,601 --> 00:10:20,101
+is executing all of these instructions.
+
+198
+00:10:20,101 --> 00:10:22,989
+So now you have a bit 
+more sophistication here:
+
+199
+00:10:22,989 --> 00:10:26,601
+you have setup(), you have draw(),
+and you can always interrupt
+
+200
+00:10:26,601 --> 00:10:28,020
+draw() with mousePressed().
+
+201
+00:10:28,020 --> 00:10:30,217
+So let's go back to our program
+
+202
+00:10:30,217 --> 00:10:32,424
+I'm like: do you have any questions?
+
+203
+00:10:32,424 --> 00:10:34,551
+But there's no way for you to talk to me!
+
+204
+00:10:34,551 --> 00:10:36,489
+And I want you to talk to me somehow!
+
+205
+00:10:36,489 --> 00:10:41,425
+So now over here, what I'm gonna
+do to this program
+
+206
+00:10:41,425 --> 00:10:50,008
+is I'm gonna add
+function mousePressed() { }
+
+207
+00:10:50,008 --> 00:10:51,807
+And what should we put 
+in mousePressed()?
+
+208
+00:10:51,807 --> 00:10:54,976
+How about we take this 
+background function
+
+209
+00:10:54,976 --> 00:10:58,121
+and we duplicate it in mousePressed()?
+
+210
+00:10:58,121 --> 00:11:03,247
+So you can see when the program
+first starts we make the canvas,
+
+211
+00:11:03,247 --> 00:11:04,264
+we draw the background.
+
+212
+00:11:04,264 --> 00:11:06,605
+Then, always continuously, 
+we just draw circles
+
+213
+00:11:06,605 --> 00:11:08,864
+wherever the mouse is,
+to let the user paint.
+
+214
+00:11:08,864 --> 00:11:10,736
+And then what can the user do?
+
+215
+00:11:10,736 --> 00:11:12,704
+Now there's a new feature here!
+
+216
+00:11:12,704 --> 00:11:14,105
+The user is moving the mouse ...
+
+217
+00:11:14,105 --> 00:11:16,509
+moving the mouse ...
+moving the mouse ...
+
+218
+00:11:16,509 --> 00:11:20,561
+and the user might say:
+Ha, the drawing is not so good.
+
+219
+00:11:20,561 --> 00:11:21,864
+I wanna erase it!
+
+220
+00:11:21,864 --> 00:11:24,367
+Clicking the mouse will then
+execute background()
+
+221
+00:11:24,367 --> 00:11:25,191
+and it's gone!
+
+222
+00:11:25,191 --> 00:11:27,965
+And now I could then try
+to draw a D,
+
+223
+00:11:27,965 --> 00:11:30,772
+and do something where I 
+try to draw an A,
+
+224
+00:11:30,772 --> 00:11:32,068
+and I'm like trying to 
+make my name ...
+
+225
+00:11:32,068 --> 00:11:33,400
+I don't know why I'm doing this ...
+
+226
+00:11:33,400 --> 00:11:35,952
+So this is pretty interesting:
+you've got some tools now,
+
+227
+00:11:35,952 --> 00:11:40,223
+you're missing a lot of things 
+but with color, a bit more ...
+
+228
+00:11:40,223 --> 00:11:42,484
+Uh, what I would say now,
+as an exercise is:
+
+229
+00:11:42,484 --> 00:11:45,260
+use setup(), use draw(),
+use mousePressed()
+
+230
+00:11:45,260 --> 00:11:46,856
+you can draw more than just a circle!
+
+231
+00:11:46,856 --> 00:11:49,713
+See what kind of painting program
+you can make that allows
+
+232
+00:11:49,713 --> 00:11:53,212
+the user to interactively 
+create a drawing on the screen.
+
+233
+00:11:53,212 --> 00:11:55,104
+That's a nice constraint for an assignment.
+
+234
+00:11:55,104 --> 00:11:58,072
+And in the next video
+what I will show is how to create
+
+235
+00:11:58,072 --> 00:12:01,961
+your own variables, 
+beyond just what p5 offers to you,
+
+236
+00:12:01,961 --> 00:12:04,072
+like where the mouse is, 
+so you can have something
+
+237
+00:12:04,072 --> 00:12:06,023
+move autonomously on the screen.
+
+238
+00:12:06,023 --> 00:12:08,540
+And I'm gonna make that video right now!
+
+239
+00:12:08,540 --> 00:12:13,251
+By Golly! No, it's like after this
+very long day of fighting with technology
+
+240
+00:12:13,251 --> 00:12:15,523
+that is nothing that you need to 
+worry yourself about,
+
+241
+00:12:15,523 --> 00:12:17,060
+is kind of the last thing I wanna do.
+
+242
+00:12:17,060 --> 00:12:17,688
+But I'm gonna do it!
+
+243
+00:12:18,908 --> 00:12:20,862
+Ok, I have to hit stop.

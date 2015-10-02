@@ -1,0 +1,1140 @@
+1
+00:00:04,259 --> 00:00:07,294
+Hi, you came back, it's very kind of you
+
+2
+00:00:07,294 --> 00:00:09,588
+So, we're ready now to take a
+look at Processing itself
+
+3
+00:00:09,588 --> 00:00:12,496
+and see if we can take some of this
+knowledge and apply it
+
+4
+00:00:12,496 --> 00:00:19,578
+in Processing itself, write some code,
+draw some pictures to the screen
+
+5
+00:00:19,608 --> 00:00:24,014
+This is what I want this video to really cover,
+to get you comfortable to make sure
+
+6
+00:00:24,014 --> 00:00:27,313
+not only to have the basic understanding of
+the coordinate system
+
+7
+00:00:27,439 --> 00:00:31,119
+and how to write some functions that
+will draw to that
+
+8
+00:00:31,119 --> 00:00:36,010
+that to a window, but also how
+the Processing software environment
+
+9
+00:00:36,010 --> 00:00:37,007
+actually works as well
+
+10
+00:00:37,007 --> 00:00:41,066
+So, if we walk over here, this is the
+Processing website
+
+11
+00:00:41,129 --> 00:00:45,020
+Processing.org
+I will include a link, of course, below
+
+12
+00:00:45,020 --> 00:00:48,564
+to this site, this is where
+you can click here to download Processing
+
+13
+00:00:48,564 --> 00:00:51,413
+Processing is an application just
+like anything else
+
+14
+00:00:51,413 --> 00:00:57,260
+you can download it, install it, and run it,
+i'm not gonna go through those steps right now in this video
+
+15
+00:00:57,260 --> 00:01:00,078
+The only piece of information that I'm assuming
+
+16
+00:01:00,078 --> 00:01:03,122
+knowledge of which is that, just a knowledge of
+
+17
+00:01:03,122 --> 00:01:05,179
+how to install software on your computer
+
+18
+00:01:05,179 --> 00:01:10,072
+So what, you know, if I forgot something,
+you know, call, write, and send your complete
+
+19
+00:01:10,072 --> 00:01:12,026
+letters to me
+
+20
+00:01:12,026 --> 00:01:15,077
+Ok, so once you've downloaded
+and installed Processing and run it
+
+21
+00:01:15,077 --> 00:01:18,829
+you're going to get a nice little
+window like this
+
+22
+00:01:18,829 --> 00:01:23,068
+So, Processing is, it's many things
+in a way it's a programming language
+
+23
+00:01:23,068 --> 00:01:27,127
+The truth of the matter is that programming
+language writing in which we talk about
+
+24
+00:01:27,127 --> 00:01:29,568
+is the Java programming language
+
+25
+00:01:29,568 --> 00:01:32,547
+But Processing has a whole set of functions
+
+26
+00:01:32,547 --> 00:01:34,640
+and things that have been added
+
+27
+00:01:34,640 --> 00:01:36,933
+that are going to live to serve
+easily draw to the screen as well as
+
+28
+00:01:36,933 --> 00:01:40,885
+it stripped away some of the obnoxious
+
+29
+00:01:40,885 --> 00:01:42,181
+You know, I don't like to insult Java
+
+30
+00:01:42,181 --> 00:01:46,481
+I actually realy love Java even though that makes me
+just about the least cool person in the world
+
+31
+00:01:46,481 --> 00:01:51,156
+But it's taking away a lot of the
+stuff that makes it uncomfortable to
+
+32
+00:01:51,156 --> 00:01:53,068
+begin with Java and make things simpler
+
+33
+00:01:53,068 --> 00:01:56,607
+So it is a programming language,
+realy the language you writing is Java
+
+34
+00:01:57,219 --> 00:01:58,579
+it's certainly an environment
+
+35
+00:01:58,579 --> 00:02:02,990
+this is the environment that you're
+going to type in "Hello, I love Processing!"
+
+36
+00:02:02,990 --> 00:02:06,056
+This could theoretically be a Processing
+program, if we read it
+
+37
+00:02:06,056 --> 00:02:09,292
+we're gonna get some sort of errors like
+I have no idea what that means
+
+38
+00:02:09,292 --> 00:02:14,225
+But it's an environment, this is the place
+where you can type your code and execute your code
+
+39
+00:02:14,225 --> 00:02:16,053
+which is one of the wonderful
+things about Processing
+
+40
+00:02:16,053 --> 00:02:19,499
+because you don't have to figure out which
+text editor should I using and how do I compile
+
+41
+00:02:19,499 --> 00:02:22,227
+and where I should go to view it
+and where I debug it
+
+42
+00:02:22,227 --> 00:02:26,124
+everything is here in Processing itself
+
+43
+00:02:26,124 --> 00:02:29,031
+The other thing is really it's a community
+So we go back to this website
+
+44
+00:02:29,031 --> 00:02:32,434
+there are examples, there's a forum, there's
+
+45
+00:02:32,461 --> 00:02:37,333
+It's open source, there is a rich
+community of people, there is a lots of
+
+46
+00:02:37,333 --> 00:02:40,057
+other sites that I could link to how
+to a using Processing, sharing code
+
+47
+00:02:40,057 --> 00:02:43,861
+teaching with Processing,
+making project with Processing
+
+48
+00:02:43,897 --> 00:02:48,759
+So, in addition to just being software there's also
+this vibrant community which will hopefully
+
+49
+00:02:48,759 --> 00:02:52,363
+help you feel happier and more comfortable
+kind of diving into this new world
+
+50
+00:02:52,363 --> 00:02:54,496
+of programming for the first time
+
+51
+00:02:54,996 --> 00:02:58,008
+Ok, so once you've downloaded Processing
+
+52
+00:02:58,008 --> 00:03:01,019
+you've run it, you've got this window
+
+53
+00:03:01,019 --> 00:03:04,996
+So, a couple things I should point out
+there is up here, right?
+
+54
+00:03:13,459 --> 00:03:15,620
+This triangle is the Run button
+
+55
+00:03:15,620 --> 00:03:18,015
+It looks kind of like the play button on some
+
+56
+00:03:18,015 --> 00:03:21,039
+media device, like I don't know, a VCR
+
+57
+00:03:21,039 --> 00:03:25,594
+an Apple TV, Apple TV or Roku boxes play buttons
+
+58
+00:03:25,594 --> 00:03:29,636
+but anyway the point is this is your Run button
+
+59
+00:03:29,636 --> 00:03:31,473
+but it is not really Play
+
+60
+00:03:31,473 --> 00:03:36,012
+Run means is compile your code,
+compile your code and execute it
+
+61
+00:03:36,012 --> 00:03:39,245
+So it's going to run through your code,
+compile it to binary
+
+62
+00:03:39,245 --> 00:03:42,082
+execute and run the program which is why
+
+63
+00:03:42,082 --> 00:03:45,983
+when we ran this one we got this error
+
+64
+00:03:45,983 --> 00:03:50,094
+It said "Unexpected token: Hello"
+Now, one of the things I like about Processing is
+
+65
+00:03:50,094 --> 00:03:53,132
+it sometimes gives you a nice friendly error message
+
+66
+00:03:53,132 --> 00:03:55,085
+and sometimes it doesn't but
+
+67
+00:03:55,085 --> 00:03:58,089
+we can just... I didn't mean to talk
+about is now but
+
+68
+00:03:58,089 --> 00:04:01,041
+whenever you have a mistake in your
+syntax you're going to get an error
+
+69
+00:04:01,041 --> 00:04:05,011
+and that error will hopefully lead you to
+how to fix that, the your syntax
+
+70
+00:04:05,011 --> 00:04:08,044
+But here we say (?) it says
+"Unexpected token: Hello"
+
+71
+00:04:08,044 --> 00:04:13,025
+because Hello is not token meaning a some
+sequence of characters in-between spaces
+
+72
+00:04:13,025 --> 00:04:16,356
+and punctuation, a word, so to speak
+
+73
+00:04:16,356 --> 00:04:19,877
+It unexpected because it doesn't know
+what Hello means
+
+74
+00:04:19,877 --> 00:04:24,133
+Perhaps, it would know what line is
+
+75
+00:04:24,133 --> 00:04:30,077
+So, for example, if instead of writing that, I wrote
+line and what did we say
+
+76
+00:04:30,077 --> 00:04:35,033
+a 100, 50, 600, 250 and I put a semicolon
+
+77
+00:04:35,033 --> 00:04:39,041
+and I run this program, we would see
+
+78
+00:04:41,013 --> 00:04:42,044
+I'm not over here!
+
+79
+00:04:42,044 --> 00:04:47,462
+Hey! I apologize. This is a.. I can't go back and fix it
+
+80
+00:04:47,462 --> 00:04:50,033
+It just gonna have to.. someday I'll fix this video
+
+81
+00:04:50,033 --> 00:04:54,031
+I'll have the way like (?) and I'll just
+I (?) record all these cause I just
+
+82
+00:04:54,031 --> 00:04:57,535
+you know, this is like (?) really for that video
+
+83
+00:04:57,535 --> 00:05:00,075
+that I imagine would be so perfect, but you can see
+
+84
+00:05:00,075 --> 00:05:02,278
+I was able to run this program and there was no error
+
+85
+00:05:02,278 --> 00:05:06,889
+So, this is a fine syntax, it's a syntax
+actually we will learn
+
+86
+00:05:06,889 --> 00:05:11,894
+How to draw a line from point X
+from the first XY to the second XY
+
+87
+00:05:11,894 --> 00:05:14,014
+Now, the window we got here
+
+88
+00:05:14,014 --> 00:05:16,514
+doesn't actually have the line and it's also very small
+
+89
+00:05:16,514 --> 00:05:20,022
+Didn't we say that a window should be 645 by 360?
+
+90
+00:05:20,022 --> 00:05:23,063
+Well, one of the things that we haven't learned
+
+91
+00:05:23,063 --> 00:05:26,110
+is actualy how to set a size of the window
+
+92
+00:05:26,110 --> 00:05:29,007
+We can see that by default if you don't specify a size
+
+93
+00:05:29,016 --> 00:05:31,909
+we are actualy getting on 100 by 100 pixel wide window
+
+94
+00:05:31,909 --> 00:05:34,710
+So, here we now about to learn another function
+
+95
+00:05:34,710 --> 00:05:41,021
+Size. s i z e and I can say 640, 360, semicolon
+
+96
+00:05:41,021 --> 00:05:43,100
+And now we have, look at this, two lines of code!
+
+97
+00:05:43,289 --> 00:05:47,789
+Really got a program now. Size, line.
+And if we run this one which I can also do
+
+98
+00:05:47,789 --> 00:05:49,027
+cmd+R option do, and we see
+
+99
+00:05:49,027 --> 00:05:53,080
+There it is! There's that program!
+I sadly erase the drawing on the board
+
+100
+00:05:53,080 --> 00:05:57,139
+We could see that it basically mirrors exactly
+what we draw on the board
+
+101
+00:05:57,139 --> 00:05:58,719
+So now is the moment
+
+102
+00:05:58,719 --> 00:06:01,757
+when you could say to yourself
+"This drawing that I made with
+
+103
+00:06:02,099 --> 00:06:06,005
+pencil and paper, let me see if I can
+recreate it in Processing?""
+
+104
+00:06:06,005 --> 00:06:11,074
+"Can I write the instructions to create that drawing?"
+And this is your first practice in programming
+
+105
+00:06:11,074 --> 00:06:13,899
+I should point out that even though these were
+
+106
+00:06:13,899 --> 00:06:17,279
+I said we weren't in the introduction anymore,
+cause we actually making staff and using Processing
+
+107
+00:06:17,279 --> 00:06:18,889
+We're still in the introduction
+
+108
+00:06:18,889 --> 00:06:21,932
+We're not really programming, well, we are programming
+
+109
+00:06:22,319 --> 00:06:23,333
+We are writing code
+
+110
+00:06:23,459 --> 00:06:27,237
+We are compiling an executing that code,
+but there's no real logic here
+
+111
+00:06:27,237 --> 00:06:31,836
+We're not saying "Hey, you know, if this
+happens then do this"
+
+112
+00:06:31,836 --> 00:06:33,800
+we're not creating this kind of flow
+
+113
+00:06:33,800 --> 00:06:36,729
+this complex sequence of logic,
+we just kind of issuing almost
+
+114
+00:06:36,729 --> 00:06:39,751
+a linear list of commands that ends
+with a static picture
+
+115
+00:06:39,949 --> 00:06:43,599
+So, really what we want to get to in the next
+set of videos is that
+
+116
+00:06:43,599 --> 00:06:47,539
+flow the program that large,
+we're gonna really do so much more
+
+117
+00:06:47,539 --> 00:06:51,570
+to start understanding the foundation's
+of computational thinking
+
+118
+00:06:51,570 --> 00:06:54,037
+Right now we're just kind of practicing
+by getting used to
+
+119
+00:06:54,037 --> 00:06:56,036
+syntax and the Run button
+
+120
+00:06:56,036 --> 00:07:01,041
+and I hope the camera might cut-up the second
+
+121
+00:07:01,086 --> 00:07:03,133
+Excuse me for a second I coming right back
+
+122
+00:07:04,033 --> 00:07:07,076
+Hello, i just had to press the button at
+the end part of the room
+
+123
+00:07:07,076 --> 00:07:11,028
+Ok, so, now this brings us to my next point
+
+124
+00:07:11,028 --> 00:07:16,095
+So, let's say that what we want to do
+
+125
+00:07:16,095 --> 00:07:17,184
+I knew that will happen
+
+126
+00:07:18,084 --> 00:07:22,985
+Let's.. Hi... Ok, I have to press another button,
+this is terrible, I really should edit this
+
+127
+00:07:22,985 --> 00:07:27,014
+somehow and some there will, you could, if
+someone download this video,
+
+128
+00:07:27,014 --> 00:07:31,063
+cut-up some parts and then send it to me,
+I'll reupload it
+
+129
+00:07:31,063 --> 00:07:35,919
+But, listen, so, so, let's look at this list over here
+
+130
+00:07:35,919 --> 00:07:39,034
+These are the list of functions
+we are going to start with
+
+131
+00:07:39,034 --> 00:07:43,033
+Rectangle, ellipse, line, and point.
+And this is our window
+
+132
+00:07:43,033 --> 00:07:46,814
+which is 640 by 360 and, let's say, we want
+
+133
+00:07:46,814 --> 00:07:50,075
+to kind of draw this.. I don't know what i'm doing..
+
+134
+00:07:50,075 --> 00:07:54,897
+Something like this.. This could be
+our (?), but
+
+135
+00:07:54,897 --> 00:07:57,197
+You guys are hopefully much more artistic than me
+
+136
+00:07:57,197 --> 00:07:59,268
+and can came up with something more creative
+
+137
+00:07:59,268 --> 00:08:04,130
+But all we know is how to draw a line,
+now we need to discover how to draw a rectangle
+
+138
+00:08:04,130 --> 00:08:10,015
+So, you could guess, we could.. I wish we have a little
+dialogue here "Hey, whether you've some ideas,
+
+139
+00:08:10,015 --> 00:08:13,041
+you know, how would you design the rectangle
+function for Processing,
+
+140
+00:08:13,041 --> 00:08:15,029
+what arguments would you require?"
+
+141
+00:08:15,029 --> 00:08:17,887
+and you might say "Oh, what about the XY of this
+point and the XY of this point,
+
+142
+00:08:17,887 --> 00:08:23,022
+that's a possibility, what about the XY of the center
+and the width and the height,
+
+143
+00:08:23,022 --> 00:08:25,322
+what about the XY of the corner and a width and height?"
+
+144
+00:08:25,322 --> 00:08:28,049
+In fact, all of this is are possible,
+
+145
+00:08:28,049 --> 00:08:32,042
+but the default way of drawing
+a rectangle in Processing is
+
+146
+00:08:32,042 --> 00:08:34,876
+with four arguments
+
+147
+00:08:34,876 --> 00:08:36,677
+So, rectangle has four arguments:
+
+148
+00:08:36,677 --> 00:08:42,847
+x, y, width and height,
+the x and y being the location of the top left
+
+149
+00:08:42,847 --> 00:08:46,351
+the width being the width in pixels
+
+150
+00:08:46,351 --> 00:08:50,013
+and the h, the height, the h being the height in pixels
+
+151
+00:08:50,013 --> 00:08:53,014
+So let's go add this to our program over here,
+
+152
+00:08:53,023 --> 00:08:58,002
+Let's say, okay, we want to draw a rectangle
+and just to sort to see that it's working
+
+153
+00:08:58,002 --> 00:09:01,039
+let's make the XY the same as the top left corner
+
+154
+00:09:01,057 --> 00:09:02,006
+of this line
+
+155
+00:09:02,519 --> 00:09:07,075
+and let's make a very a skinny rectangle, it's
+only 20 pixels, but rather tall
+
+156
+00:09:07,075 --> 00:09:11,742
+That's 200 pixel and if we run this,
+we can see, look,
+
+157
+00:09:11,742 --> 00:09:14,891
+we now have a rectangle with (?)
+this kind of slide thing,
+
+158
+00:09:14,891 --> 00:09:18,036
+we have this line and we have a rectangle
+over here with the XY,
+
+159
+00:09:18,036 --> 00:09:22,043
+and I could zoom all the way into this,
+not sure of point of that,
+
+160
+00:09:22,043 --> 00:09:25,047
+but the XY being the top left, the width
+being 20 pixels
+
+161
+00:09:25,047 --> 00:09:29,757
+and a height being whatever I typed, 200 and
+something like that, 200 pixels
+
+162
+00:09:29,757 --> 00:09:33,279
+Okay, so we can see.. Ah, okay, now we learned
+
+163
+00:09:33,279 --> 00:09:36,921
+how to draw a rectangle! And I could go
+through and show you ellpise and line and point
+
+164
+00:09:36,921 --> 00:09:38,990
+There are a lots of other drawing functions
+in Processing
+
+165
+00:09:38,990 --> 00:09:41,808
+But, I mean, what I'm not going to sit here all day
+
+166
+00:09:41,808 --> 00:09:43,579
+and talk through everything, all possible way
+
+167
+00:09:43,579 --> 00:09:46,082
+to draw everything in Processing
+
+168
+00:09:46,882 --> 00:09:50,591
+There's gotta be a better way, right?
+It doesn't just happen and you should..
+
+169
+00:09:50,591 --> 00:09:52,825
+There is some interesing, a lots of
+interesting ideas and
+
+170
+00:09:52,825 --> 00:09:55,889
+how make this more intuitive, why are we
+actually doing the programming itself
+
+171
+00:09:55,889 --> 00:09:57,700
+I mean, what if instead of typing this out,
+
+172
+00:09:57,700 --> 00:09:59,029
+you could just draw a rectangle on the screen
+
+173
+00:09:59,074 --> 00:10:03,049
+and code woulds only up here, but that's not really
+the point what we're doing here
+
+174
+00:10:03,049 --> 00:10:06,648
+What I want to say is what one of the things
+you want to get used to is
+
+175
+00:10:06,648 --> 00:10:08,389
+how you look up this information
+
+176
+00:10:08,389 --> 00:10:10,882
+How do you look up how to
+draw a line if you didn't know
+
+177
+00:10:10,882 --> 00:10:13,017
+if you weren't just
+
+178
+00:10:13,017 --> 00:10:15,042
+if you didn't just enjoy watching videos
+of somebody
+
+179
+00:10:15,042 --> 00:10:19,211
+with kinda slightly messy hair and just
+talks and talks and talks all the time
+
+180
+00:10:19,589 --> 00:10:22,051
+So, the way you do that
+
+181
+00:10:22,051 --> 00:10:25,370
+is through the Processing website which
+through the reference
+
+182
+00:10:25,829 --> 00:10:29,066
+So over here there was a link to
+reference and it left over here
+
+183
+00:10:29,066 --> 00:10:34,367
+and if I click on a reference, we gonna
+suddenly see this webpage has a list
+
+184
+00:10:34,367 --> 00:10:37,138
+of all these possible functions and
+these are the ones
+
+185
+00:10:37,138 --> 00:10:39,006
+I want us to kinda lookat right now
+
+186
+00:10:39,006 --> 00:10:42,891
+2D primitives: arc, ellipse, line, point
+quad, rect, triangle
+
+187
+00:10:42,891 --> 00:10:45,949
+Here's a list of basic drawing functions
+in Processing
+
+188
+00:10:45,949 --> 00:10:49,025
+each one of those is a link, if you go to
+that link, it's going to show you
+
+189
+00:10:49,709 --> 00:10:52,715
+"Hey, here's the syntax, here's the name
+of the function
+
+190
+00:10:52,769 --> 00:10:56,047
+here are the arguments, here are what the
+arguments do, here is an example"
+
+191
+00:10:56,047 --> 00:11:01,576
+So just... Let's go to rectangle which I
+think is a good one to look at
+
+192
+00:11:01,576 --> 00:11:05,329
+We can see "Hey, look, here's
+the name of the function rect
+
+193
+00:11:05,329 --> 00:11:08,660
+and here's an example of what it looks like,
+four numbers"
+
+194
+00:11:08,660 --> 00:11:12,339
+I don't know what those numbers are,
+by the way you can do
+
+195
+00:11:12,339 --> 00:11:17,249
+Rounded rectangles and slightly (?).
+And you can read the description
+
+196
+00:11:17,249 --> 00:11:21,169
+But really, and you can see here, this is
+what we're doing
+
+197
+00:11:21,169 --> 00:11:24,175
+We're making a rectangle with a, b, c, d
+
+198
+00:11:24,175 --> 00:11:27,771
+Now, I often think of those I did on
+the board of there's X
+
+199
+00:11:27,789 --> 00:11:34,459
+X, Y, W, H, because X for x, Y for y
+W for width, H for height
+
+200
+00:11:34,459 --> 00:11:37,022
+But we can see here in the reference
+
+201
+00:11:37,022 --> 00:11:40,009
+It's going to describe that for us
+and I'mgoing to
+
+202
+00:11:40,009 --> 00:11:43,033
+zoom out slightly, oh, not all the way
+
+203
+00:11:43,249 --> 00:11:46,799
+We can sort of see here and we'll try to get
+this in a way that you can see it
+
+204
+00:11:46,799 --> 00:11:49,801
+We can see here rectangle ABCD, A is the
+
+205
+00:11:49,999 --> 00:11:54,012
+x-coord the rectangle by default, B is
+the y-coordinge of the rectangle
+
+206
+00:11:54,129 --> 00:11:57,136
+C is the width and D is the height
+
+207
+00:11:57,199 --> 00:12:00,959
+So, we can see, that this page is giving us
+
+208
+00:12:00,959 --> 00:12:03,360
+what the syntax is, what those arguments are
+
+209
+00:12:03,360 --> 00:12:05,559
+what the argument actually do
+
+210
+00:12:05,559 --> 00:12:08,608
+and then at the top here a few examples and
+I'm not gonna go through
+
+211
+00:12:08,608 --> 00:12:10,063
+how the rounded staff works
+
+212
+00:12:10,063 --> 00:12:14,022
+This is on you can explore on your own and ask
+questions in my new weekly
+
+213
+00:12:14,022 --> 00:12:17,971
+program "Ask a Processing question" which
+will start sometime in September
+
+214
+00:12:18,169 --> 00:12:22,072
+I don't know, I don't like plugging the video
+within video for no reason, I admit that to be
+
+215
+00:12:22,072 --> 00:12:27,739
+strange and humorous and it was not, I laughed
+sadly inside by myself
+
+216
+00:12:27,739 --> 00:12:30,765
+Okay, so this is really where we are
+
+217
+00:12:30,999 --> 00:12:34,129
+I think I'm actually kind of coming to the end
+
+218
+00:12:34,129 --> 00:12:38,720
+of this video, now, what you can do
+for your exercise is
+
+219
+00:12:38,720 --> 00:12:41,035
+In the next video we will look at color
+
+220
+00:12:41,035 --> 00:12:49,189
+What you can do for your exercise is go
+through the reference pages for ellipse,
+
+221
+00:12:49,209 --> 00:12:51,243
+and design your drawing
+
+222
+00:12:51,243 --> 00:12:54,003
+Now, show you, I often suggest to make a little
+
+223
+00:12:54,003 --> 00:12:56,899
+alien or monster, it's kind of a nice thing
+to start with
+
+224
+00:12:56,899 --> 00:12:59,015
+Really any pattern that you might want to think today
+
+225
+00:12:59,015 --> 00:13:03,097
+See if you can create it with numbers. And
+again let me just point something out
+
+226
+00:13:03,097 --> 00:13:08,073
+This is kind of a silly exercise, it's almost like
+(?)
+
+227
+00:13:08,073 --> 00:13:09,550
+It's kind of a diversion
+
+228
+00:13:09,550 --> 00:13:14,375
+Programming is not about hardcoding numbers
+into functions to create a picture
+
+229
+00:13:14,375 --> 00:13:18,042
+Programming is about creating a sequence of instructions
+
+230
+00:13:18,042 --> 00:13:21,048
+a logic to execute a task
+
+231
+00:13:21,048 --> 00:13:26,823
+But just to get started, and really
+we want to avoid, we want to really
+
+232
+00:13:26,823 --> 00:13:29,906
+Hello over here, we want to avoid
+
+233
+00:13:29,906 --> 00:13:34,672
+This way, this type of co... (?)
+we want to avoid this
+
+234
+00:13:34,672 --> 00:13:40,989
+We don't want to have a lot of all these hardcoded
+numbers and this this is not is not
+
+235
+00:13:40,989 --> 00:13:43,263
+It will all become clear as we move on
+
+236
+00:13:43,263 --> 00:13:46,087
+But this is not what we're doing
+eventually, but it's a good
+
+237
+00:13:46,087 --> 00:13:51,016
+place to get kind of started and this
+kind get used to the Processing
+
+238
+00:13:51,016 --> 00:13:53,068
+and get used to what errors you gonna get
+
+239
+00:13:53,068 --> 00:13:56,161
+like when I forget that semicolon again
+
+240
+00:13:57,061 --> 00:14:00,081
+Let me forget this semicolon instead
+Yes, I guess
+
+241
+00:14:00,081 --> 00:14:04,863
+this is without one at the bottom here it said
+
+242
+00:14:04,863 --> 00:14:07,068
+"Syntax error; maybe a missing semicolon?"
+
+243
+00:14:07,068 --> 00:14:09,034
+So you can see you want to just get through practice
+
+244
+00:14:09,034 --> 00:14:13,505
+what kind of syntax errors are you gonna make
+or you used to fixing them, can you look up
+
+245
+00:14:13,505 --> 00:14:15,856
+staff in the reference, can you make that
+
+246
+00:14:15,856 --> 00:14:17,049
+that picture with Processing
+
+247
+00:14:17,049 --> 00:14:21,703
+So, work on that, the next video will go over
+how to add color to this as well as
+
+248
+00:14:21,703 --> 00:14:24,209
+kind of filling some of the blanks with some
+of this functions
+
+249
+00:14:24,209 --> 00:14:29,011
+I will be kind of wrapping up this sort of first
+group of videos about just kind of
+
+250
+00:14:29,011 --> 00:14:32,020
+the basics of syntax and the basics of drawing
+in Processing
+
+251
+00:14:33,001 --> 00:14:36,097
+Great! Thank you, I'm going to press this button
