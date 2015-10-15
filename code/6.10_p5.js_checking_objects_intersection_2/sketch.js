@@ -1,5 +1,5 @@
 /* 
-6.10 p5.js checking objects intersection part 2
+6.10 p5.js checking objects intersection part 2 (part 1 is in video 6.9)
 Code for video https://vimeo.com/channels/learningp5js/141919524
 */
 
