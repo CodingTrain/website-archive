@@ -19,12 +19,12 @@ function setup() {
     p.class('apple')
   }
 
-  for (var i = 0; i < 10; i++) {
+  for (i = 0; i < 10; i++) {
     // var p = createP('blueberries');
     // var p = createA('http://google.com', 'blueberries')
-    var p = createA('#', 'blueberries')
-    var x = floor(random(windowWidth));
-    var y = floor(random(windowHeight));
+    p = createA('#', 'blueberries')
+    x = floor(random(windowWidth));
+    y = floor(random(windowHeight));
     p.position(x,y);
     p.class('blueberry');
     p.mousePressed(becomeApple)
