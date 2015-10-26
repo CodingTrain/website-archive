@@ -16,7 +16,7 @@ function setup() {
 }
 
 function addPhoto() {
-  var img = createImg('apples2.jpg');
+  var img = createImg('appleImage.jpg');
   img.size(100, 100);
   var paragraph = this.parent();
   
