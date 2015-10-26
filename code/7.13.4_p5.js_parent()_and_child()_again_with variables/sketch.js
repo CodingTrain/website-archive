@@ -24,7 +24,7 @@ function clearStuff() {
   images = [];
 }
 function addPhoto() {
-  var img = createImg('apples2.jpg');
+  var img = createImg('appleImage.jpg');
   images.push(img);
   img.size(100, 100);
   // img.parent(p);
