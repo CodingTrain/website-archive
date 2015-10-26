@@ -1,5 +1,9 @@
 // https://vimeo.com/channels/learningp5js/142698562
 
+// resources on CSS:
+// https://developer.mozilla.org/en-US/docs/Web/CSS/Reference
+// http://www.blooberry.com/indexdot/css/propindex/font.htm
+
 var bgcolor;
 var button;
 var txt;
