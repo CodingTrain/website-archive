@@ -20,7 +20,7 @@ function draw() {
     bubbles[i].update();
     bubbles[i].display();
     for (var j = 0; j < bubbles.length; j++) {
-      if (j != j && bubbles[i].intersects(bubbles[j])) {
+      if (i != j && bubbles[i].intersects(bubbles[j])) {
         bubbles[i].changeColor();
         bubbles[j].changeColor();
       }
