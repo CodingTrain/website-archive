@@ -8,9 +8,8 @@ var b2;
 
 function setup() {
   createCanvas(600, 400);
-
-  var b1 = new Bubble(250, 200);
-  var b2 = new Bubble(350, 200);
+  b1 = new Bubble(250, 200);
+  b2 = new Bubble(350, 200);
 }
 
 function draw() {
