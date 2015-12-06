@@ -1,0 +1,106 @@
+{
+  "description": "Birds of Antarctica, grouped by family",
+  "source": "https://en.wikipedia.org/wiki/List_of_birds_of_Antarctica",
+  "birds": [
+    {
+      "family": "Albatrosses",
+      "members": [
+        "Wandering albatross",
+        "Grey-headed albatross",
+        "Black-browed albatross",
+        "Sooty albatross",
+        "Light-mantled albatross"
+      ]
+    },
+    {
+      "family": "Cormorants",
+      "members": [
+        "Antarctic shag",
+        "Imperial shag",
+        "Crozet shag"
+      ]
+    },
+    {
+      "family": "Diving petrels",
+      "members": [
+        "South Georgia diving petrel",
+        "Common diving petrel"
+      ]
+    },
+    {
+      "family": "Ducks, geese and swans",
+      "members": [
+        "Yellow-billed pintail"
+      ]
+    },
+    {
+      "family": "Gulls",
+      "members": [
+        "Kelp gull"
+      ]
+    },
+    {
+      "family": "Penguins",
+      "members": [
+        "King penguin",
+        "Emperor penguin",
+        "Gentoo penguin",
+        "Adelie penguin",
+        "Chinstrap penguin",
+        "Rockhopper penguin",
+        "Macaroni penguin"
+      ]
+    },
+    {
+      "family": "Shearwaters and petrels",
+      "members": [
+        "Antarctic giant petrel",
+        "Hall's giant petrel",
+        "Southern fulmar",
+        "Antarctic petrel",
+        "Cape petrel",
+        "Snow petrel",
+        "Great-winged petrel",
+        "White-headed petrel",
+        "Blue petrel",
+        "Broad-billed prion",
+        "Salvin's prion",
+        "Antarctic prion",
+        "Slender-billed prion",
+        "Fairy prion",
+        "Grey petrel",
+        "White-chinned petrel",
+        "Kerguelen petrel",
+        "Sooty shearwater"
+      ]
+    },
+    {
+      "family": "Sheathbills",
+      "members": [
+        "Snowy sheathbill"
+      ]
+    },
+    {
+      "family": "Skuas and jaegers",
+      "members": [
+        "South polar skua",
+        "Brown skua"
+      ]
+    },
+    {
+      "family": "Storm petrels",
+      "members": [
+        "Grey-backed storm petrel",
+        "Wilson's storm petrel",
+        "Black-bellied storm petrel"
+      ]
+    },
+    {
+      "family": "Terns",
+      "members": [
+        "Arctic tern",
+        "Antarctic tern"
+      ]
+    }
+  ]
+}
