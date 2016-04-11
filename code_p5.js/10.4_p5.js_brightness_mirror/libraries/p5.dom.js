@@ -1,3 +1,6 @@
+// MODIFIED see: https://github.com/processing/p5.js/issues/1079
+
+
 /*! p5.dom.js v0.2.9 March 3, 2016 */
 /**
  * <p>The web is much more than just canvas and p5.dom makes it easy to interact
