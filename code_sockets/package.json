@@ -1,0 +1,15 @@
+{
+  "name": "sockets_p5",
+  "version": "1.0.0",
+  "description": "This is an example for how to use sockets with p5.js.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Shiffman",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "socket.io": "^1.4.5"
+  }
+}
