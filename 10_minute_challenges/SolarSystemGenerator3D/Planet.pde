@@ -50,11 +50,13 @@ class Planet {
     pushMatrix();
     noStroke();
     fill(255);
-    rotate(angle, v.x, v.y, v.z);
+    PVector v2 = v.copy();
+    v2.rotate(PI/2);
+    rotate(angle, v2.x, v2.y, v2.z);
     //rotateX(xangle);
     //rotateY(yangle);
     //rotateZ(zangle);
-    translate(v.y, v.x, v.z);
+    translate(v.x, v.y, v.z);
     sphere(radius);
     //ellipse(0, 0, radius*2, radius*2);
     if (planets != null) {
