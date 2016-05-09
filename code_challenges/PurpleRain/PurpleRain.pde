@@ -5,7 +5,7 @@
 Drop[] drops = new Drop[500];
 
 void setup() {
-  size(640, 360, FX2D);
+  size(640, 360);
   for (int i = 0; i < drops.length; i++) {
     drops[i] = new Drop();
   }

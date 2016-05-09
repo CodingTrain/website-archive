@@ -1,9 +1,17 @@
 class Drop {
-  float x = random(width);
-  float y = random(-500, -50);
-  float z = random(0, 20);
-  float len = map(z, 0, 20, 10, 20);
-  float yspeed = map(z, 0, 20, 1, 20);
+  float x;
+  float y;
+  float z;
+  float len; 
+  float yspeed;
+
+  Drop() {
+    x  = random(width);
+    y  = random(-500, -50);
+    z  = random(0, 20);
+    len = map(z, 0, 20, 10, 20);
+    yspeed  = map(z, 0, 20, 1, 20);
+  }
 
   void fall() {
     y = y + yspeed;
