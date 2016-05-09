@@ -8,18 +8,11 @@ var total;
 function setup() {
   createCanvas(800, 300);
   background(51);
-  video = createCapture(VIDEO, ready);
+  video = createCapture(VIDEO);
   video.size(320, 240);
   // button = createButton('snap');
   // button.mousePressed(takesnap);
 }
-
-var go = false;
-
-function ready() {
-  go = true;
-}
-
 
 function draw() {
   var w = 80;
@@ -30,12 +23,10 @@ function draw() {
   // How many cells fit in the canvas
   total = floor(width / w) * floor(height / h);
 
-  if (go) {
-    snapshots[counter] = video.get();
-    counter++;
-    if (counter == total) {
-      counter = 0;
-    }
+  snapshots[counter] = video.get();
+  counter++;
+  if (counter == total) {
+    counter = 0;
   }
 
   for (var i = 0; i < snapshots.length; i++) {
@@ -48,7 +39,6 @@ function draw() {
       y = y + h;
     }
   }
-  // image(video, 0, 0);
 }
 
 
