@@ -1,3 +1,6 @@
+// Daniel Shiffman
+// Code for this video: https://youtu.be/f0lkz2gSsIk
+
 import peasy.*;
 
 float x = 0.01;
