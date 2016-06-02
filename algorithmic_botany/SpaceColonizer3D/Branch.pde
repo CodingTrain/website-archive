@@ -1,7 +1,7 @@
 // Coding Rainbow
 // Daniel Shiffman
 // http://patreon.com/codingrainbow
-// Code for: https://youtu.be/kKT0v3qhIQY
+// Code for: https://youtu.be/JcopTKXt8L8
 
 class Branch {
   Branch parent;
@@ -10,7 +10,7 @@ class Branch {
   int count = 0;
   PVector saveDir;
   float len = 5;
-
+  
   Branch(PVector v, PVector d) {
     parent = null;
     pos = v.copy();

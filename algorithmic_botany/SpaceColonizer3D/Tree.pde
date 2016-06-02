@@ -1,17 +1,17 @@
 // Coding Rainbow
 // Daniel Shiffman
 // http://patreon.com/codingrainbow
-// Code for: https://youtu.be/kKT0v3qhIQY
+// Code for: https://youtu.be/JcopTKXt8L8
 
 class Tree {
   ArrayList<Branch> branches = new ArrayList<Branch>();
   ArrayList<Leaf> leaves = new ArrayList<Leaf>();
 
   Tree() {
-    for (int i = 0; i < 500; i++) {
+    for (int i = 0; i < 2000; i++) {
       leaves.add(new Leaf());
-    }
-    Branch root = new Branch(new PVector(0,400), new PVector(0, -1,0));
+    }    
+    Branch root = new Branch(new PVector(0,height/2), new PVector(0, -1));
     branches.add(root);
     Branch current = new Branch(root);
 
@@ -47,7 +47,6 @@ class Tree {
           closest = null;
           break;
         } else if (d > max_dist) {
-
         } else if (closest == null || d < record) {
           closest = b;
           closestDir = dir;
@@ -71,6 +70,9 @@ class Tree {
       Branch b = branches.get(i);
       if (b.count > 0) {
         b.dir.div(b.count);
+        PVector rand = PVector.random2D();
+        rand.setMag(0.3);
+        b.dir.add(rand);
         b.dir.normalize();
         Branch newB = new Branch(b);
         branches.add(newB);
@@ -82,9 +84,13 @@ class Tree {
   void show() {
     for (Leaf l : leaves) {
       l.show();
-    }
-    for (Branch b : branches) {
+    }    
+    //for (Branch b : branches) {
+    for (int i = 0; i < branches.size(); i++) {
+      Branch b = branches.get(i);
       if (b.parent != null) {
+        float sw = map(i, 0, branches.size(), 6, 0);
+        strokeWeight(sw);
         stroke(255);
         line(b.pos.x, b.pos.y, b.pos.z, b.parent.pos.x, b.parent.pos.y, b.parent.pos.z);
       }

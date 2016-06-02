@@ -1,25 +1,25 @@
 // Coding Rainbow
 // Daniel Shiffman
 // http://patreon.com/codingrainbow
-// Code for: https://youtu.be/kKT0v3qhIQY
+// Code for: https://youtu.be/JcopTKXt8L8
 
 import peasy.*;
 
 Tree tree;
-float min_dist = 5;
-float max_dist = 50;
 
 PeasyCam cam;
 
+float min_dist = 5;
+float max_dist = 200;
+
 void setup() {
-  size(600, 600, P3D);
-  cam = new PeasyCam(this, 600);
+  size(600, 900, P3D);
+  cam = new PeasyCam(this, 500);
   tree = new Tree();
 }
 
 void draw() {
   background(51);
-  lights();
   tree.show();
   tree.grow();
 }
