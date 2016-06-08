@@ -1,11 +1,13 @@
 # Video-Lessons
 
 I'm using this repo to keep track of supplemental content for my video lessons. This includes:
-
 * captions
 * accompanying source code
 * notes with links and other materials referenced in the videos
 * better video descriptions for vimeo or youtube pages
+
+# Questions? Need Support?
+* Join: http://patreon.com/codingrainbow
 
 # Learning Processing video site
 * http://learningprocessing.com/videos/
