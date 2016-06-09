@@ -1,5 +1,5 @@
-// Coding Rainbow
 // Daniel Shiffman
+// http://codingrainbow.com
 // http://patreon.com/codingrainbow
 // Code for: https://youtu.be/SfA5CghXw18
 

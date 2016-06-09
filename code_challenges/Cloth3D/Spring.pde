@@ -1,3 +1,8 @@
+// Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
+// Code for: https://youtu.be/jrk_lOg_pVA
+
 class Spring extends VerletSpring {
 
   Spring(Particle a, Particle b) {

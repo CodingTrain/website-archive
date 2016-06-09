@@ -1,20 +1,13 @@
-import toxi.geom.*;
-import toxi.geom.mesh.*;
-import toxi.geom.mesh.subdiv.*;
-import toxi.geom.mesh2d.*;
-import toxi.math.*;
-import toxi.math.conversion.*;
-import toxi.math.noise.*;
-import toxi.math.waves.*;
-import toxi.util.*;
-import toxi.util.datatypes.*;
-import toxi.util.events.*;
+// Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
+// Code for: https://youtu.be/jrk_lOg_pVA
 
+import toxi.geom.*;
 import toxi.physics.*;
 import toxi.physics2d.*;
 import toxi.physics2d.behaviors.*;
 import toxi.physics2d.constraints.*;
-
 
 int cols = 40;
 int rows = 40;
@@ -47,17 +40,21 @@ void setup() {
     x = x + w;
   }
 
-  for (int i = 0; i < cols-1; i++) {
-    for (int j = 0; j < rows-1; j++) {
+  for (int i = 0; i < cols; i++) {
+    for (int j = 0; j < rows; j++) {
       Particle a = particles[i][j];
-      Particle b1 = particles[i+1][j];
-      Particle b2 = particles[i][j+1];
-      Spring s1 = new Spring(a, b1);
-      springs.add(s1);
-      physics.addSpring(s1);
-      Spring s2 = new Spring(a, b2);
-      springs.add(s2);
-      physics.addSpring(s2);
+      if (i != cols-1) {
+        Particle b1 = particles[i+1][j];
+        Spring s1 = new Spring(a, b1);
+        springs.add(s1);
+        physics.addSpring(s1);
+      }
+      if (j != rows-1) {
+        Particle b2 = particles[i][j+1];
+        Spring s2 = new Spring(a, b2);
+        springs.add(s2);
+        physics.addSpring(s2);
+      }
     }
   }
 
