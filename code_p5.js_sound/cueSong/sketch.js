@@ -1,3 +1,8 @@
+// Coding Rainbow
+// Daniel Shiffman
+// http://patreon.com/codingrainbow
+// Code for: https://youtu.be/SfA5CghXw18
+
 var song;
 var button;
 var jumpButton;

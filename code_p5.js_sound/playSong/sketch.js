@@ -1,7 +1,11 @@
+// Coding Rainbow
+// Daniel Shiffman
+// http://patreon.com/codingrainbow
+// Code for: https://youtu.be/Pn1g1wjxl_0
+
 var song;
 var sliderRate;
 var sliderPan;
-
 
 function setup() {
   createCanvas(200, 200);

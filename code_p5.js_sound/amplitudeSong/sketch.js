@@ -1,3 +1,8 @@
+// Coding Rainbow
+// Daniel Shiffman
+// http://patreon.com/codingrainbow
+// Code for: https://youtu.be/NCCHQwNAN6Y
+
 var song;
 var button;
 var amp;
@@ -22,7 +27,6 @@ function draw() {
 
   fill(255, 0, 255);
   ellipse(width / 2, height / 2, diam, diam);
-
 }
 
 
