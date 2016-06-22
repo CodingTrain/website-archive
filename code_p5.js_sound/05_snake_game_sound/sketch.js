@@ -1,3 +1,8 @@
+// Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
+// Code for: https://youtu.be/40Me1-yAtTc
+
 // The snake
 var s;
 // The scale of the grid
