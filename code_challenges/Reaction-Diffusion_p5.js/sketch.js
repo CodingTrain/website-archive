@@ -70,9 +70,9 @@ function draw() {
       var b = next[x][y].b;
       var c = floor((a - b) * 255);
       c = constrain(c, 0, 255);
-      pixels[pix + 0] = floor(a * 255);
-      pixels[pix + 1] = 0;
-      pixels[pix + 2] = floor(b * 255);
+      pixels[pix + 0] = c;
+      pixels[pix + 1] = c;
+      pixels[pix + 2] = c;
       pixels[pix + 3] = 255;
     }
   }
