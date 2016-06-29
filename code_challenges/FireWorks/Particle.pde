@@ -12,7 +12,11 @@ class Particle {
 
   boolean seed = false;
 
-  Particle(float x, float y) {
+  float hu;
+
+  Particle(float x, float y, float h) {
+    hu = h;
+
     acceleration = new PVector(0, 0);
     velocity = new PVector(0, random(-12, -5));
     location =  new PVector(x, y);
@@ -20,10 +24,11 @@ class Particle {
     lifespan = 255.0;
   }
 
-  Particle(PVector l) {
+  Particle(PVector l, float h) {
+    hu = h;
     acceleration = new PVector(0, 0);
     velocity = PVector.random2D();
-    velocity.mult(random(2, 6));
+    velocity.mult(random(4, 8));
     location = l.copy();
     lifespan = 255.0;
   }
@@ -48,9 +53,6 @@ class Particle {
   // Method to update location
   void update() {
 
-
-
-
     velocity.add(acceleration);
     location.add(velocity);
     if (!seed) {
@@ -62,7 +64,7 @@ class Particle {
 
   // Method to display
   void display() {
-    stroke(0, lifespan);
+    stroke(hu, 255, 255, lifespan);
     if (seed) {
       strokeWeight(4);
     } else {
