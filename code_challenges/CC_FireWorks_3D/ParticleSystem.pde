@@ -1,8 +1,7 @@
-// The Nature of Code
 // Daniel Shiffman
-// http://natureofcode.com
-
-// Simple Particle System
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
+// Code for: 
 
 // A class to describe a group of Particles
 // An ArrayList is used to manage the list of Particles 
@@ -15,7 +14,7 @@ class Firework {
 
   Firework() {
     hu = random(255);
-    firework = new Particle(random(width), height, hu);
+    firework = new Particle(random(-width/2, width/2), height/2, random(-800, 800), hu);
     particles = new ArrayList<Particle>();   // Initialize the arraylist
   }
   

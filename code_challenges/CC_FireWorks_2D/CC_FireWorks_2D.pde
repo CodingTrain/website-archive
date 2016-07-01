@@ -1,3 +1,8 @@
+// Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
+// Code for: 
+
 ArrayList<Firework> fireworks;
 
 PVector gravity = new PVector(0, 0.2);

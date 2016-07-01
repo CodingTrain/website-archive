@@ -1,8 +1,8 @@
-// The Nature of Code
 // Daniel Shiffman
-// http://natureofcode.com
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
+// Code for: 
 
-// Simple Particle System
 
 class Particle {
   PVector location;
