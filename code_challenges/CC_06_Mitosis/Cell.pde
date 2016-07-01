@@ -1,3 +1,8 @@
+// Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
+// Code for: https://youtu.be/jxGS3fKPKJA
+
 class Cell {
   PVector pos;
   float r;
@@ -10,7 +15,7 @@ class Cell {
   }
 
   Cell() {
-    this.pos  = new PVector(random(width), random(height)); 
+    this.pos  = new PVector(random(width), random(height));
     this.r = 60;
     this.c =  color(random(100, 255), 0, random(100, 255), 100);
   }

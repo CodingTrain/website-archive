@@ -1,4 +1,6 @@
 // Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
 // Code for: https://youtu.be/IKB1hWWedMk
 
 var cols, rows;

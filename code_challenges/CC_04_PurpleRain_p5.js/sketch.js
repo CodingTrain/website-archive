@@ -1,3 +1,8 @@
+// Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
+// Code for: https://youtu.be/KkyIDI6rQJI
+
 // Purple Rain
 // (138, 43, 226)
 // (230, 230, 250) // background

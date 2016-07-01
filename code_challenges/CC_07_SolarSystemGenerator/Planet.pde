@@ -1,3 +1,8 @@
+// Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
+// Code for: https://youtu.be/l8SiJ-RmeHU
+
 class Planet {
   float radius;
   float distance;
@@ -14,7 +19,7 @@ class Planet {
   }
 
   void orbit() {
-    angle = angle + orbitspeed; 
+    angle = angle + orbitspeed;
     if (planets != null) {
       for (int i = 0; i < planets.length; i++) {
         planets[i].orbit();

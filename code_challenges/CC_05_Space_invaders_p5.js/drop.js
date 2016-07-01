@@ -1,3 +1,8 @@
+// Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
+// Code for: https://youtu.be/biN3v3ef-Y0
+
 function Drop(x, y) {
   this.x = x;
   this.y = y;
@@ -6,7 +11,7 @@ function Drop(x, y) {
 
   this.show = function() {
     noStroke();
-    fill(150, 0, 255);   
+    fill(150, 0, 255);
     ellipse(this.x, this.y, this.r*2, this.r*2);
   }
 

@@ -1,3 +1,8 @@
+// Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
+// Code for: https://youtu.be/biN3v3ef-Y0
+
 var ship;
 var flowers = [];
 var drops = [];
@@ -40,7 +45,7 @@ function draw() {
   if (edge) {
     for (var i = 0; i < flowers.length; i++) {
       flowers[i].shiftDown();
-    }   
+    }
   }
 
   for (var i = drops.length-1; i >= 0; i--) {

@@ -1,4 +1,6 @@
 // Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
 // Code for this video: https://youtu.be/LG8ZK-rRkXo
 
 function Box(x, y, z, r) {

@@ -1,8 +1,13 @@
+// Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
+// Code for: https://youtu.be/KkyIDI6rQJI
+
 class Drop {
   float x;
   float y;
   float z;
-  float len; 
+  float len;
   float yspeed;
 
   Drop() {

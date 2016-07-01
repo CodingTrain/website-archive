@@ -1,3 +1,8 @@
+// Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
+// Code for: https://youtu.be/biN3v3ef-Y0
+
 class Drop {
   float x, y, r;
   boolean toDelete;
@@ -11,7 +16,7 @@ class Drop {
 
   void show() {
     noStroke();
-    fill(150, 0, 255);   
+    fill(150, 0, 255);
     ellipse(this.x, this.y, this.r*2, this.r*2);
   }
 

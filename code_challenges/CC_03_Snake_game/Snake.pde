@@ -1,3 +1,8 @@
+// Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
+// Code for: https://youtu.be/AaGK-fj-BAM
+
 class Snake {
   float x = 0;
   float y = 0;

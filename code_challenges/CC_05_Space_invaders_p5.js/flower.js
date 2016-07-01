@@ -1,3 +1,8 @@
+// Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
+// Code for: https://youtu.be/biN3v3ef-Y0
+
 function Flower(x, y) {
   this.x = x;
   this.y = y;
@@ -20,7 +25,7 @@ function Flower(x, y) {
 
   this.show = function() {
     noStroke();
-    fill(255, 0, 200, 150);   
+    fill(255, 0, 200, 150);
     ellipse(this.x, this.y, this.r*2, this.r*2);
   }
 

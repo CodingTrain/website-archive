@@ -1,3 +1,8 @@
+// Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
+// Code for: https://youtu.be/FGAwi7wpU8c
+
 class Planet {
   float radius;
   float distance;
@@ -5,11 +10,11 @@ class Planet {
   float angle;
   float orbitspeed;
   PVector v;
-  
+
   PShape globe;
 
   Planet(float r, float d, float o, PImage img) {
-    
+
     v = PVector.random3D();
 
     radius = r;
@@ -17,7 +22,7 @@ class Planet {
     v.mult(distance);
     angle = random(TWO_PI);
     orbitspeed = o;
-    
+
     noStroke();
     noFill();
     globe = createShape(SPHERE, radius);
@@ -25,7 +30,7 @@ class Planet {
   }
 
   void orbit() {
-    angle = angle + orbitspeed; 
+    angle = angle + orbitspeed;
     if (planets != null) {
       for (int i = 0; i < planets.length; i++) {
         planets[i].orbit();

@@ -1,3 +1,8 @@
+// Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
+// Code for: https://youtu.be/biN3v3ef-Y0
+
 class Ship {
   float x, xdir;
 
@@ -7,8 +12,8 @@ class Ship {
   }
 
   void show() {
-    fill(255);   
-    rectMode(CENTER); 
+    fill(255);
+    rectMode(CENTER);
     rect(this.x, height-20, 20, 60);
   }
 

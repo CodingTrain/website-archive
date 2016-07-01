@@ -1,3 +1,8 @@
+// Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
+// Code for: https://youtu.be/biN3v3ef-Y0
+
 Ship ship;
 Flower[] flowers = new Flower[6];
 ArrayList<Drop> drops = new ArrayList<Drop>();
@@ -40,7 +45,7 @@ void draw() {
   if (edge) {
     for (int i = 0; i < flowers.length; i++) {
       flowers[i].shiftDown();
-    }   
+    }
   }
 
   for (int i = drops.size()-1; i >= 0; i--) {

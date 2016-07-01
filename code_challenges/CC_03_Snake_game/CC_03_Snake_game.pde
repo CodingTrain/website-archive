@@ -1,3 +1,8 @@
+// Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
+// Code for: https://youtu.be/AaGK-fj-BAM
+
 Snake s;
 int scl = 20;
 

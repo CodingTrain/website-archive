@@ -1,3 +1,8 @@
+// Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
+// Code for: https://youtu.be/KkyIDI6rQJI
+
 
 function Drop() {
   this.x = random(width);

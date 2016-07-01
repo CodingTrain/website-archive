@@ -1,3 +1,8 @@
+// Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
+// Code for: https://youtu.be/FGAwi7wpU8c
+
 import peasy.*;
 Planet sun;
 
@@ -21,6 +26,6 @@ void draw() {
   background(0);
   ambientLight(255,255,255);
   pointLight(255, 255, 255, 0, 0, 0);
-  sun.show(); 
+  sun.show();
   sun.orbit();
 }

@@ -1,4 +1,9 @@
- function Snake() {
+// Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
+// Code for: https://youtu.be/AaGK-fj-BAM
+
+function Snake() {
   this.x = 0;
   this.y = 0;
   this.xspeed = 1;
@@ -35,17 +40,17 @@
 
   this.update = function() {
     if (this.total === this.tail.length) {
-      for (var i = 0; i < this.tail.length-1; i++) {
-        this.tail[i] = this.tail[i+1];
+      for (var i = 0; i < this.tail.length - 1; i++) {
+        this.tail[i] = this.tail[i + 1];
       }
     }
-    this.tail[this.total-1] = createVector(this.x, this.y);
+    this.tail[this.total - 1] = createVector(this.x, this.y);
 
-    this.x = this.x + this.xspeed*scl;
-    this.y = this.y + this.yspeed*scl;
+    this.x = this.x + this.xspeed * scl;
+    this.y = this.y + this.yspeed * scl;
 
-    this.x = constrain(this.x, 0, width-scl);
-    this.y = constrain(this.y, 0, height-scl);
+    this.x = constrain(this.x, 0, width - scl);
+    this.y = constrain(this.y, 0, height - scl);
   }
 
   this.show = function() {

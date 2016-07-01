@@ -1,14 +1,16 @@
 // Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
 // Code for: https://youtu.be/17WoOqgXsRM
 
 // I crete a "Star" Class.
 class Star {
-  // I create variables to specify the x and y of each star. 
+  // I create variables to specify the x and y of each star.
   float x;
   float y;
   // I create "z", a variable I'll use in a formula to modify the stars position.
   float z;
-  
+
   // I create an other variable to store the previous value of the z variable.
   // (the value of the z variable at the previous frame).
   float pz;
@@ -16,7 +18,7 @@ class Star {
   Star() {
     // I place values in the variables
     x = random(-width/2, width/2);
-    // note: height and width are the same: the canvas is a square. 
+    // note: height and width are the same: the canvas is a square.
     y = random(-height/2, height/2);
     // note: the z value can't exceed the width/2 (and height/2) value,
     // beacuse I'll use "z" as divisor of the "x" and "y",
@@ -58,24 +60,24 @@ class Star {
     // we map this number (proportionally to a range of 0 - 1), inside a range of 0 - width/2.
     // In this way we are sure the new coordinates "sx" and "sy" move faster at each frame
     // and which they finish their travel outside of the canvas (they finish when "z" is less than a).
-    
+
     float sx = map(x / z, 0, 1, 0, width/2);
     float sy = map(y / z, 0, 1, 0, height/2);;
-    
-    // I use the z value to increase the star size between a range from 0 to 16. 
+
+    // I use the z value to increase the star size between a range from 0 to 16.
     float r = map(z, 0, width/2, 16, 0);
     ellipse(sx, sy, r, r);
-    
+
     // Here i use the "pz" valute to get the previous position of the stars,
-    // so I can draw a line from the previous position to the new (current) one. 
+    // so I can draw a line from the previous position to the new (current) one.
     float px = map(x / pz, 0, 1, 0, width/2);
     float py = map(y / pz, 0, 1, 0, height/2);
-    
-    // Placing here this line of code, I'm sure the "pz" value are updated after the 
+
+    // Placing here this line of code, I'm sure the "pz" value are updated after the
     // coordinates are already calculated; in this way the "pz" value is always equals
     // to the "z" value of the previous frame.
     pz = z;
-    
+
     stroke(255);
     line(px, py, sx, sy);
 

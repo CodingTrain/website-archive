@@ -1,8 +1,7 @@
 // Daniel Shiffman
 // http://codingrainbow.com
 // http://patreon.com/codingrainbow
-// Code for: 
-
+// Code for:
 
 class Particle {
   PVector location;

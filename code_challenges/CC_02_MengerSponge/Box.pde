@@ -1,3 +1,8 @@
+// Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
+// Code for this video: https://youtu.be/LG8ZK-rRkXo
+
 class Box {
   PVector pos;
   float r;
@@ -9,8 +14,8 @@ class Box {
 
   ArrayList<Box> generate() {
     ArrayList<Box> boxes = new ArrayList<Box>();
-    for (int x = -1; x < 2; x++) {  
-      for (int y = -1; y < 2; y++) {  
+    for (int x = -1; x < 2; x++) {
+      for (int y = -1; y < 2; y++) {
         for (int z = -1; z < 2; z++) {
           int sum = abs(x) + abs(y) + abs(z);
           float newR = r/3;

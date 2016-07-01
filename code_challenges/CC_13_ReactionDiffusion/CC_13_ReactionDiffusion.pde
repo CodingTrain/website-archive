@@ -1,10 +1,12 @@
 // Daniel Shiffman
-// Code for this video: [COMING SOON]
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
+// Code for this video: https://youtu.be/BV9ny785UNc
 
 // Written entirely based on
 // http://www.karlsims.com/rd.html
 
-// Also, could use for reference
+// Also, for reference
 // http://hg.postspectacular.com/toxiclibs/src/44d9932dbc9f9c69a170643e2d459f449562b750/src.sim/toxi/sim/grayscott/GrayScott.java?at=default
 
 Cell[][] grid;
@@ -47,7 +49,7 @@ float k = 0.062;
 class Cell {
   float a;
   float b;
-  
+
   Cell(float a_, float b_) {
     a = a_;
     b = b_;

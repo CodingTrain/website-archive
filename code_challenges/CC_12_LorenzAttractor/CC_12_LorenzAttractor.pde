@@ -1,4 +1,6 @@
 // Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
 // Code for this video: https://youtu.be/f0lkz2gSsIk
 
 import peasy.*;
@@ -38,7 +40,7 @@ void draw() {
   scale(5);
   stroke(255);
   noFill();
-  
+
   float hu = 0;
   beginShape();
   for (PVector v : points) {
@@ -47,7 +49,7 @@ void draw() {
     //PVector offset = PVector.random3D();
     //offset.mult(0.1);
     //v.add(offset);
-    
+
     hu += 0.1;
     if (hu > 255) {
       hu = 0;

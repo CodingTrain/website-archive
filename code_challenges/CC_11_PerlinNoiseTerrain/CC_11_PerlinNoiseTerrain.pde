@@ -1,4 +1,6 @@
 // Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
 // Code for: https://youtu.be/IKB1hWWedMk
 
 int cols, rows;
@@ -19,7 +21,7 @@ void setup() {
 
 
 void draw() {
-  
+
   flying -= 0.1;
 
   float yoff = flying;
