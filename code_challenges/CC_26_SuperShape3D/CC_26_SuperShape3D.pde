@@ -1,5 +1,9 @@
-import peasy.*;
+// Daniel Shiffman
+// http://codingrainbow.com
+// http://patreon.com/codingrainbow
+// Code for: https://youtu.be/akM4wMZIBWg
 
+import peasy.*;
 
 PeasyCam cam;
 
@@ -35,7 +39,7 @@ float supershape(float theta, float m, float n1, float n2, float n3) {
 void draw() {
   
   m = map(sin(mchange), -1, 1, 0, 7);
-  mchange += 0.05;
+  mchange += 0.02;
   
   background(0);
   noStroke();
