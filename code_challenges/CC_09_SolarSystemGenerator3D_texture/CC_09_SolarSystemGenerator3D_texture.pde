@@ -1,8 +1,4 @@
 import peasy.*;
-import peasy.org.apache.commons.math.*;
-import peasy.org.apache.commons.math.geometry.*;
-import peasy.test.*;
-
 Planet sun;
 
 PeasyCam cam;
@@ -23,7 +19,7 @@ void setup() {
 
 void draw() {
   background(0);
-  //ambientLight(255,255,255);
+  ambientLight(255,255,255);
   pointLight(255, 255, 255, 0, 0, 0);
   sun.show(); 
   sun.orbit();
