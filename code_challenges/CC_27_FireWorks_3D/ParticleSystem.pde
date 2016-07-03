@@ -34,7 +34,7 @@ class Firework {
       firework.display();
 
       if (firework.explode()) {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 500; i++) {
           particles.add(new Particle(firework.location, hu));    // Add "num" amount of particles to the arraylist
         }
         firework = null;

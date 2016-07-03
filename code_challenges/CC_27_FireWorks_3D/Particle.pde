@@ -27,7 +27,7 @@ class Particle {
     hu = h;
     acceleration = new PVector(0, 0);
     velocity = PVector.random3D();
-    velocity.mult(random(4, 8));
+    velocity.mult(random(8, 16));
     location = l.copy();
     lifespan = 255.0;
   }
@@ -55,8 +55,8 @@ class Particle {
     velocity.add(acceleration);
     location.add(velocity);
     if (!seed) {
-      lifespan -= 2.5;
-      velocity.mult(0.95);
+      lifespan -= 5;
+      velocity.mult(0.9);
     }
     acceleration.mult(0);
   }
