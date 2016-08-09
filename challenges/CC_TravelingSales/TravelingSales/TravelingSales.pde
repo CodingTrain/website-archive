@@ -1,7 +1,7 @@
 int popmax;
 float mutationRate;
 Population population;
-PVector[] path = new PVector[15];
+PVector[] path = new PVector[50];
 
 DNA bestEver;
 

@@ -80,26 +80,28 @@ class DNA {
   void mutate(float mutationRate) {
     for (int n = 0; n < genes.length; n++) {
       if (random(1) < mutationRate) {
-        shuffle(genes);
-      } else {
-        int r1 = n;//int(random(genes.length));
-        PVector removed = genes[r1];
-        PVector[] truncated = new PVector[genes.length-1];
-        for (int i = 0; i < truncated.length; i++) {
-          if (i < r1) {
-            truncated[i] =  genes[i];
-          } else {
-            truncated[i] = genes[i+1];
+        if (random(1) < 0.5) {
+          shuffle(genes);
+        } else {
+          int r1 = n;//int(random(genes.length));
+          PVector removed = genes[r1];
+          PVector[] truncated = new PVector[genes.length-1];
+          for (int i = 0; i < truncated.length; i++) {
+            if (i < r1) {
+              truncated[i] =  genes[i];
+            } else {
+              truncated[i] = genes[i+1];
+            }
           }
-        }
-        int r2 = int(random(truncated.length));
-        for (int i = 0; i < genes.length; i++) {
-          if (i < r2) {
-            genes[i] = truncated[i];
-          } else if (i == r2) {
-            genes[i] = removed;
-          } else {
-            genes[i] = truncated[i-1];
+          int r2 = int(random(truncated.length));
+          for (int i = 0; i < genes.length; i++) {
+            if (i < r2) {
+              genes[i] = truncated[i];
+            } else if (i == r2) {
+              genes[i] = removed;
+            } else {
+              genes[i] = truncated[i-1];
+            }
           }
         }
       }
