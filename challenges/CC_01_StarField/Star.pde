@@ -3,7 +3,7 @@
 // http://patreon.com/codingrainbow
 // Code for: https://youtu.be/17WoOqgXsRM
 
-// I crete a "Star" Class.
+// I create a "Star" Class.
 class Star {
   // I create variables to specify the x and y of each star.
   float x;
