@@ -25,7 +25,7 @@ function Walker(x, y) {
   this.checkStuck = function(others) {
     for (var i = 0; i < others.length; i++) {
       var d = distSq(this.pos, others[i].pos);
-      if (d < (this.r * others[i].r * 4)) {
+      if (d < (this.r * this.r + others[i].r * others[i].r +  2 * others[i].r * this.r)) {
         //if (random(1) < 0.1) {
         this.stuck = true;
         return true;
