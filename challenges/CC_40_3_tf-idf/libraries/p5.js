@@ -1,4 +1,4 @@
-/*! p5.js v0.5.3 August 17, 2016 */
+/*! p5.js v0.5.4 October 01, 2016 */
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.p5 = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
 
 },{}],2:[function(_dereq_,module,exports){
@@ -5596,9 +5596,10 @@ var _globalInit = function() {
   if (!window.PHANTOMJS && !window.mocha) {
     // If there is a setup or draw function on the window
     // then instantiate p5 in "global" mode
-    if((window.setup && typeof window.setup === 'function') ||
-      (window.draw && typeof window.draw === 'function')) {
-      p5.instance = new p5();
+    if(((window.setup && typeof window.setup === 'function') ||
+       (window.draw && typeof window.draw === 'function')) &&
+       !p5.instance) {
+      new p5();
     }
   }
 };
@@ -5897,6 +5898,26 @@ _dereq_('./p5.Color');
  * rect(50, 15, 35, 70);
  * </code>
  * </div>
+ *
+ * @alt
+ * Left half of canvas light blue and right half light charcoal grey.
+ * Left half of canvas light purple and right half a royal blue.
+ * Left half of canvas salmon pink and the right half white.
+ * Yellow rect in middle right of canvas, with 55 pixel width and height.
+ * Yellow ellipse in top left canvas, black ellipse in bottom right,both 80x80.
+ * Bright fuschia rect in middle of canvas, 60 pixel width and height.
+ * Two bright green rects on opposite sides of the canvas, both 45x80.
+ * Four blue rects in each corner of the canvas, each are 35x35.
+ * Bright sea green rect on left and darker rect on right of canvas, both 45x80.
+ * Dark green rect on left and light green rect on right of canvas, both 45x80.
+ * Dark blue rect on left and light teal rect on right of canvas, both 45x80.
+ * blue rect on left and green on right, both with black outlines & 35x60.
+ * salmon pink rect on left and black on right, both 35x60.
+ * 4 rects, tan, brown, brownish purple and purple, with white outlines & 20x60.
+ * light pastel green rect on left and dark grey rect on right, both 35x60.
+ * yellow rect on left and red rect on right, both with black outlines & 35x60.
+ * grey canvas
+ * deep pink rect on left and grey rect on right, both 35x60.
  */
 p5.prototype.alpha = function(c) {
   if (c instanceof p5.Color || c instanceof Array) {
@@ -5919,11 +5940,15 @@ p5.prototype.alpha = function(c) {
  * rect(15, 20, 35, 60);  // Draw left rectangle
  *
  * blueValue = blue(c);  // Get blue in 'c'
- * println(blueValue);  // Prints "220.0"
+ * print(blueValue);  // Prints "220.0"
  * fill(0, 0, blueValue);  // Use 'blueValue' in new fill
  * rect(50, 20, 35, 60);  // Draw right rectangle
  * </code>
  * </div>
+ *
+ * @alt
+ * Left half of canvas light purple and right half a royal blue.
+ *
  */
 p5.prototype.blue = function(c) {
   if (c instanceof p5.Color || c instanceof Array) {
@@ -5951,6 +5976,10 @@ p5.prototype.blue = function(c) {
  * rect(50, 20, 35, 60);
  * </code>
  * </div>
+ *
+ * @alt
+ * Left half of canvas salmon pink and the right half white.
+ *
  */
 p5.prototype.brightness = function(c) {
   if (c instanceof p5.Color || c instanceof Array) {
@@ -5983,10 +6012,6 @@ p5.prototype.brightness = function(c) {
  *                                 (default is 0-100)
  * @return {Array}                 resulting color
  *
- * @alt
- * This is alt text for example 1.
- * This is alt text for example 2.
- * This is alt text for example 3.
  * @example
  * <div>
  * <code>
@@ -6109,6 +6134,17 @@ p5.prototype.brightness = function(c) {
  * rect(55, 10, 45, 80);  // Draw right rect
  * </code>
  * </div>
+ *
+ * @alt
+ * Yellow rect in middle right of canvas, with 55 pixel width and height.
+ * Yellow ellipse in top left of canvas, black ellipse in bottom right,both 80x80.
+ * Bright fuschia rect in middle of canvas, 60 pixel width and height.
+ * Two bright green rects on opposite sides of the canvas, both 45x80.
+ * Four blue rects in each corner of the canvas, each are 35x35.
+ * Bright sea green rect on left and darker rect on right of canvas, both 45x80.
+ * Dark green rect on left and lighter green rect on right of canvas, both 45x80.
+ * Dark blue rect on left and light teal rect on right of canvas, both 45x80.
+ *
  */
 
 /**
@@ -6153,12 +6189,17 @@ p5.prototype.color = function() {
  * rect(15, 20, 35, 60);  // Draw left rectangle
  *
  * greenValue = green(c);  // Get green in 'c'
- * println(greenValue);  // Print "75.0"
+ * print(greenValue);  // Print "75.0"
  * fill(0, greenValue, 0);  // Use 'greenValue' in new fill
  * rect(50, 20, 35, 60);  // Draw right rectangle
  * </code>
  * </div>
+ *
+ * @alt
+ * blue rect on left and green on right, both with black outlines & 35x60.
+ *
  */
+
 p5.prototype.green = function(c) {
   if (c instanceof p5.Color || c instanceof Array) {
     return this.color(c)._getGreen();
@@ -6191,7 +6232,12 @@ p5.prototype.green = function(c) {
  * rect(50, 20, 35, 60);
  * </code>
  * </div>
+ *
+ * @alt
+ * salmon pink rect on left and black on right, both 35x60.
+ *
  */
+
 p5.prototype.hue = function(c) {
   if (c instanceof p5.Color || c instanceof Array) {
     return this.color(c)._getHue();
@@ -6237,7 +6283,12 @@ p5.prototype.hue = function(c) {
  * rect(70, 20, 20, 60);
  * </code>
  * </div>
+ *
+ * @alt
+ * 4 rects one tan, brown, brownish purple, purple, with white outlines & 20x60
+ *
  */
+
 p5.prototype.lerpColor = function(c1, c2, amt) {
   var mode = this._renderer._colorMode;
   var maxes = this._renderer._colorMaxes;
@@ -6301,6 +6352,10 @@ p5.prototype.lerpColor = function(c1, c2, amt) {
  * rect(50, 20, 35, 60);
  * </code>
  * </div>
+ *
+ * @alt
+ * light pastel green rect on left and dark grey rect on right, both 35x60.
+ *
  */
 p5.prototype.lightness = function(c) {
   if (c instanceof p5.Color || c instanceof Array) {
@@ -6323,7 +6378,7 @@ p5.prototype.lightness = function(c) {
  * rect(15, 20, 35, 60);  // Draw left rectangle
  *
  * redValue = red(c);  // Get red in 'c'
- * println(redValue);  // Print "255.0"
+ * print(redValue);  // Print "255.0"
  * fill(redValue, 0, 0);  // Use 'redValue' in new fill
  * rect(50, 20, 35, 60);  // Draw right rectangle
  * </code>
@@ -6335,9 +6390,13 @@ p5.prototype.lightness = function(c) {
  * var c = color(127, 255, 0);
  * colorMode(RGB, 1);
  * var myColor = red(c);
- * println(myColor);
+ * print(myColor);
  * </code>
  * </div>
+ *
+ * @alt
+ * yellow rect on left and red rect on right, both with black outlines and 35x60.
+ * grey canvas
  */
 p5.prototype.red = function(c) {
   if (c instanceof p5.Color || c instanceof Array) {
@@ -6370,7 +6429,12 @@ p5.prototype.red = function(c) {
  * rect(50, 20, 35, 60);
  * </code>
  * </div>
+ *
+ * @alt
+ *deep pink rect on left and grey rect on right, both 35x60.
+ *
  */
+
 p5.prototype.saturation = function(c) {
   if (c instanceof p5.Color || c instanceof Array) {
     return this.color(c)._getSaturation();
@@ -6806,6 +6870,10 @@ var colorPatterns = {
  * // todo
  * </code>
  * </div>
+ *
+ * @alt
+ * //todo
+ *
  */
 p5.Color._parseInputs = function() {
   var numArgs = arguments.length;
@@ -7088,6 +7156,19 @@ _dereq_('./p5.Color');
  * background(color(0, 0, 255));
  * </code>
  * </div>
+ *
+ * @alt
+ * canvas with darkest charcoal grey background.
+ * canvas with yellow background.
+ * canvas with royal blue background.
+ * canvas with red background.
+ * canvas with pink background.
+ * canvas with black background.
+ * canvas with bright green background.
+ * canvas with soft green background.
+ * canvas with red background.
+ * canvas with light purple background.
+ * canvas with blue background.
  */
 
 /**
@@ -7157,7 +7238,12 @@ p5.prototype.background = function() {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 20x20 white ellipses are continually drawn at mouse x and y coordinates.
+ *
  */
+
 p5.prototype.clear = function() {
   this._renderer.clear();
   return this;
@@ -7235,6 +7321,13 @@ p5.prototype.clear = function() {
  * ellipse(50, 50, 40, 40);
  * </code>
  * </div>
+ *
+ * @alt
+ *Green to red gradient from bottom L to top R. shading originates from top left.
+ *Rainbow gradient from left to right. Brightness increasing to white at top.
+ *unknown image.
+ *50x50 ellipse at middle L & 40x40 ellipse at center. Transluscent pink outlines.
+ *
  */
 p5.prototype.colorMode = function() {
   if (arguments[0] === constants.RGB ||
@@ -7379,7 +7472,20 @@ p5.prototype.colorMode = function() {
  * rect(20, 20, 60, 60);
  * </code>
  * </div>
+ * @alt
+ * 60x60 dark charcoal grey rect with black outline in center of canvas.
+ * 60x60 yellow rect with black outline in center of canvas.
+ * 60x60 royal blue rect with black outline in center of canvas.
+ * 60x60 red rect with black outline in center of canvas.
+ * 60x60 pink rect with black outline in center of canvas.
+ * 60x60 black rect with black outline in center of canvas.
+ * 60x60 light green rect with black outline in center of canvas.
+ * 60x60 soft green rect with black outline in center of canvas.
+ * 60x60 red rect with black outline in center of canvas.
+ * 60x60 dark fushcia rect with black outline in center of canvas.
+ * 60x60 blue rect with black outline in center of canvas.
  */
+
 p5.prototype.fill = function() {
   this._renderer._setProperty('_fillSet', true);
   this._renderer._setProperty('_doFill', true);
@@ -7400,6 +7506,8 @@ p5.prototype.fill = function() {
  * rect(20, 20, 60, 60);
  * </code>
  * </div>
+ * @alt
+ * white rect top middle and noFill rect center. Both 60x60 with black outlines.
  */
 p5.prototype.noFill = function() {
   this._renderer._setProperty('_doFill', false);
@@ -7418,7 +7526,13 @@ p5.prototype.noFill = function() {
  * rect(20, 20, 60, 60);
  * </code>
  * </div>
+ *
+ *
+ * @alt
+ *60x60 white rect at center. no outline.
+ *
  */
+
 p5.prototype.noStroke = function() {
   this._renderer._setProperty('_doStroke', false);
   return this;
@@ -7547,7 +7661,21 @@ p5.prototype.noStroke = function() {
  * rect(20, 20, 60, 60);
  * </code>
  * </div>
+ *
+ * @alt
+ * 60x60 white rect at center. Dark charcoal grey outline.
+ * 60x60 white rect at center. Yellow outline.
+ * 60x60 white rect at center. Royal blue outline.
+ * 60x60 white rect at center. Red outline.
+ * 60x60 white rect at center. Pink outline.
+ * 60x60 white rect at center. Black outline.
+ * 60x60 white rect at center. Bright green outline.
+ * 60x60 white rect at center. Soft green outline.
+ * 60x60 white rect at center. Red outline.
+ * 60x60 white rect at center. Dark fushcia outline.
+ * 60x60 white rect at center. Blue outline.
  */
+
 p5.prototype.stroke = function() {
   this._renderer._setProperty('_strokeSet', true);
   this._renderer._setProperty('_doStroke', true);
@@ -7622,6 +7750,13 @@ _dereq_('./error_helpers');
  * arc(50, 50, 80, 80, 0, PI+QUARTER_PI, PIE);
  * </code>
  * </div>
+ *
+ * @alt
+ *shattered outline of an ellipse with a quarter of a white circle bottom-right.
+ *white ellipse with black outline with top right missing.
+ *white ellipse with top right missing with black outline around shape.
+ *white ellipse with top right quarter missing with black outline around the shape.
+ *
  */
 p5.prototype.arc = function(x, y, w, h, start, stop, mode) {
   var args = new Array(arguments.length);
@@ -7699,6 +7834,10 @@ p5.prototype.arc = function(x, y, w, h, start, stop, mode) {
  * ellipse(56, 46, 55, 55);
  * </code>
  * </div>
+ *
+ * @alt
+ *white ellipse with black outline in middle-right of canvas that is 55x55.
+ *
  */
 /**
  * @method ellipse
@@ -7766,6 +7905,11 @@ p5.prototype.ellipse = function() {
  * line(85, 75, 30, 75);
  * </code>
  * </div>
+ *
+ * @alt
+ *line 78 pixels long running from mid-top to bottom-right of canvas.
+ *3 lines of various stroke sizes. Form top, bottom and right sides of a square.
+ *
  */
 ////commented out original
 // p5.prototype.line = function(x1, y1, x2, y2) {
@@ -7823,6 +7967,10 @@ p5.prototype.line = function() {
  * point(30, 75);
  * </code>
  * </div>
+ *
+ * @alt
+ *4 points centered in the middle-right of the canvas.
+ *
  */
 p5.prototype.point = function() {
   if (!this._renderer._doStroke) {
@@ -7872,6 +8020,10 @@ p5.prototype.point = function() {
  * quad(38, 31, 86, 20, 69, 63, 30, 76);
  * </code>
  * </div>
+ *
+ * @alt
+ *irregular white quadrilateral shape with black outline mid-right of canvas.
+ *
  */
 /**
  * @method quad
@@ -7967,6 +8119,11 @@ p5.prototype.quad = function() {
 * rect(30, 20, 55, 55, 20, 15, 10, 5);
 * </code>
 * </div>
+*
+* @alt
+* 55x55 white rect with black outline in mid-right of canvas.
+* 55x55 white rect with black outline and rounded edges in mid-right of canvas.
+* 55x55 white rect with black outline and rounded edges of different radii.
 */
 /**
 * @method rect
@@ -7982,11 +8139,6 @@ p5.prototype.rect = function () {
   var args = new Array(arguments.length);
   for (var i = 0; i < args.length; ++i) {
     args[i] = arguments[i];
-  }
-  if (this._renderer._rectMode !== constants.CORNERS) {
-    // p5 supports negative width and heights for rects
-    if (args[2] < 0){args[2] = Math.abs(args[2]);}
-    if (args[3] < 0){args[3] = Math.abs(args[3]);}
   }
   if (!this._renderer._doStroke && !this._renderer._doFill) {
     return;
@@ -8024,6 +8176,10 @@ p5.prototype.rect = function () {
 * triangle(30, 75, 58, 20, 86, 75);
 * </code>
 * </div>
+*
+*@alt
+* white triangle with black outline in mid-right of canvas.
+*
 */
 p5.prototype.triangle = function() {
 
@@ -8104,6 +8260,11 @@ var constants = _dereq_('./constants');
  * ellipse(25, 25, 50, 50);  // Draw gray ellipse using CORNERS mode
  * </code>
  * </div>
+ *
+ * @alt
+ * 60x60 white ellipse and 30x30 grey ellipse with black outlines at center.
+ * 60x60 white ellipse @center and 30x30 grey ellipse top-right, black outlines.
+ *
  */
 p5.prototype.ellipseMode = function(m) {
   if (m === constants.CORNER ||
@@ -8133,6 +8294,10 @@ p5.prototype.ellipseMode = function(m) {
  * ellipse(70, 48, 36, 36);
  * </code>
  * </div>
+ *
+ * @alt
+ * 2 pixelated 36x36 white ellipses to left & right of center, black background
+ *
  */
 p5.prototype.noSmooth = function() {
   this._renderer.noSmooth();
@@ -8189,6 +8354,11 @@ p5.prototype.noSmooth = function() {
  * rect(50, 50, 30, 30);  // Draw gray rect using CENTER mode
  * </code>
  * </div>
+ *
+ * @alt
+ * 50x50 white rect at center and 25x25 grey rect in the top left of the other.
+ * 50x50 white rect at center and 25x25 grey rect in the center of the other.
+ *
  */
 p5.prototype.rectMode = function(m) {
   if (m === constants.CORNER ||
@@ -8219,6 +8389,10 @@ p5.prototype.rectMode = function(m) {
  * ellipse(70, 48, 36, 36);
  * </code>
  * </div>
+ *
+ * @alt
+ * 2 pixelated 36x36 white ellipses one left one right of center. On black.
+ *
  */
 p5.prototype.smooth = function() {
   this._renderer.smooth();
@@ -8245,6 +8419,10 @@ p5.prototype.smooth = function() {
  * line(20, 70, 80, 70);
  * </code>
  * </div>
+ *
+ * @alt
+ * 3 lines. Top line: rounded ends, mid: squared, bottom:longer squared ends.
+ *
  */
 p5.prototype.strokeCap = function(cap) {
   if (cap === constants.ROUND ||
@@ -8303,6 +8481,12 @@ p5.prototype.strokeCap = function(cap) {
  * endShape();
  * </code>
  * </div>
+ *
+ * @alt
+ * Right-facing arrowhead shape with pointed tip in center of canvas.
+ * Right-facing arrowhead shape with flat tip in center of canvas.
+ * Right-facing arrowhead shape with rounded tip in center of canvas.
+ *
  */
 p5.prototype.strokeJoin = function(join) {
   if (join === constants.ROUND ||
@@ -8331,6 +8515,10 @@ p5.prototype.strokeJoin = function(join) {
  * line(20, 70, 80, 70);
  * </code>
  * </div>
+ *
+ * @alt
+ * 3 horizontal black lines. Top line: thin, mid: medium, bottom:thick.
+ *
  */
 p5.prototype.strokeWeight = function(w) {
   this._renderer.strokeWeight(w);
@@ -8413,6 +8601,9 @@ module.exports = {
    * arc(50, 50, 80, 80, 0, HALF_PI);
    * </code></div>
    *
+   * @alt
+   * 80x80 white quarter-circle with curve toward bottom right of canvas.
+   *
    */
   HALF_PI: PI / 2,
   /**
@@ -8427,6 +8618,10 @@ module.exports = {
    * <div><code>
    * arc(50, 50, 80, 80, 0, PI);
    * </code></div>
+   *
+   * @alt
+   * white half-circle with curve toward bottom of canvas.
+   *
    */
   PI: PI,
   /**
@@ -8441,6 +8636,9 @@ module.exports = {
    * <div><code>
    * arc(50, 50, 80, 80, 0, QUARTER_PI);
    * </code></div>
+   *
+   * @alt
+   * white eighth-circle rotated about 40 degrees with curve bottom right canvas.
    *
    */
   QUARTER_PI: PI / 4,
@@ -8457,6 +8655,9 @@ module.exports = {
    * arc(50, 50, 80, 80, 0, TAU);
    * </code></div>
    *
+   * @alt
+   * 80x80 white ellipse shape in center of canvas.
+   *
    */
   TAU: PI * 2,
   /**
@@ -8471,6 +8672,9 @@ module.exports = {
    * <div><code>
    * arc(50, 50, 80, 80, 0, TWO_PI);
    * </code></div>
+   *
+   * @alt
+   * 80x80 white ellipse shape in center of canvas.
    *
    */
   TWO_PI: PI * 2,
@@ -8656,6 +8860,10 @@ var p5 = function(sketch, node, sync) {
    *   image(img, 25, 25, 50, 50);
    * }
    * </code></div>
+   *
+   * @alt
+   * nothing displayed
+   *
    */
 
   /**
@@ -8683,6 +8891,10 @@ var p5 = function(sketch, node, sync) {
    *   rect(a++%width, 10, 2, 80);
    * }
    * </code></div>
+   *
+   * @alt
+   * nothing displayed
+   *
    */
 
   /**
@@ -8728,6 +8940,10 @@ var p5 = function(sketch, node, sync) {
    *   line(0, yPos, width, yPos);
    * }
    * </code></div>
+   *
+   * @alt
+   * nothing displayed
+   *
    */
 
 
@@ -8968,6 +9184,10 @@ var p5 = function(sketch, node, sync) {
    *   remove(); // remove whole sketch on mouse press
    * }
    * </code></div>
+   *
+   * @alt
+   * nothing displayed
+   *
    */
   this.remove = function() {
     if (this._curElement) {
@@ -9038,6 +9258,7 @@ var p5 = function(sketch, node, sync) {
   // assume "global" mode and make everything global (i.e. on the window)
   if (!sketch) {
     this._isGlobal = true;
+    p5.instance = this;
     // Loop through methods on the prototype and attach them to the window
     for (var p in p5.prototype) {
       if(typeof p5.prototype[p] === 'function') {
@@ -9102,6 +9323,10 @@ var p5 = function(sketch, node, sync) {
     }
   }
 };
+
+// This is a pointer to our global mode p5 instance, if we're in
+// global mode.
+p5.instance = null;
 
 // Allows for the friendly error system to be turned off when creating a sketch,
 // which can give a significant boost to performance when needed.
@@ -9266,6 +9491,16 @@ var curveDetail = 20;
  * bezier(85, 20, 10, 10, 90, 90, 15, 80);
  * </code>
  * </div>
+ * @alt
+ * stretched black s-shape in center with orange lines extending from end points.
+ * stretched black s-shape with 10 5x5 white ellipses along the shape.
+ * stretched black s-shape with 7 5x5 ellipses and orange lines along the shape.
+ * stretched black s-shape with 17 small orange lines extending from under shape.
+ * horseshoe shape with orange ends facing left and black curved center.
+ * horseshoe shape with orange ends facing left and black curved center.
+ * Line shaped like right-facing arrow,points move with mouse-x and warp shape.
+ * horizontal line that hooks downward on the right and 13 5x5 ellipses along it.
+ * right curving line mid-right of canvas with 7 short lines radiating from it.
  */
 /**
  * @method bezier
@@ -9285,43 +9520,43 @@ var curveDetail = 20;
  * </div>
 */
 p5.prototype.bezier = function() {
-   var args = new Array(arguments.length);
-   for (var i = 0; i < args.length; ++i) {
-     args[i] = arguments[i];
-   }
-   if(this._renderer.isP3D){
-     this._validateParameters(
-       'bezier',
-       args,
-       ['Number', 'Number', 'Number',
-       'Number', 'Number', 'Number',
-       'Number', 'Number', 'Number',
-       'Number', 'Number', 'Number'
-       ]
-     );
-   } else{
-     this._validateParameters(
-         'bezier',
-         args,
-         [ 'Number', 'Number', 'Number', 'Number',
-           'Number', 'Number', 'Number', 'Number' ]
-       );
-   }
-   if (!this._renderer._doStroke) {
-     return this;
-   }
-   if (this._renderer.isP3D){
-     args.push(bezierDetail);//adding value of bezier detail to the args array
-     this._renderer.bezier(args);
-   } else{
-     this._renderer.bezier(args[0],args[1],
-       args[2],args[3],
-       args[4],args[5],
-       args[6],args[7]);
-   }
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
+  if(this._renderer.isP3D){
+    this._validateParameters(
+      'bezier',
+      args,
+      ['Number', 'Number', 'Number',
+      'Number', 'Number', 'Number',
+      'Number', 'Number', 'Number',
+      'Number', 'Number', 'Number'
+      ]
+    );
+  } else{
+    this._validateParameters(
+      'bezier',
+      args,
+      [ 'Number', 'Number', 'Number', 'Number',
+        'Number', 'Number', 'Number', 'Number' ]
+    );
+  }
+  if (!this._renderer._doStroke) {
+    return this;
+  }
+  if (this._renderer.isP3D){
+    args.push(bezierDetail);//adding value of bezier detail to the args array
+    this._renderer.bezier(args);
+  } else{
+    this._renderer.bezier(args[0],args[1],
+      args[2],args[3],
+      args[4],args[5],
+      args[6],args[7]);
+  }
 
-   return this;
- };
+  return this;
+};
 
 /**
  * Sets the resolution at which Beziers display.
@@ -9338,6 +9573,10 @@ p5.prototype.bezier = function() {
  * bezier(85, 20, 10, 10, 90, 90, 15, 80);
  * </code>
  * </div>
+ *
+ * @alt
+ * stretched black s-shape with 7 5x5 ellipses and orange lines along the shape.
+ *
  */
 p5.prototype.bezierDetail = function(d) {
   bezierDetail = d;
@@ -9376,6 +9615,10 @@ p5.prototype.bezierDetail = function(d) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * stretched black s-shape with 17 small orange lines extending from under shape.
+ *
  */
 p5.prototype.bezierPoint = function(a, b, c, d, t) {
   var adjustedT = 1-t;
@@ -9445,6 +9688,10 @@ p5.prototype.bezierPoint = function(a, b, c, d, t) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * s-shaped line with 17 short orange lines extending from underside of shape
+ *
  */
 p5.prototype.bezierTangent = function(a, b, c, d, t) {
   var adjustedT = 1-t;
@@ -9502,6 +9749,11 @@ p5.prototype.bezierTangent = function(a, b, c, d, t) {
  * curve(p2.x, p2.y, p3.x, p3.y, p4.x, p4.y, p4.x, p4.y)
  * </code>
  * </div>
+ *
+ * @alt
+ * horseshoe shape with orange ends facing left and black curved center.
+ * horseshoe shape with orange ends facing left and black curved center.
+ *
  */
 /**
  * @method curve
@@ -9522,44 +9774,47 @@ p5.prototype.bezierTangent = function(a, b, c, d, t) {
  * curve(73,24,0, 73,61,0, 15,65,0, 15,65,0);
  * </code>
  * </div>
+ *
+ * @alt
+ * curving black and orange lines.
  */
 p5.prototype.curve = function() {
-     var args = new Array(arguments.length);
-     for (var i = 0; i < args.length; ++i) {
-       args[i] = arguments[i];
-     }
-     if(this._renderer.isP3D){
-       this._validateParameters(
-         'curve',
-         args,
-         ['Number', 'Number', 'Number',
-         'Number', 'Number', 'Number',
-         'Number', 'Number', 'Number',
-         'Number', 'Number', 'Number'
-         ]
-       );
-     } else{
-       this._validateParameters(
-         'curve',
-         args,
-         [ 'Number', 'Number', 'Number', 'Number',
-           'Number', 'Number', 'Number', 'Number' ]
-       );
-     }
-     if (!this._renderer._doStroke) {
-       return this;
-     }
-     if (this._renderer.isP3D){
-       args.push(curveDetail);
-       this._renderer.curve(args);
-     } else{
-       this._renderer.curve(args[0],args[1],
-         args[2],args[3],
-         args[4],args[5],
-         args[6],args[7]);
-     }
-     return this;
-   };
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
+  if(this._renderer.isP3D){
+    this._validateParameters(
+      'curve',
+      args,
+      ['Number', 'Number', 'Number',
+      'Number', 'Number', 'Number',
+      'Number', 'Number', 'Number',
+      'Number', 'Number', 'Number'
+      ]
+    );
+  } else{
+    this._validateParameters(
+      'curve',
+      args,
+      [ 'Number', 'Number', 'Number', 'Number',
+        'Number', 'Number', 'Number', 'Number' ]
+    );
+  }
+  if (!this._renderer._doStroke) {
+    return this;
+  }
+  if (this._renderer.isP3D){
+    args.push(curveDetail);
+    this._renderer.curve(args);
+  } else{
+    this._renderer.curve(args[0],args[1],
+      args[2],args[3],
+      args[4],args[5],
+      args[6],args[7]);
+  }
+  return this;
+};
 
 /**
  * Sets the resolution at which curves display.
@@ -9576,6 +9831,10 @@ p5.prototype.curve = function() {
  * curve(5, 26, 5, 26, 73, 24, 73, 61);
  * </code>
  * </div>
+ *
+ * @alt
+ * white arch shape in top-mid canvas.
+ *
  */
 p5.prototype.curveDetail = function(d) {
   curveDetail = d;
@@ -9619,6 +9878,9 @@ p5.prototype.curveDetail = function(d) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * Line shaped like right-facing arrow,points move with mouse-x and warp shape.
  */
 p5.prototype.curveTightness = function (t) {
   this._renderer._curveTightness = t;
@@ -9658,6 +9920,8 @@ p5.prototype.curveTightness = function (t) {
  * }
  * </code>
  * </div>
+ *
+ *line hooking down to right-bottom with 13 5x5 white ellipse points
  */
 p5.prototype.curvePoint = function(a, b, c, d, t) {
   var t3 = t*t*t,
@@ -9700,6 +9964,9 @@ p5.prototype.curvePoint = function(a, b, c, d, t) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ *right curving line mid-right of canvas with 7 short lines radiating from it.
  */
 p5.prototype.curveTangent = function(a, b,c, d, t) {
   var t2 = t*t,
@@ -9732,37 +9999,44 @@ p5.prototype._frameRate = 0;
 p5.prototype._lastFrameTime = window.performance.now();
 p5.prototype._targetFrameRate = 60;
 
+var _windowPrint = window.print;
+
 
 if (window.console && console.log) {
   /**
-   * The println() function writes to the console area of your browser.
+   * The print() function writes to the console area of your browser.
    * This function is often helpful for looking at the data a program is
    * producing. This function creates a new line of text for each call to
    * the function. Individual elements can be
    * separated with quotes ("") and joined with the addition operator (+).
    * <br><br>
-   * While println() is similar to console.log(), it does not directly map to
+   * While print() is similar to console.log(), it does not directly map to
    * it in order to simulate easier to understand behavior than
    * console.log(). Due to this, it is slower. For fastest results, use
    * console.log().
    *
-   * @method println
+   * @method print
    * @param {Any} contents any combination of Number, String, Object, Boolean,
    *                       Array to print
    * @example
    * <div><code class='norender'>
    * var x = 10;
-   * println("The value of x is " + x);
+   * print("The value of x is " + x);
    * // prints "The value of x is 10"
    * </code></div>
+   * @alt
+   * default grey canvas
    */
   // Converts passed args into a string and then parses that string to
   // simulate synchronous behavior. This is a hack and is gross.
   // Since this will not work on all objects, particularly circular
   // structures, simply console.log() on error.
-  p5.prototype.println = function(args) {
+  p5.prototype.print = function(args) {
     try {
-      if (arguments.length > 1) {
+      if (arguments.length === 0) {
+        _windowPrint();
+      }
+      else if (arguments.length > 1) {
         console.log.apply(console, arguments);
       } else {
         var newArgs = JSON.parse(JSON.stringify(args));
@@ -9773,7 +10047,7 @@ if (window.console && console.log) {
     }
   };
 } else {
-  p5.prototype.println = function() {};
+  p5.prototype.print = function() {};
 }
 
 
@@ -9797,6 +10071,10 @@ if (window.console && console.log) {
  *       text(frameCount, width/2, height/2);
  *     }
  *   </code></div>
+ *
+ * @alt
+ * numbers rapidly counting upward with frame count set to 30.
+ *
  */
 p5.prototype.frameCount = 0;
 
@@ -9823,6 +10101,10 @@ p5.prototype.frameCount = 0;
  *   }
  * }
  * </code></div>
+ *
+ * @alt
+ * green 50x50 ellipse at top left. Red X covers canvas when page focus changes
+ *
  */
 p5.prototype.focused = (document.hasFocus());
 
@@ -9852,6 +10134,10 @@ p5.prototype.focused = (document.hasFocus());
  *   }
  * }
  * </code></div>
+ *
+ * @alt
+ * horizontal line divides canvas. cursor on left is a cross, right is hand.
+ *
  */
 p5.prototype.cursor = function(type, x, y) {
   var cursor = 'auto';
@@ -9931,6 +10217,9 @@ p5.prototype.cursor = function(type, x, y) {
  * }
  * </div></code>
  *
+ * @alt
+ * blue rect moves left to right, followed by red rect moving faster. Loops.
+ *
  */
 p5.prototype.frameRate = function(fps) {
   if (typeof fps !== 'number' || fps <= 0) {
@@ -9980,6 +10269,11 @@ p5.prototype.setFrameRate = function(fps) {
  *   ellipse(mouseX, mouseY, 10, 10);
  * }
  * </code></div>
+ *
+ *
+ * @alt
+ * cursor becomes 10x 10 white ellipse the moves with mouse x and y.
+ *
  */
 p5.prototype.noCursor = function() {
   this._curElement.elt.style.cursor = 'none';
@@ -9995,6 +10289,10 @@ p5.prototype.noCursor = function() {
  * <div class="norender"><code>
  * createCanvas(displayWidth, displayHeight);
  * </code></div>
+ *
+ * @alt
+ * cursor becomes 10x 10 white ellipse the moves with mouse x and y.
+ *
  */
 p5.prototype.displayWidth = screen.width;
 
@@ -10007,6 +10305,10 @@ p5.prototype.displayWidth = screen.width;
  * <div class="norender"><code>
  * createCanvas(displayWidth, displayHeight);
  * </code></div>
+ *
+ * @alt
+ * no display.
+ *
  */
 p5.prototype.displayHeight = screen.height;
 
@@ -10019,6 +10321,10 @@ p5.prototype.displayHeight = screen.height;
  * <div class="norender"><code>
  * createCanvas(windowWidth, windowHeight);
  * </code></div>
+ *
+ * @alt
+ * no display.
+ *
  */
 p5.prototype.windowWidth = getWindowWidth();
 /**
@@ -10030,7 +10336,10 @@ p5.prototype.windowWidth = getWindowWidth();
  * <div class="norender"><code>
  * createCanvas(windowWidth, windowHeight);
  * </code></div>
- */
+*@alt
+ * no display.
+ *
+*/
 p5.prototype.windowHeight = getWindowHeight();
 
 /**
@@ -10053,6 +10362,8 @@ p5.prototype.windowHeight = getWindowHeight();
  *   resizeCanvas(windowWidth, windowHeight);
  * }
  * </code></div>
+ * @alt
+ * no display.
  */
 p5.prototype._onresize = function(e){
   this._setProperty('windowWidth', getWindowWidth());
@@ -10068,14 +10379,17 @@ p5.prototype._onresize = function(e){
 };
 
 function getWindowWidth() {
-  return Math.max(
-    document.documentElement.clientWidth,
-    window.innerWidth || 0);
+  return window.innerWidth ||
+         document.documentElement && document.documentElement.clientWidth ||
+         document.body && document.body.clientWidth ||
+         0;
 }
+
 function getWindowHeight() {
-  return Math.max(
-    document.documentElement.clientHeight,
-    window.innerHeight || 0);
+  return window.innerHeight ||
+         document.documentElement && document.documentElement.clientHeight ||
+         document.body && document.body.clientHeight ||
+         0;
 }
 
 /**
@@ -10126,6 +10440,10 @@ p5.prototype.height = 0;
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * no display.
+ *
  */
 p5.prototype.fullscreen = function(val) {
   // no arguments, return fullscreen or not
@@ -10174,6 +10492,10 @@ p5.prototype.fullscreen = function(val) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * fuzzy 50x50 white ellipse with black outline in center of canvas.
+ * sharp 50x50 white ellipse with black outline in center of canvas.
  */
 p5.prototype.pixelDensity = function(val) {
   if (typeof val === 'number') {
@@ -10201,6 +10523,9 @@ p5.prototype.pixelDensity = function(val) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 50x50 white ellipse with black outline in center of canvas.
  */
 p5.prototype.displayDensity = function() {
   return window.devicePixelRatio;
@@ -10261,6 +10586,10 @@ function exitFullscreen() {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * current url (http://p5js.org/reference/#/p5/getURL) moves right to left.
+ *
  */
 p5.prototype.getURL = function() {
   return location.href;
@@ -10278,6 +10607,10 @@ p5.prototype.getURL = function() {
  *   }
  * }
  * </code></div>
+ *
+ * @alt
+ *no display
+ *
  */
 p5.prototype.getURLPath = function() {
   return location.pathname.split('/').filter(function(v){return v!=='';});
@@ -10299,6 +10632,9 @@ p5.prototype.getURLPath = function() {
  * }
  * </code>
  * </div>
+ * @alt
+ * no display.
+ *
  */
 p5.prototype.getURLParams = function() {
   var re = /[?&]([^&=]+)(?:[&=])([^&=]+)/gim;
@@ -10528,7 +10864,12 @@ var errorCases = {
   '3': {
     fileType: 'text file',
     method: 'loadStrings'
-  }
+  },
+  '4': {
+    fileType: 'font',
+    method: 'loadFont',
+    message: ' hosting the font online,'
+  },
 };
 p5._friendlyFileLoadError = function (errorType, filePath) {
   var errorInfo = errorCases[ errorType ];
@@ -10565,22 +10906,22 @@ function friendlyWelcome() {
  */
 /* function testColors() {
   var str = 'A box of biscuits, a box of mixed biscuits and a biscuit mixer';
-  report(str, 'println', '#ED225D'); // p5.js magenta
-  report(str, 'println', '#2D7BB6'); // p5.js blue
-  report(str, 'println', '#EE9900'); // p5.js orange
-  report(str, 'println', '#A67F59'); // p5.js light brown
-  report(str, 'println', '#704F21'); // p5.js gold
-  report(str, 'println', '#1CC581'); // auto cyan
-  report(str, 'println', '#FF6625'); // auto orange
-  report(str, 'println', '#79EB22'); // auto green
-  report(str, 'println', '#B40033'); // p5.js darkened magenta
-  report(str, 'println', '#084B7F'); // p5.js darkened blue
-  report(str, 'println', '#945F00'); // p5.js darkened orange
-  report(str, 'println', '#6B441D'); // p5.js darkened brown
-  report(str, 'println', '#2E1B00'); // p5.js darkened gold
-  report(str, 'println', '#008851'); // auto dark cyan
-  report(str, 'println', '#C83C00'); // auto dark orange
-  report(str, 'println', '#4DB200'); // auto dark green
+  report(str, 'print', '#ED225D'); // p5.js magenta
+  report(str, 'print', '#2D7BB6'); // p5.js blue
+  report(str, 'print', '#EE9900'); // p5.js orange
+  report(str, 'print', '#A67F59'); // p5.js light brown
+  report(str, 'print', '#704F21'); // p5.js gold
+  report(str, 'print', '#1CC581'); // auto cyan
+  report(str, 'print', '#FF6625'); // auto orange
+  report(str, 'print', '#79EB22'); // auto green
+  report(str, 'print', '#B40033'); // p5.js darkened magenta
+  report(str, 'print', '#084B7F'); // p5.js darkened blue
+  report(str, 'print', '#945F00'); // p5.js darkened orange
+  report(str, 'print', '#6B441D'); // p5.js darkened brown
+  report(str, 'print', '#2E1B00'); // p5.js darkened gold
+  report(str, 'print', '#008851'); // auto dark cyan
+  report(str, 'print', '#C83C00'); // auto dark orange
+  report(str, 'print', '#4DB200'); // auto dark green
 } */
 
 // This is a lazily-defined list of p5 symbols that may be
@@ -10776,6 +11117,10 @@ p5.Element = function(elt, pInst) {
  * var div1 = createDiv('this is the child');
  * div1.parent(elt); // use element from page
  * </code></div>
+ *
+ * @alt
+ * no display.
+ *
  */
 p5.Element.prototype.parent = function(p) {
   if (arguments.length === 0){
@@ -10811,6 +11156,10 @@ p5.Element.prototype.parent = function(p) {
  *   cnv.id("mycanvas");
  * }
  * </code></div>
+ *
+ * @alt
+ * no display.
+ *
  */
 p5.Element.prototype.id = function(id) {
   if (arguments.length === 0) {
@@ -10879,6 +11228,9 @@ p5.Element.prototype.class = function(c) {
  * }
  * </code></div>
  *
+ * @alt
+ * no display.
+ *
  */
 p5.Element.prototype.mousePressed = function (fxn) {
   attachListener('mousedown', fxn, this);
@@ -10889,11 +11241,17 @@ p5.Element.prototype.mousePressed = function (fxn) {
 /**
  * The .mouseWheel() function is called once after every time a
  * mouse wheel is scrolled over the element. This can be used to
- * attach element specific event listeners.<br><br>
- * The event.wheelDelta or event.detail property returns negative values if
- * the mouse wheel if rotated up or away from the user and positive in the
- * other direction. On OS X with "natural" scrolling enabled, the values are
- * opposite.
+ * attach element specific event listeners.
+ * <br><br>
+ * The function accepts a callback function as argument which will be executed
+ * when the `wheel` event is triggered on the element, the callabck function is
+ * passed one argument `event`. The `event.deltaY` property returns negative
+ * values if the mouse wheel is rotated up or away from the user and positive
+ * in the other direction. The `event.deltaX` does the same as `event.deltaY`
+ * except it reads the horizontal wheel scroll of the mouse wheel.
+ * <br><br>
+ * On OS X with "natural" scrolling enabled, the `event.deltaY` values are
+ * reversed.
  *
  * @method mouseWheel
  * @param  {Function} fxn function to be fired when mouse wheel is
@@ -10925,14 +11283,18 @@ p5.Element.prototype.mousePressed = function (fxn) {
  *
  * // this function fires with mousewheel movement
  * // over canvas only
- * function changeSize() {
- *   if (event.wheelDelta > 0) {
+ * function changeSize(event) {
+ *   if (event.deltaY > 0) {
  *     d = d + 10;
  *   } else {
  *     d = d - 10;
  *   }
  * }
  * </code></div>
+ *
+ *
+ * @alt
+ * no display.
  *
  */
 p5.Element.prototype.mouseWheel = function (fxn) {
@@ -10980,6 +11342,10 @@ p5.Element.prototype.mouseWheel = function (fxn) {
  * }
  * </code></div>
  *
+ *
+ * @alt
+ * no display.
+ *
  */
 p5.Element.prototype.mouseReleased = function (fxn) {
   attachListener('mouseup', fxn, this);
@@ -11026,6 +11392,10 @@ p5.Element.prototype.mouseReleased = function (fxn) {
  *   g = random(0, 255);
  * }
  * </code></div>
+ *
+ *
+ * @alt
+ * no display.
  *
  */
 p5.Element.prototype.mouseClicked = function (fxn) {
@@ -11079,6 +11449,10 @@ p5.Element.prototype.mouseClicked = function (fxn) {
  * }
  * </code></div>
  *
+ *
+ * @alt
+ * no display.
+ *
  */
 p5.Element.prototype.mouseMoved = function (fxn) {
   attachListener('mousemove', fxn, this);
@@ -11117,6 +11491,10 @@ p5.Element.prototype.mouseMoved = function (fxn) {
  *   }
  * }
  * </code></div>
+ *
+ *
+ * @alt
+ * no display.
  *
  */
 p5.Element.prototype.mouseOver = function (fxn) {
@@ -11180,6 +11558,10 @@ p5.Element.prototype.mouseOver = function (fxn) {
  *   }
  * }
  * </code></div>
+ *
+ * @alt
+ * dropdown: pear, kiwi, grape. When selected text "its a" + selection shown.
+ *
  */
 p5.Element.prototype.changed = function (fxn) {
   attachListener('change', fxn, this);
@@ -11208,6 +11590,9 @@ p5.Element.prototype.changed = function (fxn) {
  *   console.log('you are typing: ', this.value());
  * }
  * </code></div>
+ *
+ * @alt
+ * no display.
  *
  */
 p5.Element.prototype.input = function (fxn) {
@@ -11246,6 +11631,9 @@ p5.Element.prototype.input = function (fxn) {
  *   }
  * }
  * </code></div>
+ *
+ * @alt
+ * no display.
  *
  */
 p5.Element.prototype.mouseOut = function (fxn) {
@@ -11290,6 +11678,9 @@ p5.Element.prototype.mouseOut = function (fxn) {
  * }
  * </code></div>
  *
+ * @alt
+ * no display.
+ *
  */
 p5.Element.prototype.touchStarted = function (fxn) {
   attachListener('touchstart', fxn, this);
@@ -11325,6 +11716,9 @@ p5.Element.prototype.touchStarted = function (fxn) {
  *   g = random(0, 255);
  * }
  * </code></div>
+ *
+ * @alt
+ * no display.
  *
  */
 p5.Element.prototype.touchMoved = function (fxn) {
@@ -11369,6 +11763,10 @@ p5.Element.prototype.touchMoved = function (fxn) {
  *   g = random(0, 255);
  * }
  * </code></div>
+ *
+ *
+ * @alt
+ * no display.
  *
  */
 p5.Element.prototype.touchEnded = function (fxn) {
@@ -11436,6 +11834,10 @@ p5.Element.prototype.dragLeave = function (fxn) {
  *   image(img, 0, 0, width, height);
  * }
  * </code></div>
+ *
+ * @alt
+ * Canvas turns into whatever image is dragged/dropped onto it.
+ *
  */
 p5.Element.prototype.drop = function (callback, fxn) {
   // Make a file loader callback and trigger user's callback
@@ -12910,27 +13312,27 @@ p5.Renderer2D.prototype.text = function (str, x, y, maxWidth, maxHeight) {
 
     switch (this.drawingContext.textAlign) {
 
-    case constants.CENTER:
-      x += maxWidth / 2;
-      break;
-    case constants.RIGHT:
-      x += maxWidth;
-      break;
+      case constants.CENTER:
+        x += maxWidth / 2;
+        break;
+      case constants.RIGHT:
+        x += maxWidth;
+        break;
     }
 
     if (typeof maxHeight !== 'undefined') {
 
       switch (this.drawingContext.textBaseline) {
-      case constants.BOTTOM:
-        y += (maxHeight - totalHeight);
-        break;
-      case constants._CTX_MIDDLE: // CENTER?
-        y += (maxHeight - totalHeight) / 2;
-        break;
-      case constants.BASELINE:
-        baselineHacked = true;
-        this.drawingContext.textBaseline = constants.TOP;
-        break;
+        case constants.BOTTOM:
+          y += (maxHeight - totalHeight);
+          break;
+        case constants._CTX_MIDDLE: // CENTER?
+          y += (maxHeight - totalHeight) / 2;
+          break;
+        case constants.BASELINE:
+          baselineHacked = true;
+          this.drawingContext.textBaseline = constants.TOP;
+          break;
       }
 
       // remember the max-allowed y-position for any line (fix to #928)
@@ -13149,6 +13551,10 @@ var defaultId = 'defaultCanvas0'; // this gets set again in createCanvas
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * Black line extending from top-left of canvas to bottom right.
+ *
  */
 
 p5.prototype.createCanvas = function(w, h, renderer) {
@@ -13239,6 +13645,10 @@ p5.prototype.createCanvas = function(w, h, renderer) {
  *   resizeCanvas(windowWidth, windowHeight);
  * }
  * </code></div>
+ *
+ * @alt
+ * No image displayed.
+ *
  */
 p5.prototype.resizeCanvas = function (w, h, noRedraw) {
   if (this._renderer) {
@@ -13275,6 +13685,10 @@ p5.prototype.resizeCanvas = function (w, h, noRedraw) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * no image displayed
+ *
  */
 p5.prototype.noCanvas = function() {
   if (this.canvas) {
@@ -13311,6 +13725,10 @@ p5.prototype.noCanvas = function() {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 4 grey squares alternating light and dark grey. White quarter circle mid-left.
+ *
  */
 p5.prototype.createGraphics = function(w, h, renderer){
   return new p5.Graphics(w, h, renderer, this);
@@ -13373,6 +13791,10 @@ p5.prototype.createGraphics = function(w, h, renderer){
  * line(75, 25, 25, 75);
  * </code>
  * </div>
+ * @alt
+ * translucent image thick red & blue diagonal rounded lines intersecting center
+ * Thick red & blue diagonal rounded lines intersecting center. dark at overlap
+ *
  */
 p5.prototype.blendMode = function(mode) {
   if (mode === constants.BLEND || mode === constants.DARKEST ||
@@ -13542,6 +13964,11 @@ p5.prototype.exit = function() {
  *   loop();
  * }
  * </code></div>
+ *
+ * @alt
+ * 113 pixel long line extending from top-left to bottom right of canvas.
+ * horizontal line moves slowly from left. Loops but stops on mouse press.
+ *
  */
 p5.prototype.noLoop = function() {
   this._loop = false;
@@ -13577,6 +14004,10 @@ p5.prototype.noLoop = function() {
  *   noLoop();
  * }
  * </code></div>
+ *
+ * @alt
+ * horizontal line moves slowly from left. Loops but stops on mouse press.
+ *
  */
 
 p5.prototype.loop = function() {
@@ -13634,6 +14065,11 @@ p5.prototype.loop = function() {
  * ellipse(100, 50, 33, 33);  // Right circle
  * </code>
  * </div>
+ *
+ * @alt
+ * Gold ellipse + thick black outline @center 2 white ellipses on left and right.
+ * 2 Gold ellipses left black right blue stroke. 2 white ellipses on left+right.
+ *
  */
 p5.prototype.push = function () {
   this._renderer.push();
@@ -13704,6 +14140,11 @@ p5.prototype.push = function () {
  * ellipse(100, 50, 33, 33);  // Right circle
  * </code>
  * </div>
+ *
+ * @alt
+ * Gold ellipse + thick black outline @center 2 white ellipses on left and right.
+ * 2 Gold ellipses left black right blue stroke. 2 white ellipses on left+right.
+ *
  */
 p5.prototype.pop = function () {
   this._renderer.pop();
@@ -13760,7 +14201,7 @@ p5.prototype.popStyle = function() {
  * }
  * </code></div>
  *
- * <div><code>
+ * <div class='norender'><code>
  * var x = 0;
  *
  * function setup() {
@@ -13778,6 +14219,11 @@ p5.prototype.popStyle = function() {
  *   redraw(5);
  * }
  * </code></div>
+ *
+ * @alt
+ * black line on far left of canvas
+ * black line on far left of canvas
+ *
  */
 p5.prototype.redraw = function () {
   this.resetMatrix();
@@ -13856,6 +14302,10 @@ var constants = _dereq_('./constants');
  * // Example in the works.
  * </code>
  * </div>
+ *
+ * @alt
+ * no image diplayed
+ *
  */
 p5.prototype.applyMatrix = function(n00, n01, n02, n10, n11, n12) {
   this._renderer.applyMatrix(n00, n01, n02, n10, n11, n12);
@@ -13885,6 +14335,10 @@ p5.prototype.pushMatrix = function() {
  * // Example in the works.
  * </code>
  * </div>
+ *
+ * @alt
+ * no image diplayed
+ *
  */
 p5.prototype.resetMatrix = function() {
   this._renderer.resetMatrix();
@@ -13919,6 +14373,10 @@ p5.prototype.resetMatrix = function() {
  * rect(-26, -26, 52, 52);
  * </code>
  * </div>
+ *
+ * @alt
+ * white 52x52 rect with black outline at center rotated counter 45 degrees
+ *
  */
 /**
  * @method rotate
@@ -14064,6 +14522,11 @@ p5.prototype.rotateZ = function(rad) {
  * rect(30, 20, 50, 50);
  * </code>
  * </div>
+ *
+ * @alt
+ * white 52x52 rect with black outline at center rotated counter 45 degrees
+ * 2 white rects with black outline- 1 50x50 at center. other 25x65 bottom left
+ *
  */
 p5.prototype.scale = function() {
   var x,y,z;
@@ -14129,6 +14592,10 @@ p5.prototype.scale = function() {
  * rect(0, 0, 30, 30);
  * </code>
  * </div>
+ *
+ * @alt
+  * white irregular quadrilateral with black outline at top middle.
+ *
  */
 p5.prototype.shearX = function(angle) {
   if (this._angleMode === constants.DEGREES) {
@@ -14166,6 +14633,10 @@ p5.prototype.shearX = function(angle) {
  * rect(0, 0, 30, 30);
  * </code>
  * </div>
+ *
+ * @alt
+ * white irregular quadrilateral with black outline at middle bottom.
+ *
  */
 p5.prototype.shearY = function(angle) {
   if (this._angleMode === constants.DEGREES) {
@@ -14209,6 +14680,11 @@ p5.prototype.shearY = function(angle) {
  * rect(0, 0, 55, 55);  // Draw rect at new 0,0
  * </code>
  * </div>
+ *
+ * @alt
+ * white 55x55 rect with black outline at center right.
+ * 3 white 55x55 rects with black outlines at top-l, center-r and bottom-r.
+ *
  */
 p5.prototype.translate = function(x, y, z) {
   var args = new Array(arguments.length);
@@ -14301,6 +14777,10 @@ var isFirstContour = true;
  * endShape(CLOSE);
  * </code>
  * </div>
+ *
+ * @alt
+ * white rect and smaller grey rect with red outlines in center of canvas.
+ *
  */
 p5.prototype.beginContour = function() {
   contourVertices = [];
@@ -14470,6 +14950,19 @@ p5.prototype.beginContour = function() {
  * endShape(CLOSE);
  * </code>
  * </div>
+  * @alt
+ * white square-shape with black outline in middle-right of canvas.
+ * 4 black points in a square shape in middle-right of canvas.
+ * 2 horizontal black lines. In the top-right and bottom-right of canvas.
+ * 3 line shape with horizontal on top, vertical in middle and horizontal bottom.
+ * square line shape in middle-right of canvas.
+ * 2 white triangle shapes mid-right canvas. left one pointing up and right down.
+ * 5 horizontal interlocking and alternating white triangles in mid-right canvas.
+ * 4 interlocking white triangles in 45 degree rotated square-shape.
+ * 2 white rectangle shapes in mid-right canvas. Both 20x55.
+ * 3 side-by-side white rectangles center rect is smaller in mid-right canvas.
+ * Thick white l-shape with black outline mid-top-left of canvas.
+ *
  */
 p5.prototype.beginShape = function(kind) {
   if (kind === constants.POINTS ||
@@ -14532,6 +15025,11 @@ p5.prototype.beginShape = function(kind) {
  * endShape();
  * </code>
  * </div>
+ *
+ * @alt
+ * crescent-shaped line in middle of canvas. Points facing left.
+ * white crescent shape in middle of canvas. Points facing left.
+ *
  */
 p5.prototype.bezierVertex = function(x2, y2, x3, y3, x4, y4) {
   if (vertices.length === 0) {
@@ -14583,6 +15081,10 @@ p5.prototype.bezierVertex = function(x2, y2, x3, y3, x4, y4) {
  * endShape();
  * </code>
  * </div>
+ *
+ * @alt
+ * Upside-down u-shape line, mid canvas. left point extends beyond canvas view.
+ *
  */
 p5.prototype.curveVertex = function(x,y) {
   isCurve = true;
@@ -14627,6 +15129,10 @@ p5.prototype.curveVertex = function(x,y) {
  * endShape(CLOSE);
  * </code>
  * </div>
+ *
+ * @alt
+ * white rect and smaller grey rect with red outlines in center of canvas.
+ *
  */
 p5.prototype.endContour = function() {
   var vert = contourVertices[0].slice(); // copy all data
@@ -14674,6 +15180,10 @@ p5.prototype.endContour = function() {
  * endShape();
  * </code>
  * </div>
+ *
+ * @alt
+ * Triangle line shape with smallest interior angle on bottom and upside-down L.
+ *
  */
 p5.prototype.endShape = function(mode) {
   if(this._renderer.isP3D){
@@ -14749,6 +15259,11 @@ p5.prototype.endShape = function(mode) {
  * endShape();
  * </code>
  * </div>
+ *
+ * @alt
+ * arched-shaped black line with 4 pixel thick stroke weight.
+ * backwards s-shaped black line with 4 pixel thick stroke weight.
+ *
  */
 p5.prototype.quadraticVertex = function(cx, cy, x3, y3) {
   //if we're drawing a contour, put the points into an
@@ -14803,6 +15318,10 @@ p5.prototype.quadraticVertex = function(cx, cy, x3, y3) {
  * endShape();
  * </code>
  * </div>
+ *
+ * @alt
+ * 4 black points in a square shape in middle-right of canvas.
+ *
  */
 p5.prototype.vertex = function(x, y, moveTo) {
   var args = new Array(arguments.length);
@@ -14963,6 +15482,10 @@ p5.prototype._updatePAccelerations = function(){
  * </div>
  *
  * @property rotationX
+ *
+ * @alt
+ * red horizontal line right, green vertical line bottom. black background.
+ *
  */
 p5.prototype.rotationX = 0;
 
@@ -14992,6 +15515,9 @@ p5.prototype.rotationX = 0;
  * </div>
  *
  * @property rotationY
+ *
+ * @alt
+ * red horizontal line right, green vertical line bottom. black background.
  */
 p5.prototype.rotationY = 0;
 
@@ -15024,6 +15550,9 @@ p5.prototype.rotationY = 0;
  * </div>
  *
  * @property rotationZ
+ *
+ * @alt
+ * red horizontal line right, green vertical line bottom. black background.
  */
 p5.prototype.rotationZ = 0;
 
@@ -15060,6 +15589,10 @@ p5.prototype.rotationZ = 0;
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * no image to display.
+ *
  *
  * @property pRotationX
  */
@@ -15099,6 +15632,10 @@ p5.prototype.pRotationX = 0;
  * </code>
  * </div>
  *
+ * @alt
+ * no image to display.
+ *
+ *
  * @property pRotationY
  */
 p5.prototype.pRotationY = 0;
@@ -15136,6 +15673,10 @@ p5.prototype.pRotationY = 0;
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * no image to display.
+ *
  *
  * @property pRotationZ
  */
@@ -15215,6 +15756,10 @@ p5.prototype.setShakeThreshold = function(val){
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 50x50 black rect in center of canvas. turns white on mobile when device moves
+ *
  */
 
 /**
@@ -15269,6 +15814,11 @@ p5.prototype.setShakeThreshold = function(val){
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 50x50 black rect in center of canvas. turns white on mobile when device turns
+ * 50x50 black rect in center of canvas. turns white on mobile when x-axis turns
+ *
  */
 
 /**
@@ -15295,6 +15845,10 @@ p5.prototype.setShakeThreshold = function(val){
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 50x50 black rect in center of canvas. turns white on mobile when device shakes
+ *
  */
 
 p5.prototype._ondeviceorientation = function (e) {
@@ -15449,6 +16003,10 @@ var downKeys = {};
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 50x50 white rect that turns black on keypress.
+ *
  */
 p5.prototype.isKeyPressed = false;
 p5.prototype.keyIsPressed = false; // khan
@@ -15474,6 +16032,10 @@ p5.prototype.keyIsPressed = false; // khan
  *   text(key, 33,65); // Display last key pressed.
  * }
  * </div></code>
+ *
+ * @alt
+ * canvas displays any key value that is pressed in pink font.
+ *
  */
 p5.prototype.key = '';
 
@@ -15500,6 +16062,10 @@ p5.prototype.key = '';
  *   return false; // prevent default
  * }
  * </code></div>
+ *
+ * @alt
+ * Grey rect center. turns white when up arrow pressed and black when down
+ *
  */
 p5.prototype.keyCode = 0;
 
@@ -15565,6 +16131,11 @@ p5.prototype.keyCode = 0;
  *   return false; // prevent any default behaviour
  * }
  * </code>
+ *
+ * @alt
+ * black rect center. turns white when key pressed and black when released
+ * black rect center. turns white when left arrow pressed and black when right.
+ *
  * </div>
  */
 p5.prototype._onkeydown = function (e) {
@@ -15614,6 +16185,10 @@ p5.prototype._onkeydown = function (e) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * black rect center. turns white when key pressed and black when pressed again
+ *
  */
 p5.prototype._onkeyup = function (e) {
   var keyReleased = this.keyReleased || window.keyReleased;
@@ -15669,6 +16244,10 @@ p5.prototype._onkeyup = function (e) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * black rect center. turns white when 'a' key typed and black when 'b' pressed
+ *
  */
 p5.prototype._onkeypress = function (e) {
   if (e.which === this._lastKeyCodeTyped) { // prevent multiple firings
@@ -15733,6 +16312,10 @@ p5.prototype._onblur = function (e) {
  *   ellipse(x, y, 50, 50);
  * }
  * </code></div>
+ *
+ * @alt
+ * 50x50 red ellipse moves left, right, up and down with arrow presses.
+ *
  */
 p5.prototype.keyIsDown = function(code) {
   return downKeys[code];
@@ -15779,6 +16362,10 @@ p5.prototype._hasMouseInteracted = false;
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * horizontal black line moves left and right with mouse x-position
+ *
  */
 p5.prototype.mouseX = 0;
 
@@ -15798,6 +16385,10 @@ p5.prototype.mouseX = 0;
  *}
  * </code>
  * </div>
+ *
+ * @alt
+ * vertical black line moves up and down with mouse y-position
+ *
  */
 p5.prototype.mouseY = 0;
 
@@ -15820,11 +16411,15 @@ p5.prototype.mouseY = 0;
  * function draw() {
  *   background(244, 248, 252);
  *   line(mouseX, mouseY, pmouseX, pmouseY);
- *   println(pmouseX + " -> " + mouseX);
+ *   print(pmouseX + " -> " + mouseX);
  * }
  *
  * </code>
  * </div>
+ *
+ * @alt
+ * line trail is created from cursor movements. faster movement make longer line.
+ *
  */
 p5.prototype.pmouseX = 0;
 
@@ -15845,11 +16440,15 @@ p5.prototype.pmouseX = 0;
  *   if(mouseY == pmouseY && mouseX == pmouseX)
  *     rect(20,20,60,60);
  *
- *   println(pmouseY + " -> " + mouseY);
+ *   print(pmouseY + " -> " + mouseY);
  * }
  *
  * </code>
  * </div>
+ *
+ * @alt
+ * 60x60 black rect center, fuschia background. rect flickers on mouse movement
+ *
  */
 p5.prototype.pmouseY = 0;
 
@@ -15883,6 +16482,10 @@ p5.prototype.pmouseY = 0;
  *
  * </code>
  * </div>
+ *
+ * @alt
+ * 60x60 black rect y moves with mouse y and fuschia canvas moves with mouse x
+ *
  */
 p5.prototype.winMouseX = 0;
 
@@ -15916,6 +16519,10 @@ p5.prototype.winMouseX = 0;
  *
  * </code>
  * </div>
+ *
+ * @alt
+ * 60x60 black rect x moves with mouse x and fuschia canvas y moves with mouse y
+ *
  */
 p5.prototype.winMouseY = 0;
 
@@ -15953,6 +16560,10 @@ p5.prototype.winMouseY = 0;
  *
  * </code>
  * </div>
+ *
+ * @alt
+ * fuschia ellipse moves with mouse x and y. Grows and shrinks with mouse speed
+ *
  */
 p5.prototype.pwinMouseX = 0;
 
@@ -15991,6 +16602,10 @@ p5.prototype.pwinMouseX = 0;
  *
  * </code>
  * </div>
+ *
+ * @alt
+ * fuschia ellipse moves with mouse x and y. Grows and shrinks with mouse speed
+ *
  */
 p5.prototype.pwinMouseY = 0;
 
@@ -16018,10 +16633,14 @@ p5.prototype.pwinMouseY = 0;
 	*       triangle(23, 75, 50, 20, 78, 75);
 	*   }
 	*
-	*   println(mouseButton);
+	*   print(mouseButton);
 	* }
 	* </code>
  * </div>
+ *
+ * @alt
+ * 50x50 black ellipse appears on center of fuschia canvas on mouse click/press.
+ *
  */
 p5.prototype.mouseButton = 0;
 
@@ -16043,10 +16662,14 @@ p5.prototype.mouseButton = 0;
 	*   else
 	*     rect(25, 25, 50, 50);
 	*
-	*   println(mouseIsPressed);
+	*   print(mouseIsPressed);
 	* }
 	* </code>
 	* </div>
+  *
+ * @alt
+ * black 50x50 rect becomes ellipse with mouse click/press. fuschia background.
+ *
  */
 p5.prototype.mouseIsPressed = false;
 p5.prototype.isMousePressed = false; // both are supported
@@ -16054,20 +16677,26 @@ p5.prototype.isMousePressed = false; // both are supported
 p5.prototype._updateNextMouseCoords = function(e) {
   var x = this.mouseX;
   var y = this.mouseY;
+  var winX = this.winMouseX;
+  var winY = this.winMouseY;
   if(e.type === 'touchstart' ||
      e.type === 'touchmove' ||
      e.type === 'touchend' || e.touches) {
     x = this.touchX;
     y = this.touchY;
+    winX = this.winTouchX;
+    winY = this.winTouchY;
   } else if(this._curElement !== null) {
     var mousePos = getMousePos(this._curElement.elt, e);
     x = mousePos.x;
     y = mousePos.y;
+    winX = mousePos.winX;
+    winY = mousePos.winY;
   }
   this._setProperty('mouseX', x);
   this._setProperty('mouseY', y);
-  this._setProperty('winMouseX', e.pageX);
-  this._setProperty('winMouseY', e.pageY);
+  this._setProperty('winMouseX', winX);
+  this._setProperty('winMouseY', winY);
   if (!this._hasMouseInteracted) {
     // For first draw, make previous and next equal
     this._updateMouseCoords();
@@ -16086,7 +16715,9 @@ function getMousePos(canvas, evt) {
   var rect = canvas.getBoundingClientRect();
   return {
     x: evt.clientX - rect.left,
-    y: evt.clientY - rect.top
+    y: evt.clientY - rect.top,
+    winX: evt.clientX,
+    winY: evt.clientY
   };
 }
 
@@ -16137,6 +16768,11 @@ p5.prototype._setMouseButton = function(e) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * black 50x50 rect becomes lighter with mouse movements until white then resets
+ * no image displayed
+ *
  */
 
 /**
@@ -16177,6 +16813,11 @@ p5.prototype._setMouseButton = function(e) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * black 50x50 rect turns lighter with mouse click and drag until white, resets
+ * no image displayed
+ *
  */
 p5.prototype._onmousemove = function(e){
   var context = this._isGlobal ? window : this;
@@ -16247,6 +16888,11 @@ p5.prototype._onmousemove = function(e){
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * black 50x50 rect turns white with mouse click/press.
+ * no image displayed
+ *
  */
 p5.prototype._onmousedown = function(e) {
   var context = this._isGlobal ? window : this;
@@ -16310,6 +16956,11 @@ p5.prototype._onmousedown = function(e) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * black 50x50 rect turns white with mouse click/press.
+ * no image displayed
+ *
  */
 p5.prototype._onmouseup = function(e) {
   var context = this._isGlobal ? window : this;
@@ -16371,6 +17022,11 @@ p5.prototype._ondragover = p5.prototype._onmousemove;
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * black 50x50 rect turns white with mouse click/press.
+ * no image displayed
+ *
  */
 p5.prototype._onclick = function(e) {
   var context = this._isGlobal ? window : this;
@@ -16410,7 +17066,7 @@ p5.prototype._onclick = function(e) {
  * }
  *
  * function mouseWheel(event) {
- *   println(event.delta);
+ *   print(event.delta);
  *   //move the square according to the vertical scroll amount
  *   pos += event.delta;
  *   //uncomment to block page scrolling
@@ -16418,6 +17074,10 @@ p5.prototype._onclick = function(e) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * black 50x50 rect moves up and down with vertical scroll. fuschia background
+ *
  */
 p5.prototype._onwheel = function(e) {
   var context = this._isGlobal ? window : this;
@@ -16476,6 +17136,10 @@ p5.prototype._hasTouchInteracted = false;
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 10x10 white rect with thick gold outline moves left and right with touch x.
+ *
  */
 p5.prototype.touchX = 0;
 
@@ -16503,6 +17167,10 @@ p5.prototype.touchX = 0;
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 10x10 white rect with thick gold outline moves up and down with touch y.
+ *
  */
 p5.prototype.touchY = 0;
 
@@ -16525,6 +17193,40 @@ p5.prototype.ptouchX = 0;
 p5.prototype.ptouchY = 0;
 
 /**
+ * The system variable winTouchX always contains the horizontal position of
+ * one finger, relative to (0, 0) of the window.
+ *
+ * @property winTouchX
+ */
+p5.prototype.winTouchX = 0;
+
+/**
+ * The system variable winTouchY always contains the vertical position of
+ * one finger, relative to (0, 0) of the window.
+ *
+ * @property winTouchY
+ */
+p5.prototype.winTouchY = 0;
+
+/**
+ * The system variable pwinTouchX always contains the horizontal position of
+ * one finger, relative to (0, 0) of the window, in the frame previous to the
+ * current frame.
+ *
+ * @property pwinTouchX
+ */
+p5.prototype.pwinTouchX = 0;
+
+/**
+ * The system variable pwinTouchY always contains the vertical position of
+ * one finger, relative to (0, 0) of the window, in the frame previous to the
+ * current frame.
+ *
+ * @property pwinTouchY
+ */
+p5.prototype.pwinTouchY = 0;
+
+/**
  * The system variable touches[] contains an array of the positions of all
  * current touch points, relative to (0, 0) of the canvas, and IDs identifying a
  * unique touch as it moves. Each element in the array is an object with x, y,
@@ -16545,16 +17247,22 @@ p5.prototype.touchIsDown = false;
 p5.prototype._updateNextTouchCoords = function(e) {
   var x = this.touchX;
   var y = this.touchY;
+  var winX = this.winTouchX;
+  var winY = this.winTouchY;
   if(e.type === 'mousedown' ||
      e.type === 'mousemove' ||
      e.type === 'mouseup' || !e.touches) {
     x = this.mouseX;
     y = this.mouseY;
+    winX = this.winMouseX;
+    winY = this.winMouseY;
   } else {
     if(this._curElement !== null) {
       var touchInfo = getTouchInfo(this._curElement.elt, e, 0);
       x = touchInfo.x;
       y = touchInfo.y;
+      winX = touchInfo.winX;
+      winY = touchInfo.winY;
 
       var touches = [];
       for(var i = 0; i < e.touches.length; i++){
@@ -16565,6 +17273,8 @@ p5.prototype._updateNextTouchCoords = function(e) {
   }
   this._setProperty('touchX', x);
   this._setProperty('touchY', y);
+  this._setProperty('winTouchX', winX);
+  this._setProperty('winTouchY', winY);
   if (!this._hasTouchInteracted) {
     // For first draw, make previous and next equal
     this._updateTouchCoords();
@@ -16575,6 +17285,8 @@ p5.prototype._updateNextTouchCoords = function(e) {
 p5.prototype._updateTouchCoords = function() {
   this._setProperty('ptouchX', this.touchX);
   this._setProperty('ptouchY', this.touchY);
+  this._setProperty('pwinTouchX', this.winTouchX);
+  this._setProperty('pwinTouchY', this.winTouchY);
 };
 
 function getTouchInfo(canvas, e, i) {
@@ -16584,6 +17296,8 @@ function getTouchInfo(canvas, e, i) {
   return {
     x: touch.clientX - rect.left,
     y: touch.clientY - rect.top,
+    winX: touch.clientX,
+    winY: touch.clientY,
     id: touch.identifier
   };
 }
@@ -16627,6 +17341,10 @@ function getTouchInfo(canvas, e, i) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 50x50 black rect turns white with touch event.
+ * no image displayed
  */
 p5.prototype._ontouchstart = function(e) {
   var context = this._isGlobal ? window : this;
@@ -16686,6 +17404,11 @@ p5.prototype._ontouchstart = function(e) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 50x50 black rect turns lighter with touch until white. resets
+ * no image displayed
+ *
  */
 p5.prototype._ontouchmove = function(e) {
   var context = this._isGlobal ? window : this;
@@ -16744,6 +17467,11 @@ p5.prototype._ontouchmove = function(e) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 50x50 black rect turns white with touch.
+ * no image displayed
+ *
  */
 p5.prototype._ontouchend = function(e) {
   this._updateNextTouchCoords(e);
@@ -17463,6 +18191,12 @@ var frames = [];
  * image(img, 17, 17);
  * </code>
  * </div>
+ *
+ * @alt
+ * 66x66 dark turquoise rect in center of canvas.
+ * 2 gradated dark turquoise rects fade left. 1 center 1 bottom right of canvas
+ * no image displayed
+ *
  */
 p5.prototype.createImage = function(width, height) {
   return new p5.Image(width, height);
@@ -17505,6 +18239,12 @@ p5.prototype.createImage = function(width, height) {
  *  saveCanvas('myCanvas');
  *  saveCanvas();
  *  </code></div>
+ *
+ * @alt
+ * no image displayed
+ * no image displayed
+ * no image displayed
+ *
  */
 p5.prototype.saveCanvas = function() {
 
@@ -17564,18 +18304,18 @@ p5.prototype.saveCanvas = function() {
     }
     else {
       switch(extension){
-      case 'png':
-        mimeType = 'image/png';
-        break;
-      case 'jpeg':
-        mimeType = 'image/jpeg';
-        break;
-      case 'jpg':
-        mimeType = 'image/jpeg';
-        break;
-      default:
-        mimeType = 'image/png';
-        break;
+        case 'png':
+          mimeType = 'image/png';
+          break;
+        case 'jpeg':
+          mimeType = 'image/jpeg';
+          break;
+        case 'jpg':
+          mimeType = 'image/jpeg';
+          break;
+        default:
+          mimeType = 'image/png';
+          break;
       }
     }
     var downloadMime = 'image/octet-stream';
@@ -17616,10 +18356,14 @@ p5.prototype.saveCanvas = function() {
  *
  *  function mousePressed() {
  *    saveFrames("out", "png", 1, 25, function(data){
- *      println(data);
+ *      print(data);
  *    });
  *  }
  *  </code></div>
+ *
+ * @alt
+ * canvas background goes from light to dark with mouse x.
+ *
  */
 p5.prototype.saveFrames = function(fName, ext, _duration, _fps, callback) {
   var duration = _duration || 3;
@@ -17665,18 +18409,18 @@ p5.prototype._makeFrame = function(filename, extension, _cnv) {
   }
   else {
     switch(extension.toLowerCase()){
-    case 'png':
-      mimeType = 'image/png';
-      break;
-    case 'jpeg':
-      mimeType = 'image/jpeg';
-      break;
-    case 'jpg':
-      mimeType = 'image/jpeg';
-      break;
-    default:
-      mimeType = 'image/png';
-      break;
+      case 'png':
+        mimeType = 'image/png';
+        break;
+      case 'jpeg':
+        mimeType = 'image/jpeg';
+        break;
+      case 'jpg':
+        mimeType = 'image/jpeg';
+        break;
+      default:
+        mimeType = 'image/png';
+        break;
     }
   }
   var downloadMime = 'image/octet-stream';
@@ -17752,6 +18496,11 @@ _dereq_('../core/error_helpers');
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * image of the underside of a white umbrella and grided ceililng above
+ * image of the underside of a white umbrella and grided ceililng above
+ *
  */
 p5.prototype.loadImage = function(path, successCallback, failureCallback) {
   var img = new Image();
@@ -17865,6 +18614,11 @@ function _sAssign(sVal, iVal) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * image of the underside of a white umbrella and grided ceiling above
+ * image of the underside of a white umbrella and grided ceiling above
+ *
  */
 p5.prototype.image =
   function(img, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) {
@@ -17986,6 +18740,12 @@ p5.prototype.image =
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 2 side by side images of umbrella and ceiling, one image with blue tint
+ * Images of umbrella and ceiling, one half of image with blue tint
+ * 2 side by side images of umbrella and ceiling, one image translucent
+ *
  */
 p5.prototype.tint = function () {
   var c = this.color.apply(this, arguments);
@@ -18012,6 +18772,10 @@ p5.prototype.tint = function () {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 2 side by side images of bricks, left image with blue tint
+ *
  */
 p5.prototype.noTint = function() {
   this._renderer._tint = null;
@@ -18111,6 +18875,12 @@ p5.prototype._getTintedImageCanvas = function(img) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * small square image of bricks
+ * horizontal rectangle image of bricks
+ * large square image of bricks
+ *
  */
 p5.prototype.imageMode = function(m) {
   if (m === constants.CORNER ||
@@ -18189,6 +18959,10 @@ p5.Image = function(width, height){
    *   }
    * }
    * </code></div>
+   *
+   * @alt
+   * rocky mountains in top and horizontal lines in corresponding colors in bottom.
+   *
    */
   this.width = width;
   /**
@@ -18211,6 +18985,10 @@ p5.Image = function(width, height){
    *   }
    * }
    * </code></div>
+   *
+   * @alt
+   * rocky mountains on right and vertical lines in corresponding colors on left.
+   *
    */
   this.height = height;
   this.canvas = document.createElement('canvas');
@@ -18280,6 +19058,11 @@ p5.Image = function(width, height){
    * image(img, 17, 17);
    * </code>
    * </div>
+   *
+   * @alt
+   * 66x66 turquoise rect in center of canvas
+   * 66x66 pink rect in center of canvas
+   *
    */
   this.pixels = [];
 };
@@ -18318,6 +19101,10 @@ p5.Image.prototype._setProperty = function (prop, value) {
  *   image(myImage, 0, 0);
  * }
  * </code></div>
+ *
+   * @alt
+   * 2 images of rocky mountains vertically stacked
+   *
  */
 p5.Image.prototype.loadPixels = function(){
   p5.Renderer2D.prototype.loadPixels.call(this);
@@ -18358,6 +19145,10 @@ p5.Image.prototype.loadPixels = function(){
  *   image(myImage, 0, 0);
  * }
  * </code></div>
+ *
+ * @alt
+ * 2 images of rocky mountains vertically stacked
+ *
  */
 p5.Image.prototype.updatePixels = function(x, y, w, h){
   p5.Renderer2D.prototype.updatePixels.call(this, x, y, w, h);
@@ -18399,6 +19190,10 @@ p5.Image.prototype.updatePixels = function(x, y, w, h){
  *
  * //get() returns color here
  * </code></div>
+ *
+ * @alt
+ * image of rocky mountains with 50x50 green rect in front
+ *
  */
 p5.Image.prototype.get = function(x, y, w, h){
   return p5.Renderer2D.prototype.get.call(this, x, y, w, h);
@@ -18432,6 +19227,10 @@ p5.Image.prototype.get = function(x, y, w, h){
  * image(img, 34, 34);
  * </code>
  * </div>
+ *
+ * @alt
+ * 2 gradated dark turquoise rects fade left. 1 center 1 bottom right of canvas
+ *
  */
 p5.Image.prototype.set = function(x, y, imgOrCol){
   p5.Renderer2D.prototype.set.call(this, x, y, imgOrCol);
@@ -18462,6 +19261,10 @@ p5.Image.prototype.set = function(x, y, imgOrCol){
  *   img.resize(50, 100);
  * }
  * </code></div>
+ *
+ * @alt
+ * image of rocky mountains. zoomed in
+ *
  */
 p5.Image.prototype.resize = function(width, height){
 
@@ -18484,6 +19287,9 @@ p5.Image.prototype.resize = function(width, height){
   } else if (height === 0) {
     height = this.canvas.height * width / this.canvas.width;
   }
+
+  width = Math.floor(width);
+  height = Math.floor(height);
 
   var tempCanvas = document.createElement('canvas');
   tempCanvas.width = width;
@@ -18546,6 +19352,10 @@ p5.Image.prototype.resize = function(width, height){
  *   image(photo, 0, 0);
  * }
  * </code></div>
+ *
+ * @alt
+ * image of rocky mountains and smaller image on top of bricks at top left
+ *
  */
 p5.Image.prototype.copy = function () {
   p5.prototype.copy.apply(this, arguments);
@@ -18572,6 +19382,10 @@ p5.Image.prototype.copy = function () {
  *   image(photo, 0, 0);
  * }
  * </code></div>
+ *
+ * @alt
+ * image of rocky mountains with white at right
+ *
  *
  * http://blogs.adobe.com/webplatform/2013/01/28/blending-features-in-canvas/
  *
@@ -18605,7 +19419,7 @@ p5.Image.prototype.mask = function(p5Image) {
   ];
 
   this.drawingContext.globalCompositeOperation = 'destination-in';
-  this.copy.apply(this, copyArgs);
+  p5.Image.prototype.copy.apply(this, copyArgs);
   this.drawingContext.globalCompositeOperation = currBlend;
 };
 
@@ -18633,6 +19447,10 @@ p5.Image.prototype.mask = function(p5Image) {
  *   image(photo2, width/2, 0);
  * }
  * </code></div>
+ *
+ * @alt
+ * 2 images of rocky mountains left one in color, right in black and white
+ *
  */
 p5.Image.prototype.filter = function(operation, value) {
   Filters.apply(this.canvas, Filters[operation.toLowerCase()], value);
@@ -18707,6 +19525,12 @@ p5.Image.prototype.filter = function(operation, value) {
  *   image(bricks, 0, 0);
  * }
  * </code></div>
+ *
+ * @alt
+ * image of rocky mountains. Brick images on left and right. Right overexposed
+ * image of rockies. Brickwall images on left and right. Right mortar transparent
+ * image of rockies. Brickwall images on left and right. Right translucent
+ *
  */
 p5.Image.prototype.blend = function() {
   p5.prototype.blend.apply(this, arguments);
@@ -18738,6 +19562,10 @@ p5.Image.prototype.blend = function() {
  *   }
  * }
  * </code></div>
+ *
+ * @alt
+ * image of rocky mountains.
+ *
  */
 p5.Image.prototype.save = function(filename, extension) {
   var mimeType;
@@ -18748,18 +19576,18 @@ p5.Image.prototype.save = function(filename, extension) {
   else {
     // en.wikipedia.org/wiki/Comparison_of_web_browsers#Image_format_support
     switch(extension.toLowerCase()){
-    case 'png':
-      mimeType = 'image/png';
-      break;
-    case 'jpeg':
-      mimeType = 'image/jpeg';
-      break;
-    case 'jpg':
-      mimeType = 'image/jpeg';
-      break;
-    default:
-      mimeType = 'image/png';
-      break;
+      case 'png':
+        mimeType = 'image/png';
+        break;
+      case 'jpeg':
+        mimeType = 'image/jpeg';
+        break;
+      case 'jpg':
+        mimeType = 'image/jpeg';
+        break;
+      default:
+        mimeType = 'image/png';
+        break;
     }
   }
   var downloadMime = 'image/octet-stream';
@@ -18848,6 +19676,10 @@ _dereq_('../color/p5.Color');
  * updatePixels();
  * </code>
  * </div>
+ *
+ * @alt
+ * top half of canvas pink, bottom grey
+ *
  */
 p5.prototype.pixels = [];
 
@@ -18917,6 +19749,13 @@ p5.prototype.pixels = [];
  *   blend(img1, 0, 0, 33, 100, 67, 0, 33, 100, ADD);
  * }
  * </code></div>
+ *
+ * @alt
+ * image of rocky mountains. Brick images on left and right. Right overexposed
+ * image of rockies. Brickwall images on left and right. Right mortar transparent
+ * image of rockies. Brickwall images on left and right. Right translucent
+ *
+ *
  */
 p5.prototype.blend = function() {
   if (this._renderer) {
@@ -18962,6 +19801,12 @@ p5.prototype.blend = function() {
  *   rect(7, 22, 10, 10);
  * }
  * </code></div>
+ *
+ * @alt
+ * image of rocky mountains. Brick images on left and right. Right overexposed
+ * image of rockies. Brickwall images on left and right. Right mortar transparent
+ * image of rockies. Brickwall images on left and right. Right translucent
+ *
  */
 p5.prototype.copy = function () {
   p5.Renderer2D._copyHelper.apply(this, arguments);
@@ -19122,6 +19967,18 @@ p5.prototype.copy = function () {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * black and white image of a brick wall.
+ * greyscale image of a brickwall
+ * image of a brickwall
+ * jade colored image of a brickwall
+ * red and pink image of a brickwall
+ * image of a brickwall
+ * blurry image of a brickwall
+ * image of a brickwall
+ * image of a brickwall with less detail
+ *
  */
 p5.prototype.filter = function(operation, value) {
   Filters.apply(this.canvas, Filters[operation.toLowerCase()], value);
@@ -19188,6 +20045,11 @@ p5.prototype.filter = function(operation, value) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 2 images of the rocky mountains, side-by-side
+ * Image of the rocky mountains with 50x50 green rect in center of canvas
+ *
  */
 p5.prototype.get = function(x, y, w, h){
   return this._renderer.get(x, y, w, h);
@@ -19219,6 +20081,10 @@ p5.prototype.get = function(x, y, w, h){
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * two images of the rocky mountains. one on top, one on bottom of canvas.
+ *
  */
 p5.prototype.loadPixels = function() {
   this._renderer.loadPixels();
@@ -19288,6 +20154,11 @@ p5.prototype.loadPixels = function() {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 4 black points in the shape of a square middle-right of canvas.
+ * square with orangey-brown gradient lightening at bottom right.
+ * image of the rocky mountains. with lines like an 'x' through the center.
  */
 p5.prototype.set = function (x, y, imgOrCol) {
   this._renderer.set(x, y, imgOrCol);
@@ -19326,6 +20197,8 @@ p5.prototype.set = function (x, y, imgOrCol) {
  * }
  * </code>
  * </div>
+ * @alt
+ * two images of the rocky mountains. one on top, one on bottom of canvas.
  */
 p5.prototype.updatePixels = function (x, y, w, h) {
   // graceful fail - if loadPixels() or set() has not been called, pixel
@@ -19440,6 +20313,11 @@ p5._getDecrementPreload = function () {
  *   myDiv.style('font-family', 'Avenir');
  * }
  * </code></div>
+ *
+ * @alt
+ * p5*js in p5's theme dark pink
+ * p5*js in p5's theme dark pink
+ *
  */
 p5.prototype.loadFont = function (path, onSuccess, onError) {
 
@@ -19453,7 +20331,9 @@ p5.prototype.loadFont = function (path, onSuccess, onError) {
       if ((typeof onError !== 'undefined') && (onError !== decrementPreload)) {
         return onError(err);
       }
-      throw err;
+      p5._friendlyFileLoadError(4, path);
+      console.error(err, path);
+      return;
     }
 
     p5Font.font = font;
@@ -19567,6 +20447,10 @@ p5.prototype.loadBytes = function () {
  * }
  * </code></div>
  *
+ * @alt
+ * 50x50 ellipse that changes from black to white depending on the current humidity
+ * 50x50 ellipse that changes from black to white depending on the current humidity
+ *
  */
 p5.prototype.loadJSON = function () {
   var path = arguments[0];
@@ -19574,7 +20458,7 @@ p5.prototype.loadJSON = function () {
   var errorCallback;
   var decrementPreload = p5._getDecrementPreload.apply(this, arguments);
 
-  var ret = []; // array needed for preload
+  var ret = {}; // object needed for preload
   // assume jsonp for URLs
   var t = 'json'; //= path.indexOf('http') === -1 ? 'json' : 'jsonp';
 
@@ -19672,6 +20556,11 @@ p5.prototype.loadJSON = function () {
  *   text(result[ind], 10, 10, 80, 80);
  * }
  * </code></div>
+ *
+ * @alt
+ * randomly generated text from a file, for example "i smell like butter"
+ * randomly generated text from a file, for example "i have three feet"
+ *
  */
 p5.prototype.loadStrings = function (path, callback, errorCallback) {
   var ret = [];
@@ -19781,20 +20670,25 @@ p5.prototype.loadStrings = function (path, callback, errorCallback) {
  *
  * function setup() {
  *   //count the columns
- *   println(table.getRowCount() + " total rows in table");
- *   println(table.getColumnCount() + " total columns in table");
+ *   print(table.getRowCount() + " total rows in table");
+ *   print(table.getColumnCount() + " total columns in table");
  *
- *   println(table.getColumn("name"));
+ *   print(table.getColumn("name"));
  *   //["Goat", "Leopard", "Zebra"]
  *
  *   //cycle through the table
  *   for (var r = 0; r < table.getRowCount(); r++)
  *     for (var c = 0; c < table.getColumnCount(); c++) {
- *       println(table.getString(r, c));
+ *       print(table.getString(r, c));
  *     }
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * randomly generated text from a file, for example "i smell like butter"
+ * randomly generated text from a file, for example "i have three feet"
+ *
  */
 p5.prototype.loadTable = function (path) {
   var callback = null;
@@ -20301,7 +21195,7 @@ p5.PrintWriter = function (filename, extension) {
   this.print = function (data) {
     this.content += data;
   };
-  this.println = function (data) {
+  this.print = function (data) {
     this.content += data + '\n';
   };
   this.flush = function () {
@@ -20428,24 +21322,24 @@ p5.prototype.save = function (object, _filename, _options) {
   else {
     var extension = _checkFileExtension(args[1], args[2])[1];
     switch (extension) {
-    case 'json':
-      p5.prototype.saveJSON(args[0], args[1], args[2]);
-      return;
-    case 'txt':
-      p5.prototype.saveStrings(args[0], args[1], args[2]);
-      return;
-      // =================================================
-      // OPTION 3: decide based on object...
-    default:
-      if (args[0] instanceof Array) {
+      case 'json':
+        p5.prototype.saveJSON(args[0], args[1], args[2]);
+        return;
+      case 'txt':
         p5.prototype.saveStrings(args[0], args[1], args[2]);
-      } else if (args[0] instanceof p5.Table) {
-        p5.prototype.saveTable(args[0], args[1], args[2], args[3]);
-      } else if (args[0] instanceof p5.Image) {
-        p5.prototype.saveCanvas(args[0].canvas, args[1]);
-      } else if (args[0] instanceof p5.SoundFile) {
-        p5.prototype.saveSound(args[0], args[1], args[2], args[3]);
-      }
+        return;
+        // =================================================
+        // OPTION 3: decide based on object...
+      default:
+        if (args[0] instanceof Array) {
+          p5.prototype.saveStrings(args[0], args[1], args[2]);
+        } else if (args[0] instanceof p5.Table) {
+          p5.prototype.saveTable(args[0], args[1], args[2], args[3]);
+        } else if (args[0] instanceof p5.Image) {
+          p5.prototype.saveCanvas(args[0].canvas, args[1]);
+        } else if (args[0] instanceof p5.SoundFile) {
+          p5.prototype.saveSound(args[0], args[1], args[2], args[3]);
+        }
     }
   }
 };
@@ -20485,6 +21379,10 @@ p5.prototype.save = function (object, _filename, _options) {
  *  //   "name": "Lion"
  *  // }
  *  </div></code>
+ *
+ * @alt
+ * no image displayed
+ *
  */
 p5.prototype.saveJSON = function (json, filename, opt) {
   var stringify;
@@ -20531,13 +21429,17 @@ p5.prototype.saveStream = function () {
  *  // cat
  *  // dog
  *  </code></div>
+ *
+ * @alt
+ * no image displayed
+ *
  */
 p5.prototype.saveStrings = function (list, filename, extension) {
   var ext = extension || 'txt';
   var pWriter = this.createWriter(filename, ext);
   for (var i = 0; i < list.length; i++) {
     if (i < list.length - 1) {
-      pWriter.println(list[i]);
+      pWriter.print(list[i]);
     } else {
       pWriter.print(list[i]);
     }
@@ -20606,6 +21508,10 @@ function escapeHelper(content) {
  *    // id,species,name
  *    // 0,Panthera leo,Lion
  *  </code></div>
+ *
+ * @alt
+ * no image displayed
+ *
  */
 p5.prototype.saveTable = function (table, filename, options) {
   var pWriter = this.createWriter(filename, options);
@@ -20623,7 +21529,7 @@ p5.prototype.saveTable = function (table, filename, options) {
         if (h < header.length - 1) {
           pWriter.print(header[h] + sep);
         } else {
-          pWriter.println(header[h]);
+          pWriter.print(header[h]);
         }
       }
     }
@@ -20635,7 +21541,7 @@ p5.prototype.saveTable = function (table, filename, options) {
         if (j < table.rows[i].arr.length - 1) {
           pWriter.print(table.rows[i].arr[j] + sep);
         } else if (i < table.rows.length - 1) {
-          pWriter.println(table.rows[i].arr[j]);
+          pWriter.print(table.rows[i].arr[j]);
         } else {
           pWriter.print(table.rows[i].arr[j]); // no line break
         }
@@ -20645,40 +21551,40 @@ p5.prototype.saveTable = function (table, filename, options) {
 
   // otherwise, make HTML
   else {
-    pWriter.println('<html>');
-    pWriter.println('<head>');
+    pWriter.print('<html>');
+    pWriter.print('<head>');
     var str = '  <meta http-equiv=\"content-type\" content';
     str += '=\"text/html;charset=utf-8\" />';
-    pWriter.println(str);
-    pWriter.println('</head>');
+    pWriter.print(str);
+    pWriter.print('</head>');
 
-    pWriter.println('<body>');
-    pWriter.println('  <table>');
+    pWriter.print('<body>');
+    pWriter.print('  <table>');
 
     // make header if it has values
     if (header[0] !== '0') {
-      pWriter.println('    <tr>');
+      pWriter.print('    <tr>');
       for (var k = 0; k < header.length; k++) {
         var e = escapeHelper(header[k]);
-        pWriter.println('      <td>' + e);
-        pWriter.println('      </td>');
+        pWriter.print('      <td>' + e);
+        pWriter.print('      </td>');
       }
-      pWriter.println('    </tr>');
+      pWriter.print('    </tr>');
     }
 
     // make rows
     for (var row = 0; row < table.rows.length; row++) {
-      pWriter.println('    <tr>');
+      pWriter.print('    <tr>');
       for (var col = 0; col < table.columns.length; col++) {
         var entry = table.rows[row].getString(col);
         var htmlEntry = escapeHelper(entry);
-        pWriter.println('      <td>' + htmlEntry);
-        pWriter.println('      </td>');
+        pWriter.print('      <td>' + htmlEntry);
+        pWriter.print('      </td>');
       }
-      pWriter.println('    </tr>');
+      pWriter.print('    </tr>');
     }
-    pWriter.println('  </table>');
-    pWriter.println('</body>');
+    pWriter.print('  </table>');
+    pWriter.print('</body>');
     pWriter.print('</html>');
   }
   // close and flush the pWriter
@@ -20903,10 +21809,14 @@ p5.Table = function (rows) {
 	*   //print the results
 	*   for (var r = 0; r < table.getRowCount(); r++)
 	*     for (var c = 0; c < table.getColumnCount(); c++)
-	*       println(table.getString(r, c));
+	*       print(table.getString(r, c));
 	* }
 	* </code>
 	* </div>
+	*
+ * @alt
+ * no image displayed
+ *
  */
 p5.Table.prototype.addRow = function(row) {
   // make sure it is a valid TableRow
@@ -20953,10 +21863,14 @@ p5.Table.prototype.addRow = function(row) {
 	*   //print the results
 	*   for (var r = 0; r < table.getRowCount(); r++)
 	*     for (var c = 0; c < table.getColumnCount(); c++)
-	*       println(table.getString(r, c));
+	*       print(table.getString(r, c));
 	* }
 	* </code>
 	* </div>
+	*
+    * @alt
+ 	* no image displayed
+ 	*
  */
 p5.Table.prototype.removeRow = function(id) {
   this.rows[id].table = null; // remove reference to table
@@ -20998,10 +21912,14 @@ p5.Table.prototype.removeRow = function(id) {
 	*   //print it column by column
 	*   //note: a row is an object, not an array
 	*   for (var c = 0; c < table.getColumnCount(); c++)
-	*     println(row.getString(c));
+	*     print(row.getString(c));
 	* }
 	* </code>
 	* </div>
+	*
+ 	*@alt
+ 	* no image displayed
+ 	*
  */
 p5.Table.prototype.getRow = function(r) {
   return this.rows[r];
@@ -21042,10 +21960,14 @@ p5.Table.prototype.getRow = function(r) {
 	*   //print the results
 	*   for (var r = 0; r < table.getRowCount(); r++)
 	*     for (var c = 0; c < table.getColumnCount(); c++)
-	*       println(table.getString(r, c));
+	*       print(table.getString(r, c));
 	* }
 	* </code>
 	* </div>
+	*
+    * @alt
+    * no image displayed
+    *
  */
 p5.Table.prototype.getRows = function() {
   return this.rows;
@@ -21087,10 +22009,14 @@ p5.Table.prototype.getRows = function() {
 	*   //find the animal named zebra
 	*   var row = table.findRow("Zebra", "name");
 	*   //find the corresponding species
-	*   println(row.getString("species"));
+	*   print(row.getString("species"));
 	* }
 	* </code>
 	* </div>
+	*
+ * @alt
+ * no image displayed
+ *
  */
 p5.Table.prototype.findRow = function(value, column) {
   // try the Object
@@ -21154,10 +22080,14 @@ p5.Table.prototype.findRow = function(value, column) {
 	*
 	*   //find the rows containing animals named Goat
 	*   var rows = table.findRows("Goat", "name");
-	*   println(rows.length + " Goats found");
+	*   print(rows.length + " Goats found");
 	* }
 	* </code>
 	* </div>
+	*
+ 	*@alt
+ 	* no image displayed
+ 	*
  */
 p5.Table.prototype.findRows = function(value, column) {
   var ret = [];
@@ -21250,7 +22180,7 @@ p5.Table.prototype.matchRow = function(regexp, column) {
  *
  *    var rows = table.matchRows('R.*', 'type');
  *    for (var i = 0; i < rows.length; i++) {
- *      println(rows[i].getString('name') + ': ' + rows[i].getString('type'));
+ *      print(rows[i].getString('name') + ': ' + rows[i].getString('type'));
  *    }
  *  }
  *  // Sketch prints:
@@ -21307,11 +22237,15 @@ p5.Table.prototype.matchRows = function(regexp, column) {
 	*
 	* function setup() {
 	*   //getColumn returns an array that can be printed directly
-	*   println(table.getColumn("species"));
+	*   print(table.getColumn("species"));
 	*   //outputs ["Capra hircus", "Panthera pardus", "Equus zebra"]
 	* }
 	* </code>
 	* </div>
+	*
+ 	*@alt
+ 	* no image displayed
+ 	*
  */
 p5.Table.prototype.getColumn = function(value) {
   var ret = [];
@@ -21354,11 +22288,15 @@ p5.Table.prototype.getColumn = function(value) {
 	*
 	* function setup() {
 	*   table.clearRows();
-	*   println(table.getRowCount() + " total rows in table");
-	*   println(table.getColumnCount() + " total columns in table");
+	*   print(table.getRowCount() + " total rows in table");
+	*   print(table.getColumnCount() + " total columns in table");
 	* }
 	* </code>
 	* </div>
+	*
+ 	*@alt
+ 	* no image displayed
+ 	*
  */
 p5.Table.prototype.clearRows = function() {
   delete this.rows;
@@ -21402,10 +22340,14 @@ p5.Table.prototype.clearRows = function() {
 	*   //print the results
 	*   for (var r = 0; r < table.getRowCount(); r++)
 	*     for (var c = 0; c < table.getColumnCount(); c++)
-	*       println(table.getString(r, c));
+	*       print(table.getString(r, c));
 	* }
 	* </code>
 	* </div>
+	*
+ 	*@alt
+ 	* no image displayed
+ 	*
  */
 p5.Table.prototype.addColumn = function(title) {
   var t = title || null;
@@ -21556,10 +22498,14 @@ p5.Table.prototype.trim = function(column) {
 	*
 	* function setup() {
 	*   table.removeColumn("id");
-	*   println(table.getColumnCount());
+	*   print(table.getColumnCount());
 	* }
 	* </code>
 	* </div>
+	*
+ 	*@alt
+ 	* no image displayed
+ 	*
  */
 p5.Table.prototype.removeColumn = function(c) {
   var cString;
@@ -21626,10 +22572,14 @@ p5.Table.prototype.removeColumn = function(c) {
 	*   //print the results
 	*   for (var r = 0; r < table.getRowCount(); r++)
 	*     for (var c = 0; c < table.getColumnCount(); c++)
-	*       println(table.getString(r, c));
+	*       print(table.getString(r, c));
 	* }
 	* </code>
 	* </div>
+	*
+ 	*@alt
+ 	* no image displayed
+ 	*
  */
 p5.Table.prototype.set = function(row, column, value) {
   this.rows[row].set(column, value);
@@ -21668,11 +22618,14 @@ p5.Table.prototype.set = function(row, column, value) {
 	* function setup() {
 	*   table.setNum(1, "id", 1);
 	*
-	*   println(table.getColumn(0));
+	*   print(table.getColumn(0));
 	*   //["0", 1, "2"]
 	* }
 	* </code>
 	* </div>
+	*
+ 	*@alt
+ 	* no image displayed
  */
 p5.Table.prototype.setNum = function(row, column, value){
   this.rows[row].setNum(column, value);
@@ -21725,13 +22678,17 @@ p5.Table.prototype.setString = function(row, column, value){
 	* }
 	*
 	* function setup() {
-	*   println(table.get(0, 1));
+	*   print(table.get(0, 1));
 	*   //Capra hircus
-	*   println(table.get(0, "species"));
+	*   print(table.get(0, "species"));
 	*   //Capra hircus
 	* }
 	* </code>
 	* </div>
+	*
+ 	*@alt
+ 	* no image displayed
+ 	*
  */
 p5.Table.prototype.get = function(row, column) {
   return this.rows[row].get(column);
@@ -21768,11 +22725,15 @@ p5.Table.prototype.get = function(row, column) {
 	* }
 	*
 	* function setup() {
-	*   println(table.getNum(1, 0) + 100);
+	*   print(table.getNum(1, 0) + 100);
 	*   //id 1 + 100 = 101
 	* }
 	* </code>
 	* </div>
+	*
+ 	*@alt
+ 	* no image displayed
+ 	*
  */
 p5.Table.prototype.getNum = function(row, column) {
   return this.rows[row].getNum(column);
@@ -21813,10 +22774,14 @@ p5.Table.prototype.getNum = function(row, column) {
 	*
 	*   //output each row as array
 	*   for (var i = 0; i < tableArray.length; i++)
-	*     println(tableArray[i]);
+	*     print(tableArray[i]);
 	* }
 	* </code>
 	* </div>
+	*
+ 	*@alt
+ 	* no image displayed
+ 	*
  */
 p5.Table.prototype.getString = function(row, column) {
   return this.rows[row].getString(column);
@@ -21854,12 +22819,15 @@ p5.Table.prototype.getString = function(row, column) {
 	* function setup() {
 	*   var tableObject = table.getObject();
 	*
-	*   println(tableObject);
+	*   print(tableObject);
 	*   //outputs an object
 	* }
 	* </code>
 	* </div>
-
+	*
+ 	*@alt
+ 	* no image displayed
+ 	*
  */
 p5.Table.prototype.getObject = function (headerColumn) {
   var tableObject = {};
@@ -22112,7 +23080,7 @@ var p5 = _dereq_('../core/core');
  *     var id = children[i].getNumber("id");
  *     var coloring = children[i].getString("species");
  *     var name = children[i].getContent();
- *     println(id + ", " + coloring + ", " + name);
+ *     print(id + ", " + coloring + ", " + name);
  *   }
  * }
  *
@@ -22121,6 +23089,10 @@ var p5 = _dereq_('../core/core');
  * // 1, Panthera pardus, Leopard
  * // 2, Equus zebra, Zebra
  * </code></div>
+  *
+  * @alt
+  * no image displayed
+  *
  */
 p5.XML = function () {
   this.name = null; //done
@@ -22158,7 +23130,7 @@ p5.XML = function () {
  * function setup() {
  *   var children = xml.getChildren("animal");
  *   var parent = children[1].getParent();
- *   println(parent.getName());
+ *   print(parent.getName());
  * }
  *
  * // Sketch prints:
@@ -22193,7 +23165,7 @@ p5.XML.prototype.getParent = function() {
  * }
  *
  * function setup() {
- *   println(xml.getName());
+ *   print(xml.getName());
  * }
  *
  * // Sketch prints:
@@ -22228,9 +23200,9 @@ p5.XML.prototype.getName = function() {
  * }
  *
  * function setup() {
- *   println(xml.getName());
+ *   print(xml.getName());
  *   xml.setName("fish");
- *   println(xml.getName());
+ *   print(xml.getName());
  * }
  *
  * // Sketch prints:
@@ -22267,7 +23239,7 @@ p5.XML.prototype.setName = function(name) {
  * }
  *
  * function setup() {
- *   println(xml.hasChildren());
+ *   print(xml.hasChildren());
  * }
  *
  * // Sketch prints:
@@ -22304,7 +23276,7 @@ p5.XML.prototype.hasChildren = function() {
  * }
  *
  * function setup() {
- *   println(xml.listChildren());
+ *   print(xml.listChildren());
  * }
  *
  * // Sketch prints:
@@ -22345,7 +23317,7 @@ p5.XML.prototype.listChildren = function() {
  *   var animals = xml.getChildren("animal");
  *
  *   for (var i = 0; i < animals.length; i++) {
- *     println(animals[i].getContent());
+ *     print(animals[i].getContent());
  *   }
  * }
  *
@@ -22392,7 +23364,7 @@ p5.XML.prototype.getChildren = function(param) {
  *
  * function setup() {
  *   var firstChild = xml.getChild("animal");
- *   println(firstChild.getContent());
+ *   print(firstChild.getContent());
  * }
  *
  * // Sketch prints:
@@ -22407,7 +23379,7 @@ p5.XML.prototype.getChildren = function(param) {
  *
  * function setup() {
  *   var secondChild = xml.getChild(1);
- *   println(secondChild.getContent());
+ *   print(secondChild.getContent());
  * }
  *
  * // Sketch prints:
@@ -22469,7 +23441,7 @@ p5.XML.prototype.addChild = function(node) {
  *   xml.removeChild("animal");
  *   var children = xml.getChildren();
  *   for (var i=0; i<children.length; i++) {
- *     println(children[i].getContent());
+ *     print(children[i].getContent());
  *   }
  * }
  *
@@ -22488,7 +23460,7 @@ p5.XML.prototype.addChild = function(node) {
  *   xml.removeChild(1);
  *   var children = xml.getChildren();
  *   for (var i=0; i<children.length; i++) {
- *     println(children[i].getContent());
+ *     print(children[i].getContent());
  *   }
  * }
  *
@@ -22540,7 +23512,7 @@ p5.XML.prototype.removeChild = function(param) {
  *
  * function setup() {
  *   var firstChild = xml.getChild("animal");
- *   println(firstChild.getAttributeCount());
+ *   print(firstChild.getAttributeCount());
  * }
  *
  * // Sketch prints:
@@ -22577,7 +23549,7 @@ p5.XML.prototype.getAttributeCount = function() {
  *
  * function setup() {
  *   var firstChild = xml.getChild("animal");
- *   println(firstChild.listAttributes());
+ *   print(firstChild.listAttributes());
  * }
  *
  * // Sketch prints:
@@ -22614,8 +23586,8 @@ p5.XML.prototype.listAttributes = function() {
  *
  * function setup() {
  *   var firstChild = xml.getChild("animal");
- *   println(firstChild.hasAttribute("species"));
- *   println(firstChild.hasAttribute("color"));
+ *   print(firstChild.hasAttribute("species"));
+ *   print(firstChild.hasAttribute("color"));
  * }
  *
  * // Sketch prints:
@@ -22657,7 +23629,7 @@ p5.XML.prototype.hasAttribute = function(name) {
  *
  * function setup() {
  *   var firstChild = xml.getChild("animal");
- *   println(firstChild.getNumber("id"));
+ *   print(firstChild.getNumber("id"));
  * }
  *
  * // Sketch prints:
@@ -22698,7 +23670,7 @@ p5.XML.prototype.getNumber = function(name, defaultValue) {
  *
  * function setup() {
  *   var firstChild = xml.getChild("animal");
- *   println(firstChild.getString("species"));
+ *   print(firstChild.getString("species"));
  * }
  *
  * // Sketch prints:
@@ -22736,9 +23708,9 @@ p5.XML.prototype.getString = function(name, defaultValue) {
  *
  * function setup() {
  *   var firstChild = xml.getChild("animal");
- *   println(firstChild.getString("species"));
+ *   print(firstChild.getString("species"));
  *   firstChild.setAttribute("species", "Jamides zebra");
- *   println(firstChild.getString("species"));
+ *   print(firstChild.getString("species"));
  * }
  *
  * // Sketch prints:
@@ -22779,7 +23751,7 @@ p5.XML.prototype.setAttribute = function(name, value) {
  *
  * function setup() {
  *   var firstChild = xml.getChild("animal");
- *   println(firstChild.getContent());
+ *   print(firstChild.getContent());
  * }
  *
  * // Sketch prints:
@@ -22815,9 +23787,9 @@ p5.XML.prototype.getContent = function(defaultValue) {
  *
  * function setup() {
  *   var firstChild = xml.getChild("animal");
- *   println(firstChild.getContent());
+ *   print(firstChild.getContent());
  *   firstChild.setContent("Mountain Goat");
- *   println(firstChild.getContent());
+ *   print(firstChild.getContent());
  * }
  *
  * // Sketch prints:
@@ -22889,10 +23861,14 @@ var p5 = _dereq_('../core/core');
  *   var x = -3;
  *   var y = abs(x);
  *
- *   println(x); // -3
- *   println(y); // 3
+ *   print(x); // -3
+ *   print(y); // 3
  * }
  * </code></div>
+ *
+ * @alt
+ * no image displayed
+ *
  */
 p5.prototype.abs = Math.abs;
 
@@ -22929,6 +23905,10 @@ p5.prototype.abs = Math.abs;
  *   text(nfc(bx,1,1), bx, by - 5);
  * }
  * </code></div>
+  *
+ * @alt
+ * 2 horizontal lines & number sets. increase with mouse x. bottom to 2 decimals
+ *
  */
 p5.prototype.ceil = Math.ceil;
 
@@ -22967,6 +23947,10 @@ p5.prototype.ceil = Math.ceil;
  *   ellipse(xc, 66, 9,9); // Constrained
  * }
  * </code></div>
+ *
+ * @alt
+ * 2 vertical lines. 2 ellipses move with mouse X 1 does not move passed lines
+ *
  */
 p5.prototype.constrain = function(n, low, high) {
   return Math.max(Math.min(n, high), low);
@@ -23013,6 +23997,10 @@ p5.prototype.constrain = function(n, low, high) {
  *   // Fancy!
  * }
  * </code></div>
+ *
+ * @alt
+ * 2 ellipses joined by line. 1 ellipse moves with mouse X&Y. Distance displayed.
+ *
  */
 p5.prototype.dist = function(x1, y1, z1, x2, y2, z2) {
   if (arguments.length === 4) {
@@ -23066,6 +24054,10 @@ p5.prototype.dist = function(x1, y1, z1, x2, y2, z2) {
  *   line(0, height-1, width, height-1);
  * }
  * </code></div>
+ *
+ * @alt
+ * ellipse moves along a curve with mouse x. e^n displayed.
+ *
  */
 p5.prototype.exp = Math.exp;
 
@@ -23101,6 +24093,10 @@ p5.prototype.exp = Math.exp;
  *   text(nfc(bx,1,1), bx, by - 5);
  * }
  * </code></div>
+ *
+ * @alt
+ * 2 horizontal lines & number sets. increase with mouse x. bottom to 2 decimals
+ *
  */
 p5.prototype.floor = Math.floor;
 
@@ -23139,6 +24135,10 @@ p5.prototype.floor = Math.floor;
  *   point(e, y);
  * }
  * </code></div>
+ *
+ * @alt
+ * 5 points horizontally staggered mid-canvas. mid 3 are grey, outer black
+ *
  */
 p5.prototype.lerp = function(start, stop, amt) {
   return amt*(stop-start)+start;
@@ -23191,6 +24191,10 @@ p5.prototype.lerp = function(start, stop, amt) {
  *   line(0,height/2,width, height/2);
  * }
  * </code></div>
+ *
+ * @alt
+ * ellipse moves along a curve with mouse x. natural logarithm of n displayed.
+ *
  */
 p5.prototype.log = Math.log;
 
@@ -23214,15 +24218,19 @@ p5.prototype.log = Math.log;
  *   var y2 = 70;
  *
  *   line(0, 0, x1, y1);
- *   println(mag(x1, y1));  // Prints "36.05551"
+ *   print(mag(x1, y1));  // Prints "36.05551"
  *   line(0, 0, x2, y1);
- *   println(mag(x2, y1));  // Prints "85.44004"
+ *   print(mag(x2, y1));  // Prints "85.44004"
  *   line(0, 0, x1, y2);
- *   println(mag(x1, y2));  // Prints "72.8011"
+ *   print(mag(x1, y2));  // Prints "72.8011"
  *   line(0, 0, x2, y2);
- *   println(mag(x2, y2));  // Prints "106.30146"
+ *   print(mag(x2, y2));  // Prints "106.30146"
  * }
  * </code></div>
+ *
+ * @alt
+ * 4 lines of different length radiate from top left of canvas.
+ *
  */
 p5.prototype.mag = function(x, y) {
   return Math.sqrt(x*x+y*y);
@@ -23262,6 +24270,11 @@ p5.prototype.mag = function(x, y) {
  *       ellipse(x2, 75, 25, 25);
  *     }
  *   </code></div>
+ *
+ * @alt
+ * 10 by 10 white ellipse with in mid left canvas
+ * 2 25 by 25 white ellipses move with mouse x. Bottom has more range from X
+ *
  */
 p5.prototype.map = function(n, start1, stop1, start2, stop2) {
   return ((n-start1)/(stop1-start1))*(stop2-start2)+start2;
@@ -23297,6 +24310,10 @@ p5.prototype.map = function(n, start1, stop1, start2, stop2) {
  *   text(max(numArray), maxX, maxY);
  * }
  * </code></div>
+ *
+ * @alt
+ * Small text at top reads: Array Elements 2 1 5 4 8 9. Large text at center: 9
+ *
  */
 p5.prototype.max = function() {
   if (arguments[0] instanceof Array) {
@@ -23336,6 +24353,10 @@ p5.prototype.max = function() {
  *   text(min(numArray), maxX, maxY);
  * }
  * </code></div>
+ *
+ * @alt
+ * Small text at top reads: Array Elements 2 1 5 4 8 9. Large text at center: 1
+ *
  */
 p5.prototype.min = function() {
   if (arguments[0] instanceof Array) {
@@ -23388,6 +24409,10 @@ p5.prototype.min = function() {
  *   text(normalized, normalX, normalY);
  * }
  * </code></div>
+ *
+ * @alt
+ * ellipse moves with mouse. 0 shown left & 100 right and updating values center
+ *
  */
 p5.prototype.norm = function(n, start, stop) {
   return this.map(n, start, stop, 0, 1);
@@ -23420,6 +24445,10 @@ p5.prototype.norm = function(n, start, stop) {
  *   ellipse(eLoc*8, eLoc*8, pow(eSize, 4), pow(eSize, 4));
  * }
  * </code></div>
+ *
+ * @alt
+ * small to large ellipses radiating from top left of canvas
+ *
  */
 p5.prototype.pow = Math.pow;
 
@@ -23455,6 +24484,10 @@ p5.prototype.pow = Math.pow;
  *   text(nfc(bx,1,1), bx, by - 5);
  * }
  * </code></div>
+ *
+ * @alt
+ * horizontal center line squared values displayed on top and regular on bottom.
+ *
  */
 p5.prototype.round = Math.round;
 
@@ -23496,6 +24529,10 @@ p5.prototype.round = Math.round;
  *   text("sq(x) = " + x2, 0, y2 + spacing);
  * }
  * </code></div>
+ *
+ * @alt
+ * horizontal center line squared values displayed on top and regular on bottom.
+ *
  */
 p5.prototype.sq = function(n) { return n*n; };
 
@@ -23538,6 +24575,10 @@ p5.prototype.sq = function(n) { return n*n; };
  *   text("sqrt(x) = " + x2, 0, y2 + spacing);
  * }
  * </code></div>
+ *
+ * @alt
+ * horizontal center line squareroot values displayed on top and regular on bottom.
+ *
  */
 p5.prototype.sqrt = Math.sqrt;
 
@@ -23677,7 +24718,13 @@ var perlin; // will be initialized lazily by noise() or noiseSeed()
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * vertical line moves left to right with updating noise values.
+ * horizontal wave pattern effected by mouse x-position & updating noise values.
+ *
  */
+
 p5.prototype.noise = function(x,y,z) {
   y = y || 0;
   z = z || 0;
@@ -23794,6 +24841,10 @@ p5.prototype.noise = function(x,y,z) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 2 vertical grey smokey patterns affected my mouse x-position and noise.
+ *
  */
 p5.prototype.noiseDetail = function(lod, falloff) {
   if (lod>0)     { perlin_octaves=lod; }
@@ -23824,6 +24875,10 @@ p5.prototype.noiseDetail = function(lod, falloff) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * vertical grey lines drawing in pattern affected by noise.
+ *
  */
 p5.prototype.noiseSeed = function(seed) {
   // Linear Congruential Generator
@@ -23915,6 +24970,10 @@ var constants = _dereq_('../core/constants');
  * ellipse(v1.x, v1.y, 50, 50);
  * </code>
  * </div>
+ *
+ * @alt
+ * 2 white ellipses. One center-left the other bottom right and off canvas
+ *
  */
 p5.Vector = function() {
   var x,y,z;
@@ -23960,7 +25019,7 @@ p5.Vector = function() {
  * <div class = "norender"><code>
  * function setup() {
  *   var v = createVector(20,30);
- *   println(String(v)); // prints "p5.Vector Object : [20, 30, 0]"
+ *   print(String(v)); // prints "p5.Vector Object : [20, 30, 0]"
  * }
  * </div></code>
  *
@@ -24021,7 +25080,7 @@ p5.Vector.prototype.set = function (x, y, z) {
  * <code>
  * var v1 = createVector(1, 2, 3);
  * var v2 = v1.copy();
- * println(v1.x == v2.x && v1.y == v2.y && v1.z == v2.z);
+ * print(v1.x == v2.x && v1.y == v2.y && v1.z == v2.z);
  * // Prints "true"
  * </code>
  * </div>
@@ -24217,7 +25276,7 @@ p5.Vector.prototype.div = function (n) {
  * <code>
  * var v = createVector(20.0, 30.0, 40.0);
  * var m = v.mag();
- * println(m); // Prints "53.85164807134504"
+ * print(m); // Prints "53.85164807134504"
  * </code>
  * </div>
  */
@@ -24238,7 +25297,7 @@ p5.Vector.prototype.mag = function () {
  * <code>
  * // Static method
  * var v1 = createVector(6, 4, 2);
- * println(v1.magSq()); // Prints "56"
+ * print(v1.magSq()); // Prints "56"
  * </code>
  * </div>
  */
@@ -24265,7 +25324,7 @@ p5.Vector.prototype.magSq = function () {
  * var v1 = createVector(1, 2, 3);
  * var v2 = createVector(2, 3, 4);
  *
- * println(v1.dot(v2)); // Prints "20"
+ * print(v1.dot(v2)); // Prints "20"
  * </code>
  * </div>
  *
@@ -24437,13 +25496,13 @@ p5.Vector.prototype.setMag = function (n) {
  * <div class = "norender"><code>
  * function setup() {
  *   var v1 = createVector(30,50);
- *   println(v1.heading()); // 1.0303768265243125
+ *   print(v1.heading()); // 1.0303768265243125
  *
  *   var v1 = createVector(40,50);
- *   println(v1.heading()); // 0.8960553845713439
+ *   print(v1.heading()); // 0.8960553845713439
  *
  *   var v1 = createVector(30,70);
- *   println(v1.heading()); // 1.1659045405098132
+ *   print(v1.heading()); // 1.1659045405098132
  * }
  * </div></code>
  */
@@ -24542,16 +25601,16 @@ p5.Vector.prototype.lerp = function (x, y, z, amt) {
  * <div class = "norender"><code>
  * function setup() {
  *   var v = createVector(20,30);
- *   println(v.array()); // Prints : Array [20, 30, 0]
+ *   print(v.array()); // Prints : Array [20, 30, 0]
  * }
  * </div></code>
  * <div class="norender">
  * <code>
  * var v = createVector(10.0, 20.0, 30.0);
  * var f = v.array();
- * println(f[0]); // Prints "10.0"
- * println(f[1]); // Prints "20.0"
- * println(f[2]); // Prints "30.0"
+ * print(f[0]); // Prints "10.0"
+ * print(f[1]); // Prints "20.0"
+ * print(f[2]); // Prints "30.0"
  * </code>
  * </div>
  */
@@ -24574,8 +25633,8 @@ p5.Vector.prototype.array = function () {
  * v2 = createVector(5,10,20);
  * v3 = createVector(13,10,19);
  *
- * println(v1.equals(v2.x,v2.y,v2.z)); // true
- * println(v1.equals(v3.x,v3.y,v3.z)); // false
+ * print(v1.equals(v2.x,v2.y,v2.z)); // true
+ * print(v1.equals(v3.x,v3.y,v3.z)); // false
  * </div></code>
  * <div class="norender">
  * <code>
@@ -24996,6 +26055,10 @@ var lcg = (function() {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * many vertical lines drawn in white, black or grey.
+ *
  */
 p5.prototype.randomSeed = function(seed) {
   lcg.setSeed(seed);
@@ -25049,6 +26112,12 @@ p5.prototype.randomSeed = function(seed) {
  * text(word,10,50);  // draw the word
  * </code>
  * </div>
+ *
+ * @alt
+ * 100 horizontal lines from center canvas to right. size+fill change each time
+ * 100 horizontal lines from center of canvas. height & side change each render
+ * word displayed at random. Either apple, bear, cat, or dog
+ *
  */
 /**
  * @method random
@@ -25137,6 +26206,9 @@ p5.prototype.random = function (min, max) {
  *}
  * </code>
  * </div>
+ * @alt
+ * 100 horizontal lines from center of canvas. height & side change each render
+ * black lines radiate from center of canvas. size determined each render
  */
 var y2;
 var previous = false;
@@ -25198,7 +26270,7 @@ p5.prototype._angleMode = constants.RADIANS;
  * var c = cos(a);
  * var ac = acos(c);
  * // Prints: "3.1415927 : -1.0 : 3.1415927"
- * println(a + " : " + c + " : " +  ac);
+ * print(a + " : " + c + " : " +  ac);
  * </code>
  * </div>
  *
@@ -25208,7 +26280,7 @@ p5.prototype._angleMode = constants.RADIANS;
  * var c = cos(a);
  * var ac = acos(c);
  * // Prints: "3.926991 : -0.70710665 : 2.3561943"
- * println(a + " : " + c + " : " +  ac);
+ * print(a + " : " + c + " : " +  ac);
  * </code>
  * </div>
  */
@@ -25236,7 +26308,7 @@ p5.prototype.acos = function(ratio) {
  * var s = sin(a);
  * var as = asin(s);
  * // Prints: "1.0471976 : 0.86602545 : 1.0471976"
- * println(a + " : " + s + " : " +  as);
+ * print(a + " : " + s + " : " +  as);
  * </code>
  * </div>
  *
@@ -25246,7 +26318,7 @@ p5.prototype.acos = function(ratio) {
  * var s = sin(a);
  * var as = asin(s);
  * // Prints: "4.1887903 : -0.86602545 : -1.0471976"
- * println(a + " : " + s + " : " +  as);
+ * print(a + " : " + s + " : " +  as);
  * </code>
  * </div>
  *
@@ -25275,7 +26347,7 @@ p5.prototype.asin = function(ratio) {
  * var t = tan(a);
  * var at = atan(t);
  * // Prints: "1.0471976 : 1.7320509 : 1.0471976"
- * println(a + " : " + t + " : " +  at);
+ * print(a + " : " + t + " : " +  at);
  * </code>
  * </div>
  *
@@ -25285,7 +26357,7 @@ p5.prototype.asin = function(ratio) {
  * var t = tan(a);
  * var at = atan(t);
  * // Prints: "4.1887903 : 1.7320513 : 1.0471977"
- * println(a + " : " + t + " : " +  at);
+ * print(a + " : " + t + " : " +  at);
  * </code>
  * </div>
  *
@@ -25325,6 +26397,10 @@ p5.prototype.atan = function(ratio) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 60 by 10 rect at center of canvas rotates with mouse movements
+ *
  */
 p5.prototype.atan2 = function (y, x) {
   if (this._angleMode === constants.RADIANS) {
@@ -25354,6 +26430,9 @@ p5.prototype.atan2 = function (y, x) {
  * </code>
  * </div>
  *
+ * @alt
+ * vertical black lines form wave patterns, extend-down on left and right side
+ *
  */
 p5.prototype.cos = function(angle) {
   if (this._angleMode === constants.RADIANS) {
@@ -25382,6 +26461,10 @@ p5.prototype.cos = function(angle) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * vertical black lines extend down and up from center to form wave pattern
+ *
  */
 p5.prototype.sin = function(angle) {
   if (this._angleMode === constants.RADIANS) {
@@ -25409,7 +26492,10 @@ p5.prototype.sin = function(angle) {
  *     a = a + inc;
  *   }
  * </code>
- * </div>
+ *
+ *
+ * @alt
+ * vertical black lines end down and up from center to form spike pattern
  *
  */
 p5.prototype.tan = function(angle) {
@@ -25436,7 +26522,7 @@ p5.prototype.tan = function(angle) {
  * <code>
  * var rad = PI/4;
  * var deg = degrees(rad);
- * println(rad + " radians is " + deg + " degrees");
+ * print(rad + " radians is " + deg + " degrees");
  * // Prints: 0.7853981633974483 radians is 45 degrees
  * </code>
  * </div>
@@ -25461,7 +26547,7 @@ p5.prototype.degrees = function(angle) {
  * <code>
  * var deg = 45.0;
  * var rad = radians(deg);
- * println(deg + " degrees is " + rad + " radians");
+ * print(deg + " degrees is " + rad + " radians");
  * // Prints: 45 degrees is 0.7853981633974483 radians
  * </code>
  * </div>
@@ -25494,6 +26580,10 @@ p5.prototype.radians = function(angle) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 40 by 10 rect in center rotates with mouse moves. 20 by 10 rect moves faster.
+ *
  *
  */
 p5.prototype.angleMode = function(mode) {
@@ -25550,6 +26640,10 @@ var p5 = _dereq_('../core/core');
  * text("IJKL", 50, 70);
  * </code>
  * </div>
+ *
+ * @alt
+ *Letters ABCD displayed at top right, EFGH at center and IJKL at bottom left.
+ *
  */
 p5.prototype.textAlign = function(horizAlign, vertAlign) {
   return this._renderer.textAlign.apply(this._renderer, arguments);
@@ -25579,6 +26673,10 @@ p5.prototype.textAlign = function(horizAlign, vertAlign) {
  * text(lines, 70, 25);
  * </code>
  * </div>
+ *
+ * @alt
+ *set L1 L2 & L3 displayed vertically 3 times. spacing increases for each set
+ *
  */
 p5.prototype.textLeading = function(theLeading) {
   return this._renderer.textLeading.apply(this._renderer, arguments);
@@ -25602,6 +26700,10 @@ p5.prototype.textLeading = function(theLeading) {
  * text("Font Size 16", 10, 90);
  * </code>
  * </div>
+ *
+ * @alt
+ *Font Size 12 displayed small, Font Size 14 medium & Font Size 16 large
+ *
  */
 p5.prototype.textSize = function(theSize) {
   return this._renderer.textSize.apply(this._renderer, arguments);
@@ -25629,6 +26731,10 @@ p5.prototype.textSize = function(theSize) {
  * text("Font Style Bold", 10, 90);
  * </code>
  * </div>
+ *
+ * @alt
+ *words Font Style Normal displayed normally, Italic in italic and bold in bold
+ *
  */
 p5.prototype.textStyle = function(theStyle) {
   return this._renderer.textStyle.apply(this._renderer, arguments);
@@ -25656,8 +26762,15 @@ p5.prototype.textStyle = function(theStyle) {
  * line(sWidth, 50, sWidth, 100);
  * </code>
  * </div>
+ *
+ * @alt
+ *Letter P and p5.js are displayed with vertical lines at end. P is wide
+ *
  */
 p5.prototype.textWidth = function(theText) {
+  if (theText.length === 0) {
+    return 0;
+  }
   return this._renderer.textWidth.apply(this._renderer, arguments);
 };
 
@@ -25787,6 +26900,11 @@ _dereq_('../core/error_helpers');
  * text(s, 10, 10, 70, 80); // Text wraps within text box
  * </code>
  * </div>
+ *
+ * @alt
+ *'word' displayed 3 times going from black, blue to translucent blue
+ * The quick brown fox jumped over the lazy dog.
+ *
  */
 p5.prototype.text = function(str, x, y, maxWidth, maxHeight) {
   var args = new Array(arguments.length);
@@ -25811,7 +26929,8 @@ p5.prototype.text = function(str, x, y, maxWidth, maxHeight) {
  *
  * @method textFont
  * @param {Object|String} f a font loaded via loadFont(), or a String
- *  representing a browser-based default font.
+ * representing a <a href="https://mzl.la/2dOw8WD">web safe font</a> (a font
+ * that is generally available across all systems).
  * @return {Object} this
  * @example
  * <div>
@@ -25844,6 +26963,10 @@ p5.prototype.text = function(str, x, y, maxWidth, maxHeight) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ *words Font Style Normal displayed normally, Italic in italic and bold in bold
+ *
  */
 p5.prototype.textFont = function(theFont, theSize) {
 
@@ -25965,6 +27088,10 @@ p5.Font.prototype.list = function() {
  * };
  * </code>
  * </div>
+ *
+ * @alt
+ *words Lorem ipsum dol go off canvas and contained by white bounding box
+ *
  */
 p5.Font.prototype.textBounds = function(str, x, y, fontSize, options) {
 
@@ -26962,10 +28089,10 @@ var p5 = _dereq_('../core/core');
  * function setup() {
  *
  * var myArray = new Array("Mango", "Apple", "Papaya")
- * println(myArray) // ["Mango", "Apple", "Papaya"]
+ * print(myArray) // ["Mango", "Apple", "Papaya"]
  *
  * append(myArray, "Peach")
- * println(myArray) // ["Mango", "Apple", "Papaya", "Peach"]
+ * print(myArray) // ["Mango", "Apple", "Papaya", "Peach"]
  *
  * }
  * </div></code>
@@ -27007,11 +28134,11 @@ p5.prototype.append = function(array, value) {
  *    var dstPosition = 0;
  *    var length = 2;
  *
- *    println(src); // ["A", "B", "C"]
- *    println(dst); // [ 1 ,  2 ,  3 ]
+ *    print(src); // ["A", "B", "C"]
+ *    print(dst); // [ 1 ,  2 ,  3 ]
  *
  *    arrayCopy(src, srcPosition, dst, dstPosition, length);
- *    println(dst); // ["B", "C", 3]
+ *    print(dst); // ["B", "C", 3]
  *
  *    }
  *  </div></code>
@@ -27071,14 +28198,14 @@ p5.prototype.arrayCopy = function(
  *   var arr1 = new Array("A", "B", "C");
  *   var arr2 = new Array( 1 ,  2 ,  3 );
  *
- *   println(arr1); // ["A","B","C"]
- *   println(arr2); // [1,2,3]
+ *   print(arr1); // ["A","B","C"]
+ *   print(arr2); // [1,2,3]
  *
  *   var arr3 = concat(arr1, arr2);
  *
- *   println(arr1); // ["A","B","C"]
- *   println(arr2); // [1,2,3]
- *   println(arr3); // ["A","B","C",1,2,3]
+ *   print(arr1); // ["A","B","C"]
+ *   print(arr2); // [1,2,3]
+ *   print(arr3); // ["A","B","C",1,2,3]
  *
  * }
  * </div></code>
@@ -27096,10 +28223,10 @@ p5.prototype.concat = function(list0, list1) {
  * <div class="norender"><code>
  * function setup() {
  *   var myArray = new Array("A", "B", "C");
- *   println(myArray); // ["A","B","C"]
+ *   print(myArray); // ["A","B","C"]
  *
  *   reverse(myArray);
- *   println(myArray); // ["C","B","A"]
+ *   print(myArray); // ["C","B","A"]
  * }
  * </div></code>
  */
@@ -27118,11 +28245,11 @@ p5.prototype.reverse = function(list) {
  * <div class = "norender"><code>
  * function setup() {
  *   var myArray = new Array("A", "B", "C");
- *   println(myArray); // ["A","B","C"]
+ *   print(myArray); // ["A","B","C"]
  *
  *   var newArray = shorten(myArray);
- *   println(myArray); // ["A","B","C"]
- *   println(newArray); // ["A","B"]
+ *   print(myArray); // ["A","B","C"]
+ *   print(newArray); // ["A","B"]
  * }
  * </div></code>
  */
@@ -27144,14 +28271,14 @@ p5.prototype.shorten = function(list) {
  * <div><code>
  * function setup() {
  *   var regularArr = ['ABC', 'def', createVector(), TAU, Math.E];
- *   println(regularArr);
+ *   print(regularArr);
  *   shuffle(regularArr, true); // force modifications to passed array
- *   println(regularArr);
+ *   print(regularArr);
  *
  *   // By default shuffle() returns a shuffled cloned array:
  *   var newArr = shuffle(regularArr);
- *   println(regularArr);
- *   println(newArr);
+ *   print(regularArr);
+ *   print(newArr);
  * }
  * </code></div>
  */
@@ -27186,21 +28313,21 @@ p5.prototype.shuffle = function(arr, bool) {
  * <div class = "norender"><code>
  * function setup() {
  *   var words = new Array("banana", "apple", "pear","lime");
- *   println(words); // ["banana", "apple", "pear", "lime"]
+ *   print(words); // ["banana", "apple", "pear", "lime"]
  *   var count = 4; // length of array
  *
  *   words = sort(words, count);
- *   println(words); // ["apple", "banana", "lime", "pear"]
+ *   print(words); // ["apple", "banana", "lime", "pear"]
  * }
  * </div></code>
  * <div class = "norender"><code>
  * function setup() {
  *   var numbers = new Array(2,6,1,5,14,9,8,12);
- *   println(numbers); // [2,6,1,5,14,9,8,12]
+ *   print(numbers); // [2,6,1,5,14,9,8,12]
  *   var count = 5; // Less than the length of the array
  *
  *   numbers = sort(numbers, count);
- *   println(numbers); // [1,2,5,6,14,9,8,12]
+ *   print(numbers); // [1,2,5,6,14,9,8,12]
  * }
  * </div></code>
  */
@@ -27233,11 +28360,11 @@ p5.prototype.sort = function(list, count) {
  * function setup() {
  *   var myArray = new Array(0,1,2,3,4);
  *   var insArray = new Array("A","B","C");
- *   println(myArray); // [0,1,2,3,4]
- *   println(insArray); // ["A","B","C"]
+ *   print(myArray); // [0,1,2,3,4]
+ *   print(insArray); // ["A","B","C"]
  *
  *   splice(myArray, insArray, 3);
- *   println(myArray); // [0,1,2,"A","B","C",3,4]
+ *   print(myArray); // [0,1,2,"A","B","C",3,4]
  * }
  * </div></code>
  */
@@ -27267,12 +28394,12 @@ p5.prototype.splice = function(list, value, index) {
  * <div class = "norender"><code>
  * function setup() {
  *   var myArray = new Array(1,2,3,4,5);
- *   println(myArray); // [1,2,3,4,5]
+ *   print(myArray); // [1,2,3,4,5]
  *
  *   var sub1 = subset(myArray, 0, 3);
  *   var sub2 = subset(myArray, 2, 2);
- *   println(sub1); // [1,2,3]
- *   println(sub2); // [3,4]
+ *   print(sub1); // [1,2,3]
+ *   print(sub2); // [3,4]
  * }
  * </div></code>
  */
@@ -27313,6 +28440,10 @@ var p5 = _dereq_('../core/core');
  * var diameter = float(str);
  * ellipse(width/2, height/2, diameter, diameter);
  * </code></div>
+ *
+ * @alt
+ * 20 by 20 white ellipse in the center of the canvas
+ *
  */
 p5.prototype.float = function(str) {
   return parseFloat(str);
@@ -27328,12 +28459,12 @@ p5.prototype.float = function(str) {
  * @return {Number}                     integer representation of value
  * @example
  * <div class='norender'><code>
- * println(int("10")); // 10
- * println(int(10.31)); // 10
- * println(int(-10)); // -10
- * println(int(true)); // 1
- * println(int(false)); // 0
- * println(int([false, true, "10.3", 9.8])); // [0, 1, 10, 9]
+ * print(int("10")); // 10
+ * print(int(10.31)); // 10
+ * print(int(-10)); // -10
+ * print(int(true)); // 1
+ * print(int(false)); // 0
+ * print(int([false, true, "10.3", 9.8])); // [0, 1, 10, 9]
  * </code></div>
  */
 p5.prototype.int = function(n, radix) {
@@ -27359,12 +28490,12 @@ p5.prototype.int = function(n, radix) {
  * @return {String}                     string representation of value
  * @example
  * <div class='norender'><code>
- * println(str("10"));  // "10"
- * println(str(10.31)); // "10.31"
- * println(str(-10));   // "-10"
- * println(str(true));  // "true"
- * println(str(false)); // "false"
- * println(str([true, "10.3", 9.8])); // [ "true", "10.3", "9.8" ]
+ * print(str("10"));  // "10"
+ * print(str(10.31)); // "10.31"
+ * print(str(-10));   // "-10"
+ * print(str(true));  // "true"
+ * print(str(false)); // "false"
+ * print(str([true, "10.3", 9.8])); // [ "true", "10.3", "9.8" ]
  * </code></div>
  */
 p5.prototype.str = function(n) {
@@ -27388,11 +28519,11 @@ p5.prototype.str = function(n) {
  * @return {Boolean}                    boolean representation of value
  * @example
  * <div class='norender'><code>
- * println(boolean(0));               // false
- * println(boolean(1));               // true
- * println(boolean("true"));          // true
- * println(boolean("abcd"));          // false
- * println(boolean([0, 12, "true"])); // [false, true, false]
+ * print(boolean(0));               // false
+ * print(boolean(1));               // true
+ * print(boolean("true"));          // true
+ * print(boolean("abcd"));          // false
+ * print(boolean([0, 12, "true"])); // [false, true, false]
  * </code></div>
  */
 p5.prototype.boolean = function(n) {
@@ -27419,12 +28550,12 @@ p5.prototype.boolean = function(n) {
  * @return {Number}                     byte representation of value
  * @example
  * <div class='norender'><code>
- * println(byte(127));               // 127
- * println(byte(128));               // -128
- * println(byte(23.4));              // 23
- * println(byte("23.4"));            // 23
- * println(byte(true));              // 1
- * println(byte([0, 255, "100"]));   // [0, -1, 100]
+ * print(byte(127));               // 127
+ * print(byte(128));               // -128
+ * print(byte(23.4));              // 23
+ * print(byte("23.4"));            // 23
+ * print(byte(true));              // 1
+ * print(byte([0, 255, "100"]));   // [0, -1, 100]
  * </code></div>
  */
 p5.prototype.byte = function(n) {
@@ -27448,10 +28579,10 @@ p5.prototype.byte = function(n) {
  * @return {String}             string representation of value
  * @example
  * <div class='norender'><code>
- * println(char(65));                     // "A"
- * println(char("65"));                   // "A"
- * println(char([65, 66, 67]));           // [ "A", "B", "C" ]
- * println(join(char([65, 66, 67]), '')); // "ABC"
+ * print(char(65));                     // "A"
+ * print(char("65"));                   // "A"
+ * print(char([65, 66, 67]));           // [ "A", "B", "C" ]
+ * print(join(char([65, 66, 67]), '')); // "ABC"
  * </code></div>
  */
 p5.prototype.char = function(n) {
@@ -27474,9 +28605,9 @@ p5.prototype.char = function(n) {
  * @return {Number}      integer representation of value
  * @example
  * <div class='norender'><code>
- * println(unchar("A"));               // 65
- * println(unchar(["A", "B", "C"]));   // [ 65, 66, 67 ]
- * println(unchar(split("ABC", "")));  // [ 65, 66, 67 ]
+ * print(unchar("A"));               // 65
+ * print(unchar(["A", "B", "C"]));   // [ 65, 66, 67 ]
+ * print(unchar(split("ABC", "")));  // [ 65, 66, 67 ]
  * </code></div>
  */
 p5.prototype.unchar = function(n) {
@@ -27498,9 +28629,9 @@ p5.prototype.unchar = function(n) {
  * @return {String}      hexadecimal string representation of value
  * @example
  * <div class='norender'><code>
- * println(hex(255));               // "000000FF"
- * println(hex(255, 6));            // "0000FF"
- * println(hex([0, 127, 255], 6));  // [ "000000", "00007F", "0000FF" ]
+ * print(hex(255));               // "000000FF"
+ * print(hex(255, 6));            // "0000FF"
+ * print(hex([0, 127, 255], 6));  // [ "000000", "00007F", "0000FF" ]
  * </code></div>
  */
 p5.prototype.hex = function(n, digits) {
@@ -27532,9 +28663,9 @@ p5.prototype.hex = function(n, digits) {
  * @return {Number}      integer representation of hexadecimal value
  * @example
  * <div class='norender'><code>
- * println(unhex("A"));                // 10
- * println(unhex("FF"));               // 255
- * println(unhex(["FF", "AA", "00"])); // [ 255, 170, 0 ]
+ * print(unhex("A"));                // 10
+ * print(unhex("FF"));               // 255
+ * print(unhex(["FF", "AA", "00"])); // [ 255, 170, 0 ]
  * </code></div>
  */
 p5.prototype.unhex = function(n) {
@@ -27580,6 +28711,10 @@ var p5 = _dereq_('../core/core');
  * text(message, 5, 50);
  * </code>
  * </div>
+ *
+ * @alt
+ * "hello world!" displayed middle left of canvas.
+ *
  */
 p5.prototype.join = function(list, separator) {
   return list.join(separator);
@@ -27616,6 +28751,10 @@ p5.prototype.join = function(list, separator) {
  * text(match, 5, 50);
  * </code>
  * </div>
+ *
+ * @alt
+ * "p5js*" displayed middle left of canvas.
+ *
  */
 p5.prototype.match =  function(str, reg) {
   return str.match(reg);
@@ -27705,6 +28844,10 @@ p5.prototype.matchAll = function(str, reg) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * "0011253" top left, "0112.531" mid left, "112.531061" bottom left canvas
+ *
  */
 p5.prototype.nf = function () {
   if (arguments[0] instanceof Array) {
@@ -27802,6 +28945,10 @@ function doNf() {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * "11,253,106.115" top middle and "1.00,1.00,2.00" displayed bottom mid
+ *
  */
 p5.prototype.nfc = function () {
   if (arguments[0] instanceof Array) {
@@ -27873,6 +29020,10 @@ function doNfc() {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * "+11253106.11" top middle and "-11253106.11" displayed bottom middle
+ *
  */
 p5.prototype.nfp = function() {
   var nfRes = this.nf.apply(this, arguments);
@@ -27926,6 +29077,10 @@ function addNfp() {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * "11253106.11" top middle and "-11253106.11" displayed bottom middle
+ *
  */
 p5.prototype.nfs = function() {
   var nfRes = this.nf.apply(this, arguments);
@@ -27967,6 +29122,10 @@ function addNfs() {
  * text(splitString[2], 5, 70);
  * </code>
  * </div>
+ *
+ * @alt
+ * "pat" top left, "Xio" mid left and "Alex" displayed bottom left
+ *
  */
 p5.prototype.split = function(str, delim) {
   return str.split(delim);
@@ -27993,7 +29152,7 @@ p5.prototype.split = function(str, delim) {
  *   var myStr = "Mango, Banana, Lime";
  *   var myStrArr = splitTokens(myStr, ",");
  *
- *   println(myStrArr); // prints : ["Mango"," Banana"," Lime"]
+ *   print(myStrArr); // prints : ["Mango"," Banana"," Lime"]
  * }
  * </code>
  * </div>
@@ -28039,6 +29198,10 @@ p5.prototype.splitTokens = function() {
  * text(string +" here", 2, 50);
  * </code>
  * </div>
+ *
+ * @alt
+ * "No new lines here" displayed center canvas
+ *
  */
 p5.prototype.trim = function(str) {
   if (str instanceof Array) {
@@ -28075,6 +29238,10 @@ var p5 = _dereq_('../core/core');
  * text("Current day: \n" + d, 5, 50);
  * </code>
  * </div>
+ *
+ * @alt
+ * Current day is displayed
+ *
  */
 p5.prototype.day = function() {
   return new Date().getDate();
@@ -28093,6 +29260,10 @@ p5.prototype.day = function() {
  * text("Current hour:\n" + h, 5, 50);
  * </code>
  * </div>
+ *
+ * @alt
+ * Current hour is displayed
+ *
  */
 p5.prototype.hour = function() {
   return new Date().getHours();
@@ -28111,6 +29282,10 @@ p5.prototype.hour = function() {
  * text("Current minute: \n" + m, 5, 50);
  * </code>
  * </div>
+ *
+ * @alt
+ * Current minute is displayed
+ *
  */
 p5.prototype.minute = function() {
   return new Date().getMinutes();
@@ -28130,6 +29305,10 @@ p5.prototype.minute = function() {
  * text("Milliseconds \nrunning: \n" + millisecond, 5, 40);
  * </code>
  * </div>
+ *
+ * @alt
+ * number of milliseconds since program has started displayed
+ *
  */
 p5.prototype.millis = function() {
   return window.performance.now();
@@ -28148,6 +29327,10 @@ p5.prototype.millis = function() {
  * text("Current month: \n" + m, 5, 50);
  * </code>
  * </div>
+ *
+ * @alt
+ * Current month is displayed
+ *
  */
 p5.prototype.month = function() {
   return new Date().getMonth() + 1; //January is 0!
@@ -28166,6 +29349,10 @@ p5.prototype.month = function() {
  * text("Current second: \n" + s, 5, 50);
  * </code>
  * </div>
+ *
+ * @alt
+ * Current second is displayed
+ *
  */
 p5.prototype.second = function() {
   return new Date().getSeconds();
@@ -28184,6 +29371,10 @@ p5.prototype.second = function() {
  * text("Current year: \n" + y, 5, 50);
  * </code>
  * </div>
+ *
+ * @alt
+ * Current year is displayed
+ *
  */
 p5.prototype.year = function() {
   return new Date().getFullYear();
@@ -28223,6 +29414,10 @@ var p5 = _dereq_('../core/core');
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * blue square shrinks in size grows to fill canvas. disappears then loops.
+ *
  */
 p5.prototype.camera = function(x, y, z){
   var args = new Array(arguments.length);
@@ -28270,6 +29465,10 @@ p5.prototype.camera = function(x, y, z){
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * colored 3d boxes toggleable with mouse position
+ *
  */
 p5.prototype.perspective = function(fovy,aspect,near,far) {
   var args = new Array(arguments.length);
@@ -28319,6 +29518,10 @@ p5.prototype.perspective = function(fovy,aspect,near,far) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 3 3d boxes, reveal several more boxes on 3d plane when mouse used to toggle
+ *
  */
 p5.prototype.ortho = function(left,right,bottom,top,near,far) {
   var args = new Array(arguments.length);
@@ -28389,10 +29592,14 @@ var p5 = _dereq_('../core/core');
  *   background(0);
  *   ambientLight(150);
  *   ambientMaterial(250);
- *   sphere(200);
+ *   sphere(50);
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * nothing displayed
+ *
  */
 p5.prototype.ambientLight = function(v1, v2, v3, a){
   var gl = this._renderer.GL;
@@ -28451,10 +29658,14 @@ p5.prototype.ambientLight = function(v1, v2, v3, a){
  *   var dirY = (mouseY / height - 0.5) *(-2);
  *   directionalLight(250, 250, 250, dirX, dirY, 0.25);
  *   ambientMaterial(250);
- *   sphere(200);
+ *   sphere(50);
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * light source on canvas changeable with mouse position
+ *
  */
 p5.prototype.directionalLight = function(v1, v2, v3, a, x, y, z) {
   // TODO(jgessner): Find an example using this and profile it.
@@ -28582,10 +29793,14 @@ p5.prototype.directionalLight = function(v1, v2, v3, a, x, y, z) {
  *   // -1,-1---------1,-1
  *   pointLight(250, 250, 250, locX, locY, 0);
  *   ambientMaterial(250);
- *   sphere(200);
+ *   sphere(50);
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * spot light on canvas changes position with mouse
+ *
  */
 p5.prototype.pointLight = function(v1, v2, v3, a, x, y, z) {
   // TODO(jgessner): Find an example using this and profile it.
@@ -28736,6 +29951,10 @@ _dereq_('./p5.Geometry');
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * Vertically rotating 3-d teapot with red, green and blue gradient.
+ *
  */
 p5.prototype.loadModel = function () {
   var path = arguments[0];
@@ -28791,9 +30010,9 @@ function parseObj( model, lines ) {
   // "3/4/3"), to the actual index of the newly created vertex in the final
   // object.
   var loadedVerts = {'v' : [],
-                     'vt' : [],
-                     'vn' : []},
-      indexedVerts = {};
+                    'vt' : [],
+                    'vn' : []};
+  var indexedVerts = {};
 
   for (var line = 0; line < lines.length; ++line) {
     // Each line is a separate object (vertex, face, vertex normal, etc)
@@ -28894,6 +30113,10 @@ function parseObj( model, lines ) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * Vertically rotating 3-d teapot with red, green and blue gradient.
+ *
  */
 p5.prototype.model = function ( model ) {
   if (model.vertices.length > 0) {
@@ -28934,12 +30157,16 @@ var p5 = _dereq_('../core/core');
  * }
  *
  * function draw(){
- *  background(0);
+ *  background(200);
  *  normalMaterial();
- *  sphere(200);
+ *  sphere(50);
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * Red, green and blue gradient.
+ *
  */
 p5.prototype.normalMaterial = function(){
   this._renderer._getShader('normalVert', 'normalFrag');
@@ -29014,6 +30241,12 @@ p5.prototype.normalMaterial = function(){
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * Rotating view of many images umbrella and grid roof on a 3d plane
+ * black canvas
+ * black canvas
+ *
  */
 p5.prototype.texture = function(){
   var args = new Array(arguments.length);
@@ -29135,10 +30368,14 @@ p5.RendererGL.prototype._bind = function(tex, data){
  *  ambientLight(100);
  *  pointLight(250, 250, 250, 100, 100, 0);
  *  ambientMaterial(250);
- *  sphere(200);
+ *  sphere(50);
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * radiating light source from top right of canvas
+ *
  */
 p5.prototype.ambientMaterial = function(v1, v2, v3, a) {
   var gl = this._renderer.GL;
@@ -29185,10 +30422,14 @@ p5.prototype.ambientMaterial = function(v1, v2, v3, a) {
  *  ambientLight(100);
  *  pointLight(250, 250, 250, 100, 100, 0);
  *  specularMaterial(250);
- *  sphere(200);
+ *  sphere(50);
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * diffused radiating light source from top right of canvas
+ *
  */
 p5.prototype.specularMaterial = function(v1, v2, v3, a) {
   var gl = this._renderer.GL;
@@ -29469,8 +30710,8 @@ p5.Matrix = function() {
         0, 0, 0, 1
       ]);
     }
-  // default behavior when object
-  // instantiated using new p5.Matrix()
+    // default behavior when object
+    // instantiated using new p5.Matrix()
   } else {
     if(args[0] === 'mat3'){
       this.mat3 = args[1] || new GLMAT_ARRAY_TYPE([
@@ -30778,6 +32019,10 @@ p5.RendererGL.prototype._getCurShaderId = function(){
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * red canvas
+ *
  */
 p5.RendererGL.prototype.fill = function(v1, v2, v3, a) {
   var gl = this.GL;
@@ -31000,6 +32245,15 @@ _dereq_('./p5.Geometry');
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * Nothing displayed on canvas
+ * Rotating interior view of a box with sides that change color.
+ * 3d red and green gradient.
+ * Rotating interior view of a cylinder with sides that change color.
+ * Rotating view of a cylinder with sides that change color.
+ * 3d red and green gradient.
+ * rotating view of a multi-colored cylinder with concave sides.
  */
 p5.prototype.plane = function(){
   var args = new Array(arguments.length);
@@ -31146,7 +32400,7 @@ p5.prototype.box = function(){
  *
  * function draw(){
  *   background(200);
- *   sphere(200);
+ *   sphere(50);
  * }
  * </code>
  * </div>
@@ -31408,14 +32662,14 @@ p5.prototype.cone = function(){
  * @example
  * <div>
  * <code>
- * // draw an ellipsoid with radius 200, 300 and 400 .
+ * // draw an ellipsoid with radius 20, 30 and 40.
  * function setup(){
  *   createCanvas(100, 100, WEBGL);
  * }
  *
  * function draw(){
  *   background(200);
- *   ellipsoid(200,300,400);
+ *   ellipsoid(20, 30, 40);
  * }
  * </code>
  * </div>
@@ -31769,7 +33023,7 @@ module.exports = {
   lightVert:
     "attribute vec3 aPosition;\nattribute vec3 aNormal;\nattribute vec2 aTexCoord;\n\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nuniform mat3 uNormalMatrix;\nuniform float uResolution;\nuniform int uAmbientLightCount;\nuniform int uDirectionalLightCount;\nuniform int uPointLightCount;\n\nuniform vec3 uAmbientColor[8];\nuniform vec3 uLightingDirection[8];\nuniform vec3 uDirectionalColor[8];\nuniform vec3 uPointLightLocation[8];\nuniform vec3 uPointLightColor[8];\nuniform bool uSpecular;\n\nvarying vec3 vVertexNormal;\nvarying vec2 vVertTexCoord;\nvarying vec3 vLightWeighting;\n\nvec3 ambientLightFactor = vec3(0.0, 0.0, 0.0);\nvec3 directionalLightFactor = vec3(0.0, 0.0, 0.0);\nvec3 pointLightFactor = vec3(0.0, 0.0, 0.0);\nvec3 pointLightFactor2 = vec3(0.0, 0.0, 0.0);\n\nvoid main(void){\n\n  vec4 positionVec4 = vec4(aPosition / uResolution, 1.0);\n  gl_Position = uProjectionMatrix * uModelViewMatrix * positionVec4;\n\n  vec3 vertexNormal = vec3( uNormalMatrix * aNormal );\n  vVertexNormal = vertexNormal;\n  vVertTexCoord = aTexCoord;\n\n  vec4 mvPosition = uModelViewMatrix * vec4(aPosition / uResolution, 1.0);\n  vec3 eyeDirection = normalize(-mvPosition.xyz);\n\n  float shininess = 32.0;\n  float specularFactor = 2.0;\n  float diffuseFactor = 0.3;\n\n  for(int i = 0; i < 8; i++){\n    if(uAmbientLightCount == i) break;\n    ambientLightFactor += uAmbientColor[i];\n  }\n\n  for(int j = 0; j < 8; j++){\n    if(uDirectionalLightCount == j) break;\n    vec3 dir = uLightingDirection[j];\n    float directionalLightWeighting = max(dot(vertexNormal, dir), 0.0);\n    directionalLightFactor += uDirectionalColor[j] * directionalLightWeighting;\n  }\n\n  for(int k = 0; k < 8; k++){\n    if(uPointLightCount == k) break;\n    vec3 loc = uPointLightLocation[k];\n    //loc = loc / uResolution;\n    vec3 lightDirection = normalize(loc - mvPosition.xyz);\n\n    float directionalLightWeighting = max(dot(vertexNormal, lightDirection), 0.0);\n    pointLightFactor += uPointLightColor[k] * directionalLightWeighting;\n\n    //factor2 for specular\n    vec3 reflectionDirection = reflect(-lightDirection, vertexNormal);\n    float specularLightWeighting = pow(max(dot(reflectionDirection, eyeDirection), 0.0), shininess);\n\n    pointLightFactor2 += uPointLightColor[k] * (specularFactor * specularLightWeighting\n      +  directionalLightWeighting * diffuseFactor);\n  }\n\n  if(!uSpecular){\n    vLightWeighting =  ambientLightFactor + directionalLightFactor + pointLightFactor;\n  }else{\n    vLightWeighting = ambientLightFactor + directionalLightFactor + pointLightFactor2;\n  }\n\n}\n",
   lightTextureFrag:
-    "precision mediump float;\n\nuniform vec4 uMaterialColor;\nuniform sampler2D uSampler;\nuniform bool isTexture;\n\nvarying vec3 vLightWeighting;\nvarying highp vec2 vVertTexCoord;\n\nvoid main(void) {\n  if(!isTexture){\n    gl_FragColor = vec4(vec3(uMaterialColor.rgb * vLightWeighting), uMaterialColor.a);\n  }else{\n    vec4 textureColor = texture2D(uSampler, vVertTexCoord);\n    if(vLightWeighting == vec3(0., 0., 0.)){\n      gl_FragColor = textureColor;\n    }else{\n      gl_FragColor = vec4(vec3(textureColor.rgb * vLightWeighting), textureColor.a); \n    }\n  }\n}"
+    "precision mediump float;\n\nuniform vec4 uMaterialColor;\nuniform sampler2D uSampler;\nuniform bool isTexture;\n\nvarying vec3 vLightWeighting;\nvarying highp vec2 vVertTexCoord;\n\nvoid main(void) {\n  if(!isTexture){\n    gl_FragColor = vec4(vec3(uMaterialColor.rgb * vLightWeighting), uMaterialColor.a);\n  }else{\n    vec4 textureColor = texture2D(uSampler, vVertTexCoord);\n    if(vLightWeighting == vec3(0., 0., 0.)){\n      gl_FragColor = textureColor;\n    }else{\n      gl_FragColor = vec4(vec3(textureColor.rgb * vLightWeighting), textureColor.a);\n    }\n  }\n}"
 };
 },{}]},{},[28])(28)
 });

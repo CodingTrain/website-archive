@@ -1,4 +1,4 @@
-/*! p5.dom.js v0.2.12 August 17, 2016 */
+/*! p5.dom.js v0.2.13 Oct 1, 2016 */
 /**
  * <p>The web is much more than just canvas and p5.dom makes it easy to interact
  * with other HTML5 objects, including text, hyperlink, image, input, video,
@@ -375,7 +375,7 @@
    * @param  {Number} min minimum value of the slider
    * @param  {Number} max maximum value of the slider
    * @param  {Number} [value] default value of the slider
-   * @param  {Number} [step] step size for each tick of the slider
+   * @param  {Number} [step] step size for each tick of the slider (if step is set to 0, the slider will move continuously from the minimum to the maximum value)
    * @return {Object/p5.Element} pointer to p5.Element holding created node
    * @example
    * <div><code>
@@ -412,7 +412,11 @@
     elt.type = 'range';
     elt.min = min;
     elt.max = max;
-    if (step) elt.step = step;
+    if (step === 0) {
+      elt.step = .000000000000000001; // smallest valid step
+    } else if (step) {
+      elt.step = step;
+    }
     if (typeof(value) === "number") elt.value = value;
     return addElement(elt, this);
   };
@@ -1831,6 +1835,10 @@
   };
   p5.MediaElement.prototype.copy = function(){
     p5.Renderer2D.prototype.copy.apply(this, arguments);
+  };
+  p5.MediaElement.prototype.mask = function(){
+    this.loadPixels();
+    p5.Image.prototype.mask.apply(this, arguments);
   };
   /**
    *  Schedule an event to be called when the audio or video
