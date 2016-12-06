@@ -1,8 +1,0 @@
-// Place your settings in this file to overwrite default and user settings.
-{
-    "window.zoomLevel": 0,
-    "react.beautify.onSave": false,
-    "beautify.onSave": ["js", "html", "css"],
-    "editor.formatOnSave": false
-
-}
