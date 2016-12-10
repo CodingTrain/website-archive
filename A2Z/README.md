@@ -1,5 +1,4 @@
-# Session 2: Regular Expressions
-# Programming from A to Z
+# Session 2: Regular Expressions<br />Programming from A to Z
 
 * Youtube Playlist: https://www.youtube.com/watch?v=7DG3kCDx53c&index=1&list=PLRqwX-V7Uu6YEypLuls7iidwHMdCM6o2w
 
