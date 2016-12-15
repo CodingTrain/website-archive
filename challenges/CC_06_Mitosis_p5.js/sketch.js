@@ -3,6 +3,8 @@
 // http://patreon.com/codingrainbow
 // Code for: https://youtu.be/jxGS3fKPKJAvar cells = [];
 
+var cells = [];
+
 function setup() {
   createCanvas(700, 700);
   cells.push(new Cell());
