@@ -3,6 +3,8 @@
 // http://patreon.com/codingrainbow
 // Code for: https://youtu.be/jxGS3fKPKJA
 
+var cells = [];
+
 function Cell(pos, r, c) {
 
   if (pos) {
