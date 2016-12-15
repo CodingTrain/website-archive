@@ -28,8 +28,8 @@ class Blob {
     rect(minx, miny, maxx, maxy);
 
     for (PVector v : points) {
-      stroke(0, 0, 255);
-      point(v.x, v.y);
+      //stroke(0, 0, 255);
+      //point(v.x, v.y);
     }
   }
 
