@@ -1,0 +1,44 @@
+# An Example CFG
+# From Daniel Howe
+# http://www.rednoise.org/pdal/index.php?n=Main.Grammars
+
+######################################
+# s   -> np vp
+# np  -> det n
+# vp  -> v | v np
+# det -> 'a' | 'the'
+# n   -> 'rainbow' | 'unicorn'
+# v   -> 'dances'
+######################################
+
+{
+  <start>
+  <noun-phrase> <verb-phrase>
+}
+
+
+
+{
+  <noun-phrase>
+  <determiner> <noun>
+}
+
+{
+  <verb-phrase>
+  <verb> | <verb> <noun-phrase>
+}
+
+{
+  <determiner>
+  a | the
+}
+
+{
+  <noun>
+  unicorn  |  rainbow
+}
+
+{
+  <verb>
+  dances
+}
