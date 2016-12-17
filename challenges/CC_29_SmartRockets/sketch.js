@@ -4,11 +4,11 @@
 // Code for: https://youtu.be/bGz7mv2vD6g
 
 var population;
-var lifespan = 200;
+var lifespan = 400;
 var lifeP;
 var count = 0;
 var target;
-var maxforce = 0.4;
+var maxforce = 0.2;
 
 var rx = 100;
 var ry = 150;
