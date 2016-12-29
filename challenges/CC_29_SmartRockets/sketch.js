@@ -17,7 +17,6 @@ var rh = 10;
 
 function setup() {
   createCanvas(400, 300);
-  rocket = new Rocket();
   population = new Population();
   lifeP = createP();
   target = createVector(width / 2, 50);
