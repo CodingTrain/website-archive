@@ -49,8 +49,22 @@ function Snake() {
     this.x = this.x + this.xspeed * scl;
     this.y = this.y + this.yspeed * scl;
 
-    this.x = constrain(this.x, 0, width - scl);
-    this.y = constrain(this.y, 0, height - scl);
+	// cross the wall
+	if ( this.x > width- scl) {
+		this.x = 0;	
+		
+	}
+	else if ( this.x < 0) {
+		this.x =  width- scl;	
+	}
+	
+	if ( this.y > lower_edge- scl) {
+		this.y = 0;	
+	}
+	else if ( this.y < 0) {
+		this.y =  lower_edge- scl;	
+	}
+
   }
 
   this.show = function() {
