@@ -31,16 +31,53 @@ function Snake() {
     this.yspeed = y;
   }
 
-  this.death = function() {
-    for (var i = 0; i < this.tail.length; i++) {
+  this.ResetSnake = function() {
+	    console.log('starting over');
+		// reset score 
+        this.total = 0;
+		this.lvl = num_lvl;
+		// reser snake
+        this.tail = [];
+		this.flag = false;
+		// reset position
+		this.x = 0;
+		this.y = 0;
+		this.xspeed = 1;
+		this.yspeed = 0;
+		pickLocation();		
+  }
+  
+  this.EatTail = function(){
+	for (var i = 0; i < this.tail.length; i++) {
       var pos = this.tail[i];
       var d = dist(this.x, this.y, pos.x, pos.y);
       if (d < 1) {
-        console.log('starting over');
-        this.total = 0;
-        this.tail = [];
-      }
+		 this.ResetSnake();
+		 return true;
+      } 
     }
+	return false ;
+  }
+  
+  this.HitWalls = function(walls){
+	for (var i = 0; i < walls.length; i++) {
+      var d = dist(this.x, this.y, walls[i].x, walls[i].y);
+      if (d < 1) {
+		 this.ResetSnake();
+		 return true;
+      } 
+    }
+	return false ;
+  }
+  
+  this.death = function(walls) {
+	var dead1 = false;
+	var dead2 = false;
+	
+	dead1 = this.EatTail();
+	dead2 = this.HitWalls(walls);
+	
+	return (dead2 | dead1) ;
   }
 
   this.update = function() {

@@ -8,6 +8,7 @@ var scl = 20;
 
 var food;
 var counter =0;
+var walls = [];
 
 var lower_edge = height-50;
 var num_lvl;
@@ -25,8 +26,20 @@ function setup() {
 function pickLocation() {
   var cols = floor(width/scl);
   var rows = floor(lower_edge/scl);
+  // need  to fix location so that the new location is away feom snake body 
   food = createVector(floor(random(cols)), floor(random(rows)));
   food.mult(scl);
+}
+
+function addwalls() {
+  var cols = floor(width/scl);
+  var rows = floor(lower_edge/scl);
+  var num = floor(cols * rows / 50); // 2% of screen are walls
+  // need  to fix location so that the new location is away feom snake body 
+  for (var i = 0 ; i < num ; i++) {
+	 walls[i] = createVector(floor(random(cols)), floor(random(rows)));
+	 walls[i].mult(scl); 
+  }
 }
 
 function mousePressed() {
@@ -39,8 +52,12 @@ function draw() {
   if (s.eat(food)) {
     pickLocation();
   }
-  s.death();
-  s.update();
+  
+  if (s.death(walls)) {
+    addwalls();
+  }
+  
+  levelup();
   s.show();
 
   fill(50, 255, 100);
@@ -49,6 +66,11 @@ function draw() {
    
   fill(255, 0, 100);
   rect(food.x, food.y, scl, scl);
+  
+  fill(0, 255, 200);
+ for (var i = 0 ; i < walls.length ; i++) {
+	 rect(walls[i].x, walls[i].y, scl, scl);
+  }
 }
 
 function levelup(){
