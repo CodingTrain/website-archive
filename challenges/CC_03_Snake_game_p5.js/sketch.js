@@ -26,9 +26,28 @@ function setup() {
 function pickLocation() {
   var cols = floor(width/scl);
   var rows = floor(lower_edge/scl);
-  // need  to fix location so that the new location is away feom snake body 
+  // need  to fix location so that the new location is away from snake body and walls
+  do{
   food = createVector(floor(random(cols)), floor(random(rows)));
   food.mult(scl);
+  }while(wronglocation(food,walls,s.tail));
+}
+
+function wronglocation(food,walls,tail) {
+	
+	for (var i = 0; i < walls.length; i++) {
+      var d = dist(food.x, food.y, walls[i].x, walls[i].y);
+      if (d < 1) {
+		 return true;
+      } 
+    }
+	for (var i = 0; i < tail.length; i++) {
+      var d = dist(food.x, food.y, tail[i].x, tail[i].y);
+      if (d < 1) {
+		 return true;
+      } 
+    }
+	return false ;
 }
 
 function addwalls() {
