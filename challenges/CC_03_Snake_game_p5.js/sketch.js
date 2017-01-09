@@ -17,7 +17,7 @@ function setup() {
   createCanvas(1340, 570);
   s = new Snake();
   num_lvl =10; // number of levels
-  s.lvl = num_lvl; 
+  s.Reset();
   pickLocation();
   lower_edge = height-50; // length of score rectangle
   addwalls();
@@ -71,17 +71,22 @@ function draw() {
   if (s.death(walls)) {
     addwalls();
   }
-  
+  // add turbo mode 
+  if (keyIsDown(CONTROL)) {
+    s.turbo();
+  } else {
+	s.normal();
+  }
   levelup();
   s.show();
-
+	// draw score
   fill(50, 255, 100);
   rect(0, lower_edge, width, 50 );
   score();
-   
+   //draw food
   fill(255, 0, 100);
   rect(food.x, food.y, scl, scl);
-  
+  // draw walls
   fill(0, 255, 200);
  for (var i = 0 ; i < walls.length ; i++) {
 	 rect(walls[i].x, walls[i].y, scl, scl);
@@ -92,11 +97,12 @@ function levelup(){
 	counter ++;
 	var test1 = counter  % (s.lvl); 
 	var test2 = s.total  % (s.lvl_limit);
-	if(test1 === 0)
+	// update speed
+	if(test1 === 0) 
 	{
 		s.update();
 	}
-	
+	//update levels
 	if((test2  === 0) && (s.flag == true ) && (s.lvl >1))
 	{
 		counter = 0 ;

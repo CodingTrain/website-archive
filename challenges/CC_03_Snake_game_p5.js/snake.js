@@ -15,6 +15,9 @@ function Snake() {
   this.lvl;
   this.lvl_limit = 10 ;
   
+  this.currentlvl;
+  this.turboflag;
+  
   this.eat = function(pos) {
     var d = dist(this.x, this.y, pos.x, pos.y);
     if (d < 1) {
@@ -31,11 +34,11 @@ function Snake() {
     this.yspeed = y;
   }
 
-  this.ResetSnake = function() {
-		alert("Game over");
+  this.Reset = function() {
 		// reset score 
         this.total = 0;
 		this.lvl = num_lvl;
+		this.currentlvl= num_lvl;
 		// reser snake
         this.tail = [];
 		this.flag = false;
@@ -44,9 +47,16 @@ function Snake() {
 		this.y = 0;
 		this.xspeed = 1;
 		this.yspeed = 0;
-		pickLocation();		
+		pickLocation();			
+		//reset turbo
+		turboflag = true;
   }
   
+  this.ResetSnake = function() {
+		alert("Game over");
+		this.Reset();	
+	}
+
   this.EatTail = function(){
 	for (var i = 0; i < this.tail.length; i++) {
       var pos = this.tail[i];
@@ -108,7 +118,18 @@ function Snake() {
 	}
 
   }
-
+  
+  this.turbo = function() {
+	  if(turboflag)this.currentlvl = this.lvl;
+	  turboflag = false;
+	  this.lvl = ceil(this.lvl/2);
+  }
+  
+  this.normal = function() {
+	  this.lvl = this.currentlvl;
+	  turboflag = true;
+  }
+  
   this.show = function() {
     fill(255);
     for (var i = 0; i < this.tail.length; i++) {
