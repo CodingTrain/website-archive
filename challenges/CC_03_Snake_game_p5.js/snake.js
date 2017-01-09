@@ -32,7 +32,7 @@ function Snake() {
   }
 
   this.ResetSnake = function() {
-	    console.log('starting over');
+		alert("Game over");
 		// reset score 
         this.total = 0;
 		this.lvl = num_lvl;

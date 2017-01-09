@@ -61,10 +61,6 @@ function addwalls() {
   }
 }
 
-function mousePressed() {
-  s.total++;
-}
-
 function draw() {
   background(51);
 
