@@ -10,11 +10,16 @@ function Snake() {
   this.yspeed = 0;
   this.total = 0;
   this.tail = [];
-
+  this.flag = false;
+  
+  this.lvl;
+  this.lvl_limit = 10 ;
+  
   this.eat = function(pos) {
     var d = dist(this.x, this.y, pos.x, pos.y);
     if (d < 1) {
       this.total++;
+	  this.flag = true;
       return true;
     } else {
       return false;
