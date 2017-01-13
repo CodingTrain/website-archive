@@ -7,7 +7,7 @@ I'm using this repo to keep track of supplemental content for my video lessons. 
 * better video descriptions for vimeo or youtube pages
 
 # Questions? Need Support?
-* Join: http://patreon.com/codingrainbow
+* Join: http://patreon.com/codingtrain
 
 # Learning Processing video site
 * http://learningprocessing.com/videos/
