@@ -1,12 +1,17 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+// Code for: https://youtu.be/ERQcYaaZ6F0
+
 var circles;
 var img;
 
 function preload() {
-  img = loadImage("assets/image.jpg");
+  img = loadImage("assets/kitten.jpg");
 }
 
 function setup() {
-  createCanvas(720, 720);
+  createCanvas(600, 600);
   var density = displayDensity();
   pixelDensity(1);
   img.loadPixels();
@@ -21,7 +26,7 @@ function setup() {
 function draw() {
   background(0);
 
-  var total = 100;
+  var total = 10;
   var count = 0;
   var attempts = 0;
 
@@ -52,7 +57,7 @@ function draw() {
             var d = dist(circle.x, circle.y, other.x, other.y);
             var distance = circle.r + other.r;
 
-            if (d - 5 < distance) {
+            if (d - 1 < distance) {
               circle.growing = false;
               break;
             }
@@ -74,7 +79,7 @@ function newCircle() {
   for (var i = 0; i < circles.length; i++) {
     var circle = circles[i];
     var d = dist(x, y, circle.x, circle.y);
-    if (d < circle.r) {
+    if (d - 2 < circle.r) {
       valid = false;
       break;
     }
@@ -85,8 +90,6 @@ function newCircle() {
     var g = img.pixels[index+1];
     var b = img.pixels[index+2];
     var c = color(r,g,b);
-
-    debugger;
     return new Circle(x, y, color(c));
   } else {
     return null;

@@ -1,7 +1,12 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+// Code for: https://youtu.be/ERQcYaaZ6F0
+
 function Circle(x, y, color) {
   this.x = x;
   this.y = y;
-  this.r = 1;
+  this.r = 2;
   this.color = color;
   this.growing = true;
 
