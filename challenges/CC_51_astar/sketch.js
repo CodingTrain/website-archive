@@ -1,7 +1,9 @@
 // Daniel Shiffman
 // http://codingtra.in
 // http://patreon.com/codingtrain
-// Code for: [ADD WHEN UPLOADED]
+// Part 1: https://youtu.be/aKYlikFAV4k
+// Part 2: https://youtu.be/EaZxUCWAjb0
+// Part 3: https://youtu.be/jwRT4PCT6RU
 
 // Function to delete element from the array
 function removeFromArray(arr, elt) {
