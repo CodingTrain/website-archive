@@ -3,8 +3,8 @@
 
 
 ### Link to source code to Coding Challenge #42 Part 1 and Part 2: 
-* [Markov Chains - Part 1](https://github.com/CodingRainbow/Rainbow-Code/tree/master/challenges/CC_42-1_markov-chain)
-* [Markov Chains - Part 2](https://github.com/CodingRainbow/Rainbow-Code/tree/master/challenges/CC_42-2_markov-chain-names)
+* [Markov Chains - Part 1](https://github.com/CodingTrain/Rainbow-Code/tree/master/challenges/CC_42-1_markov-chain)
+* [Markov Chains - Part 2](https://github.com/CodingTrain/Rainbow-Code/tree/master/challenges/CC_42-2_markov-chain-names)
 
 ### Questions? Need Support?
-* Join: http://patreon.com/codingrainbow
+* Join: http://patreon.com/codingtrain

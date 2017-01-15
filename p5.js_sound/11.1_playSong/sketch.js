@@ -1,6 +1,6 @@
 // Daniel Shiffman
-// http://codingrainbow.com
-// http://patreon.com/codingrainbow
+// http://codingtra.in
+// http://patreon.com/codingtrain
 // Code for: https://youtu.be/Pn1g1wjxl_0
 
 var song;

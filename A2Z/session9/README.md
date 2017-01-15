@@ -3,7 +3,7 @@
 
 
 ### Link to source code to Coding Challenge #45: 
-* [Saving p5.js Drawings to Firebase](https://github.com/CodingRainbow/Rainbow-Code/tree/master/challenges/CC_45_FirebaseSavingDrawing)
+* [Saving p5.js Drawings to Firebase](https://github.com/CodingTrain/Rainbow-Code/tree/master/challenges/CC_45_FirebaseSavingDrawing)
 
 ### Questions? Need Support?
-* Join: http://patreon.com/codingrainbow
+* Join: http://patreon.com/codingtrain

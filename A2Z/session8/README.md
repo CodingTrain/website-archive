@@ -3,7 +3,7 @@
 
 
 ### Link to source code to Coding Challenge #44 Part 1 and Part 2: 
-* [AFINN-111 Sentiment Analysis](https://github.com/CodingRainbow/Rainbow-Code/tree/master/challenges/CC_44_afinn111SentimentAnalysis)
+* [AFINN-111 Sentiment Analysis](https://github.com/CodingTrain/Rainbow-Code/tree/master/challenges/CC_44_afinn111SentimentAnalysis)
 
 ### Questions? Need Support?
-* Join: http://patreon.com/codingrainbow
+* Join: http://patreon.com/codingtrain

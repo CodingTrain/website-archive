@@ -3,7 +3,7 @@
 
 
 ### Link to source code to Coding Challenge #39: 
-* [Mad Libs Generator](https://github.com/CodingRainbow/Rainbow-Code/tree/master/challenges/CC_39_madlibs)
+* [Mad Libs Generator](https://github.com/CodingTrain/Rainbow-Code/tree/master/challenges/CC_39_madlibs)
 
 ### Questions? Need Support?
-* Join: http://patreon.com/codingrainbow
+* Join: http://patreon.com/codingtrain

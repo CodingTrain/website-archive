@@ -1,6 +1,6 @@
 // Daniel Shiffman
-// http://codingrainbow.com
-// http://patreon.com/codingrainbow
+// http://codingtra.in
+// http://patreon.com/codingtrain
 // Code for: https://youtu.be/9r8CmofnbAQ
 
 //var txt = "the theremin is theirs, ok? yes, it is. this is a theremin.";
