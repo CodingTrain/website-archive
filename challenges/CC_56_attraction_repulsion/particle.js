@@ -1,3 +1,8 @@
+// Daniel Shiffman
+// http://codingtra.in
+// Attraction / Repulsion
+// Video: https://youtu.be/OAcXnzRNiCY
+
 function Particle(x, y) {
   this.pos = createVector(x, y);
   this.prev = createVector(x, y);
