@@ -1,8 +1,12 @@
 // Daniel Shiffman
 // http://codingtra.in
 // Islamic Star Patterns
-// Video: https://youtu.be/sJ6pMLp_IaI
+// Video Part 1: https://youtu.be/sJ6pMLp_IaI
+// Video Part 2: [coming soon]
 // Based on: http://www.cgl.uwaterloo.ca/csk/projects/starpatterns/
+
+// Repo with more tiling patterns and features
+// https://github.com/CodingTrain/StarPatterns
 
 function Hankin(a, v) {
   this.a = a;

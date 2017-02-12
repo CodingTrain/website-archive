@@ -1,12 +1,17 @@
 // Daniel Shiffman
 // http://codingtra.in
 // Islamic Star Patterns
-// Video: https://youtu.be/sJ6pMLp_IaI
+// Video Part 1: https://youtu.be/sJ6pMLp_IaI
+// Video Part 2: [coming soon]
 // Based on: http://www.cgl.uwaterloo.ca/csk/projects/starpatterns/
 
-function Polygon() {
+// Repo with more tiling patterns and features
+// https://github.com/CodingTrain/StarPatterns
+
+function Polygon(n) {
   this.vertices = [];
   this.edges = [];
+  this.sides = n;
 
   this.addVertex = function(x, y) {
     var a = createVector(x, y);
@@ -29,15 +34,7 @@ function Polygon() {
 
   this.hankin = function() {
     for (var i = 0; i < this.edges.length; i++) {
-      this.edges[i].hankin();
-    }
-
-    for (var i = 0; i < this.edges.length; i++) {
-      for (var j = 0; j < this.edges.length; j++) {
-        if (i !== j) {
-          this.edges[i].findEnds(this.edges[j]);
-        }
-      }
+      this.edges[i].hankin(this.sides);
     }
   }
 
