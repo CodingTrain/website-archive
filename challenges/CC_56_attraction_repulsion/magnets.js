@@ -46,7 +46,7 @@ function mousePressed() {
 // here's the constructor function for the magnets
 function Magnet(x, y, t) {
     this.pos = createVector(x, y);
-    this.repeller = t; // type of attractor
+    this.repeller = t; // type of magnet
 
 
     this.show = function() {
