@@ -4,7 +4,7 @@
 // Code for: https://youtu.be/IKB1hWWedMk
 
 // Edited by SacrificeProductions
-// Instruction: To use this version rename to scetch.js
+// Instruction: To use this version rename to sketch.js
 // Information: Adds an ocean plane, colors various parts of the terrain based of the Z value.
 
 var cols, rows;
