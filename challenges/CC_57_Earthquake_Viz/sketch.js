@@ -1,7 +1,7 @@
 // Daniel Shiffman
 // http://codingtra.in
 // Earthquake Data Viz
-// Video: [coming soon]
+// Video: https://youtu.be/ZiYdOwOrGyc
 
 var mapimg;
 
