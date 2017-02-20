@@ -4,9 +4,13 @@
 
 // Keep track of our socket connection
 var socket;
+var button;
 
 function setup() {
   createCanvas(400, 400);
+  button = createButton("Reset");
+  button.mousePressed(reset);
+  button.style('display', 'block');
   background(0);
   // Start a socket connection to the server
   // Some day we would run this server somewhere else
@@ -23,6 +27,22 @@ function setup() {
       ellipse(data.x, data.y, 20, 20);
     }
   );
+  socket.on('reset',
+    // When we receive reset command
+    function () {
+      console.log("Received reset");
+      // Clear background
+      background(0);
+    }
+  );
+}
+
+function reset() {
+  // When this user issues reset command
+  // Send the reset command
+  socket.emit('reset');
+  // Clear background
+  background(0);
 }
 
 function draw() {
