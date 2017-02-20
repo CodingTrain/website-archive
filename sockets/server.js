@@ -46,6 +46,16 @@ io.sockets.on('connection',
 
       }
     );
+  
+    // When this user emits 'reset'
+    socket.on('reset',
+      function () {
+        // Log reset event
+        console.log("Received Reset");
+        // Send reset to all other clients
+        socket.broadcast.emit('reset');
+      }
+    );
     
     socket.on('disconnect', function() {
       console.log("Client has disconnected");
