@@ -35,6 +35,10 @@ Vehicle.prototype.update = function() {
   this.acc.mult(0);
 }
 
+Vehicle.prototype.newTarget = function(x, y) {
+  this.target = createVector(x, y);
+}
+
 Vehicle.prototype.show = function() {
   stroke(255);
   strokeWeight(this.r);
