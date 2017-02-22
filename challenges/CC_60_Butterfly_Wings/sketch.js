@@ -4,6 +4,7 @@
 // Video: [coming soon]
 
 var yoff = 0;
+var angle = 0;
 
 function setup() {
   createCanvas(400, 400);
@@ -12,7 +13,7 @@ function setup() {
 function draw() {
   background(51);
   translate(width / 2, height / 2);
-  rotate(PI / 2);
+  rotate(angle);
 
   stroke(255);
   fill(255, 50);
@@ -34,4 +35,5 @@ function draw() {
   }
   endShape();
   yoff += 0.01;
+  angle += PI/240;
 }
