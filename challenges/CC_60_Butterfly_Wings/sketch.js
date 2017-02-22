@@ -23,7 +23,7 @@ function draw() {
 
   var xoff = 0;
   beginShape();
-  for (var a = -PI / 2; a <= PI / 2; a += da) {
+  for (var a = -PI / 2; a <= 3 * PI / 2; a += da) {
     var n = noise(xoff, yoff);
     var r = sin(2 * a) * map(n, 0, 1, 50, 300);
     var x = r * cos(a);
@@ -32,17 +32,6 @@ function draw() {
     //point(x, y);
     vertex(x, y);
   }
-
-  for (var a = PI / 2; a <= 3 * PI / 2; a += da) {
-    var n = noise(xoff, yoff);
-    var r = sin(2 * a) * map(n, 0, 1, 50, 300);
-    var x = r * cos(a);
-    var y = r * sin(a);
-    xoff -= dx;
-    //point(x, y);
-    vertex(x, y);
-  }
   endShape();
-
   yoff += 0.01;
 }
