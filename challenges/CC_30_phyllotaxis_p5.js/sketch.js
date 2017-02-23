@@ -9,6 +9,7 @@ var c = 3;
 var points = [];
 
 var start = 0;
+var colorRange = [0,255];
 
 function setup() {
   createCanvas(400, 400);
@@ -26,7 +27,7 @@ function draw() {
     var x = r * cos(a);
     var y = r * sin(a);
     var hu = sin(start + i * 0.5);
-    hu = map(hu, -1, 1, 0, 360);
+    hu = map(hu, -1, 1, colorRange[0], colorRange[1]);
     fill(hu, 255, 255);
     noStroke();
     ellipse(x, y, 4, 4);
