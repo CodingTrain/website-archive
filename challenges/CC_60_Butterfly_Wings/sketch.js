@@ -28,7 +28,11 @@ function draw() {
     var r = sin(2 * a) * map(n, 0, 1, 50, 300);
     var x = r * cos(a);
     var y = r * sin(a);
-    xoff -= dx;
+    if (a < PI / 2){
+        xoff += dx; 
+    } else{
+        xoff -= dx; 
+    }
     //point(x, y);
     vertex(x, y);
   }
