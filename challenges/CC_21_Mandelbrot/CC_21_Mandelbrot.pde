@@ -1,6 +1,6 @@
 // Daniel Shiffman
-// http://codingrainbow.com
-// http://patreon.com/codingrainbow
+// http://codingtra.in
+// http://patreon.com/codingtrain
 // Code for: https://youtu.be/6z7GQewK-Ks
 
 void setup() {

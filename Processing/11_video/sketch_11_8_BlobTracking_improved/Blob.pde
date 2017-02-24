@@ -1,6 +1,6 @@
 // Daniel Shiffman
-// http://codingrainbow.com
-// http://patreon.com/codingrainbow
+// http://codingtra.in
+// http://patreon.com/codingtrain
 // Code for: https://youtu.be/1scFcY-xMrI
 
 class Blob {
@@ -28,8 +28,8 @@ class Blob {
     rect(minx, miny, maxx, maxy);
 
     for (PVector v : points) {
-      stroke(0, 0, 255);
-      point(v.x, v.y);
+      //stroke(0, 0, 255);
+      //point(v.x, v.y);
     }
   }
 

@@ -1,6 +1,6 @@
 // Coding Rainbow
 // Daniel Shiffman
-// http://patreon.com/codingrainbow
+// http://patreon.com/codingtrain
 // Code for: https://youtu.be/fcdNSZ9IzJM
 
 var tree = [];

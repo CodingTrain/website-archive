@@ -1,0 +1,1 @@
+This directory should be filled with images. You’ll then need to remove this file or at least add something to check that each file in this directory is an image file.

@@ -1,7 +1,9 @@
 // Daniel Shiffman
-// http://codingrainbow.com
-// http://patreon.com/codingrainbow
-// Code for: https://youtu.be/jxGS3fKPKJAvar cells = [];
+// http://codingtra.in
+// http://patreon.com/codingtrain
+// Code for: https://youtu.be/jxGS3fKPKJA
+
+var cells = [];
 
 function setup() {
   createCanvas(700, 700);
