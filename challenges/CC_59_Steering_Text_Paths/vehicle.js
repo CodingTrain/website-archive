@@ -1,7 +1,7 @@
 // Daniel Shiffman
 // http://codingtra.in
 // Steering Text Paths
-// Video: [coming soon]
+// Video: https://www.youtube.com/watch?v=4hA7G3gup-4
 
 function Vehicle(x, y) {
   this.pos = createVector(random(width), random(height));
@@ -37,7 +37,7 @@ Vehicle.prototype.update = function() {
 
 Vehicle.prototype.show = function() {
   stroke(255);
-  strokeWeight(8);
+  strokeWeight(this.r);
   point(this.pos.x, this.pos.y);
 }
 
