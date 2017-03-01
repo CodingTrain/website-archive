@@ -52,6 +52,9 @@ class Orbit {
     stroke(255, 100);
     strokeWeight(1);
     noFill();
+    if (parent != null) {
+      line(parent.x, parent.y, x, y);
+    }
     ellipse(x, y, r*2, r*2);
   }
 }
