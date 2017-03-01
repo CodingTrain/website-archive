@@ -3,7 +3,7 @@
 // http://patreon.com/codingtrain
 // Code for: https://youtu.be/jrk_lOg_pVA
 
-class Particle extends VerletParticle {
+class Particle extends VerletParticle3D {
 
   Particle(float x, float y, float z) {
     super(x, y, z);

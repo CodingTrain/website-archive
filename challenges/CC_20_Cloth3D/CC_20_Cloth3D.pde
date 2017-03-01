@@ -3,10 +3,9 @@
 // http://patreon.com/codingtrain
 // Code for: https://youtu.be/jrk_lOg_pVA
 
-import toxi.physics.*;
-import toxi.physics.behaviors.*;
-import toxi.physics.constraints.*;
-
+import toxi.physics3d.*;
+import toxi.physics3d.behaviors.*;
+import toxi.physics3d.constraints.*;
 import toxi.geom.*;
 
 int cols = 40;
@@ -17,15 +16,15 @@ ArrayList<Spring> springs;
 
 float w = 10;
 
-VerletPhysics physics;
+VerletPhysics3D physics;
 
 void setup() {
   size(600, 600, P3D); 
   springs = new ArrayList<Spring>();
 
-  physics = new VerletPhysics();
+  physics = new VerletPhysics3D();
   Vec3D gravity = new Vec3D(0, 1, 0);
-  GravityBehavior gb = new GravityBehavior(gravity);
+  GravityBehavior3D gb = new GravityBehavior3D(gravity);
   physics.addBehavior(gb);
 
   float x = -cols*w/2;
