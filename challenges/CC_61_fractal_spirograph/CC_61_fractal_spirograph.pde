@@ -42,7 +42,7 @@ void draw() {
   }
 
   beginShape();
-  stroke(255, 0, 255);
+  stroke(255);
   noFill();
   for (PVector pos : path) {
     vertex(pos.x, pos.y);
