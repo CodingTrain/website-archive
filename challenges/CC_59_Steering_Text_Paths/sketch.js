@@ -10,8 +10,10 @@ function preload() {
   font = loadFont('AvenirNextLTPro-Demi.otf');
 }
 
+
+
 function setup() {
-  createCanvas(600, 300);
+  createCanvas(800, 300);
   background(51);
   // textFont(font);
   // textSize(192);
@@ -19,9 +21,12 @@ function setup() {
   // noStroke();
   // text('train', 100, 200);
 
-  var points = font.textToPoints('train', 100, 200, 192, {
+   var myname1 = document.getElementById("myname").value; 
+  var points = font.textToPoints(myname1, 100, 200, 192, {
     sampleFactor: 0.25
   });
+    console.log(myname1);
+    vehicles.length =0;  
 
   for (var i = 0; i < points.length; i++) {
     var pt = points[i];
