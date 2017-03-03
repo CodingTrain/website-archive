@@ -6,4 +6,4 @@
 * [@Gaweph's variant - word morphing and Rainbow colours](https://gaweph.github.io/CodingTrain-RainbowCode-Challenges/Steering_Text_Paths/index.html)  
 [Source code](https://github.com/Gaweph/CodingTrain-RainbowCode-Challenges/tree/master/Steering_Text_Paths)
 
-https://irshad2809.github.io/liveeg/
+my live version:-  https://irshad2809.github.io/liveeg/
