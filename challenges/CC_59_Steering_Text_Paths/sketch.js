@@ -1,7 +1,7 @@
 // Daniel Shiffman
 // http://codingtra.in
 // Steering Text Paths
-// Video: [coming soon]
+// Video: https://www.youtube.com/watch?v=4hA7G3gup-4
 
 var font;
 var vehicles = [];
