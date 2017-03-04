@@ -2,7 +2,7 @@
 // http://codingtra.in
 // http://patreon.com/codingtrain
 // Fractal Spirograph
-// Video: [coming soon]
+// Video: https://youtu.be/0dwJ-bkJwDI
 
 int k = -4;
 
