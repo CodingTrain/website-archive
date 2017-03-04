@@ -11,13 +11,12 @@ int resolution = 50;
 
 Orbit sun;
 Orbit end;
-Orbit next;
 
 void setup() {
   size(600, 600);
   path = new ArrayList<PVector>();
   sun = new Orbit(width/2, height/2, width/4, 0);
-  next = sun;
+  Orbit next = sun;
   for (int i = 0; i < 10; i++) {
     next = next.addChild();
   }
@@ -28,7 +27,7 @@ void draw() {
   background(51);
 
   for (int i = 0; i < resolution; i++) {
-    next = sun;
+    Orbit next = sun;
     while (next != null) {
       next.update();
       next = next.child;
@@ -36,7 +35,7 @@ void draw() {
     path.add(new PVector(end.x, end.y));
   }
 
-  next = sun;
+  Orbit next = sun;
   while (next != null) {
     next.show();
     next = next.child;
