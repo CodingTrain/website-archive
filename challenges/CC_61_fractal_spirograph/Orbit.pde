@@ -1,7 +1,8 @@
 // Daniel Shiffman
 // http://codingtra.in
+// http://patreon.com/codingtrain
 // Fractal Spirograph
-// Video: [coming soon]
+// Video: https://youtu.be/0dwJ-bkJwDI
 
 int k = -4;
 
@@ -45,7 +46,6 @@ class Orbit {
       x = parent.x + rsum * cos(angle);
       y = parent.y + rsum * sin(angle);
     }
-    //ellipse(x2, y2, r2*2, r2*2);
   }
 
   void show() {
