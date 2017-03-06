@@ -21,7 +21,7 @@ function setup() {
 
   for (var x = 0; x < cols; x++) {
     terrain[x] = [];
-    for (var y = 0; y < cols; y++) {
+    for (var y = 0; y < rows; y++) {
       terrain[x][y] = 0; //specify a default value for now
     }
   }

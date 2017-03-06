@@ -18,27 +18,21 @@ function draw() {
   fill(255, 50);
   strokeWeight(1);
 
-  var da = PI / 100;
+  var da = PI / 200;
   var dx = 0.05;
 
   var xoff = 0;
   beginShape();
-  for (var a = -PI / 2; a <= PI / 2; a += da) {
+  for (var a = -PI / 2; a <= 3 * PI / 2; a += da) {
     var n = noise(xoff, yoff);
     var r = sin(2 * a) * map(n, 0, 1, 50, 300);
     var x = r * cos(a);
     var y = r * sin(a);
-    xoff += dx;
-    //point(x, y);
-    vertex(x, y);
-  }
-
-  for (var a = PI / 2; a <= 3 * PI / 2; a += da) {
-    var n = noise(xoff, yoff);
-    var r = sin(2 * a) * map(n, 0, 1, 50, 300);
-    var x = r * cos(a);
-    var y = r * sin(a);
-    xoff -= dx;
+    if (a < PI / 2){
+        xoff += dx; 
+    } else{
+        xoff -= dx; 
+    }
     //point(x, y);
     vertex(x, y);
   }
