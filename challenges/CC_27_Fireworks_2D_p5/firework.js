@@ -1,5 +1,9 @@
-function Firework() {
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+// Code for: https://youtu.be/CKeyIbT3vXI
 
+function Firework() {
   this.hu = random(255);
   this.firework = new Particle(random(width), height, this.hu, true);
   this.exploded = false;
@@ -22,6 +26,7 @@ function Firework() {
         this.explode();
       }
     }
+    
     for (var i = this.particles.length - 1; i >= 0; i--) {
       this.particles[i].applyForce(gravity);
       this.particles[i].update();
@@ -29,9 +34,6 @@ function Firework() {
         this.particles.splice(i, 1);
       }
     }
-
-
-
   }
 
   this.explode = function() {
@@ -48,8 +50,5 @@ function Firework() {
     for (var i = 0; i < this.particles.length; i++) {
       this.particles[i].show();
     }
-
   }
-
-
 }
