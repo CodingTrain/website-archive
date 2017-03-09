@@ -18,7 +18,7 @@ function DNA(genes) {
       this.genes[i].setMag(maxforce);
     }
   }
-
+  // decides childs fitness
   this.crossover = function(partner) {
     var newgenes = [];
     //picks random input
@@ -37,8 +37,10 @@ function DNA(genes) {
     return new DNA(newgenes);
   }
 
+  // allows child rockets to have path based on parent vectors
   this.mutation = function() {
     for (var i = 0; i < this.genes.length; i++) {
+      // if random number less than 0.01, new gene is then random vector
       if (random(1) < 0.01) {
         this.genes[i] = p5.Vector.random2D();
         this.genes[i].setMag(maxforce);

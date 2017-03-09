@@ -15,6 +15,7 @@ var target;
 // max force applied to rocket
 var maxforce = 0.2;
 
+//dimensions of barrier
 var rx = 100;
 var ry = 150;
 var rw = 200;
