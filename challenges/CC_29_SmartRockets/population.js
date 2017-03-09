@@ -4,10 +4,13 @@
 // Code for: https://youtu.be/bGz7mv2vD6g
 
 function Population() {
+  //array of rockets
   this.rockets = [];
+  //amount of rockets
   this.popsize = 25;
   this.matingpool = [];
 
+  // associates a rocket to an array index
   for (var i = 0; i < this.popsize; i++) {
     this.rockets[i] = new Rocket();
   }
@@ -49,7 +52,9 @@ function Population() {
 
   this.run = function() {
     for (var i = 0; i < this.popsize; i++) {
+      
       this.rockets[i].update();
+      //displays rockets to screen
       this.rockets[i].show();
     }
   }

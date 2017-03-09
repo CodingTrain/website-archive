@@ -3,10 +3,13 @@
 // http://patreon.com/codingtrain
 // Code for: https://youtu.be/bGz7mv2vD6g
 
+//constructor function
 function Rocket(dna) {
+  //physics of rocket at current instance
   this.pos = createVector(width / 2, height);
   this.vel = createVector();
   this.acc = createVector();
+
   this.completed = false;
   this.crashed = false;
 
@@ -17,6 +20,7 @@ function Rocket(dna) {
   }
   this.fitness = 0;
 
+  //object can recieve force and added to acceleration 
   this.applyForce = function(force) {
     this.acc.add(force);
   }
@@ -65,11 +69,16 @@ function Rocket(dna) {
   }
 
   this.show = function() {
+    // push and pop allow rotating and translation not to affect other objects
     push();
+    //color customization of rockets
     noStroke();
     fill(255, 150);
+    //translate to the postion of rocket
     translate(this.pos.x, this.pos.y);
+    //rotatates to the angle the rocket is pointing
     rotate(this.vel.heading());
+    //creates a rectangle shape for rocket
     rectMode(CENTER);
     rect(0, 0, 25, 5);
     pop();
