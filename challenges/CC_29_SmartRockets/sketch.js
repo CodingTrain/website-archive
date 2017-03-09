@@ -4,10 +4,15 @@
 // Code for: https://youtu.be/bGz7mv2vD6g
 
 var population;
+//each rocket is alive till 400 frames
 var lifespan = 400;
+// made to display count on screen
 var lifeP;
+//keeps track of frames
 var count = 0;
+//where rockets are trying to go
 var target;
+// max force applied to rocket
 var maxforce = 0.2;
 
 var rx = 100;
@@ -26,6 +31,7 @@ function setup() {
 function draw() {
   background(0);
   population.run();
+  //displays count to window
   lifeP.html(count);
 
   count++;
@@ -35,9 +41,9 @@ function draw() {
     //population = new Population();
     count = 0;
   }
-
+  //renders barrier for rockets
   fill(255);
   rect(rx, ry, rw, rh);
-
+  //renders target
   ellipse(target.x, target.y, 16, 16);
 }

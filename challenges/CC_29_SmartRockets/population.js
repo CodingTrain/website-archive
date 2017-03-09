@@ -8,6 +8,7 @@ function Population() {
   this.rockets = [];
   //amount of rockets
   this.popsize = 25;
+  //
   this.matingpool = [];
 
   // associates a rocket to an array index
@@ -18,18 +19,23 @@ function Population() {
   this.evaluate = function() {
 
     var maxfit = 0;
+    //iterate through all rockets and calcultas their fitness
     for (var i = 0; i < this.popsize; i++) {
+      //calculates fitness
       this.rockets[i].calcFitness();
+      //if current fitness is greater than max, then make max eqaul current
       if (this.rockets[i].fitness > maxfit) {
         maxfit = this.rockets[i].fitness;
       }
     }
-
+    //divedes current fitness by max and makes that the current fitness
     for (var i = 0; i < this.popsize; i++) {
       this.rockets[i].fitness /= maxfit;
     }
 
     this.matingpool = [];
+    // take rockets fitness make in to scale of 1 to 100
+    // a rocket with high fitness will highly likely will be in the mating pool
     for (var i = 0; i < this.popsize; i++) {
       var n = this.rockets[i].fitness * 100;
       for (var j = 0; j < n; j++) {
@@ -41,10 +47,13 @@ function Population() {
   this.selection = function() {
     var newRockets = [];
     for (var i = 0; i < this.rockets.length; i++) {
+      //picks random dna
       var parentA = random(this.matingpool).dna;
       var parentB = random(this.matingpool).dna;
+      // creates child by using crossover function
       var child = parentA.crossover(parentB);
       child.mutation();
+      // creates new rocket with child dna
       newRockets[i] = new Rocket(child);
     }
     this.rockets = newRockets;
@@ -52,7 +61,7 @@ function Population() {
 
   this.run = function() {
     for (var i = 0; i < this.popsize; i++) {
-      
+
       this.rockets[i].update();
       //displays rockets to screen
       this.rockets[i].show();

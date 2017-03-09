@@ -12,7 +12,7 @@ function Rocket(dna) {
 
   this.completed = false;
   this.crashed = false;
-
+  //gives a rocket dna
   if (dna) {
     this.dna = dna;
   } else {
@@ -24,10 +24,12 @@ function Rocket(dna) {
   this.applyForce = function(force) {
     this.acc.add(force);
   }
-
+  //calulates fitness
   this.calcFitness = function() {
+    //takes distance to target
     var d = dist(this.pos.x, this.pos.y, target.x, target.y);
 
+    //maps range of fitness
     this.fitness = map(d, 0, width, width, 0);
     if (this.completed) {
       this.fitness *= 10;
@@ -58,7 +60,7 @@ function Rocket(dna) {
     }
 
 
-
+    //applies the random vectors defined in dna to consecutive frames of rocket  
     this.applyForce(this.dna.genes[count]);
     if (!this.completed && !this.crashed) {
       this.vel.add(this.acc);
