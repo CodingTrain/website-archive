@@ -35,8 +35,14 @@ Vehicle.prototype.update = function() {
   this.acc.mult(0);
 }
 
+//function getColor(){
+   // return '#'+Math.floor(Math.random() * 16777215).toString(16);
+    // }
+//var myColor = getColor();
+
 Vehicle.prototype.show = function() {
-  stroke(255);
+  stroke(r, g, b);
+ 
   strokeWeight(this.r);
   point(this.pos.x, this.pos.y);
 }
