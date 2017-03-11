@@ -1,3 +1,9 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+// Fractal Spirograph
+// Video: https://youtu.be/0dwJ-bkJwDI
+
 var k = -4;
 
 function Orbit(x_, y_, r_, n, p) {
