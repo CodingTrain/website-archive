@@ -1,7 +1,8 @@
 // Daniel Shiffman
 // http://codingtra.in
+// http://patreon.com/codingtrain
 // Fractal Spirograph
-// Video: [coming soon]
+// Video: https://youtu.be/0dwJ-bkJwDI
 
 ArrayList<PVector> path;
 
@@ -29,7 +30,6 @@ void draw() {
     Orbit next = sun;
     while (next != null) {
       next.update();
-      //next.show();
       next = next.child;
     }
     path.add(new PVector(end.x, end.y));

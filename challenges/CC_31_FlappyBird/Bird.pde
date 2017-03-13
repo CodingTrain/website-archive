@@ -1,4 +1,7 @@
-PVector gravity = new PVector(0, 0.5);
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+// Code for: https://youtu.be/cXgA1d_E-jY
 
 class Bird {
   PVector pos;
@@ -15,7 +18,6 @@ class Bird {
   void applyForce(PVector force) {
     acc.add(force);
   }
-
 
   void update() {
     applyForce(gravity);
