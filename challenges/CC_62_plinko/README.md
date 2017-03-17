@@ -4,20 +4,19 @@ Plinko
 
 
 ##Cool Links
-http://codingtra.in
-http://patreon.com/codingtrain
+[http://codingtra.in](http://codingtra.in)
+[http://patreon.com/codingtrain](http://patreon.com/codingtrain)
 
-Plinko Videos
-------
-| Videos |
+
+| Youtube Videos |
 | --- |
-| <a href="https://youtu.be/KakpnfDv_f0">Video 1</a> |
-| <a href="https://youtu.be/6s4MJcUyaUE">Video 2</a> |
-| <a href="https://youtu.be/jN-sW-SxNzk">Video 3</a> |
-| <a href="https://youtu.be/CdBXmsrkaPs">Video 4</a> |
+| [Video 1](https://youtu.be/KakpnfDv_f0) |
+| [Video 2](https://youtu.be/6s4MJcUyaUE) |
+| [Video 3](https://youtu.be/jN-sW-SxNzk) |
+| [Video 4](https://youtu.be/CdBXmsrkaPs) |
 
 Other Versions Of This Project
 ------
 | Repo |
 | --- |
-| <a href="https://github.com/storealutes/Plinko">JS Plinko - srtorealutes</a> |
+| [JS Plinko - srtorealutes](https://github.com/storealutes/Plinko) |
