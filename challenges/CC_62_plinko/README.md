@@ -1,10 +1,6 @@
 Plinko
 ======
-##### CC 62 README
-##### 2017 - Coding Train
 
-
-## Cool Links
 [http://codingtra.in](http://codingtra.in)
 
 [http://patreon.com/codingtrain](http://patreon.com/codingtrain)
