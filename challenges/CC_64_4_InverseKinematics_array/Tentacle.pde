@@ -1,3 +1,8 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+// Video: https://youtu.be/10st01Z0jxc
+
 class Tentacle {
 
   Segment[] segments = new Segment[5];

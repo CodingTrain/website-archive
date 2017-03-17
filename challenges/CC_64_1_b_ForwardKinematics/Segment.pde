@@ -1,3 +1,8 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+// Video: https://youtu.be/xXjRlEr7AGk
+
 class Segment {
   PVector a;
   float len;
@@ -48,7 +53,7 @@ class Segment {
       a = parent.b.copy();
       angle += parent.angle;
     } else {
-      angle += -PI/2; 
+      angle += -PI/2;
     }
     calculateB();
   }

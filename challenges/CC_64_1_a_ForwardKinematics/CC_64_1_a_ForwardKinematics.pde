@@ -1,3 +1,8 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+// Video: https://youtu.be/xXjRlEr7AGk
+
 Segment tentacle;
 // Segment seg2;
 void setup() {

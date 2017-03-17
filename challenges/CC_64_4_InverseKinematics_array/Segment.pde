@@ -1,10 +1,13 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+// Video: https://youtu.be/10st01Z0jxc
+
 class Segment {
   PVector a;
   float angle = 0;
-  float len;  
+  float len;
   PVector b = new PVector();
-  Segment parent = null;
-  Segment child = null;
   float sw = 0;
 
   Segment(float x, float y, float len_, float i) {
@@ -14,8 +17,7 @@ class Segment {
     calculateB();
   }
 
-  Segment(Segment parent_, float len_, float i) {
-    parent = parent_;
+  Segment(Segment parent, float len_, float i) {
     sw = map(i, 0, 20, 1, 10);
     a = parent.b.copy();
     len = len_;
@@ -23,7 +25,8 @@ class Segment {
   }
 
 
-  void follow() {
+
+  void follow(Segment child) {
     float targetX = child.a.x;
     float targetY = child.a.y;
     follow(targetX, targetY);
@@ -36,6 +39,11 @@ class Segment {
     dir.setMag(len);
     dir.mult(-1);
     a = PVector.add(target, dir);
+  }
+
+  void setA(PVector pos) {
+    a = pos.copy();
+    calculateB();
   }
 
   void calculateB() {
@@ -51,7 +59,7 @@ class Segment {
 
   void show() {
     stroke(255);
-    strokeWeight(sw);
+    strokeWeight(4);
     line(a.x, a.y, b.x, b.y);
   }
 }

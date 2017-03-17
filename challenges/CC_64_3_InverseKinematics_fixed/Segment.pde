@@ -1,7 +1,12 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+// Video: https://youtu.be/RTc6i-7N3ms
+
 class Segment {
   PVector a;
   float angle = 0;
-  float len;  
+  float len;
   PVector b = new PVector();
   Segment parent = null;
   Segment child = null;

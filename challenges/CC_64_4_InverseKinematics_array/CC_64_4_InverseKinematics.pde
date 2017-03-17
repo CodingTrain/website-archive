@@ -1,3 +1,7 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+// Video: https://youtu.be/10st01Z0jxc
 
 ArrayList<Tentacle> tentacles;
 
@@ -16,7 +20,7 @@ void setup() {
 
   float da = TWO_PI/2;
   for (float a = 0; a < TWO_PI; a += da) {
-    float x = width/2 + cos(a) * 300; 
+    float x = width/2 + cos(a) * 300;
     float y = height/2 + sin(a) * 300;
     tentacles.add(new Tentacle(x, y));
   }
@@ -42,7 +46,7 @@ void draw() {
   }
 
   if (pos.y > height) {
-    pos.y = height; 
+    pos.y = height;
     vel.y *= -1;
     vel.mult(0.95);
   }
