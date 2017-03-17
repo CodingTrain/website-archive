@@ -3,8 +3,9 @@ Plinko
 ### CC 62 README
 
 
-##Cool Links
+## Cool Links
 [http://codingtra.in](http://codingtra.in)
+
 [http://patreon.com/codingtrain](http://patreon.com/codingtrain)
 
 
