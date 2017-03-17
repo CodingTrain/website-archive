@@ -26,6 +26,7 @@ class Segment {
     a = new PVector(x, y);
     len = len_;
     angle = angle_;
+    selfAngle = angle;
     calculateB();
     parent = null;
     t = t_;
