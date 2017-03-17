@@ -15,6 +15,6 @@ Plinko
 
 Other Versions Of This Project
 ------
-| Repo | Demo |
-| --- | --- |
-| [JS Plinko - srtorealutes](https://github.com/storealutes/Plinko) | [Live Demo](http://chaseacton.com/plinko/) |
+| Creator | Repo | Demo |
+| --- | --- | --- |
+| [Storealutes](https://github.com/storealutes) | [JS Plinko](https://github.com/storealutes/Plinko) | [Live Demo](http://chaseacton.com/plinko/) |
