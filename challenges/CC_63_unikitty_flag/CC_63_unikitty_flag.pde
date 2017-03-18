@@ -64,8 +64,9 @@ void setup() {
     }
   }
 
-  particles[0][0].lock();
-  particles[0][rows-1].lock();
+  for(int i = 0; i < particles[0].length; i += 1){
+    particles[0][i].lock();
+  }
 
   unikitty = loadImage("unikitty.jpg");
 }
@@ -126,4 +127,5 @@ void draw() {
   stroke(255);
   strokeWeight(4);
   line(-cols*w/2 - 100, -rows*w/2, -cols*w/2 - 100, height);
+  
 }
