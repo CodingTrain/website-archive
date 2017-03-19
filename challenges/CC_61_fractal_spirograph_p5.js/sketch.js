@@ -1,3 +1,9 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+// Fractal Spirograph
+// Video: https://youtu.be/0dwJ-bkJwDI
+
 var path = [];
 
 var angle = 0;
