@@ -11,7 +11,7 @@ class ParticleSystem {
   }
 
   void addParticle() {
-    particles.add(new Particle(origin));
+    particles.add(new Particle(origin.x, origin.y));
   }
 
   void run() {
