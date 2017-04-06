@@ -6,7 +6,7 @@ Phyllotaxis
 [Youtube Video](https://www.youtube.com/watch?v=KWoJgHFYWxY&index=33&list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH)
 
 
-Community Versions Of This Project
+Community Versions Of This Challenge
 ------
 | Creator | Repo | Demo |
 | --- | --- | --- |
