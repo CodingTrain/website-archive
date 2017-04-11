@@ -3,7 +3,7 @@
 // http://patreon.com/codingtrain
 // Code for: https://youtu.be/jrk_lOg_pVA
 
-class Spring extends VerletSpring {
+class Spring extends VerletSpring3D {
 
   Spring(Particle a, Particle b) {
     super(a, b, w, 0.8);
