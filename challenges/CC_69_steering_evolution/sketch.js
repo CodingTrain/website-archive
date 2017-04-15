@@ -1,3 +1,15 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+
+// Steering Evolution
+
+// Part 1: [TBA]
+// Part 2: [TBA]
+// Part 3: [TBA]
+// Part 4: [TBA]
+// Part 5: [TBA]
+
 var vehicles = [];
 var food = [];
 var poison = [];
