@@ -3,6 +3,8 @@
 // http://patreon.com/codingtrain
 
 // Steering Evolution
+// Another version:
+// https://github.com/shiffman/NOC-S17-2-Intelligence-Learning/tree/master/week2-evolution/01_evolve_steering
 
 // Part 1: [TBA]
 // Part 2: [TBA]
