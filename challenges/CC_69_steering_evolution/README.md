@@ -17,6 +17,14 @@
 [Repository](https://github.com/Carla-de-Beer/Feed-the-Boids) | [Demo](https://carla-de-beer.github.io/Feed-the-Boids/index.html)
   * Press Enter to toggle visibility and perception radii and display current fittest boid.
   * Click on the screen to create more food, mess with evolution and create a new fittest boid.
+  
+#### By: [Miles Elvidge](https://github.com/mileselvidge)
+[Repository](https://github.com/mileselvidge/Genetic_Steering)
+  * Written in Processing.
+  * Press D to toggle debugging information.
+  * Press S to toggle statistical information.
+  * Press A to save simulation data to a CSV file.
+  * More information in readme.
 
 
 
