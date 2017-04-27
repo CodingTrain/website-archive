@@ -12,6 +12,7 @@
   * Further implementations maybe in the future.
 
 
+#### Feed the Boids!
 #### By: [Carla de Beer](https://github.com/Carla-de-Beer)
 [Repository](https://github.com/Carla-de-Beer/Feed-the-Boids) | [Demo](https://carla-de-beer.github.io/Feed-the-Boids/index.html)
   * Press Enter to toggle visibility and perception radii and display current fittest boid.
