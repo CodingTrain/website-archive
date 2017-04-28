@@ -7,3 +7,6 @@ I'm using this repo to keep track of additional code examples. Anything not here
 
 # Questions? Need Support?
 * Join: http://patreon.com/codingtrain
+
+# Community examples :)
+* Brian New - [matterTank](http://codepen.io/RedHenDev/full/dvWZme/) using matter.js and the p5 library
