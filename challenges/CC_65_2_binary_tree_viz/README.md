@@ -11,3 +11,4 @@ Videos for this challenge:
 # Community Variations
 
 * [OtterTricks's visualization using steering behaviors, click to add random nodes](https://ottertricks.github.io/sketches/bintree/)
+* [Simon Tiger's visualization with the tree growing from the bottom and hiding the numbers](https://simon-tiger.github.io/binary-tree/index.html)
