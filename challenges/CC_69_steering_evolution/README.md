@@ -6,7 +6,7 @@
 
 #### By: [SetupandDraw](https://github.com/SetupandDraw)
 [Repository](https://github.com/SetupandDraw/experiments/tree/gh-pages/Evolve_steering_Behavior) | [Demo](https://setupanddraw.github.io/experiments/Evolve_steering_Behavior/)
-  * Next generation is added to the system automatically when there are no vehicles left. New generation will be based on prev generation champion’s DNA. Probability of reproduction also related to a requested minimum health value.
+  * A new "dynasty" is added to the system automatically when there are no vehicles left. The new dynasty will be based on prev generation champion’s DNA. Probability of reproduction also related to a requested minimum health value.
   * Press CTRL to toggle debug on/off.
   * Mouse press for adding new vehicles.
 
