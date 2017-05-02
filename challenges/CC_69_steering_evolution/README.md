@@ -9,8 +9,8 @@
   * A new "dynasty" is added to the system automatically when there are no vehicles left. The new dynasty will be based on prev generation champion’s DNA. Probability of reproduction also related to a requested minimum health value.
   * Press CTRL to toggle debug on/off.
   * Mouse press for adding new vehicles.
-
-
+  * Press ALT toggle 'tamagotchi mode' ON/OFF (if ON MousePress + 'F' to add food - MousePress + 'P' to add poison)
+ 
 #### Feed the Boids!
 #### By: [Carla de Beer](https://github.com/Carla-de-Beer)
 [Repository](https://github.com/Carla-de-Beer/Feed-the-Boids) | [Demo](https://carla-de-beer.github.io/Feed-the-Boids/index.html)
