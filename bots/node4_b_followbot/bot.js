@@ -15,7 +15,14 @@ function followed(eventMsg) {
   console.log("Follow event!");
   var name = eventMsg.source.name;
   var screenName = eventMsg.source.screen_name;
-  tweetIt('.@' + screenName + ' do you like rainbows?');
+  /* If you follow someone, follow bot works again.
+     It tweets like '.@yourTwitterName do you like rainbows'
+     So, to prevent this, we make an if clause
+     id_str is your twitter account id (eventMsg.source.id_str)
+     */
+  if(eventMsg.source.id_str !== 'your_twitter_account_id_here'){
+	tweetIt('.@' + screenName + ' do you like rainbows?');
+  }
 }
 
 
