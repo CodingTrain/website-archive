@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "noImplicitAny": true,
+        "module":"commonjs",
+        "removeComments": true,
+        "preserveConstEnums": true,
+        //"out": "output/project.js",
+        "sourceMap": true
+    }
+}
