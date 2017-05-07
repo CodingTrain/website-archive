@@ -1,3 +1,11 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+
+// Binary Tree
+// Part 1: https://youtu.be/ZNH0MuQ51m4
+// Part 2: https://youtu.be/KFEvF_ymuzY
+
 function Node(val, x, y) {
   this.value = val;
   this.left = null;

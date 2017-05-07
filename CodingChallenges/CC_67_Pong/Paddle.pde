@@ -1,3 +1,9 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+
+// Pong
+// https://youtu.be/IIrC5Qcb2G4
 
 class Paddle {
   float x;
@@ -14,12 +20,12 @@ class Paddle {
       x = width - w;
     }
   }
-  
+
   void update() {
-    y += ychange; 
+    y += ychange;
     y = constrain(y, h/2, height-h/2);
   }
-    
+
 
   void move(float steps) {
     ychange = steps;

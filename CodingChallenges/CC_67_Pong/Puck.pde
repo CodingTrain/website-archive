@@ -1,3 +1,9 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+
+// Pong
+// https://youtu.be/IIrC5Qcb2G4
 
 class Puck {
   float x = width/2;
@@ -42,7 +48,7 @@ class Puck {
   void update() {
     x = x + xspeed;
     y = y + yspeed;
-  }  
+  }
 
   void reset() {
     x = width/2;

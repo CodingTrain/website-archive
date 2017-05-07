@@ -6,11 +6,11 @@
 // Another version:
 // https://github.com/shiffman/NOC-S17-2-Intelligence-Learning/tree/master/week2-evolution/01_evolve_steering
 
-// Part 1: [TBA]
-// Part 2: [TBA]
-// Part 3: [TBA]
-// Part 4: [TBA]
-// Part 5: [TBA]
+// Part 1: https://youtu.be/flxOkx0yLrY
+// Part 2: https://youtu.be/XaOVH8ZSRNA
+// Part 3: https://youtu.be/vZUWTlK7D2Q
+// Part 4: https://youtu.be/ykOcaInciBI
+// Part 5: https://youtu.be/VnFF5V5DS8s
 
 var mr = 0.01;
 

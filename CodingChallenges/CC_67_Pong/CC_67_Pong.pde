@@ -1,3 +1,10 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+
+// Pong
+// https://youtu.be/IIrC5Qcb2G4
+
 import processing.sound.*;
 
 Puck puck;
@@ -11,7 +18,7 @@ int leftscore = 0;
 int rightscore = 0;
 
 void setup() {
-  size(600, 400); 
+  size(600, 400);
   ding = new SoundFile(this,"ding.mp3");
   puck = new Puck();
   left = new Paddle(true);
@@ -20,7 +27,7 @@ void setup() {
 
 void draw() {
   background(0);
-  
+
   //puck.checkPaddle(left);
   puck.checkPaddleRight(right);
   puck.checkPaddleLeft(left);
@@ -33,7 +40,7 @@ void draw() {
   puck.update();
   puck.edges();
   puck.show();
-  
+
   fill(255);
   textSize(32);
   text(leftscore, 32, 40);

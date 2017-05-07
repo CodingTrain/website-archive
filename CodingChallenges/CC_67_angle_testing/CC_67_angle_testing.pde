@@ -1,3 +1,9 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+
+// Pong
+// https://youtu.be/IIrC5Qcb2G4
 
 void setup() {
 

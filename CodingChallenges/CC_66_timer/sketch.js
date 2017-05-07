@@ -1,3 +1,10 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+
+// Timer
+// https://youtu.be/MLtAMg9_Svw
+
 var timeleft = 10;
 
 var startTime = 0;
