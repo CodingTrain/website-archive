@@ -1,10 +1,5 @@
-Traveling Sales Men
+Traveling Salesperson Challenge
 ======
-
-[http://codingtra.in](http://codingtra.in)
-
-[http://patreon.com/codingtrain](http://patreon.com/codingtrain)
-
 
 | Youtube Videos |
 | --- |
