@@ -15,7 +15,7 @@ function Box(x, y, z, r) {
           var sum = abs(x) + abs(y) + abs(z);
           var newR = this.r / 3;
           if (sum > 1) {
-            var b = new Box(this.pos.x + x * newR*2, this.pos.y + y * newR*2, this.pos.z + z * newR*2, newR);
+            var b = new Box(this.pos.x + x * newR, this.pos.y + y * newR, this.pos.z + z * newR, newR);
             boxes.push(b);
           }
         }
