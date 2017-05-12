@@ -2,6 +2,14 @@
 * Edited Videos for this challenge: TBD
 * Live Stream: [Live Stream #90: Session 2 of “Intelligence and Learning” Continued](https://www.youtube.com/watch?v=NCvdjnN9UfI)
 
+## Ports
+
+#### [Gareth Williams](https://github.com/gaweph) | [Repository](https://github.com/Gaweph/CodingTrain-RainbowCode-Challenges/tree/master/CC_35.4_TSP_GA_TypeScript)
+
+Typescript Implementation of TSP GA
+
+_(No functional difference from Daniels original challenge implementation)_
+
 ## Community Variations
 
 #### By: [James Williams](https://github.com/strangecyan)
