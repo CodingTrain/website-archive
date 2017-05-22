@@ -8,30 +8,37 @@ function Cell(i, j, w) {
 
   this.bee = false;
   this.revealed = false;
+  this.marked = false;
 }
 
 Cell.prototype.show = function() {
   stroke(0);
-  noFill();
+  fill(160);
   rect(this.x, this.y, this.w, this.w);
   if (this.revealed) {
     if (this.bee) {
-      fill(127);
-      ellipse(this.x + this.w * 0.5, this.y + this.w * 0.5, this.w * 0.5);
+      image(images.bee, this.x, this.y, this.w, this.w);
     } else {
-      fill(200);
+      fill(255);
       rect(this.x, this.y, this.w, this.w);
       if (this.neighborCount > 0) {
         textAlign(CENTER);
         fill(0);
+        textSize(12);
+        textFont("Arial");
         text(this.neighborCount, this.x + this.w * 0.5, this.y + this.w - 6);
       }
     }
+  }
+
+  if (this.marked) {
+		image(images.flag, this.x, this.y, this.w, this.w);
   }
 }
 
 Cell.prototype.countBees = function() {
   if (this.bee) {
+    //Self-beed = -1
     this.neighborCount = -1;
     return;
   }
@@ -52,11 +59,12 @@ Cell.prototype.countBees = function() {
 }
 
 Cell.prototype.contains = function(x, y) {
-  return (x > this.x && x < this.x + this.w && y > this.y && y < this.y + this.w);
+  return (x > this.x && x < this.x + this.w && y > this.y && y < this.y + this.w)
 }
 
 Cell.prototype.reveal = function() {
   this.revealed = true;
+	sounds.click.play();
   if (this.neighborCount == 0) {
     // flood fill time
     this.floodFill();

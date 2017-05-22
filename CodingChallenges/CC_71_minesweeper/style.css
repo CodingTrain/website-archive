@@ -1,0 +1,30 @@
+body {
+  background-color: rgb(206, 242, 184);
+  color: black;
+  font-family: /*"Arial"*/
+  "Candara", "Calibri", Arial, sans-serif;
+  font-size: 15;
+  font-weight: normal;
+}
+
+h3 {
+	font-size: 130%;
+	font-weight: bold;
+
+}
+
+h6 {
+	font-size: 60%;
+	font-weight: 100;
+}
+
+em {
+  color: rgb(0, 8, 27);
+  font-style: italic;
+  font-weight: inherit;
+}
+
+strong {
+  color: rgb(30, 60, 31);
+  font-weight: 700;
+}
