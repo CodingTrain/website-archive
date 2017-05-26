@@ -24,6 +24,12 @@
   * Press S to toggle statistical information.
   * Press A to save simulation data to a CSV file.
   * More information in readme.
+  
+  #### By: [Giuseppe Romeo](https://github.com/origapepe)
+[Repository](https://github.com/origapepe/Evolutionary-Steering-Behaviors)| [Demo](https://origapepe.github.io/Evolutionary-Steering-Behaviors/)
+  *Improved the reproduction function
+  * All vehicles have a sex (male or female)
+  *A better description of the reproduce function in readme
 
 
 
