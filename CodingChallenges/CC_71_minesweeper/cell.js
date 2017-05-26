@@ -10,6 +10,10 @@ function Cell(i, j, w) {
   this.revealed = false;
 }
 
+
+/**
+ * Cell.prototype.show - Shows the cell content
+ */
 Cell.prototype.show = function() {
   stroke(0);
   noFill();
@@ -30,6 +34,11 @@ Cell.prototype.show = function() {
   }
 }
 
+
+/**
+ * Cell.prototype.countBees - Sets neighborCount to number of
+ *                            adjacent bees.
+ */
 Cell.prototype.countBees = function() {
   if (this.bee) {
     this.neighborCount = -1;
@@ -57,6 +66,12 @@ Cell.prototype.contains = function(x, y) {
   return (x > this.x && x < this.x + this.w && y > this.y && y < this.y + this.w);
 }
 
+
+/**
+ * Cell.prototype.reveal - Reveals the cell and starts
+ *                         a flood fill
+ * @see {@link floodFill} for flood fill.
+ */
 Cell.prototype.reveal = function() {
   this.revealed = true;
   if (this.neighborCount == 0) {
@@ -65,6 +80,13 @@ Cell.prototype.reveal = function() {
   }
 }
 
+
+/**
+ * Cell.prototype.floodFill - Reveals all neighbouring cells
+ *                            that don't have neighbouring bees.
+ *
+ * @return {type}  description
+ */
 Cell.prototype.floodFill = function() {
   for (var xoff = -1; xoff <= 1; xoff++) {
     var i = tihs.i + xoff;
