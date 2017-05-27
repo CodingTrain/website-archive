@@ -34,7 +34,7 @@ function Tree() {
     for (var i = 0; i < this.leaves.length; i++) {
       var leaf = this.leaves[i];
       var closestBranch = null;
-      var record = 100000;
+      var record = max_dist;
       for (var j = 0; j < this.branches.length; j++) {
         var branch = this.branches[j];
         var d = p5.Vector.dist(leaf.pos, branch.pos);
@@ -42,9 +42,7 @@ function Tree() {
           leaf.reached = true;
           closestBranch = null;
           break;
-        } else if (d > max_dist) {
-
-        } else if (closestBranch == null || d < record) {
+        } else if (d < record) {
           closestBranch = branch;
           record = d;
         }
@@ -69,8 +67,8 @@ function Tree() {
       if (branch.count > 0) {
         branch.dir.div(branch.count + 1);
         this.branches.push(branch.next());
+        branch.reset();
       }
-      branch.reset();
     }
   }
 
