@@ -6,7 +6,7 @@ var slider;
 var cols = 40;
 var rows = 30;
 
-var boxes = [];
+const boxes = [];
 
 function setup() {
   noCanvas();
