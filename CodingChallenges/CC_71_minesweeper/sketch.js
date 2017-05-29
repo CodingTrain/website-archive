@@ -13,10 +13,10 @@ var cols;
 var rows;
 var w = 20;
 
-var totalBees = 10;
+var totalBees = 30;
 
 function setup() {
-  createCanvas(201, 201);
+  createCanvas(401, 401);
   cols = floor(width / w);
   rows = floor(height / w);
   grid = make2DArray(cols, rows);
@@ -75,6 +75,7 @@ function mousePressed() {
       }
     }
   }
+  save('canvas.png');
 }
 
 function draw() {
