@@ -23,3 +23,10 @@ Html [Repository](https://github.com/dondanhill/mine-buddy-canvas) | [Demo](http
 [Repository](https://github.com/Parallax-Vector/minesweeper) | [Releases](https://github.com/Parallax-Vector/minesweeper/releases)
 
 Minesweeper with similar (and some additional) features. Made in [Processing.py](http://py.processing.org/)
+
+
+#### By: [Sayan Goswami](https://github.com/sayan98)
+
+Python implementaion with `pygame` librarby, OOP, delayed floodfill & sound! 
+
+[Repository](https://github.com/Sayan98/minesweeper-py/)
