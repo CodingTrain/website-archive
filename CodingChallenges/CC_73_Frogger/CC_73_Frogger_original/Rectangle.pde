@@ -1,3 +1,12 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+
+// Frogger
+// Part 1: https://youtu.be/giXV6xErw0Y
+// Part 2: https://youtu.be/06-ZvYmSeus
+// Part 3: https://youtu.be/hk326ZHlENQ
+
 class Rectangle {
   float x;
   float y;
@@ -22,7 +31,7 @@ class Rectangle {
     float otop = other.y;
     float obottom = other.y + other.h;
 
-    return !(left >= oright || 
+    return !(left >= oright ||
       right <= oleft ||
       top >= obottom ||
       bottom <= otop);

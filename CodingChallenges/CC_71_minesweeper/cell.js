@@ -1,3 +1,10 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+
+// Minesweeper
+// Video: https://youtu.be/LFU5ZlrR21E
+
 function Cell(i, j, w) {
   this.i = i;
   this.j = j;
@@ -39,11 +46,11 @@ Cell.prototype.countBees = function() {
   for (var xoff = -1; xoff <= 1; xoff++) {
     var i = this.i + xoff;
     if (i < 0 || i >= cols) continue;
-    
+
     for (var yoff = -1; yoff <= 1; yoff++) {
       var j = this.j + yoff;
       if (j < 0 || j >= rows) continue;
-      
+
       var neighbor = grid[i][j];
       if (neighbor.bee) {
         total++;
@@ -69,11 +76,11 @@ Cell.prototype.floodFill = function() {
   for (var xoff = -1; xoff <= 1; xoff++) {
     var i = this.i + xoff;
     if (i < 0 || i >= cols) continue;
-    
+
     for (var yoff = -1; yoff <= 1; yoff++) {
       var j = this.j + yoff;
       if (j < 0 || j >= rows) continue;
-      
+
       var neighbor = grid[i][j];
       if (!neighbor.bee && !neighbor.revealed) {
         neighbor.reveal();

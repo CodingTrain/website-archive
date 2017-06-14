@@ -1,4 +1,9 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+
 // Minesweeper
+// Video: https://youtu.be/LFU5ZlrR21E
 
 function make2DArray(cols, rows) {
   var arr = new Array(cols);

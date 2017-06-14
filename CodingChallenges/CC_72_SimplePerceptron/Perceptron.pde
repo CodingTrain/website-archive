@@ -1,3 +1,11 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+
+// Machine Learning
+// Perceptron
+// More: http://natureofcode.com/book/chapter-10-neural-networks/
+// Video: https://youtu.be/ntKn5TPHHAk
 
 // The activation function
 int sign(float n) {
@@ -29,13 +37,13 @@ class Perceptron {
     int output = sign(sum);
     return output;
   }
-  
+
   void train(float[] inputs, int target) {
     int guess = guess(inputs);
     int error = target - guess;
     // Tune all the weights
     for (int i = 0; i < weights.length; i++) {
-      weights[i] += error * inputs[i] * lr;  
+      weights[i] += error * inputs[i] * lr;
     }
   }
 }
