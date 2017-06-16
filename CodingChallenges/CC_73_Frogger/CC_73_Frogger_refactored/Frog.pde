@@ -1,3 +1,13 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+
+// Frogger
+// Part 1: https://youtu.be/giXV6xErw0Y
+// Part 2: https://youtu.be/06-ZvYmSeus
+// Part 3: https://youtu.be/hk326ZHlENQ
+// Part 4: https://youtu.be/c6WdJltqEtM
+
 class Frog extends Rectangle {
 
   Obstacle attached = null;
@@ -12,10 +22,10 @@ class Frog extends Rectangle {
 
   void update() {
     if (attached != null) {
-      frog.x += attached.speed;
+      x += attached.speed;
     }
 
-    frog.x = constrain(x, 0, width-w);
+    x = constrain(x, 0, width-w);
   }
 
   void show() {
@@ -26,6 +36,6 @@ class Frog extends Rectangle {
   void move(float xdir, float ydir) {
     x += xdir * grid;
     y += ydir * grid;
-    frog.attach(null);
+    attach(null);
   }
 }
