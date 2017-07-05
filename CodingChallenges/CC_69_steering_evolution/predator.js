@@ -1,62 +1,47 @@
-// Vehicles health decreases faster if he moves faster
-
 var mr = 0.01;
 
-function Vehicle(x, y, dna) {
+function Predator(x, y, dna) {
     this.acceleration = createVector(0, 0);
     this.velocity = createVector(0, -2);
     this.position = createVector(x, y);
     this.r = 4;
     this.maxforce = 0.5;
-
     this.health = 1;
+    this.maxhealth = 1;
 
     this.dna = [];
     if (dna === undefined) {
-        // Food weight
-        this.dna[0] = random(-2, 2);
-        // Poison/Prey weight
-        this.dna[1] = random(-2, 2);
-        // Food perception
-        this.dna[2] = random(0, 100);
-        // Poision/Prey Percepton
-        this.dna[3] = random(0, 100);
-
         // MaxSpeed
-        this.dna[4] = random(1, 10);
+        this.dna[0] = random(1, 6);
+
+        // Prey perception
+        this.dna[1] = random(90, 100);
+
+        // Prey weight
+        this.dna[2] = random(-2, 2);
 
     } else {
         // Mutation
         this.dna[0] = dna[0];
-        if (random(1) < mr) {
-            this.dna[0] += random(-0.1, 0.1);
-        }
         this.dna[1] = dna[1];
+        this.dna[2] = dna[2];
+        if (random(1) < mr) {
+            this.dna[0] += random(-1, 1);
+        }
         if (random(1) < mr) {
             this.dna[1] += random(-0.1, 0.1);
         }
-        this.dna[2] = dna[2];
         if (random(1) < mr) {
-            this.dna[2] += random(-10, 10);
-        }
-        this.dna[3] = dna[3];
-        if (random(1) < mr) {
-            this.dna[3] += random(-10, 10);
-        }
-
-        this.dna[4] = dna[4];
-        if (random(1) < mr) {
-            this.dna[4] += random(-1, 1);
+            this.dna[2] += random(-0.1, 0.1);
         }
     }
-    this.maxspeed = this.dna[4];
+    this.maxspeed = this.dna[0];
 
     // Method to update location
     this.update = function() {
 
-        var aux = this.dna[4] / 1000;
-        // this.health -= 0.005;
-        this.health -= aux;
+        //var aux = this.dna[0] / 1000;
+        this.health -= 0.002;
 
         // Update velocity
         this.velocity.add(this.acceleration);
@@ -73,61 +58,35 @@ function Vehicle(x, y, dna) {
     }
 
     this.clone = function() {
-        if (random(1) < 0.002) {
-            return new Vehicle(this.position.x, this.position.y, this.dna);
+        if (random(1) < 0.001) {
+            return new Predator(this.position.x, this.position.y, this.dna);
         } else {
             return null;
         }
     }
 
-    this.behaviors = function(good, bad) {
-        var steerG = this.eat(good, 1, this.dna[2]);
-        // var steerB = this.eat(bad, -1, this.dna[3]);
-
-        var steerP = this.foge(this.dna[3])
-
-        steerG.mult(this.dna[0]);
-        //steerB.mult(this.dna[1]);
-
-        steerP.mult(this.dna[1]);
-
+    this.behaviors = function() {
+        var steerG = this.eat(0.8, this.dna[1]);
+        steerG.mult(this.dna[2]);
         this.applyForce(steerG);
-        // this.applyForce(steerB);
-
-        this.applyForce(steerP);
     }
 
 
-
-    this.foge = function(perception) {
+    this.eat = function(nutrition, perception) {
         var record = Infinity;
         var closest = null;
-        for (var i = predators.length - 1; i >= 0; i--) {
-            var d = this.position.dist(predators[i].position);
-            if (d < record && d < perception) {
-                record = d;
-                closest = predators[i].position;
-            }
-        }
-        if (closest != null) {
-            return this.seek(closest);
-        }
-        return createVector(0, 0);
-    }
+        for (var i = vehicles.length - 1; i >= 0; i--) {
 
-    this.eat = function(list, nutrition, perception) {
-        var record = Infinity;
-        var closest = null;
-        for (var i = list.length - 1; i >= 0; i--) {
-            var d = this.position.dist(list[i]);
-
+            var d = this.position.dist(vehicles[i].position);
             if (d < this.maxspeed) {
-                list.splice(i, 1);
-                this.health += nutrition;
+                vehicles.splice(i, 1);
+                if (this.health < this.maxhealth) {
+                    this.health += nutrition;
+                }
             } else {
                 if (d < record && d < perception) {
                     record = d;
-                    closest = list[i];
+                    closest = vehicles[i].position;
                 }
             }
         }
@@ -183,8 +142,8 @@ function Vehicle(x, y, dna) {
             ellipse(0, 0, this.dna[3] * 2);
         }
 
-        var gr = color(0, 255, 0);
-        var rd = color(255, 0, 0);
+        var gr = color(0, 0, 255);
+        var rd = color(0, 0, 0);
         var col = lerpColor(rd, gr, this.health);
 
         fill(col);
