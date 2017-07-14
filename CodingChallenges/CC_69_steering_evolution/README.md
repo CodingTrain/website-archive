@@ -30,6 +30,12 @@
   *Improved the reproduction function
   * All vehicles have a sex (male or female)
   *A better description of the reproduce function in readme
+  
+  #### Versions By: [Simon Tiger](https://github.com/simon-tiger)
+   * Game in Processing ([Repository](https://github.com/simon-tiger/Game_SteeringBehaviorsEvolution))
+     * I am now highlighting the best one
+     * Something moving around with perlin noise adds poison (instead of just adding poison randomly)
+     * Hopefully, soon I will make p5.js version
 
 
 
