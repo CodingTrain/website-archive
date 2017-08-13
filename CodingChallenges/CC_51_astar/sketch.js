@@ -26,7 +26,7 @@ function heuristic(a, b) {
 var cols = 50;
 var rows = 50;
 
-// This will the 2D array
+// This will be the 2D array
 var grid = new Array(cols);
 
 // Open and closed set
