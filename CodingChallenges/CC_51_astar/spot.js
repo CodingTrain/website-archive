@@ -23,7 +23,7 @@ function Spot(i, j) {
   // Where did I come from?
   this.previous = undefined;
 
-  // Am I an wall?
+  // Am I a wall?
   this.wall = false;
   if (random(1) < 0.4) {
     this.wall = true;
