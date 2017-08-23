@@ -13,7 +13,7 @@ function calculateFitness() {
 
 
 
-    fitness[i] = 1 / (d + 1);
+    fitness[i] = 1 / (pow(d, 8) + 1);
   }
 }
 
