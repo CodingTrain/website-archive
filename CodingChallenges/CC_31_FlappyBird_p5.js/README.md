@@ -6,4 +6,6 @@
 
 B New (Red Hen dev) [No Man's Flappycraft](http://www.redhendev.com/NoMansFlappyCraft/) 
 
+[Flappy Shiffman](https://bhamshu.github.io/flappy-shiffman/index.html) by Shubham.
+
 **Made a version? Add you own link :)**
