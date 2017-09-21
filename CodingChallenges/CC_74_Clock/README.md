@@ -4,4 +4,6 @@
 * Original Live Stream Part 2: https://youtu.be/BcbS0MR3vxQ
 
 ## Clocks made by the Community!
-Wall Clock https://www.openprocessing.org/sketch/450332
+* Wall Clock https://www.openprocessing.org/sketch/450332
+* andreanidouglas: [Digital 7 Segment Clock](https://clock-p5-cmtedouglas.c9users.io/index.html), 
+[Source](https://github.com/andreanidouglas/clock-p5)
