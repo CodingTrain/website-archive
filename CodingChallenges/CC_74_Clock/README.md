@@ -7,3 +7,5 @@
 * Wall Clock https://www.openprocessing.org/sketch/450332
 * andreanidouglas: [Digital 7 Segment Clock](https://clock-p5-cmtedouglas.c9users.io/index.html), 
 [Source](https://github.com/andreanidouglas/clock-p5)
+* Arjen Klaverstijn:  [Binary Clock](https://jsfiddle.net/arjhun/fkdohesy/), 
+[Source](https://github.com/arjhun/p5.js-binary-clock)
