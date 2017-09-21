@@ -6,4 +6,5 @@
 ## Clocks made by the Community!
 Add yours here!
 
-** andreanidouglas ** Digital 7 Segment Clock [Link] (https://clock-p5-cmtedouglas.c9users.io/index.html) [Source] (https://github.com/andreanidouglas/clock-p5) 
+** andreanidouglas ** Digital 7 Segment Clock 
+[Link] (https://clock-p5-cmtedouglas.c9users.io/index.html) [Source] (https://github.com/andreanidouglas/clock-p5) 
