@@ -9,4 +9,5 @@
 [Source](https://github.com/andreanidouglas/clock-p5)
 * Arjen Klaverstijn:  [Binary Clock](https://jsfiddle.net/arjhun/fkdohesy/), 
 [Source](https://github.com/arjhun/p5.js-binary-clock)
+* Dollee Bhatia: [Watch with planetary gears](https://codepen.io/dollee/pen/RLRPpg?editors=0010)
 * Alca: [Physics Based Clock](https://codepen.io/Alca/full/boeGBP/), [Source](https://codepen.io/Alca/pen/boeGBP/right)
