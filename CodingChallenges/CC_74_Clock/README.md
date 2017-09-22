@@ -12,3 +12,4 @@
 [Source](https://github.com/arjhun/p5.js-binary-clock)
 * Dollee Bhatia: [Watch with planetary gears](https://codepen.io/dollee/pen/RLRPpg?editors=0010)
 * Alca: [Physics Based Clock](https://codepen.io/Alca/full/boeGBP/), [Source](https://codepen.io/Alca/pen/boeGBP/right)
+* Oleksii Bulba: [Rainbow Clock](https://oleksiibulba.000webhostapp.com/clock/index.html), [Source](https://github.com/AlexBulbaWork/RainBowClock)
