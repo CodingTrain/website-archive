@@ -12,4 +12,6 @@
 [Source](https://github.com/arjhun/p5.js-binary-clock)
 * Dollee Bhatia: [Watch with planetary gears](https://codepen.io/dollee/pen/RLRPpg?editors=0010)
 * Alca: [Physics Based Clock](https://codepen.io/Alca/full/boeGBP/), [Source](https://codepen.io/Alca/pen/boeGBP/right)
-* Dave Briccetti: [3D Clock](https://codepen.io/dcbriccetti/pen/GMqjbr) (Press s to toggle sound.)
+* Dave Briccetti: [3D Clock](https://codepen.io/dcbriccetti/pen/GMqjbr) (Press s to toggle sound.) 
+    * [Video walk-through](https://www.youtube.com/watch?v=ReZIqS4DEfw)
+    * [Video walk-through of simpler versions](https://www.youtube.com/watch?v=Z8QL2mPJam4)
