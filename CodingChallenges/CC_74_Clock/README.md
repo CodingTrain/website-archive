@@ -18,3 +18,4 @@
     * [Video walk-through](https://www.youtube.com/watch?v=ReZIqS4DEfw)
     * [Video walk-through of simpler versions](https://www.youtube.com/watch?v=Z8QL2mPJam4)
 * Oleksii Bulba: [Rainbow Clock](https://oleksiibulba.000webhostapp.com/clock/index.html), [Source](https://github.com/AlexBulbaWork/RainBowClock)
+* Flixs: [Enhanced Circle Clock](https://alpha.editor.p5js.org/Flixs/sketches/BkaElgmo-), [Source](https://github.com/7Flixs/p5_js_clock)
