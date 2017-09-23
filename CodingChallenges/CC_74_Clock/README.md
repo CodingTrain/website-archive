@@ -17,3 +17,4 @@
 * Dave Briccetti: [3D Clock](https://codepen.io/dcbriccetti/pen/GMqjbr) (Press s to toggle sound.)
     * [Video walk-through](https://www.youtube.com/watch?v=ReZIqS4DEfw)
     * [Video walk-through of simpler versions](https://www.youtube.com/watch?v=Z8QL2mPJam4)
+* Oleksii Bulba: [Rainbow Clock](https://oleksiibulba.000webhostapp.com/clock/index.html), [Source](https://github.com/AlexBulbaWork/RainBowClock)
