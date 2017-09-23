@@ -12,3 +12,4 @@
 [Source](https://github.com/arjhun/p5.js-binary-clock)
 * Dollee Bhatia: [Watch with planetary gears](https://codepen.io/dollee/pen/RLRPpg?editors=0010)
 * Alca: [Physics Based Clock](https://codepen.io/Alca/full/boeGBP/), [Source](https://codepen.io/Alca/pen/boeGBP/right)
+* Toferj: [dumb clock - color changes with time](https://toferj.github.io/p5js/clock/), [Source](https://github.com/toferj/p5js/tree/master/clock)
