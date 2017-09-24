@@ -193,3 +193,5 @@ https://www.youtube.com/watch?v=17WoOqgXsRM&list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4Fi
   - [Processing Version](CC_72_SimplePerceptron/)
 - Coding Challenge #73: Frogger
   - [Processing Version](CC_73_Frogger/)
+- Coding Challenge #74: Clock
+  - [JavaScript Version](CC_74_Clock/)
