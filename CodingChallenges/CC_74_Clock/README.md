@@ -22,3 +22,4 @@
 * p5Dojo: [Bezier Clock](http://christernilsson.github.io/Lab/2017/081-BezierClock/), [Source](https://github.com/ChristerNilsson/Lab/tree/master/2017/081-BezierClock)
 * p5Dojo: [QR Clock](http://christernilsson.github.io/Lab/2017/062-QRcode/), [Source](https://github.com/ChristerNilsson/Lab/tree/master/2017/062-QRcode)
 * Merijn_DH: [Newton Clock](http://alpha.editor.p5js.org/Merijn-DH/sketches/rkNjv8ro-)
+* JosephS: [Colorful/Formatted Clock](https://alpha.editor.p5js.org/full/By-iJRIjb), [Source](https://alpha.editor.p5js.org/jspira/sketches/By-iJRIjb)
