@@ -21,3 +21,4 @@
 * Flixs: [Enhanced Circle Clock](https://alpha.editor.p5js.org/Flixs/sketches/BkaElgmo-), [Source](https://github.com/7Flixs/p5_js_clock)
 * p5Dojo: [Bezier Clock](http://christernilsson.github.io/Lab/2017/081-BezierClock/), [Source](https://github.com/ChristerNilsson/Lab/tree/master/2017/081-BezierClock)
 * p5Dojo: [QR Clock](http://christernilsson.github.io/Lab/2017/062-QRcode/), [Source](https://github.com/ChristerNilsson/Lab/tree/master/2017/062-QRcode)
+* Merijn_DH: [Newton Clock](http://alpha.editor.p5js.org/Merijn-DH/sketches/rkNjv8ro-)
