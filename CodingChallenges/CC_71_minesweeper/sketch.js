@@ -80,7 +80,6 @@ function mousePressed() {
       }
     }
   }
-  save('canvas.png');
 }
 
 function draw() {
