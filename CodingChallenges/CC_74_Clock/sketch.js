@@ -2,8 +2,8 @@
 // http://codingtra.in
 // http://patreon.com/codingtrain
 
-// Acrostic
-// Video: https://youtu.be/jwoK5WKVXGw
+// Clock
+// Video: https://youtu.be/E4RyStef-gY
 
  function setup() {
    createCanvas(400, 400);
