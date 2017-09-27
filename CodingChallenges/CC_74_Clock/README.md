@@ -24,3 +24,4 @@
 * Merijn_DH: [Newton Clock](http://alpha.editor.p5js.org/Merijn-DH/sketches/rkNjv8ro-)
 * JosephS: [Colorful/Formatted Clock](https://alpha.editor.p5js.org/full/By-iJRIjb), [Source](https://alpha.editor.p5js.org/jspira/sketches/By-iJRIjb)
 * Page Full of Clocks: https://farazinc.github.io/page-full-of-clocks/, [Source](https://github.com/farazinc/page-full-of-clocks)
+* Haider Ali Punjabi: [Fibonacci Clock](https://hackesta.org/p5/fibonacci-clock/), [Source](https://github.com/haideralipunjabi/p5-projects/tree/master/fibonacci-clock)
