@@ -3,7 +3,7 @@
 // http://patreon.com/codingtrain
 
 // 10PRINT
-// Video coming soon
+// https://www.youtube.com/watch?v=bEyTZ5ZZxZs
 
 let x = 0;
 let y = 0;
