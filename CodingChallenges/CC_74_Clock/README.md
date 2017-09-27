@@ -24,3 +24,5 @@
 * Merijn_DH: [Newton Clock](http://alpha.editor.p5js.org/Merijn-DH/sketches/rkNjv8ro-)
 * JosephS: [Colorful/Formatted Clock](https://alpha.editor.p5js.org/full/By-iJRIjb), [Source](https://alpha.editor.p5js.org/jspira/sketches/By-iJRIjb)
 * Alkemann: [Count the squares](http://alkemann.com/webroot/retro/clock/), [Source](https://gist.github.com/alkemann/1b97aa8240f9dd57ad8d3fb89cd96eae)
+* Page Full of Clocks: https://farazinc.github.io/page-full-of-clocks/, [Source](https://github.com/farazinc/page-full-of-clocks)
+
