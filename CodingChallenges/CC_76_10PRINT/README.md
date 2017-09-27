@@ -1,5 +1,5 @@
 # Coding Challenge 76: 10PRINT
-* Video(s) will be uploaded soon
+* https://www.youtube.com/watch?v=bEyTZ5ZZxZs
 
 ## Community Editions
 * Tino: https://github.com/Tino1008/10-Print
