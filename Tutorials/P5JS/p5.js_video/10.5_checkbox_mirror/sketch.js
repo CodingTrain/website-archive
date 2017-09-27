@@ -6,11 +6,12 @@ var slider;
 var cols = 40;
 var rows = 30;
 
-var boxes = [];
+var boxes;
 
 function setup() {
   noCanvas();
   pixelDensity(1);
+  boxes = [];
   video = createCapture(VIDEO);
   video.size(cols, rows);
   slider = createSlider(0, 255, 77);
