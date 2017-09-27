@@ -2,6 +2,8 @@
 // http://codingtra.in
 // http://patreon.com/codingtrain
 
+// Video: https://youtu.be/76fiD5DvzeQ
+
 function setup() {
   createCanvas(400, 400);
   angleMode(DEGREES);
