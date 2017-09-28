@@ -16,7 +16,7 @@ var earthquakes;
 
 function preload() {
   mapimg = loadImage('https://api.mapbox.com/styles/v1/mapbox/dark-v9/static/' +
-    clat + ',' + clon + ',' + zoom + '/' +
+    clon + ',' + clat + ',' + zoom + '/' +
     ww + 'x' + hh +
     '?access_token=pk.eyJ1IjoiY29kaW5ndHJhaW4iLCJhIjoiY2l6MGl4bXhsMDRpNzJxcDh0a2NhNDExbCJ9.awIfnl6ngyHoB3Xztkzarw');
   // earthquakes = loadStrings('http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.csv');
