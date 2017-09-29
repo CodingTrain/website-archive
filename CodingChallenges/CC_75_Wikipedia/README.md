@@ -1,5 +1,7 @@
 # Coding Challenge 75: Wikipedia
-* Video(s) will be uploaded soon
+* Edited Video: https://youtu.be/RPz75gcHj18
+* Original Live Stream (Part 1): https://youtu.be/bWti0vTbgKU
+* Original Live Stream (Part 2): https://youtu.be/PQwfop4bewM
 
 ## Community Editions
 

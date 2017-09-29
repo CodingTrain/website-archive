@@ -1,5 +1,5 @@
 # Coding Challenge 76: 10PRINT
-* Video(s) will be uploaded soon
+* https://www.youtube.com/watch?v=bEyTZ5ZZxZs
 
 ## Community Editions
 * Tino: https://github.com/Tino1008/10-Print
@@ -9,3 +9,8 @@
 * Windy 10 PRINT by Benjamin Habert: http://www.rand-on.com/projects/2017_10PRINT/windy_10_print.html  ([source code](https://github.com/BenjaminHabert/rand-on/blob/master/_projects/2017_10PRINT/windy_10_print.js))
 * 20hz20khz: https://10print.glitch.me/  ([source code](https://glitch.com/edit/#!/10print?path=views/sketch.js:1:0))
 * Greg Berger: [code](http://gregberger.github.io/10PRINT/)
+* laying twigs: http://madacoo.github.io/layingtwigs/index.html
+* TextEncryption? : https://codepen.io/Zohir/full/VMbwNm/
+* Boguz: https://github.com/boguz/10PRINT
+
+* Check more examples by the '10print' hashtag on Twitter: https://twitter.com/hashtag/10print

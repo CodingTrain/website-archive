@@ -37,6 +37,10 @@
      * Something moving around with perlin noise adds poison (instead of just adding poison randomly)
      * Hopefully, soon I will make p5.js version
 
-
-
-
+#### Predators!
+#### By: [Elton Doehnert](https://github.com/Doehnert)
+[Repository](https://github.com/Doehnert/predators) | [Demo](https://doehnert.github.io/predators/)
+  * Instead of poison there are predators that pursuit the preys
+  * The faster the prey moves, the faster is dies
+  * The predator evolves his maxspeed, prey perception and prey weight
+  * The preys evolves Food weight, Food perception, Poison/Prey weight, Poison/Prey perception, maxspeed
