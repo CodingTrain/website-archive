@@ -10,3 +10,5 @@
 * 20hz20khz: https://10print.glitch.me/  ([source code](https://glitch.com/edit/#!/10print?path=views/sketch.js:1:0))
 * laying twigs: http://madacoo.github.io/layingtwigs/index.html
 * TextEncryption? : https://codepen.io/Zohir/full/VMbwNm/
+
+* Check more examples by the '10print' hashtag on Twitter: https://twitter.com/hashtag/10print
