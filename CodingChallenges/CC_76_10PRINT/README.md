@@ -11,3 +11,5 @@
 * laying twigs: http://madacoo.github.io/layingtwigs/index.html
 * TextEncryption? : https://codepen.io/Zohir/full/VMbwNm/
 * Boguz: https://github.com/boguz/10PRINT
+
+* Check more examples by the '10print' hashtag on Twitter: https://twitter.com/hashtag/10print
