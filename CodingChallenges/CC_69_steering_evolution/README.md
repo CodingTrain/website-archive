@@ -44,3 +44,9 @@
   * The faster the prey moves, the faster is dies
   * The predator evolves his maxspeed, prey perception and prey weight
   * The preys evolves Food weight, Food perception, Poison/Prey weight, Poison/Prey perception, maxspeed
+
+#### Slider Inputs
+#### By: [Addison H](https://github.com/addyh)
+[Repository](https://github.com/addyh/addyh.github.io/tree/master/evolutionary-steering) | [Demo](https://addyh.github.io/evolutionary-steering/)
+  * Features sliders to modify global values and DNA mutations.
+  * Lists out the stats of all vehicles, highlighting the best.
