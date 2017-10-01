@@ -12,5 +12,7 @@
 * laying twigs: http://madacoo.github.io/layingtwigs/index.html
 * TextEncryption? : https://codepen.io/Zohir/full/VMbwNm/
 * Boguz: https://github.com/boguz/10PRINT
+* MorsePrint: [Demo](https://hackesta.org/p5/10Print/?printer=morsePrint&colorize=true) [Source](https://github.com/haideralipunjabi/p5-projects/tree/master/10Print)  
+* BinaryPrint: [Demo](https://hackesta.org/p5/10Print/?printer=binaryPrint&colorize=true) [Source](https://github.com/haideralipunjabi/p5-projects/tree/master/10Print)  
 
 * Check more examples by the '10print' hashtag on Twitter: https://twitter.com/hashtag/10print
