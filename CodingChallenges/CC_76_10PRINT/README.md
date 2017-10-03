@@ -13,6 +13,7 @@
 * TextEncryption? : [Demo](https://codepen.io/Zohir/full/VMbwNm/) | [Source](https://codepen.io/Zohir/pen/VMbwNm)
 * Boguz: [Demo](https://codepen.io/anon/pen/QqMPPV) | [Source](https://github.com/boguz/10PRINT)
 * MorsePrint: [Demo](https://hackesta.org/p5/10Print/?printer=morsePrint&colorize=true) | [Source](https://github.com/haideralipunjabi/p5-projects/tree/master/10Print)  
-* BinaryPrint: [Demo](https://hackesta.org/p5/10Print/?printer=binaryPrint&colorize=true) | [Source](https://github.com/haideralipunjabi/p5-projects/tree/master/10Print)  
+* BinaryPrint: [Demo](https://hackesta.org/p5/10Print/?printer=binaryPrint&colorize=true) | [Source](https://github.com/haideralipunjabi/p5-projects/tree/master/10Print)
+* Michael Hazani: [Demo](http://michaelhazani.com/projects/tenCubedPrint/) | [Source](http://michaelhazani.com/projects/tenCubedPrint/app.js)  
 
 * Check more examples by the '10print' hashtag on Twitter: https://twitter.com/hashtag/10print
