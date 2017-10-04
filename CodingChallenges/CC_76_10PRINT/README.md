@@ -1,5 +1,6 @@
 # Coding Challenge 76: 10PRINT
 * https://www.youtube.com/watch?v=bEyTZ5ZZxZs
+* [Click Here](https://codepen.io/codingTrain/full/qPVpzW/) to view it on CodePen.
 
 ## Community Editions
 * Tino: [Demo](https://tino1008.github.io/10-Print/) | [Source](https://github.com/Tino1008/10-Print)
