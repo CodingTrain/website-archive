@@ -1,5 +1,8 @@
 # Coding Challenge 76: 10PRINT
-* https://www.youtube.com/watch?v=bEyTZ5ZZxZs
+* Edited Video: https://www.youtube.com/watch?v=bEyTZ5ZZxZs
+* Original Live Stream (Part 1): https://youtu.be/bWti0vTbgKU
+* Original Live Stream (Part 2): https://youtu.be/PQwfop4bewM
+* See This Example Running: https://codingtrain.github.io/Rainbow-Code/CodingChallenges/CC_76_10PRINT/
 
 ## Community Editions
 * Tino: [Demo](https://tino1008.github.io/10-Print/) | [Source](https://github.com/Tino1008/10-Print)
