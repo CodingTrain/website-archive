@@ -6,3 +6,10 @@
 
 ## Community Editions
 There are no Community Editions yet. Add yours here!
+
+
+"Fractaloid"
+Interactive Fractal Branches 
+by Diego de la Fuente Curaqueo
+www.openprocessing.org/sketch/457282
+github.com/diegodelaefe/Fractaloid
