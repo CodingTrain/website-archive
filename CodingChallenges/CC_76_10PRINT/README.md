@@ -5,6 +5,7 @@
 * See This Example Running: https://codingtrain.github.io/Rainbow-Code/CodingChallenges/CC_76_10PRINT/
 
 ## Community Editions
+* Red Hen: [10Print with Perlin noise](https://codepen.io/RedHenDev/pen/OxOZWM)
 * Tino: [Demo](https://tino1008.github.io/10-Print/) | [Source](https://github.com/Tino1008/10-Print)
 * JosefKuchar: [Demo](https://josefkuchar.github.io/p5-projects/CC_76_10PRINT_scroller/) | [Source](https://github.com/JosefKuchar/p5-projects/tree/master/CC_76_10PRINT_scroller)
 * Merijn_DH: [Demo](http://merijndh.nl/p5_sketches/10PRINT/) | [Source](http://merijndh.nl/p5_sketches/10PRINT/p5_10PRINT.js)
