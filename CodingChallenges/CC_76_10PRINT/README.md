@@ -21,6 +21,7 @@
 * Michael Hazani: [Demo](http://michaelhazani.com/projects/tenCubedPrint/) | [Source](http://michaelhazani.com/projects/tenCubedPrint/app.js)
 * Liquid10PRINT: [Demo](https://wolfi3654.github.io/JavaSciptThings/10print/) | [Source](https://github.com/WOLFI3654/JavaSciptThings)
 * Alca: [Demo](https://codepen.io/Alca/full/zEoBRq/) | [Source](https://codepen.io/Alca/pen/zEoBRq/right)
-* Riccardo Zaffalon: [Demo](https://riccardozaffalon.github.io/p5-Sketches/p5-10print/) | [Source](https://github.com/RiccardoZaffalon/p5-Sketches/blob/master/p5-10print/index.html)
+* Riccardo Zaffalon: [Demo](https://riccardozaffalon.github.io/p5-Sketches/p5-10print/) | [Source](https://github.com/RiccardoZaffalon/p5-Sketches/blob/master/p5-10print/index.html)  
+* Pankaj Sambyal: [Demo](https://CuriousPankaj.github.io/10print/) | [Source](https://github.com/CuriousPankaj/10print)  
 
 * Check more examples by the '10print' hashtag on Twitter: https://twitter.com/hashtag/10print
