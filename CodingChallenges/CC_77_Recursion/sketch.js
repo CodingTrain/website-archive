@@ -2,7 +2,7 @@
 // http://codingtra.in
 // http://patreon.com/codingtrain
 
-// Wikipedia
+// Recursion
 // Edited Video: https://www.youtube.com/watch?v=jPsZwrV9ld0
 
 function setup() {

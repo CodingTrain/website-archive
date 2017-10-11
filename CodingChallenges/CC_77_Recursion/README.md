@@ -5,9 +5,6 @@
 
 
 ## Community Editions
-There are no Community Editions yet. Add yours here!
-
-
 "Fractaloid" - Interactive Fractal Branches by Diego de la Fuente Curaqueo - [Demo](https://www.openprocessing.org/sketch/457282) | [Source](github.com/diegodelaefe/Fractaloid)
 
 Alca - [Demo](https://codepen.io/Alca/full/pWaZaX/) | [Source](https://codepen.io/Alca/pen/pWaZaX/right)
