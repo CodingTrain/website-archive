@@ -5,4 +5,4 @@
 
 
 ## Community Editions
-There are no Community Editions yet. Add yours here!
+* Riccardo Zaffalon | Audio and Color Gradient Particle System: [Demo](https://riccardozaffalon.github.io/p5-Sketches/p5-particle-system/) | [Source](https://github.com/RiccardoZaffalon/p5-Sketches/blob/gh-pages/p5-particle-system/sketch.js)
