@@ -201,3 +201,5 @@ https://www.youtube.com/watch?v=17WoOqgXsRM&list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4Fi
   - [JavaScript Version](CC_76_10PRINT/)
 - Coding Challenge #77: Recursion
   - [JavaScript Version](CC_77_Recursion/)
+- Coding Challenge #78: Simple Particle System
+  - [JavaScript Version](CC_78_Simple_Particle_System/)
