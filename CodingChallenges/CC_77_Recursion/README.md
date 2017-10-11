@@ -5,7 +5,7 @@
 
 
 ## Community Editions
-There are no Community Editions yet. Add yours here!
+Add your Community Editions here!
 
 
 "Fractaloid" - Interactive Fractal Branches by Diego de la Fuente Curaqueo - [Demo](https://www.openprocessing.org/sketch/457282) | [Source](github.com/diegodelaefe/Fractaloid)
@@ -13,3 +13,5 @@ There are no Community Editions yet. Add yours here!
 Alca - [Demo](https://codepen.io/Alca/full/pWaZaX/) | [Source](https://codepen.io/Alca/pen/pWaZaX/right)
 
 "Fractal Ball" - jjwkdl - [Demo](https://jjwkdl.github.io/wordpress-content/javascript/fractal-ball/) | [Source](https://github.com/jjwkdl/wordpress-content/tree/master/javascript/fractal-ball)
+
+Justin Riley Recursive Remix - [Demo](https://recursion.glitch.me/) | [Source](https://glitch.com/edit/#!/recursion)
