@@ -15,3 +15,7 @@ Alca - [Demo](https://codepen.io/Alca/full/pWaZaX/) | [Source](https://codepen.i
 "Fractal Ball" - jjwkdl - [Demo](https://jjwkdl.github.io/wordpress-content/javascript/fractal-ball/) | [Source](https://github.com/jjwkdl/wordpress-content/tree/master/javascript/fractal-ball)
 
 Justin Riley Recursive Remix - [Demo](https://recursion.glitch.me/) | [Source](https://glitch.com/edit/#!/recursion)
+
+Recursive Squares - [Demo](https://codepen.io/DonKarlssonSan/full/PJQvKG) | [Source](https://codepen.io/DonKarlssonSan/pen/PJQvKG)
+
+Recursive Koch Curve - [Demo](https://codepen.io/DonKarlssonSan/full/yzjywa) | [Source](https://codepen.io/DonKarlssonSan/pen/yzjywa)
