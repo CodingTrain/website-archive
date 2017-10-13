@@ -5,6 +5,7 @@
 
 
 ## Community Editions
+* [#ParticleTrain on Twitter](http://twitter.com/hashtag/particletrain)
 * Riccardo Zaffalon | Audio and Color Gradient Particle System: [Demo](https://riccardozaffalon.github.io/p5-Sketches/p5-particle-system/) | [Source](https://github.com/RiccardoZaffalon/p5-Sketches/blob/gh-pages/p5-particle-system/sketch.js)
 * Embers by Alca - [Demo](https://codepen.io/Alca/full/MEVaBg) | [Source](https://codepen.io/Alca/pen/MEVaBg/right)
 * Simple Bubble : [Demo](https://codepen.io/Zohir/full/dVKQPE/) | [Source](https://codepen.io/Zohir/full/dVKQPE/)
