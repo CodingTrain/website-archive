@@ -9,3 +9,4 @@
 - Embers by Alca - [Demo](https://codepen.io/Alca/full/MEVaBg) | [Source](https://codepen.io/Alca/pen/MEVaBg/right)
 - Simple Bubble : [Demo](https://codepen.io/Zohir/full/dVKQPE/) | [Source](https://codepen.io/Zohir/full/dVKQPE/)  
 - Pankaj Sambyal : [Demo](https://curiouspankaj.github.io/p5-projects/smoke/) | [Source](https://github.com/CuriousPankaj/p5-projects/tree/master/smoke)
+- Particles Move Toward Center, by Dave Briccetti: [Demo](https://codepen.io/dcbriccetti/pen/LzJERV) | [Walkthrough](http://youtu.be/3jfZl_axWJQ)
