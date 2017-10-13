@@ -11,4 +11,5 @@
 * Simple Bubble : [Demo](https://codepen.io/Zohir/full/dVKQPE/) | [Source](https://codepen.io/Zohir/full/dVKQPE/)
 * Somkey Chimney [Demo](https://codepen.io/Zohir/full/mBGmzQ/) | [Source](https://codepen.io/Zohir/full/mBGmzQ/)
 * Pankaj Sambyal : [Demo](https://curiouspankaj.github.io/p5-projects/smoke/) | [Source](https://github.com/CuriousPankaj/p5-projects/tree/master/smoke)
+* Diego de la Fuente C. | Flying Shapes (Formas voladoras) : [Demo](https://www.openprocessing.org/sketch/460736) | [Source](https://github.com/diegodelaefe/Particulas)
 * Particles Move Toward Center, by Dave Briccetti: [Demo](https://codepen.io/dcbriccetti/pen/LzJERV) | [Walkthrough](http://youtu.be/3jfZl_axWJQ)
