@@ -15,6 +15,7 @@ var zoom = 1;
 var earthquakes;
 
 function preload() {
+  // The clon and clat in this url are edited to be in the correct order.
   mapimg = loadImage('https://api.mapbox.com/styles/v1/mapbox/dark-v9/static/' +
     clon + ',' + clat + ',' + zoom + '/' +
     ww + 'x' + hh +
@@ -56,6 +57,13 @@ function setup() {
     var mag = data[4];
     var x = mercX(lon) - cx;
     var y = mercY(lat) - cy;
+    // This addition fixes the case where the longitude is non-zero and
+    // points can go off the screen.
+    if(x < - width/2) {
+      x += width;
+    } else if(x > width / 2) {
+      x -= width;
+    }
     mag = pow(10, mag);
     mag = sqrt(mag);
     var magmax = sqrt(pow(10, 10));
