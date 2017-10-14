@@ -14,3 +14,4 @@
 * Diego de la Fuente C. | Flying Shapes (Formas voladoras) : [Demo](https://www.openprocessing.org/sketch/460736) | [Source](https://github.com/diegodelaefe/Particulas)
 * Particles Move Toward Center, by Dave Briccetti: [Demo](https://codepen.io/dcbriccetti/pen/LzJERV) | [Walkthrough](http://youtu.be/3jfZl_axWJQ)
 * Colourful Circles - Added the idea of a z-axis. By: Trevor Clarke: [Demo](https://codepen.io/_TrevorC_/full/mBGKGz/) | [Source](https://codepen.io/_TrevorC_/pen/mBGKGz)
+* ParticleTrain by DesignerAndGeek: [Demo/Source](https://www.openprocessing.org/sketch/460769)
