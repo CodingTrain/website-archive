@@ -6,6 +6,6 @@
 
 ## Community Editions
 
-### by: [Simon Tiger](https://simon-tiger.github.io/wikipedia-crawler/wikipedia)
-* Is also a graph-of-relatedness revealer.
-* You can click on the nodes (articles) to reveal its related articles.
+* Simon Tiger: [Demo](https://simon-tiger.github.io/wikipedia-crawler/wikipedia) | [Source](https://github.com/Tino1008/10-Print)
+  * Is also a graph-of-relatedness revealer.
+  * You can click on the nodes (articles) to reveal its related articles.
