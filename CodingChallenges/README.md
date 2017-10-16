@@ -203,3 +203,5 @@ https://www.youtube.com/watch?v=17WoOqgXsRM&list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4Fi
   - [JavaScript Version](CC_77_Recursion/)
 - Coding Challenge #78: Simple Particle System
   - [JavaScript Version](CC_78_Simple_Particle_System/)
+- Coding Challenge #79: Number Guessing Chatbot
+  - [JavaScript Version](CC_79_Number_Guessing_Chatbot/)
