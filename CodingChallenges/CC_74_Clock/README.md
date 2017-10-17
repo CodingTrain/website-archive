@@ -29,3 +29,4 @@
 * Haider Ali Punjabi: [Fibonacci Clock](https://hackesta.org/p5/fibonacci-clock/), [Source](https://github.com/haideralipunjabi/p5-projects/tree/master/fibonacci-clock)  
 * Haider Ali Punjabi: [Archimedes Clock](https://hackesta.org/p5/archimedes-clock/), [Source](https://github.com/haideralipunjabi/p5-projects/tree/master/archimedes-clock)
 * Stripes clock, by Boguz: https://boguz.github.io/stripeclock/
+* Clock with text at the edge of lines. https://www.openprocessing.org/sketch/461595
