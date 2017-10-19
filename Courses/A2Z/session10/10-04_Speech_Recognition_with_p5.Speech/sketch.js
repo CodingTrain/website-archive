@@ -1,3 +1,8 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+// Code for: https://youtu.be/q_bXBcmfTJM
+
 function setup() {
   noCanvas();
   let lang = navigator.language || 'en-US';

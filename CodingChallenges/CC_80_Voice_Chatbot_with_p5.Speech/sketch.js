@@ -1,3 +1,10 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+
+// Voice Chatbot with p5.Speech
+// Edited Video: https://youtu.be/iFTgphKCP9U
+
 function setup() {
   noCanvas();
   let speech = new p5.Speech();

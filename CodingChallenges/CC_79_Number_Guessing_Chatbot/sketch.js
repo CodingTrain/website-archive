@@ -2,7 +2,7 @@
 // http://codingtra.in
 // http://patreon.com/codingtrain
 
-// Simple Particle System
+// Number Guessing Chatbot
 // Edited Video: https://www.youtube.com/watch?v=zGe1m_bLOFk
 function setup() {
   noCanvas();
