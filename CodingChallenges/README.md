@@ -205,3 +205,5 @@ https://www.youtube.com/watch?v=17WoOqgXsRM&list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4Fi
   - [JavaScript Version](CC_78_Simple_Particle_System/)
 - Coding Challenge #79: Number Guessing Chatbot
   - [JavaScript Version](CC_79_Number_Guessing_Chatbot/)
+- Coding Challenge #80: Voice Chatbot with p5.Speech
+  - [Javascript Version](CC_80_Voice_Chatbot_with_p5.Speech/)
