@@ -5,4 +5,7 @@
 
 
 ## Community Editions
-- Add your edition here!
+- Dave Briccetti’s Stupid Nonsense Spoken Sentences
+[Run](http://davebsoft.com/software/stupid-nonsense-spoken-sentences/) |
+[Source](https://github.com/dcbriccetti/web-games/tree/master/stupid-nonsense-spoken-sentences) |
+[Walkthrough](https://www.youtube.com/watch?v=L5_Cnx_EIZo)
