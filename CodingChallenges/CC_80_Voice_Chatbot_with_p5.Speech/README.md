@@ -5,7 +5,7 @@
 
 
 ## Community Editions
-- Dave Briccetti’s Stupid Nonsense Spoken Sentences
+- Dave Briccetti’s Stupid Nonsense Spoken Sentences V2 (using the [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API) directly)
 [Run](http://davebsoft.com/software/stupid-nonsense-spoken-sentences/) |
 [Source](https://github.com/dcbriccetti/web-games/tree/master/stupid-nonsense-spoken-sentences) |
-[Walkthrough](https://www.youtube.com/watch?v=L5_Cnx_EIZo)
+[Walkthrough](https://www.youtube.com/watch?v=x3uNQs1rQWo)
