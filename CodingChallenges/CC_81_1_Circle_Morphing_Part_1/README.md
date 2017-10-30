@@ -1,0 +1,8 @@
+# Coding Challenge 81.1: Circle Morphing Part 1
+* [Edited Video Coming Soon]()
+* [Original Live Stream](https://www.youtube.com/watch?v=ldx_J589fcs)
+* [Example Running Online](https://codingtrain.github.io/Rainbow-Code/CodingChallenges/CC_81_1_Circle_Morphing_Part_1/)
+
+
+## Community Editions
+- Add your version here
