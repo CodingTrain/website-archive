@@ -207,3 +207,6 @@ https://www.youtube.com/watch?v=17WoOqgXsRM&list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4Fi
   - [JavaScript Version](CC_79_Number_Guessing_Chatbot/)
 - Coding Challenge #80: Voice Chatbot with p5.Speech
   - [Javascript Version](CC_80_Voice_Chatbot_with_p5.Speech/)
+- Coding Challenge #81: Circle Morphing
+  - [Javascript Version](CC_81_1_Circle_Morphing_Part_1/) (Part 1)
+  - [Javascript Version](CC_81_2_Circle_Morphing_Part_2/) (Part 2)
