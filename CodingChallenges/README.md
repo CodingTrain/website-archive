@@ -3,7 +3,7 @@
 Here you can find all the source code for the coding Challenges I made.
 
 Here is the playlist of all my coding challenges:
-https://www.youtube.com/watch?v=17WoOqgXsRM&list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH
+[Watch Youtube Playlist](https://www.youtube.com/watch?v=17WoOqgXsRM&list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH "Coding Challenges")
 
 ## List of Coding Challenges
 
