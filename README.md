@@ -1,21 +1,37 @@
-# Video-Lessons
-
-I'm using this repo to keep track of supplemental content for my video lessons. This includes:
-* captions
-* accompanying source code
-* notes with links and other materials referenced in the videos
-* better video descriptions for vimeo or youtube pages
-
-# Questions? Need Support?
+# Key Links
+* [The Coding Train](https://www.youtube.com/user/shiffman/)
 * [Become a Patreon](http://patreon.com/codingtrain "Coding Train - Patreon")
+* [Suggest a Topic!](https://github.com/CodingTrain/Rainbow-Topics/)
 
-# Learning Processing video site
-* [Learning Processing](http://learningprocessing.com/videos/ "Learning Processing Videos")
+# Future Live Streams
 
-# Youtube
-* [Learning Processing](https://www.youtube.com/user/shiffman/playlists?view=50&shelf_id=2&sort=dd "Learning Processing - Youtube")
-* [The Nature of Code](https://www.youtube.com/user/shiffman/playlists?view=50&shelf_id=6&sort=dd "The Nature of Code - Youtube")
+#### Friday, Nov 3 Postponed due to bad cold
 
-# Vimeo channels
-* [Introduction to Computational Media](https://vimeo.com/channels/introcompmedia "Introduction to Computational Media - Vimeo")
-* [The Nature of Code](https://vimeo.com/channels/natureofcode "The Nature of Code - Vimeo")
+#### Friday, Nov 10, 10:30am - 12:30pm
+* Chrome Extensions
+
+#### Friday, Nov 17, 3pm - 5pm
+* Topics TBA
+
+#### Friday, Nov 24, No Stream, Thanksgiving
+* Topics TBA
+
+#### Friday, Dec 1, 10:30am - 12:30pm
+* Topics TBA
+
+#### Friday, Dec 8, 3pm - 5pm
+* Topics TBA
+
+#### Wednesday, Wed 13, Bonus November Makeup!
+* Topics TBA
+
+#### Friday, Dec 15, 10:30am - 12:30pm
+* Topics TBA
+
+#### Wednesday, Dec 20, Holiday Extravaganza!
+* Topics TBA
+
+# Past Live Streams
+
+
+
