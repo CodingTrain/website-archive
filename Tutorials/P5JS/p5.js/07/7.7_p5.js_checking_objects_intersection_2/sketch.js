@@ -3,7 +3,7 @@
 Code for video https://vimeo.com/channels/learningp5js/141919524
 */
 
-var bubbles = [];
+let bubbles = [];
 
 function setup() {
   createCanvas(600, 400);
