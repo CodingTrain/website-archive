@@ -5,6 +5,8 @@
 
 # Future Live Streams
 
+All times are in EDT and are subject to change! You can confirm the exact time by visiting [The Coding Train Live](https://www.youtube.com/user/shiffman/) the day of.
+
 ### ~Friday, Nov 3~: Postponed due to bad cold
 
 ### Friday, Nov 10: 10:30am - 12:30pm
