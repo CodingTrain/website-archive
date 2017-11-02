@@ -11,19 +11,19 @@
 * Chrome Extensions
 
 #### Friday, Nov 17: 3pm - 5pm
-- more OOP in JS
-- Alexa skill 
+* more OOP in JS
+* Alexa skill 
 
 #### ~Friday, Nov 24~: No Stream, Thanksgiving
 
 #### Friday, Dec 1: 10:30am - 12:30pm
-- more OOP in JS
-- map(), reduce() array functions
-- word2vec
+* more OOP in JS
+* map(), reduce() array functions
+* word2vec
 
 #### Friday, Dec 8: 3pm - 5pm
-- Promises
-- Bayesian text classification
+* Promises
+* Bayesian text classification
 
 #### Wednesday, Dec 13: Bonus November Makeup!
 * Topics TBA
