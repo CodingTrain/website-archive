@@ -5,30 +5,30 @@
 
 # Future Live Streams
 
-#### Friday, Nov 3 Postponed due to bad cold
+#### Friday, Nov 3: Postponed due to bad cold
 
-#### Friday, Nov 10, 10:30am - 12:30pm
+#### Friday, Nov 10: 10:30am - 12:30pm
 * Chrome Extensions
 
-#### Friday, Nov 17, 3pm - 5pm
+#### Friday, Nov 17: 3pm - 5pm
 * Topics TBA
 
-#### Friday, Nov 24, No Stream, Thanksgiving
+#### Friday, Nov 24: No Stream, Thanksgiving
 * Topics TBA
 
-#### Friday, Dec 1, 10:30am - 12:30pm
+#### Friday, Dec 1: 10:30am - 12:30pm
 * Topics TBA
 
-#### Friday, Dec 8, 3pm - 5pm
+#### Friday, Dec 8: 3pm - 5pm
 * Topics TBA
 
-#### Wednesday, Wed 13, Bonus November Makeup!
+#### Wednesday, Wed 13: Bonus November Makeup!
 * Topics TBA
 
-#### Friday, Dec 15, 10:30am - 12:30pm
+#### Friday, Dec 15: 10:30am - 12:30pm
 * Topics TBA
 
-#### Wednesday, Dec 20, Holiday Extravaganza!
+#### Wednesday, Dec 20: Holiday Extravaganza!
 * Topics TBA
 
 # Past Live Streams
