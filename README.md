@@ -5,7 +5,7 @@
 
 # Future Live Streams
 
-#### Friday, Nov 3: Postponed due to bad cold
+#### ~Friday, Nov 3~: Postponed due to bad cold
 
 #### Friday, Nov 10: 10:30am - 12:30pm
 * Chrome Extensions
@@ -13,8 +13,7 @@
 #### Friday, Nov 17: 3pm - 5pm
 * Topics TBA
 
-#### Friday, Nov 24: No Stream, Thanksgiving
-* Topics TBA
+#### ~Friday, Nov 24~: No Stream, Thanksgiving
 
 #### Friday, Dec 1: 10:30am - 12:30pm
 * Topics TBA
