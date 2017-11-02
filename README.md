@@ -11,21 +11,27 @@
 * Chrome Extensions
 
 #### Friday, Nov 17: 3pm - 5pm
-* Topics TBA
+- more OOP in JS
+- Alexa skill 
 
 #### ~Friday, Nov 24~: No Stream, Thanksgiving
 
 #### Friday, Dec 1: 10:30am - 12:30pm
-* Topics TBA
+- more OOP in JS
+- map(), reduce() array functions
+- word2vec
 
 #### Friday, Dec 8: 3pm - 5pm
-* Topics TBA
+- Promises
+- Bayesian text classification
 
 #### Wednesday, Dec 13: Bonus November Makeup!
 * Topics TBA
 
 #### Friday, Dec 15: 10:30am - 12:30pm
 * Topics TBA
+
+#### Monday, Dec 18: ITP Show live stream!
 
 #### Wednesday, Dec 20: Holiday Extravaganza!
 * Topics TBA
