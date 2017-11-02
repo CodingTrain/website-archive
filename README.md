@@ -21,7 +21,7 @@
 #### Friday, Dec 8: 3pm - 5pm
 * Topics TBA
 
-#### Wednesday, Wed 13: Bonus November Makeup!
+#### Wednesday, Dec 13: Bonus November Makeup!
 * Topics TBA
 
 #### Friday, Dec 15: 10:30am - 12:30pm
