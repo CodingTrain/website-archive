@@ -5,35 +5,35 @@
 
 # Future Live Streams
 
-#### ~Friday, Nov 3~: Postponed due to bad cold
+### ~Friday, Nov 3~: Postponed due to bad cold
 
-#### Friday, Nov 10: 10:30am - 12:30pm
+### Friday, Nov 10: 10:30am - 12:30pm
 * Chrome Extensions
 
-#### Friday, Nov 17: 3pm - 5pm
+### Friday, Nov 17: 3pm - 5pm
 * more OOP in JS
 * Alexa skill 
 
-#### ~Friday, Nov 24~: No Stream, Thanksgiving
+### ~Friday, Nov 24~: No Stream, Thanksgiving
 
-#### Friday, Dec 1: 10:30am - 12:30pm
+### Friday, Dec 1: 10:30am - 12:30pm
 * more OOP in JS
 * map(), reduce() array functions
 * word2vec
 
-#### Friday, Dec 8: 3pm - 5pm
+### Friday, Dec 8: 3pm - 5pm
 * Promises
 * Bayesian text classification
 
-#### Wednesday, Dec 13: Bonus November Makeup!
+### Wednesday, Dec 13: Bonus November Makeup!
 * Topics TBA
 
-#### Friday, Dec 15: 10:30am - 12:30pm
+### Friday, Dec 15: 10:30am - 12:30pm
 * Topics TBA
 
-#### Monday, Dec 18: ITP Show live stream!
+### Monday, Dec 18: ITP Show live stream!
 
-#### Wednesday, Dec 20: Holiday Extravaganza!
+### Wednesday, Dec 20: Holiday Extravaganza!
 * Topics TBA
 
 # Past Live Streams
