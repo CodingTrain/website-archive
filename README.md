@@ -14,6 +14,7 @@ All times are in EDT and are subject to change! You can confirm the exact time b
 
 ### Friday, Nov 17: 3pm - 5pm
 * more OOP in JS
+* WEBGL revisited
 * Alexa skill 
 
 ### ~Friday, Nov 24~: No Stream, Thanksgiving
@@ -28,7 +29,7 @@ All times are in EDT and are subject to change! You can confirm the exact time b
 * Bayesian text classification
 
 ### Wednesday, Dec 13: Bonus November Makeup!
-* Topics TBA
+* iTerm
 
 ### Friday, Dec 15: 10:30am - 12:30pm
 * Topics TBA
