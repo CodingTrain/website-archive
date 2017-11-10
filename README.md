@@ -13,23 +13,28 @@ All times are in EDT and are subject to change! You can confirm the exact time b
 * Chrome Extensions
 
 ### Friday, Nov 17: 3pm - 5pm
-* more OOP in JS
+* Continue Chrome Extensions
+   * pop-up
+   * pop-up with messages
+   * tab override
+   * omnibox (probably should skip)
 * WEBGL revisited
-* Alexa skill 
+* iTerm
+* more OOP in JS
 
 ### ~Friday, Nov 24~: No Stream, Thanksgiving
 
 ### Friday, Dec 1: 10:30am - 12:30pm
 * more OOP in JS
+* Alexa skill 
 * map(), reduce() array functions
-* word2vec
 
 ### Friday, Dec 8: 3pm - 5pm
+* word2vec
 * Promises
-* Bayesian text classification
 
 ### Wednesday, Dec 13: Bonus November Makeup!
-* iTerm
+* Bayesian text classification
 
 ### Friday, Dec 15: 10:30am - 12:30pm
 * Topics TBA
