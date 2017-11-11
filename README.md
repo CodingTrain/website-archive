@@ -8,8 +8,6 @@
 
 All times are in EDT and are subject to change! You can confirm the exact time by visiting [The Coding Train Live](https://www.youtube.com/user/shiffman/) the day of.
 
-### ~Friday, Nov 3~: Postponed due to bad cold
-
 ### Friday, Nov 10: 10:30am - 12:30pm
 * Chrome Extensions
 
@@ -44,6 +42,11 @@ All times are in EDT and are subject to change! You can confirm the exact time b
 
 ### Wednesday, Dec 20: Holiday Extravaganza!
 * Topics TBA
+
+# Other topics I'm considering soon
+* Mappa p5 library (traveling sales on a map?)
+* game of life coding challenge
+* boids coding challenge
 
 # Past Live Streams
 * [Live Stream #105: p5.js Workflow, Circle Morphing and Arrow Function](https://youtu.be/ldx_J589fcs?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
