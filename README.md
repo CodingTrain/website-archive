@@ -14,6 +14,7 @@ All times are in EDT and are subject to change! You can confirm the exact time b
    * pop-up with messages
    * tab override
    * omnibox (probably should skip)
+* *Browser* extensions
 * WEBGL revisited
 * `exec()` with node (densecap with p5 and node?)
 * iTerm
