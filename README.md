@@ -1,6 +1,6 @@
 # Key Links
 * [The Coding Train](https://www.youtube.com/user/shiffman/)
-* [Become a Patreon](http://patreon.com/codingtrain "Coding Train - Patreon")
+* [Become a Patron](http://patreon.com/codingtrain "Coding Train - Patreon")
 * [Suggest a Topic!](https://github.com/CodingTrain/Rainbow-Topics/)  
 * [Coding Train Store](http://codingtrain.storenvy.com)
 
