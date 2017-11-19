@@ -210,3 +210,7 @@ Here is the playlist of all my coding challenges:
 - Coding Challenge #81: Circle Morphing
   - [Javascript Version](CC_81_1_Circle_Morphing_Part_1/) (Part 1)
   - [Javascript Version](CC_81_2_Circle_Morphing_Part_2/) (Part 2)
+- Coding Challenge #82: Image Chrome Extention: The Ex-Kitten-sion
+  - [Javascript Version](CC_82_Image_Chrome_Extension_The_Ex-Kitten-sion)
+- Coding Challenge #83: Chrome Extension with p5js Sketch
+  - [Javascript Version](CC_83_Chrome_Extension_with_p5js_Sketch)
