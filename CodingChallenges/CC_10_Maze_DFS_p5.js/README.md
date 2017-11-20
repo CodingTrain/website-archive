@@ -14,3 +14,12 @@ Videos for this challenge:
   
 * Part 4: https://www.youtube.com/watch?v=_p5IH0L63wo
   * In this final part, I cover the concept of a "stack" and how it's going to help us generate a maze using the Depth-First Search Recursive algorithm
+
+## Community Variations
+
+### By: [LFSousa](https://github.com/LFSousa)
+[Repository](https://github.com/LFSousa/p5-samples/tree/master/MazeGen) | [Demo](http://p5-samples.filipe.xyz/MazeGen/)
+
+Included features:
+- Added a solve button to execute a solving algorithm and draw a line in the best path
+***
