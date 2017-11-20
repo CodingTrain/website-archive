@@ -214,3 +214,5 @@ Here is the playlist of all my coding challenges:
   - [Javascript Version](CC_82_Image_Chrome_Extension_The_Ex-Kitten-sion)
 - Coding Challenge #83: Chrome Extension with p5js Sketch
   - [Javascript Version](CC_83_Chrome_Extension_with_p5js_Sketch)
+- Coding Challenge #84: Word Definition Extension
+  - [Javascript Version](CC_84_Word_Definition_Extension)
