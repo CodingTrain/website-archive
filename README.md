@@ -1,6 +1,6 @@
 # Key Links
 * [The Coding Train](https://www.youtube.com/user/shiffman/)
-* [Become a Patreon](http://patreon.com/codingtrain "Coding Train - Patreon")
+* [Become a Patron](http://patreon.com/codingtrain "Coding Train - Patreon")
 * [Suggest a Topic!](https://github.com/CodingTrain/Rainbow-Topics/)  
 * [Coding Train Store](http://codingtrain.storenvy.com)
 
@@ -8,13 +8,17 @@
 
 All times are in EDT and are subject to change! You can confirm the exact time by visiting [The Coding Train Live](https://www.youtube.com/user/shiffman/) the day of.
 
-### Friday, Nov 17: 3pm - 5pm
+### Friday, Nov 17: 4pm - 6pm
 * Continue Chrome Extensions
    * pop-up
    * pop-up with messages
    * tab override
    * omnibox (probably should skip)
+   * API lookup
+   * persistent data with local storage
+* *Browser* extensions
 * WEBGL revisited
+* `exec()` with node (densecap with p5 and node?)
 * iTerm
 * more OOP in JS
 
@@ -23,6 +27,7 @@ All times are in EDT and are subject to change! You can confirm the exact time b
 ### Friday, Dec 1: 10:30am - 12:30pm
 * more OOP in JS
 * Alexa skill 
+* dialogflow
 * map(), reduce() array functions
 
 ### Friday, Dec 8: 3pm - 5pm

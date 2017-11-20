@@ -1,4 +1,4 @@
-# Session 9: Programming With Text<br />Programming from A to Z
+# Session 10: Programming With Text<br />Programming from A to Z
 * [Youtube Playlist](https://www.youtube.com/watch?v=slmSCEho31g&list=PLRqwX-V7Uu6aDUo_ia-Vq2UZZGaxJ9nRo)
 
 
