@@ -6,4 +6,4 @@
 
 ## Community Editions
 - Add your version here
-- Lugsole's contribution on [GitHub](https://lugsole.github.io/Circle_Morphing/index.html) & [Sorce Code](https://github.com/Lugsole/Circle_Morphing)
+- Lugsole's contribution on [View Online](https://lugsole.github.io/Circle_Morphing/index.html) & [Source Code](https://github.com/Lugsole/Circle_Morphing)
