@@ -30,3 +30,4 @@
 * Haider Ali Punjabi: [Archimedes Clock](https://hackesta.org/p5/archimedes-clock/), [Source](https://github.com/haideralipunjabi/p5-projects/tree/master/archimedes-clock)
 * Stripes clock, by Boguz: https://boguz.github.io/stripeclock/
 * Clock with text at the edge of lines. https://www.openprocessing.org/sketch/461595
+* Ignazioc: [Text clock](https://alpha.editor.p5js.org/ignazioc/sketches/B1bPjAfef)
