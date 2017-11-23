@@ -5,4 +5,4 @@
 
 
 ## Community Editions
-- Add your version here
+- [Chrome Bearstension](https://github.com/AlcinaW/chrome-bearstension)
