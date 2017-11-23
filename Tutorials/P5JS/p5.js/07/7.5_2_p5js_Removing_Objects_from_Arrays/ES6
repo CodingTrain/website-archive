@@ -1,8 +1,8 @@
 /* 6.9 p5.js checking objects intersection part 1
 Code for video https://vimeo.com/channels/learningp5js/141919521 */
 
-var b1;
-var b2;
+let b1;
+let b2;
 
 function setup() {
   createCanvas(600, 400);
@@ -42,7 +42,7 @@ class Bubble {
   }
 
   intersects(other) {
-    var d = dist(this.x, this.y, other.x, other.y);
+    let d = dist(this.x, this.y, other.x, other.y);
     if (d < this.r + other.r) {
       return true;
     } else {
