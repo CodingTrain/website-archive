@@ -23,7 +23,7 @@ function draw() {
 	var yoff = 0;
 	randomSeed(noise(100)*100);
 	for (var i = 10; i>0 ; i--) {
-		yoff += .1;
+		yoff += .2;
 		fill(random(255),random(255),random(255));
 	  var xoff = 0;
 	  beginShape();
@@ -33,6 +33,7 @@ function draw() {
 			r *= i/10;
 	    var x = r * cos(a);
 	    var y = r * sin(a);
+			x *= .51+.5*cos(frameCount/5);
 	    if (a < PI){
 	        xoff += dx;
 	    } else{
