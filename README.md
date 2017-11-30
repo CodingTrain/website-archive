@@ -8,33 +8,22 @@
 
 All times are in EDT and are subject to change! You can confirm the exact time by visiting [The Coding Train Live](https://www.youtube.com/user/shiffman/) the day of.
 
-### Friday, Nov 17: 4pm - 6pm
-* Continue Chrome Extensions
-   * pop-up
-   * pop-up with messages
-   * tab override
-   * omnibox (probably should skip)
-   * API lookup
-   * persistent data with local storage
-* *Browser* extensions
+### ~Friday, Dec 1~: Postponed - Strep Throat!
+
+### Friday, Dec 8: 3pm - 5pm
+* JS array functions: `map()`, `fill()`, `reduce()`
+* K-means clustering
 * WEBGL revisited
+* more OOP in JS
 * `exec()` with node (densecap with p5 and node?)
 * iTerm
-* more OOP in JS
-
-### ~Friday, Nov 24~: No Stream, Thanksgiving
-
-### Friday, Dec 1: 10:30am - 12:30pm
-* more OOP in JS
 * Alexa skill 
 * dialogflow
 * map(), reduce() array functions
 
-### Friday, Dec 8: 3pm - 5pm
+### Wednesday, Dec 13: Bonus November Makeup!
 * word2vec
 * Promises
-
-### Wednesday, Dec 13: Bonus November Makeup!
 * Bayesian text classification
 
 ### Friday, Dec 15: 10:30am - 12:30pm
