@@ -31,7 +31,7 @@ All times are in EDT and are subject to change! You can confirm the exact time b
 
 ### Monday, Dec 18: ITP Show live stream!
 
-### Wednesday, Dec 20: Holiday Extravaganza!
+### Thursday, Dec 21: Processing Foundation Holiday Telethon Extravaganza!
 * Topics TBA
 
 # Other topics I'm considering soon
