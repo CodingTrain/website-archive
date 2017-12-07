@@ -10,21 +10,17 @@ All times are in EDT and are subject to change! You can confirm the exact time b
 
 ### ~Friday, Dec 1~: Postponed - Strep Throat!
 
-### Friday, Dec 8: 3pm - 5pm
+### Friday, Dec 8: 2:30pm - 4:30pm
 * JS array functions: `map()`, `fill()`, `reduce()`
 * K-means clustering
 * WEBGL revisited
 * more OOP in JS
-* `exec()` with node (densecap with p5 and node?)
-* iTerm
-* Alexa skill 
-* dialogflow
-* map(), reduce() array functions
 
-### Wednesday, Dec 13: Bonus November Makeup!
-* word2vec
-* Promises
-* Bayesian text classification
+### Tuesday, Dec 12: Bonus Makeup Session! 10:30am - 12:30pm
+* TBA
+
+### Thursday, Dec 14: Bonus Makeup Session! 10:30am - 12:30pm
+* TBA
 
 ### Friday, Dec 15: 10:30am - 12:30pm
 * Topics TBA
@@ -34,10 +30,17 @@ All times are in EDT and are subject to change! You can confirm the exact time b
 ### Thursday, Dec 21: Processing Foundation Holiday Telethon Extravaganza!
 * Topics TBA
 
-# Other topics I'm considering soon
+# Topics Under Consideration
 * Mappa p5 library (traveling sales on a map?)
 * game of life coding challenge
 * boids coding challenge
+* word2vec
+* Promises
+* Bayesian text classification
+* `exec()` with node (densecap with p5 and node?)
+* iTerm
+* Alexa skill 
+* dialogflow
 
 # Past Live Streams
 * [Live Stream #106.1: Chrome Extensions - Part 1](https://youtu.be/Z9pzHD2g08o?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
