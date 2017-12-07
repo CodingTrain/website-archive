@@ -8,8 +8,6 @@
 
 All times are in EDT and are subject to change! You can confirm the exact time by visiting [The Coding Train Live](https://www.youtube.com/user/shiffman/) the day of.
 
-### ~Friday, Dec 1~: Postponed - Strep Throat!
-
 ### Friday, Dec 8: 2:30pm - 4:30pm
 * JS array functions: `map()`, `fill()`, `reduce()`
 * K-means clustering
@@ -17,10 +15,10 @@ All times are in EDT and are subject to change! You can confirm the exact time b
 * more OOP in JS
 
 ### Tuesday, Dec 12: Bonus Makeup Session! 10:30am - 12:30pm
-* TBA
+* Topics TBA
 
 ### Thursday, Dec 14: Bonus Makeup Session! 10:30am - 12:30pm
-* TBA
+* Topics TBA
 
 ### Friday, Dec 15: 10:30am - 12:30pm
 * Topics TBA
