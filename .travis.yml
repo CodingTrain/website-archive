@@ -1,0 +1,11 @@
+language: python
+python:
+  - "3.6"
+
+# command to install dependencies
+install:
+  - pip install -r .travis/requirements.txt
+# command to run tests
+script: python .travis/get_data.py
+after_script:
+  - bash .travis/push.sh
