@@ -145,7 +145,6 @@
  * [Live Stream #16: setTimeout(), setInterval()](https://youtu.be/Xe9hQmVJHAo?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
  * [Live Stream #15: Using the Kinect and Processing](https://youtu.be/6wviMtISsyc?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
  * [Live Stream #14: Twitter Bots with Node and Processing](https://youtu.be/KNsFrAnzSN4?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
- * [Live Stream #13: Wordnik and NYTimes API in JavaScript with p5.js](https://youtu.be/CizPAT775q8?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
  * [Live Stream #12: Working with Data and APIs with p5.js - Part 2](https://youtu.be/v3KxZDLJuYc?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
  * [Live Stream #11: Working with Data and APIs with p5.js](https://youtu.be/xG6rc0Lcbks?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
  * [Live Stream #10: More p5.js DOM](https://youtu.be/Dc5AUG8qoW4?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
