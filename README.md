@@ -139,7 +139,6 @@ All times are in EDT and are subject to change! You can confirm the exact time b
 * [Live Stream #22](https://youtu.be/N9ZK_rpr3tY?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
 * [Live Stream #21](https://youtu.be/TZVldoG381k?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
 * [Live Stream #20](https://youtu.be/2F6zliBTd-w?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
-* [Live Stream #19](https://youtu.be/n4mignvHPWk?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
 * [Live Stream #18](https://youtu.be/7L3wGAoGy4U?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
 * [Live Stream #17: Processing Live Hour of Code](https://youtu.be/27OPaNaeXMA?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
 * [Live Stream #16: setTimeout(), setInterval()](https://youtu.be/Xe9hQmVJHAo?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
