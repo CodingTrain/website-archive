@@ -43,7 +43,10 @@ All times are in EDT and are subject to change! You can confirm the exact time b
 * dialogflow
 
 # Past Live Streams
-* [Live Stream #106.1: Chrome Extensions - Part 1](https://youtu.be/Z9pzHD2g08o?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
+* [Live Stream #108: More OOP with ES6 & The Game of Life](https://youtu.be/U8S1qDjIE2Y?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
+* [Live Stream #107: Chrome Extensions Continued](https://youtu.be/h3p0U8yWrMU?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
+* [Live Stream #106.2: Chrome Extensions - Part 2](https://youtu.be/y0zS83xj0g0?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
+* [Live Stream #106.1: Chrome Extensions - Part 1](https://youtu.be/Z9pzHD2g0Ao?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
 * [Live Stream #105: p5.js Workflow, Circle Morphing and Arrow Function](https://youtu.be/ldx_J589fcs?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
 * [Live Stream #104: Chatbots with p5.Speech, More OOP in JS & Paperclips!](https://youtu.be/gFqBnxIm5Us?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
 * [Live Stream #103: More on JavaScript Objects & Chatbots with RiveScript](https://youtu.be/Pscq691SADc?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
