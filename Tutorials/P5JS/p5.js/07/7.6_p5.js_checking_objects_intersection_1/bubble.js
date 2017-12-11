@@ -1,29 +1,43 @@
-function Bubble(x, y) {
-  this.x = x;
-  this.y = y;
-  this.r = 48;
-  this.col = color(255);
-
-  this.changeColor = function() {
-    this.col = color(random(255), random(255), random(255))
-  }
-  this.display = function() {
-    stroke(255);
-    fill(this.col);
-    ellipse(this.x, this.y, this.r * 2, this.r * 2);
+class Bubble {
+  constructor(x, y, r = 50) {
+    this.x = x;
+    this.y = y;
+    this.r = r;
+    this.brightness = 0;
   }
 
-  this.intersects = function(other) {
-    var d = dist(this.x, this.y, other.x, other.y);
-    if (d < this.r + other.r) {
+  intersects(other) {
+    let d = dist(this.x, this.y, other.x, other.y);
+    return (d < this.r + other.r);
+    // if (d < this.r + other.r) {
+    //   return true;
+    // } else {
+    //   return false;
+    // }
+  }
+
+  changeColor(bright) {
+    this.brightness = bright;
+  }
+
+  contains(px, py) {
+    let d = dist(px, py, this.x, this.y);
+    if (d < this.r) {
       return true;
     } else {
       return false;
     }
   }
 
-  this.update = function() {
-    this.x = this.x + random(-1, 1);
-    this.y = this.y + random(-1, 1);
+  move() {
+    this.x = this.x + random(-2, 2);
+    this.y = this.y + random(-2, 2);
+  }
+
+  show() {
+    stroke(255);
+    strokeWeight(4);
+    fill(this.brightness, 125);
+    ellipse(this.x, this.y, this.r * 2);
   }
 }

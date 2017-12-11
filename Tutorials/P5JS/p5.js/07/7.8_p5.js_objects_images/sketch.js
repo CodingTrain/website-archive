@@ -1,30 +1,69 @@
-var bubbles = [];
-var flowers = [];
+let bubbles = [];
+
+let flower;
+let kittens = [];
 
 function preload() {
-    for (var i = 0; i< 3; i++){
-        flowers[i] = loadImage("images/flower" + i + ".jpg"); 
-    }
-//    flowers[0] = loadImage("images/flower0.jpg");
-//    flowers[1] = loadImage("images/flower1.jpg");
-//    flowers[2] = loadImage("images/flower2.jpg");
+  flower = loadImage('kittens/flower.png');
+  for (let i = 0; i < 5; i++) {
+    kittens[i] = loadImage(`kittens/kitten${i}.jpg`);
+  }
 }
 
 function setup() {
-    cnv = createCanvas(600, 400);   
-    }
-
-function mousePressed() {
-    var r = floor(random(0, flowers.length));
-    var b = new Bubble(mouseX, mouseY, flowers[r]);
+  createCanvas(600, 400);
+  for (let i = 0; i < 10; i++) {
+    let x = random(width);
+    let y = random(height);
+    let r = random(50, 150);
+    // let kitten = random(kittens);
+    let b = new Bubble(x, y, r);
     bubbles.push(b);
+  }
 }
 
-function draw() {
-    background(0);
+function mousePressed() {
+  for (let i = 0; i < bubbles.length; i++) {
+    bubbles[i].clicked(mouseX, mouseY);
+  }
+}
 
-    for (var i = bubbles.length-1; i >= 0; i--) {
-        bubbles[i].update();
-        bubbles[i].display(); 
+
+function draw() {
+  background(0);
+  for (let i = 0; i < bubbles.length; i++) {
+    bubbles[i].move();
+    bubbles[i].show();
+  }
+}
+
+class Bubble {
+  constructor(x, y, r, img) {
+    this.x = x;
+    this.y = y;
+    this.r = r;
+    this.kitten = random(kittens);
+
+  }
+
+  clicked(px, py) {
+    //let d = dist(px, py, this.x, this.y);
+    //if (d < this.r) {
+    if (px > this.x && px < this.x + this.r && py > this.y && py < this.y + this.r) {
+      this.kitten = flower; //random(kittens);
     }
+  }
+
+  move() {
+    this.x = this.x + random(-2, 2);
+    this.y = this.y + random(-2, 2);
+  }
+
+  show() {
+    image(this.kitten, this.x, this.y, this.r, this.r);
+    // stroke(255);
+    // strokeWeight(4);
+    // fill(this.brightness, 125);
+    // ellipse(this.x, this.y, this.r * 2);
+  }
 }
