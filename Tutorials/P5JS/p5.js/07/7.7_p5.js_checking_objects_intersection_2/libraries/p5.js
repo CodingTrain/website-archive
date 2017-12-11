@@ -1,7 +1,1276 @@
-/*! p5.js v0.4.13 September 20, 2015 */
+/*! p5.js v0.5.8 March 25, 2017 */
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.p5 = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
 
 },{}],2:[function(_dereq_,module,exports){
+(function (process,global){
+/*!
+ * @overview es6-promise - a tiny implementation of Promises/A+.
+ * @copyright Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors (Conversion to ES6 API by Jake Archibald)
+ * @license   Licensed under MIT license
+ *            See https://raw.githubusercontent.com/stefanpenner/es6-promise/master/LICENSE
+ * @version   4.0.5
+ */
+
+(function (global, factory) {
+    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+    typeof define === 'function' && define.amd ? define(factory) :
+    (global.ES6Promise = factory());
+}(this, (function () { 'use strict';
+
+function objectOrFunction(x) {
+  return typeof x === 'function' || typeof x === 'object' && x !== null;
+}
+
+function isFunction(x) {
+  return typeof x === 'function';
+}
+
+var _isArray = undefined;
+if (!Array.isArray) {
+  _isArray = function (x) {
+    return Object.prototype.toString.call(x) === '[object Array]';
+  };
+} else {
+  _isArray = Array.isArray;
+}
+
+var isArray = _isArray;
+
+var len = 0;
+var vertxNext = undefined;
+var customSchedulerFn = undefined;
+
+var asap = function asap(callback, arg) {
+  queue[len] = callback;
+  queue[len + 1] = arg;
+  len += 2;
+  if (len === 2) {
+    // If len is 2, that means that we need to schedule an async flush.
+    // If additional callbacks are queued before the queue is flushed, they
+    // will be processed by this flush that we are scheduling.
+    if (customSchedulerFn) {
+      customSchedulerFn(flush);
+    } else {
+      scheduleFlush();
+    }
+  }
+};
+
+function setScheduler(scheduleFn) {
+  customSchedulerFn = scheduleFn;
+}
+
+function setAsap(asapFn) {
+  asap = asapFn;
+}
+
+var browserWindow = typeof window !== 'undefined' ? window : undefined;
+var browserGlobal = browserWindow || {};
+var BrowserMutationObserver = browserGlobal.MutationObserver || browserGlobal.WebKitMutationObserver;
+var isNode = typeof self === 'undefined' && typeof process !== 'undefined' && ({}).toString.call(process) === '[object process]';
+
+// test for web worker but not in IE10
+var isWorker = typeof Uint8ClampedArray !== 'undefined' && typeof importScripts !== 'undefined' && typeof MessageChannel !== 'undefined';
+
+// node
+function useNextTick() {
+  // node version 0.10.x displays a deprecation warning when nextTick is used recursively
+  // see https://github.com/cujojs/when/issues/410 for details
+  return function () {
+    return process.nextTick(flush);
+  };
+}
+
+// vertx
+function useVertxTimer() {
+  if (typeof vertxNext !== 'undefined') {
+    return function () {
+      vertxNext(flush);
+    };
+  }
+
+  return useSetTimeout();
+}
+
+function useMutationObserver() {
+  var iterations = 0;
+  var observer = new BrowserMutationObserver(flush);
+  var node = document.createTextNode('');
+  observer.observe(node, { characterData: true });
+
+  return function () {
+    node.data = iterations = ++iterations % 2;
+  };
+}
+
+// web worker
+function useMessageChannel() {
+  var channel = new MessageChannel();
+  channel.port1.onmessage = flush;
+  return function () {
+    return channel.port2.postMessage(0);
+  };
+}
+
+function useSetTimeout() {
+  // Store setTimeout reference so es6-promise will be unaffected by
+  // other code modifying setTimeout (like sinon.useFakeTimers())
+  var globalSetTimeout = setTimeout;
+  return function () {
+    return globalSetTimeout(flush, 1);
+  };
+}
+
+var queue = new Array(1000);
+function flush() {
+  for (var i = 0; i < len; i += 2) {
+    var callback = queue[i];
+    var arg = queue[i + 1];
+
+    callback(arg);
+
+    queue[i] = undefined;
+    queue[i + 1] = undefined;
+  }
+
+  len = 0;
+}
+
+function attemptVertx() {
+  try {
+    var r = _dereq_;
+    var vertx = r('vertx');
+    vertxNext = vertx.runOnLoop || vertx.runOnContext;
+    return useVertxTimer();
+  } catch (e) {
+    return useSetTimeout();
+  }
+}
+
+var scheduleFlush = undefined;
+// Decide what async method to use to triggering processing of queued callbacks:
+if (isNode) {
+  scheduleFlush = useNextTick();
+} else if (BrowserMutationObserver) {
+  scheduleFlush = useMutationObserver();
+} else if (isWorker) {
+  scheduleFlush = useMessageChannel();
+} else if (browserWindow === undefined && typeof _dereq_ === 'function') {
+  scheduleFlush = attemptVertx();
+} else {
+  scheduleFlush = useSetTimeout();
+}
+
+function then(onFulfillment, onRejection) {
+  var _arguments = arguments;
+
+  var parent = this;
+
+  var child = new this.constructor(noop);
+
+  if (child[PROMISE_ID] === undefined) {
+    makePromise(child);
+  }
+
+  var _state = parent._state;
+
+  if (_state) {
+    (function () {
+      var callback = _arguments[_state - 1];
+      asap(function () {
+        return invokeCallback(_state, child, callback, parent._result);
+      });
+    })();
+  } else {
+    subscribe(parent, child, onFulfillment, onRejection);
+  }
+
+  return child;
+}
+
+/**
+  `Promise.resolve` returns a promise that will become resolved with the
+  passed `value`. It is shorthand for the following:
+
+  ```javascript
+  let promise = new Promise(function(resolve, reject){
+    resolve(1);
+  });
+
+  promise.then(function(value){
+    // value === 1
+  });
+  ```
+
+  Instead of writing the above, your code now simply becomes the following:
+
+  ```javascript
+  let promise = Promise.resolve(1);
+
+  promise.then(function(value){
+    // value === 1
+  });
+  ```
+
+  @method resolve
+  @static
+  @param {Any} value value that the returned promise will be resolved with
+  Useful for tooling.
+  @return {Promise} a promise that will become fulfilled with the given
+  `value`
+*/
+function resolve(object) {
+  /*jshint validthis:true */
+  var Constructor = this;
+
+  if (object && typeof object === 'object' && object.constructor === Constructor) {
+    return object;
+  }
+
+  var promise = new Constructor(noop);
+  _resolve(promise, object);
+  return promise;
+}
+
+var PROMISE_ID = Math.random().toString(36).substring(16);
+
+function noop() {}
+
+var PENDING = void 0;
+var FULFILLED = 1;
+var REJECTED = 2;
+
+var GET_THEN_ERROR = new ErrorObject();
+
+function selfFulfillment() {
+  return new TypeError("You cannot resolve a promise with itself");
+}
+
+function cannotReturnOwn() {
+  return new TypeError('A promises callback cannot return that same promise.');
+}
+
+function getThen(promise) {
+  try {
+    return promise.then;
+  } catch (error) {
+    GET_THEN_ERROR.error = error;
+    return GET_THEN_ERROR;
+  }
+}
+
+function tryThen(then, value, fulfillmentHandler, rejectionHandler) {
+  try {
+    then.call(value, fulfillmentHandler, rejectionHandler);
+  } catch (e) {
+    return e;
+  }
+}
+
+function handleForeignThenable(promise, thenable, then) {
+  asap(function (promise) {
+    var sealed = false;
+    var error = tryThen(then, thenable, function (value) {
+      if (sealed) {
+        return;
+      }
+      sealed = true;
+      if (thenable !== value) {
+        _resolve(promise, value);
+      } else {
+        fulfill(promise, value);
+      }
+    }, function (reason) {
+      if (sealed) {
+        return;
+      }
+      sealed = true;
+
+      _reject(promise, reason);
+    }, 'Settle: ' + (promise._label || ' unknown promise'));
+
+    if (!sealed && error) {
+      sealed = true;
+      _reject(promise, error);
+    }
+  }, promise);
+}
+
+function handleOwnThenable(promise, thenable) {
+  if (thenable._state === FULFILLED) {
+    fulfill(promise, thenable._result);
+  } else if (thenable._state === REJECTED) {
+    _reject(promise, thenable._result);
+  } else {
+    subscribe(thenable, undefined, function (value) {
+      return _resolve(promise, value);
+    }, function (reason) {
+      return _reject(promise, reason);
+    });
+  }
+}
+
+function handleMaybeThenable(promise, maybeThenable, then$$) {
+  if (maybeThenable.constructor === promise.constructor && then$$ === then && maybeThenable.constructor.resolve === resolve) {
+    handleOwnThenable(promise, maybeThenable);
+  } else {
+    if (then$$ === GET_THEN_ERROR) {
+      _reject(promise, GET_THEN_ERROR.error);
+    } else if (then$$ === undefined) {
+      fulfill(promise, maybeThenable);
+    } else if (isFunction(then$$)) {
+      handleForeignThenable(promise, maybeThenable, then$$);
+    } else {
+      fulfill(promise, maybeThenable);
+    }
+  }
+}
+
+function _resolve(promise, value) {
+  if (promise === value) {
+    _reject(promise, selfFulfillment());
+  } else if (objectOrFunction(value)) {
+    handleMaybeThenable(promise, value, getThen(value));
+  } else {
+    fulfill(promise, value);
+  }
+}
+
+function publishRejection(promise) {
+  if (promise._onerror) {
+    promise._onerror(promise._result);
+  }
+
+  publish(promise);
+}
+
+function fulfill(promise, value) {
+  if (promise._state !== PENDING) {
+    return;
+  }
+
+  promise._result = value;
+  promise._state = FULFILLED;
+
+  if (promise._subscribers.length !== 0) {
+    asap(publish, promise);
+  }
+}
+
+function _reject(promise, reason) {
+  if (promise._state !== PENDING) {
+    return;
+  }
+  promise._state = REJECTED;
+  promise._result = reason;
+
+  asap(publishRejection, promise);
+}
+
+function subscribe(parent, child, onFulfillment, onRejection) {
+  var _subscribers = parent._subscribers;
+  var length = _subscribers.length;
+
+  parent._onerror = null;
+
+  _subscribers[length] = child;
+  _subscribers[length + FULFILLED] = onFulfillment;
+  _subscribers[length + REJECTED] = onRejection;
+
+  if (length === 0 && parent._state) {
+    asap(publish, parent);
+  }
+}
+
+function publish(promise) {
+  var subscribers = promise._subscribers;
+  var settled = promise._state;
+
+  if (subscribers.length === 0) {
+    return;
+  }
+
+  var child = undefined,
+      callback = undefined,
+      detail = promise._result;
+
+  for (var i = 0; i < subscribers.length; i += 3) {
+    child = subscribers[i];
+    callback = subscribers[i + settled];
+
+    if (child) {
+      invokeCallback(settled, child, callback, detail);
+    } else {
+      callback(detail);
+    }
+  }
+
+  promise._subscribers.length = 0;
+}
+
+function ErrorObject() {
+  this.error = null;
+}
+
+var TRY_CATCH_ERROR = new ErrorObject();
+
+function tryCatch(callback, detail) {
+  try {
+    return callback(detail);
+  } catch (e) {
+    TRY_CATCH_ERROR.error = e;
+    return TRY_CATCH_ERROR;
+  }
+}
+
+function invokeCallback(settled, promise, callback, detail) {
+  var hasCallback = isFunction(callback),
+      value = undefined,
+      error = undefined,
+      succeeded = undefined,
+      failed = undefined;
+
+  if (hasCallback) {
+    value = tryCatch(callback, detail);
+
+    if (value === TRY_CATCH_ERROR) {
+      failed = true;
+      error = value.error;
+      value = null;
+    } else {
+      succeeded = true;
+    }
+
+    if (promise === value) {
+      _reject(promise, cannotReturnOwn());
+      return;
+    }
+  } else {
+    value = detail;
+    succeeded = true;
+  }
+
+  if (promise._state !== PENDING) {
+    // noop
+  } else if (hasCallback && succeeded) {
+      _resolve(promise, value);
+    } else if (failed) {
+      _reject(promise, error);
+    } else if (settled === FULFILLED) {
+      fulfill(promise, value);
+    } else if (settled === REJECTED) {
+      _reject(promise, value);
+    }
+}
+
+function initializePromise(promise, resolver) {
+  try {
+    resolver(function resolvePromise(value) {
+      _resolve(promise, value);
+    }, function rejectPromise(reason) {
+      _reject(promise, reason);
+    });
+  } catch (e) {
+    _reject(promise, e);
+  }
+}
+
+var id = 0;
+function nextId() {
+  return id++;
+}
+
+function makePromise(promise) {
+  promise[PROMISE_ID] = id++;
+  promise._state = undefined;
+  promise._result = undefined;
+  promise._subscribers = [];
+}
+
+function Enumerator(Constructor, input) {
+  this._instanceConstructor = Constructor;
+  this.promise = new Constructor(noop);
+
+  if (!this.promise[PROMISE_ID]) {
+    makePromise(this.promise);
+  }
+
+  if (isArray(input)) {
+    this._input = input;
+    this.length = input.length;
+    this._remaining = input.length;
+
+    this._result = new Array(this.length);
+
+    if (this.length === 0) {
+      fulfill(this.promise, this._result);
+    } else {
+      this.length = this.length || 0;
+      this._enumerate();
+      if (this._remaining === 0) {
+        fulfill(this.promise, this._result);
+      }
+    }
+  } else {
+    _reject(this.promise, validationError());
+  }
+}
+
+function validationError() {
+  return new Error('Array Methods must be provided an Array');
+};
+
+Enumerator.prototype._enumerate = function () {
+  var length = this.length;
+  var _input = this._input;
+
+  for (var i = 0; this._state === PENDING && i < length; i++) {
+    this._eachEntry(_input[i], i);
+  }
+};
+
+Enumerator.prototype._eachEntry = function (entry, i) {
+  var c = this._instanceConstructor;
+  var resolve$$ = c.resolve;
+
+  if (resolve$$ === resolve) {
+    var _then = getThen(entry);
+
+    if (_then === then && entry._state !== PENDING) {
+      this._settledAt(entry._state, i, entry._result);
+    } else if (typeof _then !== 'function') {
+      this._remaining--;
+      this._result[i] = entry;
+    } else if (c === Promise) {
+      var promise = new c(noop);
+      handleMaybeThenable(promise, entry, _then);
+      this._willSettleAt(promise, i);
+    } else {
+      this._willSettleAt(new c(function (resolve$$) {
+        return resolve$$(entry);
+      }), i);
+    }
+  } else {
+    this._willSettleAt(resolve$$(entry), i);
+  }
+};
+
+Enumerator.prototype._settledAt = function (state, i, value) {
+  var promise = this.promise;
+
+  if (promise._state === PENDING) {
+    this._remaining--;
+
+    if (state === REJECTED) {
+      _reject(promise, value);
+    } else {
+      this._result[i] = value;
+    }
+  }
+
+  if (this._remaining === 0) {
+    fulfill(promise, this._result);
+  }
+};
+
+Enumerator.prototype._willSettleAt = function (promise, i) {
+  var enumerator = this;
+
+  subscribe(promise, undefined, function (value) {
+    return enumerator._settledAt(FULFILLED, i, value);
+  }, function (reason) {
+    return enumerator._settledAt(REJECTED, i, reason);
+  });
+};
+
+/**
+  `Promise.all` accepts an array of promises, and returns a new promise which
+  is fulfilled with an array of fulfillment values for the passed promises, or
+  rejected with the reason of the first passed promise to be rejected. It casts all
+  elements of the passed iterable to promises as it runs this algorithm.
+
+  Example:
+
+  ```javascript
+  let promise1 = resolve(1);
+  let promise2 = resolve(2);
+  let promise3 = resolve(3);
+  let promises = [ promise1, promise2, promise3 ];
+
+  Promise.all(promises).then(function(array){
+    // The array here would be [ 1, 2, 3 ];
+  });
+  ```
+
+  If any of the `promises` given to `all` are rejected, the first promise
+  that is rejected will be given as an argument to the returned promises's
+  rejection handler. For example:
+
+  Example:
+
+  ```javascript
+  let promise1 = resolve(1);
+  let promise2 = reject(new Error("2"));
+  let promise3 = reject(new Error("3"));
+  let promises = [ promise1, promise2, promise3 ];
+
+  Promise.all(promises).then(function(array){
+    // Code here never runs because there are rejected promises!
+  }, function(error) {
+    // error.message === "2"
+  });
+  ```
+
+  @method all
+  @static
+  @param {Array} entries array of promises
+  @param {String} label optional string for labeling the promise.
+  Useful for tooling.
+  @return {Promise} promise that is fulfilled when all `promises` have been
+  fulfilled, or rejected if any of them become rejected.
+  @static
+*/
+function all(entries) {
+  return new Enumerator(this, entries).promise;
+}
+
+/**
+  `Promise.race` returns a new promise which is settled in the same way as the
+  first passed promise to settle.
+
+  Example:
+
+  ```javascript
+  let promise1 = new Promise(function(resolve, reject){
+    setTimeout(function(){
+      resolve('promise 1');
+    }, 200);
+  });
+
+  let promise2 = new Promise(function(resolve, reject){
+    setTimeout(function(){
+      resolve('promise 2');
+    }, 100);
+  });
+
+  Promise.race([promise1, promise2]).then(function(result){
+    // result === 'promise 2' because it was resolved before promise1
+    // was resolved.
+  });
+  ```
+
+  `Promise.race` is deterministic in that only the state of the first
+  settled promise matters. For example, even if other promises given to the
+  `promises` array argument are resolved, but the first settled promise has
+  become rejected before the other promises became fulfilled, the returned
+  promise will become rejected:
+
+  ```javascript
+  let promise1 = new Promise(function(resolve, reject){
+    setTimeout(function(){
+      resolve('promise 1');
+    }, 200);
+  });
+
+  let promise2 = new Promise(function(resolve, reject){
+    setTimeout(function(){
+      reject(new Error('promise 2'));
+    }, 100);
+  });
+
+  Promise.race([promise1, promise2]).then(function(result){
+    // Code here never runs
+  }, function(reason){
+    // reason.message === 'promise 2' because promise 2 became rejected before
+    // promise 1 became fulfilled
+  });
+  ```
+
+  An example real-world use case is implementing timeouts:
+
+  ```javascript
+  Promise.race([ajax('foo.json'), timeout(5000)])
+  ```
+
+  @method race
+  @static
+  @param {Array} promises array of promises to observe
+  Useful for tooling.
+  @return {Promise} a promise which settles in the same way as the first passed
+  promise to settle.
+*/
+function race(entries) {
+  /*jshint validthis:true */
+  var Constructor = this;
+
+  if (!isArray(entries)) {
+    return new Constructor(function (_, reject) {
+      return reject(new TypeError('You must pass an array to race.'));
+    });
+  } else {
+    return new Constructor(function (resolve, reject) {
+      var length = entries.length;
+      for (var i = 0; i < length; i++) {
+        Constructor.resolve(entries[i]).then(resolve, reject);
+      }
+    });
+  }
+}
+
+/**
+  `Promise.reject` returns a promise rejected with the passed `reason`.
+  It is shorthand for the following:
+
+  ```javascript
+  let promise = new Promise(function(resolve, reject){
+    reject(new Error('WHOOPS'));
+  });
+
+  promise.then(function(value){
+    // Code here doesn't run because the promise is rejected!
+  }, function(reason){
+    // reason.message === 'WHOOPS'
+  });
+  ```
+
+  Instead of writing the above, your code now simply becomes the following:
+
+  ```javascript
+  let promise = Promise.reject(new Error('WHOOPS'));
+
+  promise.then(function(value){
+    // Code here doesn't run because the promise is rejected!
+  }, function(reason){
+    // reason.message === 'WHOOPS'
+  });
+  ```
+
+  @method reject
+  @static
+  @param {Any} reason value that the returned promise will be rejected with.
+  Useful for tooling.
+  @return {Promise} a promise rejected with the given `reason`.
+*/
+function reject(reason) {
+  /*jshint validthis:true */
+  var Constructor = this;
+  var promise = new Constructor(noop);
+  _reject(promise, reason);
+  return promise;
+}
+
+function needsResolver() {
+  throw new TypeError('You must pass a resolver function as the first argument to the promise constructor');
+}
+
+function needsNew() {
+  throw new TypeError("Failed to construct 'Promise': Please use the 'new' operator, this object constructor cannot be called as a function.");
+}
+
+/**
+  Promise objects represent the eventual result of an asynchronous operation. The
+  primary way of interacting with a promise is through its `then` method, which
+  registers callbacks to receive either a promise's eventual value or the reason
+  why the promise cannot be fulfilled.
+
+  Terminology
+  -----------
+
+  - `promise` is an object or function with a `then` method whose behavior conforms to this specification.
+  - `thenable` is an object or function that defines a `then` method.
+  - `value` is any legal JavaScript value (including undefined, a thenable, or a promise).
+  - `exception` is a value that is thrown using the throw statement.
+  - `reason` is a value that indicates why a promise was rejected.
+  - `settled` the final resting state of a promise, fulfilled or rejected.
+
+  A promise can be in one of three states: pending, fulfilled, or rejected.
+
+  Promises that are fulfilled have a fulfillment value and are in the fulfilled
+  state.  Promises that are rejected have a rejection reason and are in the
+  rejected state.  A fulfillment value is never a thenable.
+
+  Promises can also be said to *resolve* a value.  If this value is also a
+  promise, then the original promise's settled state will match the value's
+  settled state.  So a promise that *resolves* a promise that rejects will
+  itself reject, and a promise that *resolves* a promise that fulfills will
+  itself fulfill.
+
+
+  Basic Usage:
+  ------------
+
+  ```js
+  let promise = new Promise(function(resolve, reject) {
+    // on success
+    resolve(value);
+
+    // on failure
+    reject(reason);
+  });
+
+  promise.then(function(value) {
+    // on fulfillment
+  }, function(reason) {
+    // on rejection
+  });
+  ```
+
+  Advanced Usage:
+  ---------------
+
+  Promises shine when abstracting away asynchronous interactions such as
+  `XMLHttpRequest`s.
+
+  ```js
+  function getJSON(url) {
+    return new Promise(function(resolve, reject){
+      let xhr = new XMLHttpRequest();
+
+      xhr.open('GET', url);
+      xhr.onreadystatechange = handler;
+      xhr.responseType = 'json';
+      xhr.setRequestHeader('Accept', 'application/json');
+      xhr.send();
+
+      function handler() {
+        if (this.readyState === this.DONE) {
+          if (this.status === 200) {
+            resolve(this.response);
+          } else {
+            reject(new Error('getJSON: `' + url + '` failed with status: [' + this.status + ']'));
+          }
+        }
+      };
+    });
+  }
+
+  getJSON('/posts.json').then(function(json) {
+    // on fulfillment
+  }, function(reason) {
+    // on rejection
+  });
+  ```
+
+  Unlike callbacks, promises are great composable primitives.
+
+  ```js
+  Promise.all([
+    getJSON('/posts'),
+    getJSON('/comments')
+  ]).then(function(values){
+    values[0] // => postsJSON
+    values[1] // => commentsJSON
+
+    return values;
+  });
+  ```
+
+  @class Promise
+  @param {function} resolver
+  Useful for tooling.
+  @constructor
+*/
+function Promise(resolver) {
+  this[PROMISE_ID] = nextId();
+  this._result = this._state = undefined;
+  this._subscribers = [];
+
+  if (noop !== resolver) {
+    typeof resolver !== 'function' && needsResolver();
+    this instanceof Promise ? initializePromise(this, resolver) : needsNew();
+  }
+}
+
+Promise.all = all;
+Promise.race = race;
+Promise.resolve = resolve;
+Promise.reject = reject;
+Promise._setScheduler = setScheduler;
+Promise._setAsap = setAsap;
+Promise._asap = asap;
+
+Promise.prototype = {
+  constructor: Promise,
+
+  /**
+    The primary way of interacting with a promise is through its `then` method,
+    which registers callbacks to receive either a promise's eventual value or the
+    reason why the promise cannot be fulfilled.
+  
+    ```js
+    findUser().then(function(user){
+      // user is available
+    }, function(reason){
+      // user is unavailable, and you are given the reason why
+    });
+    ```
+  
+    Chaining
+    --------
+  
+    The return value of `then` is itself a promise.  This second, 'downstream'
+    promise is resolved with the return value of the first promise's fulfillment
+    or rejection handler, or rejected if the handler throws an exception.
+  
+    ```js
+    findUser().then(function (user) {
+      return user.name;
+    }, function (reason) {
+      return 'default name';
+    }).then(function (userName) {
+      // If `findUser` fulfilled, `userName` will be the user's name, otherwise it
+      // will be `'default name'`
+    });
+  
+    findUser().then(function (user) {
+      throw new Error('Found user, but still unhappy');
+    }, function (reason) {
+      throw new Error('`findUser` rejected and we're unhappy');
+    }).then(function (value) {
+      // never reached
+    }, function (reason) {
+      // if `findUser` fulfilled, `reason` will be 'Found user, but still unhappy'.
+      // If `findUser` rejected, `reason` will be '`findUser` rejected and we're unhappy'.
+    });
+    ```
+    If the downstream promise does not specify a rejection handler, rejection reasons will be propagated further downstream.
+  
+    ```js
+    findUser().then(function (user) {
+      throw new PedagogicalException('Upstream error');
+    }).then(function (value) {
+      // never reached
+    }).then(function (value) {
+      // never reached
+    }, function (reason) {
+      // The `PedgagocialException` is propagated all the way down to here
+    });
+    ```
+  
+    Assimilation
+    ------------
+  
+    Sometimes the value you want to propagate to a downstream promise can only be
+    retrieved asynchronously. This can be achieved by returning a promise in the
+    fulfillment or rejection handler. The downstream promise will then be pending
+    until the returned promise is settled. This is called *assimilation*.
+  
+    ```js
+    findUser().then(function (user) {
+      return findCommentsByAuthor(user);
+    }).then(function (comments) {
+      // The user's comments are now available
+    });
+    ```
+  
+    If the assimliated promise rejects, then the downstream promise will also reject.
+  
+    ```js
+    findUser().then(function (user) {
+      return findCommentsByAuthor(user);
+    }).then(function (comments) {
+      // If `findCommentsByAuthor` fulfills, we'll have the value here
+    }, function (reason) {
+      // If `findCommentsByAuthor` rejects, we'll have the reason here
+    });
+    ```
+  
+    Simple Example
+    --------------
+  
+    Synchronous Example
+  
+    ```javascript
+    let result;
+  
+    try {
+      result = findResult();
+      // success
+    } catch(reason) {
+      // failure
+    }
+    ```
+  
+    Errback Example
+  
+    ```js
+    findResult(function(result, err){
+      if (err) {
+        // failure
+      } else {
+        // success
+      }
+    });
+    ```
+  
+    Promise Example;
+  
+    ```javascript
+    findResult().then(function(result){
+      // success
+    }, function(reason){
+      // failure
+    });
+    ```
+  
+    Advanced Example
+    --------------
+  
+    Synchronous Example
+  
+    ```javascript
+    let author, books;
+  
+    try {
+      author = findAuthor();
+      books  = findBooksByAuthor(author);
+      // success
+    } catch(reason) {
+      // failure
+    }
+    ```
+  
+    Errback Example
+  
+    ```js
+  
+    function foundBooks(books) {
+  
+    }
+  
+    function failure(reason) {
+  
+    }
+  
+    findAuthor(function(author, err){
+      if (err) {
+        failure(err);
+        // failure
+      } else {
+        try {
+          findBoooksByAuthor(author, function(books, err) {
+            if (err) {
+              failure(err);
+            } else {
+              try {
+                foundBooks(books);
+              } catch(reason) {
+                failure(reason);
+              }
+            }
+          });
+        } catch(error) {
+          failure(err);
+        }
+        // success
+      }
+    });
+    ```
+  
+    Promise Example;
+  
+    ```javascript
+    findAuthor().
+      then(findBooksByAuthor).
+      then(function(books){
+        // found books
+    }).catch(function(reason){
+      // something went wrong
+    });
+    ```
+  
+    @method then
+    @param {Function} onFulfilled
+    @param {Function} onRejected
+    Useful for tooling.
+    @return {Promise}
+  */
+  then: then,
+
+  /**
+    `catch` is simply sugar for `then(undefined, onRejection)` which makes it the same
+    as the catch block of a try/catch statement.
+  
+    ```js
+    function findAuthor(){
+      throw new Error('couldn't find that author');
+    }
+  
+    // synchronous
+    try {
+      findAuthor();
+    } catch(reason) {
+      // something went wrong
+    }
+  
+    // async with promises
+    findAuthor().catch(function(reason){
+      // something went wrong
+    });
+    ```
+  
+    @method catch
+    @param {Function} onRejection
+    Useful for tooling.
+    @return {Promise}
+  */
+  'catch': function _catch(onRejection) {
+    return this.then(null, onRejection);
+  }
+};
+
+function polyfill() {
+    var local = undefined;
+
+    if (typeof global !== 'undefined') {
+        local = global;
+    } else if (typeof self !== 'undefined') {
+        local = self;
+    } else {
+        try {
+            local = Function('return this')();
+        } catch (e) {
+            throw new Error('polyfill failed because global object is unavailable in this environment');
+        }
+    }
+
+    var P = local.Promise;
+
+    if (P) {
+        var promiseToString = null;
+        try {
+            promiseToString = Object.prototype.toString.call(P.resolve());
+        } catch (e) {
+            // silently ignored
+        }
+
+        if (promiseToString === '[object Promise]' && !P.cast) {
+            return;
+        }
+    }
+
+    local.Promise = Promise;
+}
+
+// Strange compat..
+Promise.polyfill = polyfill;
+Promise.Promise = Promise;
+
+return Promise;
+
+})));
+
+}).call(this,_dereq_('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"_process":31}],3:[function(_dereq_,module,exports){
+(function (global, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(['exports', 'module'], factory);
+  } else if (typeof exports !== 'undefined' && typeof module !== 'undefined') {
+    factory(exports, module);
+  } else {
+    var mod = {
+      exports: {}
+    };
+    factory(mod.exports, mod);
+    global.fetchJsonp = mod.exports;
+  }
+})(this, function (exports, module) {
+  'use strict';
+
+  var defaultOptions = {
+    timeout: 5000,
+    jsonpCallback: 'callback',
+    jsonpCallbackFunction: null
+  };
+
+  function generateCallbackFunction() {
+    return 'jsonp_' + Date.now() + '_' + Math.ceil(Math.random() * 100000);
+  }
+
+  // Known issue: Will throw 'Uncaught ReferenceError: callback_*** is not defined'
+  // error if request timeout
+  function clearFunction(functionName) {
+    // IE8 throws an exception when you try to delete a property on window
+    // http://stackoverflow.com/a/1824228/751089
+    try {
+      delete window[functionName];
+    } catch (e) {
+      window[functionName] = undefined;
+    }
+  }
+
+  function removeScript(scriptId) {
+    var script = document.getElementById(scriptId);
+    document.getElementsByTagName('head')[0].removeChild(script);
+  }
+
+  function fetchJsonp(_url) {
+    var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+
+    // to avoid param reassign
+    var url = _url;
+    var timeout = options.timeout || defaultOptions.timeout;
+    var jsonpCallback = options.jsonpCallback || defaultOptions.jsonpCallback;
+
+    var timeoutId = undefined;
+
+    return new Promise(function (resolve, reject) {
+      var callbackFunction = options.jsonpCallbackFunction || generateCallbackFunction();
+      var scriptId = jsonpCallback + '_' + callbackFunction;
+
+      window[callbackFunction] = function (response) {
+        resolve({
+          ok: true,
+          // keep consistent with fetch API
+          json: function json() {
+            return Promise.resolve(response);
+          }
+        });
+
+        if (timeoutId) clearTimeout(timeoutId);
+
+        removeScript(scriptId);
+
+        clearFunction(callbackFunction);
+      };
+
+      // Check if the user set their own params, and if not add a ? to start a list of params
+      url += url.indexOf('?') === -1 ? '?' : '&';
+
+      var jsonpScript = document.createElement('script');
+      jsonpScript.setAttribute('src', '' + url + jsonpCallback + '=' + callbackFunction);
+      jsonpScript.id = scriptId;
+      document.getElementsByTagName('head')[0].appendChild(jsonpScript);
+
+      timeoutId = setTimeout(function () {
+        reject(new Error('JSONP request to ' + _url + ' timed out'));
+
+        clearFunction(callbackFunction);
+        removeScript(scriptId);
+      }, timeout);
+    });
+  }
+
+  // export as global function
+  /*
+  let local;
+  if (typeof global !== 'undefined') {
+    local = global;
+  } else if (typeof self !== 'undefined') {
+    local = self;
+  } else {
+    try {
+      local = Function('return this')();
+    } catch (e) {
+      throw new Error('polyfill failed because global object is unavailable in this environment');
+    }
+  }
+  local.fetchJsonp = fetchJsonp;
+  */
+
+  module.exports = fetchJsonp;
+});
+},{}],4:[function(_dereq_,module,exports){
 // Run-time checking of preconditions.
 
 'use strict';
@@ -18,7 +1287,7 @@ exports.argument = function(predicate, message) {
 // If not, it will throw an error.
 exports.assert = exports.argument;
 
-},{}],3:[function(_dereq_,module,exports){
+},{}],5:[function(_dereq_,module,exports){
 // Drawing utility functions.
 
 'use strict';
@@ -33,7 +1302,7 @@ function line(ctx, x1, y1, x2, y2) {
 
 exports.line = line;
 
-},{}],4:[function(_dereq_,module,exports){
+},{}],6:[function(_dereq_,module,exports){
 // Glyph encoding
 
 'use strict';
@@ -270,7 +1539,7 @@ exports.CffEncoding = CffEncoding;
 exports.GlyphNames = GlyphNames;
 exports.addGlyphNames = addGlyphNames;
 
-},{}],5:[function(_dereq_,module,exports){
+},{}],7:[function(_dereq_,module,exports){
 // The Font object
 
 'use strict';
@@ -287,22 +1556,24 @@ function Font(options) {
     options = options || {};
 
     // OS X will complain if the names are empty, so we put a single space everywhere by default.
-    this.familyName = options.familyName || ' ';
-    this.styleName = options.styleName || ' ';
-    this.designer = options.designer || ' ';
-    this.designerURL = options.designerURL || ' ';
-    this.manufacturer = options.manufacturer || ' ';
-    this.manufacturerURL = options.manufacturerURL || ' ';
-    this.license = options.license || ' ';
-    this.licenseURL = options.licenseURL || ' ';
-    this.version = options.version || 'Version 0.1';
-    this.description = options.description || ' ';
-    this.copyright = options.copyright || ' ';
-    this.trademark = options.trademark || ' ';
+    this.names = {
+        fontFamily: {en: options.familyName || ' '},
+        fontSubfamily: {en: options.styleName || ' '},
+        designer: {en: options.designer || ' '},
+        designerURL: {en: options.designerURL || ' '},
+        manufacturer: {en: options.manufacturer || ' '},
+        manufacturerURL: {en: options.manufacturerURL || ' '},
+        license: {en: options.license || ' '},
+        licenseURL: {en: options.licenseURL || ' '},
+        version: {en: options.version || 'Version 0.1'},
+        description: {en: options.description || ' '},
+        copyright: {en: options.copyright || ' '},
+        trademark: {en: options.trademark || ' '}
+    };
     this.unitsPerEm = options.unitsPerEm || 1000;
     this.ascender = options.ascender;
     this.descender = options.descender;
-    this.supported = true;
+    this.supported = true; // Deprecated: parseBuffer will throw an error if font is not supported.
     this.glyphs = new glyphset.GlyphSet(this, options.glyphs || []);
     this.encoding = new encoding.DefaultEncoding(this);
     this.tables = {};
@@ -386,10 +1657,6 @@ Font.prototype.getKerningValue = function(leftGlyph, rightGlyph) {
 // Helper function that invokes the given callback for each glyph in the given text.
 // The callback gets `(glyph, x, y, fontSize, options)`.
 Font.prototype.forEachGlyph = function(text, x, y, fontSize, options, callback) {
-    if (!this.supported) {
-        return;
-    }
-
     x = x !== undefined ? x : 0;
     y = y !== undefined ? y : 0;
     fontSize = fontSize !== undefined ? fontSize : 72;
@@ -478,6 +1745,13 @@ Font.prototype.drawMetrics = function(ctx, text, x, y, fontSize, options) {
     });
 };
 
+Font.prototype.getEnglishName = function(name) {
+    var translations = this.names[name];
+    if (translations) {
+        return translations.en;
+    }
+};
+
 // Validate
 Font.prototype.validate = function() {
     var warnings = [];
@@ -489,16 +1763,18 @@ Font.prototype.validate = function() {
         }
     }
 
-    function assertStringAttribute(attrName) {
-        assert(_this[attrName] && _this[attrName].trim().length > 0, 'No ' + attrName + ' specified.');
+    function assertNamePresent(name) {
+        var englishName = _this.getEnglishName(name);
+        assert(englishName && englishName.trim().length > 0,
+               'No English ' + name + ' specified.');
     }
 
     // Identification information
-    assertStringAttribute('familyName');
-    assertStringAttribute('weightName');
-    assertStringAttribute('manufacturer');
-    assertStringAttribute('copyright');
-    assertStringAttribute('version');
+    assertNamePresent('fontFamily');
+    assertNamePresent('weightName');
+    assertNamePresent('manufacturer');
+    assertNamePresent('copyright');
+    assertNamePresent('version');
 
     // Dimension information
     assert(this.unitsPerEm > 0, 'No unitsPerEm specified.');
@@ -524,7 +1800,9 @@ Font.prototype.toBuffer = function() {
 
 // Initiate a download of the OpenType font.
 Font.prototype.download = function() {
-    var fileName = this.familyName.replace(/\s/g, '') + '-' + this.styleName + '.otf';
+    var familyName = this.getEnglishName('fontFamily');
+    var styleName = this.getEnglishName('fontSubfamily');
+    var fileName = familyName.replace(/\s/g, '') + '-' + styleName + '.otf';
     var buffer = this.toBuffer();
 
     window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
@@ -550,7 +1828,7 @@ Font.prototype.download = function() {
 
 exports.Font = Font;
 
-},{"./encoding":4,"./glyphset":7,"./path":10,"./tables/sfnt":25}],6:[function(_dereq_,module,exports){
+},{"./encoding":6,"./glyphset":9,"./path":12,"./tables/sfnt":29}],8:[function(_dereq_,module,exports){
 // The Glyph object
 
 'use strict';
@@ -719,6 +1997,23 @@ Glyph.prototype.getMetrics = function() {
         yMax: Math.max.apply(null, yCoords),
         leftSideBearing: 0
     };
+
+    if (!isFinite(metrics.xMin)) {
+        metrics.xMin = 0;
+    }
+
+    if (!isFinite(metrics.xMax)) {
+        metrics.xMax = this.advanceWidth;
+    }
+
+    if (!isFinite(metrics.yMin)) {
+        metrics.yMin = 0;
+    }
+
+    if (!isFinite(metrics.yMax)) {
+        metrics.yMax = 0;
+    }
+
     metrics.rightSideBearing = this.advanceWidth - metrics.leftSideBearing - (metrics.xMax - metrics.xMin);
     return metrics;
 };
@@ -827,7 +2122,7 @@ Glyph.prototype.drawMetrics = function(ctx, x, y, fontSize) {
 
 exports.Glyph = Glyph;
 
-},{"./check":2,"./draw":3,"./path":10}],7:[function(_dereq_,module,exports){
+},{"./check":4,"./draw":5,"./path":12}],9:[function(_dereq_,module,exports){
 // The GlyphSet object
 
 'use strict';
@@ -906,7 +2201,7 @@ exports.glyphLoader = glyphLoader;
 exports.ttfGlyphLoader = ttfGlyphLoader;
 exports.cffGlyphLoader = cffGlyphLoader;
 
-},{"./glyph":6}],8:[function(_dereq_,module,exports){
+},{"./glyph":8}],10:[function(_dereq_,module,exports){
 // opentype.js
 // https://github.com/nodebox/opentype.js
 // (c) 2015 Frederik De Bleser
@@ -924,12 +2219,14 @@ var path = _dereq_('./path');
 
 var cmap = _dereq_('./tables/cmap');
 var cff = _dereq_('./tables/cff');
+var fvar = _dereq_('./tables/fvar');
 var glyf = _dereq_('./tables/glyf');
 var gpos = _dereq_('./tables/gpos');
 var head = _dereq_('./tables/head');
 var hhea = _dereq_('./tables/hhea');
 var hmtx = _dereq_('./tables/hmtx');
 var kern = _dereq_('./tables/kern');
+var ltag = _dereq_('./tables/ltag');
 var loca = _dereq_('./tables/loca');
 var maxp = _dereq_('./tables/maxp');
 var _name = _dereq_('./tables/name');
@@ -978,16 +2275,19 @@ function loadFromUrl(url, callback) {
 // Public API ///////////////////////////////////////////////////////////
 
 // Parse the OpenType file data (as an ArrayBuffer) and return a Font object.
-// If the file could not be parsed (most likely because it contains Postscript outlines)
-// we return an empty Font object with the `supported` flag set to `false`.
+// Throws an error if the font could not be parsed.
 function parseBuffer(buffer) {
     var indexToLocFormat;
-    var hmtxOffset;
-    var glyfOffset;
-    var locaOffset;
+    var ltagTable;
+
     var cffOffset;
-    var kernOffset;
+    var fvarOffset;
+    var glyfOffset;
     var gposOffset;
+    var hmtxOffset;
+    var kernOffset;
+    var locaOffset;
+    var nameOffset;
 
     // OpenType fonts use big endian byte ordering.
     // We can't rely on typed array view types, because they operate with the endianness of the host computer.
@@ -1019,10 +2319,9 @@ function parseBuffer(buffer) {
         case 'cmap':
             font.tables.cmap = cmap.parse(data, offset);
             font.encoding = new encoding.CmapEncoding(font.tables.cmap);
-            if (!font.encoding) {
-                font.supported = false;
-            }
-
+            break;
+        case 'fvar':
+            fvarOffset = offset;
             break;
         case 'head':
             font.tables.head = head.parse(data, offset);
@@ -1038,14 +2337,15 @@ function parseBuffer(buffer) {
         case 'hmtx':
             hmtxOffset = offset;
             break;
+        case 'ltag':
+            ltagTable = ltag.parse(data, offset);
+            break;
         case 'maxp':
             font.tables.maxp = maxp.parse(data, offset);
             font.numGlyphs = font.tables.maxp.numGlyphs;
             break;
         case 'name':
-            font.tables.name = _name.parse(data, offset);
-            font.familyName = font.tables.name.fontFamily;
-            font.styleName = font.tables.name.fontSubfamily;
+            nameOffset = offset;
             break;
         case 'OS/2':
             font.tables.os2 = os2.parse(data, offset);
@@ -1073,29 +2373,34 @@ function parseBuffer(buffer) {
         p += 16;
     }
 
+    font.tables.name = _name.parse(data, nameOffset, ltagTable);
+    font.names = font.tables.name;
+
     if (glyfOffset && locaOffset) {
         var shortVersion = indexToLocFormat === 0;
         var locaTable = loca.parse(data, locaOffset, font.numGlyphs, shortVersion);
         font.glyphs = glyf.parse(data, glyfOffset, locaTable, font);
-        hmtx.parse(data, hmtxOffset, font.numberOfHMetrics, font.numGlyphs, font.glyphs);
-        encoding.addGlyphNames(font);
     } else if (cffOffset) {
         cff.parse(data, cffOffset, font);
-        encoding.addGlyphNames(font);
     } else {
-        font.supported = false;
+        throw new Error('Font doesn\'t contain TrueType or CFF outlines.');
     }
 
-    if (font.supported) {
-        if (kernOffset) {
-            font.kerningPairs = kern.parse(data, kernOffset);
-        } else {
-            font.kerningPairs = {};
-        }
+    hmtx.parse(data, hmtxOffset, font.numberOfHMetrics, font.numGlyphs, font.glyphs);
+    encoding.addGlyphNames(font);
 
-        if (gposOffset) {
-            gpos.parse(data, gposOffset, font);
-        }
+    if (kernOffset) {
+        font.kerningPairs = kern.parse(data, kernOffset);
+    } else {
+        font.kerningPairs = {};
+    }
+
+    if (gposOffset) {
+        gpos.parse(data, gposOffset, font);
+    }
+
+    if (fvarOffset) {
+        font.tables.fvar = fvar.parse(data, fvarOffset, font.names);
     }
 
     return font;
@@ -1116,12 +2421,16 @@ function load(url, callback) {
         }
 
         var font = parseBuffer(arrayBuffer);
-        if (!font.supported) {
-            return callback('Font is not supported (is this a Postscript font?)');
-        }
-
         return callback(null, font);
     });
+}
+
+// Syncronously load the font from a URL or file.
+// When done, return the font object or throw an error.
+function loadSync(url) {
+    var fs = _dereq_('fs');
+    var buffer = fs.readFileSync(url);
+    return parseBuffer(toArrayBuffer(buffer));
 }
 
 exports._parse = parse;
@@ -1130,8 +2439,9 @@ exports.Glyph = glyph.Glyph;
 exports.Path = path.Path;
 exports.parse = parseBuffer;
 exports.load = load;
+exports.loadSync = loadSync;
 
-},{"./encoding":4,"./font":5,"./glyph":6,"./parse":9,"./path":10,"./tables/cff":12,"./tables/cmap":13,"./tables/glyf":14,"./tables/gpos":15,"./tables/head":16,"./tables/hhea":17,"./tables/hmtx":18,"./tables/kern":19,"./tables/loca":20,"./tables/maxp":21,"./tables/name":22,"./tables/os2":23,"./tables/post":24,"fs":1}],9:[function(_dereq_,module,exports){
+},{"./encoding":6,"./font":7,"./glyph":8,"./parse":11,"./path":12,"./tables/cff":14,"./tables/cmap":15,"./tables/fvar":16,"./tables/glyf":17,"./tables/gpos":18,"./tables/head":19,"./tables/hhea":20,"./tables/hmtx":21,"./tables/kern":22,"./tables/loca":23,"./tables/ltag":24,"./tables/maxp":25,"./tables/name":26,"./tables/os2":27,"./tables/post":28,"fs":1}],11:[function(_dereq_,module,exports){
 // Parsing utility functions
 
 'use strict';
@@ -1345,7 +2655,7 @@ Parser.prototype.skip = function(type, amount) {
 
 exports.Parser = Parser;
 
-},{}],10:[function(_dereq_,module,exports){
+},{}],12:[function(_dereq_,module,exports){
 // Geometric objects
 
 'use strict';
@@ -1515,7 +2825,7 @@ Path.prototype.toSVG = function(decimalPlaces) {
 
 exports.Path = Path;
 
-},{}],11:[function(_dereq_,module,exports){
+},{}],13:[function(_dereq_,module,exports){
 // Table metadata
 
 'use strict';
@@ -1572,7 +2882,7 @@ Table.prototype.encode = function() {
 
 exports.Table = Table;
 
-},{"./check":2,"./types":26}],12:[function(_dereq_,module,exports){
+},{"./check":4,"./types":30}],14:[function(_dereq_,module,exports){
 // The `CFF` table contains the glyph outlines in PostScript format.
 // https://www.microsoft.com/typography/OTSPEC/cff.htm
 // http://download.microsoft.com/download/8/0/1/801a191c-029d-4af3-9642-555f6fe514ee/cff.pdf
@@ -2694,7 +4004,7 @@ function makeCFFTable(glyphs, options) {
 exports.parse = parseCFFTable;
 exports.make = makeCFFTable;
 
-},{"../encoding":4,"../glyphset":7,"../parse":9,"../path":10,"../table":11}],13:[function(_dereq_,module,exports){
+},{"../encoding":6,"../glyphset":9,"../parse":11,"../path":12,"../table":13}],15:[function(_dereq_,module,exports){
 // The `cmap` table stores the mappings from characters to glyphs.
 // https://www.microsoft.com/typography/OTSPEC/cmap.htm
 
@@ -2882,7 +4192,155 @@ function makeCmapTable(glyphs) {
 exports.parse = parseCmapTable;
 exports.make = makeCmapTable;
 
-},{"../check":2,"../parse":9,"../table":11}],14:[function(_dereq_,module,exports){
+},{"../check":4,"../parse":11,"../table":13}],16:[function(_dereq_,module,exports){
+// The `fvar` table stores font variation axes and instances.
+// https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6fvar.html
+
+'use strict';
+
+var check = _dereq_('../check');
+var parse = _dereq_('../parse');
+var table = _dereq_('../table');
+
+function addName(name, names) {
+    var nameString = JSON.stringify(name);
+    var nameID = 256;
+    for (var nameKey in names) {
+        var n = parseInt(nameKey);
+        if (!n || n < 256) {
+            continue;
+        }
+
+        if (JSON.stringify(names[nameKey]) === nameString) {
+            return n;
+        }
+
+        if (nameID <= n) {
+            nameID = n + 1;
+        }
+    }
+
+    names[nameID] = name;
+    return nameID;
+}
+
+function makeFvarAxis(axis, names) {
+    var nameID = addName(axis.name, names);
+    return new table.Table('fvarAxis', [
+        {name: 'tag', type: 'TAG', value: axis.tag},
+        {name: 'minValue', type: 'FIXED', value: axis.minValue << 16},
+        {name: 'defaultValue', type: 'FIXED', value: axis.defaultValue << 16},
+        {name: 'maxValue', type: 'FIXED', value: axis.maxValue << 16},
+        {name: 'flags', type: 'USHORT', value: 0},
+        {name: 'nameID', type: 'USHORT', value: nameID}
+    ]);
+}
+
+function parseFvarAxis(data, start, names) {
+    var axis = {};
+    var p = new parse.Parser(data, start);
+    axis.tag = p.parseTag();
+    axis.minValue = p.parseFixed();
+    axis.defaultValue = p.parseFixed();
+    axis.maxValue = p.parseFixed();
+    p.skip('uShort', 1);  // reserved for flags; no values defined
+    axis.name = names[p.parseUShort()] || {};
+    return axis;
+}
+
+function makeFvarInstance(inst, axes, names) {
+    var nameID = addName(inst.name, names);
+    var fields = [
+        {name: 'nameID', type: 'USHORT', value: nameID},
+        {name: 'flags', type: 'USHORT', value: 0}
+    ];
+
+    for (var i = 0; i < axes.length; ++i) {
+        var axisTag = axes[i].tag;
+        fields.push({
+            name: 'axis ' + axisTag,
+            type: 'FIXED',
+            value: inst.coordinates[axisTag] << 16
+        });
+    }
+
+    return new table.Table('fvarInstance', fields);
+}
+
+function parseFvarInstance(data, start, axes, names) {
+    var inst = {};
+    var p = new parse.Parser(data, start);
+    inst.name = names[p.parseUShort()] || {};
+    p.skip('uShort', 1);  // reserved for flags; no values defined
+
+    inst.coordinates = {};
+    for (var i = 0; i < axes.length; ++i) {
+        inst.coordinates[axes[i].tag] = p.parseFixed();
+    }
+
+    return inst;
+}
+
+function makeFvarTable(fvar, names) {
+    var result = new table.Table('fvar', [
+        {name: 'version', type: 'ULONG', value: 0x10000},
+        {name: 'offsetToData', type: 'USHORT', value: 0},
+        {name: 'countSizePairs', type: 'USHORT', value: 2},
+        {name: 'axisCount', type: 'USHORT', value: fvar.axes.length},
+        {name: 'axisSize', type: 'USHORT', value: 20},
+        {name: 'instanceCount', type: 'USHORT', value: fvar.instances.length},
+        {name: 'instanceSize', type: 'USHORT', value: 4 + fvar.axes.length * 4}
+    ]);
+    result.offsetToData = result.sizeOf();
+
+    for (var i = 0; i < fvar.axes.length; i++) {
+        result.fields.push({
+            name: 'axis ' + i,
+            type: 'TABLE',
+            value: makeFvarAxis(fvar.axes[i], names)});
+    }
+
+    for (var j = 0; j < fvar.instances.length; j++) {
+        result.fields.push({
+            name: 'instance ' + j,
+            type: 'TABLE',
+            value: makeFvarInstance(fvar.instances[j], fvar.axes, names)
+        });
+    }
+
+    return result;
+}
+
+function parseFvarTable(data, start, names) {
+    var p = new parse.Parser(data, start);
+    var tableVersion = p.parseULong();
+    check.argument(tableVersion === 0x00010000, 'Unsupported fvar table version.');
+    var offsetToData = p.parseOffset16();
+    // Skip countSizePairs.
+    p.skip('uShort', 1);
+    var axisCount = p.parseUShort();
+    var axisSize = p.parseUShort();
+    var instanceCount = p.parseUShort();
+    var instanceSize = p.parseUShort();
+
+    var axes = [];
+    for (var i = 0; i < axisCount; i++) {
+        axes.push(parseFvarAxis(data, start + offsetToData + i * axisSize, names));
+    }
+
+    var instances = [];
+    var instanceStart = start + offsetToData + axisCount * axisSize;
+    for (var j = 0; j < instanceCount; j++) {
+        instances.push(parseFvarInstance(data, instanceStart + j * instanceSize, axes, names));
+    }
+
+    return {axes:axes, instances:instances};
+}
+
+exports.make = makeFvarTable;
+exports.parse = parseFvarTable;
+
+},{"../check":4,"../parse":11,"../table":13}],17:[function(_dereq_,module,exports){
 // The `glyf` table describes the glyphs in TrueType outline format.
 // http://www.microsoft.com/typography/otspec/glyf.htm
 
@@ -3152,6 +4610,8 @@ function buildPath(glyphs, glyph) {
         for (var j = 0; j < glyph.components.length; j += 1) {
             var component = glyph.components[j];
             var componentGlyph = glyphs.get(component.glyphIndex);
+            // Force the ttfGlyphLoader to parse the glyph.
+            componentGlyph.getPath();
             if (componentGlyph.points) {
                 var transformedPoints = transformPoints(componentGlyph.points, component);
                 glyph.points = glyph.points.concat(transformedPoints);
@@ -3183,7 +4643,7 @@ function parseGlyfTable(data, start, loca, font) {
 
 exports.parse = parseGlyfTable;
 
-},{"../check":2,"../glyphset":7,"../parse":9,"../path":10}],15:[function(_dereq_,module,exports){
+},{"../check":4,"../glyphset":9,"../parse":11,"../path":12}],18:[function(_dereq_,module,exports){
 // The `GPOS` table contains kerning pairs, among other things.
 // https://www.microsoft.com/typography/OTSPEC/gpos.htm
 
@@ -3424,7 +4884,7 @@ function parseGposTable(data, start, font) {
 
 exports.parse = parseGposTable;
 
-},{"../check":2,"../parse":9}],16:[function(_dereq_,module,exports){
+},{"../check":4,"../parse":11}],19:[function(_dereq_,module,exports){
 // The `head` table contains global information about the font.
 // https://www.microsoft.com/typography/OTSPEC/head.htm
 
@@ -3484,7 +4944,7 @@ function makeHeadTable(options) {
 exports.parse = parseHeadTable;
 exports.make = makeHeadTable;
 
-},{"../check":2,"../parse":9,"../table":11}],17:[function(_dereq_,module,exports){
+},{"../check":4,"../parse":11,"../table":13}],20:[function(_dereq_,module,exports){
 // The `hhea` table contains information for horizontal layout.
 // https://www.microsoft.com/typography/OTSPEC/hhea.htm
 
@@ -3539,7 +4999,7 @@ function makeHheaTable(options) {
 exports.parse = parseHheaTable;
 exports.make = makeHheaTable;
 
-},{"../parse":9,"../table":11}],18:[function(_dereq_,module,exports){
+},{"../parse":11,"../table":13}],21:[function(_dereq_,module,exports){
 // The `hmtx` table contains the horizontal metrics for all glyphs.
 // https://www.microsoft.com/typography/OTSPEC/hmtx.htm
 
@@ -3583,7 +5043,7 @@ function makeHmtxTable(glyphs) {
 exports.parse = parseHmtxTable;
 exports.make = makeHmtxTable;
 
-},{"../parse":9,"../table":11}],19:[function(_dereq_,module,exports){
+},{"../parse":11,"../table":13}],22:[function(_dereq_,module,exports){
 // The `kern` table contains kerning pairs.
 // Note that some fonts use the GPOS OpenType layout table to specify kerning.
 // https://www.microsoft.com/typography/OTSPEC/kern.htm
@@ -3620,7 +5080,7 @@ function parseKernTable(data, start) {
 
 exports.parse = parseKernTable;
 
-},{"../check":2,"../parse":9}],20:[function(_dereq_,module,exports){
+},{"../check":4,"../parse":11}],23:[function(_dereq_,module,exports){
 // The `loca` table stores the offsets to the locations of the glyphs in the font.
 // https://www.microsoft.com/typography/OTSPEC/loca.htm
 
@@ -3655,7 +5115,70 @@ function parseLocaTable(data, start, numGlyphs, shortVersion) {
 
 exports.parse = parseLocaTable;
 
-},{"../parse":9}],21:[function(_dereq_,module,exports){
+},{"../parse":11}],24:[function(_dereq_,module,exports){
+// The `ltag` table stores IETF BCP-47 language tags. It allows supporting
+// languages for which TrueType does not assign a numeric code.
+// https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6ltag.html
+// http://www.w3.org/International/articles/language-tags/
+// http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry
+
+'use strict';
+
+var check = _dereq_('../check');
+var parse = _dereq_('../parse');
+var table = _dereq_('../table');
+
+function makeLtagTable(tags) {
+    var result = new table.Table('ltag', [
+        {name: 'version', type: 'ULONG', value: 1},
+        {name: 'flags', type: 'ULONG', value: 0},
+        {name: 'numTags', type: 'ULONG', value: tags.length}
+    ]);
+
+    var stringPool = '';
+    var stringPoolOffset = 12 + tags.length * 4;
+    for (var i = 0; i < tags.length; ++i) {
+        var pos = stringPool.indexOf(tags[i]);
+        if (pos < 0) {
+            pos = stringPool.length;
+            stringPool += tags[i];
+        }
+
+        result.fields.push({name: 'offset ' + i, type: 'USHORT', value: stringPoolOffset + pos});
+        result.fields.push({name: 'length ' + i, type: 'USHORT', value: tags[i].length});
+    }
+
+    result.fields.push({name: 'stringPool', type: 'CHARARRAY', value: stringPool});
+    return result;
+}
+
+function parseLtagTable(data, start) {
+    var p = new parse.Parser(data, start);
+    var tableVersion = p.parseULong();
+    check.argument(tableVersion === 1, 'Unsupported ltag table version.');
+    // The 'ltag' specification does not define any flags; skip the field.
+    p.skip('uLong', 1);
+    var numTags = p.parseULong();
+
+    var tags = [];
+    for (var i = 0; i < numTags; i++) {
+        var tag = '';
+        var offset = start + p.parseUShort();
+        var length = p.parseUShort();
+        for (var j = offset; j < offset + length; ++j) {
+            tag += String.fromCharCode(data.getInt8(j));
+        }
+
+        tags.push(tag);
+    }
+
+    return tags;
+}
+
+exports.make = makeLtagTable;
+exports.parse = parseLtagTable;
+
+},{"../check":4,"../parse":11,"../table":13}],25:[function(_dereq_,module,exports){
 // The `maxp` table establishes the memory requirements for the font.
 // We need it just to get the number of glyphs in the font.
 // https://www.microsoft.com/typography/OTSPEC/maxp.htm
@@ -3700,13 +5223,15 @@ function makeMaxpTable(numGlyphs) {
 exports.parse = parseMaxpTable;
 exports.make = makeMaxpTable;
 
-},{"../parse":9,"../table":11}],22:[function(_dereq_,module,exports){
+},{"../parse":11,"../table":13}],26:[function(_dereq_,module,exports){
 // The `name` naming table.
 // https://www.microsoft.com/typography/OTSPEC/name.htm
 
 'use strict';
 
-var encode = _dereq_('../types').encode;
+var types = _dereq_('../types');
+var decode = types.decode;
+var encode = types.encode;
 var parse = _dereq_('../parse');
 var table = _dereq_('../table');
 
@@ -3737,51 +5262,653 @@ var nameTableNames = [
     'wwsSubfamily'            // 22
 ];
 
-// Parse the naming `name` table
-// Only Windows Unicode English names are supported.
-// Format 1 additional fields are not supported
-function parseNameTable(data, start) {
+var macLanguages = {
+    0: 'en',
+    1: 'fr',
+    2: 'de',
+    3: 'it',
+    4: 'nl',
+    5: 'sv',
+    6: 'es',
+    7: 'da',
+    8: 'pt',
+    9: 'no',
+    10: 'he',
+    11: 'ja',
+    12: 'ar',
+    13: 'fi',
+    14: 'el',
+    15: 'is',
+    16: 'mt',
+    17: 'tr',
+    18: 'hr',
+    19: 'zh-Hant',
+    20: 'ur',
+    21: 'hi',
+    22: 'th',
+    23: 'ko',
+    24: 'lt',
+    25: 'pl',
+    26: 'hu',
+    27: 'es',
+    28: 'lv',
+    29: 'se',
+    30: 'fo',
+    31: 'fa',
+    32: 'ru',
+    33: 'zh',
+    34: 'nl-BE',
+    35: 'ga',
+    36: 'sq',
+    37: 'ro',
+    38: 'cz',
+    39: 'sk',
+    40: 'si',
+    41: 'yi',
+    42: 'sr',
+    43: 'mk',
+    44: 'bg',
+    45: 'uk',
+    46: 'be',
+    47: 'uz',
+    48: 'kk',
+    49: 'az-Cyrl',
+    50: 'az-Arab',
+    51: 'hy',
+    52: 'ka',
+    53: 'mo',
+    54: 'ky',
+    55: 'tg',
+    56: 'tk',
+    57: 'mn-CN',
+    58: 'mn',
+    59: 'ps',
+    60: 'ks',
+    61: 'ku',
+    62: 'sd',
+    63: 'bo',
+    64: 'ne',
+    65: 'sa',
+    66: 'mr',
+    67: 'bn',
+    68: 'as',
+    69: 'gu',
+    70: 'pa',
+    71: 'or',
+    72: 'ml',
+    73: 'kn',
+    74: 'ta',
+    75: 'te',
+    76: 'si',
+    77: 'my',
+    78: 'km',
+    79: 'lo',
+    80: 'vi',
+    81: 'id',
+    82: 'tl',
+    83: 'ms',
+    84: 'ms-Arab',
+    85: 'am',
+    86: 'ti',
+    87: 'om',
+    88: 'so',
+    89: 'sw',
+    90: 'rw',
+    91: 'rn',
+    92: 'ny',
+    93: 'mg',
+    94: 'eo',
+    128: 'cy',
+    129: 'eu',
+    130: 'ca',
+    131: 'la',
+    132: 'qu',
+    133: 'gn',
+    134: 'ay',
+    135: 'tt',
+    136: 'ug',
+    137: 'dz',
+    138: 'jv',
+    139: 'su',
+    140: 'gl',
+    141: 'af',
+    142: 'br',
+    143: 'iu',
+    144: 'gd',
+    145: 'gv',
+    146: 'ga',
+    147: 'to',
+    148: 'el-polyton',
+    149: 'kl',
+    150: 'az',
+    151: 'nn'
+};
+
+// MacOS language ID → MacOS script ID
+//
+// Note that the script ID is not sufficient to determine what encoding
+// to use in TrueType files. For some languages, MacOS used a modification
+// of a mainstream script. For example, an Icelandic name would be stored
+// with smRoman in the TrueType naming table, but the actual encoding
+// is a special Icelandic version of the normal Macintosh Roman encoding.
+// As another example, Inuktitut uses an 8-bit encoding for Canadian Aboriginal
+// Syllables but MacOS had run out of available script codes, so this was
+// done as a (pretty radical) "modification" of Ethiopic.
+//
+// http://unicode.org/Public/MAPPINGS/VENDORS/APPLE/Readme.txt
+var macLanguageToScript = {
+    0: 0,  // langEnglish → smRoman
+    1: 0,  // langFrench → smRoman
+    2: 0,  // langGerman → smRoman
+    3: 0,  // langItalian → smRoman
+    4: 0,  // langDutch → smRoman
+    5: 0,  // langSwedish → smRoman
+    6: 0,  // langSpanish → smRoman
+    7: 0,  // langDanish → smRoman
+    8: 0,  // langPortuguese → smRoman
+    9: 0,  // langNorwegian → smRoman
+    10: 5,  // langHebrew → smHebrew
+    11: 1,  // langJapanese → smJapanese
+    12: 4,  // langArabic → smArabic
+    13: 0,  // langFinnish → smRoman
+    14: 6,  // langGreek → smGreek
+    15: 0,  // langIcelandic → smRoman (modified)
+    16: 0,  // langMaltese → smRoman
+    17: 0,  // langTurkish → smRoman (modified)
+    18: 0,  // langCroatian → smRoman (modified)
+    19: 2,  // langTradChinese → smTradChinese
+    20: 4,  // langUrdu → smArabic
+    21: 9,  // langHindi → smDevanagari
+    22: 21,  // langThai → smThai
+    23: 3,  // langKorean → smKorean
+    24: 29,  // langLithuanian → smCentralEuroRoman
+    25: 29,  // langPolish → smCentralEuroRoman
+    26: 29,  // langHungarian → smCentralEuroRoman
+    27: 29,  // langEstonian → smCentralEuroRoman
+    28: 29,  // langLatvian → smCentralEuroRoman
+    29: 0,  // langSami → smRoman
+    30: 0,  // langFaroese → smRoman (modified)
+    31: 4,  // langFarsi → smArabic (modified)
+    32: 7,  // langRussian → smCyrillic
+    33: 25,  // langSimpChinese → smSimpChinese
+    34: 0,  // langFlemish → smRoman
+    35: 0,  // langIrishGaelic → smRoman (modified)
+    36: 0,  // langAlbanian → smRoman
+    37: 0,  // langRomanian → smRoman (modified)
+    38: 29,  // langCzech → smCentralEuroRoman
+    39: 29,  // langSlovak → smCentralEuroRoman
+    40: 0,  // langSlovenian → smRoman (modified)
+    41: 5,  // langYiddish → smHebrew
+    42: 7,  // langSerbian → smCyrillic
+    43: 7,  // langMacedonian → smCyrillic
+    44: 7,  // langBulgarian → smCyrillic
+    45: 7,  // langUkrainian → smCyrillic (modified)
+    46: 7,  // langByelorussian → smCyrillic
+    47: 7,  // langUzbek → smCyrillic
+    48: 7,  // langKazakh → smCyrillic
+    49: 7,  // langAzerbaijani → smCyrillic
+    50: 4,  // langAzerbaijanAr → smArabic
+    51: 24,  // langArmenian → smArmenian
+    52: 23,  // langGeorgian → smGeorgian
+    53: 7,  // langMoldavian → smCyrillic
+    54: 7,  // langKirghiz → smCyrillic
+    55: 7,  // langTajiki → smCyrillic
+    56: 7,  // langTurkmen → smCyrillic
+    57: 27,  // langMongolian → smMongolian
+    58: 7,  // langMongolianCyr → smCyrillic
+    59: 4,  // langPashto → smArabic
+    60: 4,  // langKurdish → smArabic
+    61: 4,  // langKashmiri → smArabic
+    62: 4,  // langSindhi → smArabic
+    63: 26,  // langTibetan → smTibetan
+    64: 9,  // langNepali → smDevanagari
+    65: 9,  // langSanskrit → smDevanagari
+    66: 9,  // langMarathi → smDevanagari
+    67: 13,  // langBengali → smBengali
+    68: 13,  // langAssamese → smBengali
+    69: 11,  // langGujarati → smGujarati
+    70: 10,  // langPunjabi → smGurmukhi
+    71: 12,  // langOriya → smOriya
+    72: 17,  // langMalayalam → smMalayalam
+    73: 16,  // langKannada → smKannada
+    74: 14,  // langTamil → smTamil
+    75: 15,  // langTelugu → smTelugu
+    76: 18,  // langSinhalese → smSinhalese
+    77: 19,  // langBurmese → smBurmese
+    78: 20,  // langKhmer → smKhmer
+    79: 22,  // langLao → smLao
+    80: 30,  // langVietnamese → smVietnamese
+    81: 0,  // langIndonesian → smRoman
+    82: 0,  // langTagalog → smRoman
+    83: 0,  // langMalayRoman → smRoman
+    84: 4,  // langMalayArabic → smArabic
+    85: 28,  // langAmharic → smEthiopic
+    86: 28,  // langTigrinya → smEthiopic
+    87: 28,  // langOromo → smEthiopic
+    88: 0,  // langSomali → smRoman
+    89: 0,  // langSwahili → smRoman
+    90: 0,  // langKinyarwanda → smRoman
+    91: 0,  // langRundi → smRoman
+    92: 0,  // langNyanja → smRoman
+    93: 0,  // langMalagasy → smRoman
+    94: 0,  // langEsperanto → smRoman
+    128: 0,  // langWelsh → smRoman (modified)
+    129: 0,  // langBasque → smRoman
+    130: 0,  // langCatalan → smRoman
+    131: 0,  // langLatin → smRoman
+    132: 0,  // langQuechua → smRoman
+    133: 0,  // langGuarani → smRoman
+    134: 0,  // langAymara → smRoman
+    135: 7,  // langTatar → smCyrillic
+    136: 4,  // langUighur → smArabic
+    137: 26,  // langDzongkha → smTibetan
+    138: 0,  // langJavaneseRom → smRoman
+    139: 0,  // langSundaneseRom → smRoman
+    140: 0,  // langGalician → smRoman
+    141: 0,  // langAfrikaans → smRoman
+    142: 0,  // langBreton → smRoman (modified)
+    143: 28,  // langInuktitut → smEthiopic (modified)
+    144: 0,  // langScottishGaelic → smRoman (modified)
+    145: 0,  // langManxGaelic → smRoman (modified)
+    146: 0,  // langIrishGaelicScript → smRoman (modified)
+    147: 0,  // langTongan → smRoman
+    148: 6,  // langGreekAncient → smRoman
+    149: 0,  // langGreenlandic → smRoman
+    150: 0,  // langAzerbaijanRoman → smRoman
+    151: 0   // langNynorsk → smRoman
+};
+
+// While Microsoft indicates a region/country for all its language
+// IDs, we omit the region code if it's equal to the "most likely
+// region subtag" according to Unicode CLDR. For scripts, we omit
+// the subtag if it is equal to the Suppress-Script entry in the
+// IANA language subtag registry for IETF BCP 47.
+//
+// For example, Microsoft states that its language code 0x041A is
+// Croatian in Croatia. We transform this to the BCP 47 language code 'hr'
+// and not 'hr-HR' because Croatia is the default country for Croatian,
+// according to Unicode CLDR. As another example, Microsoft states
+// that 0x101A is Croatian (Latin) in Bosnia-Herzegovina. We transform
+// this to 'hr-BA' and not 'hr-Latn-BA' because Latin is the default script
+// for the Croatian language, according to IANA.
+//
+// http://www.unicode.org/cldr/charts/latest/supplemental/likely_subtags.html
+// http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry
+var windowsLanguages = {
+    0x0436: 'af',
+    0x041C: 'sq',
+    0x0484: 'gsw',
+    0x045E: 'am',
+    0x1401: 'ar-DZ',
+    0x3C01: 'ar-BH',
+    0x0C01: 'ar',
+    0x0801: 'ar-IQ',
+    0x2C01: 'ar-JO',
+    0x3401: 'ar-KW',
+    0x3001: 'ar-LB',
+    0x1001: 'ar-LY',
+    0x1801: 'ary',
+    0x2001: 'ar-OM',
+    0x4001: 'ar-QA',
+    0x0401: 'ar-SA',
+    0x2801: 'ar-SY',
+    0x1C01: 'aeb',
+    0x3801: 'ar-AE',
+    0x2401: 'ar-YE',
+    0x042B: 'hy',
+    0x044D: 'as',
+    0x082C: 'az-Cyrl',
+    0x042C: 'az',
+    0x046D: 'ba',
+    0x042D: 'eu',
+    0x0423: 'be',
+    0x0845: 'bn',
+    0x0445: 'bn-IN',
+    0x201A: 'bs-Cyrl',
+    0x141A: 'bs',
+    0x047E: 'br',
+    0x0402: 'bg',
+    0x0403: 'ca',
+    0x0C04: 'zh-HK',
+    0x1404: 'zh-MO',
+    0x0804: 'zh',
+    0x1004: 'zh-SG',
+    0x0404: 'zh-TW',
+    0x0483: 'co',
+    0x041A: 'hr',
+    0x101A: 'hr-BA',
+    0x0405: 'cs',
+    0x0406: 'da',
+    0x048C: 'prs',
+    0x0465: 'dv',
+    0x0813: 'nl-BE',
+    0x0413: 'nl',
+    0x0C09: 'en-AU',
+    0x2809: 'en-BZ',
+    0x1009: 'en-CA',
+    0x2409: 'en-029',
+    0x4009: 'en-IN',
+    0x1809: 'en-IE',
+    0x2009: 'en-JM',
+    0x4409: 'en-MY',
+    0x1409: 'en-NZ',
+    0x3409: 'en-PH',
+    0x4809: 'en-SG',
+    0x1C09: 'en-ZA',
+    0x2C09: 'en-TT',
+    0x0809: 'en-GB',
+    0x0409: 'en',
+    0x3009: 'en-ZW',
+    0x0425: 'et',
+    0x0438: 'fo',
+    0x0464: 'fil',
+    0x040B: 'fi',
+    0x080C: 'fr-BE',
+    0x0C0C: 'fr-CA',
+    0x040C: 'fr',
+    0x140C: 'fr-LU',
+    0x180C: 'fr-MC',
+    0x100C: 'fr-CH',
+    0x0462: 'fy',
+    0x0456: 'gl',
+    0x0437: 'ka',
+    0x0C07: 'de-AT',
+    0x0407: 'de',
+    0x1407: 'de-LI',
+    0x1007: 'de-LU',
+    0x0807: 'de-CH',
+    0x0408: 'el',
+    0x046F: 'kl',
+    0x0447: 'gu',
+    0x0468: 'ha',
+    0x040D: 'he',
+    0x0439: 'hi',
+    0x040E: 'hu',
+    0x040F: 'is',
+    0x0470: 'ig',
+    0x0421: 'id',
+    0x045D: 'iu',
+    0x085D: 'iu-Latn',
+    0x083C: 'ga',
+    0x0434: 'xh',
+    0x0435: 'zu',
+    0x0410: 'it',
+    0x0810: 'it-CH',
+    0x0411: 'ja',
+    0x044B: 'kn',
+    0x043F: 'kk',
+    0x0453: 'km',
+    0x0486: 'quc',
+    0x0487: 'rw',
+    0x0441: 'sw',
+    0x0457: 'kok',
+    0x0412: 'ko',
+    0x0440: 'ky',
+    0x0454: 'lo',
+    0x0426: 'lv',
+    0x0427: 'lt',
+    0x082E: 'dsb',
+    0x046E: 'lb',
+    0x042F: 'mk',
+    0x083E: 'ms-BN',
+    0x043E: 'ms',
+    0x044C: 'ml',
+    0x043A: 'mt',
+    0x0481: 'mi',
+    0x047A: 'arn',
+    0x044E: 'mr',
+    0x047C: 'moh',
+    0x0450: 'mn',
+    0x0850: 'mn-CN',
+    0x0461: 'ne',
+    0x0414: 'nb',
+    0x0814: 'nn',
+    0x0482: 'oc',
+    0x0448: 'or',
+    0x0463: 'ps',
+    0x0415: 'pl',
+    0x0416: 'pt',
+    0x0816: 'pt-PT',
+    0x0446: 'pa',
+    0x046B: 'qu-BO',
+    0x086B: 'qu-EC',
+    0x0C6B: 'qu',
+    0x0418: 'ro',
+    0x0417: 'rm',
+    0x0419: 'ru',
+    0x243B: 'smn',
+    0x103B: 'smj-NO',
+    0x143B: 'smj',
+    0x0C3B: 'se-FI',
+    0x043B: 'se',
+    0x083B: 'se-SE',
+    0x203B: 'sms',
+    0x183B: 'sma-NO',
+    0x1C3B: 'sms',
+    0x044F: 'sa',
+    0x1C1A: 'sr-Cyrl-BA',
+    0x0C1A: 'sr',
+    0x181A: 'sr-Latn-BA',
+    0x081A: 'sr-Latn',
+    0x046C: 'nso',
+    0x0432: 'tn',
+    0x045B: 'si',
+    0x041B: 'sk',
+    0x0424: 'sl',
+    0x2C0A: 'es-AR',
+    0x400A: 'es-BO',
+    0x340A: 'es-CL',
+    0x240A: 'es-CO',
+    0x140A: 'es-CR',
+    0x1C0A: 'es-DO',
+    0x300A: 'es-EC',
+    0x440A: 'es-SV',
+    0x100A: 'es-GT',
+    0x480A: 'es-HN',
+    0x080A: 'es-MX',
+    0x4C0A: 'es-NI',
+    0x180A: 'es-PA',
+    0x3C0A: 'es-PY',
+    0x280A: 'es-PE',
+    0x500A: 'es-PR',
+
+    // Microsoft has defined two different language codes for
+    // “Spanish with modern sorting” and “Spanish with traditional
+    // sorting”. This makes sense for collation APIs, and it would be
+    // possible to express this in BCP 47 language tags via Unicode
+    // extensions (eg., es-u-co-trad is Spanish with traditional
+    // sorting). However, for storing names in fonts, the distinction
+    // does not make sense, so we give “es” in both cases.
+    0x0C0A: 'es',
+    0x040A: 'es',
+
+    0x540A: 'es-US',
+    0x380A: 'es-UY',
+    0x200A: 'es-VE',
+    0x081D: 'sv-FI',
+    0x041D: 'sv',
+    0x045A: 'syr',
+    0x0428: 'tg',
+    0x085F: 'tzm',
+    0x0449: 'ta',
+    0x0444: 'tt',
+    0x044A: 'te',
+    0x041E: 'th',
+    0x0451: 'bo',
+    0x041F: 'tr',
+    0x0442: 'tk',
+    0x0480: 'ug',
+    0x0422: 'uk',
+    0x042E: 'hsb',
+    0x0420: 'ur',
+    0x0843: 'uz-Cyrl',
+    0x0443: 'uz',
+    0x042A: 'vi',
+    0x0452: 'cy',
+    0x0488: 'wo',
+    0x0485: 'sah',
+    0x0478: 'ii',
+    0x046A: 'yo'
+};
+
+// Returns a IETF BCP 47 language code, for example 'zh-Hant'
+// for 'Chinese in the traditional script'.
+function getLanguageCode(platformID, languageID, ltag) {
+    switch (platformID) {
+    case 0:  // Unicode
+        if (languageID === 0xFFFF) {
+            return 'und';
+        } else if (ltag) {
+            return ltag[languageID];
+        }
+
+        break;
+
+    case 1:  // Macintosh
+        return macLanguages[languageID];
+
+    case 3:  // Windows
+        return windowsLanguages[languageID];
+    }
+
+    return undefined;
+}
+
+var utf16 = 'utf-16';
+
+// MacOS script ID → encoding. This table stores the default case,
+// which can be overridden by macLanguageEncodings.
+var macScriptEncodings = {
+    0: 'macintosh',           // smRoman
+    1: 'x-mac-japanese',      // smJapanese
+    2: 'x-mac-chinesetrad',   // smTradChinese
+    3: 'x-mac-korean',        // smKorean
+    6: 'x-mac-greek',         // smGreek
+    7: 'x-mac-cyrillic',      // smCyrillic
+    9: 'x-mac-devanagai',     // smDevanagari
+    10: 'x-mac-gurmukhi',     // smGurmukhi
+    11: 'x-mac-gujarati',     // smGujarati
+    12: 'x-mac-oriya',        // smOriya
+    13: 'x-mac-bengali',      // smBengali
+    14: 'x-mac-tamil',        // smTamil
+    15: 'x-mac-telugu',       // smTelugu
+    16: 'x-mac-kannada',      // smKannada
+    17: 'x-mac-malayalam',    // smMalayalam
+    18: 'x-mac-sinhalese',    // smSinhalese
+    19: 'x-mac-burmese',      // smBurmese
+    20: 'x-mac-khmer',        // smKhmer
+    21: 'x-mac-thai',         // smThai
+    22: 'x-mac-lao',          // smLao
+    23: 'x-mac-georgian',     // smGeorgian
+    24: 'x-mac-armenian',     // smArmenian
+    25: 'x-mac-chinesesimp',  // smSimpChinese
+    26: 'x-mac-tibetan',      // smTibetan
+    27: 'x-mac-mongolian',    // smMongolian
+    28: 'x-mac-ethiopic',     // smEthiopic
+    29: 'x-mac-ce',           // smCentralEuroRoman
+    30: 'x-mac-vietnamese',   // smVietnamese
+    31: 'x-mac-extarabic'     // smExtArabic
+};
+
+// MacOS language ID → encoding. This table stores the exceptional
+// cases, which override macScriptEncodings. For writing MacOS naming
+// tables, we need to emit a MacOS script ID. Therefore, we cannot
+// merge macScriptEncodings into macLanguageEncodings.
+//
+// http://unicode.org/Public/MAPPINGS/VENDORS/APPLE/Readme.txt
+var macLanguageEncodings = {
+    15: 'x-mac-icelandic',    // langIcelandic
+    17: 'x-mac-turkish',      // langTurkish
+    18: 'x-mac-croatian',     // langCroatian
+    24: 'x-mac-ce',           // langLithuanian
+    25: 'x-mac-ce',           // langPolish
+    26: 'x-mac-ce',           // langHungarian
+    27: 'x-mac-ce',           // langEstonian
+    28: 'x-mac-ce',           // langLatvian
+    30: 'x-mac-icelandic',    // langFaroese
+    37: 'x-mac-romanian',     // langRomanian
+    38: 'x-mac-ce',           // langCzech
+    39: 'x-mac-ce',           // langSlovak
+    40: 'x-mac-ce',           // langSlovenian
+    143: 'x-mac-inuit',       // langInuktitut
+    146: 'x-mac-gaelic'       // langIrishGaelicScript
+};
+
+function getEncoding(platformID, encodingID, languageID) {
+    switch (platformID) {
+    case 0:  // Unicode
+        return utf16;
+
+    case 1:  // Apple Macintosh
+        return macLanguageEncodings[languageID] || macScriptEncodings[encodingID];
+
+    case 3:  // Microsoft Windows
+        if (encodingID === 1 || encodingID === 10) {
+            return utf16;
+        }
+
+        break;
+    }
+
+    return undefined;
+}
+
+// Parse the naming `name` table.
+// FIXME: Format 1 additional fields are not supported yet.
+// ltag is the content of the `ltag' table, such as ['en', 'zh-Hans', 'de-CH-1904'].
+function parseNameTable(data, start, ltag) {
     var name = {};
     var p = new parse.Parser(data, start);
-    name.format = p.parseUShort();
+    var format = p.parseUShort();
     var count = p.parseUShort();
     var stringOffset = p.offset + p.parseUShort();
-    var unknownCount = 0;
     for (var i = 0; i < count; i++) {
         var platformID = p.parseUShort();
         var encodingID = p.parseUShort();
         var languageID = p.parseUShort();
         var nameID = p.parseUShort();
-        var property = nameTableNames[nameID];
+        var property = nameTableNames[nameID] || nameID;
         var byteLength = p.parseUShort();
         var offset = p.parseUShort();
-        // platformID - encodingID - languageID standard combinations :
-        // 1 - 0 - 0 : Macintosh, Roman, English
-        // 3 - 1 - 0x409 : Windows, Unicode BMP (UCS-2), en-US
-        if (platformID === 3 && encodingID === 1 && languageID === 0x409) {
-            var codePoints = [];
-            var length = byteLength / 2;
-            for (var j = 0; j < length; j++, offset += 2) {
-                codePoints[j] = parse.getShort(data, stringOffset + offset);
+        var language = getLanguageCode(platformID, languageID, ltag);
+        var encoding = getEncoding(platformID, encodingID, languageID);
+        if (encoding !== undefined && language !== undefined) {
+            var text;
+            if (encoding === utf16) {
+                text = decode.UTF16(data, stringOffset + offset, byteLength);
+            } else {
+                text = decode.MACSTRING(data, stringOffset + offset, byteLength, encoding);
             }
 
-            var str = String.fromCharCode.apply(null, codePoints);
-            if (property) {
-                name[property] = str;
-            }
-            else {
-                unknownCount++;
-                name['unknown' + unknownCount] = str;
+            if (text) {
+                var translations = name[property];
+                if (translations === undefined) {
+                    translations = name[property] = {};
+                }
+
+                translations[language] = text;
             }
         }
-
     }
 
-    if (name.format === 1) {
-        name.langTagCount = p.parseUShort();
+    var langTagCount = 0;
+    if (format === 1) {
+        // FIXME: Also handle Microsoft's 'name' table 1.
+        langTagCount = p.parseUShort();
     }
 
     return name;
+}
+
+// {23: 'foo'} → {'foo': 23}
+// ['bar', 'baz'] → {'bar': 0, 'baz': 1}
+function reverseDict(dict) {
+    var result = {};
+    for (var key in dict) {
+        result[dict[key]] = parseInt(key);
+    }
+
+    return result;
 }
 
 function makeNameRecord(platformID, encodingID, languageID, nameID, length, offset) {
@@ -3795,67 +5922,140 @@ function makeNameRecord(platformID, encodingID, languageID, nameID, length, offs
     ]);
 }
 
-function addMacintoshNameRecord(t, recordID, s, offset) {
-    // Macintosh, Roman, English
-    var stringBytes = encode.STRING(s);
-    t.records.push(makeNameRecord(1, 0, 0, recordID, stringBytes.length, offset));
-    t.strings.push(stringBytes);
-    offset += stringBytes.length;
+// Finds the position of needle in haystack, or -1 if not there.
+// Like String.indexOf(), but for arrays.
+function findSubArray(needle, haystack) {
+    var needleLength = needle.length;
+    var limit = haystack.length - needleLength + 1;
+
+    loop:
+    for (var pos = 0; pos < limit; pos++) {
+        for (; pos < limit; pos++) {
+            for (var k = 0; k < needleLength; k++) {
+                if (haystack[pos + k] !== needle[k]) {
+                    continue loop;
+                }
+            }
+
+            return pos;
+        }
+    }
+
+    return -1;
+}
+
+function addStringToPool(s, pool) {
+    var offset = findSubArray(s, pool);
+    if (offset < 0) {
+        offset = pool.length;
+        for (var i = 0, len = s.length; i < len; ++i) {
+            pool.push(s[i]);
+        }
+
+    }
+
     return offset;
 }
 
-function addWindowsNameRecord(t, recordID, s, offset) {
-    // Windows, Unicode BMP (UCS-2), US English
-    var utf16Bytes = encode.UTF16(s);
-    t.records.push(makeNameRecord(3, 1, 0x0409, recordID, utf16Bytes.length, offset));
-    t.strings.push(utf16Bytes);
-    offset += utf16Bytes.length;
-    return offset;
-}
+function makeNameTable(names, ltag) {
+    var nameID;
+    var nameIDs = [];
 
-function makeNameTable(options) {
+    var namesWithNumericKeys = {};
+    var nameTableIds = reverseDict(nameTableNames);
+    for (var key in names) {
+        var id = nameTableIds[key];
+        if (id === undefined) {
+            id = key;
+        }
+
+        nameID = parseInt(id);
+        namesWithNumericKeys[nameID] = names[key];
+        nameIDs.push(nameID);
+    }
+
+    var macLanguageIds = reverseDict(macLanguages);
+    var windowsLanguageIds = reverseDict(windowsLanguages);
+
+    var nameRecords = [];
+    var stringPool = [];
+
+    for (var i = 0; i < nameIDs.length; i++) {
+        nameID = nameIDs[i];
+        var translations = namesWithNumericKeys[nameID];
+        for (var lang in translations) {
+            var text = translations[lang];
+
+            // For MacOS, we try to emit the name in the form that was introduced
+            // in the initial version of the TrueType spec (in the late 1980s).
+            // However, this can fail for various reasons: the requested BCP 47
+            // language code might not have an old-style Mac equivalent;
+            // we might not have a codec for the needed character encoding;
+            // or the name might contain characters that cannot be expressed
+            // in the old-style Macintosh encoding. In case of failure, we emit
+            // the name in a more modern fashion (Unicode encoding with BCP 47
+            // language tags) that is recognized by MacOS 10.5, released in 2009.
+            // If fonts were only read by operating systems, we could simply
+            // emit all names in the modern form; this would be much easier.
+            // However, there are many applications and libraries that read
+            // 'name' tables directly, and these will usually only recognize
+            // the ancient form (silently skipping the unrecognized names).
+            var macPlatform = 1;  // Macintosh
+            var macLanguage = macLanguageIds[lang];
+            var macScript = macLanguageToScript[macLanguage];
+            var macEncoding = getEncoding(macPlatform, macScript, macLanguage);
+            var macName = encode.MACSTRING(text, macEncoding);
+            if (macName === undefined) {
+                macPlatform = 0;  // Unicode
+                macLanguage = ltag.indexOf(lang);
+                if (macLanguage < 0) {
+                    macLanguage = ltag.length;
+                    ltag.push(lang);
+                }
+
+                macScript = 4;  // Unicode 2.0 and later
+                macName = encode.UTF16(text);
+            }
+
+            var macNameOffset = addStringToPool(macName, stringPool);
+            nameRecords.push(makeNameRecord(macPlatform, macScript, macLanguage,
+                                            nameID, macName.length, macNameOffset));
+
+            var winLanguage = windowsLanguageIds[lang];
+            if (winLanguage !== undefined) {
+                var winName = encode.UTF16(text);
+                var winNameOffset = addStringToPool(winName, stringPool);
+                nameRecords.push(makeNameRecord(3, 1, winLanguage,
+                                                nameID, winName.length, winNameOffset));
+            }
+        }
+    }
+
+    nameRecords.sort(function(a, b) {
+        return ((a.platformID - b.platformID) ||
+                (a.encodingID - b.encodingID) ||
+                (a.languageID - b.languageID) ||
+                (a.nameID - b.nameID));
+    });
+
     var t = new table.Table('name', [
         {name: 'format', type: 'USHORT', value: 0},
-        {name: 'count', type: 'USHORT', value: 0},
-        {name: 'stringOffset', type: 'USHORT', value: 0}
+        {name: 'count', type: 'USHORT', value: nameRecords.length},
+        {name: 'stringOffset', type: 'USHORT', value: 6 + nameRecords.length * 12}
     ]);
-    t.records = [];
-    t.strings = [];
-    var offset = 0;
-    var i;
-    var s;
-    // Add Macintosh records first
-    for (i = 0; i < nameTableNames.length; i += 1) {
-        if (options[nameTableNames[i]] !== undefined) {
-            s = options[nameTableNames[i]];
-            offset = addMacintoshNameRecord(t, i, s, offset);
-        }
-    }
-    // Then add Windows records
-    for (i = 0; i < nameTableNames.length; i += 1) {
-        if (options[nameTableNames[i]] !== undefined) {
-            s = options[nameTableNames[i]];
-            offset = addWindowsNameRecord(t, i, s, offset);
-        }
+
+    for (var r = 0; r < nameRecords.length; r++) {
+        t.fields.push({name: 'record_' + r, type: 'TABLE', value: nameRecords[r]});
     }
 
-    t.count = t.records.length;
-    t.stringOffset = 6 + t.count * 12;
-    for (i = 0; i < t.records.length; i += 1) {
-        t.fields.push({name: 'record_' + i, type: 'TABLE', value: t.records[i]});
-    }
-
-    for (i = 0; i < t.strings.length; i += 1) {
-        t.fields.push({name: 'string_' + i, type: 'LITERAL', value: t.strings[i]});
-    }
-
+    t.fields.push({name: 'strings', type: 'LITERAL', value: stringPool});
     return t;
 }
 
 exports.parse = parseNameTable;
 exports.make = makeNameTable;
 
-},{"../parse":9,"../table":11,"../types":26}],23:[function(_dereq_,module,exports){
+},{"../parse":11,"../table":13,"../types":30}],27:[function(_dereq_,module,exports){
 // The `OS/2` table contains metrics required in OpenType fonts.
 // https://www.microsoft.com/typography/OTSPEC/os2.htm
 
@@ -4111,7 +6311,7 @@ exports.getUnicodeRange = getUnicodeRange;
 exports.parse = parseOS2Table;
 exports.make = makeOS2Table;
 
-},{"../parse":9,"../table":11}],24:[function(_dereq_,module,exports){
+},{"../parse":11,"../table":13}],28:[function(_dereq_,module,exports){
 // The `post` table stores additional PostScript information, such as glyph names.
 // https://www.microsoft.com/typography/OTSPEC/post.htm
 
@@ -4184,7 +6384,7 @@ function makePostTable() {
 exports.parse = parsePostTable;
 exports.make = makePostTable;
 
-},{"../encoding":4,"../parse":9,"../table":11}],25:[function(_dereq_,module,exports){
+},{"../encoding":6,"../parse":11,"../table":13}],29:[function(_dereq_,module,exports){
 // The `sfnt` wrapper provides organization for the tables in the font.
 // It is the top-level data structure in a font.
 // https://www.microsoft.com/typography/OTSPEC/otff.htm
@@ -4201,6 +6401,7 @@ var cff = _dereq_('./cff');
 var head = _dereq_('./head');
 var hhea = _dereq_('./hhea');
 var hmtx = _dereq_('./hmtx');
+var ltag = _dereq_('./ltag');
 var maxp = _dereq_('./maxp');
 var _name = _dereq_('./name');
 var os2 = _dereq_('./os2');
@@ -4426,38 +6627,54 @@ function fontToSfntTable(font) {
     var hmtxTable = hmtx.make(font.glyphs);
     var cmapTable = cmap.make(font.glyphs);
 
-    var fullName = font.familyName + ' ' + font.styleName;
-    var postScriptName = font.familyName.replace(/\s/g, '') + '-' + font.styleName;
-    var nameTable = _name.make({
-        copyright: font.copyright,
-        fontFamily: font.familyName,
-        fontSubfamily: font.styleName,
-        uniqueID: font.manufacturer + ':' + fullName,
-        fullName: fullName,
-        version: font.version,
-        postScriptName: postScriptName,
-        trademark: font.trademark,
-        manufacturer: font.manufacturer,
-        designer: font.designer,
-        description: font.description,
-        manufacturerURL: font.manufacturerURL,
-        designerURL: font.designerURL,
-        license: font.license,
-        licenseURL: font.licenseURL,
-        preferredFamily: font.familyName,
-        preferredSubfamily: font.styleName
-    });
+    var englishFamilyName = font.getEnglishName('fontFamily');
+    var englishStyleName = font.getEnglishName('fontSubfamily');
+    var englishFullName = englishFamilyName + ' ' + englishStyleName;
+    var postScriptName = font.getEnglishName('postScriptName');
+    if (!postScriptName) {
+        postScriptName = englishFamilyName.replace(/\s/g, '') + '-' + englishStyleName;
+    }
+
+    var names = {};
+    for (var n in font.names) {
+        names[n] = font.names[n];
+    }
+
+    if (!names.uniqueID) {
+        names.uniqueID = {en: font.getEnglishName('manufacturer') + ':' + englishFullName};
+    }
+
+    if (!names.postScriptName) {
+        names.postScriptName = {en: postScriptName};
+    }
+
+    if (!names.preferredFamily) {
+        names.preferredFamily = font.names.fontFamily;
+    }
+
+    if (!names.preferredSubfamily) {
+        names.preferredSubfamily = font.names.fontSubfamily;
+    }
+
+    var languageTags = [];
+    var nameTable = _name.make(names, languageTags);
+    var ltagTable = (languageTags.length > 0 ? ltag.make(languageTags) : undefined);
+
     var postTable = post.make();
     var cffTable = cff.make(font.glyphs, {
-        version: font.version,
-        fullName: fullName,
-        familyName: font.familyName,
-        weightName: font.styleName,
+        version: font.getEnglishName('version'),
+        fullName: englishFullName,
+        familyName: englishFamilyName,
+        weightName: englishStyleName,
         postScriptName: postScriptName,
         unitsPerEm: font.unitsPerEm
     });
-    // Order the tables according to the the OpenType specification 1.4.
+
+    // The order does not matter because makeSfntTable() will sort them.
     var tables = [headTable, hheaTable, maxpTable, os2Table, nameTable, cmapTable, postTable, cffTable, hmtxTable];
+    if (ltagTable) {
+        tables.push(ltagTable);
+    }
 
     var sfntTable = makeSfntTable(tables);
 
@@ -4485,7 +6702,7 @@ exports.computeCheckSum = computeCheckSum;
 exports.make = makeSfntTable;
 exports.fontToTable = fontToSfntTable;
 
-},{"../check":2,"../table":11,"./cff":12,"./cmap":13,"./head":16,"./hhea":17,"./hmtx":18,"./maxp":21,"./name":22,"./os2":23,"./post":24}],26:[function(_dereq_,module,exports){
+},{"../check":4,"../table":13,"./cff":14,"./cmap":15,"./head":19,"./hhea":20,"./hmtx":21,"./ltag":24,"./maxp":25,"./name":26,"./os2":27,"./post":28}],30:[function(_dereq_,module,exports){
 // Data types used in the OpenType font file.
 // All OpenType fonts use Motorola-style byte ordering (Big Endian)
 
@@ -4524,7 +6741,7 @@ encode.CHAR = function(v) {
     return [v.charCodeAt(0)];
 };
 
-sizeOf.BYTE = constant(1);
+sizeOf.CHAR = constant(1);
 
 // Convert an ASCII string to a list of bytes.
 encode.CHARARRAY = function(v) {
@@ -4653,16 +6870,16 @@ encode.NUMBER16 = function(v) {
     return [28, (v >> 8) & 0xFF, v & 0xFF];
 };
 
-sizeOf.NUMBER16 = constant(2);
+sizeOf.NUMBER16 = constant(3);
 
-// Convert a signed number between -(2^31) and +(2^31-1) to a four-byte value.
+// Convert a signed number between -(2^31) and +(2^31-1) to a five-byte value.
 // This is useful if you want to be sure you always use four bytes,
 // at the expense of wasting a few bytes for smaller numbers.
 encode.NUMBER32 = function(v) {
     return [29, (v >> 24) & 0xFF, (v >> 16) & 0xFF, (v >> 8) & 0xFF, v & 0xFF];
 };
 
-sizeOf.NUMBER32 = constant(4);
+sizeOf.NUMBER32 = constant(5);
 
 encode.REAL = function(v) {
     var value = v.toString();
@@ -4710,12 +6927,23 @@ sizeOf.NAME = sizeOf.CHARARRAY;
 encode.STRING = encode.CHARARRAY;
 sizeOf.STRING = sizeOf.CHARARRAY;
 
-// Convert a ASCII string to a list of UTF16 bytes.
+decode.UTF16 = function(data, offset, numBytes) {
+    var codePoints = [];
+    var numChars = numBytes / 2;
+    for (var j = 0; j < numChars; j++, offset += 2) {
+        codePoints[j] = data.getUint16(offset);
+    }
+
+    return String.fromCharCode.apply(null, codePoints);
+};
+
+// Convert a JavaScript string to UTF16-BE.
 encode.UTF16 = function(v) {
     var b = [];
     for (var i = 0; i < v.length; i += 1) {
-        b.push(0);
-        b.push(v.charCodeAt(i));
+        var codepoint = v.charCodeAt(i);
+        b.push((codepoint >> 8) & 0xFF);
+        b.push(codepoint & 0xFF);
     }
 
     return b;
@@ -4723,6 +6951,167 @@ encode.UTF16 = function(v) {
 
 sizeOf.UTF16 = function(v) {
     return v.length * 2;
+};
+
+// Data for converting old eight-bit Macintosh encodings to Unicode.
+// This representation is optimized for decoding; encoding is slower
+// and needs more memory. The assumption is that all opentype.js users
+// want to open fonts, but saving a font will be comperatively rare
+// so it can be more expensive. Keyed by IANA character set name.
+//
+// Python script for generating these strings:
+//
+//     s = u''.join([chr(c).decode('mac_greek') for c in range(128, 256)])
+//     print(s.encode('utf-8'))
+var eightBitMacEncodings = {
+    'x-mac-croatian':  // Python: 'mac_croatian'
+        'ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®Š™´¨≠ŽØ∞±≤≥∆µ∂∑∏š∫ªºΩžø' +
+        '¿¡¬√ƒ≈Ć«Č… ÀÃÕŒœĐ—“”‘’÷◊©⁄€‹›Æ»–·‚„‰ÂćÁčÈÍÎÏÌÓÔđÒÚÛÙıˆ˜¯πË˚¸Êæˇ',
+    'x-mac-cyrillic':  // Python: 'mac_cyrillic'
+        'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ†°Ґ£§•¶І®©™Ђђ≠Ѓѓ∞±≤≥іµґЈЄєЇїЉљЊњ' +
+        'јЅ¬√ƒ≈∆«»… ЋћЌќѕ–—“”‘’÷„ЎўЏџ№Ёёяабвгдежзийклмнопрстуфхцчшщъыьэю',
+    'x-mac-gaelic':
+        // http://unicode.org/Public/MAPPINGS/VENDORS/APPLE/GAELIC.TXT
+        'ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®©™´¨≠ÆØḂ±≤≥ḃĊċḊḋḞḟĠġṀæø' +
+        'ṁṖṗɼƒſṠ«»… ÀÃÕŒœ–—“”‘’ṡẛÿŸṪ€‹›Ŷŷṫ·Ỳỳ⁊ÂÊÁËÈÍÎÏÌÓÔ♣ÒÚÛÙıÝýŴŵẄẅẀẁẂẃ',
+    'x-mac-greek':  // Python: 'mac_greek'
+        'Ä¹²É³ÖÜ΅àâä΄¨çéèêë£™îï•½‰ôö¦€ùûü†ΓΔΘΛΞΠß®©ΣΪ§≠°·Α±≤≥¥ΒΕΖΗΙΚΜΦΫΨΩ' +
+        'άΝ¬ΟΡ≈Τ«»… ΥΧΆΈœ–―“”‘’÷ΉΊΌΎέήίόΏύαβψδεφγηιξκλμνοπώρστθωςχυζϊϋΐΰ\u00AD',
+    'x-mac-icelandic':  // Python: 'mac_iceland'
+        'ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûüÝ°¢£§•¶ß®©™´¨≠ÆØ∞±≤≥¥µ∂∑∏π∫ªºΩæø' +
+        '¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€ÐðÞþý·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ',
+    'x-mac-inuit':
+        // http://unicode.org/Public/MAPPINGS/VENDORS/APPLE/INUIT.TXT
+        'ᐃᐄᐅᐆᐊᐋᐱᐲᐳᐴᐸᐹᑉᑎᑏᑐᑑᑕᑖᑦᑭᑮᑯᑰᑲᑳᒃᒋᒌᒍᒎᒐᒑ°ᒡᒥᒦ•¶ᒧ®©™ᒨᒪᒫᒻᓂᓃᓄᓅᓇᓈᓐᓯᓰᓱᓲᓴᓵᔅᓕᓖᓗ' +
+        'ᓘᓚᓛᓪᔨᔩᔪᔫᔭ… ᔮᔾᕕᕖᕗ–—“”‘’ᕘᕙᕚᕝᕆᕇᕈᕉᕋᕌᕐᕿᖀᖁᖂᖃᖄᖅᖏᖐᖑᖒᖓᖔᖕᙱᙲᙳᙴᙵᙶᖖᖠᖡᖢᖣᖤᖥᖦᕼŁł',
+    'x-mac-ce':  // Python: 'mac_latin2'
+        'ÄĀāÉĄÖÜáąČäčĆćéŹźĎíďĒēĖóėôöõúĚěü†°Ę£§•¶ß®©™ę¨≠ģĮįĪ≤≥īĶ∂∑łĻļĽľĹĺŅ' +
+        'ņŃ¬√ńŇ∆«»… ňŐÕőŌ–—“”‘’÷◊ōŔŕŘ‹›řŖŗŠ‚„šŚśÁŤťÍŽžŪÓÔūŮÚůŰűŲųÝýķŻŁżĢˇ',
+    macintosh:  // Python: 'mac_roman'
+        'ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®©™´¨≠ÆØ∞±≤≥¥µ∂∑∏π∫ªºΩæø' +
+        '¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€‹›ﬁﬂ‡·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ',
+    'x-mac-romanian':  // Python: 'mac_romanian'
+        'ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®©™´¨≠ĂȘ∞±≤≥¥µ∂∑∏π∫ªºΩăș' +
+        '¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€‹›Țț‡·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ',
+    'x-mac-turkish':  // Python: 'mac_turkish'
+        'ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®©™´¨≠ÆØ∞±≤≥¥µ∂∑∏π∫ªºΩæø' +
+        '¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸĞğİıŞş‡·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙˆ˜¯˘˙˚¸˝˛ˇ'
+};
+
+// Decodes an old-style Macintosh string. Returns either a Unicode JavaScript
+// string, or 'undefined' if the encoding is unsupported. For example, we do
+// not support Chinese, Japanese or Korean because these would need large
+// mapping tables.
+decode.MACSTRING = function(dataView, offset, dataLength, encoding) {
+    var table = eightBitMacEncodings[encoding];
+    if (table === undefined) {
+        return undefined;
+    }
+
+    var result = '';
+    for (var i = 0; i < dataLength; i++) {
+        var c = dataView.getUint8(offset + i);
+        // In all eight-bit Mac encodings, the characters 0x00..0x7F are
+        // mapped to U+0000..U+007F; we only need to look up the others.
+        if (c <= 0x7F) {
+            result += String.fromCharCode(c);
+        } else {
+            result += table[c & 0x7F];
+        }
+    }
+
+    return result;
+};
+
+// Helper function for encode.MACSTRING. Returns a dictionary for mapping
+// Unicode character codes to their 8-bit MacOS equivalent. This table
+// is not exactly a super cheap data structure, but we do not care because
+// encoding Macintosh strings is only rarely needed in typical applications.
+var macEncodingTableCache = typeof WeakMap === 'function' && new WeakMap();
+var macEncodingCacheKeys;
+var getMacEncodingTable = function(encoding) {
+    // Since we use encoding as a cache key for WeakMap, it has to be
+    // a String object and not a literal. And at least on NodeJS 2.10.1,
+    // WeakMap requires that the same String instance is passed for cache hits.
+    if (!macEncodingCacheKeys) {
+        macEncodingCacheKeys = {};
+        for (var e in eightBitMacEncodings) {
+            /*jshint -W053 */  // Suppress "Do not use String as a constructor."
+            macEncodingCacheKeys[e] = new String(e);
+        }
+    }
+
+    var cacheKey = macEncodingCacheKeys[encoding];
+    if (cacheKey === undefined) {
+        return undefined;
+    }
+
+    // We can't do "if (cache.has(key)) {return cache.get(key)}" here:
+    // since garbage collection may run at any time, it could also kick in
+    // between the calls to cache.has() and cache.get(). In that case,
+    // we would return 'undefined' even though we do support the encoding.
+    if (macEncodingTableCache) {
+        var cachedTable = macEncodingTableCache.get(cacheKey);
+        if (cachedTable !== undefined) {
+            return cachedTable;
+        }
+    }
+
+    var decodingTable = eightBitMacEncodings[encoding];
+    if (decodingTable === undefined) {
+        return undefined;
+    }
+
+    var encodingTable = {};
+    for (var i = 0; i < decodingTable.length; i++) {
+        encodingTable[decodingTable.charCodeAt(i)] = i + 0x80;
+    }
+
+    if (macEncodingTableCache) {
+        macEncodingTableCache.set(cacheKey, encodingTable);
+    }
+
+    return encodingTable;
+};
+
+// Encodes an old-style Macintosh string. Returns a byte array upon success.
+// If the requested encoding is unsupported, or if the input string contains
+// a character that cannot be expressed in the encoding, the function returns
+// 'undefined'.
+encode.MACSTRING = function(str, encoding) {
+    var table = getMacEncodingTable(encoding);
+    if (table === undefined) {
+        return undefined;
+    }
+
+    var result = [];
+    for (var i = 0; i < str.length; i++) {
+        var c = str.charCodeAt(i);
+
+        // In all eight-bit Mac encodings, the characters 0x00..0x7F are
+        // mapped to U+0000..U+007F; we only need to look up the others.
+        if (c >= 0x80) {
+            c = table[c];
+            if (c === undefined) {
+                // str contains a Unicode character that cannot be encoded
+                // in the requested encoding.
+                return undefined;
+            }
+        }
+
+        result.push(c);
+    }
+
+    return result;
+};
+
+sizeOf.MACSTRING = function(str, encoding) {
+    var b = encode.MACSTRING(str, encoding);
+    if (b !== undefined) {
+        return b.length;
+    } else {
+        return 0;
+    }
 };
 
 // Convert a list of values to a CFF INDEX structure.
@@ -4834,8 +7223,12 @@ sizeOf.OP = sizeOf.BYTE;
 var wmm = typeof WeakMap === 'function' && new WeakMap();
 // Convert a list of CharString operations to bytes.
 encode.CHARSTRING = function(ops) {
-    if (wmm && wmm.has(ops)) {
-        return wmm.get(ops);
+    // See encode.MACSTRING for why we don't do "if (wmm && wmm.has(ops))".
+    if (wmm) {
+        var cachedValue = wmm.get(ops);
+        if (cachedValue !== undefined) {
+            return cachedValue;
+        }
     }
 
     var d = [];
@@ -4866,6 +7259,12 @@ encode.OBJECT = function(v) {
     return encodingFunction(v.value);
 };
 
+sizeOf.OBJECT = function(v) {
+    var sizeOfFunction = sizeOf[v.type];
+    check.argument(sizeOfFunction !== undefined, 'No sizeOf function for type ' + v.type);
+    return sizeOfFunction(v.value);
+};
+
 // Convert a table object to bytes.
 // A table contains a list of fields containing the metadata (name, type and default value).
 // The table itself has the field values set as attributes.
@@ -4889,6 +7288,25 @@ encode.TABLE = function(table) {
     return d;
 };
 
+sizeOf.TABLE = function(table) {
+    var numBytes = 0;
+    var length = table.fields.length;
+
+    for (var i = 0; i < length; i += 1) {
+        var field = table.fields[i];
+        var sizeOfFunction = sizeOf[field.type];
+        check.argument(sizeOfFunction !== undefined, 'No sizeOf function for field type ' + field.type);
+        var value = table[field.name];
+        if (value === undefined) {
+            value = field.value;
+        }
+
+        numBytes += sizeOfFunction(value);
+    }
+
+    return numBytes;
+};
+
 // Merge in a list of bytes.
 encode.LITERAL = function(v) {
     return v;
@@ -4902,3387 +7320,652 @@ exports.decode = decode;
 exports.encode = encode;
 exports.sizeOf = sizeOf;
 
-},{"./check":2}],27:[function(_dereq_,module,exports){
-/*!
-  * Reqwest! A general purpose XHR connection manager
-  * license MIT (c) Dustin Diaz 2014
-  * https://github.com/ded/reqwest
-  */
+},{"./check":4}],31:[function(_dereq_,module,exports){
+// shim for using process in browser
+var process = module.exports = {};
 
-!function (name, context, definition) {
-  if (typeof module != 'undefined' && module.exports) module.exports = definition()
-  else if (typeof define == 'function' && define.amd) define(definition)
-  else context[name] = definition()
-}('reqwest', this, function () {
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
 
-  var win = window
-    , doc = document
-    , httpsRe = /^http/
-    , protocolRe = /(^\w+):\/\//
-    , twoHundo = /^(20\d|1223)$/ //http://stackoverflow.com/questions/10046972/msie-returns-status-code-of-1223-for-ajax-request
-    , byTag = 'getElementsByTagName'
-    , readyState = 'readyState'
-    , contentType = 'Content-Type'
-    , requestedWith = 'X-Requested-With'
-    , head = doc[byTag]('head')[0]
-    , uniqid = 0
-    , callbackPrefix = 'reqwest_' + (+new Date())
-    , lastValue // data stored by the most recent JSONP callback
-    , xmlHttpRequest = 'XMLHttpRequest'
-    , xDomainRequest = 'XDomainRequest'
-    , noop = function () {}
+var cachedSetTimeout;
+var cachedClearTimeout;
 
-    , isArray = typeof Array.isArray == 'function'
-        ? Array.isArray
-        : function (a) {
-            return a instanceof Array
-          }
-
-    , defaultHeaders = {
-          'contentType': 'application/x-www-form-urlencoded'
-        , 'requestedWith': xmlHttpRequest
-        , 'accept': {
-              '*':  'text/javascript, text/html, application/xml, text/xml, */*'
-            , 'xml':  'application/xml, text/xml'
-            , 'html': 'text/html'
-            , 'text': 'text/plain'
-            , 'json': 'application/json, text/javascript'
-            , 'js':   'application/javascript, text/javascript'
-          }
-      }
-
-    , xhr = function(o) {
-        // is it x-domain
-        if (o['crossOrigin'] === true) {
-          var xhr = win[xmlHttpRequest] ? new XMLHttpRequest() : null
-          if (xhr && 'withCredentials' in xhr) {
-            return xhr
-          } else if (win[xDomainRequest]) {
-            return new XDomainRequest()
-          } else {
-            throw new Error('Browser does not support cross-origin requests')
-          }
-        } else if (win[xmlHttpRequest]) {
-          return new XMLHttpRequest()
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
         } else {
-          return new ActiveXObject('Microsoft.XMLHTTP')
+            cachedSetTimeout = defaultSetTimout;
         }
-      }
-    , globalSetupOptions = {
-        dataFilter: function (data) {
-          return data
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
         }
-      }
-
-  function succeed(r) {
-    var protocol = protocolRe.exec(r.url);
-    protocol = (protocol && protocol[1]) || window.location.protocol;
-    return httpsRe.test(protocol) ? twoHundo.test(r.request.status) : !!r.request.response;
-  }
-
-  function handleReadyState(r, success, error) {
-    return function () {
-      // use _aborted to mitigate against IE err c00c023f
-      // (can't read props on aborted request objects)
-      if (r._aborted) return error(r.request)
-      if (r._timedOut) return error(r.request, 'Request is aborted: timeout')
-      if (r.request && r.request[readyState] == 4) {
-        r.request.onreadystatechange = noop
-        if (succeed(r)) success(r.request)
-        else
-          error(r.request)
-      }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
     }
-  }
-
-  function setHeaders(http, o) {
-    var headers = o['headers'] || {}
-      , h
-
-    headers['Accept'] = headers['Accept']
-      || defaultHeaders['accept'][o['type']]
-      || defaultHeaders['accept']['*']
-
-    var isAFormData = typeof FormData === 'function' && (o['data'] instanceof FormData);
-    // breaks cross-origin requests with legacy browsers
-    if (!o['crossOrigin'] && !headers[requestedWith]) headers[requestedWith] = defaultHeaders['requestedWith']
-    if (!headers[contentType] && !isAFormData) headers[contentType] = o['contentType'] || defaultHeaders['contentType']
-    for (h in headers)
-      headers.hasOwnProperty(h) && 'setRequestHeader' in http && http.setRequestHeader(h, headers[h])
-  }
-
-  function setCredentials(http, o) {
-    if (typeof o['withCredentials'] !== 'undefined' && typeof http.withCredentials !== 'undefined') {
-      http.withCredentials = !!o['withCredentials']
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
     }
-  }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
 
-  function generalCallback(data) {
-    lastValue = data
-  }
 
-  function urlappend (url, s) {
-    return url + (/\?/.test(url) ? '&' : '?') + s
-  }
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
 
-  function handleJsonp(o, fn, err, url) {
-    var reqId = uniqid++
-      , cbkey = o['jsonpCallback'] || 'callback' // the 'callback' key
-      , cbval = o['jsonpCallbackName'] || reqwest.getcallbackPrefix(reqId)
-      , cbreg = new RegExp('((^|\\?|&)' + cbkey + ')=([^&]+)')
-      , match = url.match(cbreg)
-      , script = doc.createElement('script')
-      , loaded = 0
-      , isIE10 = navigator.userAgent.indexOf('MSIE 10.0') !== -1
 
-    if (match) {
-      if (match[3] === '?') {
-        url = url.replace(cbreg, '$1=' + cbval) // wildcard callback func name
-      } else {
-        cbval = match[3] // provided callback func name
-      }
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
     } else {
-      url = urlappend(url, cbkey + '=' + cbval) // no callback details, add 'em
+        queueIndex = -1;
     }
-
-    win[cbval] = generalCallback
-
-    script.type = 'text/javascript'
-    script.src = url
-    script.async = true
-    if (typeof script.onreadystatechange !== 'undefined' && !isIE10) {
-      // need this for IE due to out-of-order onreadystatechange(), binding script
-      // execution to an event listener gives us control over when the script
-      // is executed. See http://jaubourg.net/2010/07/loading-script-as-onclick-handler-of.html
-      script.htmlFor = script.id = '_reqwest_' + reqId
+    if (queue.length) {
+        drainQueue();
     }
+}
 
-    script.onload = script.onreadystatechange = function () {
-      if ((script[readyState] && script[readyState] !== 'complete' && script[readyState] !== 'loaded') || loaded) {
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
+
+},{}],32:[function(_dereq_,module,exports){
+(function(self) {
+  'use strict';
+
+  if (self.fetch) {
+    return
+  }
+
+  var support = {
+    searchParams: 'URLSearchParams' in self,
+    iterable: 'Symbol' in self && 'iterator' in Symbol,
+    blob: 'FileReader' in self && 'Blob' in self && (function() {
+      try {
+        new Blob()
+        return true
+      } catch(e) {
         return false
       }
-      script.onload = script.onreadystatechange = null
-      script.onclick && script.onclick()
-      // Call the user callback with the last value stored and clean up values and scripts.
-      fn(lastValue)
-      lastValue = undefined
-      head.removeChild(script)
-      loaded = 1
+    })(),
+    formData: 'FormData' in self,
+    arrayBuffer: 'ArrayBuffer' in self
+  }
+
+  if (support.arrayBuffer) {
+    var viewClasses = [
+      '[object Int8Array]',
+      '[object Uint8Array]',
+      '[object Uint8ClampedArray]',
+      '[object Int16Array]',
+      '[object Uint16Array]',
+      '[object Int32Array]',
+      '[object Uint32Array]',
+      '[object Float32Array]',
+      '[object Float64Array]'
+    ]
+
+    var isDataView = function(obj) {
+      return obj && DataView.prototype.isPrototypeOf(obj)
     }
 
-    // Add the script to the DOM head
-    head.appendChild(script)
+    var isArrayBufferView = ArrayBuffer.isView || function(obj) {
+      return obj && viewClasses.indexOf(Object.prototype.toString.call(obj)) > -1
+    }
+  }
 
-    // Enable JSONP timeout
-    return {
-      abort: function () {
-        script.onload = script.onreadystatechange = null
-        err({}, 'Request is aborted: timeout', {})
-        lastValue = undefined
-        head.removeChild(script)
-        loaded = 1
+  function normalizeName(name) {
+    if (typeof name !== 'string') {
+      name = String(name)
+    }
+    if (/[^a-z0-9\-#$%&'*+.\^_`|~]/i.test(name)) {
+      throw new TypeError('Invalid character in header field name')
+    }
+    return name.toLowerCase()
+  }
+
+  function normalizeValue(value) {
+    if (typeof value !== 'string') {
+      value = String(value)
+    }
+    return value
+  }
+
+  // Build a destructive iterator for the value list
+  function iteratorFor(items) {
+    var iterator = {
+      next: function() {
+        var value = items.shift()
+        return {done: value === undefined, value: value}
+      }
+    }
+
+    if (support.iterable) {
+      iterator[Symbol.iterator] = function() {
+        return iterator
+      }
+    }
+
+    return iterator
+  }
+
+  function Headers(headers) {
+    this.map = {}
+
+    if (headers instanceof Headers) {
+      headers.forEach(function(value, name) {
+        this.append(name, value)
+      }, this)
+    } else if (Array.isArray(headers)) {
+      headers.forEach(function(header) {
+        this.append(header[0], header[1])
+      }, this)
+    } else if (headers) {
+      Object.getOwnPropertyNames(headers).forEach(function(name) {
+        this.append(name, headers[name])
+      }, this)
+    }
+  }
+
+  Headers.prototype.append = function(name, value) {
+    name = normalizeName(name)
+    value = normalizeValue(value)
+    var oldValue = this.map[name]
+    this.map[name] = oldValue ? oldValue+','+value : value
+  }
+
+  Headers.prototype['delete'] = function(name) {
+    delete this.map[normalizeName(name)]
+  }
+
+  Headers.prototype.get = function(name) {
+    name = normalizeName(name)
+    return this.has(name) ? this.map[name] : null
+  }
+
+  Headers.prototype.has = function(name) {
+    return this.map.hasOwnProperty(normalizeName(name))
+  }
+
+  Headers.prototype.set = function(name, value) {
+    this.map[normalizeName(name)] = normalizeValue(value)
+  }
+
+  Headers.prototype.forEach = function(callback, thisArg) {
+    for (var name in this.map) {
+      if (this.map.hasOwnProperty(name)) {
+        callback.call(thisArg, this.map[name], name, this)
       }
     }
   }
 
-  function getRequest(fn, err) {
-    var o = this.o
-      , method = (o['method'] || 'GET').toUpperCase()
-      , url = typeof o === 'string' ? o : o['url']
-      // convert non-string objects to query-string form unless o['processData'] is false
-      , data = (o['processData'] !== false && o['data'] && typeof o['data'] !== 'string')
-        ? reqwest.toQueryString(o['data'])
-        : (o['data'] || null)
-      , http
-      , sendWait = false
+  Headers.prototype.keys = function() {
+    var items = []
+    this.forEach(function(value, name) { items.push(name) })
+    return iteratorFor(items)
+  }
 
-    // if we're working on a GET request and we have data then we should append
-    // query string to end of URL and not post data
-    if ((o['type'] == 'jsonp' || method == 'GET') && data) {
-      url = urlappend(url, data)
-      data = null
+  Headers.prototype.values = function() {
+    var items = []
+    this.forEach(function(value) { items.push(value) })
+    return iteratorFor(items)
+  }
+
+  Headers.prototype.entries = function() {
+    var items = []
+    this.forEach(function(value, name) { items.push([name, value]) })
+    return iteratorFor(items)
+  }
+
+  if (support.iterable) {
+    Headers.prototype[Symbol.iterator] = Headers.prototype.entries
+  }
+
+  function consumed(body) {
+    if (body.bodyUsed) {
+      return Promise.reject(new TypeError('Already read'))
     }
+    body.bodyUsed = true
+  }
 
-    if (o['type'] == 'jsonp') return handleJsonp(o, fn, err, url)
+  function fileReaderReady(reader) {
+    return new Promise(function(resolve, reject) {
+      reader.onload = function() {
+        resolve(reader.result)
+      }
+      reader.onerror = function() {
+        reject(reader.error)
+      }
+    })
+  }
 
-    // get the xhr from the factory if passed
-    // if the factory returns null, fall-back to ours
-    http = (o.xhr && o.xhr(o)) || xhr(o)
+  function readBlobAsArrayBuffer(blob) {
+    var reader = new FileReader()
+    var promise = fileReaderReady(reader)
+    reader.readAsArrayBuffer(blob)
+    return promise
+  }
 
-    http.open(method, url, o['async'] === false ? false : true)
-    setHeaders(http, o)
-    setCredentials(http, o)
-    if (win[xDomainRequest] && http instanceof win[xDomainRequest]) {
-        http.onload = fn
-        http.onerror = err
-        // NOTE: see
-        // http://social.msdn.microsoft.com/Forums/en-US/iewebdevelopment/thread/30ef3add-767c-4436-b8a9-f1ca19b4812e
-        http.onprogress = function() {}
-        sendWait = true
+  function readBlobAsText(blob) {
+    var reader = new FileReader()
+    var promise = fileReaderReady(reader)
+    reader.readAsText(blob)
+    return promise
+  }
+
+  function readArrayBufferAsText(buf) {
+    var view = new Uint8Array(buf)
+    var chars = new Array(view.length)
+
+    for (var i = 0; i < view.length; i++) {
+      chars[i] = String.fromCharCode(view[i])
+    }
+    return chars.join('')
+  }
+
+  function bufferClone(buf) {
+    if (buf.slice) {
+      return buf.slice(0)
     } else {
-      http.onreadystatechange = handleReadyState(this, fn, err)
+      var view = new Uint8Array(buf.byteLength)
+      view.set(new Uint8Array(buf))
+      return view.buffer
     }
-    o['before'] && o['before'](http)
-    if (sendWait) {
-      setTimeout(function () {
-        http.send(data)
-      }, 200)
-    } else {
-      http.send(data)
-    }
-    return http
   }
 
-  function Reqwest(o, fn) {
-    this.o = o
-    this.fn = fn
+  function Body() {
+    this.bodyUsed = false
 
-    init.apply(this, arguments)
-  }
-
-  function setType(header) {
-    // json, javascript, text/plain, text/html, xml
-    if (header.match('json')) return 'json'
-    if (header.match('javascript')) return 'js'
-    if (header.match('text')) return 'html'
-    if (header.match('xml')) return 'xml'
-  }
-
-  function init(o, fn) {
-
-    this.url = typeof o == 'string' ? o : o['url']
-    this.timeout = null
-
-    // whether request has been fulfilled for purpose
-    // of tracking the Promises
-    this._fulfilled = false
-    // success handlers
-    this._successHandler = function(){}
-    this._fulfillmentHandlers = []
-    // error handlers
-    this._errorHandlers = []
-    // complete (both success and fail) handlers
-    this._completeHandlers = []
-    this._erred = false
-    this._responseArgs = {}
-
-    var self = this
-
-    fn = fn || function () {}
-
-    if (o['timeout']) {
-      this.timeout = setTimeout(function () {
-        timedOut()
-      }, o['timeout'])
-    }
-
-    if (o['success']) {
-      this._successHandler = function () {
-        o['success'].apply(o, arguments)
-      }
-    }
-
-    if (o['error']) {
-      this._errorHandlers.push(function () {
-        o['error'].apply(o, arguments)
-      })
-    }
-
-    if (o['complete']) {
-      this._completeHandlers.push(function () {
-        o['complete'].apply(o, arguments)
-      })
-    }
-
-    function complete (resp) {
-      o['timeout'] && clearTimeout(self.timeout)
-      self.timeout = null
-      while (self._completeHandlers.length > 0) {
-        self._completeHandlers.shift()(resp)
-      }
-    }
-
-    function success (resp) {
-      var type = o['type'] || resp && setType(resp.getResponseHeader('Content-Type')) // resp can be undefined in IE
-      resp = (type !== 'jsonp') ? self.request : resp
-      // use global data filter on response text
-      var filteredResponse = globalSetupOptions.dataFilter(resp.responseText, type)
-        , r = filteredResponse
-      try {
-        resp.responseText = r
-      } catch (e) {
-        // can't assign this in IE<=8, just ignore
-      }
-      if (r) {
-        switch (type) {
-        case 'json':
-          try {
-            resp = win.JSON ? win.JSON.parse(r) : eval('(' + r + ')')
-          } catch (err) {
-            return error(resp, 'Could not parse JSON in response', err)
-          }
-          break
-        case 'js':
-          resp = eval(r)
-          break
-        case 'html':
-          resp = r
-          break
-        case 'xml':
-          resp = resp.responseXML
-              && resp.responseXML.parseError // IE trololo
-              && resp.responseXML.parseError.errorCode
-              && resp.responseXML.parseError.reason
-            ? null
-            : resp.responseXML
-          break
-        }
-      }
-
-      self._responseArgs.resp = resp
-      self._fulfilled = true
-      fn(resp)
-      self._successHandler(resp)
-      while (self._fulfillmentHandlers.length > 0) {
-        resp = self._fulfillmentHandlers.shift()(resp)
-      }
-
-      complete(resp)
-    }
-
-    function timedOut() {
-      self._timedOut = true
-      self.request.abort()      
-    }
-
-    function error(resp, msg, t) {
-      resp = self.request
-      self._responseArgs.resp = resp
-      self._responseArgs.msg = msg
-      self._responseArgs.t = t
-      self._erred = true
-      while (self._errorHandlers.length > 0) {
-        self._errorHandlers.shift()(resp, msg, t)
-      }
-      complete(resp)
-    }
-
-    this.request = getRequest.call(this, success, error)
-  }
-
-  Reqwest.prototype = {
-    abort: function () {
-      this._aborted = true
-      this.request.abort()
-    }
-
-  , retry: function () {
-      init.call(this, this.o, this.fn)
-    }
-
-    /**
-     * Small deviation from the Promises A CommonJs specification
-     * http://wiki.commonjs.org/wiki/Promises/A
-     */
-
-    /**
-     * `then` will execute upon successful requests
-     */
-  , then: function (success, fail) {
-      success = success || function () {}
-      fail = fail || function () {}
-      if (this._fulfilled) {
-        this._responseArgs.resp = success(this._responseArgs.resp)
-      } else if (this._erred) {
-        fail(this._responseArgs.resp, this._responseArgs.msg, this._responseArgs.t)
+    this._initBody = function(body) {
+      this._bodyInit = body
+      if (!body) {
+        this._bodyText = ''
+      } else if (typeof body === 'string') {
+        this._bodyText = body
+      } else if (support.blob && Blob.prototype.isPrototypeOf(body)) {
+        this._bodyBlob = body
+      } else if (support.formData && FormData.prototype.isPrototypeOf(body)) {
+        this._bodyFormData = body
+      } else if (support.searchParams && URLSearchParams.prototype.isPrototypeOf(body)) {
+        this._bodyText = body.toString()
+      } else if (support.arrayBuffer && support.blob && isDataView(body)) {
+        this._bodyArrayBuffer = bufferClone(body.buffer)
+        // IE 10-11 can't handle a DataView body.
+        this._bodyInit = new Blob([this._bodyArrayBuffer])
+      } else if (support.arrayBuffer && (ArrayBuffer.prototype.isPrototypeOf(body) || isArrayBufferView(body))) {
+        this._bodyArrayBuffer = bufferClone(body)
       } else {
-        this._fulfillmentHandlers.push(success)
-        this._errorHandlers.push(fail)
+        throw new Error('unsupported BodyInit type')
       }
-      return this
-    }
 
-    /**
-     * `always` will execute whether the request succeeds or fails
-     */
-  , always: function (fn) {
-      if (this._fulfilled || this._erred) {
-        fn(this._responseArgs.resp)
-      } else {
-        this._completeHandlers.push(fn)
-      }
-      return this
-    }
-
-    /**
-     * `fail` will execute when the request fails
-     */
-  , fail: function (fn) {
-      if (this._erred) {
-        fn(this._responseArgs.resp, this._responseArgs.msg, this._responseArgs.t)
-      } else {
-        this._errorHandlers.push(fn)
-      }
-      return this
-    }
-  , 'catch': function (fn) {
-      return this.fail(fn)
-    }
-  }
-
-  function reqwest(o, fn) {
-    return new Reqwest(o, fn)
-  }
-
-  // normalize newline variants according to spec -> CRLF
-  function normalize(s) {
-    return s ? s.replace(/\r?\n/g, '\r\n') : ''
-  }
-
-  function serial(el, cb) {
-    var n = el.name
-      , t = el.tagName.toLowerCase()
-      , optCb = function (o) {
-          // IE gives value="" even where there is no value attribute
-          // 'specified' ref: http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-862529273
-          if (o && !o['disabled'])
-            cb(n, normalize(o['attributes']['value'] && o['attributes']['value']['specified'] ? o['value'] : o['text']))
-        }
-      , ch, ra, val, i
-
-    // don't serialize elements that are disabled or without a name
-    if (el.disabled || !n) return
-
-    switch (t) {
-    case 'input':
-      if (!/reset|button|image|file/i.test(el.type)) {
-        ch = /checkbox/i.test(el.type)
-        ra = /radio/i.test(el.type)
-        val = el.value
-        // WebKit gives us "" instead of "on" if a checkbox has no value, so correct it here
-        ;(!(ch || ra) || el.checked) && cb(n, normalize(ch && val === '' ? 'on' : val))
-      }
-      break
-    case 'textarea':
-      cb(n, normalize(el.value))
-      break
-    case 'select':
-      if (el.type.toLowerCase() === 'select-one') {
-        optCb(el.selectedIndex >= 0 ? el.options[el.selectedIndex] : null)
-      } else {
-        for (i = 0; el.length && i < el.length; i++) {
-          el.options[i].selected && optCb(el.options[i])
+      if (!this.headers.get('content-type')) {
+        if (typeof body === 'string') {
+          this.headers.set('content-type', 'text/plain;charset=UTF-8')
+        } else if (this._bodyBlob && this._bodyBlob.type) {
+          this.headers.set('content-type', this._bodyBlob.type)
+        } else if (support.searchParams && URLSearchParams.prototype.isPrototypeOf(body)) {
+          this.headers.set('content-type', 'application/x-www-form-urlencoded;charset=UTF-8')
         }
       }
-      break
     }
-  }
 
-  // collect up all form elements found from the passed argument elements all
-  // the way down to child elements; pass a '<form>' or form fields.
-  // called with 'this'=callback to use for serial() on each element
-  function eachFormElement() {
-    var cb = this
-      , e, i
-      , serializeSubtags = function (e, tags) {
-          var i, j, fa
-          for (i = 0; i < tags.length; i++) {
-            fa = e[byTag](tags[i])
-            for (j = 0; j < fa.length; j++) serial(fa[j], cb)
-          }
+    if (support.blob) {
+      this.blob = function() {
+        var rejected = consumed(this)
+        if (rejected) {
+          return rejected
         }
 
-    for (i = 0; i < arguments.length; i++) {
-      e = arguments[i]
-      if (/input|select|textarea/i.test(e.tagName)) serial(e, cb)
-      serializeSubtags(e, [ 'input', 'select', 'textarea' ])
-    }
-  }
-
-  // standard query string style serialization
-  function serializeQueryString() {
-    return reqwest.toQueryString(reqwest.serializeArray.apply(null, arguments))
-  }
-
-  // { 'name': 'value', ... } style serialization
-  function serializeHash() {
-    var hash = {}
-    eachFormElement.apply(function (name, value) {
-      if (name in hash) {
-        hash[name] && !isArray(hash[name]) && (hash[name] = [hash[name]])
-        hash[name].push(value)
-      } else hash[name] = value
-    }, arguments)
-    return hash
-  }
-
-  // [ { name: 'name', value: 'value' }, ... ] style serialization
-  reqwest.serializeArray = function () {
-    var arr = []
-    eachFormElement.apply(function (name, value) {
-      arr.push({name: name, value: value})
-    }, arguments)
-    return arr
-  }
-
-  reqwest.serialize = function () {
-    if (arguments.length === 0) return ''
-    var opt, fn
-      , args = Array.prototype.slice.call(arguments, 0)
-
-    opt = args.pop()
-    opt && opt.nodeType && args.push(opt) && (opt = null)
-    opt && (opt = opt.type)
-
-    if (opt == 'map') fn = serializeHash
-    else if (opt == 'array') fn = reqwest.serializeArray
-    else fn = serializeQueryString
-
-    return fn.apply(null, args)
-  }
-
-  reqwest.toQueryString = function (o, trad) {
-    var prefix, i
-      , traditional = trad || false
-      , s = []
-      , enc = encodeURIComponent
-      , add = function (key, value) {
-          // If value is a function, invoke it and return its value
-          value = ('function' === typeof value) ? value() : (value == null ? '' : value)
-          s[s.length] = enc(key) + '=' + enc(value)
-        }
-    // If an array was passed in, assume that it is an array of form elements.
-    if (isArray(o)) {
-      for (i = 0; o && i < o.length; i++) add(o[i]['name'], o[i]['value'])
-    } else {
-      // If traditional, encode the "old" way (the way 1.3.2 or older
-      // did it), otherwise encode params recursively.
-      for (prefix in o) {
-        if (o.hasOwnProperty(prefix)) buildParams(prefix, o[prefix], traditional, add)
-      }
-    }
-
-    // spaces should be + according to spec
-    return s.join('&').replace(/%20/g, '+')
-  }
-
-  function buildParams(prefix, obj, traditional, add) {
-    var name, i, v
-      , rbracket = /\[\]$/
-
-    if (isArray(obj)) {
-      // Serialize array item.
-      for (i = 0; obj && i < obj.length; i++) {
-        v = obj[i]
-        if (traditional || rbracket.test(prefix)) {
-          // Treat each array item as a scalar.
-          add(prefix, v)
+        if (this._bodyBlob) {
+          return Promise.resolve(this._bodyBlob)
+        } else if (this._bodyArrayBuffer) {
+          return Promise.resolve(new Blob([this._bodyArrayBuffer]))
+        } else if (this._bodyFormData) {
+          throw new Error('could not read FormData body as blob')
         } else {
-          buildParams(prefix + '[' + (typeof v === 'object' ? i : '') + ']', v, traditional, add)
+          return Promise.resolve(new Blob([this._bodyText]))
         }
       }
-    } else if (obj && obj.toString() === '[object Object]') {
-      // Serialize object item.
-      for (name in obj) {
-        buildParams(prefix + '[' + name + ']', obj[name], traditional, add)
+
+      this.arrayBuffer = function() {
+        if (this._bodyArrayBuffer) {
+          return consumed(this) || Promise.resolve(this._bodyArrayBuffer)
+        } else {
+          return this.blob().then(readBlobAsArrayBuffer)
+        }
+      }
+    }
+
+    this.text = function() {
+      var rejected = consumed(this)
+      if (rejected) {
+        return rejected
       }
 
-    } else {
-      // Serialize scalar item.
-      add(prefix, obj)
+      if (this._bodyBlob) {
+        return readBlobAsText(this._bodyBlob)
+      } else if (this._bodyArrayBuffer) {
+        return Promise.resolve(readArrayBufferAsText(this._bodyArrayBuffer))
+      } else if (this._bodyFormData) {
+        throw new Error('could not read FormData body as text')
+      } else {
+        return Promise.resolve(this._bodyText)
+      }
     }
-  }
 
-  reqwest.getcallbackPrefix = function () {
-    return callbackPrefix
-  }
-
-  // jQuery and Zepto compatibility, differences can be remapped here so you can call
-  // .ajax.compat(options, callback)
-  reqwest.compat = function (o, fn) {
-    if (o) {
-      o['type'] && (o['method'] = o['type']) && delete o['type']
-      o['dataType'] && (o['type'] = o['dataType'])
-      o['jsonpCallback'] && (o['jsonpCallbackName'] = o['jsonpCallback']) && delete o['jsonpCallback']
-      o['jsonp'] && (o['jsonpCallback'] = o['jsonp'])
+    if (support.formData) {
+      this.formData = function() {
+        return this.text().then(decode)
+      }
     }
-    return new Reqwest(o, fn)
+
+    this.json = function() {
+      return this.text().then(JSON.parse)
+    }
+
+    return this
   }
 
-  reqwest.ajaxSetup = function (options) {
+  // HTTP methods whose capitalization should be normalized
+  var methods = ['DELETE', 'GET', 'HEAD', 'OPTIONS', 'POST', 'PUT']
+
+  function normalizeMethod(method) {
+    var upcased = method.toUpperCase()
+    return (methods.indexOf(upcased) > -1) ? upcased : method
+  }
+
+  function Request(input, options) {
     options = options || {}
-    for (var k in options) {
-      globalSetupOptions[k] = options[k]
-    }
-  }
+    var body = options.body
 
-  return reqwest
-});
-
-},{}],28:[function(_dereq_,module,exports){
-/**
- * module Shape
- * submodule 3D Primitives
- * for p5
- * @requires core
- * @requires p5.Geometry3D
- */
-
-'use strict';
-
-var p5 = _dereq_('../core/core');
-_dereq_('./p5.Geometry3D');
-
-/**
- * draw a plane with given a width and height
- * method plane
- * @param  {Number} width      width of the plane
- * @param  {Number} height     height of the plane
- * @return {p5}
- * @example
- * <div>
- * <code>
- * //draw a spining plane with width 100 and height 100
- * function setup(){
- *   createCanvas(windowWidth, windowHeight, 'webgl');
- * }
- *
- * function draw(){
- *   background(255);
- *   rotateY(frameCount * 0.02);
- *   plane(100, 100);
- * }
- * </code>
- * </div>
- */
-p5.prototype.plane = function(width, height){
-
-  width = width || 50;
-  height = height || 50;
-
-  //details for plane are highly optional
-  var detailX = typeof arguments[2] === Number ? arguments[2] : 1;
-  var detailY = typeof arguments[3] === Number ? arguments[3] : 1;
-
-  var gId = 'plane|'+width+'|'+height+'|'+detailX+'|'+detailY;
-
-  if(!this._renderer.geometryInHash(gId)){
-
-    var geometry3d = new p5.Geometry3D();
-
-    var createPlane = function(u, v){
-      var x = 2 * width * u - width;
-      var y = 2 * height * v - height;
-      var z = 0;
-      return new p5.Vector(x, y, z);
-    };
-
-    geometry3d.parametricGeometry(createPlane, detailX, detailY);
-
-    var obj = geometry3d.generateObj();
-
-    this._renderer.initBuffer(gId, obj);
-
-  }
-
-  this._renderer.drawBuffer(gId);
-
-};
-
-/**
- * draw a sphere with given raduis
- * method sphere
- * @param  {Number} radius            radius of circle
- * @param  {Number} [detail]          optional: number of segments,
- *                                    the more segments the smoother geometry
- *                                    default is 24
- * @return {p5}
- * @example
- * <div>
- * <code>
- * // draw a sphere with radius 100
- * function setup(){
- *   createCanvas(windowWidth, windowHeight, 'webgl');
- * }
- *
- * function draw(){
- *   background(255);
- *   sphere(100);
- * }
- * </code>
- * </div>
- */
-p5.prototype.sphere = function(radius, detail){
-
-  radius = radius || 50;
-
-  var detailX = detail || 24;
-  var detailY = detail || 16;
-
-  var gId = 'sphere|'+radius+'|'+detailX+'|'+detailY;
-
-  if(!this._renderer.geometryInHash(gId)){
-
-    var geometry3d = new p5.Geometry3D();
-
-    var createSphere = function(u, v){
-      var theta = 2 * Math.PI * u;
-      var phi = Math.PI * v - Math.PI / 2;
-      var x = radius * Math.cos(phi) * Math.sin(theta);
-      var y = radius * Math.sin(phi);
-      var z = radius * Math.cos(phi) * Math.cos(theta);
-      return new p5.Vector(x, y, z);
-    };
-
-    geometry3d.parametricGeometry(createSphere, detailX, detailY);
-
-    var obj = geometry3d.generateObj();
-
-    this._renderer.initBuffer(gId, obj);
-  }
-
-  this._renderer.drawBuffer(gId);
-
-  return this;
-};
-
-/**
- * draw a cylinder with given radius and height
- * method  cylinder
- * @param  {Number} radius            radius of the surface
- * @param  {Number} height            height of the cylinder
- * @param  {Number} [detail]          optional: number of segments,
- *                                    the more segments the smoother geometry
- *                                    default is 24
- * @return {p5}
- * @example
- * <div>
- * <code>
- * //draw a spining sylinder with radius 100 and height 100
- * function setup(){
- *   createCanvas(windowWidth, windowHeight, 'webgl');
- * }
- * function draw(){
- *   background(255);
- *   rotateX(frameCount * 0.02);
- *   cylinder(100, 100);
- * }
- * </code>
- * </div>
- */
-p5.prototype.cylinder = function(radius, height, detail){
-
-  radius = radius || 50;
-  height = height || 50;
-
-  var detailX = detail || 24;
-  var detailY = detail || 16;
-
-  var gId = 'cylinder|'+radius+'|'+height+'|'+detailX+'|'+detailY;
-
-  if(!this._renderer.geometryInHash(gId)){
-
-    var geometry3d = new p5.Geometry3D();
-
-    var createCylinder = function(u, v){
-      var theta = 2 * Math.PI * u;
-      var x = radius * Math.sin(theta);
-      var y = 2 * height * v - height;
-      var z = radius * Math.cos(theta);
-      return new p5.Vector(x, y, z);
-    };
-
-    geometry3d.parametricGeometry(createCylinder, detailX, detailY);
-    geometry3d.mergeVertices();
-
-    var createTop = function(u, v){
-      var theta = 2 * Math.PI * u;
-      var x = radius * Math.sin(-theta);
-      var y = height;
-      var z = radius * Math.cos(theta);
-      if(v === 0){
-        return new p5.Vector(0, height, 0);
+    if (input instanceof Request) {
+      if (input.bodyUsed) {
+        throw new TypeError('Already read')
       }
-      else{
-        return new p5.Vector(x, y, z);
+      this.url = input.url
+      this.credentials = input.credentials
+      if (!options.headers) {
+        this.headers = new Headers(input.headers)
       }
-    };
-
-    geometry3d.parametricGeometry(
-      createTop, detailX, 1, geometry3d.vertices.length);
-
-    var createBottom = function(u, v){
-      var theta = 2 * Math.PI * u;
-      var x = radius * Math.sin(theta);
-      var y = -height;
-      var z = radius * Math.cos(theta);
-      if(v === 0){
-        return new p5.Vector(0, -height, 0);
-      }else{
-        return new p5.Vector(x, y, z);
+      this.method = input.method
+      this.mode = input.mode
+      if (!body && input._bodyInit != null) {
+        body = input._bodyInit
+        input.bodyUsed = true
       }
-    };
-
-    geometry3d.parametricGeometry(
-      createBottom, detailX, 1, geometry3d.vertices.length);
-
-    var obj = geometry3d.generateObj(true);
-
-    this._renderer.initBuffer(gId, obj);
-  }
-
-  this._renderer.drawBuffer(gId);
-
-  return this;
-};
-
-
-/**
- * draw a cone with given radius and height
- * method cone
- * @param  {Number} radius            radius of the bottom surface
- * @param  {Number} height            height of the cone
- * @param  {Number} [detail]          optional: number of segments,
- *                                    the more segments the smoother geometry
- *                                    default is 24
- * @return {p5}
- * @example
- * <div>
- * <code>
- * //draw a spining cone with radius 100 and height 100
- * function setup(){
- *   createCanvas(windowWidth, windowHeight, 'webgl');
- * }
- * function draw(){
- *   background(255);
- *   rotateX(frameCount * 0.02);
- *   cone(100, 200);
- * }
- * </code>
- * </div>
- */
-p5.prototype.cone = function(radius, height, detail){
-
-  radius = radius || 50;
-  height = height || 50;
-
-  var detailX = detail || 24;
-  var detailY = detail || 16;
-
-  var gId = 'cone|'+radius+'|'+height+'|'+detailX+'|'+detailY;
-
-  if(!this._renderer.geometryInHash(gId)){
-
-    var geometry3d = new p5.Geometry3D();
-
-    var createCone = function(u, v){
-      var theta = 2 * Math.PI * u;
-      var x = radius * (1 - v) * Math.sin(theta);
-      var y = 2 * height * v - height;
-      var z = radius * (1 - v) * Math.cos(theta);
-      return new p5.Vector(x, y, z);
-    };
-
-    geometry3d.parametricGeometry(createCone, detailX, detailY);
-    geometry3d.mergeVertices();
-
-    var createBottom = function(u, v){
-      var theta = 2 * Math.PI * u;
-      var x = radius * (1 - v) * Math.sin(-theta);
-      var y = -height;
-      var z = radius * (1 - v) * Math.cos(theta);
-      return new p5.Vector(x, y, z);
-    };
-
-    geometry3d.parametricGeometry(
-      createBottom, detailX, 1, geometry3d.vertices.length);
-
-    var obj = geometry3d.generateObj(true);
-
-    this._renderer.initBuffer(gId, obj);
-  }
-
-  this._renderer.drawBuffer(gId);
-
-  return this;
-};
-
-
-/**
- * draw a torus with given radius and tube radius
- * method torus
- * @param  {Number} radius            radius of the whole ring
- * @param  {Number} tubeRadius        radius of the tube
- * @param  {Number} [detail]          optional: number of segments,
- *                                    the more segments the smoother geometry
- *                                    default is 24
- * @return {p5}
- * @example
- * <div>
- * <code>
- * //draw a spining torus with radius 100 and tube radius 20
- * function setup(){
- *   createCanvas(windowWidth, windowHeight, 'webgl');
- * }
- *
- * function draw(){
- *   background(255);
- *   rotateX(frameCount * 0.02);
- *   rotateY(frameCount * 0.02);
- *   torus(100, 20);
- * }
- * </code>
- * </div>
- */
-p5.prototype.torus = function(radius, tubeRadius, detail){
-
-  radius = radius || 50;
-  tubeRadius = tubeRadius || 10;
-
-  var detailX = detail || 24;
-  var detailY = detail || 16;
-
-  var gId = 'torus|'+radius+'|'+tubeRadius+'|'+detailX+'|'+detailY;
-
-  if(!this._renderer.geometryInHash(gId)){
-
-    var geometry3d = new p5.Geometry3D();
-
-    var createTorus = function(u, v){
-      var theta = 2 * Math.PI * u;
-      var phi = 2 * Math.PI * v;
-      var x = (radius + tubeRadius * Math.cos(phi)) * Math.cos(theta);
-      var y = (radius + tubeRadius * Math.cos(phi)) * Math.sin(theta);
-      var z = tubeRadius * Math.sin(phi);
-      return new p5.Vector(x, y, z);
-    };
-
-    geometry3d.parametricGeometry(createTorus, detailX, detailY);
-
-    var obj = geometry3d.generateObj();
-
-    this._renderer.initBuffer(gId, obj);
-  }
-
-  this._renderer.drawBuffer(gId);
-
-  return this;
-};
-
-/**
- * draw a box with given width, height and depth
- * method  box
- * @param  {Number} width  width of the box
- * @param  {Number} height height of the box
- * @param  {Number} depth  depth of the box
- * @return {p5}
- * @example
- * <div>
- * <code>
- * //draw a spining box with width, height and depth 100
- * function setup(){
- *   createCanvas(windowWidth, windowHeight, 'webgl');
- * }
- *
- * function draw(){
- *   background(255);
- *   rotateX(frameCount * 0.02);
- *   rotateY(frameCount * 0.02);
- *   box(100, 100, 100);
- * }
- * </code>
- * </div>
- */
-p5.prototype.box = function(width, height, depth){
-
-  width = width || 50;
-  height = height || width;
-  depth = depth || width;
-
-  //details for box are highly optional
-  var detailX = typeof arguments[3] === Number ? arguments[3] : 1;
-  var detailY = typeof arguments[4] === Number ? arguments[4] : 1;
-
-  var gId = 'cube|'+width+'|'+height+'|'+depth+'|'+detailX+'|'+detailY;
-
-  if(!this._renderer.geometryInHash(gId)){
-
-    var geometry3d = new p5.Geometry3D();
-
-    var createPlane1 = function(u, v){
-      var x = 2 * width * u - width;
-      var y = 2 * height * v - height;
-      var z = depth;
-      return new p5.Vector(x, y, z);
-    };
-    var createPlane2 = function(u, v){
-      var x = 2 * width * ( 1 - u ) - width;
-      var y = 2 * height * v - height;
-      var z = -depth;
-      return new p5.Vector(x, y, z);
-    };
-    var createPlane3 = function(u, v){
-      var x = 2 * width * ( 1 - u ) - width;
-      var y = height;
-      var z = 2 * depth * v - depth;
-      return new p5.Vector(x, y, z);
-    };
-    var createPlane4 = function(u, v){
-      var x = 2 * width * u - width;
-      var y = -height;
-      var z = 2 * depth * v - depth;
-      return new p5.Vector(x, y, z);
-    };
-    var createPlane5 = function(u, v){
-      var x = width;
-      var y = 2 * height * u - height;
-      var z = 2 * depth * v - depth;
-      return new p5.Vector(x, y, z);
-    };
-    var createPlane6 = function(u, v){
-      var x = -width;
-      var y = 2 * height * ( 1 - u ) - height;
-      var z = 2 * depth * v - depth;
-      return new p5.Vector(x, y, z);
-    };
-
-    geometry3d.parametricGeometry(
-      createPlane1, detailX, detailY, geometry3d.vertices.length);
-    geometry3d.parametricGeometry(
-      createPlane2, detailX, detailY, geometry3d.vertices.length);
-    geometry3d.parametricGeometry(
-      createPlane3, detailX, detailY, geometry3d.vertices.length);
-    geometry3d.parametricGeometry(
-      createPlane4, detailX, detailY, geometry3d.vertices.length);
-    geometry3d.parametricGeometry(
-      createPlane5, detailX, detailY, geometry3d.vertices.length);
-    geometry3d.parametricGeometry(
-      createPlane6, detailX, detailY, geometry3d.vertices.length);
-
-    var obj = geometry3d.generateObj(true);
-
-    this._renderer.initBuffer(gId, obj);
-  }
-
-  this._renderer.drawBuffer(gId);
-
-  return this;
-
-};
-
-module.exports = p5;
-
-},{"../core/core":48,"./p5.Geometry3D":34}],29:[function(_dereq_,module,exports){
-/**
- * module Lights, Camera
- * submodule Camera
- * for p5
- * @requires core
- */
-
-'use strict';
-
-var p5 = _dereq_('../core/core');
-
-/**
- * sets camera position
- * method camera
- * @param  {Number} x  camera postion value on x axis
- * @param  {Number} y  camera postion value on y axis
- * @param  {Number} z  camera postion value on z axis
- * @return {p5}
- * @example
- * <div>
- * <code>
- * function setup(){
- *   createCanvas(windowWidth, windowHeight, 'webgl');
- * }
- * function draw(){
- *  camera(0, 0, 800);
- *  sphere(100);
- * }
- * </code>
- * </div>
- */
-p5.prototype.camera = function(x, y, z){
-  this._validateParameters(
-    'camera',
-    arguments,
-    ['Number', 'Number', 'Number']
-  );
-  //what it manipulates is the model view matrix
-  this._renderer.translate(-x, -y, -z);
-};
-
-/**
- * sets perspective camera
- * method  perspective
- * @param  {Number} fovy   camera frustum vertical field of view,
- *                         from bottom to top of view, in degrees
- * @param  {Number} aspect camera frustum aspect ratio
- * @param  {Number} near   frustum near plane length
- * @param  {Number} far    frustum far plane length
- * @return {p5}
- * @example
- * <div>
- * <code>
- * //drag mouse to toggle the world
- * //you will see there's a vanish point
- * function setup(){
- *   createCanvas(windowWidth, windowHeight, 'webgl');
- *   perspective(60 / 180 * PI, width/height, 0.1, 100);
- * }
- * function draw(){
- *  background(0);
- *  orbitControl();
- *  for(var i = -5; i < 6; i++){
- *     for(var j = -5; j < 6; j++){
- *       push();
- *       translate(i*100, 0, j*100);
- *       sphere(20);
- *       pop();
- *     }
- *   }
- * }
- * </code>
- * </div>
- */
-p5.prototype.perspective = function(fovy,aspect,near,far) {
-  this._validateParameters(
-    'perspective',
-    arguments,
-    ['Number', 'Number', 'Number', 'Number']
-  );
-  this._renderer.uPMatrix = p5.Matrix.identity();
-  this._renderer.uPMatrix.perspective(fovy,aspect,near,far);
-  this._renderer._setCamera = true;
-};
-
-/**
- * setup ortho camera
- * method  ortho
- * @param  {Number} left   camera frustum left plane
- * @param  {Number} right  camera frustum right plane
- * @param  {Number} bottom camera frustum bottom plane
- * @param  {Number} top    camera frustum top plane
- * @param  {Number} near   camera frustum near plane
- * @param  {Number} far    camera frustum far plane
- * @return {p5}
- * @example
- * <div>
- * <code>
- * function setup(){
- *   createCanvas(windowWidth, windowHeight, 'webgl');
- *   ortho(-width/2, width/2, height/2, -height/2, 0.1, 100);
- * }
- * function draw(){
- *  background(0);
- *  orbitControl();
- *  for(var i = -5; i < 6; i++){
- *     for(var j = -5; j < 6; j++){
- *       push();
- *       translate(i*100, 0, j*100);
- *       sphere(20);
- *       pop();
- *     }
- *   }
- * }
- * </code>
- * </div>
- */
-p5.prototype.ortho = function(left,right,bottom,top,near,far) {
-  this._validateParameters(
-    'ortho',
-    arguments,
-      ['Number', 'Number', 'Number', 'Number', 'Number', 'Number']
-  );
-  left /= this.width;
-  right /= this.width;
-  top /= this.height;
-  bottom /= this.height;
-  this._renderer.uPMatrix = p5.Matrix.identity();
-  this._renderer.uPMatrix.ortho(left,right,bottom,top,near,far);
-  this._renderer._setCamera = true;
-};
-
-module.exports = p5;
-},{"../core/core":48}],30:[function(_dereq_,module,exports){
-//@TODO: documentation of immediate mode
-
-'use strict';
-
-var p5 = _dereq_('../core/core');
-
-//////////////////////////////////////////////
-// _primitives2D in 3D space
-//////////////////////////////////////////////
-
-p5.Renderer3D.prototype._primitives2D = function(arr){
-  this._setDefaultCamera();
-  var gl = this.GL;
-  var shaderProgram = this._getColorVertexShader();
-
-  //create vertice buffer
-  var vertexPositionBuffer = this.verticeBuffer;
-  gl.bindBuffer(gl.ARRAY_BUFFER, vertexPositionBuffer);
-
-  gl.bufferData(
-    gl.ARRAY_BUFFER, new Float32Array(arr), gl.STATIC_DRAW);
-  gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
-    3, gl.FLOAT, false, 0, 0);
-
-  //create vertexcolor buffer
-  var vertexColorBuffer = this.colorBuffer;
-  gl.bindBuffer(gl.ARRAY_BUFFER, vertexColorBuffer);
-  var color = this._getCurColor();
-  var colors = [];
-  for(var i = 0; i < arr.length / 3; i++){
-    colors = colors.concat(color);
-  }
-
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
-  gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
-    4, gl.FLOAT, false, 0, 0);
-
-  //matrix
-  var mId = 'vertexColorVert|vertexColorFrag';
-  this.setMatrixUniforms(mId);
-};
-
-p5.Renderer3D.prototype.point = function(x, y, z){
-  var gl = this.GL;
-  this._primitives2D([x, y, z]);
-  gl.drawArrays(gl.POINTS, 0, 1);
-  return this;
-};
-
-p5.Renderer3D.prototype.line = function(x1, y1, z1, x2, y2, z2){
-  var gl = this.GL;
-  this._primitives2D([x1, y1, z1, x2, y2, z2]);
-  gl.drawArrays(gl.LINES, 0, 2);
-  return this;
-};
-
-p5.Renderer3D.prototype.triangle = function
-(x1, y1, z1, x2, y2, z2, x3, y3, z3){
-  var gl = this.GL;
-  this._primitives2D([x1, y1, z1, x2, y2, z2, x3, y3, z3]);
-  this._strokeCheck();
-  gl.drawArrays(gl.TRIANGLES, 0, 3);
-  return this;
-};
-
-//@TODO: how to define the order of 4 points
-p5.Renderer3D.prototype.quad = function
-(x1, y1, z1, x2, y2, z2, x3, y3, z3, x4, y4, z4){
-  var gl = this.GL;
-  this._primitives2D(
-    [x1, y1, z1, x2, y2, z2, x3, y3, z3, x4, y4, z4]);
-  this._strokeCheck();
-  gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-  return this;
-};
-
-p5.Renderer3D.prototype.beginShape = function(mode){
-  this.shapeMode = mode;
-  this.verticeStack = [];
-  return this;
-};
-
-p5.Renderer3D.prototype.vertex = function(x, y, z){
-  this.verticeStack.push(x, y, z);
-  return this;
-};
-
-p5.Renderer3D.prototype.endShape = function(){
-  var gl = this.GL;
-  this._primitives2D(this.verticeStack);
-  this.verticeStack = [];
-
-  switch(this.shapeMode){
-    case 'POINTS':
-      gl.drawArrays(gl.POINTS, 0, 1);
-      break;
-    case 'LINES':
-      gl.drawArrays(gl.LINES, 0, 2);
-      break;
-    case 'TRIANGLES':
-      this._strokeCheck();
-      gl.drawArrays(gl.TRIANGLES, 0, 3);
-      break;
-    case 'TRIANGLE_STRIP':
-      this._strokeCheck();
-      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-      break;
-    default:
-      this._strokeCheck();
-      gl.drawArrays(gl.TRIANGLES, 0, 3);
-      break;
-  }
-  return this;
-};
-
-//@TODO: figure out how to actually do stroke on shapes in 3D
-p5.Renderer3D.prototype._strokeCheck = function(){
-  if(this.drawMode === 'stroke'){
-    throw new Error(
-      'stroke for shapes in 3D not yet implemented, use fill for now :('
-    );
-  }
-};
-
-//@TODO
-p5.Renderer3D.prototype.strokeWeight = function() {
-  throw new Error('strokeWeight for 3d not yet implemented');
-};
-
-//////////////////////////////////////////////
-// COLOR
-//////////////////////////////////////////////
-
-p5.Renderer3D.prototype.fill = function(r, g, b, a) {
-  var color = this._pInst.color.apply(this._pInst, arguments);
-  var colorNormalized = color._normalize();
-  this.curColor = colorNormalized;
-  this.drawMode = 'fill';
-  return this;
-};
-
-p5.Renderer3D.prototype.stroke = function(r, g, b, a) {
-  var color = this._pInst.color.apply(this._pInst, arguments);
-  var colorNormalized = color._normalize();
-  this.curColor = colorNormalized;
-  this.drawMode = 'stroke';
-  return this;
-};
-
-p5.Renderer3D.prototype._getColorVertexShader = function(){
-  var gl = this.GL;
-  var mId = 'vertexColorVert|vertexColorFrag';
-  var shaderProgram;
-
-  if(!this.materialInHash(mId)){
-    shaderProgram =
-      this.initShaders('vertexColorVert', 'vertexColorFrag', true);
-    this.mHash[mId] = shaderProgram;
-    shaderProgram.vertexColorAttribute =
-    gl.getAttribLocation(shaderProgram, 'aVertexColor');
-    gl.enableVertexAttribArray(shaderProgram.vertexColorAttribute);
-  }else{
-    shaderProgram = this.mHash[mId];
-  }
-  return shaderProgram;
-};
-
-module.exports = p5.Renderer3D;
-},{"../core/core":48}],31:[function(_dereq_,module,exports){
-'use strict';
-
-var p5 = _dereq_('../core/core');
-
-//@TODO: implement full orbit controls including
-//pan, zoom, quaternion rotation, etc.
-p5.prototype.orbitControl = function(){
-  if(this.mouseIsPressed){
-    this.rotateY((this.mouseX - this.width / 2) / (this.width / 2));
-    this.rotateX((this.mouseY - this.height / 2) / (this.width / 2));
-  }
-  return this;
-};
-
-module.exports = p5;
-},{"../core/core":48}],32:[function(_dereq_,module,exports){
-/**
- * module Lights, Camera
- * submodule Lights
- * for p5
- * @requires core
- */
-
-'use strict';
-
-var p5 = _dereq_('../core/core');
-
-/**
- * creates an ambient light with a color
- * method  ambientLight
- * @param  {Number|Array|String|p5.Color} v1  gray value,
- * red or hue value (depending on the current color mode),
- * or color Array, or CSS color string
- * @param  {Number}            [v2] optional: green or saturation value
- * @param  {Number}            [v3] optional: blue or brightness value
- * @param  {Number}            [a]  optional: opacity
- * @return {p5}
- * @example
- * <div>
- * <code>
- * function setup(){
- *   createCanvas(windowWidth, windowHeight, 'webgl');
- * }
- * function draw(){
- *   background(0);
- *   ambientLight(150);
- *   ambientMaterial(250);
- *   sphere(100);
- * }
- * </code>
- * </div>
- */
-p5.prototype.ambientLight = function(v1, v2, v3, a){
-  var gl = this._renderer.GL;
-  var shaderProgram = this._renderer._getShader(
-    'lightVert', 'lightFrag');
-
-  gl.useProgram(shaderProgram);
-  shaderProgram.uAmbientColor = gl.getUniformLocation(
-    shaderProgram,
-    'uAmbientColor[' + this._renderer.ambientLightCount + ']');
-
-  var color = this._renderer._pInst.color.apply(
-    this._renderer._pInst, arguments);
-  var colors = color._normalize();
-
-  gl.uniform3f( shaderProgram.uAmbientColor,
-    colors[0], colors[1], colors[2]);
-
-  //in case there's no material color for the geometry
-  shaderProgram.uMaterialColor = gl.getUniformLocation(
-    shaderProgram, 'uMaterialColor' );
-  gl.uniform4f( shaderProgram.uMaterialColor, 1, 1, 1, 1);
-
-  this._renderer.ambientLightCount ++;
-  shaderProgram.uAmbientLightCount =
-    gl.getUniformLocation(shaderProgram, 'uAmbientLightCount');
-  gl.uniform1i(shaderProgram.uAmbientLightCount,
-    this._renderer.ambientLightCount);
-
-  return this;
-};
-
-/**
- * creates a directional light with a color and a direction
- * method  directionalLight
- * @param  {Number|Array|String|p5.Color} v1   gray value,
- * red or hue value (depending on the current color mode),
- * or color Array, or CSS color string
- * @param  {Number}          [v2] optional: green or saturation value
- * @param  {Number}          [v3] optional: blue or brightness value
- * @param  {Number}          [a]  optional: opacity
- * @param  {Number|p5.Vector} x   x axis direction or a p5.Vector
- * @param  {Number}          [y]  optional: y axis direction
- * @param  {Number}          [z]  optional: z axis direction
- * @return {p5}
- * @example
- * <div>
- * <code>
- * function setup(){
- *   createCanvas(windowWidth, windowHeight, 'webgl');
- * }
- * function draw(){
- *   background(0);
- *   //move your mouse to change light direction
- *   var dirX = (mouseX / width - 0.5) *2;
- *   var dirY = (mouseY / height - 0.5) *(-2);
- *   directionalLight(250, 250, 250, dirX, dirY, 0.25);
- *   ambientMaterial(250);
- *   sphere(100, 128);
- * }
- * </code>
- * </div>
- */
-p5.prototype.directionalLight = function(v1, v2, v3, a, x, y, z) {
-  // this._validateParameters(
-  //   'directionalLight',
-  //   arguments,
-  //   [
-  //     //rgbaxyz
-  //     ['Number', 'Number', 'Number', 'Number', 'Number', 'Number', 'Number'],
-  //     //rgbxyz
-  //     ['Number', 'Number', 'Number', 'Number', 'Number', 'Number'],
-  //     //caxyz
-  //     ['Number', 'Number', 'Number', 'Number', 'Number'],
-  //     //cxyz
-  //     ['Number', 'Number', 'Number', 'Number'],
-  //     ['String', 'Number', 'Number', 'Number'],
-  //     ['Array', 'Number', 'Number', 'Number'],
-  //     ['Object', 'Number', 'Number', 'Number'],
-  //     //rgbavector
-  //     ['Number', 'Number', 'Number', 'Number', 'Object'],
-  //     //rgbvector
-  //     ['Number', 'Number', 'Number', 'Object'],
-  //     //cavector
-  //     ['Number', 'Number', 'Object'],
-  //     //cvector
-  //     ['Number', 'Object'],
-  //     ['String', 'Object'],
-  //     ['Array', 'Object'],
-  //     ['Object', 'Object']
-  //   ]
-  // );
-
-  var gl = this._renderer.GL;
-  var shaderProgram = this._renderer._getShader(
-    'lightVert', 'lightFrag');
-
-  gl.useProgram(shaderProgram);
-  shaderProgram.uDirectionalColor = gl.getUniformLocation(
-    shaderProgram,
-    'uDirectionalColor[' + this._renderer.directionalLightCount + ']');
-
-  //@TODO: check parameters number
-  var color = this._renderer._pInst.color.apply(
-    this._renderer._pInst, [v1, v2, v3]);
-  var colors = color._normalize();
-
-  gl.uniform3f( shaderProgram.uDirectionalColor,
-    colors[0], colors[1], colors[2]);
-
-  var _x, _y, _z;
-
-  if(typeof arguments[arguments.length-1] === 'number'){
-    _x = arguments[arguments.length-3];
-    _y = arguments[arguments.length-2];
-    _z = arguments[arguments.length-1];
-
-  }else{
-    try{
-      _x = arguments[arguments.length-1].x;
-      _y = arguments[arguments.length-1].y;
-      _z = arguments[arguments.length-1].z;
-    }
-    catch(error){
-      throw error;
-    }
-  }
-
-  shaderProgram.uLightingDirection = gl.getUniformLocation(
-    shaderProgram,
-    'uLightingDirection[' + this._renderer.directionalLightCount + ']');
-  gl.uniform3f( shaderProgram.uLightingDirection, _x, _y, _z);
-
-  //in case there's no material color for the geometry
-  shaderProgram.uMaterialColor = gl.getUniformLocation(
-    shaderProgram, 'uMaterialColor' );
-  gl.uniform4f( shaderProgram.uMaterialColor, 1, 1, 1, 1);
-
-  this._renderer.directionalLightCount ++;
-  shaderProgram.uDirectionalLightCount =
-    gl.getUniformLocation(shaderProgram, 'uDirectionalLightCount');
-  gl.uniform1i(shaderProgram.uDirectionalLightCount,
-    this._renderer.directionalLightCount);
-
-  return this;
-};
-
-/**
- * creates a point light with a color and a light position
- * method  pointLight
- * @param  {Number|Array|String|p5.Color} v1   gray value,
- * red or hue value (depending on the current color mode),
- * or color Array, or CSS color string
- * @param  {Number}          [v2] optional: green or saturation value
- * @param  {Number}          [v3] optional: blue or brightness value
- * @param  {Number}          [a]  optional: opacity
- * @param  {Number|p5.Vector} x   x axis position or a p5.Vector
- * @param  {Number}          [y]  optional: y axis position
- * @param  {Number}          [z]  optional: z axis position
- * @return {p5}
- * @example
- * <div>
- * <code>
- * function setup(){
- *   createCanvas(windowWidth, windowHeight, 'webgl');
- * }
- * function draw(){
- *   background(0);
- *   //move your mouse to change light position
- *   var locY = (mouseY / height - 0.5) *(-2);
- *   var locX = (mouseX / width - 0.5) *2;
- *   //to set the light position,
- *   //think of the world's coordinate as:
- *   // -1,1 -------- 1,1
- *   //   |            |
- *   //   |            |
- *   //   |            |
- *   // -1,-1---------1,-1
- *   pointLight(250, 250, 250, locX, locY, 0);
- *   ambientMaterial(250);
- *   sphere(100, 128);
- * }
- * </code>
- * </div>
- */
-p5.prototype.pointLight = function(v1, v2, v3, a, x, y, z) {
-  // this._validateParameters(
-  //   'pointLight',
-  //   arguments,
-  //   [
-  //     //rgbaxyz
-  //     ['Number', 'Number', 'Number', 'Number', 'Number', 'Number', 'Number'],
-  //     //rgbxyz
-  //     ['Number', 'Number', 'Number', 'Number', 'Number', 'Number'],
-  //     //caxyz
-  //     ['Number', 'Number', 'Number', 'Number', 'Number'],
-  //     //cxyz
-  //     ['Number', 'Number', 'Number', 'Number'],
-  //     ['String', 'Number', 'Number', 'Number'],
-  //     ['Array', 'Number', 'Number', 'Number'],
-  //     ['Object', 'Number', 'Number', 'Number'],
-  //     //rgbavector
-  //     ['Number', 'Number', 'Number', 'Number', 'Object'],
-  //     //rgbvector
-  //     ['Number', 'Number', 'Number', 'Object'],
-  //     //cavector
-  //     ['Number', 'Number', 'Object'],
-  //     //cvector
-  //     ['Number', 'Object'],
-  //     ['String', 'Object'],
-  //     ['Array', 'Object'],
-  //     ['Object', 'Object']
-  //   ]
-  // );
-
-  var gl = this._renderer.GL;
-  var shaderProgram = this._renderer._getShader(
-    'lightVert', 'lightFrag');
-
-  gl.useProgram(shaderProgram);
-  shaderProgram.uPointLightColor = gl.getUniformLocation(
-    shaderProgram,
-    'uPointLightColor[' + this._renderer.pointLightCount + ']');
-
-  //@TODO: check parameters number
-  var color = this._renderer._pInst.color.apply(
-    this._renderer._pInst, [v1, v2, v3]);
-  var colors = color._normalize();
-
-  gl.uniform3f( shaderProgram.uPointLightColor,
-    colors[0], colors[1], colors[2]);
-
-  var _x, _y, _z;
-
-  if(typeof arguments[arguments.length-1] === 'number'){
-    _x = arguments[arguments.length-3];
-    _y = arguments[arguments.length-2];
-    _z = arguments[arguments.length-1];
-
-  }else{
-    try{
-      _x = arguments[arguments.length-1].x;
-      _y = arguments[arguments.length-1].y;
-      _z = arguments[arguments.length-1].z;
-    }
-    catch(error){
-      throw error;
-    }
-  }
-
-  shaderProgram.uPointLightLocation = gl.getUniformLocation(
-    shaderProgram,
-    'uPointLightLocation[' + this._renderer.pointLightCount + ']');
-  gl.uniform3f( shaderProgram.uPointLightLocation, _x, _y, _z);
-
-  //in case there's no material color for the geometry
-  shaderProgram.uMaterialColor = gl.getUniformLocation(
-    shaderProgram, 'uMaterialColor' );
-  gl.uniform4f( shaderProgram.uMaterialColor, 1, 1, 1, 1);
-
-  this._renderer.pointLightCount ++;
-  shaderProgram.uPointLightCount =
-    gl.getUniformLocation(shaderProgram, 'uPointLightCount');
-  gl.uniform1i(shaderProgram.uPointLightCount,
-    this._renderer.pointLightCount);
-
-  return this;
-};
-
-module.exports = p5;
-
-},{"../core/core":48}],33:[function(_dereq_,module,exports){
-/**
- * module Lights, Camera
- * submodule Material
- * for p5
- * @requires core
- */
-
-'use strict';
-
-var p5 = _dereq_('../core/core');
-//require('./p5.Texture');
-
-/**
- * normal material for geometry
- * method normalMaterial
- * @return {p5}
- * @example
- * <div>
- * <code>
- * //please call this function before doing any transformation
- * function setup(){
- *   createCanvas(windowWidth, windowHeight, 'webgl');
- * }
- * function draw(){
- *  background(255);
- *  normalMaterial();
- *  sphere(100);
- * }
- * </code>
- * </div>
- */
-p5.prototype.normalMaterial = function(){
-  this._renderer._getShader('normalVert', 'normalFrag');
-  return this;
-};
-
-/**
- * texture for geometry
- * method texture
- * @return {p5}
- * @example
- * <div>
- * <code>
- * var img;
- * function setup(){
- *   createCanvas(windowWidth, windowHeight, 'webgl');
- *   img = loadImage("assets/cat.jpg");
- * }
- * function draw(){
- *   background(255);
- *   rotateZ(frameCount * 0.02);
- *   rotateX(frameCount * 0.02);
- *   rotateY(frameCount * 0.02);
- *   // pass image as texture
- *   texture(img);
- *   box(60);
- * }
- * </code>
- * </div>
- */
-p5.prototype.texture = function(image){
-  var gl = this._renderer.GL;
-  var shaderProgram = this._renderer._getShader('normalVert',
-    'textureFrag');
-  gl.useProgram(shaderProgram);
-  var tex = gl.createTexture();
-  gl.bindTexture(gl.TEXTURE_2D, tex);
-  gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1);
-
-  // Currently buggy, likely bc of p5 object types
-  // if(!this._isPowerOf2(image.width) || !this._isPowerOf2(image.height)){
-  //   image.width = _nextHighestPOT(image.width);
-  //   image.height = _nextHighestPOT(image.height);
-  // }
-  if (image instanceof p5.Image) {
-    image.loadPixels();
-    var data = new Uint8Array(image.pixels);
-    gl.texImage2D(gl.TEXTURE_2D, 0,
-      gl.RGBA, image.width, image.height,
-      0, gl.RGBA, gl.UNSIGNED_BYTE, data);
-  }
-  //if param is a video
-  else if (image instanceof p5.MediaElement){
-    if(!image.loadedmetadata) {return;}
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA,
-    gl.UNSIGNED_BYTE, image.elt);
-  }
-  else {
-    //@TODO handle following cases:
-    //- 2D canvas (p5 inst)
-  }
-  if (_isPowerOf2(image.width) && _isPowerOf2(image.height)) {
-    gl.generateMipmap(gl.TEXTURE_2D);
-  } else {
-    image.width = _nextHighestPOT(image.width);
-    image.height = _nextHighestPOT(image.height);
-    gl.texParameteri(gl.TETXURE_2D,
-      gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-    gl.texParameteri(gl.TETXURE_2D,
-      gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-    gl.texParameteri(gl.TETXURE_2D,
-      gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-  }
-  //this is where we'd activate multi textures
-  //eg. gl.activeTexture(gl.TEXTURE0 + (unit || 0));
-  //but for now we just have a single texture.
-  //@TODO need to extend this functionality
-  gl.activeTexture(gl.TEXTURE0 + 0);
-  gl.bindTexture(gl.TEXTURE_2D, tex);
-  gl.uniform1i(gl.getUniformLocation(shaderProgram, 'uSampler'), 0);
-  return this;
-};
-
-/**
- * Helper functions; Checks whether val is a pot
- * more info on power of 2 here:
- * https://www.opengl.org/wiki/NPOT_Texture
- * @param  {Number}  value
- * @return {Boolean}
- */
-function _isPowerOf2 (value){
-  return (value & (value - 1)) === 0;
-}
-
-/**
- * returns the next highest power of 2 value
- * @param  {Number} value [description]
- * @return {Number}       [description]
- */
-function _nextHighestPOT (value){
-  --value;
-  for (var i = 1; i < 32; i <<= 1) {
-    value = value | value >> i;
-  }
-  return value + 1;
-}
-
-/**
- * basic material for geometry with a given color
- * method  basicMaterial
- * @param  {Number|Array|String|p5.Color} v1  gray value,
- * red or hue value (depending on the current color mode),
- * or color Array, or CSS color string
- * @param  {Number}            [v2] optional: green or saturation value
- * @param  {Number}            [v3] optional: blue or brightness value
- * @param  {Number}            [a]  optional: opacity
- * @return {p5}
- * @example
- * <div>
- * <code>
- * function setup(){
- *   createCanvas(windowWidth, windowHeight, 'webgl');
- * }
- * function draw(){
- *  background(0);
- *  rotateX(frameCount * 0.02);
- *  rotateZ(frameCount * 0.02);
- *  basicMaterial(250, 0, 0);
- *  box(100);
- * }
- * </code>
- * </div>
- */
-p5.prototype.basicMaterial = function(v1, v2, v3, a){
-  var gl = this._renderer.GL;
-
-  var shaderProgram = this._renderer._getShader('normalVert', 'basicFrag');
-
-  gl.useProgram(shaderProgram);
-  shaderProgram.uMaterialColor = gl.getUniformLocation(
-    shaderProgram, 'uMaterialColor' );
-
-  var color = this._renderer._pInst.color.apply(
-    this._renderer._pInst, arguments);
-  var colors = color._normalize();
-
-  gl.uniform4f( shaderProgram.uMaterialColor,
-    colors[0], colors[1], colors[2], colors[3]);
-
-  return this;
-
-};
-
-/**
- * ambient material for geometry with a given color
- * method  ambientMaterial
- * @param  {Number|Array|String|p5.Color} v1  gray value,
- * red or hue value (depending on the current color mode),
- * or color Array, or CSS color string
- * @param  {Number}            [v2] optional: green or saturation value
- * @param  {Number}            [v3] optional: blue or brightness value
- * @param  {Number}            [a]  optional: opacity
- * @return {p5}
- * @example
- * <div>
- * <code>
- * function setup(){
- *   createCanvas(windowWidth, windowHeight, 'webgl');
- * }
- * function draw(){
- *  background(0);
- *  pointLight(250, 250, 250, 100, 100, 0);
- *  ambientMaterial(250);
- *  sphere(100, 128);
- * }
- * </code>
- * </div>
- */
-p5.prototype.ambientMaterial = function(v1, v2, v3, a) {
-  var gl = this._renderer.GL;
-  var shaderProgram = this._renderer._getShader('lightVert', 'lightFrag');
-
-  gl.useProgram(shaderProgram);
-  shaderProgram.uMaterialColor = gl.getUniformLocation(
-    shaderProgram, 'uMaterialColor' );
-
-  var color = this._renderer._pInst.color.apply(
-    this._renderer._pInst, arguments);
-  var colors = color._normalize();
-
-  gl.uniform4f(shaderProgram.uMaterialColor,
-    colors[0], colors[1], colors[2], colors[3]);
-
-  shaderProgram.uSpecular = gl.getUniformLocation(
-    shaderProgram, 'uSpecular' );
-  gl.uniform1i(shaderProgram.uSpecular, false);
-
-  return this;
-};
-
-/**
- * specular material for geometry with a given color
- * method specularMaterial
- * @param  {Number|Array|String|p5.Color} v1  gray value,
- * red or hue value (depending on the current color mode),
- * or color Array, or CSS color string
- * @param  {Number}            [v2] optional: green or saturation value
- * @param  {Number}            [v3] optional: blue or brightness value
- * @param  {Number}            [a]  optional: opacity
- * @return {p5}
- * @example
- * <div>
- * <code>
- * function setup(){
- *   createCanvas(windowWidth, windowHeight, 'webgl');
- * }
- * function draw(){
- *  background(0);
- *  pointLight(250, 250, 250, 100, 100, 0);
- *  specularMaterial(250);
- *  sphere(100, 128);
- * }
- * </code>
- * </div>
- */
-p5.prototype.specularMaterial = function(v1, v2, v3, a) {
-  var gl = this._renderer.GL;
-  var shaderProgram = this._renderer._getShader('lightVert', 'lightFrag');
-
-  gl.useProgram(shaderProgram);
-  shaderProgram.uMaterialColor = gl.getUniformLocation(
-    shaderProgram, 'uMaterialColor' );
-
-  var color = this._renderer._pInst.color.apply(
-    this._renderer._pInst, arguments);
-  var colors = color._normalize();
-
-  gl.uniform4f(shaderProgram.uMaterialColor,
-    colors[0], colors[1], colors[2], colors[3]);
-
-  shaderProgram.uSpecular = gl.getUniformLocation(
-    shaderProgram, 'uSpecular' );
-  gl.uniform1i(shaderProgram.uSpecular, true);
-
-  return this;
-};
-
-module.exports = p5;
-},{"../core/core":48}],34:[function(_dereq_,module,exports){
-'use strict';
-
-var p5 = _dereq_('../core/core');
-
-/**
- * p5 Geometry3D class
- */
-p5.Geometry3D = function(){
-  //an array holding every vertice
-  //each vertex is a p5.Vector
-  this.vertices = [];
-  //an array holding each normals for each vertice
-  //each normal is a p5.Vector
-  this.vertexNormals = [];
-  //an array holding each three indecies of vertices that form a face
-  //[[0, 1, 2], [1, 2, 3], ...]
-  this.faces = [];
-  //an array holding every noraml for each face
-  //each faceNormal is a p5.Vector
-  //[[p5.Vector, p5.Vector, p5.Vector],[p5.Vector, p5.Vector, p5.Vector],...]
-  this.faceNormals = [];
-  //an array of array holding uvs (group according to faces)
-  //[[[0, 0], [1, 0], [1, 0]],...]
-  this.uvs = [];
-};
-
-/**
- * generate geometriy with parametric method
- * @param  {Function} func  callback function for how to generate geometry
- * @param  {Number} detailX number of vertices on horizontal surface
- * @param  {Number} detailY number of vertices on horizontal surface
- * @param  {Number} offset  offset of vertices index
- */
-p5.Geometry3D.prototype.parametricGeometry = function
-//@TODO: put func as the last parameters
-(func, detailX, detailY, offset){
-
-  var i, j, p;
-  var u, v;
-  offset = offset || 0;
-
-  var sliceCount = detailX + 1;
-  for (i = 0; i <= detailY; i++){
-    v = i / detailY;
-    for (j = 0; j <= detailX; j++){
-      u = j / detailX;
-      p = func(u, v);
-      this.vertices.push(p);
-    }
-  }
-
-  var a, b, c, d;
-  var uva, uvb, uvc, uvd;
-
-  for (i = 0; i < detailY; i++){
-    for (j = 0; j < detailX; j++){
-      a = i * sliceCount + j + offset;
-      b = i * sliceCount + j + 1 + offset;
-      c = (i + 1)* sliceCount + j + 1 + offset;
-      d = (i + 1)* sliceCount + j + offset;
-
-      uva = [j/detailX, i/detailY];
-      uvb = [(j + 1)/ detailX, i/detailY];
-      uvc = [(j + 1)/ detailX, (i + 1)/detailY];
-      uvd = [j/detailX, (i + 1)/detailY];
-
-      this.faces.push([a, b, d]);
-      this.uvs.push([uva, uvb, uvd]);
-
-      this.faces.push([b, c, d]);
-      this.uvs.push([uvb, uvc, uvd]);
-    }
-  }
-};
-
-/**
- * merge duplicated vertices
- */
-p5.Geometry3D.prototype.mergeVertices= function () {
-
-  var verticesMap = {};
-  var unique = [], changes = [];
-
-  var v, key;
-  var precisionPoints = 4;
-  var precision = Math.pow(10, precisionPoints);
-  var i, face;
-  var indices;
-
-  for (i = 0; i < this.vertices.length; i ++) {
-
-    v = this.vertices[i];
-    key = Math.round(v.x * precision) + '_' +
-    Math.round(v.y * precision) + '_' +
-    Math.round(v.z * precision);
-
-    if (verticesMap[key] === undefined) {
-      verticesMap[key] = i;
-      unique.push(this.vertices[i]);
-      changes[i] = unique.length - 1;
     } else {
-      changes[i] = changes[verticesMap[key]];
+      this.url = String(input)
     }
 
+    this.credentials = options.credentials || this.credentials || 'omit'
+    if (options.headers || !this.headers) {
+      this.headers = new Headers(options.headers)
+    }
+    this.method = normalizeMethod(options.method || this.method || 'GET')
+    this.mode = options.mode || this.mode || null
+    this.referrer = null
+
+    if ((this.method === 'GET' || this.method === 'HEAD') && body) {
+      throw new TypeError('Body not allowed for GET or HEAD requests')
+    }
+    this._initBody(body)
   }
-  // if faces are completely degenerate after merging vertices, we
-  // have to remove them from the geometry.
-  var faceIndicesToRemove = [];
 
-  for (i = 0; i < this.faces.length; i ++) {
+  Request.prototype.clone = function() {
+    return new Request(this, { body: this._bodyInit })
+  }
 
-    face = this.faces[i];
-
-    face[0] = changes[face[0]];
-    face[1] = changes[face[1]];
-    face[2] = changes[face[2]];
-
-    indices = [face[0], face[1], face[2]];
-
-    var dupIndex = - 1;
-
-    // if any duplicate vertices are found in a Face
-    // we have to remove the face as nothing can be saved
-    for (var n = 0; n < 3; n ++) {
-      if (indices[n] === indices[(n + 1) % 3]) {
-        dupIndex = n;
-        faceIndicesToRemove.push(i);
-        break;
+  function decode(body) {
+    var form = new FormData()
+    body.trim().split('&').forEach(function(bytes) {
+      if (bytes) {
+        var split = bytes.split('=')
+        var name = split.shift().replace(/\+/g, ' ')
+        var value = split.join('=').replace(/\+/g, ' ')
+        form.append(decodeURIComponent(name), decodeURIComponent(value))
       }
+    })
+    return form
+  }
+
+  function parseHeaders(rawHeaders) {
+    var headers = new Headers()
+    rawHeaders.split(/\r?\n/).forEach(function(line) {
+      var parts = line.split(':')
+      var key = parts.shift().trim()
+      if (key) {
+        var value = parts.join(':').trim()
+        headers.append(key, value)
+      }
+    })
+    return headers
+  }
+
+  Body.call(Request.prototype)
+
+  function Response(bodyInit, options) {
+    if (!options) {
+      options = {}
     }
+
+    this.type = 'default'
+    this.status = 'status' in options ? options.status : 200
+    this.ok = this.status >= 200 && this.status < 300
+    this.statusText = 'statusText' in options ? options.statusText : 'OK'
+    this.headers = new Headers(options.headers)
+    this.url = options.url || ''
+    this._initBody(bodyInit)
   }
 
-  for (i = faceIndicesToRemove.length - 1; i >= 0; i --) {
-    var idx = faceIndicesToRemove[i];
-    this.faces.splice(idx, 1);
+  Body.call(Response.prototype)
+
+  Response.prototype.clone = function() {
+    return new Response(this._bodyInit, {
+      status: this.status,
+      statusText: this.statusText,
+      headers: new Headers(this.headers),
+      url: this.url
+    })
   }
 
-  // Use unique set of vertices
-  var diff = this.vertices.length - unique.length;
-  this.vertices = unique;
-  return diff;
-
-};
-
-/**
- * compute faceNormals for a geometry
- */
-p5.Geometry3D.prototype.computeFaceNormals = function(){
-
-  var cb = new p5.Vector();
-  var ab = new p5.Vector();
-
-  for (var f = 0; f < this.faces.length; f++){
-    var face = this.faces[f];
-    var vA = this.vertices[face[0]];
-    var vB = this.vertices[face[1]];
-    var vC = this.vertices[face[2]];
-
-    p5.Vector.sub(vC, vB, cb);
-    p5.Vector.sub(vA, vB, ab);
-
-    var normal = p5.Vector.cross(ab, cb);
-    normal.normalize();
-    normal.mult(-1);
-    this.faceNormals[f] = normal;
+  Response.error = function() {
+    var response = new Response(null, {status: 0, statusText: ''})
+    response.type = 'error'
+    return response
   }
 
-};
+  var redirectStatuses = [301, 302, 303, 307, 308]
 
-/**
- * compute vertexNormals for a geometry
- */
-p5.Geometry3D.prototype.computeVertexNormals = function (){
-
-  var v, f, face, faceNormal, vertices;
-  var vertexNormals = [];
-
-  vertices = new Array(this.vertices.length);
-  for (v = 0; v < this.vertices.length; v++) {
-    vertices[v] = new p5.Vector();
-  }
-
-  for (f = 0; f < this.faces.length; f++) {
-    face = this.faces[f];
-    faceNormal = this.faceNormals[f];
-
-    vertices[face[0]].add(faceNormal);
-    vertices[face[1]].add(faceNormal);
-    vertices[face[2]].add(faceNormal);
-  }
-
-  for (v = 0; v < this.vertices.length; v++) {
-    vertices[v].normalize();
-  }
-
-  for (f = 0; f < this.faces.length; f++) {
-    face = this.faces[f];
-    vertexNormals[f] = [];
-    vertexNormals[f][0]= vertices[face[0]].copy();
-    vertexNormals[f][1]= vertices[face[1]].copy();
-    vertexNormals[f][2]= vertices[face[2]].copy();
-  }
-
-  for (f = 0; f < this.faces.length; f++){
-    face = this.faces[f];
-    faceNormal = this.faceNormals[f];
-    this.vertexNormals[face[0]] = vertexNormals[f][0];
-    this.vertexNormals[face[1]] = vertexNormals[f][1];
-    this.vertexNormals[face[2]] = vertexNormals[f][2];
-  }
-
-};
-
-p5.Geometry3D.prototype.generateUV = function(faces, uvs){
-
-  faces = flatten(faces);
-  uvs = flatten(uvs);
-  var arr = [];
-  faces.forEach(function(item, index){
-    arr[item] = uvs[index];
-  });
-  return flatten(arr);
-};
-
-
-/**
- * generate an object containing information needed to create buffer
- */
-p5.Geometry3D.prototype.generateObj = function(noMerge){
-  if(!noMerge){
-    this.mergeVertices();
-  }
-  this.computeFaceNormals();
-  this.computeVertexNormals();
-
-  var obj = {
-    vertices: turnVectorArrayIntoNumberArray(this.vertices),
-    vertexNormals: turnVectorArrayIntoNumberArray(this.vertexNormals),
-    uvs: this.generateUV(this.faces, this.uvs),
-    faces: flatten(this.faces),
-    len: this.faces.length * 3
-  };
-  return obj;
-};
-
-/**
- * turn a two dimensional array into one dimensional array
- * @param  {Array} arr 2-dimensional array
- * @return {Array}     1-dimensional array
- * [[1, 2, 3],[4, 5, 6]] -> [1, 2, 3, 4, 5, 6]
- */
-function flatten(arr){
-  return arr.reduce(function(a, b){
-    return a.concat(b);
-  });
-}
-
-/**
- * turn an array of Vector into a one dimensional array of numbers
- * @param  {Array} arr  an array of p5.Vector
- * @return {Array]}     a one dimensional array of numbers
- * [p5.Vector(1, 2, 3), p5.Vector(4, 5, 6)] ->
- * [1, 2, 3, 4, 5, 6]
- */
-function turnVectorArrayIntoNumberArray(arr){
-  return flatten(arr.map(function(item){
-    return [item.x, item.y, item.z];
-  }));
-}
-
-module.exports = p5.Geometry3D;
-},{"../core/core":48}],35:[function(_dereq_,module,exports){
-/**
-* @requires constants
-* @todo see methods below needing further implementation.
-*/
-
-'use strict';
-
-var p5 = _dereq_('../core/core');
-var polarGeometry = _dereq_('../math/polargeometry');
-var constants = _dereq_('../core/constants');
-var GLMAT_ARRAY_TYPE = (
-    typeof Float32Array !== 'undefined') ?
-  Float32Array : Array;
-
-/**
- * A class to describe a 4x4 matrix
- * for model and view matrix manipulation in the p5js webgl renderer.
- * class p5.Matrix
- * @constructor
- * @param {Array} [mat4] array literal of our 4x4 matrix
- */
-p5.Matrix = function() {
-  // This is how it comes in with createMatrix()
-  if(arguments[0] instanceof p5) {
-    // save reference to p5 if passed in
-    this.p5 = arguments[0];
-    this.mat4  = arguments[1] || new GLMAT_ARRAY_TYPE([
-      1, 0, 0, 0,
-      0, 1, 0, 0,
-      0, 0, 1, 0,
-      0, 0, 0, 1
-    ]);
-  // This is what we'll get with new p5.Matrix()
-  // a mat4 identity matrix
-  } else {
-    this.mat4 = arguments[0] || new GLMAT_ARRAY_TYPE([
-      1, 0, 0, 0,
-      0, 1, 0, 0,
-      0, 0, 1, 0,
-      0, 0, 0, 1
-    ]);
-  }
-  return this;
-};
-
-/**
- * Sets the x, y, and z component of the vector using two or three separate
- * variables, the data from a p5.Matrix, or the values from a float array.
- *
- * @param {p5.Matrix|Array} [inMatrix] the input p5.Matrix or
- *                                     an Array of length 16
- */
-p5.Matrix.prototype.set = function (inMatrix) {
-  if (inMatrix instanceof p5.Matrix) {
-    this.mat4 = inMatrix.mat4;
-    return this;
-  }
-  else if (inMatrix instanceof GLMAT_ARRAY_TYPE) {
-    this.mat4 = inMatrix;
-    return this;
-  }
-  return this;
-};
-
-/**
- * Gets a copy of the vector, returns a p5.Matrix object.
- *
- * @return {p5.Matrix} the copy of the p5.Matrix object
- */
-p5.Matrix.prototype.get = function () {
-  return new p5.Matrix(this.mat4);
-};
-
-/**
- * return a copy of a matrix
- * @return {p5.Matrix}   the result matrix
- */
-p5.Matrix.prototype.copy = function(){
-  var copied = new p5.Matrix();
-  copied.mat4[0] = this.mat4[0];
-  copied.mat4[1] = this.mat4[1];
-  copied.mat4[2] = this.mat4[2];
-  copied.mat4[3] = this.mat4[3];
-  copied.mat4[4] = this.mat4[4];
-  copied.mat4[5] = this.mat4[5];
-  copied.mat4[6] = this.mat4[6];
-  copied.mat4[7] = this.mat4[7];
-  copied.mat4[8] = this.mat4[8];
-  copied.mat4[9] = this.mat4[9];
-  copied.mat4[10] = this.mat4[10];
-  copied.mat4[11] = this.mat4[11];
-  copied.mat4[12] = this.mat4[12];
-  copied.mat4[13] = this.mat4[13];
-  copied.mat4[14] = this.mat4[14];
-  copied.mat4[15] = this.mat4[15];
-  return copied;
-};
-
-/**
- * return an identity matrix
- * @return {p5.Matrix}   the result matrix
- */
-p5.Matrix.identity = function(){
-  return new p5.Matrix();
-};
-
-/**
- * transpose according to a given matrix
- * @param  {p5.Matrix | Typed Array} a  the matrix to be based on to transpose
- * @return {p5.Matrix}                  this
- */
-p5.Matrix.prototype.transpose = function(a){
-  var a01, a02, a03, a12, a13, a23;
-  if(a instanceof p5.Matrix){
-    a01 = a.mat4[1];
-    a02 = a.mat4[2];
-    a03 = a.mat4[3];
-    a12 = a.mat4[6];
-    a13 = a.mat4[7];
-    a23 = a.mat4[11];
-
-    this.mat4[0] = a.mat4[0];
-    this.mat4[1] = a.mat4[4];
-    this.mat4[2] = a.mat4[8];
-    this.mat4[3] = a.mat4[12];
-    this.mat4[4] = a01;
-    this.mat4[5] = a.mat4[5];
-    this.mat4[6] = a.mat4[9];
-    this.mat4[7] = a.mat4[13];
-    this.mat4[8] = a02;
-    this.mat4[9] = a12;
-    this.mat4[10] = a.mat4[10];
-    this.mat4[11] = a.mat4[14];
-    this.mat4[12] = a03;
-    this.mat4[13] = a13;
-    this.mat4[14] = a23;
-    this.mat4[15] = a.mat4[15];
-
-  }else if(a instanceof GLMAT_ARRAY_TYPE){
-    a01 = a[1];
-    a02 = a[2];
-    a03 = a[3];
-    a12 = a[6];
-    a13 = a[7];
-    a23 = a[11];
-
-    this.mat4[0] = a[0];
-    this.mat4[1] = a[4];
-    this.mat4[2] = a[8];
-    this.mat4[3] = a[12];
-    this.mat4[4] = a01;
-    this.mat4[5] = a[5];
-    this.mat4[6] = a[9];
-    this.mat4[7] = a[13];
-    this.mat4[8] = a02;
-    this.mat4[9] = a12;
-    this.mat4[10] = a[10];
-    this.mat4[11] = a[14];
-    this.mat4[12] = a03;
-    this.mat4[13] = a13;
-    this.mat4[14] = a23;
-    this.mat4[15] = a[15];
-  }
-  return this;
-};
-
-/**
- * invert  matrix according to a give matrix
- * @param  {p5.Matrix or Typed Array} a   the matrix to be based on to invert
- * @return {p5.Matrix}                    this
- */
-p5.Matrix.prototype.invert = function(a){
-  var a00, a01, a02, a03, a10, a11, a12, a13,
-  a20, a21, a22, a23, a30, a31, a32, a33;
-  if(a instanceof p5.Matrix){
-    a00 = a.mat4[0];
-    a01 = a.mat4[1];
-    a02 = a.mat4[2];
-    a03 = a.mat4[3];
-    a10 = a.mat4[4];
-    a11 = a.mat4[5];
-    a12 = a.mat4[6];
-    a13 = a.mat4[7];
-    a20 = a.mat4[8];
-    a21 = a.mat4[9];
-    a22 = a.mat4[10];
-    a23 = a.mat4[11];
-    a30 = a.mat4[12];
-    a31 = a.mat4[13];
-    a32 = a.mat4[14];
-    a33 = a.mat4[15];
-  }else if(a instanceof GLMAT_ARRAY_TYPE){
-    a00 = a[0];
-    a01 = a[1];
-    a02 = a[2];
-    a03 = a[3];
-    a10 = a[4];
-    a11 = a[5];
-    a12 = a[6];
-    a13 = a[7];
-    a20 = a[8];
-    a21 = a[9];
-    a22 = a[10];
-    a23 = a[11];
-    a30 = a[12];
-    a31 = a[13];
-    a32 = a[14];
-    a33 = a[15];
-  }
-  var b00 = a00 * a11 - a01 * a10,
-  b01 = a00 * a12 - a02 * a10,
-  b02 = a00 * a13 - a03 * a10,
-  b03 = a01 * a12 - a02 * a11,
-  b04 = a01 * a13 - a03 * a11,
-  b05 = a02 * a13 - a03 * a12,
-  b06 = a20 * a31 - a21 * a30,
-  b07 = a20 * a32 - a22 * a30,
-  b08 = a20 * a33 - a23 * a30,
-  b09 = a21 * a32 - a22 * a31,
-  b10 = a21 * a33 - a23 * a31,
-  b11 = a22 * a33 - a23 * a32,
-
-  // Calculate the determinant
-  det = b00 * b11 - b01 * b10 + b02 * b09 + b03 * b08 -
-  b04 * b07 + b05 * b06;
-
-  if (!det) {
-    return null;
-  }
-  det = 1.0 / det;
-
-  this.mat4[0] = (a11 * b11 - a12 * b10 + a13 * b09) * det;
-  this.mat4[1] = (a02 * b10 - a01 * b11 - a03 * b09) * det;
-  this.mat4[2] = (a31 * b05 - a32 * b04 + a33 * b03) * det;
-  this.mat4[3] = (a22 * b04 - a21 * b05 - a23 * b03) * det;
-  this.mat4[4] = (a12 * b08 - a10 * b11 - a13 * b07) * det;
-  this.mat4[5] = (a00 * b11 - a02 * b08 + a03 * b07) * det;
-  this.mat4[6] = (a32 * b02 - a30 * b05 - a33 * b01) * det;
-  this.mat4[7] = (a20 * b05 - a22 * b02 + a23 * b01) * det;
-  this.mat4[8] = (a10 * b10 - a11 * b08 + a13 * b06) * det;
-  this.mat4[9] = (a01 * b08 - a00 * b10 - a03 * b06) * det;
-  this.mat4[10] = (a30 * b04 - a31 * b02 + a33 * b00) * det;
-  this.mat4[11] = (a21 * b02 - a20 * b04 - a23 * b00) * det;
-  this.mat4[12] = (a11 * b07 - a10 * b09 - a12 * b06) * det;
-  this.mat4[13] = (a00 * b09 - a01 * b07 + a02 * b06) * det;
-  this.mat4[14] = (a31 * b01 - a30 * b03 - a32 * b00) * det;
-  this.mat4[15] = (a20 * b03 - a21 * b01 + a22 * b00) * det;
-
-  return this;
-};
-
-/**
- * inspired by Toji's mat4 determinant
- * @return {Number} Determinant of our 4x4 matrix
- */
-p5.Matrix.prototype.determinant = function(){
-  var d00 = (this.mat4[0] * this.mat4[5]) - (this.mat4[1] * this.mat4[4]),
-    d01 = (this.mat4[0] * this.mat4[6]) - (this.mat4[2] * this.mat4[4]),
-    d02 = (this.mat4[0] * this.mat4[7]) - (this.mat4[3] * this.mat4[4]),
-    d03 = (this.mat4[1] * this.mat4[6]) - (this.mat4[2] * this.mat4[5]),
-    d04 = (this.mat4[1] * this.mat4[7]) - (this.mat4[3] * this.mat4[5]),
-    d05 = (this.mat4[2] * this.mat4[7]) - (this.mat4[3] * this.mat4[6]),
-    d06 = (this.mat4[8] * this.mat4[13]) - (this.mat4[9] * this.mat4[12]),
-    d07 = (this.mat4[8] * this.mat4[14]) - (this.mat4[10] * this.mat4[12]),
-    d08 = (this.mat4[8] * this.mat4[15]) - (this.mat4[11] * this.mat4[12]),
-    d09 = (this.mat4[9] * this.mat4[14]) - (this.mat4[10] * this.mat4[13]),
-    d10 = (this.mat4[9] * this.mat4[15]) - (this.mat4[11] * this.mat4[13]),
-    d11 = (this.mat4[10] * this.mat4[15]) - (this.mat4[11] * this.mat4[14]);
-
-  // Calculate the determinant
-  return d00 * d11 - d01 * d10 + d02 * d09 +
-    d03 * d08 - d04 * d07 + d05 * d06;
-};
-
-/**
- * multiply two mat4s
- * @param {p5.Matrix | Array}  multMatrix The matrix we want to multiply by
- * @return {p5.Matrix}         this
- */
-p5.Matrix.prototype.mult = function(multMatrix){
-  var _dest = new GLMAT_ARRAY_TYPE(16);
-  var _src = new GLMAT_ARRAY_TYPE(16);
-
-  if(multMatrix instanceof p5.Matrix) {
-    _src = multMatrix.mat4;
-  }
-  else if(multMatrix instanceof GLMAT_ARRAY_TYPE){
-    _src = multMatrix;
-  }
-
-  // each row is used for the multiplier
-  var b0  = this.mat4[0], b1 = this.mat4[1],
-    b2 = this.mat4[2], b3 = this.mat4[3];
-  _dest[0] = b0*_src[0] + b1*_src[4] + b2*_src[8] + b3*_src[12];
-  _dest[1] = b0*_src[1] + b1*_src[5] + b2*_src[9] + b3*_src[13];
-  _dest[2] = b0*_src[2] + b1*_src[6] + b2*_src[10] + b3*_src[14];
-  _dest[3] = b0*_src[3] + b1*_src[7] + b2*_src[11] + b3*_src[15];
-
-  b0 = this.mat4[4];
-  b1 = this.mat4[5];
-  b2 = this.mat4[6];
-  b3 = this.mat4[7];
-  _dest[4] = b0*_src[0] + b1*_src[4] + b2*_src[8] + b3*_src[12];
-  _dest[5] = b0*_src[1] + b1*_src[5] + b2*_src[9] + b3*_src[13];
-  _dest[6] = b0*_src[2] + b1*_src[6] + b2*_src[10] + b3*_src[14];
-  _dest[7] = b0*_src[3] + b1*_src[7] + b2*_src[11] + b3*_src[15];
-
-  b0 = this.mat4[8];
-  b1 = this.mat4[9];
-  b2 = this.mat4[10];
-  b3 = this.mat4[11];
-  _dest[8] = b0*_src[0] + b1*_src[4] + b2*_src[8] + b3*_src[12];
-  _dest[9] = b0*_src[1] + b1*_src[5] + b2*_src[9] + b3*_src[13];
-  _dest[10] = b0*_src[2] + b1*_src[6] + b2*_src[10] + b3*_src[14];
-  _dest[11] = b0*_src[3] + b1*_src[7] + b2*_src[11] + b3*_src[15];
-
-  b0 = this.mat4[12];
-  b1 = this.mat4[13];
-  b2 = this.mat4[14];
-  b3 = this.mat4[15];
-  _dest[12] = b0*_src[0] + b1*_src[4] + b2*_src[8] + b3*_src[12];
-  _dest[13] = b0*_src[1] + b1*_src[5] + b2*_src[9] + b3*_src[13];
-  _dest[14] = b0*_src[2] + b1*_src[6] + b2*_src[10] + b3*_src[14];
-  _dest[15] = b0*_src[3] + b1*_src[7] + b2*_src[11] + b3*_src[15];
-
-  this.mat4 = _dest;
-
-  return this;
-};
-
-/**
- * scales a p5.Matrix by scalars or a vector
- * @param  {p5.Vector | Array | Numbers}
- *                      vector to scale by
- * @return {p5.Matrix}  this
- */
-p5.Matrix.prototype.scale = function() {
-  var x,y,z;
-  //if our 1st arg is a type p5.Vector
-  if (arguments[0] instanceof p5.Vector){
-    x = arguments[0].x;
-    y = arguments[0].y;
-    z = arguments[0].z;
-  }
-  //otherwise if it's an array
-  else if (arguments[0] instanceof Array){
-    x = arguments[0][0];
-    y = arguments[0][1];
-    z = arguments[0][2];
-  }
-  //otherwise it's probably some numbers
-  else {
-    //short circuit eval to make sure we maintain
-    //component size
-    x = arguments[0] || 1;
-    y = arguments[1] || 1;
-    z = arguments[2] || 1;
-  }
-
-  var _dest = new GLMAT_ARRAY_TYPE(16);
-
-  for (var i = 0; i < this.mat4.length; i++) {
-    var row = i % 4;
-    switch(row){
-    case 0:
-      _dest[i] = this.mat4[i]*x;
-      break;
-    case 1:
-      _dest[i] = this.mat4[i]*y;
-      break;
-    case 2:
-      _dest[i] = this.mat4[i]*z;
-      break;
-    case 3:
-      _dest[i] = this.mat4[i];
-      break;
+  Response.redirect = function(url, status) {
+    if (redirectStatuses.indexOf(status) === -1) {
+      throw new RangeError('Invalid status code')
     }
-  }
-  this.mat4 = _dest;
-  return this;
-};
 
-/**
- * rotate our Matrix around an axis by the given angle.
- * @param  {Number} a The angle of rotation in radians
- * @param  {p5.Vector | Array} axis  the axis(es) to rotate around
- * @return {p5.Matrix}                    this
- * inspired by Toji's gl-matrix lib, mat4 rotation
- */
-p5.Matrix.prototype.rotate = function(a, axis){
-  var x, y, z, _a, len;
-
-  if (this.p5) {
-    if (this.p5._angleMode === constants.DEGREES) {
-      _a = polarGeometry.degreesToRadians(a);
-    }
-  }
-  else {
-    _a = a;
-  }
-  if (axis instanceof p5.Vector) {
-    x = axis.x;
-    y = axis.y;
-    z = axis.z;
-  }
-  else if (axis instanceof Array) {
-    x = axis[0];
-    y = axis[1];
-    z = axis[2];
+    return new Response(null, {status: status, headers: {location: url}})
   }
 
-  len = Math.sqrt(x * x + y * y + z * z);
-  x *= (1/len);
-  y *= (1/len);
-  z *= (1/len);
+  self.Headers = Headers
+  self.Request = Request
+  self.Response = Response
 
-  var a00 = this.mat4[0];
-  var a01 = this.mat4[1];
-  var a02 = this.mat4[2];
-  var a03 = this.mat4[3];
-  var a10 = this.mat4[4];
-  var a11 = this.mat4[5];
-  var a12 = this.mat4[6];
-  var a13 = this.mat4[7];
-  var a20 = this.mat4[8];
-  var a21 = this.mat4[9];
-  var a22 = this.mat4[10];
-  var a23 = this.mat4[11];
+  self.fetch = function(input, init) {
+    return new Promise(function(resolve, reject) {
+      var request = new Request(input, init)
+      var xhr = new XMLHttpRequest()
 
-  //sin,cos, and tan of respective angle
-  var sA = Math.sin(_a);
-  var cA = Math.cos(_a);
-  var tA = 1 - cA;
-  // Construct the elements of the rotation matrix
-  var b00 = x * x * tA + cA;
-  var b01 = y * x * tA + z * sA;
-  var b02 = z * x * tA - y * sA;
-  var b10 = x * y * tA - z * sA;
-  var b11 = y * y * tA + cA;
-  var b12 = z * y * tA + x * sA;
-  var b20 = x * z * tA + y * sA;
-  var b21 = y * z * tA - x * sA;
-  var b22 = z * z * tA + cA;
+      xhr.onload = function() {
+        var options = {
+          status: xhr.status,
+          statusText: xhr.statusText,
+          headers: parseHeaders(xhr.getAllResponseHeaders() || '')
+        }
+        options.url = 'responseURL' in xhr ? xhr.responseURL : options.headers.get('X-Request-URL')
+        var body = 'response' in xhr ? xhr.response : xhr.responseText
+        resolve(new Response(body, options))
+      }
 
-  // rotation-specific matrix multiplication
-  this.mat4[0] = a00 * b00 + a10 * b01 + a20 * b02;
-  this.mat4[1] = a01 * b00 + a11 * b01 + a21 * b02;
-  this.mat4[2] = a02 * b00 + a12 * b01 + a22 * b02;
-  this.mat4[3] = a03 * b00 + a13 * b01 + a23 * b02;
-  this.mat4[4] = a00 * b10 + a10 * b11 + a20 * b12;
-  this.mat4[5] = a01 * b10 + a11 * b11 + a21 * b12;
-  this.mat4[6] = a02 * b10 + a12 * b11 + a22 * b12;
-  this.mat4[7] = a03 * b10 + a13 * b11 + a23 * b12;
-  this.mat4[8] = a00 * b20 + a10 * b21 + a20 * b22;
-  this.mat4[9] = a01 * b20 + a11 * b21 + a21 * b22;
-  this.mat4[10] = a02 * b20 + a12 * b21 + a22 * b22;
-  this.mat4[11] = a03 * b20 + a13 * b21 + a23 * b22;
+      xhr.onerror = function() {
+        reject(new TypeError('Network request failed'))
+      }
 
-  return this;
-};
+      xhr.ontimeout = function() {
+        reject(new TypeError('Network request failed'))
+      }
 
-/**
- * @todo  finish implementing this method!
- * translates
- * @param  {Array} v vector to translate by
- * @return {p5.Matrix}                    this
- */
-p5.Matrix.prototype.translate = function(v){
-  var x = v[0],
-    y = v[1],
-    z = v[2];
-  this.mat4[12] =
-    this.mat4[0] * x +this.mat4[4] * y +this.mat4[8] * z +this.mat4[12];
-  this.mat4[13] =
-    this.mat4[1] * x +this.mat4[5] * y +this.mat4[9] * z +this.mat4[13];
-  this.mat4[14] =
-    this.mat4[2] * x +this.mat4[6] * y +this.mat4[10] * z +this.mat4[14];
-  this.mat4[15] =
-    this.mat4[3] * x +this.mat4[7] * y +this.mat4[11] * z +this.mat4[15];
-};
+      xhr.open(request.method, request.url, true)
 
-p5.Matrix.prototype.rotateX = function(a){
-  this.rotate(a, [1,0,0]);
-};
-p5.Matrix.prototype.rotateY = function(a){
-  this.rotate(a, [0,1,0]);
-};
-p5.Matrix.prototype.rotateZ = function(a){
-  this.rotate(a, [0,0,1]);
-};
+      if (request.credentials === 'include') {
+        xhr.withCredentials = true
+      }
 
-/**
- * sets the perspective matrix
- * @param  {Number} fovy   [description]
- * @param  {Number} aspect [description]
- * @param  {Number} near   near clipping plane
- * @param  {Number} far    far clipping plane
- * @return {void}
- */
-p5.Matrix.prototype.perspective = function(fovy,aspect,near,far){
+      if ('responseType' in xhr && support.blob) {
+        xhr.responseType = 'blob'
+      }
 
-  var f = 1.0 / Math.tan(fovy / 2),
-    nf = 1 / (near - far);
+      request.headers.forEach(function(value, name) {
+        xhr.setRequestHeader(name, value)
+      })
 
-  this.mat4[0] = f / aspect;
-  this.mat4[1] = 0;
-  this.mat4[2] = 0;
-  this.mat4[3] = 0;
-  this.mat4[4] = 0;
-  this.mat4[5] = f;
-  this.mat4[6] = 0;
-  this.mat4[7] = 0;
-  this.mat4[8] = 0;
-  this.mat4[9] = 0;
-  this.mat4[10] = (far + near) * nf;
-  this.mat4[11] = -1;
-  this.mat4[12] = 0;
-  this.mat4[13] = 0;
-  this.mat4[14] = (2 * far * near) * nf;
-  this.mat4[15] = 0;
-
-  return this;
-
-};
-
-/**
- * sets the ortho matrix
- * @param  {Number} left   [description]
- * @param  {Number} right  [description]
- * @param  {Number} bottom [description]
- * @param  {Number} top    [description]
- * @param  {Number} near   near clipping plane
- * @param  {Number} far    far clipping plane
- * @return {void}
- */
-p5.Matrix.prototype.ortho = function(left,right,bottom,top,near,far){
-
-  var lr = 1 / (left - right),
-    bt = 1 / (bottom - top),
-    nf = 1 / (near - far);
-  this.mat4[0] = -2 * lr;
-  this.mat4[1] = 0;
-  this.mat4[2] = 0;
-  this.mat4[3] = 0;
-  this.mat4[4] = 0;
-  this.mat4[5] = -2 * bt;
-  this.mat4[6] = 0;
-  this.mat4[7] = 0;
-  this.mat4[8] = 0;
-  this.mat4[9] = 0;
-  this.mat4[10] = 2 * nf;
-  this.mat4[11] = 0;
-  this.mat4[12] = (left + right) * lr;
-  this.mat4[13] = (top + bottom) * bt;
-  this.mat4[14] = (far + near) * nf;
-  this.mat4[15] = 1;
-
-  return this;
-};
-
-/**
- * PRIVATE
- */
-// matrix methods adapted from:
-// https://developer.mozilla.org/en-US/docs/Web/WebGL/
-// gluPerspective
-//
-// function _makePerspective(fovy, aspect, znear, zfar){
-//    var ymax = znear * Math.tan(fovy * Math.PI / 360.0);
-//    var ymin = -ymax;
-//    var xmin = ymin * aspect;
-//    var xmax = ymax * aspect;
-//    return _makeFrustum(xmin, xmax, ymin, ymax, znear, zfar);
-//  }
-
-////
-//// glFrustum
-////
-//function _makeFrustum(left, right, bottom, top, znear, zfar){
-//  var X = 2*znear/(right-left);
-//  var Y = 2*znear/(top-bottom);
-//  var A = (right+left)/(right-left);
-//  var B = (top+bottom)/(top-bottom);
-//  var C = -(zfar+znear)/(zfar-znear);
-//  var D = -2*zfar*znear/(zfar-znear);
-//  var frustrumMatrix =[
-//  X, 0, A, 0,
-//  0, Y, B, 0,
-//  0, 0, C, D,
-//  0, 0, -1, 0
-//];
-//return frustrumMatrix;
-// }
-
-// function _setMVPMatrices(){
-////an identity matrix
-////@TODO use the p5.Matrix class to abstract away our MV matrices and
-///other math
-//var _mvMatrix =
-//[
-//  1.0,0.0,0.0,0.0,
-//  0.0,1.0,0.0,0.0,
-//  0.0,0.0,1.0,0.0,
-//  0.0,0.0,0.0,1.0
-//];
-
-module.exports = p5.Matrix;
-},{"../core/constants":47,"../core/core":48,"../math/polargeometry":77}],36:[function(_dereq_,module,exports){
-'use strict';
-
-var p5 = _dereq_('../core/core');
-var shader = _dereq_('./shader');
-_dereq_('../core/p5.Renderer');
-_dereq_('./p5.Matrix');
-var uMVMatrixStack = [];
-var RESOLUTION = 1000;
-
-//@TODO should probably implement an override for these attributes
-var attributes = {
-  alpha: false,
-  depth: true,
-  stencil: true,
-  antialias: false,
-  premultipliedAlpha: false,
-  preserveDrawingBuffer: false
-};
-
-/**
- * 3D graphics class.  Can also be used as an off-screen graphics buffer.
- * A p5.Renderer3D object can be constructed
- *
- */
-p5.Renderer3D = function(elt, pInst, isMainCanvas) {
-  p5.Renderer.call(this, elt, pInst, isMainCanvas);
-
-  try {
-    this.drawingContext = this.canvas.getContext('webgl', attributes) ||
-      this.canvas.getContext('experimental-webgl', attributes);
-    if (this.drawingContext === null) {
-      throw new Error('Error creating webgl context');
-    } else {
-      console.log('p5.Renderer3D: enabled webgl context');
-    }
-  } catch (er) {
-    throw new Error(er);
+      xhr.send(typeof request._bodyInit === 'undefined' ? null : request._bodyInit)
+    })
   }
+  self.fetch.polyfill = true
+})(typeof self !== 'undefined' ? self : this);
 
-  this.isP3D = true; //lets us know we're in 3d mode
-  this.GL = this.drawingContext;
-  var gl = this.GL;
-  gl.clearColor(1.0, 1.0, 1.0, 1.0); //background is initialized white
-  gl.clearDepth(1);
-  gl.enable(gl.DEPTH_TEST);
-  gl.depthFunc(gl.LEQUAL);
-  gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-  gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
-  this._init();
-  return this;
-};
-
-p5.Renderer3D.prototype = Object.create(p5.Renderer.prototype);
-
-p5.Renderer3D.prototype._applyDefaults = function() {
-  return this;
-};
-
-//////////////////////////////////////////////
-// Setting
-//////////////////////////////////////////////
-
-p5.Renderer3D.prototype._init = function(first_argument) {
-  var gl = this.GL;
-  //for our default matrices
-  this.initMatrix();
-  this.initHash();
-  //for immedidate mode
-  this.verticeStack = [];
-  this.verticeBuffer = gl.createBuffer();
-  this.colorBuffer = gl.createBuffer();
-  //for camera
-  this._setCamera = false;
-  //for counting lights
-  this.ambientLightCount = 0;
-  this.directionalLightCount = 0;
-  this.pointLightCount = 0;
-};
-
-p5.Renderer3D.prototype._update = function() {
-  this.resetMatrix();
-  this.translate(0, 0, -800);
-  this.ambientLightCount = 0;
-  this.directionalLightCount = 0;
-  this.pointLightCount = 0;
-  this.verticeStack = [];
-};
-
-/**
- * [resize description]
- * @param  {[type]} w [description]
- * @param  {[tyoe]} h [description]
- * @return {[type]}   [description]
- */
-p5.Renderer3D.prototype.resize = function(w,h) {
-  var gl = this.GL;
-  p5.Renderer.prototype.resize.call(this, w, h);
-  gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
-};
-
-/**
- * [background description]
- * @return {[type]} [description]
- */
-p5.Renderer3D.prototype.background = function() {
-  var gl = this.GL;
-  var _col = this._pInst.color.apply(this._pInst, arguments);
-  // gl.clearColor(0.0,0.0,0.0,1.0);
-  var _r = (_col.rgba[0]) / 255;
-  var _g = (_col.rgba[1]) / 255;
-  var _b = (_col.rgba[2]) / 255;
-  var _a = (_col.rgba[3]) / 255;
-  gl.clearColor(_r, _g, _b, _a);
-  gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-};
-
-//@TODO implement this
-// p5.Renderer3D.prototype.clear = function() {
-//@TODO
-// };
-
-//////////////////////////////////////////////
-// SHADER
-//////////////////////////////////////////////
-
-/**
- * [initShaders description]
- * @param  {[type]} vertId [description]
- * @param  {[type]} fragId [description]
- * @return {[type]}        [description]
- */
-p5.Renderer3D.prototype.initShaders = function(vertId, fragId, immediateMode) {
-  var gl = this.GL;
-  //set up our default shaders by:
-  // 1. create the shader,
-  // 2. load the shader source,
-  // 3. compile the shader
-  var _vertShader = gl.createShader(gl.VERTEX_SHADER);
-  //load in our default vertex shader
-  gl.shaderSource(_vertShader, shader[vertId]);
-  gl.compileShader(_vertShader);
-  // if our vertex shader failed compilation?
-  if (!gl.getShaderParameter(_vertShader, gl.COMPILE_STATUS)) {
-    alert('Yikes! An error occurred compiling the shaders:' +
-      gl.getShaderInfoLog(_vertShader));
-    return null;
-  }
-
-  var _fragShader = gl.createShader(gl.FRAGMENT_SHADER);
-  //load in our material frag shader
-  gl.shaderSource(_fragShader, shader[fragId]);
-  gl.compileShader(_fragShader);
-  // if our frag shader failed compilation?
-  if (!gl.getShaderParameter(_fragShader, gl.COMPILE_STATUS)) {
-    alert('Darn! An error occurred compiling the shaders:' +
-      gl.getShaderInfoLog(_fragShader));
-    return null;
-  }
-
-  var shaderProgram = gl.createProgram();
-  gl.attachShader(shaderProgram, _vertShader);
-  gl.attachShader(shaderProgram, _fragShader);
-  gl.linkProgram(shaderProgram);
-  if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
-    alert('Snap! Error linking shader program');
-  }
-  //END SHADERS SETUP
-
-  this._getLocation(shaderProgram, immediateMode);
-
-  return shaderProgram;
-};
-
-p5.Renderer3D.prototype._getLocation = function(shaderProgram, immediateMode) {
-  var gl = this.GL;
-  gl.useProgram(shaderProgram);
-  shaderProgram.uResolution =
-    gl.getUniformLocation(shaderProgram, 'uResolution');
-  gl.uniform1f(shaderProgram.uResolution, RESOLUTION);
-
-  //vertex position Attribute
-  shaderProgram.vertexPositionAttribute =
-    gl.getAttribLocation(shaderProgram, 'aPosition');
-  gl.enableVertexAttribArray(shaderProgram.vertexPositionAttribute);
-
-  //projection Matrix uniform
-  shaderProgram.uPMatrixUniform =
-    gl.getUniformLocation(shaderProgram, 'uProjectionMatrix');
-  //model view Matrix uniform
-  shaderProgram.uMVMatrixUniform =
-    gl.getUniformLocation(shaderProgram, 'uModelViewMatrix');
-
-  //@TODO: figure out a better way instead of if statement
-  if(immediateMode === undefined){
-    //vertex normal Attribute
-    shaderProgram.vertexNormalAttribute =
-      gl.getAttribLocation(shaderProgram, 'aNormal');
-    gl.enableVertexAttribArray(shaderProgram.vertexNormalAttribute);
-
-    //normal Matrix uniform
-    shaderProgram.uNMatrixUniform =
-    gl.getUniformLocation(shaderProgram, 'uNormalMatrix');
-
-    //texture coordinate Attribute
-    shaderProgram.textureCoordAttribute =
-      gl.getAttribLocation(shaderProgram, 'aTexCoord');
-    gl.enableVertexAttribArray(shaderProgram.textureCoordAttribute);
-
-    shaderProgram.samplerUniform =
-    gl.getUniformLocation(shaderProgram, 'uSampler');
-  }
-};
-
-p5.Renderer3D.prototype.setMatrixUniforms = function(shaderKey) {
-  var gl = this.GL;
-  var shaderProgram = this.mHash[shaderKey];
-
-  gl.useProgram(shaderProgram);
-
-  gl.uniformMatrix4fv(
-    shaderProgram.uPMatrixUniform,
-    false, this.uPMatrix.mat4);
-
-  gl.uniformMatrix4fv(
-    shaderProgram.uMVMatrixUniform,
-    false, this.uMVMatrix.mat4);
-
-  this.uNMatrix = new p5.Matrix();
-  this.uNMatrix.invert(this.uMVMatrix);
-  this.uNMatrix.transpose(this.uNMatrix);
-
-  gl.uniformMatrix4fv(
-    shaderProgram.uNMatrixUniform,
-    false, this.uNMatrix.mat4);
-};
-
-//////////////////////////////////////////////
-// GET CURRENT | for shader and color
-//////////////////////////////////////////////
-p5.Renderer3D.prototype._getShader = function(vertId, fragId, immediateMode) {
-  var mId = vertId+ '|' + fragId;
-  //create it and put it into hashTable
-  if(!this.materialInHash(mId)){
-    var shaderProgram = this.initShaders(vertId, fragId, immediateMode);
-    this.mHash[mId] = shaderProgram;
-  }
-  this.curShaderId = mId;
-
-  return this.mHash[this.curShaderId];
-};
-
-p5.Renderer3D.prototype._getCurShaderId = function(){
-  //if it's not defined yet
-  if(this.curShaderId === undefined){
-    //default shader: normalMaterial()
-    var mId = 'normalVert|normalFrag';
-    var shaderProgram = this.initShaders('normalVert', 'normalFrag');
-    this.mHash[mId] = shaderProgram;
-    this.curShaderId = mId;
-  }
-
-  return this.curShaderId;
-};
-
-p5.Renderer3D.prototype._getCurColor = function() {
-  //default color: gray
-  if(this.curColor === undefined) {
-    this.curColor = [0.5, 0.5, 0.5, 1.0];
-  }
-  return this.curColor;
-};
-
-//////////////////////////////////////////////
-// HASH | for material and geometry
-//////////////////////////////////////////////
-
-p5.Renderer3D.prototype.initHash = function(){
-  this.gHash = {};
-  this.mHash = {};
-};
-
-p5.Renderer3D.prototype.geometryInHash = function(gId){
-  return this.gHash[gId] !== undefined;
-};
-
-p5.Renderer3D.prototype.materialInHash = function(mId){
-  return this.mHash[mId] !== undefined;
-};
-
-//////////////////////////////////////////////
-// MATRIX
-//////////////////////////////////////////////
-
-p5.Renderer3D.prototype.initMatrix = function(){
-  this.uMVMatrix = new p5.Matrix();
-  this.uPMatrix  = new p5.Matrix();
-  this.uNMatrix = new p5.Matrix();
-};
-
-p5.Renderer3D.prototype.resetMatrix = function() {
-  this.uMVMatrix = p5.Matrix.identity();
-  //this.uPMatrix = p5.Matrix.identity();
-};
-
-//detect if user didn't set the camera
-//then call this function below
-p5.Renderer3D.prototype._setDefaultCamera = function(){
-  if(!this._setCamera){
-    var _w = this.width;
-    var _h = this.height;
-    this.uPMatrix = p5.Matrix.identity();
-    this.uPMatrix.perspective(60 / 180 * Math.PI, _w / _h, 0.1, 100);
-    this._setCamera = true;
-  }
-};
-
-/**
- * [translate description]
- * @param  {[type]} x [description]
- * @param  {[type]} y [description]
- * @param  {[type]} z [description]
- * @return {[type]}   [description]
- * @todo implement handle for components or vector as args
- */
-p5.Renderer3D.prototype.translate = function(x, y, z) {
-  //@TODO: figure out how to fit the resolution
-  x = x / RESOLUTION;
-  y = -y / RESOLUTION;
-  z = z / RESOLUTION;
-  this.uMVMatrix.translate([x,y,z]);
-  return this;
-};
-
-/**
- * Scales the Model View Matrix by a vector
- * @param  {Number} x [description]
- * @param  {Number} y [description]
- * @param  {Number} z [description]
- * @return {this}   [description]
- */
-p5.Renderer3D.prototype.scale = function(x, y, z) {
-  this.uMVMatrix.scale([x,y,z]);
-  return this;
-};
-
-/**
- * [rotate description]
- * @param  {Number} rad  angle in radians
- * @param  {p5.Vector | Array} axis axis to rotate around
- * @return {p5.Renderer3D}      [description]
- */
-p5.Renderer3D.prototype.rotate = function(rad, axis){
-  this.uMVMatrix.rotate(rad, axis);
-  return this;
-};
-
-/**
- * [rotateX description]
- * @param  {Number} rad radians to rotate
- * @return {[type]}     [description]
- */
-p5.Renderer3D.prototype.rotateX = function(rad) {
-  this.uMVMatrix.rotateX(rad);
-  return this;
-};
-
-/**
- * [rotateY description]
- * @param  {Number} rad rad radians to rotate
- * @return {[type]}     [description]
- */
-p5.Renderer3D.prototype.rotateY = function(rad) {
-  this.uMVMatrix.rotateY(rad);
-  return this;
-};
-
-/**
- * [rotateZ description]
- * @param  {Number} rad rad radians to rotate
- * @return {[type]}     [description]
- */
-p5.Renderer3D.prototype.rotateZ = function(rad) {
-  this.uMVMatrix.rotateZ(rad);
-  return this;
-};
-
-/**
- * pushes a copy of the model view matrix onto the
- * MV Matrix stack.
- * NOTE to self: could probably make this more readable
- * @return {[type]} [description]
- */
-p5.Renderer3D.prototype.push = function() {
-  uMVMatrixStack.push(this.uMVMatrix.copy());
-};
-
-/**
- * [pop description]
- * @return {[type]} [description]
- */
-p5.Renderer3D.prototype.pop = function() {
-  if (uMVMatrixStack.length === 0) {
-    throw new Error('Invalid popMatrix!');
-  }
-  this.uMVMatrix = uMVMatrixStack.pop();
-};
-
-module.exports = p5.Renderer3D;
-},{"../core/core":48,"../core/p5.Renderer":54,"./p5.Matrix":35,"./shader":38}],37:[function(_dereq_,module,exports){
-//retained mode is used by rendering 3d_primitives
-
-'use strict';
-
-var p5 = _dereq_('../core/core');
-
-/**
- * createBuffer
- * @param  {String} gId [description]
- * @param  {String} obj [description]
- */
-p5.Renderer3D.prototype.createBuffer = function(gId, obj) {
-  var gl = this.GL;
-  this.gHash[gId] = {};
-  this.gHash[gId].len = obj.len;
-  this.gHash[gId].vertexBuffer = gl.createBuffer();
-  this.gHash[gId].normalBuffer = gl.createBuffer();
-  this.gHash[gId].uvBuffer = gl.createBuffer();
-  this.gHash[gId].indexBuffer = gl.createBuffer();
-};
-
-/**
- * initBuffer description
- * @param  {String} gId    key of the geometry object
- * @param  {Object} obj    an object containing geometry information
- */
-p5.Renderer3D.prototype.initBuffer = function(gId, obj) {
-  this._setDefaultCamera();
-  var gl = this.GL;
-  this.createBuffer(gId, obj);
-
-  var shaderProgram = this.mHash[this._getCurShaderId()];
-
-  gl.bindBuffer(gl.ARRAY_BUFFER, this.gHash[gId].vertexBuffer);
-  gl.bufferData(
-    gl.ARRAY_BUFFER, new Float32Array(obj.vertices), gl.STATIC_DRAW);
-  gl.vertexAttribPointer(
-    shaderProgram.vertexPositionAttribute,
-    3, gl.FLOAT, false, 0, 0);
-
-  gl.bindBuffer(gl.ARRAY_BUFFER, this.gHash[gId].normalBuffer);
-  gl.bufferData(
-    gl.ARRAY_BUFFER, new Float32Array(obj.vertexNormals), gl.STATIC_DRAW);
-  gl.vertexAttribPointer(
-    shaderProgram.vertexNormalAttribute,
-    3, gl.FLOAT, false, 0, 0);
-
-  gl.bindBuffer(gl.ARRAY_BUFFER, this.gHash[gId].uvBuffer);
-  gl.bufferData(
-    gl.ARRAY_BUFFER, new Float32Array(obj.uvs), gl.STATIC_DRAW);
-  gl.vertexAttribPointer(
-    shaderProgram.textureCoordAttribute,
-    2, gl.FLOAT, false, 0, 0);
-
-  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.gHash[gId].indexBuffer);
-  gl.bufferData
-   (gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(obj.faces), gl.STATIC_DRAW);
-};
-
-/**
- * drawBuffer
- * @param  {String} gId     key of the geometery object
- */
-p5.Renderer3D.prototype.drawBuffer = function(gId) {
-  this._setDefaultCamera();
-  var gl = this.GL;
-  var shaderKey = this._getCurShaderId();
-  var shaderProgram = this.mHash[shaderKey];
-
-  gl.bindBuffer(gl.ARRAY_BUFFER, this.gHash[gId].vertexBuffer);
-  gl.vertexAttribPointer(
-    shaderProgram.vertexPositionAttribute,
-    3, gl.FLOAT, false, 0, 0);
-
-  gl.bindBuffer(gl.ARRAY_BUFFER, this.gHash[gId].normalBuffer);
-  gl.vertexAttribPointer(
-    shaderProgram.vertexNormalAttribute,
-    3, gl.FLOAT, false, 0, 0);
-
-  gl.bindBuffer(gl.ARRAY_BUFFER, this.gHash[gId].uvBuffer);
-  gl.vertexAttribPointer(
-    shaderProgram.textureCoordAttribute,
-    2, gl.FLOAT, false, 0, 0);
-
-  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.gHash[gId].indexBuffer);
-
-  this.setMatrixUniforms(shaderKey);
-
-  gl.drawElements(
-    gl.TRIANGLES, this.gHash[gId].len,
-     gl.UNSIGNED_SHORT, 0);
-};
-
-module.exports = p5.Renderer3D;
-},{"../core/core":48}],38:[function(_dereq_,module,exports){
-
-
-module.exports = {
-  vertexColorVert:
-    "attribute vec3 aPosition;\nattribute vec4 aVertexColor;\n\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nuniform float uResolution;\n\nvarying vec4 vColor;\n\nvoid main(void) {\n  vec4 positionVec4 = vec4(aPosition / uResolution * vec3(1.0, -1.0, 1.0), 1.0);\n  gl_Position = uProjectionMatrix * uModelViewMatrix * positionVec4;\n  vColor = aVertexColor;\n}",
-  vertexColorFrag:
-    "precision mediump float;\nvarying vec4 vColor;\nvoid main(void) {\n  gl_FragColor = vColor;\n}",
-  normalVert:
-    "attribute vec3 aPosition;\nattribute vec3 aNormal;\nattribute vec2 aTexCoord;\n\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nuniform mat4 uNormalMatrix;\nuniform float uResolution;\n\nvarying vec3 vVertexNormal;\nvarying highp vec2 vVertTexCoord;\n\nvoid main(void) {\n  vec4 positionVec4 = vec4(aPosition / uResolution, 1.0);\n  gl_Position = uProjectionMatrix * uModelViewMatrix * positionVec4;\n  vVertexNormal = vec3( uNormalMatrix * vec4( aNormal, 1.0 ) );\n  vVertTexCoord = aTexCoord;\n}",
-  normalFrag:
-    "precision mediump float;\nvarying vec3 vVertexNormal;\nvoid main(void) {\n  gl_FragColor = vec4(vVertexNormal, 1.0);\n}",
-  basicFrag:
-    "precision mediump float;\nvarying vec3 vVertexNormal;\nuniform vec4 uMaterialColor;\nvoid main(void) {\n  gl_FragColor = uMaterialColor;\n}",
-  textureFrag:
-    "precision mediump float;\nvarying highp vec2 vVertTexCoord;\nuniform sampler2D uSampler;\nvoid main(void) {\n  gl_FragColor = texture2D(uSampler, vec2(vVertTexCoord.s,vVertTexCoord.t));\n}",
-  lightVert:
-    "attribute vec3 aPosition;\nattribute vec3 aNormal;\nattribute vec2 aTexCoord;\n\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nuniform mat4 uNormalMatrix;\nuniform float uResolution;\nuniform int uAmbientLightCount;\nuniform int uDirectionalLightCount;\nuniform int uPointLightCount;\n\nuniform vec3 uAmbientColor[8];\nuniform vec3 uLightingDirection[8];\nuniform vec3 uDirectionalColor[8];\nuniform vec3 uPointLightLocation[8];\nuniform vec3 uPointLightColor[8];\nuniform bool uSpecular;\n\nvarying vec3 vVertexNormal;\nvarying vec2 vVertTexCoord;\nvarying vec3 vLightWeighting;\n\nvec3 ambientLightFactor = vec3(0.0, 0.0, 0.0);\nvec3 directionalLightFactor = vec3(0.0, 0.0, 0.0);\nvec3 pointLightFactor = vec3(0.0, 0.0, 0.0);\nvec3 pointLightFactor2 = vec3(0.0, 0.0, 0.0);\n\nvoid main(void){\n\n  vec4 positionVec4 = vec4(aPosition / uResolution, 1.0);\n  gl_Position = uProjectionMatrix * uModelViewMatrix * positionVec4;\n\n  vec3 vertexNormal = vec3( uNormalMatrix * vec4( aNormal, 1.0 ) );\n  vVertexNormal = vertexNormal;\n  vVertTexCoord = aTexCoord;\n\n  vec4 mvPosition = uModelViewMatrix * vec4(aPosition / uResolution, 1.0);\n  vec3 eyeDirection = normalize(-mvPosition.xyz);\n\n  float shininess = 32.0;\n  float specularFactor = 2.0;\n  float diffuseFactor = 0.3;\n\n  for(int i = 0; i < 8; i++){\n    if(uAmbientLightCount == i) break;\n    ambientLightFactor += uAmbientColor[i];\n  }\n\n  for(int j = 0; j < 8; j++){\n    if(uDirectionalLightCount == j) break;\n    vec3 dir = uLightingDirection[j];\n    float directionalLightWeighting = max(dot(vertexNormal, dir), 0.0);\n    directionalLightFactor += uDirectionalColor[j] * directionalLightWeighting;\n  }\n\n  for(int k = 0; k < 8; k++){\n    if(uPointLightCount == k) break;\n    vec3 loc = uPointLightLocation[k];\n    //loc = loc / uResolution;\n    vec3 lightDirection = normalize(loc - mvPosition.xyz);\n\n    float directionalLightWeighting = max(dot(vertexNormal, lightDirection), 0.0);\n    pointLightFactor += uPointLightColor[k] * directionalLightWeighting;\n\n    //factor2 for specular\n    vec3 reflectionDirection = reflect(-lightDirection, vertexNormal);\n    float specularLightWeighting = pow(max(dot(reflectionDirection, eyeDirection), 0.0), shininess);\n\n    pointLightFactor2 += uPointLightColor[k] * (specularFactor * specularLightWeighting\n      +  directionalLightWeighting * diffuseFactor);\n  }\n  \n  if(!uSpecular){\n    vLightWeighting =  ambientLightFactor + directionalLightFactor + pointLightFactor;\n  }else{\n    vLightWeighting = ambientLightFactor + directionalLightFactor + pointLightFactor2;\n  }\n\n}",
-  lightFrag:
-    "precision mediump float;\n\nuniform vec4 uMaterialColor;\nvarying vec3 vLightWeighting;\n\nvoid main(void) {\n  gl_FragColor = vec4(vec3(uMaterialColor.rgb * vLightWeighting), uMaterialColor.a);\n}"
-};
-},{}],39:[function(_dereq_,module,exports){
+},{}],33:[function(_dereq_,module,exports){
 
 'use strict';
 
@@ -8297,6 +7980,7 @@ _dereq_('./image/p5.Image');
 _dereq_('./math/p5.Vector');
 _dereq_('./io/p5.TableRow');
 _dereq_('./io/p5.Table');
+_dereq_('./io/p5.XML');
 
 _dereq_('./color/creating_reading');
 _dereq_('./color/setting');
@@ -8330,17 +8014,18 @@ _dereq_('./core/transform');
 _dereq_('./typography/attributes');
 _dereq_('./typography/loading_displaying');
 
-_dereq_('./3d/p5.Renderer3D');
-_dereq_('./3d/p5.Geometry3D');
-_dereq_('./3d/retainedMode3D');
-_dereq_('./3d/immediateMode3D');
-_dereq_('./3d/3d_primitives');
-_dereq_('./3d/p5.Matrix');
-_dereq_('./3d/material');
-_dereq_('./3d/light');
-_dereq_('./3d/shader');
-_dereq_('./3d/camera');
-_dereq_('./3d/interaction');
+_dereq_('./webgl/p5.RendererGL');
+_dereq_('./webgl/p5.Geometry');
+_dereq_('./webgl/p5.RendererGL.Retained');
+_dereq_('./webgl/p5.RendererGL.Immediate');
+_dereq_('./webgl/primitives');
+_dereq_('./webgl/loading');
+_dereq_('./webgl/p5.Matrix');
+_dereq_('./webgl/material');
+_dereq_('./webgl/light');
+_dereq_('./webgl/shader');
+_dereq_('./webgl/camera');
+_dereq_('./webgl/interaction');
 
 /**
  * _globalInit
@@ -8357,8 +8042,9 @@ var _globalInit = function() {
   if (!window.PHANTOMJS && !window.mocha) {
     // If there is a setup or draw function on the window
     // then instantiate p5 in "global" mode
-    if((window.setup && typeof window.setup === 'function') ||
-      (window.draw && typeof window.draw === 'function')) {
+    if(((window.setup && typeof window.setup === 'function') ||
+       (window.draw && typeof window.draw === 'function')) &&
+       !p5.instance) {
       new p5();
     }
   }
@@ -8372,299 +8058,267 @@ if (document.readyState === 'complete') {
 }
 
 module.exports = p5;
-},{"./3d/3d_primitives":28,"./3d/camera":29,"./3d/immediateMode3D":30,"./3d/interaction":31,"./3d/light":32,"./3d/material":33,"./3d/p5.Geometry3D":34,"./3d/p5.Matrix":35,"./3d/p5.Renderer3D":36,"./3d/retainedMode3D":37,"./3d/shader":38,"./color/creating_reading":41,"./color/p5.Color":42,"./color/setting":43,"./core/2d_primitives":44,"./core/attributes":45,"./core/constants":47,"./core/core":48,"./core/curves":49,"./core/environment":50,"./core/p5.Element":52,"./core/p5.Graphics":53,"./core/p5.Renderer2D":55,"./core/rendering":56,"./core/structure":58,"./core/transform":59,"./core/vertex":60,"./events/acceleration":61,"./events/keyboard":62,"./events/mouse":63,"./events/touch":64,"./image/image":66,"./image/loading_displaying":67,"./image/p5.Image":68,"./image/pixels":69,"./io/files":70,"./io/p5.Table":71,"./io/p5.TableRow":72,"./math/calculation":73,"./math/math":74,"./math/noise":75,"./math/p5.Vector":76,"./math/random":78,"./math/trigonometry":79,"./typography/attributes":80,"./typography/loading_displaying":81,"./typography/p5.Font":82,"./utilities/array_functions":83,"./utilities/conversion":84,"./utilities/string_functions":85,"./utilities/time_date":86}],40:[function(_dereq_,module,exports){
+
+},{"./color/creating_reading":35,"./color/p5.Color":36,"./color/setting":37,"./core/2d_primitives":38,"./core/attributes":39,"./core/constants":41,"./core/core":42,"./core/curves":43,"./core/environment":44,"./core/p5.Element":46,"./core/p5.Graphics":47,"./core/p5.Renderer2D":49,"./core/rendering":50,"./core/structure":52,"./core/transform":53,"./core/vertex":54,"./events/acceleration":55,"./events/keyboard":56,"./events/mouse":57,"./events/touch":58,"./image/image":60,"./image/loading_displaying":61,"./image/p5.Image":62,"./image/pixels":63,"./io/files":64,"./io/p5.Table":65,"./io/p5.TableRow":66,"./io/p5.XML":67,"./math/calculation":68,"./math/math":69,"./math/noise":70,"./math/p5.Vector":71,"./math/random":73,"./math/trigonometry":74,"./typography/attributes":75,"./typography/loading_displaying":76,"./typography/p5.Font":77,"./utilities/array_functions":78,"./utilities/conversion":79,"./utilities/string_functions":80,"./utilities/time_date":81,"./webgl/camera":82,"./webgl/interaction":83,"./webgl/light":84,"./webgl/loading":85,"./webgl/material":86,"./webgl/p5.Geometry":87,"./webgl/p5.Matrix":88,"./webgl/p5.RendererGL":91,"./webgl/p5.RendererGL.Immediate":89,"./webgl/p5.RendererGL.Retained":90,"./webgl/primitives":92,"./webgl/shader":93}],34:[function(_dereq_,module,exports){
 /**
- * module Utils
- * submodule Color Utils
+ * module Conversion
+ * submodule Color Conversion
  * @for p5
+ * @requires core
+ */
+
+'use strict';
+
+/**
+ * Conversions adapted from <http://www.easyrgb.com/math.html>.
+ *
+ * In these functions, hue is always in the range [0,1); all other components
+ * are in the range [0,1]. 'Brightness' and 'value' are used interchangeably.
  */
 
 var p5 = _dereq_('../core/core');
-
-p5.ColorUtils = {};
+p5.ColorConversion = {};
 
 /**
- * For a color expressed as an HSBA array, return the corresponding RGBA value
- * @param {Array} hsba An 'array' object that represents a list of HSB colors
- * @return {Array} an array of RGBA values, on a scale of 0-1
+ * Convert an HSBA array to HSLA.
  */
-p5.ColorUtils.hsbaToRGBA = function(hsba) {
-  var h = hsba[0];
-  var s = hsba[1];
-  var v = hsba[2];
-  var a = hsba[3] || 1;
-  // Adapted from http://www.easyrgb.com/math.html
-  // hsv values = 0 - 1, rgb values = 0 - 255
-  var RGBA = [];
-  if(s===0){
-    RGBA = [v, v, v, a];
-  } else {
-    // h must be < 1
-    var var_h = h * 6;
-    if (var_h===6) {
-      var_h = 0;
+p5.ColorConversion._hsbaToHSLA = function(hsba) {
+  var hue = hsba[0];
+  var sat = hsba[1];
+  var val = hsba[2];
+
+  // Calculate lightness.
+  var li = (2 - sat) * val / 2;
+
+  // Convert saturation.
+  if (li !== 0) {
+    if (li === 1) {
+      sat = 0;
+    } else if (li < 0.5) {
+      sat = sat / (2 - sat);
+    } else {
+      sat = sat * val / (2 - li * 2);
     }
-    //Or ... var_i = floor( var_h )
-    var var_i = Math.floor( var_h );
-    var var_1 = v*(1-s);
-    var var_2 = v*(1-s*(var_h-var_i));
-    var var_3 = v*(1-s*(1-(var_h-var_i)));
-    var r;
-    var g;
-    var b;
-    if(var_i===0){
-      r = v;
-      g = var_3;
-      b = var_1;
-    }else if(var_i===1){
-      r = var_2;
-      g = v;
-      b = var_1;
-    }else if(var_i===2){
-      r = var_1;
-      g = v;
-      b = var_3;
-    }else if(var_i===3){
-      r = var_1;
-      g = var_2;
-      b = v;
-    }else if (var_i===4){
-      r = var_3;
-      g = var_1;
-      b = v;
-    }else{
-      r = v;
-      g = var_1;
-      b = var_2;
-    }
-    RGBA = [r, g, b, a];
   }
+
+  // Hue and alpha stay the same.
+  return [hue, sat, li, hsba[3]];
+};
+
+/**
+ * Convert an HSBA array to RGBA.
+ */
+p5.ColorConversion._hsbaToRGBA = function(hsba) {
+  var hue = hsba[0] * 6;  // We will split hue into 6 sectors.
+  var sat = hsba[1];
+  var val = hsba[2];
+
+  var RGBA = [];
+
+  if (sat === 0) {
+    RGBA = [val, val, val, hsba[3]];  // Return early if grayscale.
+  } else {
+    var sector = Math.floor(hue);
+    var tint1 = val * (1 - sat);
+    var tint2 = val * (1 - sat * (hue - sector));
+    var tint3 = val * (1 - sat * (1 + sector - hue));
+    var red, green, blue;
+    if (sector === 1) {  // Yellow to green.
+      red = tint2;
+      green = val;
+      blue = tint1;
+    } else if (sector === 2) {  // Green to cyan.
+      red = tint1;
+      green = val;
+      blue = tint3;
+    } else if (sector === 3) {  // Cyan to blue.
+      red = tint1;
+      green = tint2;
+      blue = val;
+    } else if (sector === 4) {  // Blue to magenta.
+      red = tint3;
+      green = tint1;
+      blue = val;
+    } else if (sector === 5) {  // Magenta to red.
+      red = val;
+      green = tint1;
+      blue = tint2;
+    } else {  // Red to yellow (sector could be 0 or 6).
+      red = val;
+      green = tint3;
+      blue = tint1;
+    }
+    RGBA = [red, green, blue, hsba[3]];
+  }
+
   return RGBA;
 };
 
 /**
- * For a color expressed as an RGBA array, return the corresponding HSBA value
- *
- * @param {Array} rgba An 'array' object that represents a list of RGB colors
- * @return {Array} an array of HSB values
+ * Convert an HSLA array to HSBA.
  */
-p5.ColorUtils.rgbaToHSBA = function(rgba) {
-  var r = rgba[0];
-  var g = rgba[1];
-  var b = rgba[2];
-  var a = rgba[3] || 1;
+p5.ColorConversion._hslaToHSBA = function(hsla) {
+  var hue = hsla[0];
+  var sat = hsla[1];
+  var li = hsla[2];
 
-  var min = Math.min(r, g, b); //Min. value of RGB
-  var max = Math.max(r, g, b); //Max. value of RGB
-  var delta_max = max - min;             //Delta RGB value
-
-  var h;
-  var s;
-  var v = max;
-
-  if (delta_max === 0) { //This is a gray, no chroma...
-    h = 0; //HSV results from 0 to 1
-    s = 0;
+  // Calculate brightness.
+  var val;
+  if (li < 0.5) {
+    val = (1 + sat) * li;
+  } else {
+    val = li + sat - li * sat;
   }
-  else { //Chromatic data...
-    s = delta_max/max;
 
-    var delta_r = ( ( ( max - r ) / 6 ) + ( delta_max / 2 ) ) / delta_max;
-    var delta_g = ( ( ( max - g ) / 6 ) + ( delta_max / 2 ) ) / delta_max;
-    var delta_b = ( ( ( max - b ) / 6 ) + ( delta_max / 2 ) ) / delta_max;
+  // Convert saturation.
+  sat = 2 * (val - li) / val;
 
-    if (r === max) {
-      h = delta_b - delta_g;
-    } else if (g === max) {
-      h = 1/3 + delta_r - delta_b;
-    } else if (b === max) {
-      h = 2/3 + delta_g - delta_r;
-    }
-
-    if (h < 0) {
-      h += 1;
-    }
-    if (h > 1) {
-      h -= 1;
-    }
-  }
-  return [h, s, v, a];
+  // Hue and alpha stay the same.
+  return [hue, sat, val, hsla[3]];
 };
 
 /**
- * For a color expressed as an HSLA array, return the corresponding RGBA value
+ * Convert an HSLA array to RGBA.
  *
- * @param  {Array} hsla An 'array' object that represents a list of HSL colors
- * @return {Array} an array of RGBA values, on a scale of 0-1
+ * We need to change basis from HSLA to something that can be more easily be
+ * projected onto RGBA. We will choose hue and brightness as our first two
+ * components, and pick a convenient third one ('zest') so that we don't need
+ * to calculate formal HSBA saturation.
  */
-p5.ColorUtils.hslaToRGBA = function(hsla){
-  var h = hsla[0];
-  var s = hsla[1];
-  var l = hsla[2];
-  var a = hsla[3] || 1;
+p5.ColorConversion._hslaToRGBA = function(hsla){
+  var hue = hsla[0] * 6;  // We will split hue into 6 sectors.
+  var sat = hsla[1];
+  var li = hsla[2];
 
-  // Adapted from http://www.easyrgb.com/math.html
-  // hsl values = 0 - 1, rgb values = 0 - 1
-  var rgba = [];
-  if(s === 0){
-    rgba = [l, l, l, a];
+  var RGBA = [];
+
+  if (sat === 0) {
+    RGBA = [li, li, li, hsla[3]]; // Return early if grayscale.
   } else {
-    var m, n, r, g, b;
 
-    n = l < 0.5 ? l * (1 + s) : (l + s) - (s * l);
-    m = 2 * l - n;
+    // Calculate brightness.
+    var val;
+    if (li < 0.5) {
+      val = (1 + sat) * li;
+    } else {
+      val = li + sat - li * sat;
+    }
 
-    var convert = function(x, y, hue){
-      if (hue < 0) {
-        hue += 1;
-      } else if (hue > 1) {
-        hue -= 1;
+    // Define zest.
+    var zest = 2 * li - val;
+
+    // Implement projection (project onto green by default).
+    var hzvToRGB = function(hue, zest, val) {
+      if (hue < 0) {  // Hue must wrap to allow projection onto red and blue.
+        hue += 6;
+      } else if (hue >= 6) {
+        hue -= 6;
       }
-
-      if ( ( 6 * hue ) < 1 ) {
-        return ( x + ( y - x ) * 6 * hue );
-      } else if ( ( 2 * hue ) < 1 ) {
-        return ( y );
-      } else if ( ( 3 * hue ) < 2 ) {
-        return ( x + ( y - x ) * ( ( 2 / 3 ) - hue ) * 6 );
-      } else {
-        return x;
+      if (hue < 1) {  // Red to yellow (increasing green).
+        return (zest + (val - zest) * hue);
+      } else if (hue < 3) {  // Yellow to cyan (greatest green).
+        return val;
+      } else if (hue < 4) {  // Cyan to blue (decreasing green).
+        return (zest + (val - zest) * (4 - hue));
+      } else {  // Blue to red (least green).
+        return zest;
       }
     };
 
-    r = convert( m, n, h + ( 1 / 3 ) );
-    g = convert( m, n, h );
-    b = convert( m, n, h - ( 1 / 3 ) );
-
-    rgba = [r, g, b, a];
+    // Perform projections, offsetting hue as necessary.
+    RGBA = [hzvToRGB(hue + 2, zest, val),
+            hzvToRGB(hue    , zest, val),
+            hzvToRGB(hue - 2, zest, val),
+            hsla[3]];
   }
 
-  return rgba;
+  return RGBA;
 };
 
 /**
- * For a color expressed as an RGBA array, return the corresponding HSBA value
- *
- * @param {Array} rgba An 'array' object that represents a list of RGB colors
- * @return {Array} an array of HSL values
+ * Convert an RGBA array to HSBA.
  */
-p5.ColorUtils.rgbaToHSLA = function(rgba) {
-  var r = rgba[0];
-  var g = rgba[1];
-  var b = rgba[2];
-  var a = rgba[3] || 1;
+p5.ColorConversion._rgbaToHSBA = function(rgba) {
+  var red = rgba[0];
+  var green = rgba[1];
+  var blue = rgba[2];
 
-  var min = Math.min(r, g, b); //Min. value of RGB
-  var max = Math.max(r, g, b); //Max. value of RGB
-  var delta_max = max - min;             //Delta RGB value
+  var val = Math.max(red, green, blue);
+  var chroma = val - Math.min(red, green, blue);
 
-  var h;
-  var s;
-  var l = (max + min) / 2;
-
-  var delta_r;
-  var delta_g;
-  var delta_b;
-
-  if (delta_max === 0) { // This is a gray, no chroma...
-    h = 0;             // HSL results from 0 to 1
-    s = 0;
-  } else {              // Chromatic data...
-
-    delta_r = ( ( ( max - r ) / 6 ) + ( delta_max / 2 ) ) / delta_max;
-    delta_g = ( ( ( max - g ) / 6 ) + ( delta_max / 2 ) ) / delta_max;
-    delta_b = ( ( ( max - b ) / 6 ) + ( delta_max / 2 ) ) / delta_max;
-
-    if ( r === max ){
-      h = delta_b - delta_g;
-    } else if ( g === max ){
-      h = ( 1 / 3 ) + delta_r - delta_b;
-    } else if ( b === max ) {
-      h = ( 2 / 3 ) + delta_g - delta_r;
+  var hue, sat;
+  if (chroma === 0) {  // Return early if grayscale.
+    hue = 0;
+    sat = 0;
+  }
+  else {
+    sat = chroma / val;
+    if (red === val) {  // Magenta to yellow.
+      hue = (green - blue) / chroma;
+    } else if (green === val) { // Yellow to cyan.
+      hue = 2 + (blue - red) / chroma;
+    } else if (blue === val) {  // Cyan to magenta.
+      hue = 4 + (red - green) / chroma;
     }
-
-    if ( h < 0 ) {
-      h += 1;
+    if (hue < 0) {  // Confine hue to the interval [0, 1).
+      hue += 6;
+    } else if (hue >= 6) {
+      hue -= 6;
     }
+  }
 
-    if ( h > 1 ) {
-      h -= 1;
-    }
+  return [hue / 6, sat, val, rgba[3]];
+};
 
-    if ( l < 0.5 ){
-      s = delta_max / ( max + min );
+/**
+ * Convert an RGBA array to HSLA.
+ */
+p5.ColorConversion._rgbaToHSLA = function(rgba) {
+  var red = rgba[0];
+  var green = rgba[1];
+  var blue = rgba[2];
+
+  var val = Math.max(red, green, blue);
+  var min = Math.min(red, green, blue);
+  var li = val + min;  // We will halve this later.
+  var chroma = val - min;
+
+  var hue, sat;
+  if (chroma === 0) {  // Return early if grayscale.
+    hue = 0;
+    sat = 0;
+  } else {
+    if (li < 1) {
+      sat = chroma / li;
     } else {
-      s = delta_max / ( 2 - max - min );
+      sat = chroma / (2 - li);
     }
-
-  }
-  return [h, s, l, a];
-};
-
-/**
- * For a color expressed as an hsla array, return the corresponding HSBA value
- *
- * @param {Array} hsla An 'array' object that represents a list of HSLA colors
- * @return {Array} an array of HSBA values
- */
-p5.ColorUtils.hslaToHSBA = function(hsla) {
-  var h = hsla[0];
-  var s = hsla[1];
-  var l = hsla[2];
-  var a = hsla[3] || 1;
-
-  var v;
-
-  //Hue and Alpha stay the same
-  s *= l < 0.5 ? l : 1 - l;
-  v = l + s;
-  s = 2 * s / (l + s);
-
-  return[ h, s, v, a];
-};
-
-/**
- * For a color expressed as an hsba array, return the corresponding HSLA value
- *
- * @param {Array} hsba An 'array' object that represents a list of HSBA colors
- * @return {Array} an array of HSLA values
- */
-p5.ColorUtils.hsbaToHSLA = function(hsba) {
-  var h = hsba[0];
-  var s = hsba[1];
-  var v = hsba[2];
-  var a = hsba[3] || 1;
-
-  //Hue and Alpha stay the same
-  //Lightness is (2 - s) * v / 2
-  var l = (2 - s) * v / 2;
-
-  //Saturation is very different between the two color spaces
-  //If l < 0.5 set it to s / (2 - s)
-  //Otherwise s * v / (2 - (2 - s) * v)
-  if( l !== 0 ){
-    if( l === 1 ){
-      s = 0;
+    if (red === val) {  // Magenta to yellow.
+      hue = (green - blue) / chroma;
+    } else if (green === val) {  // Yellow to cyan.
+      hue = 2 + (blue - red) / chroma;
+    } else if (blue === val) {  // Cyan to magenta.
+      hue = 4 + (red - green) / chroma;
     }
-    else if( l < 0.5 ){
-      s = s / (2 - s);
-    }
-    else{
-      s = s * v / (2 - l * 2);
+    if (hue < 0) {  // Confine hue to the interval [0, 1).
+      hue += 6;
+    } else if (hue >= 6) {
+      hue -= 6;
     }
   }
 
-  return [ h, s, l, a];
+  return [hue / 6, sat, li / 2, rgba[3]];
 };
 
-module.exports = p5.ColorUtils;
+module.exports = p5.ColorConversion;
 
-},{"../core/core":48}],41:[function(_dereq_,module,exports){
+},{"../core/core":42}],35:[function(_dereq_,module,exports){
 /**
  * @module Color
  * @submodule Creating & Reading
  * @for p5
  * @requires core
+ * @requires constants
  */
 
 'use strict';
@@ -8690,17 +8344,37 @@ _dereq_('./p5.Color');
  * rect(50, 15, 35, 70);
  * </code>
  * </div>
+ *
+ * @alt
+ * Left half of canvas light blue and right half light charcoal grey.
+ * Left half of canvas light purple and right half a royal blue.
+ * Left half of canvas salmon pink and the right half white.
+ * Yellow rect in middle right of canvas, with 55 pixel width and height.
+ * Yellow ellipse in top left canvas, black ellipse in bottom right,both 80x80.
+ * Bright fuschia rect in middle of canvas, 60 pixel width and height.
+ * Two bright green rects on opposite sides of the canvas, both 45x80.
+ * Four blue rects in each corner of the canvas, each are 35x35.
+ * Bright sea green rect on left and darker rect on right of canvas, both 45x80.
+ * Dark green rect on left and light green rect on right of canvas, both 45x80.
+ * Dark blue rect on left and light teal rect on right of canvas, both 45x80.
+ * blue rect on left and green on right, both with black outlines & 35x60.
+ * salmon pink rect on left and black on right, both 35x60.
+ * 4 rects, tan, brown, brownish purple and purple, with white outlines & 20x60.
+ * light pastel green rect on left and dark grey rect on right, both 35x60.
+ * yellow rect on left and red rect on right, both with black outlines & 35x60.
+ * grey canvas
+ * deep pink rect on left and grey rect on right, both 35x60.
  */
 p5.prototype.alpha = function(c) {
   if (c instanceof p5.Color || c instanceof Array) {
-    return this.color(c).getAlpha();
+    return this.color(c)._getAlpha();
   } else {
     throw new Error('Needs p5.Color or pixel array as argument.');
   }
 };
 
 /**
- * Extracts the blue value from a color or a pixel array.
+ * Extracts the blue value from a color or pixel array.
  *
  * @method blue
  * @param {Object} obj p5.Color object or pixel array
@@ -8712,25 +8386,29 @@ p5.prototype.alpha = function(c) {
  * rect(15, 20, 35, 60);  // Draw left rectangle
  *
  * blueValue = blue(c);  // Get blue in 'c'
- * println(blueValue);  // Prints "220.0"
+ * print(blueValue);  // Prints "220.0"
  * fill(0, 0, blueValue);  // Use 'blueValue' in new fill
  * rect(50, 20, 35, 60);  // Draw right rectangle
  * </code>
  * </div>
+ *
+ * @alt
+ * Left half of canvas light purple and right half a royal blue.
+ *
  */
 p5.prototype.blue = function(c) {
   if (c instanceof p5.Color || c instanceof Array) {
-    return this.color(c).getBlue();
+    return this.color(c)._getBlue();
   } else {
     throw new Error('Needs p5.Color or pixel array as argument.');
   }
 };
 
 /**
- * Extracts the brightness value from a color.
+ * Extracts the HSB brightness value from a color or pixel array.
  *
  * @method brightness
- * @param {Object} color p5.Color object
+ * @param {Object} color p5.Color object or pixel array
  * @example
  * <div>
  * <code>
@@ -8744,10 +8422,14 @@ p5.prototype.blue = function(c) {
  * rect(50, 20, 35, 60);
  * </code>
  * </div>
+ *
+ * @alt
+ * Left half of canvas salmon pink and the right half white.
+ *
  */
 p5.prototype.brightness = function(c) {
   if (c instanceof p5.Color || c instanceof Array) {
-    return this.color(c).getBrightness();
+    return this.color(c)._getBrightness();
   } else {
     throw new Error('Needs p5.Color or pixel array as argument.');
   }
@@ -8759,7 +8441,7 @@ p5.prototype.brightness = function(c) {
  * current colorMode(). The default mode is RGB values from 0 to 255
  * and, therefore, the function call color(255, 204, 0) will return a
  * bright yellow color.
- *
+ * <br><br>
  * Note that if only one value is provided to color(), it will be interpreted
  * as a grayscale value. Add a second value, and it will be used for alpha
  * transparency. When three values are specified, they are interpreted as
@@ -8770,14 +8452,10 @@ p5.prototype.brightness = function(c) {
  * Colors are stored as Numbers or Arrays.
  *
  * @method color
- * @param  {Number|String} v1      gray value or red or hue value relative to
- *                                 the current color range, or a color string
- * @param  {Number}        [v2]    gray value or green or saturation value
- *                                 relative to the current color range (or
- *                                 alpha value if first param is gray value)
- * @param  {Number}        [v3]    gray value or blue or brightness value
- *                                 relative to the current color range
+ * @param  {Number}        gray    number specifying value between white
+ *                                 and black.
  * @param  {Number}        [alpha] alpha value relative to current color range
+ *                                 (default is 0-255)
  * @return {Array}                 resulting color
  *
  * @example
@@ -8902,22 +8580,53 @@ p5.prototype.brightness = function(c) {
  * rect(55, 10, 45, 80);  // Draw right rect
  * </code>
  * </div>
+ *
+ * @alt
+ * Yellow rect in middle right of canvas, with 55 pixel width and height.
+ * Yellow ellipse in top left of canvas, black ellipse in bottom right,both 80x80.
+ * Bright fuschia rect in middle of canvas, 60 pixel width and height.
+ * Two bright green rects on opposite sides of the canvas, both 45x80.
+ * Four blue rects in each corner of the canvas, each are 35x35.
+ * Bright sea green rect on left and darker rect on right of canvas, both 45x80.
+ * Dark green rect on left and lighter green rect on right of canvas, both 45x80.
+ * Dark blue rect on left and light teal rect on right of canvas, both 45x80.
+ *
  */
+
+/**
+ * @method color
+ * @param  {Number|String} v1      red or hue value relative to
+ *                                 the current color range, or a color string
+ * @param  {Number}        v2      green or saturation value
+ *                                 relative to the current color range
+ * @param  {Number}        v3      blue or brightness value
+ *                                 relative to the current color range
+ * @param  {Number}        [alpha]
+ */
+
 p5.prototype.color = function() {
   if (arguments[0] instanceof p5.Color) {
-    return arguments[0];
+    return arguments[0];  // Do nothing if argument is already a color object.
   } else if (arguments[0] instanceof Array) {
-    return new p5.Color(this, arguments[0]);
+    if (this instanceof p5.Renderer) {
+      return new p5.Color(this, arguments[0]);
+    } else {
+      return new p5.Color(this._renderer, arguments[0]);
+    }
   } else {
-    var args = Array.prototype.slice.call(arguments);
-    return new p5.Color(this, args);
+    if (this instanceof p5.Renderer) {
+      return new p5.Color(this, arguments);
+    } else {
+      return new p5.Color(this._renderer, arguments);
+    }
   }
 };
+
 /**
  * Extracts the green value from a color or pixel array.
  *
  * @method green
- * @param {Object} color p5.Color object
+ * @param {Object} color p5.Color object or pixel array
  * @example
  * <div>
  * <code>
@@ -8926,25 +8635,36 @@ p5.prototype.color = function() {
  * rect(15, 20, 35, 60);  // Draw left rectangle
  *
  * greenValue = green(c);  // Get green in 'c'
- * println(greenValue);  // Print "75.0"
+ * print(greenValue);  // Print "75.0"
  * fill(0, greenValue, 0);  // Use 'greenValue' in new fill
  * rect(50, 20, 35, 60);  // Draw right rectangle
  * </code>
  * </div>
+ *
+ * @alt
+ * blue rect on left and green on right, both with black outlines & 35x60.
+ *
  */
+
 p5.prototype.green = function(c) {
   if (c instanceof p5.Color || c instanceof Array) {
-    return this.color(c).getGreen();
+    return this.color(c)._getGreen();
   } else {
     throw new Error('Needs p5.Color or pixel array as argument.');
   }
 };
 
 /**
- * Extracts the hue value from a color.
+ * Extracts the hue value from a color or pixel array.
+ *
+ * Hue exists in both HSB and HSL. This function will return the
+ * HSB-normalized hue when supplied with an HSB color object (or when supplied
+ * with a pixel array while the color mode is HSB), but will default to the
+ * HSL-normalized hue otherwise. (The values will only be different if the
+ * maximum hue setting for each system is different.)
  *
  * @method hue
- * @param {Object} color p5.Color object
+ * @param {Object} color p5.Color object or pixel array
  * @example
  * <div>
  * <code>
@@ -8958,42 +8678,45 @@ p5.prototype.green = function(c) {
  * rect(50, 20, 35, 60);
  * </code>
  * </div>
+ *
+ * @alt
+ * salmon pink rect on left and black on right, both 35x60.
+ *
  */
+
 p5.prototype.hue = function(c) {
-  if (!(c instanceof p5.Color)) {
-    throw new Error('Needs p5.Color as argument.');
+  if (c instanceof p5.Color || c instanceof Array) {
+    return this.color(c)._getHue();
+  } else {
+    throw new Error('Needs p5.Color or pixel array as argument.');
   }
-  return c.getHue();
 };
 
 /**
- * Calculates a color or colors between two color at a specific increment,
- * using gamma correction to blend colors in the linear RGB space.
- * The amt parameter is the amount to interpolate between the two values
- * where 0.0 equal to the first point, 0.1 is very near the first point,
- * 0.5 is halfway in between, etc. An amount below 0 will be treated as 0.
- * Likewise, amounts above 1 will be capped at 1. This is different from
- * the behavior of lerp(), but necessary because otherwise numbers outside
- * the range will produce strange and unexpected colors.
- *
- * The regular RGB color representation stores the square root of the
- * displayed color, not the value itself. Your monitor behaves as if it
- * squares the color values before displaying it. lerpColor first transforms
- * colors into the linear color space before blending, to correctly mix the
- * colors as two rays of light.
+ * Blends two colors to find a third color somewhere between them. The amt
+ * parameter is the amount to interpolate between the two values where 0.0
+ * equal to the first color, 0.1 is very near the first color, 0.5 is halfway
+ * in between, etc. An amount below 0 will be treated as 0. Likewise, amounts
+ * above 1 will be capped at 1. This is different from the behavior of lerp(),
+ * but necessary because otherwise numbers outside the range will produce
+ * strange and unexpected colors.
+ * <br><br>
+ * The way that colours are interpolated depends on the current color mode.
  *
  * @method lerpColor
- * @param  {Array/Number} c1  interpolate from this color
- * @param  {Array/Number} c2  interpolate to this color
+ * @param  {Array|Number} c1  interpolate from this color
+ * @param  {Array|Number} c2  interpolate to this color
  * @param  {Number}       amt number between 0 and 1
- * @return {Array/Number}     interpolated color
+ * @return {Array|Number}     interpolated color
  * @example
  * <div>
  * <code>
+ * colorMode(RGB);
  * stroke(255);
  * background(51);
- * from = color(204, 102, 0);
- * to = color(0, 102, 153);
+ * from = color(218, 165, 32);
+ * to = color(72, 61, 139);
+ * colorMode(RGB);  // Try changing to HSB.
  * interA = lerpColor(from, to, .33);
  * interB = lerpColor(from, to, .66);
  * fill(from);
@@ -9006,38 +8729,62 @@ p5.prototype.hue = function(c) {
  * rect(70, 20, 20, 60);
  * </code>
  * </div>
+ *
+ * @alt
+ * 4 rects one tan, brown, brownish purple, purple, with white outlines & 20x60
+ *
  */
-p5.prototype.lerpColor = function(c1, c2, amt) {
-  var l1, l2, l3, l4;
-  var fromColor, toColor;
 
-  if(this._renderer._colorMode === constants.RGB) {
-    fromColor = this.color(c1).rgba;
-    toColor = this.color(c2).rgba;
+p5.prototype.lerpColor = function(c1, c2, amt) {
+  var mode = this._renderer._colorMode;
+  var maxes = this._renderer._colorMaxes;
+  var l0, l1, l2, l3;
+  var fromArray, toArray;
+
+  if (mode === constants.RGB) {
+    fromArray = c1.levels.map(function(level) {
+      return level / 255;
+    });
+    toArray = c2.levels.map(function(level) {
+      return level / 255;
+    });
+  } else if (mode === constants.HSB) {
+    c1._getBrightness();  // Cache hsba so it definitely exists.
+    c2._getBrightness();
+    fromArray = c1.hsba;
+    toArray = c2.hsba;
+  } else if (mode === constants.HSL) {
+    c1._getLightness();  // Cache hsla so it definitely exists.
+    c2._getLightness();
+    fromArray = c1.hsla;
+    toArray = c2.hsla;
+  } else {
+    throw new Error (mode + 'cannot be used for interpolation.');
   }
-  else if (this._renderer._colorMode === constants.HSB) {
-    fromColor = this.color(c1).hsba;
-    toColor = this.color(c2).hsba;
-  }
-  else if(this._renderer._colorMode === constants.HSL) {
-    fromColor = this.color(c1).hsla;
-    toColor = this.color(c2).hsla;
-  }
-  else {
-    return;
-  }
-  l1 = this.lerp(fromColor[0], toColor[0], amt);
-  l2 = this.lerp(fromColor[1], toColor[1], amt);
-  l3 = this.lerp(fromColor[2], toColor[2], amt);
-  l4 = this.lerp(fromColor[3], toColor[3], amt);
-  return this.color(l1, l2, l3, l4);
+
+  // Prevent extrapolation.
+  amt = Math.max(Math.min(amt, 1), 0);
+
+  // Perform interpolation.
+  l0 = this.lerp(fromArray[0], toArray[0], amt);
+  l1 = this.lerp(fromArray[1], toArray[1], amt);
+  l2 = this.lerp(fromArray[2], toArray[2], amt);
+  l3 = this.lerp(fromArray[3], toArray[3], amt);
+
+  // Scale components.
+  l0 *= maxes[mode][0];
+  l1 *= maxes[mode][1];
+  l2 *= maxes[mode][2];
+  l3 *= maxes[mode][3];
+
+  return this.color(l0, l1, l2, l3);
 };
 
 /**
- * Extracts the lightness value from a color.
+ * Extracts the HSL lightness value from a color or pixel array.
  *
  * @method lightness
- * @param {Object} color p5.Color object
+ * @param {Object} color p5.Color object or pixel array
  * @example
  * <div>
  * <code>
@@ -9051,11 +8798,14 @@ p5.prototype.lerpColor = function(c1, c2, amt) {
  * rect(50, 20, 35, 60);
  * </code>
  * </div>
+ *
+ * @alt
+ * light pastel green rect on left and dark grey rect on right, both 35x60.
+ *
  */
-
 p5.prototype.lightness = function(c) {
   if (c instanceof p5.Color || c instanceof Array) {
-    return this.color(c).getLightness();
+    return this.color(c)._getLightness();
   } else {
     throw new Error('Needs p5.Color or pixel array as argument.');
   }
@@ -9074,7 +8824,7 @@ p5.prototype.lightness = function(c) {
  * rect(15, 20, 35, 60);  // Draw left rectangle
  *
  * redValue = red(c);  // Get red in 'c'
- * println(redValue);  // Print "255.0"
+ * print(redValue);  // Print "255.0"
  * fill(redValue, 0, 0);  // Use 'redValue' in new fill
  * rect(50, 20, 35, 60);  // Draw right rectangle
  * </code>
@@ -9089,20 +8839,29 @@ p5.prototype.lightness = function(c) {
  * print(myColor);
  * </code>
  * </div>
+ *
+ * @alt
+ * yellow rect on left and red rect on right, both with black outlines and 35x60.
+ * grey canvas
  */
 p5.prototype.red = function(c) {
   if (c instanceof p5.Color || c instanceof Array) {
-    return this.color(c).getRed();
+    return this.color(c)._getRed();
   } else {
     throw new Error('Needs p5.Color or pixel array as argument.');
   }
 };
 
 /**
- * Extracts the saturation value from a color.
+ * Extracts the saturation value from a color or pixel array.
+ *
+ * Saturation is scaled differently in HSB and HSL. This function will return
+ * the HSB saturation when supplied with an HSB color object (or when supplied
+ * with a pixel array while the color mode is HSB), but will default to the
+ * HSL saturation otherwise.
  *
  * @method saturation
- * @param {Object} color p5.Color object
+ * @param {Object} color p5.Color object or pixel array
  * @example
  * <div>
  * <code>
@@ -9116,324 +8875,329 @@ p5.prototype.red = function(c) {
  * rect(50, 20, 35, 60);
  * </code>
  * </div>
+ *
+ * @alt
+ *deep pink rect on left and grey rect on right, both 35x60.
+ *
  */
+
 p5.prototype.saturation = function(c) {
-  if (!(c instanceof p5.Color)) {
-    throw new Error('Needs p5.Color as argument.');
+  if (c instanceof p5.Color || c instanceof Array) {
+    return this.color(c)._getSaturation();
+  } else {
+    throw new Error('Needs p5.Color or pixel array as argument.');
   }
-  return c.getSaturation();
 };
-
-
 
 module.exports = p5;
 
-},{"../core/constants":47,"../core/core":48,"./p5.Color":42}],42:[function(_dereq_,module,exports){
+},{"../core/constants":41,"../core/core":42,"./p5.Color":36}],36:[function(_dereq_,module,exports){
 /**
  * @module Color
  * @submodule Creating & Reading
  * @for p5
+ * @requires core
+ * @requires constants
+ * @requires color_conversion
  */
 
 var p5 = _dereq_('../core/core');
-var color_utils = _dereq_('./color_utils');
 var constants = _dereq_('../core/constants');
+var color_conversion = _dereq_('./color_conversion');
 
 /**
+ * We define colors to be immutable objects. Each color stores the color mode
+ * and level maxes that applied at the time of its construction. These are
+ * used to interpret the input arguments and to format the output e.g. when
+ * saturation() is requested.
+ *
+ * Internally we store an array representing the ideal RGBA values in floating
+ * point form, normalized from 0 to 1. From this we calculate the closest
+ * screen color (RGBA levels from 0 to 255) and expose this to the renderer.
+ *
+ * We also cache normalized, floating point components of the color in various
+ * representations as they are calculated. This is done to prevent repeating a
+ * conversion that has already been performed.
  *
  * @class p5.Color
  * @constructor
- * rgba, hsla, hsba are normalized rgba arrays
- * (1, 1, 1, 1)
  */
-p5.Color = function (pInst, vals) {
-  this.mode = pInst._renderer._colorMode;
-  this.maxes = pInst._renderer._colorMaxes;
-  var isHSB = this.mode === constants.HSB,
-      isRGB = this.mode === constants.RGB,
-      isHSL = this.mode === constants.HSL;
+p5.Color = function(renderer, vals) {
 
-  if (isRGB) {
-    this._array = p5.Color._getFormattedColor.apply(pInst, vals);
-  } else if (isHSB) {
-    this.hsba = p5.Color._getFormattedColor.apply(pInst, vals);
-    this._array = color_utils.hsbaToRGBA(this.hsba);
-  } else if (isHSL){
-    this.hsla = p5.Color._getFormattedColor.apply(pInst, vals);
-    this._array = color_utils.hslaToRGBA(this.hsla);
+  // Record color mode and maxes at time of construction.
+  this.mode = renderer._colorMode;
+  this.maxes = renderer._colorMaxes;
+
+  // Calculate normalized RGBA values.
+  if (this.mode !== constants.RGB &&
+      this.mode !== constants.HSL &&
+      this.mode !== constants.HSB) {
+    throw new Error(this.mode + ' is an invalid colorMode.');
   } else {
-    throw new Error(pInst._renderer._colorMode + ' is an invalid colorMode.');
+    this._array = p5.Color._parseInputs.apply(renderer, vals);
   }
 
-  this.rgba = [ Math.round(this._array[0] * 255),
-                Math.round(this._array[1] * 255),
-                Math.round(this._array[2] * 255),
-                Math.round(this._array[3] * 255)];
+  // Expose closest screen color.
+  this.levels = this._array.map(function(level) {
+    return Math.round(level * 255);
+  });
+
   return this;
 };
 
-p5.Color.prototype.getHue = function() {
-  // Hue is consistent in both HSL & HSB
-  if (this.hsla) {
-    return this.hsla[0] * this.maxes[constants.HSL][0];
-  } else if (this.hsba) {
+p5.Color.prototype.toString = function() {
+  var a = this.levels;
+  var alpha = this._array[3];  // String representation uses normalized alpha.
+  return 'rgba('+a[0]+','+a[1]+','+a[2]+','+ alpha +')';
+};
+
+p5.Color.prototype._getAlpha = function() {
+  return this._array[3] * this.maxes[this.mode][3];
+};
+
+p5.Color.prototype._getBlue = function() {
+  return this._array[2] * this.maxes[constants.RGB][2];
+};
+
+p5.Color.prototype._getBrightness = function() {
+  if (!this.hsba) {
+    this.hsba = color_conversion._rgbaToHSBA(this._array);
+  }
+  return this.hsba[2] * this.maxes[constants.HSB][2];
+};
+
+p5.Color.prototype._getGreen = function() {
+  return this._array[1] * this.maxes[constants.RGB][1];
+};
+
+/**
+ * Hue is the same in HSB and HSL, but the maximum value may be different.
+ * This function will return the HSB-normalized saturation when supplied with
+ * an HSB color object, but will default to the HSL-normalized saturation
+ * otherwise.
+ */
+p5.Color.prototype._getHue = function() {
+  if (this.mode === constants.HSB) {
+    if (!this.hsba) {
+      this.hsba = color_conversion._rgbaToHSBA(this._array);
+    }
     return this.hsba[0] * this.maxes[constants.HSB][0];
   } else {
-    this.hsla = color_utils.rgbaToHSLA(this._array);
+    if (!this.hsla) {
+      this.hsla = color_conversion._rgbaToHSLA(this._array);
+    }
     return this.hsla[0] * this.maxes[constants.HSL][0];
   }
 };
 
-p5.Color.prototype.getSaturation = function() {
-  // Saturation exists in both HSB and HSL, but returns different values
-  // We are preferring HSL here (because it is a web color space)
-  // until the global flag issue can be resolved
-  if (this.hsba && this.mode === constants.HSB) {
+p5.Color.prototype._getLightness = function() {
+  if (!this.hsla) {
+    this.hsla = color_conversion._rgbaToHSLA(this._array);
+  }
+  return this.hsla[2] * this.maxes[constants.HSL][2];
+};
+
+p5.Color.prototype._getRed = function() {
+  return this._array[0] * this.maxes[constants.RGB][0];
+};
+
+/**
+ * Saturation is scaled differently in HSB and HSL. This function will return
+ * the HSB saturation when supplied with an HSB color object, but will default
+ * to the HSL saturation otherwise.
+ */
+p5.Color.prototype._getSaturation = function() {
+  if (this.mode === constants.HSB) {
+    if (!this.hsba) {
+      this.hsba = color_conversion._rgbaToHSBA(this._array);
+    }
     return this.hsba[1] * this.maxes[constants.HSB][1];
   } else {
-    if( !this.hsla ) {
-      this.hsla = color_utils.rgbaToHSLA(this._array);
+    if (!this.hsla) {
+      this.hsla = color_conversion._rgbaToHSLA(this._array);
     }
     return this.hsla[1] * this.maxes[constants.HSL][1];
   }
 };
 
-// Brightness only exists as an HSB value
-p5.Color.prototype.getBrightness = function() {
-  if (this.hsba) {
-    return this.hsba[2] * this.maxes[constants.HSB][2];
-  } else {
-    this.hsba = color_utils.rgbaToHSBA(this._array);
-    return this.hsba[2] * this.maxes[constants.HSB][2];
-  }
-};
-
-// Lightness only exists as an HSL value
-p5.Color.prototype.getLightness = function() {
-  if (this.hsla) {
-    return this.hsla[2] * this.maxes[constants.HSL][2];
-  } else {
-    this.hsla = color_utils.rgbaToHSLA(this._array);
-    return this.hsla[2] * this.maxes[constants.HSL][2];
-  }
-};
-
-p5.Color.prototype.getRed = function() {
-  return this._array[0] * this.maxes[constants.RGB][0];
-};
-
-p5.Color.prototype.getGreen = function() {
-  return this._array[1] * this.maxes[constants.RGB][1];
-};
-
-p5.Color.prototype.getBlue = function() {
-  return this._array[2] * this.maxes[constants.RGB][2];
-};
-
-p5.Color.prototype.getAlpha = function() {
-  return this._array[3] * this.maxes[this.mode][3];
-};
-
-p5.Color.prototype.toString = function() {
-  var a = this.rgba;
-  a[3] = this._array[3];
-  return 'rgba('+a[0]+','+a[1]+','+a[2]+','+ a[3] +')';
-};
-
-p5.Color.prototype._normalize = function(){
-  var arr = this.rgba.map(function(value){
-    return value / 255;
-  });
-  return arr;
+/**
+ * CSS named colors.
+ */
+var namedColors = {
+  aliceblue:             '#f0f8ff',
+  antiquewhite:          '#faebd7',
+  aqua:                  '#00ffff',
+  aquamarine:            '#7fffd4',
+  azure:                 '#f0ffff',
+  beige:                 '#f5f5dc',
+  bisque:                '#ffe4c4',
+  black:                 '#000000',
+  blanchedalmond:        '#ffebcd',
+  blue:                  '#0000ff',
+  blueviolet:            '#8a2be2',
+  brown:                 '#a52a2a',
+  burlywood:             '#deb887',
+  cadetblue:             '#5f9ea0',
+  chartreuse:            '#7fff00',
+  chocolate:             '#d2691e',
+  coral:                 '#ff7f50',
+  cornflowerblue:        '#6495ed',
+  cornsilk:              '#fff8dc',
+  crimson:               '#dc143c',
+  cyan:                  '#00ffff',
+  darkblue:              '#00008b',
+  darkcyan:              '#008b8b',
+  darkgoldenrod:         '#b8860b',
+  darkgray:              '#a9a9a9',
+  darkgreen:             '#006400',
+  darkgrey:              '#a9a9a9',
+  darkkhaki:             '#bdb76b',
+  darkmagenta:           '#8b008b',
+  darkolivegreen:        '#556b2f',
+  darkorange:            '#ff8c00',
+  darkorchid:            '#9932cc',
+  darkred:               '#8b0000',
+  darksalmon:            '#e9967a',
+  darkseagreen:          '#8fbc8f',
+  darkslateblue:         '#483d8b',
+  darkslategray:         '#2f4f4f',
+  darkslategrey:         '#2f4f4f',
+  darkturquoise:         '#00ced1',
+  darkviolet:            '#9400d3',
+  deeppink:              '#ff1493',
+  deepskyblue:           '#00bfff',
+  dimgray:               '#696969',
+  dimgrey:               '#696969',
+  dodgerblue:            '#1e90ff',
+  firebrick:             '#b22222',
+  floralwhite:           '#fffaf0',
+  forestgreen:           '#228b22',
+  fuchsia:               '#ff00ff',
+  gainsboro:             '#dcdcdc',
+  ghostwhite:            '#f8f8ff',
+  gold:                  '#ffd700',
+  goldenrod:             '#daa520',
+  gray:                  '#808080',
+  green:                 '#008000',
+  greenyellow:           '#adff2f',
+  grey:                  '#808080',
+  honeydew:              '#f0fff0',
+  hotpink:               '#ff69b4',
+  indianred:             '#cd5c5c',
+  indigo:                '#4b0082',
+  ivory:                 '#fffff0',
+  khaki:                 '#f0e68c',
+  lavender:              '#e6e6fa',
+  lavenderblush:         '#fff0f5',
+  lawngreen:             '#7cfc00',
+  lemonchiffon:          '#fffacd',
+  lightblue:             '#add8e6',
+  lightcoral:            '#f08080',
+  lightcyan:             '#e0ffff',
+  lightgoldenrodyellow:  '#fafad2',
+  lightgray:             '#d3d3d3',
+  lightgreen:            '#90ee90',
+  lightgrey:             '#d3d3d3',
+  lightpink:             '#ffb6c1',
+  lightsalmon:           '#ffa07a',
+  lightseagreen:         '#20b2aa',
+  lightskyblue:          '#87cefa',
+  lightslategray:        '#778899',
+  lightslategrey:        '#778899',
+  lightsteelblue:        '#b0c4de',
+  lightyellow:           '#ffffe0',
+  lime:                  '#00ff00',
+  limegreen:             '#32cd32',
+  linen:                 '#faf0e6',
+  magenta:               '#ff00ff',
+  maroon:                '#800000',
+  mediumaquamarine:      '#66cdaa',
+  mediumblue:            '#0000cd',
+  mediumorchid:          '#ba55d3',
+  mediumpurple:          '#9370db',
+  mediumseagreen:        '#3cb371',
+  mediumslateblue:       '#7b68ee',
+  mediumspringgreen:     '#00fa9a',
+  mediumturquoise:       '#48d1cc',
+  mediumvioletred:       '#c71585',
+  midnightblue:          '#191970',
+  mintcream:             '#f5fffa',
+  mistyrose:             '#ffe4e1',
+  moccasin:              '#ffe4b5',
+  navajowhite:           '#ffdead',
+  navy:                  '#000080',
+  oldlace:               '#fdf5e6',
+  olive:                 '#808000',
+  olivedrab:             '#6b8e23',
+  orange:                '#ffa500',
+  orangered:             '#ff4500',
+  orchid:                '#da70d6',
+  palegoldenrod:         '#eee8aa',
+  palegreen:             '#98fb98',
+  paleturquoise:         '#afeeee',
+  palevioletred:         '#db7093',
+  papayawhip:            '#ffefd5',
+  peachpuff:             '#ffdab9',
+  peru:                  '#cd853f',
+  pink:                  '#ffc0cb',
+  plum:                  '#dda0dd',
+  powderblue:            '#b0e0e6',
+  purple:                '#800080',
+  red:                   '#ff0000',
+  rosybrown:             '#bc8f8f',
+  royalblue:             '#4169e1',
+  saddlebrown:           '#8b4513',
+  salmon:                '#fa8072',
+  sandybrown:            '#f4a460',
+  seagreen:              '#2e8b57',
+  seashell:              '#fff5ee',
+  sienna:                '#a0522d',
+  silver:                '#c0c0c0',
+  skyblue:               '#87ceeb',
+  slateblue:             '#6a5acd',
+  slategray:             '#708090',
+  slategrey:             '#708090',
+  snow:                  '#fffafa',
+  springgreen:           '#00ff7f',
+  steelblue:             '#4682b4',
+  tan:                   '#d2b48c',
+  teal:                  '#008080',
+  thistle:               '#d8bfd8',
+  tomato:                '#ff6347',
+  turquoise:             '#40e0d0',
+  violet:                '#ee82ee',
+  wheat:                 '#f5deb3',
+  white:                 '#ffffff',
+  whitesmoke:            '#f5f5f5',
+  yellow:                '#ffff00',
+  yellowgreen:           '#9acd32'
 };
 
 /**
- * These Regular Expressions are used to build up the patterns for matching
- * viable CSS color strings: fragmenting the regexes in this way increases
- * the legibility and comprehensibility of the code
+ * These regular expressions are used to build up the patterns for matching
+ * viable CSS color strings: fragmenting the regexes in this way increases the
+ * legibility and comprehensibility of the code.
+ *
+ * Note that RGB values of .9 are not parsed by IE, but are supported here for
+ * color string consistency.
  */
-// Match any number of whitespace characters (including no whitespace)
-var WHITESPACE = /\s*/;
-// Match whole-number values, e.g `255` or `79`
-var INTEGER = /(\d{1,3})/;
-// Match decimal values, e.g `129.6`, `79`, or `.9`
-// Note: R, G or B values of `.9` are not parsed by IE: however, they are
-// supported here to provide more consistent color string parsing
-var DECIMAL = /((?:\d+(?:\.\d+)?)|(?:\.\d+))/;
-// Match decimal values followed by a percent sign
-var PERCENT = new RegExp(DECIMAL.source + '%');
+var WHITESPACE = /\s*/;  // Match zero or more whitespace characters.
+var INTEGER = /(\d{1,3})/;  // Match integers: 79, 255, etc.
+var DECIMAL = /((?:\d+(?:\.\d+)?)|(?:\.\d+))/;  // Match 129.6, 79, .9, etc.
+var PERCENT = new RegExp(DECIMAL.source + '%');  // Match 12.9%, 79%, .9%, etc.
 
-var namedColors = {
-  aliceblue: '#f0f8ff',
-  antiquewhite: '#faebd7',
-  aqua: '#00ffff',
-  aquamarine: '#7fffd4',
-  azure: '#f0ffff',
-  beige: '#f5f5dc',
-  bisque: '#ffe4c4',
-  black: '#000000',
-  blanchedalmond: '#ffebcd',
-  blue: '#0000ff',
-  blueviolet: '#8a2be2',
-  brown: '#a52a2a',
-  burlywood: '#deb887',
-  cadetblue: '#5f9ea0',
-  chartreuse: '#7fff00',
-  chocolate: '#d2691e',
-  coral: '#ff7f50',
-  cornflowerblue: '#6495ed',
-  cornsilk: '#fff8dc',
-  crimson: '#dc143c',
-  cyan: '#00ffff',
-  darkblue: '#00008b',
-  darkcyan: '#008b8b',
-  darkgoldenrod: '#b8860b',
-  darkgray: '#a9a9a9',
-  darkgreen: '#006400',
-  darkgrey: '#a9a9a9',
-  darkkhaki: '#bdb76b',
-  darkmagenta: '#8b008b',
-  darkolivegreen: '#556b2f',
-  darkorange: '#ff8c00',
-  darkorchid: '#9932cc',
-  darkred: '#8b0000',
-  darksalmon: '#e9967a',
-  darkseagreen: '#8fbc8f',
-  darkslateblue: '#483d8b',
-  darkslategray: '#2f4f4f',
-  darkslategrey: '#2f4f4f',
-  darkturquoise: '#00ced1',
-  darkviolet: '#9400d3',
-  deeppink: '#ff1493',
-  deepskyblue: '#00bfff',
-  dimgray: '#696969',
-  dimgrey: '#696969',
-  dodgerblue: '#1e90ff',
-  firebrick: '#b22222',
-  floralwhite: '#fffaf0',
-  forestgreen: '#228b22',
-  fuchsia: '#ff00ff',
-  gainsboro: '#dcdcdc',
-  ghostwhite: '#f8f8ff',
-  gold: '#ffd700',
-  goldenrod: '#daa520',
-  gray: '#808080',
-  green: '#008000',
-  greenyellow: '#adff2f',
-  grey: '#808080',
-  honeydew: '#f0fff0',
-  hotpink: '#ff69b4',
-  indianred: '#cd5c5c',
-  indigo: '#4b0082',
-  ivory: '#fffff0',
-  khaki: '#f0e68c',
-  lavender: '#e6e6fa',
-  lavenderblush: '#fff0f5',
-  lawngreen: '#7cfc00',
-  lemonchiffon: '#fffacd',
-  lightblue: '#add8e6',
-  lightcoral: '#f08080',
-  lightcyan: '#e0ffff',
-  lightgoldenrodyellow: '#fafad2',
-  lightgray: '#d3d3d3',
-  lightgreen: '#90ee90',
-  lightgrey: '#d3d3d3',
-  lightpink: '#ffb6c1',
-  lightsalmon: '#ffa07a',
-  lightseagreen: '#20b2aa',
-  lightskyblue: '#87cefa',
-  lightslategray: '#778899',
-  lightslategrey: '#778899',
-  lightsteelblue: '#b0c4de',
-  lightyellow: '#ffffe0',
-  lime: '#00ff00',
-  limegreen: '#32cd32',
-  linen: '#faf0e6',
-  magenta: '#ff00ff',
-  maroon: '#800000',
-  mediumaquamarine: '#66cdaa',
-  mediumblue: '#0000cd',
-  mediumorchid: '#ba55d3',
-  mediumpurple: '#9370db',
-  mediumseagreen: '#3cb371',
-  mediumslateblue: '#7b68ee',
-  mediumspringgreen: '#00fa9a',
-  mediumturquoise: '#48d1cc',
-  mediumvioletred: '#c71585',
-  midnightblue: '#191970',
-  mintcream: '#f5fffa',
-  mistyrose: '#ffe4e1',
-  moccasin: '#ffe4b5',
-  navajowhite: '#ffdead',
-  navy: '#000080',
-  oldlace: '#fdf5e6',
-  olive: '#808000',
-  olivedrab: '#6b8e23',
-  orange: '#ffa500',
-  orangered: '#ff4500',
-  orchid: '#da70d6',
-  palegoldenrod: '#eee8aa',
-  palegreen: '#98fb98',
-  paleturquoise: '#afeeee',
-  palevioletred: '#db7093',
-  papayawhip: '#ffefd5',
-  peachpuff: '#ffdab9',
-  peru: '#cd853f',
-  pink: '#ffc0cb',
-  plum: '#dda0dd',
-  powderblue: '#b0e0e6',
-  purple: '#800080',
-  red: '#ff0000',
-  rosybrown: '#bc8f8f',
-  royalblue: '#4169e1',
-  saddlebrown: '#8b4513',
-  salmon: '#fa8072',
-  sandybrown: '#f4a460',
-  seagreen: '#2e8b57',
-  seashell: '#fff5ee',
-  sienna: '#a0522d',
-  silver: '#c0c0c0',
-  skyblue: '#87ceeb',
-  slateblue: '#6a5acd',
-  slategray: '#708090',
-  slategrey: '#708090',
-  snow: '#fffafa',
-  springgreen: '#00ff7f',
-  steelblue: '#4682b4',
-  tan: '#d2b48c',
-  teal: '#008080',
-  thistle: '#d8bfd8',
-  tomato: '#ff6347',
-  turquoise: '#40e0d0',
-  violet: '#ee82ee',
-  wheat: '#f5deb3',
-  white: '#ffffff',
-  whitesmoke: '#f5f5f5',
-  yellow: '#ffff00',
-  yellowgreen: '#9acd32'
-};
-
-// Regular Expressions for use identifying color pattern strings
+/**
+ * Full color string patterns. The capture groups are necessary.
+ */
 var colorPatterns = {
-  /**
-   * Regular expression for matching colors in format #XXX,
-   * e.g. #416
-   */
+  // Match colors in format #XXX, e.g. #416.
   HEX3: /^#([a-f0-9])([a-f0-9])([a-f0-9])$/i,
 
-  /**
-   * Regular expression for matching colors in format #XXXXXX,
-   * e.g. #b4d455
-   */
+  // Match colors in format #XXXXXX, e.g. #b4d455.
   HEX6: /^#([a-f0-9]{2})([a-f0-9]{2})([a-f0-9]{2})$/i,
 
-  /**
-   * Regular expression for matching colors in format rgb(R, G, B),
-   * e.g. rgb(255, 0, 128)
-   */
+  // Match colors in format rgb(R, G, B), e.g. rgb(255, 0, 128).
   RGB: new RegExp([
-    // Defining RegExp this way makes it more obvious where whitespace
-    // (`\s*`) is permitted between tokens
     '^rgb\\(',
     INTEGER.source,
     ',',
@@ -9443,14 +9207,8 @@ var colorPatterns = {
     '\\)$'
   ].join(WHITESPACE.source), 'i'),
 
-
-  /**
-   * Regular expression for matching colors in format rgb(R%, G%, B%),
-   * e.g. rgb(100%, 0%, 28.9%)
-   */
+  // Match colors in format rgb(R%, G%, B%), e.g. rgb(100%, 0%, 28.9%).
   RGB_PERCENT: new RegExp([
-    // Defining RegExp this way makes it more obvious where whitespace
-    // (`\s*`) is permitted between tokens
     '^rgb\\(',
     PERCENT.source,
     ',',
@@ -9460,10 +9218,7 @@ var colorPatterns = {
     '\\)$'
   ].join(WHITESPACE.source), 'i'),
 
-  /**
-   * Regular expression for matching colors in format rgb(R, G, B, A),
-   * e.g. rgb(255, 0, 128, 0.25)
-   */
+  // Match colors in format rgb(R, G, B, A), e.g. rgb(255, 0, 128, 0.25).
   RGBA: new RegExp([
     '^rgba\\(',
     INTEGER.source,
@@ -9476,10 +9231,7 @@ var colorPatterns = {
     '\\)$'
   ].join(WHITESPACE.source), 'i'),
 
-  /**
-   * Regular expression for matching colors in format rgb(R%, G%, B%, A),
-   * e.g. rgb(100%, 0%, 28.9%. 0.5)
-   */
+  // Match colors in format rgb(R%, G%, B%, A), e.g. rgb(100%, 0%, 28.9%, 0.5).
   RGBA_PERCENT: new RegExp([
     '^rgba\\(',
     PERCENT.source,
@@ -9492,10 +9244,7 @@ var colorPatterns = {
     '\\)$'
   ].join(WHITESPACE.source), 'i'),
 
-  /**
-   * Regular expression for matching colors in format hsla(H, S%, L%),
-   * e.g. hsl(100, 40%, 28.9%)
-   */
+  // Match colors in format hsla(H, S%, L%), e.g. hsl(100, 40%, 28.9%).
   HSL: new RegExp([
     '^hsl\\(',
     INTEGER.source,
@@ -9506,10 +9255,7 @@ var colorPatterns = {
     '\\)$'
   ].join(WHITESPACE.source), 'i'),
 
-  /**
-   * Regular expression for matching colors in format hsla(H, S%, L%, A),
-   * e.g. hsla(100, 40%, 28.9%, 0.5)
-   */
+  // Match colors in format hsla(H, S%, L%, A), e.g. hsla(100, 40%, 28.9%, 0.5).
   HSLA: new RegExp([
     '^hsla\\(',
     INTEGER.source,
@@ -9522,10 +9268,7 @@ var colorPatterns = {
     '\\)$'
   ].join(WHITESPACE.source), 'i'),
 
-  /**
-   * Regular expression for matching colors in format hsb(H, S%, B%),
-   * e.g. hsb(100, 40%, 28.9%)
-   */
+  // Match colors in format hsb(H, S%, B%), e.g. hsb(100, 40%, 28.9%).
   HSB: new RegExp([
     '^hsb\\(',
     INTEGER.source,
@@ -9536,10 +9279,7 @@ var colorPatterns = {
     '\\)$'
   ].join(WHITESPACE.source), 'i'),
 
-  /**
-   * Regular expression for matching colors in format hsba(H, S%, B%, A),
-   * e.g. hsba(100, 40%, 28.9%, 0.5)
-   */
+  // Match colors in format hsba(H, S%, B%, A), e.g. hsba(100, 40%, 28.9%, 0.5).
   HSBA: new RegExp([
     '^hsba\\(',
     INTEGER.source,
@@ -9554,8 +9294,8 @@ var colorPatterns = {
 };
 
 /**
- * For a number of different inputs, returns a color formatted as
- * normalized [r, g, b, a], maxes [255, 255, 255, 255]
+ * For a number of different inputs, returns a color formatted as [r, g, b, a]
+ * arrays, with each component normalized between 0 and 1.
  *
  * @param {Array-like} args An 'array-like' object that represents a list of
  *                          arguments
@@ -9576,53 +9316,80 @@ var colorPatterns = {
  * // todo
  * </code>
  * </div>
+ *
+ * @alt
+ * //todo
+ *
  */
-p5.Color._getFormattedColor = function () {
+p5.Color._parseInputs = function() {
   var numArgs = arguments.length;
-  var mode    = this._renderer._colorMode;
-  var maxArr  = this._renderer._colorMaxes[this._renderer._colorMode];
+  var mode = this._colorMode;
+  var maxes = this._colorMaxes;
   var results = [];
 
-  // Handle [r,g,b,a] or [h,s,l,a] color values
-  if (numArgs >= 3) {
-    results[0] = arguments[0] / maxArr[0];
-    results[1] = arguments[1] / maxArr[1];
-    results[2] = arguments[2] / maxArr[2];
-    results[3] = typeof arguments[3] === 'number' ?
-              arguments[3] / maxArr[3] : 1;
-  // Handle strings: named colors, hex values, css strings
-  } else if (numArgs === 1 && typeof arguments[0] === 'string') {
-    var str = arguments[0].trim().toLowerCase();
+  if (numArgs >= 3) {  // Argument is a list of component values.
 
-    if (namedColors[str]) {
-      // Handle named color values
-      return p5.Color._getFormattedColor.apply(this, [namedColors[str]]);
+    results[0] = arguments[0] / maxes[mode][0];
+    results[1] = arguments[1] / maxes[mode][1];
+    results[2] = arguments[2] / maxes[mode][2];
+
+    // Alpha may be undefined, so default it to 100%.
+    if (typeof arguments[3] === 'number') {
+      results[3] = arguments[3] / maxes[mode][3];
+    } else {
+      results[3] = 1;
     }
 
-    // Work through available string patterns to determine how to proceed
-    if (colorPatterns.HEX3.test(str)) {
+    // Constrain components to the range [0,1].
+    results = results.map(function(value) {
+      return Math.max(Math.min(value, 1), 0);
+    });
+
+    // Convert to RGBA and return.
+    if (mode === constants.HSL) {
+      return color_conversion._hslaToRGBA(results);
+    } else if (mode === constants.HSB) {
+      return color_conversion._hsbaToRGBA(results);
+    } else {
+      return results;
+    }
+
+  } else if (numArgs === 1 && typeof arguments[0] === 'string') {
+
+    var str = arguments[0].trim().toLowerCase();
+
+    // Return if string is a named colour.
+    if (namedColors[str]) {
+      return p5.Color._parseInputs.apply(this, [namedColors[str]]);
+    }
+
+    // Try RGBA pattern matching.
+    if (colorPatterns.HEX3.test(str)) {  // #rgb
       results = colorPatterns.HEX3.exec(str).slice(1).map(function(color) {
-        // Expand #RGB to #RRGGBB
         return parseInt(color + color, 16) / 255;
       });
       results[3] = 1;
-    } else if (colorPatterns.HEX6.test(str)) {
+      return results;
+    } else if (colorPatterns.HEX6.test(str)) {  // #rrggbb
       results = colorPatterns.HEX6.exec(str).slice(1).map(function(color) {
         return parseInt(color, 16) / 255;
       });
       results[3] = 1;
-    } else if (colorPatterns.RGB.test(str)) {
+      return results;
+    } else if (colorPatterns.RGB.test(str)) {  // rgb(R,G,B)
       results = colorPatterns.RGB.exec(str).slice(1).map(function(color) {
         return color / 255;
       });
       results[3] = 1;
-    } else if (colorPatterns.RGB_PERCENT.test(str)) {
+      return results;
+    } else if (colorPatterns.RGB_PERCENT.test(str)) {  // rgb(R%,G%,B%)
       results = colorPatterns.RGB_PERCENT.exec(str).slice(1)
         .map(function(color) {
           return parseFloat(color) / 100;
         });
       results[3] = 1;
-    } else if (colorPatterns.RGBA.test(str)) {
+      return results;
+    } else if (colorPatterns.RGBA.test(str)) {  // rgba(R,G,B,A)
       results = colorPatterns.RGBA.exec(str).slice(1)
         .map(function(color, idx) {
           if (idx === 3) {
@@ -9630,7 +9397,8 @@ p5.Color._getFormattedColor = function () {
           }
           return color / 255;
         });
-    } else if (colorPatterns.RGBA_PERCENT.test(str)) {
+      return results;
+    } else if (colorPatterns.RGBA_PERCENT.test(str)) {  // rgba(R%,G%,B%,A%)
       results = colorPatterns.RGBA_PERCENT.exec(str).slice(1)
         .map(function(color, idx) {
           if (idx === 3) {
@@ -9638,110 +9406,88 @@ p5.Color._getFormattedColor = function () {
           }
           return parseFloat(color) / 100;
         });
-    }
-    // convert RGBA result to correct color space
-    if( results.length ){
-      if( mode === constants.RGB ){
-        return results;
-      }
-      else if( mode === constants.HSL ){
-        return color_utils.rgbaToHSLA(results);
-      }
-      else if( mode === constants.HSB ){
-        return color_utils.rgbaToHSBA(results);
-      }
+      return results;
     }
 
-    // test string HSLA format
-    if (colorPatterns.HSL.test(str)) {
+    // Try HSLA pattern matching.
+    if (colorPatterns.HSL.test(str)) {  // hsl(H,S,L)
       results = colorPatterns.HSL.exec(str).slice(1)
         .map(function(color, idx) {
-        if( idx === 0 ) {
+        if (idx === 0) {
           return parseInt(color, 10) / 360;
         }
         return parseInt(color, 10) / 100;
       });
       results[3] = 1;
-    } else if (colorPatterns.HSLA.test(str)) {
+    } else if (colorPatterns.HSLA.test(str)) {  // hsla(H,S,L,A)
       results = colorPatterns.HSLA.exec(str).slice(1)
         .map(function(color, idx) {
-        if( idx === 0 ){
+        if (idx === 0) {
           return parseInt(color, 10) / 360;
         }
-        else if( idx === 3 ) {
+        else if (idx === 3) {
           return parseFloat(color);
         }
         return parseInt(color, 10) / 100;
       });
     }
-    // convert HSLA result to correct color space
-    if( results.length ){
-      if( mode === constants.RGB ){
-        return color_utils.hslaToRGBA(results);
-      }
-      else if( mode === constants.HSL ){
-        return results;
-      }
-      else if( mode === constants.HSB ){
-        return color_utils.hslaToHSBA(results);
-      }
+    if (results.length) {
+      return color_conversion._hslaToRGBA(results);
     }
 
-    // test string HSBA format
-    if (colorPatterns.HSB.test(str)) {
+    // Try HSBA pattern matching.
+    if (colorPatterns.HSB.test(str)) {  // hsb(H,S,B)
       results = colorPatterns.HSB.exec(str).slice(1)
         .map(function(color, idx) {
-        if( idx === 0 ) {
+        if (idx === 0) {
           return parseInt(color, 10) / 360;
         }
         return parseInt(color, 10) / 100;
       });
       results[3] = 1;
-    } else if (colorPatterns.HSBA.test(str)) {
+    } else if (colorPatterns.HSBA.test(str)) {  // hsba(H,S,B,A)
       results = colorPatterns.HSBA.exec(str).slice(1)
         .map(function(color, idx) {
-        if( idx === 0 ){
+        if (idx === 0) {
           return parseInt(color, 10) / 360;
         }
-        else if( idx === 3 ) {
+        else if (idx === 3) {
           return parseFloat(color);
         }
         return parseInt(color, 10) / 100;
       });
     }
-    // convert HSBA result to correct color space
-    if( results.length ){
-      if( mode === constants.RGB ){
-        return color_utils.hsbaToRGBA(results);
-      }
-      else if( mode === constants.HSB ){
-        return results;
-      }
-      else if( mode === constants.HSL ){
-        return color_utils.hsbaToHSLA(results);
-      }
+    if (results.length) {
+      return color_conversion._hsbaToRGBA(results);
     }
 
-    // Input did not match any CSS Color pattern: Default to white
+    // Input did not match any CSS color pattern: default to white.
     results = [1, 1, 1, 1];
-  } // Handle greyscale color mode
-  else if((numArgs === 1 || numArgs === 2)&& typeof arguments[0] === 'number')
-  {
-    // When users pass only one argument, they are presumed to be
-    // working in grayscale mode.
-    if (mode === constants.RGB) {
-      results[0] = arguments[0] / maxArr[0];
-      results[1] = arguments[0] / maxArr[1];
-      results[2] = arguments[0] / maxArr[2];
-      results[3] = typeof arguments[1] === 'number' ?
-                     arguments[1] / maxArr[3] : 1;
+
+  } else if ((numArgs === 1 || numArgs === 2) &&
+              typeof arguments[0] === 'number') {  // 'Grayscale' mode.
+
+    /**
+     * For HSB and HSL, interpret the gray level as a brightness/lightness
+     * value (they are equivalent when chroma is zero). For RGB, normalize the
+     * gray level according to the blue maximum.
+     */
+    results[0] = arguments[0] / maxes[mode][2];
+    results[1] = arguments[0] / maxes[mode][2];
+    results[2] = arguments[0] / maxes[mode][2];
+
+    // Alpha may be undefined, so default it to 100%.
+    if (typeof arguments[1] === 'number') {
+      results[3] = arguments[1] / maxes[mode][3];
     } else {
-      results[0] = arguments[0];
-      results[1] = arguments[0];
-      results[2] = arguments[0] / maxArr[2];
-      results[3] = typeof arguments[1] === 'number' ?
-                     arguments[1] / maxArr[3] : 1;
+      results[3] = 1;
     }
+
+    // Constrain components to the range [0,1].
+    results = results.map(function(value) {
+      return Math.max(Math.min(value, 1), 0);
+    });
+
   } else {
     throw new Error (arguments + 'is not a valid color representation.');
   }
@@ -9751,7 +9497,7 @@ p5.Color._getFormattedColor = function () {
 
 module.exports = p5.Color;
 
-},{"../core/constants":47,"../core/core":48,"./color_utils":40}],43:[function(_dereq_,module,exports){
+},{"../core/constants":41,"../core/core":42,"./color_conversion":34}],37:[function(_dereq_,module,exports){
 /**
  * @module Color
  * @submodule Setting
@@ -9774,17 +9520,9 @@ _dereq_('./p5.Color');
  * the first frame of animation or if the background need only be set once.
  *
  * @method background
- * @param {Number|String|p5.Color|p5.Image} v1   gray value, red or hue value
- *                                               (depending on the current
- *                                               color mode), color string,
- *                                               p5.Color, or p5.Image
- * @param {Number}                          [v2] green or saturation value
- *                                               (depending on the current
- *                                               color mode)
- * @param {Number}                          [v3] blue or brightness value
- *                                               (depending on the current
- *                                               color mode)
- * @param {Number}                          [a]  opacity of the background
+ * @param {p5.Color} color     any value created by the color() function
+ * @param {Number} [a]         opacity of the background relative to current
+ *                             color range (default is 0-100)
  *
  * @example
  * <div>
@@ -9864,6 +9602,52 @@ _dereq_('./p5.Color');
  * background(color(0, 0, 255));
  * </code>
  * </div>
+ *
+ * @alt
+ * canvas with darkest charcoal grey background.
+ * canvas with yellow background.
+ * canvas with royal blue background.
+ * canvas with red background.
+ * canvas with pink background.
+ * canvas with black background.
+ * canvas with bright green background.
+ * canvas with soft green background.
+ * canvas with red background.
+ * canvas with light purple background.
+ * canvas with blue background.
+ */
+
+/**
+ * @method background
+ * @param {String} colorstring color string, possible formats include: integer
+ *                         rgb() or rgba(), percentage rgb() or rgba(),
+ *                         3-digit hex, 6-digit hex
+ * @param {Number} [a]
+ */
+
+/**
+ * @method background
+ * @param {Number} gray   specifies a value between white and black
+ * @param {Number} [a]
+ */
+
+/**
+ * @method background
+ * @param {Number} v1     red or hue value (depending on the current color
+ *                        mode)
+ * @param {Number} v2     green or saturation value (depending on the current
+ *                        color mode)
+ * @param {Number} v3     blue or brightness value (depending on the current
+ *                        color mode)
+ * @param  {Number} [a]
+ */
+
+/**
+ * @method background
+ * @param {p5.Image} image     image created with loadImage() or createImage(),
+ *                             to set as background
+ *                             (must be same size as the sketch window)
+ * @param  {Number}  [a]
  */
 p5.prototype.background = function() {
   if (arguments[0] instanceof p5.Image) {
@@ -9886,32 +9670,53 @@ p5.prototype.background = function() {
  * @example
  * <div>
  * <code>
+ * // Clear the screen on mouse press.
+ * function setup() {
+ *   createCanvas(100, 100);
+ * }
+ *
+ * function draw() {
+ *   ellipse(mouseX, mouseY, 20, 20);
+ * }
+ *
+ * function mousePressed() {
+ *   clear();
+ * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 20x20 white ellipses are continually drawn at mouse x and y coordinates.
+ *
  */
+
 p5.prototype.clear = function() {
   this._renderer.clear();
   return this;
 };
 
 /**
- * Changes the way p5.js interprets color data. By default, the parameters
- * for fill(), stroke(), background(), and color() are defined by values
- * between 0 and 255 using the RGB color model. The colorMode() function is
- * used to switch color systems. Regardless of color system, all value ranges
- * are presumed to be 0–255 unless explicitly set otherwise. That is,
- * for a standard HSB range, one would pass colorMode(HSB, 360, 100, 100, 1).
+ * colorMode() changes the way p5.js interprets color data. By default, the
+ * parameters for fill(), stroke(), background(), and color() are defined by
+ * values between 0 and 255 using the RGB color model. This is equivalent to
+ * setting colorMode(RGB, 255). Setting colorMode(HSB) lets you use the HSB
+ * system instead. By default, this is colorMode(HSB, 360, 100, 100, 1). You
+ * can also use HSL.
+ * <br><br>
+ * Note: existing color objects remember the mode that they were created in,
+ * so you can change modes as you like without affecting their appearance.
  *
  * @method colorMode
- * @param {Number|Constant} mode either RGB or HSB, corresponding to
- *                               Red/Green/Blue and Hue/Saturation/Brightness
- * @param {Number|Constant} max1 range for the red or hue depending on the
- *                               current color mode, or range for all values
- * @param {Number|Constant} max2 range for the green or saturation depending
- *                               on the current color mode
- * @param {Number|Constant} max3 range for the blue or brightness depending
- *                               on the current color mode
- * @param {Number|Constant} maxA range for the alpha
+ * @param {Constant} mode   either RGB or HSB, corresponding to
+ *                          Red/Green/Blue and Hue/Saturation/Brightness
+ *                          (or Lightness)
+ * @param {Number} [max1] range for the red or hue depending on the
+ *                              current color mode, or range for all values
+ * @param {Number} [max2] range for the green or saturation depending
+ *                              on the current color mode
+ * @param {Number} [max3] range for the blue or brightness/lighntess
+ *                              depending on the current color mode
+ * @param {Number} [maxA] range for the alpha
  * @example
  * <div>
  * <code>
@@ -9945,7 +9750,7 @@ p5.prototype.clear = function() {
  * var c = color(127, 255, 0);
  *
  * colorMode(RGB, 1);
- * var myColor = c.getRed();
+ * var myColor = c._getRed();
  * text(myColor, 10, 10, 80, 80);
  * </code>
  * </div>
@@ -9962,32 +9767,41 @@ p5.prototype.clear = function() {
  * ellipse(50, 50, 40, 40);
  * </code>
  * </div>
+ *
+ * @alt
+ *Green to red gradient from bottom L to top R. shading originates from top left.
+ *Rainbow gradient from left to right. Brightness increasing to white at top.
+ *unknown image.
+ *50x50 ellipse at middle L & 40x40 ellipse at center. Transluscent pink outlines.
+ *
  */
 p5.prototype.colorMode = function() {
   if (arguments[0] === constants.RGB ||
       arguments[0] === constants.HSB ||
       arguments[0] === constants.HSL) {
+
+    // Set color mode.
     this._renderer._colorMode = arguments[0];
 
-    var maxArr = this._renderer._colorMaxes[this._renderer._colorMode];
-
+    // Set color maxes.
+    var maxes = this._renderer._colorMaxes[this._renderer._colorMode];
     if (arguments.length === 2) {
-      maxArr[0] = arguments[1];
-      maxArr[1] = arguments[1];
-      maxArr[2] = arguments[1];
-      maxArr[3] = arguments[1];
+      maxes[0] = arguments[1];  // Red
+      maxes[1] = arguments[1];  // Green
+      maxes[2] = arguments[1];  // Blue
+      maxes[3] = arguments[1];  // Alpha
     } else if (arguments.length === 4) {
-      maxArr[0] = arguments[1];
-      maxArr[1] = arguments[2];
-      maxArr[2] = arguments[3];
-    }
-    if (arguments.length === 5) {
-      maxArr[0] = arguments[1];
-      maxArr[1] = arguments[2];
-      maxArr[2] = arguments[3];
-      maxArr[3] = arguments[4];
+      maxes[0] = arguments[1];  // Red
+      maxes[1] = arguments[2];  // Green
+      maxes[2] = arguments[3];  // Blue
+    } else if (arguments.length === 5) {
+      maxes[0] = arguments[1];  // Red
+      maxes[1] = arguments[2];  // Green
+      maxes[2] = arguments[3];  // Blue
+      maxes[3] = arguments[4];  // Alpha
     }
   }
+
   return this;
 };
 
@@ -9996,9 +9810,11 @@ p5.prototype.colorMode = function() {
  * fill(204, 102, 0), all subsequent shapes will be filled with orange. This
  * color is either specified in terms of the RGB or HSB color depending on
  * the current colorMode(). (The default color space is RGB, with each value
- * in the range from 0 to 255.) If a single string argument is provided, RGB,
- * RGBA and Hex CSS color strings and all named color strings are supported.
- * A p5 Color object can also be provided to set the fill color.
+ * in the range from 0 to 255).
+ * <br><br>
+ * If a single string argument is provided, RGB, RGBA and Hex CSS color strings
+ * and all named color strings are supported. A p5 Color object can also be
+ * provided to set the fill color.
  *
  * @method fill
  * @param {Number|Array|String|p5.Color} v1   gray value, red or hue value
@@ -10102,7 +9918,20 @@ p5.prototype.colorMode = function() {
  * rect(20, 20, 60, 60);
  * </code>
  * </div>
+ * @alt
+ * 60x60 dark charcoal grey rect with black outline in center of canvas.
+ * 60x60 yellow rect with black outline in center of canvas.
+ * 60x60 royal blue rect with black outline in center of canvas.
+ * 60x60 red rect with black outline in center of canvas.
+ * 60x60 pink rect with black outline in center of canvas.
+ * 60x60 black rect with black outline in center of canvas.
+ * 60x60 light green rect with black outline in center of canvas.
+ * 60x60 soft green rect with black outline in center of canvas.
+ * 60x60 red rect with black outline in center of canvas.
+ * 60x60 dark fushcia rect with black outline in center of canvas.
+ * 60x60 blue rect with black outline in center of canvas.
  */
+
 p5.prototype.fill = function() {
   this._renderer._setProperty('_fillSet', true);
   this._renderer._setProperty('_doFill', true);
@@ -10123,6 +9952,8 @@ p5.prototype.fill = function() {
  * rect(20, 20, 60, 60);
  * </code>
  * </div>
+ * @alt
+ * white rect top middle and noFill rect center. Both 60x60 with black outlines.
  */
 p5.prototype.noFill = function() {
   this._renderer._setProperty('_doFill', false);
@@ -10141,7 +9972,13 @@ p5.prototype.noFill = function() {
  * rect(20, 20, 60, 60);
  * </code>
  * </div>
+ *
+ *
+ * @alt
+ *60x60 white rect at center. no outline.
+ *
  */
+
 p5.prototype.noStroke = function() {
   this._renderer._setProperty('_doStroke', false);
   return this;
@@ -10151,9 +9988,11 @@ p5.prototype.noStroke = function() {
  * Sets the color used to draw lines and borders around shapes. This color
  * is either specified in terms of the RGB or HSB color depending on the
  * current colorMode() (the default color space is RGB, with each value in
- * the range from 0 to 255). If a single string argument is provided, RGB,
- * RGBA and Hex CSS color strings and all named color strings are supported.
- * A p5 Color object can also be provided to set the stroke color.
+ * the range from 0 to 255).
+ * <br><br>
+ * If a single string argument is provided, RGB, RGBA and Hex CSS color
+ * strings and all named color strings are supported. A p5 Color object
+ * can also be provided to set the stroke color.
  *
  * @method stroke
  * @param {Number|Array|String|p5.Color} v1   gray value, red or hue value
@@ -10268,7 +10107,21 @@ p5.prototype.noStroke = function() {
  * rect(20, 20, 60, 60);
  * </code>
  * </div>
+ *
+ * @alt
+ * 60x60 white rect at center. Dark charcoal grey outline.
+ * 60x60 white rect at center. Yellow outline.
+ * 60x60 white rect at center. Royal blue outline.
+ * 60x60 white rect at center. Red outline.
+ * 60x60 white rect at center. Pink outline.
+ * 60x60 white rect at center. Black outline.
+ * 60x60 white rect at center. Bright green outline.
+ * 60x60 white rect at center. Soft green outline.
+ * 60x60 white rect at center. Red outline.
+ * 60x60 white rect at center. Dark fushcia outline.
+ * 60x60 white rect at center. Blue outline.
  */
+
 p5.prototype.stroke = function() {
   this._renderer._setProperty('_strokeSet', true);
   this._renderer._setProperty('_doStroke', true);
@@ -10276,11 +10129,9 @@ p5.prototype.stroke = function() {
   return this;
 };
 
-
-
 module.exports = p5;
 
-},{"../core/constants":47,"../core/core":48,"./p5.Color":42}],44:[function(_dereq_,module,exports){
+},{"../core/constants":41,"../core/core":42,"./p5.Color":36}],38:[function(_dereq_,module,exports){
 /**
  * @module Shape
  * @submodule 2D Primitives
@@ -10293,12 +10144,12 @@ module.exports = p5;
 
 var p5 = _dereq_('./core');
 var constants = _dereq_('./constants');
-
+var canvas = _dereq_('./canvas');
 _dereq_('./error_helpers');
 
 /**
  * Draw an arc to the screen. If called with only a, b, c, d, start, and
- * stop, the arc will pe drawn as an open pie. If mode is provided, the arc
+ * stop, the arc will be drawn as an open pie. If mode is provided, the arc
  * will be drawn either open, as a chord, or as a pie as specified. The
  * origin may be changed with the ellipseMode() function.<br><br>
  * Note that drawing a full circle (ex: 0 to TWO_PI) will appear blank
@@ -10314,7 +10165,7 @@ _dereq_('./error_helpers');
  * @param  {Number} d      height of the arc's ellipse by default
  * @param  {Number} start  angle to start the arc, specified in radians
  * @param  {Number} stop   angle to stop the arc, specified in radians
- * @param  {String} [mode] optional parameter to determine the way of drawing
+ * @param  {Constant} [mode] optional parameter to determine the way of drawing
  *                         the arc
  * @return {Object}        the p5 object
  * @example
@@ -10345,18 +10196,19 @@ _dereq_('./error_helpers');
  * arc(50, 50, 80, 80, 0, PI+QUARTER_PI, PIE);
  * </code>
  * </div>
+ *
+ * @alt
+ *shattered outline of an ellipse with a quarter of a white circle bottom-right.
+ *white ellipse with black outline with top right missing.
+ *white ellipse with top right missing with black outline around shape.
+ *white ellipse with top right quarter missing with black outline around the shape.
+ *
  */
 p5.prototype.arc = function(x, y, w, h, start, stop, mode) {
-  this._validateParameters(
-    'arc',
-    arguments,
-    [
-      ['Number', 'Number', 'Number', 'Number', 'Number', 'Number'],
-      [ 'Number', 'Number', 'Number', 'Number',
-        'Number', 'Number', 'String' ]
-    ]
-  );
-
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
   if (!this._renderer._doStroke && !this._renderer._doFill) {
     return this;
   }
@@ -10375,6 +10227,11 @@ p5.prototype.arc = function(x, y, w, h, start, stop, mode) {
   // ...and confine them to the interval [0,TWO_PI).
   start %= constants.TWO_PI;
   stop %= constants.TWO_PI;
+
+  // account for full circle
+  if (stop === start) {
+    stop += constants.TWO_PI;
+  }
 
   // Adjust angles to counter linear scaling.
   if (start <= constants.HALF_PI) {
@@ -10407,14 +10264,16 @@ p5.prototype.arc = function(x, y, w, h, start, stop, mode) {
 /**
  * Draws an ellipse (oval) to the screen. An ellipse with equal width and
  * height is a circle. By default, the first two parameters set the location,
- * and the third and fourth parameters set the shape's width and height. The
- * origin may be changed with the ellipseMode() function.
+ * and the third and fourth parameters set the shape's width and height. If
+ * no height is specified, the value of width is used for both the width and
+ * height. If a negative height or width is specified, the absolute value is taken.
+ * The origin may be changed with the ellipseMode() function.
  *
  * @method ellipse
- * @param  {Number} a x-coordinate of the ellipse.
- * @param  {Number} b y-coordinate of the ellipse.
- * @param  {Number} c width of the ellipse.
- * @param  {Number} d height of the ellipse.
+ * @param  {Number} x x-coordinate of the ellipse.
+ * @param  {Number} y y-coordinate of the ellipse.
+ * @param  {Number} w width of the ellipse.
+ * @param  {Number} [h] height of the ellipse.
  * @return {p5}       the p5 object
  * @example
  * <div>
@@ -10422,23 +10281,45 @@ p5.prototype.arc = function(x, y, w, h, start, stop, mode) {
  * ellipse(56, 46, 55, 55);
  * </code>
  * </div>
+ *
+ * @alt
+ *white ellipse with black outline in middle-right of canvas that is 55x55.
+ *
  */
-p5.prototype.ellipse = function(x, y, w, h) {
-  this._validateParameters(
-    'ellipse',
-    arguments,
-    ['Number', 'Number', 'Number', 'Number']
-  );
-
+/**
+ * @method ellipse
+ * @param {Number} x
+ * @param {Number} y
+ * @param {Number} w
+ * @param {Number} [h]
+ * @return {p5}
+ */
+p5.prototype.ellipse = function() {
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
+  // Duplicate 3rd argument if only 3 given.
+  if (args.length === 3) {
+    args.push(args[2]);
+  }
+  // p5 supports negative width and heights for rects
+  if (args[2] < 0){args[2] = Math.abs(args[2]);}
+  if (args[3] < 0){args[3] = Math.abs(args[3]);}
   if (!this._renderer._doStroke && !this._renderer._doFill) {
     return this;
   }
-  // p5 supports negative width and heights for ellipses
-  w = Math.abs(w);
-  h = Math.abs(h);
-  //@TODO add catch block here if this._renderer
-  //doesn't have the method implemented yet
-  this._renderer.ellipse(x, y, w, h);
+  var vals = canvas.modeAdjust(
+    args[0],
+    args[1],
+    args[2],
+    args[3],
+    this._renderer._ellipseMode);
+  args[0] = vals.x;
+  args[1] = vals.y;
+  args[2] = vals.w;
+  args[3] = vals.h;
+  this._renderer.ellipse(args);
   return this;
 };
 /**
@@ -10471,6 +10352,11 @@ p5.prototype.ellipse = function(x, y, w, h) {
  * line(85, 75, 30, 75);
  * </code>
  * </div>
+ *
+ * @alt
+ *line 78 pixels long running from mid-top to bottom-right of canvas.
+ *3 lines of various stroke sizes. Form top, bottom and right sides of a square.
+ *
  */
 ////commented out original
 // p5.prototype.line = function(x1, y1, x2, y2) {
@@ -10486,35 +10372,25 @@ p5.prototype.line = function() {
   if (!this._renderer._doStroke) {
     return this;
   }
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
   //check whether we should draw a 3d line or 2d
   if(this._renderer.isP3D){
-    this._validateParameters(
-      'line',
-      arguments,
-      [
-        ['Number', 'Number', 'Number', 'Number', 'Number', 'Number']
-      ]
-    );
     this._renderer.line(
-      arguments[0],
-      arguments[1],
-      arguments[2],
-      arguments[3],
-      arguments[4],
-      arguments[5]);
+      args[0],
+      args[1],
+      args[2],
+      args[3],
+      args[4],
+      args[5]);
   } else {
-    this._validateParameters(
-      'line',
-      arguments,
-      [
-        ['Number', 'Number', 'Number', 'Number'],
-      ]
-    );
     this._renderer.line(
-      arguments[0],
-      arguments[1],
-      arguments[2],
-      arguments[3]);
+      args[0],
+      args[1],
+      args[2],
+      args[3]);
   }
   return this;
 };
@@ -10538,36 +10414,30 @@ p5.prototype.line = function() {
  * point(30, 75);
  * </code>
  * </div>
+ *
+ * @alt
+ *4 points centered in the middle-right of the canvas.
+ *
  */
 p5.prototype.point = function() {
   if (!this._renderer._doStroke) {
     return this;
   }
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
   //check whether we should draw a 3d line or 2d
   if(this._renderer.isP3D){
-    this._validateParameters(
-      'point',
-      arguments,
-      [
-        ['Number', 'Number', 'Number']
-      ]
-    );
     this._renderer.point(
-      arguments[0],
-      arguments[1],
-      arguments[2]
+      args[0],
+      args[1],
+      args[2]
       );
   } else {
-    this._validateParameters(
-      'point',
-      arguments,
-      [
-        ['Number', 'Number']
-      ]
-    );
     this._renderer.point(
-      arguments[0],
-      arguments[1]
+      args[0],
+      args[1]
     );
   }
   return this;
@@ -10582,14 +10452,14 @@ p5.prototype.point = function() {
  * clockwise or counter-clockwise around the defined shape.
  *
  * @method quad
- * @param {type} x1 the x-coordinate of the first point
- * @param {type} y1 the y-coordinate of the first point
- * @param {type} x2 the x-coordinate of the second point
- * @param {type} y2 the y-coordinate of the second point
- * @param {type} x3 the x-coordinate of the third point
- * @param {type} y3 the y-coordinate of the third point
- * @param {type} x4 the x-coordinate of the fourth point
- * @param {type} y4 the y-coordinate of the fourth point
+ * @param {Number} x1 the x-coordinate of the first point
+ * @param {Number} y1 the y-coordinate of the first point
+ * @param {Number} x2 the x-coordinate of the second point
+ * @param {Number} y2 the y-coordinate of the second point
+ * @param {Number} x3 the x-coordinate of the third point
+ * @param {Number} y3 the y-coordinate of the third point
+ * @param {Number} x4 the x-coordinate of the fourth point
+ * @param {Number} y4 the y-coordinate of the fourth point
  * @return {p5}     the p5 object
  * @example
  * <div>
@@ -10597,54 +10467,56 @@ p5.prototype.point = function() {
  * quad(38, 31, 86, 20, 69, 63, 30, 76);
  * </code>
  * </div>
+ *
+ * @alt
+ *irregular white quadrilateral shape with black outline mid-right of canvas.
+ *
+ */
+/**
+ * @method quad
+ * @param {Number} x1
+ * @param {Number} y1
+ * @param {Number} x2
+ * @param {Number} y2
+ * @param {Number} x3
+ * @param {Number} y3
+ * @param {Number} x4
+ * @param {Number} y4
+ * @return {p5} the p5 object
  */
 p5.prototype.quad = function() {
   if (!this._renderer._doStroke && !this._renderer._doFill) {
     return this;
   }
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
   if(this._renderer.isP3D){
-    this._validateParameters(
-      'quad',
-      arguments,
-      [
-        [ 'Number', 'Number', 'Number',
-          'Number', 'Number', 'Number',
-          'Number', 'Number', 'Number',
-          'Number', 'Number', 'Number']
-      ]
-    );
     this._renderer.quad(
-      arguments[0],
-      arguments[1],
-      arguments[2],
-      arguments[3],
-      arguments[4],
-      arguments[5],
-      arguments[6],
-      arguments[7],
-      arguments[8],
-      arguments[9],
-      arguments[10],
-      arguments[11]
+      args[0],
+      args[1],
+      args[2],
+      args[3],
+      args[4],
+      args[5],
+      args[6],
+      args[7],
+      args[8],
+      args[9],
+      args[10],
+      args[11]
       );
   } else {
-    this._validateParameters(
-      'quad',
-      arguments,
-      [
-        [ 'Number', 'Number', 'Number', 'Number',
-          'Number', 'Number', 'Number', 'Number' ]
-      ]
-    );
     this._renderer.quad(
-     arguments[0],
-     arguments[1],
-     arguments[2],
-     arguments[3],
-     arguments[4],
-     arguments[5],
-     arguments[6],
-    arguments[7]
+     args[0],
+     args[1],
+     args[2],
+     args[3],
+     args[4],
+     args[5],
+     args[6],
+    args[7]
     );
   }
   return this;
@@ -10655,11 +10527,12 @@ p5.prototype.quad = function() {
 * every angle at ninety degrees. By default, the first two parameters set
 * the location of the upper-left corner, the third sets the width, and the
 * fourth sets the height. The way these parameters are interpreted, however,
-* may be changed with the rectMode() function. If provided, the fifth, sixth
-* seventh and eighth parameters, if specified, determine corner radius for
-* the top-right, top-left, lower-right and lower-left corners, respectively.
-* An omitted corner radius parameter is set to the value of the previously
-* specified radius value in the parameter list.
+* may be changed with the rectMode() function.
+* <br><br>
+* The fifth, sixth, seventh and eighth parameters, if specified,
+* determine corner radius for the top-right, top-left, lower-right and
+* lower-left corners, respectively. An omitted corner radius parameter is set
+* to the value of the previously specified radius value in the parameter list.
 *
 * @method rect
 * @param  {Number} x  x-coordinate of the rectangle.
@@ -10674,7 +10547,7 @@ p5.prototype.quad = function() {
 * @example
 * <div>
 * <code>
-* // Draw a rectangle at location (30, 25) with a width and height of 55.
+* // Draw a rectangle at location (30, 20) with a width and height of 55.
 * rect(30, 20, 55, 55);
 * </code>
 * </div>
@@ -10690,26 +10563,44 @@ p5.prototype.quad = function() {
 * <code>
 * // Draw a rectangle with rounded corners having the following radii:
 * // top-left = 20, top-right = 15, bottom-right = 10, bottom-left = 5.
-* rect(30, 20, 55, 55, 20, 15, 10, 5)
+* rect(30, 20, 55, 55, 20, 15, 10, 5);
 * </code>
 * </div>
+*
+* @alt
+* 55x55 white rect with black outline in mid-right of canvas.
+* 55x55 white rect with black outline and rounded edges in mid-right of canvas.
+* 55x55 white rect with black outline and rounded edges of different radii.
 */
-p5.prototype.rect = function (x, y, w, h, tl, tr, br, bl) {
-  this._validateParameters(
-    'rect',
-    arguments,
-    [
-      ['Number', 'Number', 'Number', 'Number'],
-      ['Number', 'Number', 'Number', 'Number', 'Number'],
-      ['Number', 'Number', 'Number', 'Number',
-       'Number', 'Number', 'Number', 'Number']
-    ]
-  );
-
+/**
+* @method rect
+* @param  {Number} x
+* @param  {Number} y
+* @param  {Number} w
+* @param  {Number} h
+* @param  {Number} [detailX]
+* @param  {Number} [detailY]
+* @return {p5}          the p5 object.
+*/
+p5.prototype.rect = function () {
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
   if (!this._renderer._doStroke && !this._renderer._doFill) {
     return;
   }
-  this._renderer.rect(x, y, w, h, tl, tr, br, bl);
+  var vals = canvas.modeAdjust(
+    args[0],
+    args[1],
+    args[2],
+    args[3],
+    this._renderer._rectMode);
+  args[0] = vals.x;
+  args[1] = vals.y;
+  args[2] = vals.w;
+  args[3] = vals.h;
+  this._renderer.rect(args);
   return this;
 };
 
@@ -10732,55 +10623,27 @@ p5.prototype.rect = function (x, y, w, h, tl, tr, br, bl) {
 * triangle(30, 75, 58, 20, 86, 75);
 * </code>
 * </div>
+*
+*@alt
+* white triangle with black outline in mid-right of canvas.
+*
 */
 p5.prototype.triangle = function() {
 
   if (!this._renderer._doStroke && !this._renderer._doFill) {
     return this;
   }
-  if(this._renderer.isP3D){
-    this._validateParameters(
-      'triangle',
-      arguments,
-      [
-        ['Number', 'Number', 'Number', 'Number', 'Number', 'Number',
-         'Number', 'Number', 'Number']
-      ]
-    );
-    this._renderer.triangle(
-      arguments[0],
-      arguments[1],
-      arguments[2],
-      arguments[3],
-      arguments[4],
-      arguments[5],
-      arguments[6],
-      arguments[7],
-      arguments[8]
-      );
-  } else {
-    this._validateParameters(
-      'triangle',
-      arguments,
-      [
-        ['Number', 'Number', 'Number', 'Number', 'Number', 'Number']
-      ]
-    );
-    this._renderer.triangle(
-     arguments[0],
-     arguments[1],
-     arguments[2],
-     arguments[3],
-     arguments[4],
-     arguments[5]
-    );
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
   }
+  this._renderer.triangle(args);
   return this;
 };
 
 module.exports = p5;
 
-},{"./constants":47,"./core":48,"./error_helpers":51}],45:[function(_dereq_,module,exports){
+},{"./canvas":40,"./constants":41,"./core":42,"./error_helpers":45}],39:[function(_dereq_,module,exports){
 /**
  * @module Shape
  * @submodule Attributes
@@ -10797,28 +10660,28 @@ var constants = _dereq_('./constants');
 /**
  * Modifies the location from which ellipses are drawn by changing the way
  * in which parameters given to ellipse() are interpreted.
- *
+ * <br><br>
  * The default mode is ellipseMode(CENTER), which interprets the first two
  * parameters of ellipse() as the shape's center point, while the third and
  * fourth parameters are its width and height.
- *
+ * <br><br>
  * ellipseMode(RADIUS) also uses the first two parameters of ellipse() as
  * the shape's center point, but uses the third and fourth parameters to
  * specify half of the shapes's width and height.
- *
+ * <br><br>
  * ellipseMode(CORNER) interprets the first two parameters of ellipse() as
  * the upper-left corner of the shape, while the third and fourth parameters
  * are its width and height.
- *
+ * <br><br>
  * ellipseMode(CORNERS) interprets the first two parameters of ellipse() as
  * the location of one corner of the ellipse's bounding box, and the third
  * and fourth parameters as the location of the opposite corner.
- *
- * The parameter must be written in ALL CAPS because Processing is a
+ * <br><br>
+ * The parameter must be written in ALL CAPS because Javascript is a
  * case-sensitive language.
  *
  * @method ellipseMode
- * @param  {Number/Constant} mode either CENTER, RADIUS, CORNER, or CORNERS
+ * @param  {Constant} mode either CENTER, RADIUS, CORNER, or CORNERS
  * @return {p5}                   the p5 object
  * @example
  * <div>
@@ -10844,6 +10707,11 @@ var constants = _dereq_('./constants');
  * ellipse(25, 25, 50, 50);  // Draw gray ellipse using CORNERS mode
  * </code>
  * </div>
+ *
+ * @alt
+ * 60x60 white ellipse and 30x30 grey ellipse with black outlines at center.
+ * 60x60 white ellipse @center and 30x30 grey ellipse top-right, black outlines.
+ *
  */
 p5.prototype.ellipseMode = function(m) {
   if (m === constants.CORNER ||
@@ -10873,6 +10741,10 @@ p5.prototype.ellipseMode = function(m) {
  * ellipse(70, 48, 36, 36);
  * </code>
  * </div>
+ *
+ * @alt
+ * 2 pixelated 36x36 white ellipses to left & right of center, black background
+ *
  */
 p5.prototype.noSmooth = function() {
   this._renderer.noSmooth();
@@ -10882,28 +10754,28 @@ p5.prototype.noSmooth = function() {
 /**
  * Modifies the location from which rectangles are drawn by changing the way
  * in which parameters given to rect() are interpreted.
- *
+ * <br><br>
  * The default mode is rectMode(CORNER), which interprets the first two
  * parameters of rect() as the upper-left corner of the shape, while the
  * third and fourth parameters are its width and height.
- *
+ * <br><br>
  * rectMode(CORNERS) interprets the first two parameters of rect() as the
  * location of one corner, and the third and fourth parameters as the
  * location of the opposite corner.
- *
+ * <br><br>
  * rectMode(CENTER) interprets the first two parameters of rect() as the
  * shape's center point, while the third and fourth parameters are its
  * width and height.
- *
+ * <br><br>
  * rectMode(RADIUS) also uses the first two parameters of rect() as the
  * shape's center point, but uses the third and fourth parameters to specify
  * half of the shapes's width and height.
- *
- * The parameter must be written in ALL CAPS because Processing is a
+ * <br><br>
+ * The parameter must be written in ALL CAPS because Javascript is a
  * case-sensitive language.
  *
  * @method rectMode
- * @param  {Number/Constant} mode either CORNER, CORNERS, CENTER, or RADIUS
+ * @param  {Constant} mode either CORNER, CORNERS, CENTER, or RADIUS
  * @return {p5}                   the p5 object
  * @example
  * <div>
@@ -10929,6 +10801,11 @@ p5.prototype.noSmooth = function() {
  * rect(50, 50, 30, 30);  // Draw gray rect using CENTER mode
  * </code>
  * </div>
+ *
+ * @alt
+ * 50x50 white rect at center and 25x25 grey rect in the top left of the other.
+ * 50x50 white rect at center and 25x25 grey rect in the center of the other.
+ *
  */
 p5.prototype.rectMode = function(m) {
   if (m === constants.CORNER ||
@@ -10959,6 +10836,10 @@ p5.prototype.rectMode = function(m) {
  * ellipse(70, 48, 36, 36);
  * </code>
  * </div>
+ *
+ * @alt
+ * 2 pixelated 36x36 white ellipses one left one right of center. On black.
+ *
  */
 p5.prototype.smooth = function() {
   this._renderer.smooth();
@@ -10971,7 +10852,7 @@ p5.prototype.smooth = function() {
  * parameters: SQUARE, PROJECT, and ROUND. The default cap is ROUND.
  *
  * @method strokeCap
- * @param  {Number/Constant} cap either SQUARE, PROJECT, or ROUND
+ * @param  {Number|Constant} cap either SQUARE, PROJECT, or ROUND
  * @return {p5}                  the p5 object
  * @example
  * <div>
@@ -10985,6 +10866,10 @@ p5.prototype.smooth = function() {
  * line(20, 70, 80, 70);
  * </code>
  * </div>
+ *
+ * @alt
+ * 3 lines. Top line: rounded ends, mid: squared, bottom:longer squared ends.
+ *
  */
 p5.prototype.strokeCap = function(cap) {
   if (cap === constants.ROUND ||
@@ -11002,7 +10887,7 @@ p5.prototype.strokeCap = function(cap) {
  * MITER.
  *
  * @method strokeJoin
- * @param  {Number/Constant} join either MITER, BEVEL, ROUND
+ * @param  {Number|Constant} join either MITER, BEVEL, ROUND
  * @return {p5}                   the p5 object
  * @example
  * <div>
@@ -11043,6 +10928,12 @@ p5.prototype.strokeCap = function(cap) {
  * endShape();
  * </code>
  * </div>
+ *
+ * @alt
+ * Right-facing arrowhead shape with pointed tip in center of canvas.
+ * Right-facing arrowhead shape with flat tip in center of canvas.
+ * Right-facing arrowhead shape with rounded tip in center of canvas.
+ *
  */
 p5.prototype.strokeJoin = function(join) {
   if (join === constants.ROUND ||
@@ -11071,6 +10962,10 @@ p5.prototype.strokeJoin = function(join) {
  * line(20, 70, 80, 70);
  * </code>
  * </div>
+ *
+ * @alt
+ * 3 horizontal black lines. Top line: thin, mid: medium, bottom:thick.
+ *
  */
 p5.prototype.strokeWeight = function(w) {
   this._renderer.strokeWeight(w);
@@ -11079,7 +10974,7 @@ p5.prototype.strokeWeight = function(w) {
 
 module.exports = p5;
 
-},{"./constants":47,"./core":48}],46:[function(_dereq_,module,exports){
+},{"./constants":41,"./core":42}],40:[function(_dereq_,module,exports){
 /**
  * @requires constants
  */
@@ -11115,7 +11010,7 @@ module.exports = {
 };
 
 
-},{"./constants":47}],47:[function(_dereq_,module,exports){
+},{"./constants":41}],41:[function(_dereq_,module,exports){
 /**
  * @module Constants
  * @submodule Constants
@@ -11153,6 +11048,9 @@ module.exports = {
    * arc(50, 50, 80, 80, 0, HALF_PI);
    * </code></div>
    *
+   * @alt
+   * 80x80 white quarter-circle with curve toward bottom right of canvas.
+   *
    */
   HALF_PI: PI / 2,
   /**
@@ -11167,6 +11065,10 @@ module.exports = {
    * <div><code>
    * arc(50, 50, 80, 80, 0, PI);
    * </code></div>
+   *
+   * @alt
+   * white half-circle with curve toward bottom of canvas.
+   *
    */
   PI: PI,
   /**
@@ -11181,6 +11083,9 @@ module.exports = {
    * <div><code>
    * arc(50, 50, 80, 80, 0, QUARTER_PI);
    * </code></div>
+   *
+   * @alt
+   * white eighth-circle rotated about 40 degrees with curve bottom right canvas.
    *
    */
   QUARTER_PI: PI / 4,
@@ -11197,6 +11102,9 @@ module.exports = {
    * arc(50, 50, 80, 80, 0, TAU);
    * </code></div>
    *
+   * @alt
+   * 80x80 white ellipse shape in center of canvas.
+   *
    */
   TAU: PI * 2,
   /**
@@ -11211,6 +11119,9 @@ module.exports = {
    * <div><code>
    * arc(50, 50, 80, 80, 0, TWO_PI);
    * </code></div>
+   *
+   * @alt
+   * 80x80 white ellipse shape in center of canvas.
    *
    */
   TWO_PI: PI * 2,
@@ -11227,11 +11138,13 @@ module.exports = {
   TOP: 'top',
   BOTTOM: 'bottom',
   BASELINE: 'alphabetic',
-  POINTS: 'points',
-  LINES: 'lines',
-  TRIANGLES: 'triangles',
-  TRIANGLE_FAN: 'triangles_fan',
-  TRIANGLE_STRIP: 'triangles_strip',
+  POINTS: 0x0000,
+  LINES: 0x0001,
+  LINE_STRIP: 0x0003,
+  LINE_LOOP: 0x0002,
+  TRIANGLES: 0x0004,
+  TRIANGLE_FAN: 0x0006,
+  TRIANGLE_STRIP: 0x0005,
   QUADS: 'quads',
   QUAD_STRIP: 'quad_strip',
   CLOSE: 'close',
@@ -11269,7 +11182,7 @@ module.exports = {
   UP_ARROW: 38,
 
   // RENDERING
-  BLEND: 'normal',
+  BLEND: 'source-over',
   ADD: 'lighter',
   //ADD: 'add', //
   //SUBTRACT: 'subtract', //
@@ -11279,7 +11192,7 @@ module.exports = {
   EXCLUSION: 'exclusion',
   MULTIPLY: 'multiply',
   SCREEN: 'screen',
-  REPLACE: 'source-over',
+  REPLACE: 'copy',
   OVERLAY: 'overlay',
   HARD_LIGHT: 'hard-light',
   SOFT_LIGHT: 'soft-light',
@@ -11318,7 +11231,7 @@ module.exports = {
 
 };
 
-},{}],48:[function(_dereq_,module,exports){
+},{}],42:[function(_dereq_,module,exports){
 /**
  * @module Structure
  * @submodule Structure
@@ -11350,8 +11263,8 @@ var constants = _dereq_('./constants');
  * @param  {Function}    sketch a closure that can set optional preload(),
  *                              setup(), and/or draw() properties on the
  *                              given p5 instance
- * @param  {HTMLElement|boolean} node element to attach canvas to, if a
- *                                    boolean is passed in use it as sync
+ * @param  {HTMLElement|boolean} [node] element to attach canvas to, if a
+ *                                      boolean is passed in use it as sync
  * @param  {boolean}     [sync] start synchronously (optional)
  * @return {p5}                 a p5 instance
  */
@@ -11372,7 +11285,10 @@ var p5 = function(sketch, node, sync) {
    * asynchronous loading of external files. If a preload function is
    * defined, setup() will wait until any load calls within have finished.
    * Nothing besides load calls should be inside preload (loadImage,
-   * loadJSON, loadFont, loadStrings, etc).
+   * loadJSON, loadFont, loadStrings, etc).<br><br>
+   * By default the text "loading..." will be displayed. To make your own
+   * loading page, include an HTML element with id "p5_loading" in your
+   * page. More information <a href="http://bit.ly/2kQ6Nio">here</a>.
    *
    * @method preload
    * @example
@@ -11394,6 +11310,10 @@ var p5 = function(sketch, node, sync) {
    *   image(img, 25, 25, 50, 50);
    * }
    * </code></div>
+   *
+   * @alt
+   * nothing displayed
+   *
    */
 
   /**
@@ -11401,9 +11321,10 @@ var p5 = function(sketch, node, sync) {
    * define initial environment properties such as screen size and background
    * color and to load media such as images and fonts as the program starts.
    * There can only be one setup() function for each program and it shouldn't
-   * be called again after its initial execution. Note: Variables declared
-   * within setup() are not accessible within other functions, including
-   * draw().
+   * be called again after its initial execution.
+   * <br><br>
+   * Note: Variables declared within setup() are not accessible within other
+   * functions, including draw().
    *
    * @method setup
    * @example
@@ -11420,26 +11341,38 @@ var p5 = function(sketch, node, sync) {
    *   rect(a++%width, 10, 2, 80);
    * }
    * </code></div>
+   *
+   * @alt
+   * nothing displayed
+   *
    */
 
   /**
    * Called directly after setup(), the draw() function continuously executes
    * the lines of code contained inside its block until the program is stopped
-   * or noLoop() is called. draw() is called automatically and should never be
-   * called explicitly.
-   *
+   * or noLoop() is called. Note if noLoop() is called in setup(), draw() will
+   * still be executed once before stopping. draw() is called automatically and
+   * should never be called explicitly.
+   * <br><br>
    * It should always be controlled with noLoop(), redraw() and loop(). After
    * noLoop() stops the code in draw() from executing, redraw() causes the
    * code inside draw() to execute once, and loop() will cause the code
    * inside draw() to resume executing continuously.
-   *
+   * <br><br>
    * The number of times draw() executes in each second may be controlled with
    * the frameRate() function.
-   *
+   * <br><br>
    * There can only be one draw() function for each sketch, and draw() must
    * exist if you want the code to run continuously, or to process events such
    * as mousePressed(). Sometimes, you might have an empty call to draw() in
    * your program, as shown in the above example.
+   * <br><br>
+   * It is important to note that the drawing coordinate system will be reset
+   * at the beginning of each draw() call. If any transformations are performed
+   * within draw() (ex: scale, rotate, translate, their effects will be
+   * undone at the beginning of draw(), so transformations will not accumulate
+   * over time. On the other hand, styling applied (ex: fill, stroke, etc) will
+   * remain in effect.
    *
    * @method draw
    * @example
@@ -11457,6 +11390,10 @@ var p5 = function(sketch, node, sync) {
    *   line(0, yPos, width, yPos);
    * }
    * </code></div>
+   *
+   * @alt
+   * nothing displayed
+   *
    */
 
 
@@ -11465,7 +11402,8 @@ var p5 = function(sketch, node, sync) {
   //////////////////////////////////////////////
 
   this._setupDone = false;
-  this.pixelDensity = window.devicePixelRatio || 1; // for handling hidpi
+  // for handling hidpi
+  this._pixelDensity = Math.ceil(window.devicePixelRatio) || 1;
   this._userNode = node;
   this._curElement = null;
   this._elements = [];
@@ -11482,6 +11420,8 @@ var p5 = function(sketch, node, sync) {
     'mousemove': null,
     'mousedown': null,
     'mouseup': null,
+    'dragend': null,
+    'dragover': null,
     'click': null,
     'mouseover': null,
     'mouseout': null,
@@ -11495,23 +11435,15 @@ var p5 = function(sketch, node, sync) {
     'blur': null
   };
 
+  this._events.wheel = null;
+  this._loadingScreenId = 'p5_loading';
+
   if (window.DeviceOrientationEvent) {
     this._events.deviceorientation = null;
-  } else if (window.DeviceMotionEvent) {
+  }
+  if (window.DeviceMotionEvent && !window._isNodeWebkit) {
     this._events.devicemotion = null;
-  } else {
-    this._events.MozOrientation = null;
   }
-
-  //FF doesn't recognize mousewheel as of FF3.x
-  if (/Firefox/i.test(navigator.userAgent)) {
-    this._events.DOMMouseScroll = null;
-  } else {
-    this._events.mousewheel = null;
-  }
-
-
-  this._loadingScreenId = 'p5_loading';
 
   this._start = function () {
     // Find node if id given
@@ -11520,16 +11452,6 @@ var p5 = function(sketch, node, sync) {
         this._userNode = document.getElementById(this._userNode);
       }
     }
-
-    // Always create a default canvas.
-    // Later on if the user calls createCanvas, this default one
-    // will be replaced
-    this.createCanvas(
-      this._defaultCanvasSize.width,
-      this._defaultCanvasSize.height,
-      'p2d',
-      true
-    );
 
     var userPreload = this.preload || window.preload; // look for "preload"
     if (userPreload) {
@@ -11560,6 +11482,7 @@ var p5 = function(sketch, node, sync) {
       }
 
       userPreload();
+      this._runIfPreloadsAreDone();
     } else {
       this._setup();
       this._runFrames();
@@ -11567,9 +11490,8 @@ var p5 = function(sketch, node, sync) {
     }
   }.bind(this);
 
-  this._decrementPreload = function(){
+  this._runIfPreloadsAreDone = function(){
     var context = this._isGlobal ? window : this;
-    context._setProperty('_preloadCount', context._preloadCount - 1);
     if (context._preloadCount === 0) {
       var loadingScreen = document.getElementById(context._loadingScreenId);
       if (loadingScreen) {
@@ -11581,12 +11503,21 @@ var p5 = function(sketch, node, sync) {
     }
   };
 
+  this._decrementPreload = function(){
+    var context = this._isGlobal ? window : this;
+    context._setProperty('_preloadCount', context._preloadCount - 1);
+    context._runIfPreloadsAreDone();
+  };
+
   this._wrapPreload = function(obj, fnName){
     return function(){
       //increment counter
       this._incrementPreload();
       //call original function
-      var args = Array.prototype.slice.call(arguments);
+      var args = new Array(arguments.length);
+      for (var i = 0; i < args.length; ++i) {
+        args[i] = arguments[i];
+      }
       args.push(this._decrementPreload.bind(this));
       return this._registeredPreloadMethods[fnName].apply(obj, args);
     }.bind(this);
@@ -11599,11 +11530,24 @@ var p5 = function(sketch, node, sync) {
 
   this._setup = function() {
 
+    // Always create a default canvas.
+    // Later on if the user calls createCanvas, this default one
+    // will be replaced
+    this.createCanvas(
+      this._defaultCanvasSize.width,
+      this._defaultCanvasSize.height,
+      'p2d',
+      true
+    );
+
     // return preload functions to their normal vals if switched by preload
     var context = this._isGlobal ? window : this;
     if (typeof context.preload === 'function') {
       for (var f in this._preloadMethods) {
         context[f] = this._preloadMethods[f][f];
+        if (context[f] && this) {
+          context[f] = context[f].bind(this);
+        }
       }
     }
 
@@ -11613,17 +11557,14 @@ var p5 = function(sketch, node, sync) {
       context.setup();
     }
 
-    // // unhide hidden canvas that was created
-    // this.canvas.style.visibility = '';
-    // this.canvas.className = this.canvas.className.replace('p5_hidden', '');
-
     // unhide any hidden canvases that were created
-    var reg = new RegExp(/(^|\s)p5_hidden(?!\S)/g);
-    var canvases = document.getElementsByClassName('p5_hidden');
+    var canvases = document.getElementsByTagName('canvas');
     for (var i = 0; i < canvases.length; i++) {
       var k = canvases[i];
-      k.style.visibility = '';
-      k.className = k.className.replace(reg, '');
+      if (k.dataset.hidden === 'true') {
+        k.style.visibility = '';
+        delete(k.dataset.hidden);
+      }
     }
     this._setupDone = true;
 
@@ -11643,20 +11584,16 @@ var p5 = function(sketch, node, sync) {
     // if looping is off, so we bypass the time delay if that
     // is the case.
     var epsilon = 5;
-    if (!this.loop ||
+    if (!this._loop ||
         time_since_last >= target_time_between_frames - epsilon) {
+
+      //mandatory update values(matrixs and stack)
+
       this._setProperty('frameCount', this.frameCount + 1);
       this.redraw();
-      this._updatePAccelerations();
-      this._updatePMouseCoords();
-      this._updatePTouchCoords();
+      this._updateMouseCoords();
       this._frameRate = 1000.0/(now - this._lastFrameTime);
       this._lastFrameTime = now;
-    }
-
-    //mandatory update values(matrixs and stack) for 3d
-    if(this._renderer.isP3D){
-      this._renderer._update();
     }
 
     // get notified the next time the browser gives us
@@ -11696,6 +11633,10 @@ var p5 = function(sketch, node, sync) {
    *   remove(); // remove whole sketch on mouse press
    * }
    * </code></div>
+   *
+   * @alt
+   * nothing displayed
+   *
    */
   this.remove = function() {
     if (this._curElement) {
@@ -11753,31 +11694,41 @@ var p5 = function(sketch, node, sync) {
     // window.p5 = undefined;
   }.bind(this);
 
+  // call any registered init functions
+  this._registeredMethods.init.forEach(function (f) {
+    if (typeof(f) !== 'undefined') {
+      f.call(this);
+    }
+  }, this);
 
-  // attach constants to p5 instance
-  for (var k in constants) {
-    p5.prototype[k] = constants[k];
-  }
+  var friendlyBindGlobal = this._createFriendlyGlobalFunctionBinder();
 
   // If the user has created a global setup or draw function,
   // assume "global" mode and make everything global (i.e. on the window)
   if (!sketch) {
     this._isGlobal = true;
+    p5.instance = this;
     // Loop through methods on the prototype and attach them to the window
     for (var p in p5.prototype) {
       if(typeof p5.prototype[p] === 'function') {
         var ev = p.substring(2);
         if (!this._events.hasOwnProperty(ev)) {
-          window[p] = p5.prototype[p].bind(this);
+          if (Math.hasOwnProperty(p) && (Math[p] === p5.prototype[p])) {
+            // Multiple p5 methods are just native Math functions. These can be
+            // called without any binding.
+            friendlyBindGlobal(p, p5.prototype[p]);
+          } else {
+            friendlyBindGlobal(p, p5.prototype[p].bind(this));
+          }
         }
       } else {
-        window[p] = p5.prototype[p];
+        friendlyBindGlobal(p, p5.prototype[p]);
       }
     }
     // Attach its properties to the window
     for (var p2 in this) {
       if (this.hasOwnProperty(p2)) {
-        window[p2] = this[p2];
+        friendlyBindGlobal(p2, this[p2]);
       }
     }
 
@@ -11798,16 +11749,18 @@ var p5 = function(sketch, node, sync) {
     }
   }
 
-  var self = this;
-  window.addEventListener('focus', function() {
-    self._setProperty('focused', true);
+  var focusHandler = function() {
+    this._setProperty('focused', true);
+  }.bind(this);
+  var blurHandler = function() {
+    this._setProperty('focused', false);
+  }.bind(this);
+  window.addEventListener('focus', focusHandler);
+  window.addEventListener('blur', blurHandler);
+  this.registerMethod('remove', function() {
+    window.removeEventListener('focus', focusHandler);
+    window.removeEventListener('blur', blurHandler);
   });
-
-  window.addEventListener('blur', function() {
-    self._setProperty('focused', false);
-  });
-
-  // TODO: ???
 
   if (sync) {
     this._start();
@@ -11820,6 +11773,18 @@ var p5 = function(sketch, node, sync) {
   }
 };
 
+// This is a pointer to our global mode p5 instance, if we're in
+// global mode.
+p5.instance = null;
+
+// Allows for the friendly error system to be turned off when creating a sketch,
+// which can give a significant boost to performance when needed.
+p5.disableFriendlyErrors = false;
+
+// attach constants to p5 prototype
+for (var k in constants) {
+  p5.prototype[k] = constants[k];
+}
 
 // functions that cause preload to wait
 // more can be added by using registerPreloadMethod(func)
@@ -11830,10 +11795,11 @@ p5.prototype._preloadMethods = {
   loadXML: p5.prototype,
   loadShape: p5.prototype,
   loadTable: p5.prototype,
-  loadFont: p5.prototype
+  loadFont: p5.prototype,
+  loadModel: p5.prototype
 };
 
-p5.prototype._registeredMethods = { pre: [], post: [], remove: [] };
+p5.prototype._registeredMethods = { init: [], pre: [], post: [], remove: [] };
 
 p5.prototype._registeredPreloadMethods = {};
 
@@ -11851,9 +11817,81 @@ p5.prototype.registerMethod = function(name, m) {
   p5.prototype._registeredMethods[name].push(m);
 };
 
+p5.prototype._createFriendlyGlobalFunctionBinder = function(options) {
+  options = options || {};
+
+  var globalObject = options.globalObject || window;
+  var log = options.log || console.log.bind(console);
+  var propsToForciblyOverwrite = {
+    // p5.print actually always overwrites an existing global function,
+    // albeit one that is very unlikely to be used:
+    //
+    //   https://developer.mozilla.org/en-US/docs/Web/API/Window/print
+    'print': true
+  };
+
+  return function(prop, value) {
+    if (!p5.disableFriendlyErrors &&
+        typeof(IS_MINIFIED) === 'undefined' &&
+        typeof(value) === 'function' &&
+        !(prop in p5.prototype._preloadMethods)) {
+      try {
+        // Because p5 has so many common function names, it's likely
+        // that users may accidentally overwrite global p5 functions with
+        // their own variables. Let's allow this but log a warning to
+        // help users who may be doing this unintentionally.
+        //
+        // For more information, see:
+        //
+        //   https://github.com/processing/p5.js/issues/1317
+
+        if (prop in globalObject && !(prop in propsToForciblyOverwrite)) {
+          throw new Error('global "' + prop + '" already exists');
+        }
+
+        // It's possible that this might throw an error because there
+        // are a lot of edge-cases in which `Object.defineProperty` might
+        // not succeed; since this functionality is only intended to
+        // help beginners anyways, we'll just catch such an exception
+        // if it occurs, and fall back to legacy behavior.
+        Object.defineProperty(globalObject, prop, {
+          configurable: true,
+          enumerable: true,
+          get: function() {
+            return value;
+          },
+          set: function(newValue) {
+            Object.defineProperty(globalObject, prop, {
+              configurable: true,
+              enumerable: true,
+              value: newValue,
+              writable: true
+            });
+            log(
+              'You just changed the value of "' + prop + '", which was ' +
+              'a p5 function. This could cause problems later if you\'re ' +
+              'not careful.'
+            );
+          }
+        });
+      } catch (e) {
+        log(
+          'p5 had problems creating the global function "' + prop + '", ' +
+          'possibly because your code is already using that name as ' +
+          'a variable. You may want to rename your variable to something ' +
+          'else.'
+        );
+        globalObject[prop] = value;
+      }
+    } else {
+      globalObject[prop] = value;
+    }
+  };
+};
+
 module.exports = p5;
 
-},{"./constants":47,"./shim":57}],49:[function(_dereq_,module,exports){
+},{"./constants":41,"./shim":51}],43:[function(_dereq_,module,exports){
 /**
  * @module Shape
  * @submodule Curves
@@ -11902,19 +11940,52 @@ var curveDetail = 20;
  * bezier(85, 20, 10, 10, 90, 90, 15, 80);
  * </code>
  * </div>
+ * @alt
+ * stretched black s-shape in center with orange lines extending from end points.
+ * stretched black s-shape with 10 5x5 white ellipses along the shape.
+ * stretched black s-shape with 7 5x5 ellipses and orange lines along the shape.
+ * stretched black s-shape with 17 small orange lines extending from under shape.
+ * horseshoe shape with orange ends facing left and black curved center.
+ * horseshoe shape with orange ends facing left and black curved center.
+ * Line shaped like right-facing arrow,points move with mouse-x and warp shape.
+ * horizontal line that hooks downward on the right and 13 5x5 ellipses along it.
+ * right curving line mid-right of canvas with 7 short lines radiating from it.
  */
-p5.prototype.bezier = function(x1, y1, x2, y2, x3, y3, x4, y4) {
-  this._validateParameters(
-    'bezier',
-    arguments,
-    [ 'Number', 'Number', 'Number', 'Number',
-      'Number', 'Number', 'Number', 'Number' ]
-  );
-
-  if (!this._renderer._doStroke) {
+/**
+ * @method bezier
+ * @param  {Number} z1 z-coordinate for the first anchor point
+ * @param  {Number} z2 z-coordinate for the first control point
+ * @param  {Number} z3 z-coordinate for the first anchor point
+ * @param  {Number} z4 z-coordinate for the first control point
+ * @return {p5.Renderer3D}   [description]
+ * @example
+ * <div>
+ * <code>
+ *background(0, 0, 0);
+ *noFill();
+ *stroke(255);
+ *bezier(250,250,0, 100,100,0, 100,0,0, 0,100,0);
+ * </code>
+ * </div>
+*/
+p5.prototype.bezier = function() {
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
+  if (!this._renderer._doStroke && !this._renderer._doFill) {
     return this;
   }
-  this._renderer.bezier(x1, y1, x2, y2, x3, y3, x4, y4);
+  if (this._renderer.isP3D){
+    args.push(bezierDetail);//adding value of bezier detail to the args array
+    this._renderer.bezier(args);
+  } else{
+    this._renderer.bezier(args[0],args[1],
+      args[2],args[3],
+      args[4],args[5],
+      args[6],args[7]);
+  }
+
   return this;
 };
 
@@ -11933,6 +12004,10 @@ p5.prototype.bezier = function(x1, y1, x2, y2, x3, y3, x4, y4) {
  * bezier(85, 20, 10, 10, 90, 90, 15, 80);
  * </code>
  * </div>
+ *
+ * @alt
+ * stretched black s-shape with 7 5x5 ellipses and orange lines along the shape.
+ *
  */
 p5.prototype.bezierDetail = function(d) {
   bezierDetail = d;
@@ -11971,6 +12046,10 @@ p5.prototype.bezierDetail = function(d) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * stretched black s-shape with 17 small orange lines extending from under shape.
+ *
  */
 p5.prototype.bezierPoint = function(a, b, c, d, t) {
   var adjustedT = 1-t;
@@ -12040,6 +12119,10 @@ p5.prototype.bezierPoint = function(a, b, c, d, t) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * s-shaped line with 17 short orange lines extending from underside of shape
+ *
  */
 p5.prototype.bezierTangent = function(a, b, c, d, t) {
   var adjustedT = 1-t;
@@ -12097,19 +12180,52 @@ p5.prototype.bezierTangent = function(a, b, c, d, t) {
  * curve(p2.x, p2.y, p3.x, p3.y, p4.x, p4.y, p4.x, p4.y)
  * </code>
  * </div>
+ *
+ * @alt
+ * horseshoe shape with orange ends facing left and black curved center.
+ * horseshoe shape with orange ends facing left and black curved center.
+ *
  */
-p5.prototype.curve = function(x1, y1, x2, y2, x3, y3, x4, y4) {
-  this._validateParameters(
-    'curve',
-    arguments,
-    [ 'Number', 'Number', 'Number', 'Number',
-      'Number', 'Number', 'Number', 'Number' ]
-  );
-
-  if (!this._renderer._doStroke) {
-    return;
+/**
+ * @method curve
+ * @param  {Number} z1 z-coordinate for the beginning control point
+ * @param  {Number} z2 z-coordinate for the first point
+ * @param  {Number} z3 z-coordinate for the second point
+ * @param  {Number} z4 z-coordinate for the ending control point
+ * @return {Object}    the p5 object
+ * @example
+ * <div>
+ * <code>
+ * noFill();
+ * stroke(255, 102, 0);
+ * curve(5,26,0, 5,26,0, 73,24,0, 73,61,0);
+ * stroke(0);
+ * curve(5,26,0, 73,24,0, 73,61,0, 15,65,0);
+ * stroke(255, 102, 0);
+ * curve(73,24,0, 73,61,0, 15,65,0, 15,65,0);
+ * </code>
+ * </div>
+ *
+ * @alt
+ * curving black and orange lines.
+ */
+p5.prototype.curve = function() {
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
   }
-  this._renderer.curve(x1, y1, x2, y2, x3, y3, x4, y4);
+  if (!this._renderer._doStroke) {
+    return this;
+  }
+  if (this._renderer.isP3D){
+    args.push(curveDetail);
+    this._renderer.curve(args);
+  } else{
+    this._renderer.curve(args[0],args[1],
+      args[2],args[3],
+      args[4],args[5],
+      args[6],args[7]);
+  }
   return this;
 };
 
@@ -12128,6 +12244,10 @@ p5.prototype.curve = function(x1, y1, x2, y2, x3, y3, x4, y4) {
  * curve(5, 26, 5, 26, 73, 24, 73, 61);
  * </code>
  * </div>
+ *
+ * @alt
+ * white arch shape in top-mid canvas.
+ *
  */
 p5.prototype.curveDetail = function(d) {
   curveDetail = d;
@@ -12171,6 +12291,9 @@ p5.prototype.curveDetail = function(d) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * Line shaped like right-facing arrow,points move with mouse-x and warp shape.
  */
 p5.prototype.curveTightness = function (t) {
   this._renderer._curveTightness = t;
@@ -12210,6 +12333,8 @@ p5.prototype.curveTightness = function (t) {
  * }
  * </code>
  * </div>
+ *
+ *line hooking down to right-bottom with 13 5x5 white ellipse points
  */
 p5.prototype.curvePoint = function(a, b, c, d, t) {
   var t3 = t*t*t,
@@ -12224,7 +12349,7 @@ p5.prototype.curvePoint = function(a, b, c, d, t) {
 /**
  * Evaluates the tangent to the curve at position t for points a, b, c, d.
  * The parameter t varies between 0 and 1, a and d are points on the curve,
- * and b and c are the control points
+ * and b and c are the control points.
  *
  * @method curveTangent
  * @param {Number} a coordinate of first point on the curve
@@ -12252,6 +12377,9 @@ p5.prototype.curvePoint = function(a, b, c, d, t) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ *right curving line mid-right of canvas with 7 short lines radiating from it.
  */
 p5.prototype.curveTangent = function(a, b,c, d, t) {
   var t2 = t*t,
@@ -12264,7 +12392,7 @@ p5.prototype.curveTangent = function(a, b,c, d, t) {
 
 module.exports = p5;
 
-},{"./core":48,"./error_helpers":51}],50:[function(_dereq_,module,exports){
+},{"./core":42,"./error_helpers":45}],44:[function(_dereq_,module,exports){
 /**
  * @module Environment
  * @submodule Environment
@@ -12284,6 +12412,8 @@ p5.prototype._frameRate = 0;
 p5.prototype._lastFrameTime = window.performance.now();
 p5.prototype._targetFrameRate = 60;
 
+var _windowPrint = window.print;
+
 
 if (window.console && console.log) {
   /**
@@ -12292,7 +12422,7 @@ if (window.console && console.log) {
    * producing. This function creates a new line of text for each call to
    * the function. Individual elements can be
    * separated with quotes ("") and joined with the addition operator (+).
-   *
+   * <br><br>
    * While print() is similar to console.log(), it does not directly map to
    * it in order to simulate easier to understand behavior than
    * console.log(). Due to this, it is slower. For fastest results, use
@@ -12304,9 +12434,11 @@ if (window.console && console.log) {
    * @example
    * <div><code class='norender'>
    * var x = 10;
-   * print("The value of x is "+x);
+   * print("The value of x is " + x);
    * // prints "The value of x is 10"
    * </code></div>
+   * @alt
+   * default grey canvas
    */
   // Converts passed args into a string and then parses that string to
   // simulate synchronous behavior. This is a hack and is gross.
@@ -12314,8 +12446,15 @@ if (window.console && console.log) {
   // structures, simply console.log() on error.
   p5.prototype.print = function(args) {
     try {
-      var newArgs = JSON.parse(JSON.stringify(args));
-      console.log(newArgs);
+      if (arguments.length === 0) {
+        _windowPrint();
+      }
+      else if (arguments.length > 1) {
+        console.log.apply(console, arguments);
+      } else {
+        var newArgs = JSON.parse(JSON.stringify(args));
+        console.log(newArgs);
+      }
     } catch(err) {
       console.log(args);
     }
@@ -12324,7 +12463,6 @@ if (window.console && console.log) {
   p5.prototype.print = function() {};
 }
 
-p5.prototype.println = p5.prototype.print;
 
 /**
  * The system variable frameCount contains the number of frames that have
@@ -12346,6 +12484,10 @@ p5.prototype.println = p5.prototype.print;
  *       text(frameCount, width/2, height/2);
  *     }
  *   </code></div>
+ *
+ * @alt
+ * numbers rapidly counting upward with frame count set to 30.
+ *
  */
 p5.prototype.frameCount = 0;
 
@@ -12360,18 +12502,22 @@ p5.prototype.frameCount = 0;
  * // To demonstrate, put two windows side by side.
  * // Click on the window that the p5 sketch isn't in!
  * function draw() {
- *   if (focused) {  // or "if (focused === true)"
- *     noStroke();
- *     fill(0, 200, 0);
- *     ellipse(25, 25, 50, 50);
- *   } else {
+ *   background(200);
+ *   noStroke();
+ *   fill(0, 200, 0);
+ *   ellipse(25, 25, 50, 50);
+ *
+ *   if (!focused) {  // or "if (focused === false)"
  *     stroke(200,0,0);
  *     line(0, 0, 100, 100);
  *     line(100, 0, 0, 100);
  *   }
  * }
- *
  * </code></div>
+ *
+ * @alt
+ * green 50x50 ellipse at top left. Red X covers canvas when page focus changes
+ *
  */
 p5.prototype.focused = (document.hasFocus());
 
@@ -12384,7 +12530,7 @@ p5.prototype.focused = (document.hasFocus());
  * be less than the dimensions of the image.
  *
  * @method cursor
- * @param {Number/Constant} type either ARROW, CROSS, HAND, MOVE, TEXT, or
+ * @param {Number|Constant} type either ARROW, CROSS, HAND, MOVE, TEXT, or
  *                               WAIT, or path for image
  * @param {Number}          [x]  the horizontal active spot of the cursor
  * @param {Number}          [y]  the vertical active spot of the cursor
@@ -12401,6 +12547,10 @@ p5.prototype.focused = (document.hasFocus());
  *   }
  * }
  * </code></div>
+ *
+ * @alt
+ * horizontal line divides canvas. cursor on left is a cross, right is hand.
+ *
  */
 p5.prototype.cursor = function(type, x, y) {
   var cursor = 'auto';
@@ -12415,7 +12565,8 @@ p5.prototype.cursor = function(type, x, y) {
       // https://developer.mozilla.org/en-US/docs/Web/CSS/cursor
       coords = x + ' ' + y;
     }
-    if (type.substring(0, 6) !== 'http://') {
+    if ((type.substring(0, 7) === 'http://') ||
+        (type.substring(0, 8) === 'https://')) {
       // Image (absolute url)
       cursor = 'url(' + type + ') ' + coords + ', auto';
     } else if (/\.(cur|jpg|jpeg|gif|png|CUR|JPG|JPEG|GIF|PNG)$/.test(type)) {
@@ -12436,9 +12587,13 @@ p5.prototype.cursor = function(type, x, y) {
  * frame rate will not be achieved. Setting the frame rate within setup() is
  * recommended. The default rate is 60 frames per second. This is the same as
  * setFrameRate(val).
- *
- * Calling frameRate() with no arguments returns the current framerate. This
+ * <br><br>
+ * Calling frameRate() with no arguments returns the current framerate. The
+ * draw function must run at least once before it will return a value. This
  * is the same as getFrameRate().
+ * <br><br>
+ * Calling frameRate() with arguments that are not of the type numbers
+ * or are non positive also returns current framerate.
  *
  * @method frameRate
  * @param  {Number} [fps] number of frames to be displayed every second
@@ -12448,11 +12603,12 @@ p5.prototype.cursor = function(type, x, y) {
  * <div><code>
  * var rectX = 0;
  * var fr = 30; //starting FPS
- * var clr = color(255,0,0);
+ * var clr;
  *
  * function setup() {
  *   background(200);
  *   frameRate(fr); // Attempt to refresh at starting FPS
+ *   clr = color(255,0,0);
  * }
  *
  * function draw() {
@@ -12476,9 +12632,12 @@ p5.prototype.cursor = function(type, x, y) {
  * }
  * </div></code>
  *
+ * @alt
+ * blue rect moves left to right, followed by red rect moving faster. Loops.
+ *
  */
 p5.prototype.frameRate = function(fps) {
-  if (typeof fps === 'undefined') {
+  if (typeof fps !== 'number' || fps <= 0) {
     return this._frameRate;
   } else {
     this._setProperty('_targetFrameRate', fps);
@@ -12525,6 +12684,11 @@ p5.prototype.setFrameRate = function(fps) {
  *   ellipse(mouseX, mouseY, 10, 10);
  * }
  * </code></div>
+ *
+ *
+ * @alt
+ * cursor becomes 10x 10 white ellipse the moves with mouse x and y.
+ *
  */
 p5.prototype.noCursor = function() {
   this._curElement.elt.style.cursor = 'none';
@@ -12540,6 +12704,10 @@ p5.prototype.noCursor = function() {
  * <div class="norender"><code>
  * createCanvas(displayWidth, displayHeight);
  * </code></div>
+ *
+ * @alt
+ * cursor becomes 10x 10 white ellipse the moves with mouse x and y.
+ *
  */
 p5.prototype.displayWidth = screen.width;
 
@@ -12552,6 +12720,10 @@ p5.prototype.displayWidth = screen.width;
  * <div class="norender"><code>
  * createCanvas(displayWidth, displayHeight);
  * </code></div>
+ *
+ * @alt
+ * no display.
+ *
  */
 p5.prototype.displayHeight = screen.height;
 
@@ -12564,8 +12736,12 @@ p5.prototype.displayHeight = screen.height;
  * <div class="norender"><code>
  * createCanvas(windowWidth, windowHeight);
  * </code></div>
+ *
+ * @alt
+ * no display.
+ *
  */
-p5.prototype.windowWidth = window.innerWidth;
+p5.prototype.windowWidth = getWindowWidth();
 /**
  * System variable that stores the height of the inner window, it maps to
  * window.innerHeight.
@@ -12575,13 +12751,16 @@ p5.prototype.windowWidth = window.innerWidth;
  * <div class="norender"><code>
  * createCanvas(windowWidth, windowHeight);
  * </code></div>
- */
-p5.prototype.windowHeight = window.innerHeight;
+*@alt
+ * no display.
+ *
+*/
+p5.prototype.windowHeight = getWindowHeight();
 
 /**
  * The windowResized() function is called once every time the browser window
  * is resized. This is a good place to resize the canvas or do any other
- * adjustements to accomodate the new window size.
+ * adjustments to accommodate the new window size.
  *
  * @method windowResized
  * @example
@@ -12598,10 +12777,12 @@ p5.prototype.windowHeight = window.innerHeight;
  *   resizeCanvas(windowWidth, windowHeight);
  * }
  * </code></div>
+ * @alt
+ * no display.
  */
 p5.prototype._onresize = function(e){
-  this._setProperty('windowWidth', window.innerWidth);
-  this._setProperty('windowHeight', window.innerHeight);
+  this._setProperty('windowWidth', getWindowWidth());
+  this._setProperty('windowHeight', getWindowHeight());
   var context = this._isGlobal ? window : this;
   var executeDefault;
   if (typeof context.windowResized === 'function') {
@@ -12611,6 +12792,20 @@ p5.prototype._onresize = function(e){
     }
   }
 };
+
+function getWindowWidth() {
+  return window.innerWidth ||
+         document.documentElement && document.documentElement.clientWidth ||
+         document.body && document.body.clientWidth ||
+         0;
+}
+
+function getWindowHeight() {
+  return window.innerHeight ||
+         document.documentElement && document.documentElement.clientHeight ||
+         document.body && document.body.clientHeight ||
+         0;
+}
 
 /**
  * System variable that stores the width of the drawing canvas. This value
@@ -12641,8 +12836,9 @@ p5.prototype.height = 0;
  * be called on user input, for example, on mouse press like the example
  * below.
  *
- * @method fullScreen
- * @param  {Boolean} [val] whether the sketch should be fullscreened or not
+ * @method fullscreen
+ * @param  {Boolean} [val] whether the sketch should be in fullscreen mode
+ * or not
  * @return {Boolean} current fullscreen state
  * @example
  * <div>
@@ -12653,14 +12849,18 @@ p5.prototype.height = 0;
  * }
  * function mousePressed() {
  *   if (mouseX > 0 && mouseX < 100 && mouseY > 0 && mouseY < 100) {
- *     var fs = fullScreen();
- *     fullScreen(!fs);
+ *     var fs = fullscreen();
+ *     fullscreen(!fs);
  *   }
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * no display.
+ *
  */
-p5.prototype.fullScreen = function(val) {
+p5.prototype.fullscreen = function(val) {
   // no arguments, return fullscreen or not
   if (typeof val === 'undefined') {
     return document.fullscreenElement ||
@@ -12677,18 +12877,20 @@ p5.prototype.fullScreen = function(val) {
 };
 
 /**
- * Toggles pixel scaling for high pixel density displays. By default
- * pixel scaling is on, call devicePixelScaling(false) to turn it off.
- * This devicePixelScaling() function must be the first line of code
- * inside setup().
+ * Sets the pixel scaling for high pixel density displays. By default
+ * pixel density is set to match display density, call pixelDensity(1)
+ * to turn this off. Calling pixelDensity() with no arguments returns
+ * the current pixel density of the sketch.
  *
- * @method devicePixelScaling
- * @param  {Boolean|Number} [val] whether or how much the sketch should scale
+ *
+ * @method pixelDensity
+ * @param  {Number} [val] whether or how much the sketch should scale
+ * @returns {Number} current pixel density of the sketch
  * @example
  * <div>
  * <code>
  * function setup() {
- *   devicePixelScaling(false);
+ *   pixelDensity(1);
  *   createCanvas(100, 100);
  *   background(200);
  *   ellipse(width/2, height/2, 50, 50);
@@ -12698,26 +12900,50 @@ p5.prototype.fullScreen = function(val) {
  * <div>
  * <code>
  * function setup() {
- *   devicePixelScaling(3.0);
+ *   pixelDensity(3.0);
  *   createCanvas(100, 100);
  *   background(200);
  *   ellipse(width/2, height/2, 50, 50);
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * fuzzy 50x50 white ellipse with black outline in center of canvas.
+ * sharp 50x50 white ellipse with black outline in center of canvas.
  */
-p5.prototype.devicePixelScaling = function(val) {
-  if (val) {
-    if (typeof val === 'number') {
-      this.pixelDensity = val;
-    }
-    else {
-      this.pixelDensity = window.devicePixelRatio || 1;
-    }
+p5.prototype.pixelDensity = function(val) {
+  if (typeof val === 'number') {
+    this._pixelDensity = val;
   } else {
-    this.pixelDensity = 1;
+    return this._pixelDensity;
   }
   this.resizeCanvas(this.width, this.height, true);
+};
+
+/**
+ * Returns the pixel density of the current display the sketch is running on.
+ *
+ * @method displayDensity
+ * @returns {Number} current pixel density of the display
+ * @example
+ * <div>
+ * <code>
+ * function setup() {
+ *   var density = displayDensity();
+ *   pixelDensity(density);
+ *   createCanvas(100, 100);
+ *   background(200);
+ *   ellipse(width/2, height/2, 50, 50);
+ * }
+ * </code>
+ * </div>
+ *
+ * @alt
+ * 50x50 white ellipse with black outline in center of canvas.
+ */
+p5.prototype.displayDensity = function() {
+  return window.devicePixelRatio;
 };
 
 function launchFullscreen(element) {
@@ -12775,6 +13001,10 @@ function exitFullscreen() {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * current url (http://p5js.org/reference/#/p5/getURL) moves right to left.
+ *
  */
 p5.prototype.getURL = function() {
   return location.href;
@@ -12792,6 +13022,10 @@ p5.prototype.getURL = function() {
  *   }
  * }
  * </code></div>
+ *
+ * @alt
+ *no display
+ *
  */
 p5.prototype.getURLPath = function() {
   return location.pathname.split('/').filter(function(v){return v!=='';});
@@ -12813,6 +13047,9 @@ p5.prototype.getURLPath = function() {
  * }
  * </code>
  * </div>
+ * @alt
+ * no display.
+ *
  */
 p5.prototype.getURLParams = function() {
   var re = /[?&]([^&=]+)(?:[&=])([^&=]+)/gim;
@@ -12829,7 +13066,7 @@ p5.prototype.getURLParams = function() {
 
 module.exports = p5;
 
-},{"./constants":47,"./core":48}],51:[function(_dereq_,module,exports){
+},{"./constants":41,"./core":42}],45:[function(_dereq_,module,exports){
 /**
  * @for p5
  * @requires core
@@ -12856,37 +13093,9 @@ var getType = function( obj ) {
     class2type[ toString.call(obj) ] || 'object' :
     typeof obj;
 };
-var isArray = Array.isArray || function( obj ) {
-  return getType(obj) === 'array';
-};
-var isNumeric =function( obj ) {
-  // parseFloat NaNs numeric-cast false positives (null|true|false|"")
-  // ...but misinterprets leading-number strings, particularly hex literals
-  // subtraction forces infinities to NaN
-  // adding 1 corrects loss of precision from parseFloat (#15100)
-  return !isArray( obj ) && (obj - parseFloat( obj ) + 1) >= 0;
-};
+
 // -- End borrow --
 
-/**
- * Checks the definition type against the argument type
- * If any of these passes (in order), it matches:
- *
- * - p5.* definitions are checked with instanceof
- * - Booleans are let through (everything is truthy or falsey)
- * - Lowercase of the definition is checked against the js type
- * - Number types are checked to see if they are numerically castable
- */
-var numberTypes = ['Number', 'Integer', 'Number/Constant'];
-function typeMatches(defType, argType, arg) {
-  if(defType.match(/^p5\./)) {
-    var parts = defType.split('.');
-    return arg instanceof p5[parts[1]];
-  }
-  return defType === 'Boolean' || // Anything is truthy, cover in Debug Guide
-    (defType.toLowerCase() === argType) ||
-    (numberTypes.indexOf(defType) > -1 && isNumeric(arg));
-}
 
 /**
  * Prints out a fancy, colorful message to the console log
@@ -12898,9 +13107,6 @@ function typeMatches(defType, argType, arg) {
  * @return console logs
  */
 // Wrong number of params, undefined param, wrong type
-var PARAM_COUNT = 0;
-var EMPTY_VAR = 1;
-var WRONG_TYPE = 2;
 var FILE_LOAD = 3;
 // p5.js blue, p5.js orange, auto dark green; fallback p5.js darkened magenta
 // See testColors below for all the color codes and names
@@ -12935,96 +13141,6 @@ function report(message, func, color) {
   // }
 }
 
-/**
- * Validate all the parameters of a function for number and type
- * NOTE THIS FUNCTION IS TEMPORARILY DISABLED UNTIL FURTHER WORK
- * AND UPDATES ARE IMPLEMENTED. -LMCCART
- *
- * @param  {String} func  name of function we're checking
- * @param  {Array}  args  pass of the JS default arguments array
- * @param  {Array}  types List of types accepted ['Number', 'String, ...] OR
- *                        a list of lists for each format: [
- *                          ['String', 'Number', 'Number'],
- *                          ['String', 'Number', 'Number', 'Number', 'Number'
- *                        ]
- *
- * @return console logs
- */
-p5.prototype._validateParameters = function(func, args, types) {
-  if (!isArray(types[0])) {
-    types = [types];
-  }
-  // Check number of parameters
-  // Example: "You wrote ellipse(X,X,X). ellipse was expecting 4
-  //          parameters. Try ellipse(X,X,X,X)."
-  var diff = Math.abs(args.length-types[0].length);
-  var message, tindex = 0;
-  for (var i=1, len=types.length; i<len; i++) {
-    var d = Math.abs(args.length-types[i].length);
-    if (d <= diff) {
-      tindex = i;
-      diff = d;
-    }
-  }
-  var symbol = 'X'; // Parameter placeholder
-  if(diff > 0) {
-    message = 'You wrote ' + func + '(';
-    // Concat an appropriate number of placeholders for call
-    if (args.length > 0) {
-      message += symbol + Array(args.length).join(',' + symbol);
-    }
-    message += '). ' + func + ' was expecting ' + types[tindex].length +
-      ' parameters. Try ' + func + '(';
-    // Concat an appropriate number of placeholders for definition
-    if (types[tindex].length > 0) {
-      message += symbol + Array(types[tindex].length).join(',' + symbol);
-    }
-    message += ').';
-    // If multiple definitions
-    if (types.length > 1) {
-      message += ' ' + func + ' takes different numbers of parameters ' +
-        'depending on what you want to do. Click this link to learn more: ';
-    }
-    report(message, func, PARAM_COUNT);
-  }
-  // Type checking
-  // Example: "It looks like ellipse received an empty variable in spot #2."
-  // Example: "ellipse was expecting a number for parameter #1,
-  //           received "foo" instead."
-  for (var format=0; format<types.length; format++) {
-    for (var p=0; p < types[format].length && p < args.length; p++) {
-      var defType = types[format][p];
-      var argType = getType(args[p]);
-      if ('undefined' === argType || null === argType) {
-        report('It looks like ' + func +
-          ' received an empty variable in spot #' + (p+1) +
-          '. If not intentional, this is often a problem with scope: ' +
-          '[link to scope].', func, EMPTY_VAR);
-      } else if (defType !== '*' && !typeMatches(defType, argType, args[p])) {
-        message = func + ' was expecting a ' + defType.toLowerCase() +
-          ' for parameter #' + (p+1) + ', received ';
-        // Wrap strings in quotes
-        message += 'string' === argType ? '"' + args[p] + '"' : args[p];
-        message += ' instead.';
-        // If multiple definitions
-        if (types.length > 1) {
-          message += ' ' + func + ' takes different numbers of parameters ' +
-            'depending on what you want to do. ' +
-            'Click this link to learn more:';
-        }
-        report(message, func, WRONG_TYPE);
-      }
-    }
-  }
-};
-/*
- * NOTE THIS FUNCTION IS TEMPORARILY DISABLED UNTIL FURTHER WORK
- * AND UPDATES ARE IMPLEMENTED. -LMCCART
- */
-p5.prototype._validateParameters = function() {
-  return true;
-};
-
 var errorCases = {
   '0': {
     fileType: 'image',
@@ -13042,7 +13158,12 @@ var errorCases = {
   '3': {
     fileType: 'text file',
     method: 'loadStrings'
-  }
+  },
+  '4': {
+    fileType: 'font',
+    method: 'loadFont',
+    message: ' hosting the font online,'
+  },
 };
 p5._friendlyFileLoadError = function (errorType, filePath) {
   var errorInfo = errorCases[ errorType ];
@@ -13079,27 +13200,144 @@ function friendlyWelcome() {
  */
 /* function testColors() {
   var str = 'A box of biscuits, a box of mixed biscuits and a biscuit mixer';
-  report(str, 'println', '#ED225D'); // p5.js magenta
-  report(str, 'println', '#2D7BB6'); // p5.js blue
-  report(str, 'println', '#EE9900'); // p5.js orange
-  report(str, 'println', '#A67F59'); // p5.js light brown
-  report(str, 'println', '#704F21'); // p5.js gold
-  report(str, 'println', '#1CC581'); // auto cyan
-  report(str, 'println', '#FF6625'); // auto orange
-  report(str, 'println', '#79EB22'); // auto green
-  report(str, 'println', '#B40033'); // p5.js darkened magenta
-  report(str, 'println', '#084B7F'); // p5.js darkened blue
-  report(str, 'println', '#945F00'); // p5.js darkened orange
-  report(str, 'println', '#6B441D'); // p5.js darkened brown
-  report(str, 'println', '#2E1B00'); // p5.js darkened gold
-  report(str, 'println', '#008851'); // auto dark cyan
-  report(str, 'println', '#C83C00'); // auto dark orange
-  report(str, 'println', '#4DB200'); // auto dark green
+  report(str, 'print', '#ED225D'); // p5.js magenta
+  report(str, 'print', '#2D7BB6'); // p5.js blue
+  report(str, 'print', '#EE9900'); // p5.js orange
+  report(str, 'print', '#A67F59'); // p5.js light brown
+  report(str, 'print', '#704F21'); // p5.js gold
+  report(str, 'print', '#1CC581'); // auto cyan
+  report(str, 'print', '#FF6625'); // auto orange
+  report(str, 'print', '#79EB22'); // auto green
+  report(str, 'print', '#B40033'); // p5.js darkened magenta
+  report(str, 'print', '#084B7F'); // p5.js darkened blue
+  report(str, 'print', '#945F00'); // p5.js darkened orange
+  report(str, 'print', '#6B441D'); // p5.js darkened brown
+  report(str, 'print', '#2E1B00'); // p5.js darkened gold
+  report(str, 'print', '#008851'); // auto dark cyan
+  report(str, 'print', '#C83C00'); // auto dark orange
+  report(str, 'print', '#4DB200'); // auto dark green
 } */
+
+// This is a lazily-defined list of p5 symbols that may be
+// misused by beginners at top-level code, outside of setup/draw. We'd like
+// to detect these errors and help the user by suggesting they move them
+// into setup/draw.
+//
+// For more details, see https://github.com/processing/p5.js/issues/1121.
+var misusedAtTopLevelCode = null;
+var FAQ_URL = 'https://github.com/processing/p5.js/wiki/' +
+              'Frequently-Asked-Questions' +
+              '#why-cant-i-assign-variables-using-p5-functions-and-' +
+              'variables-before-setup';
+
+function defineMisusedAtTopLevelCode() {
+  var uniqueNamesFound = {};
+
+  var getSymbols = function(obj) {
+    return Object.getOwnPropertyNames(obj).filter(function(name) {
+      if (name[0] === '_') {
+        return false;
+      }
+      if (name in uniqueNamesFound) {
+        return false;
+      }
+
+      uniqueNamesFound[name] = true;
+
+      return true;
+    }).map(function(name) {
+      var type;
+
+      if (typeof(obj[name]) === 'function') {
+        type = 'function';
+      } else if (name === name.toUpperCase()) {
+        type = 'constant';
+      } else {
+        type = 'variable';
+      }
+
+      return {name: name, type: type};
+    });
+  };
+
+  misusedAtTopLevelCode = [].concat(
+    getSymbols(p5.prototype),
+    // At present, p5 only adds its constants to p5.prototype during
+    // construction, which may not have happened at the time a
+    // ReferenceError is thrown, so we'll manually add them to our list.
+    getSymbols(_dereq_('./constants'))
+  );
+
+  // This will ultimately ensure that we report the most specific error
+  // possible to the user, e.g. advising them about HALF_PI instead of PI
+  // when their code misuses the former.
+  misusedAtTopLevelCode.sort(function(a, b) {
+    return b.name.length - a.name.length;
+  });
+}
+
+function helpForMisusedAtTopLevelCode(e, log) {
+  if (!log) {
+    log = console.log.bind(console);
+  }
+
+  if (!misusedAtTopLevelCode) {
+    defineMisusedAtTopLevelCode();
+  }
+
+  // If we find that we're logging lots of false positives, we can
+  // uncomment the following code to avoid displaying anything if the
+  // user's code isn't likely to be using p5's global mode. (Note that
+  // setup/draw are more likely to be defined due to JS function hoisting.)
+  //
+  //if (!('setup' in window || 'draw' in window)) {
+  //  return;
+  //}
+
+  misusedAtTopLevelCode.some(function(symbol) {
+    // Note that while just checking for the occurrence of the
+    // symbol name in the error message could result in false positives,
+    // a more rigorous test is difficult because different browsers
+    // log different messages, and the format of those messages may
+    // change over time.
+    //
+    // For example, if the user uses 'PI' in their code, it may result
+    // in any one of the following messages:
+    //
+    //   * 'PI' is undefined                           (Microsoft Edge)
+    //   * ReferenceError: PI is undefined             (Firefox)
+    //   * Uncaught ReferenceError: PI is not defined  (Chrome)
+
+    if (e.message && e.message.match('\\W?'+symbol.name+'\\W') !== null) {
+      log('%cDid you just try to use p5.js\'s ' + symbol.name +
+          (symbol.type === 'function' ? '() ' : ' ') + symbol.type +
+          '? If so, you may want to ' +
+          'move it into your sketch\'s setup() function.\n\n' +
+          'For more details, see: ' + FAQ_URL,
+          'color: #B40033' /* Dark magenta */);
+      return true;
+    }
+  });
+}
+
+// Exposing this primarily for unit testing.
+p5.prototype._helpForMisusedAtTopLevelCode = helpForMisusedAtTopLevelCode;
+
+if (document.readyState !== 'complete') {
+  window.addEventListener('error', helpForMisusedAtTopLevelCode, false);
+
+  // Our job is only to catch ReferenceErrors that are thrown when
+  // global (non-instance mode) p5 APIs are used at the top-level
+  // scope of a file, so we'll unbind our error listener now to make
+  // sure we don't log false positives later.
+  window.addEventListener('load', function() {
+    window.removeEventListener('error', helpForMisusedAtTopLevelCode, false);
+  });
+}
 
 module.exports = p5;
 
-},{"./core":48}],52:[function(_dereq_,module,exports){
+},{"./constants":41,"./core":42}],46:[function(_dereq_,module,exports){
 /**
  * @module DOM
  * @submodule DOM
@@ -13112,7 +13350,8 @@ var p5 = _dereq_('./core');
  * Base class for all elements added to a sketch, including canvas,
  * graphics buffers, and other HTML elements. Methods in blue are
  * included in the core functionality, methods in brown are added
- * with the <a href="http://p5js.org/libraries/">p5.dom library</a>.
+ * with the <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom
+ * library</a>.
  * It is not called directly, but p5.Element
  * objects are created by calling createCanvas, createGraphics,
  * or in the p5.dom library, createDiv, createImg, createInput, etc.
@@ -13139,7 +13378,10 @@ p5.Element = function(elt, pInst) {
  *
  * Attaches the element to the parent specified. A way of setting
  * the container for the element. Accepts either a string ID, DOM
- * node, or p5.Element.
+ * node, or p5.Element. If no arguments given, parent node is returned.
+ * For more ways to position the canvas, see the
+ * <a href='https://github.com/processing/p5.js/wiki/Positioning-your-canvas'>
+ * positioning the canvas</a> wiki page.
  *
  * @method parent
  * @param  {String|Object} parent the ID, DOM node, or p5.Element
@@ -13169,41 +13411,77 @@ p5.Element = function(elt, pInst) {
  * var div1 = createDiv('this is the child');
  * div1.parent(elt); // use element from page
  * </code></div>
+ *
+ * @alt
+ * no display.
+ *
  */
 p5.Element.prototype.parent = function(p) {
-  if (typeof p === 'string') {
-    p = document.getElementById(p);
-  } else if (p instanceof p5.Element) {
-    p = p.elt;
+  if (arguments.length === 0){
+    return this.elt.parentNode;
+  } else {
+    if (typeof p === 'string') {
+      if (p[0] === '#') {
+        p = p.substring(1);
+      }
+      p = document.getElementById(p);
+    } else if (p instanceof p5.Element) {
+      p = p.elt;
+    }
+    p.appendChild(this.elt);
+    return this;
   }
-  p.appendChild(this.elt);
-  return this;
 };
 
 /**
  *
- * Sets the ID of the element
+ * Sets the ID of the element. If no ID argument is passed in, it instead
+ * returns the current ID of the element.
  *
  * @method id
- * @param  {String} id ID of the element
- * @return {p5.Element}
+ * @param  {String} [id] ID of the element
+ * @return {p5.Element|String}
+ * @example
+ * <div><code class='norender'>
+ * function setup() {
+ *   var cnv = createCanvas(100, 100);
+ *   // Assigns a CSS selector ID to
+ *   // the canvas element.
+ *   cnv.id("mycanvas");
+ * }
+ * </code></div>
+ *
+ * @alt
+ * no display.
+ *
  */
 p5.Element.prototype.id = function(id) {
-  this.elt.id = id;
-  return this;
+  if (arguments.length === 0) {
+    return this.elt.id;
+  } else {
+    this.elt.id = id;
+    this.width = this.elt.offsetWidth;
+    this.height = this.elt.offsetHeight;
+    return this;
+  }
 };
 
 /**
  *
- * Adds given class to the element
+ * Adds given class to the element. If no class argument is passed in, it
+ * instead returns a string containing the current class(es) of the element.
  *
  * @method class
- * @param  {String} class class to add
- * @return {p5.Element}
+ * @param  {String} [class] class to add
+ * @return {p5.Element|String}
  */
 p5.Element.prototype.class = function(c) {
-  this.elt.className += ' '+c;
-  return this;
+  if (arguments.length === 0) {
+    return this.elt.className;
+  } else {
+    this.elt.className = c;
+    return this;
+  }
 };
 
 /**
@@ -13244,6 +13522,9 @@ p5.Element.prototype.class = function(c) {
  * }
  * </code></div>
  *
+ * @alt
+ * no display.
+ *
  */
 p5.Element.prototype.mousePressed = function (fxn) {
   attachListener('mousedown', fxn, this);
@@ -13254,19 +13535,64 @@ p5.Element.prototype.mousePressed = function (fxn) {
 /**
  * The .mouseWheel() function is called once after every time a
  * mouse wheel is scrolled over the element. This can be used to
- * attach element specific event listeners.<br><br>
- * The event.wheelDelta or event.detail property returns negative values if
- * the mouse wheel if rotated up or away from the user and positive in the
- * other direction. On OS X with "natural" scrolling enabled, the values are
- * opposite.
+ * attach element specific event listeners.
+ * <br><br>
+ * The function accepts a callback function as argument which will be executed
+ * when the `wheel` event is triggered on the element, the callabck function is
+ * passed one argument `event`. The `event.deltaY` property returns negative
+ * values if the mouse wheel is rotated up or away from the user and positive
+ * in the other direction. The `event.deltaX` does the same as `event.deltaY`
+ * except it reads the horizontal wheel scroll of the mouse wheel.
+ * <br><br>
+ * On OS X with "natural" scrolling enabled, the `event.deltaY` values are
+ * reversed.
  *
  * @method mouseWheel
  * @param  {Function} fxn function to be fired when mouse wheel is
  *                    scrolled over the element.
  * @return {p5.Element}
+ * @example
+ * <div class='norender'><code>
+ * var cnv;
+ * var d;
+ * var g;
+ * function setup() {
+ *   cnv = createCanvas(100, 100);
+ *   cnv.mouseWheel(changeSize); // attach listener for
+ *                               // activity on canvas only
+ *   d = 10;
+ *   g = 100;
+ * }
+ *
+ * function draw() {
+ *   background(g);
+ *   ellipse(width/2, height/2, d, d);
+ * }
+ *
+ * // this function fires with mousewheel movement
+ * // anywhere on screen
+ * function mouseWheel() {
+ *   g = g + 10;
+ * }
+ *
+ * // this function fires with mousewheel movement
+ * // over canvas only
+ * function changeSize(event) {
+ *   if (event.deltaY > 0) {
+ *     d = d + 10;
+ *   } else {
+ *     d = d - 10;
+ *   }
+ * }
+ * </code></div>
+ *
+ *
+ * @alt
+ * no display.
+ *
  */
 p5.Element.prototype.mouseWheel = function (fxn) {
-  attachListener('mousewheel', fxn, this);
+  attachListener('wheel', fxn, this);
   return this;
 };
 
@@ -13279,6 +13605,41 @@ p5.Element.prototype.mouseWheel = function (fxn) {
  * @param  {Function} fxn function to be fired when mouse is
  *                    released over the element.
  * @return {p5.Element}
+ * @example
+ * <div class='norender'><code>
+ * var cnv;
+ * var d;
+ * var g;
+ * function setup() {
+ *   cnv = createCanvas(100, 100);
+ *   cnv.mouseReleased(changeGray); // attach listener for
+ *                                  // activity on canvas only
+ *   d = 10;
+ *   g = 100;
+ * }
+ *
+ * function draw() {
+ *   background(g);
+ *   ellipse(width/2, height/2, d, d);
+ * }
+ *
+ * // this function fires after the mouse has been
+ * // released
+ * function mouseReleased() {
+ *   d = d + 10;
+ * }
+ *
+ * // this function fires after the mouse has been
+ * // released while on canvas
+ * function changeGray() {
+ *   g = random(0, 255);
+ * }
+ * </code></div>
+ *
+ *
+ * @alt
+ * no display.
+ *
  */
 p5.Element.prototype.mouseReleased = function (fxn) {
   attachListener('mouseup', fxn, this);
@@ -13296,6 +13657,40 @@ p5.Element.prototype.mouseReleased = function (fxn) {
  * @param  {Function} fxn function to be fired when mouse is
  *                    clicked over the element.
  * @return {p5.Element}
+ * @example
+ * var cnv;
+ * var d;
+ * var g;
+ * function setup() {
+ *   cnv = createCanvas(100, 100);
+ *   cnv.mouseClicked(changeGray); // attach listener for
+ *                                 // activity on canvas only
+ *   d = 10;
+ *   g = 100;
+ * }
+ *
+ * function draw() {
+ *   background(g);
+ *   ellipse(width/2, height/2, d, d);
+ * }
+ *
+ * // this function fires after the mouse has been
+ * // clicked anywhere
+ * function mouseClicked() {
+ *   d = d + 10;
+ * }
+ *
+ * // this function fires after the mouse has been
+ * // clicked on canvas
+ * function changeGray() {
+ *   g = random(0, 255);
+ * }
+ * </code></div>
+ *
+ *
+ * @alt
+ * no display.
+ *
  */
 p5.Element.prototype.mouseClicked = function (fxn) {
   attachListener('click', fxn, this);
@@ -13311,6 +13706,47 @@ p5.Element.prototype.mouseClicked = function (fxn) {
  * @param  {Function} fxn function to be fired when mouse is
  *                    moved over the element.
  * @return {p5.Element}
+ * @example
+ * <div class='norender'><code>
+ * var cnv;
+ * var d = 30;
+ * var g;
+ * function setup() {
+ *   cnv = createCanvas(100, 100);
+ *   cnv.mouseMoved(changeSize); // attach listener for
+ *                               // activity on canvas only
+ *   d = 10;
+ *   g = 100;
+ * }
+ *
+ * function draw() {
+ *   background(g);
+ *   fill(200);
+ *   ellipse(width/2, height/2, d, d);
+ * }
+ *
+ * // this function fires when mouse moves anywhere on
+ * // page
+ * function mouseMoved() {
+ *   g = g + 5;
+ *   if (g > 255) {
+ *     g = 0;
+ *   }
+ * }
+ *
+ * // this function fires when mouse moves over canvas
+ * function changeSize() {
+ *   d = d + 2;
+ *   if (d > 100) {
+ *     d = 0;
+ *   }
+ * }
+ * </code></div>
+ *
+ *
+ * @alt
+ * no display.
+ *
  */
 p5.Element.prototype.mouseMoved = function (fxn) {
   attachListener('mousemove', fxn, this);
@@ -13327,6 +13763,33 @@ p5.Element.prototype.mouseMoved = function (fxn) {
  * @param  {Function} fxn function to be fired when mouse is
  *                    moved over the element.
  * @return {p5.Element}
+ * @example
+ * <div class='norender'><code>
+ * var cnv;
+ * var d;
+ * var g;
+ * function setup() {
+ *   cnv = createCanvas(100, 100);
+ *   cnv.mouseOver(changeGray);
+ *   d = 10;
+ * }
+ *
+ * function draw() {
+ *   ellipse(width/2, height/2, d, d);
+ * }
+ *
+ * function changeGray() {
+ *   d = d + 10;
+ *   if (d > 100) {
+ *     d = 0;
+ *   }
+ * }
+ * </code></div>
+ *
+ *
+ * @alt
+ * no display.
+ *
  */
 p5.Element.prototype.mouseOver = function (fxn) {
   attachListener('mouseover', fxn, this);
@@ -13335,16 +13798,99 @@ p5.Element.prototype.mouseOver = function (fxn) {
 
 
 /**
- * The .changed() function is called when the value of an element is changed.
+ * The .changed() function is called when the value of an
+ * element is changed.
  * This can be used to attach an element specific event listener.
  *
  * @method changed
- * @param  {Function} fxn function to be fired when mouse is
- *                    moved over the element.
+ * @param  {Function} fxn function to be fired when the value of an
+ * element changes.
  * @return {p5.Element}
+ * @example
+ * <div><code>
+ * var sel;
+ *
+ * function setup() {
+ *   textAlign(CENTER);
+ *   background(200);
+ *   sel = createSelect();
+ *   sel.position(10, 10);
+ *   sel.option('pear');
+ *   sel.option('kiwi');
+ *   sel.option('grape');
+ *   sel.changed(mySelectEvent);
+ * }
+ *
+ * function mySelectEvent() {
+ *   var item = sel.value();
+ *   background(200);
+ *   text("it's a "+item+"!", 50, 50);
+ * }
+ * </code></div>
+ * <div><code>
+ * var checkbox;
+ * var cnv;
+ *
+ * function setup() {
+ *   checkbox = createCheckbox(" fill");
+ *   checkbox.changed(changeFill);
+ *   cnv = createCanvas(100, 100);
+ *   cnv.position(0, 30);
+ *   noFill();
+ * }
+ *
+ * function draw() {
+ *   background(200);
+ *   ellipse(50, 50, 50, 50);
+ * }
+ *
+ * function changeFill() {
+ *   if (checkbox.checked()) {
+ *     fill(0);
+ *   } else {
+ *     noFill();
+ *   }
+ * }
+ * </code></div>
+ *
+ * @alt
+ * dropdown: pear, kiwi, grape. When selected text "its a" + selection shown.
+ *
  */
 p5.Element.prototype.changed = function (fxn) {
   attachListener('change', fxn, this);
+  return this;
+};
+
+/**
+ * The .input() function is called when any user input is
+ * detected with an element. The input event is often used
+ * to detect keystrokes in a input element, or changes on a
+ * slider element. This can be used to attach an element specific
+ * event listener.
+ *
+ * @method input
+ * @param  {Function} fxn function to be fired on user input.
+ * @return {p5.Element}
+ * @example
+ * <div class='norender'><code>
+ * // Open your console to see the output
+ * function setup() {
+ *   var inp = createInput('');
+ *   inp.input(myInputEvent);
+ * }
+ *
+ * function myInputEvent() {
+ *   console.log('you are typing: ', this.value());
+ * }
+ * </code></div>
+ *
+ * @alt
+ * no display.
+ *
+ */
+p5.Element.prototype.input = function (fxn) {
+  attachListener('input', fxn, this);
   return this;
 };
 
@@ -13357,6 +13903,32 @@ p5.Element.prototype.changed = function (fxn) {
  * @param  {Function} fxn function to be fired when mouse is
  *                    moved off the element.
  * @return {p5.Element}
+ * @example
+ * <div class='norender'><code>
+ * var cnv;
+ * var d;
+ * var g;
+ * function setup() {
+ *   cnv = createCanvas(100, 100);
+ *   cnv.mouseOut(changeGray);
+ *   d = 10;
+ * }
+ *
+ * function draw() {
+ *   ellipse(width/2, height/2, d, d);
+ * }
+ *
+ * function changeGray() {
+ *   d = d + 10;
+ *   if (d > 100) {
+ *     d = 0;
+ *   }
+ * }
+ * </code></div>
+ *
+ * @alt
+ * no display.
+ *
  */
 p5.Element.prototype.mouseOut = function (fxn) {
   attachListener('mouseout', fxn, this);
@@ -13400,6 +13972,9 @@ p5.Element.prototype.mouseOut = function (fxn) {
  * }
  * </code></div>
  *
+ * @alt
+ * no display.
+ *
  */
 p5.Element.prototype.touchStarted = function (fxn) {
   attachListener('touchstart', fxn, this);
@@ -13435,6 +14010,9 @@ p5.Element.prototype.touchStarted = function (fxn) {
  *   g = random(0, 255);
  * }
  * </code></div>
+ *
+ * @alt
+ * no display.
  *
  */
 p5.Element.prototype.touchMoved = function (fxn) {
@@ -13479,6 +14057,10 @@ p5.Element.prototype.touchMoved = function (fxn) {
  *   g = random(0, 255);
  * }
  * </code></div>
+ *
+ *
+ * @alt
+ * no display.
  *
  */
 p5.Element.prototype.touchEnded = function (fxn) {
@@ -13527,9 +14109,29 @@ p5.Element.prototype.dragLeave = function (fxn) {
  * is triggered just once when a file (or files) are dropped.
  *
  * @method drop
- * @param  {Function} callback triggered when files are dropped.
- * @param  {Function} callback to receive loaded file.
+ * @param  {Function} callback  callback triggered when files are dropped.
+ * @param  {Function} fxn       callback to receive loaded file.
  * @return {p5.Element}
+ * @example
+ * <div><code>
+ * function setup() {
+ *   var c = createCanvas(100, 100);
+ *   background(200);
+ *   textAlign(CENTER);
+ *   text('drop image', width/2, height/2);
+ *   c.drop(gotFile);
+ * }
+ *
+ * function gotFile(file) {
+ *   var img = createImg(file.data).hide();
+ *   // Draw the image onto the canvas
+ *   image(img, 0, 0, width, height);
+ * }
+ * </code></div>
+ *
+ * @alt
+ * Canvas turns into whatever image is dragged/dropped onto it.
+ *
  */
 p5.Element.prototype.drop = function (callback, fxn) {
   // Make a file loader callback and trigger user's callback
@@ -13618,7 +14220,7 @@ p5.Element.prototype._setProperty = function (prop, value) {
 
 module.exports = p5.Element;
 
-},{"./core":48}],53:[function(_dereq_,module,exports){
+},{"./core":42}],47:[function(_dereq_,module,exports){
 /**
  * @module Rendering
  * @submodule Rendering
@@ -13654,12 +14256,12 @@ p5.Graphics = function(w, h, renderer, pInst) {
   this._styles = [];
   this.width = w;
   this.height = h;
-  this.pixelDensity = pInst.pixelDensity;
+  this._pixelDensity = pInst._pixelDensity;
 
   if (r === constants.WEBGL) {
-    this._renderer = new p5.Renderer3D(c, pInst, false);
+    this._renderer = new p5.RendererGL(c, this, false);
   } else {
-    this._renderer = new p5.Renderer2D(c, pInst, false);
+    this._renderer = new p5.Renderer2D(c, this, false);
   }
 
   this._renderer.resize(w, h);
@@ -13683,9 +14285,18 @@ p5.Graphics = function(w, h, renderer, pInst) {
 
 p5.Graphics.prototype = Object.create(p5.Element.prototype);
 
+p5.Graphics.prototype.remove = function() {
+  if (this.elt.parentNode) {
+    this.elt.parentNode.removeChild(this.elt);
+  }
+  for (var elt_ev in this._events) {
+    this.elt.removeEventListener(elt_ev, this._events[elt_ev]);
+  }
+};
+
 module.exports = p5.Graphics;
 
-},{"./constants":47,"./core":48}],54:[function(_dereq_,module,exports){
+},{"./constants":41,"./core":42}],48:[function(_dereq_,module,exports){
 /**
  * @module Rendering
  * @submodule Rendering
@@ -13762,8 +14373,8 @@ p5.Renderer.prototype = Object.create(p5.Element.prototype);
 p5.Renderer.prototype.resize = function(w, h) {
   this.width = w;
   this.height = h;
-  this.elt.width = w * this._pInst.pixelDensity;
-  this.elt.height = h * this._pInst.pixelDensity;
+  this.elt.width = w * this._pInst._pixelDensity;
+  this.elt.height = h * this._pInst._pixelDensity;
   this.elt.style.width = w +'px';
   this.elt.style.height = h + 'px';
   if (this._isMainCanvas) {
@@ -13824,6 +14435,10 @@ p5.Renderer.prototype.textDescent = function() {
     this._updateTextMetrics();
   }
   return this._textDescent;
+};
+
+p5.Renderer.prototype._applyDefaults = function(){
+  return this;
 };
 
 /**
@@ -13903,7 +14518,7 @@ function calculateOffset(object) {
 
 module.exports = p5.Renderer;
 
-},{"../core/constants":47,"./core":48}],55:[function(_dereq_,module,exports){
+},{"../core/constants":41,"./core":42}],49:[function(_dereq_,module,exports){
 
 var p5 = _dereq_('./core');
 var canvas = _dereq_('./canvas');
@@ -13913,34 +14528,9 @@ var filters = _dereq_('../image/filters');
 _dereq_('./p5.Renderer');
 
 /**
- * 2D graphics renderer class.  Can also be used as an off-screen
- * graphics buffer. A p5.Renderer2D object can be constructed
- * with the <code>createRenderer2D()</code> function. The fields and methods
- * for this class are extensive, but mirror the normal drawing API for p5.
- *
- * @class p5.Renderer2D
- * @constructor
- * @extends p5.Renderer
- * @param {String} elt DOM node that is wrapped
- * @param {Object} [pInst] pointer to p5 instance
- * @example
- * <div>
- * <code>
- * var pg;
- * function setup() {
- *   createCanvas(100, 100);
- *   pg = createRenderer2D(40, 40);
- * }
- * function draw() {
- *   background(200);
- *   pg.background(100);
- *   pg.noStroke();
- *   pg.ellipse(pg.width/2, pg.height/2, 50, 50);
- *   image(pg, 9, 30);
- *   image(pg, 51, 30);
- * }
- * </code>
- * </div>
+ * p5.Renderer2D
+ * The 2D graphics canvas renderer class.
+ * extends p5.Renderer
  */
 var styleEmpty = 'rgba(0,0,0,0)';
 // var alphaThreshold = 0.00125; // minimum visible
@@ -13963,8 +14553,8 @@ p5.Renderer2D.prototype._applyDefaults = function() {
 
 p5.Renderer2D.prototype.resize = function(w,h) {
   p5.Renderer.prototype.resize.call(this, w,h);
-  this.drawingContext.scale(this._pInst.pixelDensity,
-                            this._pInst.pixelDensity);
+  this.drawingContext.scale(this._pInst._pixelDensity,
+                            this._pInst._pixelDensity);
 };
 
 //////////////////////////////////////////////
@@ -13974,15 +14564,15 @@ p5.Renderer2D.prototype.resize = function(w,h) {
 p5.Renderer2D.prototype.background = function() {
   this.drawingContext.save();
   this.drawingContext.setTransform(1, 0, 0, 1, 0, 0);
-  this.drawingContext.scale(this._pInst.pixelDensity,
-                            this._pInst.pixelDensity);
+  this.drawingContext.scale(this._pInst._pixelDensity,
+                            this._pInst._pixelDensity);
 
   if (arguments[0] instanceof p5.Image) {
     this._pInst.image(arguments[0], 0, 0, this.width, this.height);
   } else {
     var curFill = this.drawingContext.fillStyle;
     // create background rect
-    var color = this._pInst.color.apply(this._pInst, arguments);
+    var color = this._pInst.color.apply(this, arguments);
     var newFill = color.toString();
     this.drawingContext.fillStyle = newFill;
     this.drawingContext.fillRect(0, 0, this.width, this.height);
@@ -13999,13 +14589,13 @@ p5.Renderer2D.prototype.clear = function() {
 p5.Renderer2D.prototype.fill = function() {
 
   var ctx = this.drawingContext;
-  var color = this._pInst.color.apply(this._pInst, arguments);
+  var color = this._pInst.color.apply(this, arguments);
   ctx.fillStyle = color.toString();
 };
 
 p5.Renderer2D.prototype.stroke = function() {
   var ctx = this.drawingContext;
-  var color = this._pInst.color.apply(this._pInst, arguments);
+  var color = this._pInst.color.apply(this, arguments);
   ctx.strokeStyle = color.toString();
 };
 
@@ -14013,15 +14603,23 @@ p5.Renderer2D.prototype.stroke = function() {
 // IMAGE | Loading & Displaying
 //////////////////////////////////////////////
 
-p5.Renderer2D.prototype.image = function (img, x, y, w, h) {
-  var frame = img.canvas || img.elt;
+p5.Renderer2D.prototype.image =
+  function (img, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) {
+  var cnv;
   try {
-    if (this._tint && img.canvas) {
-      this.drawingContext.drawImage(this._getTintedImageCanvas(img),
-        x, y, w, h);
-    } else {
-      this.drawingContext.drawImage(frame, x, y, w, h);
+    if (this._tint) {
+      if (p5.MediaElement && img instanceof p5.MediaElement) {
+        img.loadPixels();
+      }
+      if (img.canvas) {
+        cnv = this._getTintedImageCanvas(img);
+      }
     }
+    if (!cnv) {
+      cnv = img.canvas || img.elt;
+    }
+    this.drawingContext.drawImage(cnv, sx, sy, sWidth, sHeight, dx, dy,
+      dWidth, dHeight);
   } catch (e) {
     if (e.name !== 'NS_ERROR_NOT_AVAILABLE') {
       throw e;
@@ -14073,7 +14671,11 @@ p5.Renderer2D.prototype.blend = function() {
   );
 
   this.drawingContext.globalCompositeOperation = blendMode;
-  this._pInst.copy.apply(this._pInst, copyArgs);
+  if (this._pInst) {
+    this._pInst.copy.apply(this._pInst, copyArgs);
+  } else {
+    this.copy.apply(this, copyArgs);
+  }
   this.drawingContext.globalCompositeOperation = currBlend;
 };
 
@@ -14107,6 +14709,7 @@ p5.Renderer2D.prototype.copy = function () {
 
 p5.Renderer2D._copyHelper =
 function (srcImage, sx, sy, sw, sh, dx, dy, dw, dh) {
+  srcImage.loadPixels();
   var s = srcImage.canvas.width / srcImage.width;
   this.drawingContext.drawImage(srcImage.canvas,
     s * sx, s * sy, s * sw, s * sh, dx, dy, dw, dh);
@@ -14124,27 +14727,34 @@ p5.Renderer2D.prototype.get = function(x, y, w, h) {
     h = 1;
   }
 
-  if(x > this.width || y > this.height || x < 0 || y < 0){
+  // if the section does not overlap the canvas
+  if(x + w < 0 || y + h < 0 || x > this.width || y > this.height){
     return [0, 0, 0, 255];
   }
 
   var ctx = this._pInst || this;
+  ctx.loadPixels();
 
-  var pd = ctx.pixelDensity || ctx._pInst.pixelDensity;
+  var pd = ctx._pixelDensity;
 
-  this.loadPixels.call(ctx);
+  // round down to get integer numbers
+  x = Math.floor(x);
+  y = Math.floor(y);
+  w = Math.floor(w);
+  h = Math.floor(h);
 
+  var sx = x * pd;
+  var sy = y * pd;
   if (w === 1 && h === 1){
-
+    var imageData = this.drawingContext.getImageData(sx, sy, 1, 1).data;
+    //imageData = [0,0,0,0];
     return [
-      ctx.pixels[pd*4*(y*this.width+x)],
-      ctx.pixels[pd*(4*(y*this.width+x)+1)],
-      ctx.pixels[pd*(4*(y*this.width+x)+2)],
-      ctx.pixels[pd*(4*(y*this.width+x)+3)]
+      imageData[0],
+      imageData[1],
+      imageData[2],
+      imageData[3]
     ];
   } else {
-    var sx = x * pd;
-    var sy = y * pd;
     //auto constrain the width and height to
     //dimensions of the source image
     var dw = Math.min(w, ctx.width);
@@ -14153,7 +14763,7 @@ p5.Renderer2D.prototype.get = function(x, y, w, h) {
     var sh = dh * pd;
 
     var region = new p5.Image(dw, dh);
-    region.canvas.getContext('2d').drawImage(ctx.canvas, sx, sy, sw, sh,
+    region.canvas.getContext('2d').drawImage(this.canvas, sx, sy, sw, sh,
       0, 0, dw, dh);
 
     return region;
@@ -14161,7 +14771,7 @@ p5.Renderer2D.prototype.get = function(x, y, w, h) {
 };
 
 p5.Renderer2D.prototype.loadPixels = function () {
-  var pd = this.pixelDensity || this._pInst.pixelDensity;
+  var pd = this._pixelDensity || this._pInst._pixelDensity;
   var w = this.width * pd;
   var h = this.height * pd;
   var imageData = this.drawingContext.getImageData(0, 0, w, h);
@@ -14177,19 +14787,22 @@ p5.Renderer2D.prototype.loadPixels = function () {
 };
 
 p5.Renderer2D.prototype.set = function (x, y, imgOrCol) {
+  // round down to get integer numbers
+  x = Math.floor(x);
+  y = Math.floor(y);
   if (imgOrCol instanceof p5.Image) {
     this.drawingContext.save();
     this.drawingContext.setTransform(1, 0, 0, 1, 0, 0);
-    this.drawingContext.scale(this._pInst.pixelDensity,
-      this._pInst.pixelDensity);
+    this.drawingContext.scale(this._pInst._pixelDensity,
+      this._pInst._pixelDensity);
     this.drawingContext.drawImage(imgOrCol.canvas, x, y);
     this.loadPixels.call(this._pInst);
     this.drawingContext.restore();
   } else {
     var ctx = this._pInst || this;
     var r = 0, g = 0, b = 0, a = 0;
-    var idx = 4*((y * ctx.pixelDensity) *
-      (this.width * ctx.pixelDensity) + (x * ctx.pixelDensity));
+    var idx = 4*((y * ctx._pixelDensity) *
+      (this.width * ctx._pixelDensity) + (x * ctx._pixelDensity));
     if (!ctx.imageData) {
       ctx.loadPixels.call(ctx);
     }
@@ -14215,19 +14828,19 @@ p5.Renderer2D.prototype.set = function (x, y, imgOrCol) {
       }
     } else if (imgOrCol instanceof p5.Color) {
       if (idx < ctx.pixels.length) {
-        r = imgOrCol.rgba[0];
-        g = imgOrCol.rgba[1];
-        b = imgOrCol.rgba[2];
-        a = imgOrCol.rgba[3];
+        r = imgOrCol.levels[0];
+        g = imgOrCol.levels[1];
+        b = imgOrCol.levels[2];
+        a = imgOrCol.levels[3];
         //this.updatePixels.call(this);
       }
     }
     // loop over pixelDensity * pixelDensity
-    for (var i = 0; i < ctx.pixelDensity; i++) {
-      for (var j = 0; j < ctx.pixelDensity; j++) {
+    for (var i = 0; i < ctx._pixelDensity; i++) {
+      for (var j = 0; j < ctx._pixelDensity; j++) {
         // loop over
-        idx = 4*((y * ctx.pixelDensity + j) * this.width *
-          ctx.pixelDensity + (x * ctx.pixelDensity + i));
+        idx = 4*((y * ctx._pixelDensity + j) * this.width *
+          ctx._pixelDensity + (x * ctx._pixelDensity + i));
         ctx.pixels[idx] = r;
         ctx.pixels[idx+1] = g;
         ctx.pixels[idx+2] = b;
@@ -14238,7 +14851,7 @@ p5.Renderer2D.prototype.set = function (x, y, imgOrCol) {
 };
 
 p5.Renderer2D.prototype.updatePixels = function (x, y, w, h) {
-  var pd = this.pixelDensity || this._pInst.pixelDensity;
+  var pd = this._pixelDensity || this._pInst._pixelDensity;
   if (x === undefined &&
       y === undefined &&
       w === undefined &&
@@ -14352,9 +14965,13 @@ p5.Renderer2D.prototype.arc =
   return this;
 };
 
-p5.Renderer2D.prototype.ellipse = function(x, y, w, h) {
+p5.Renderer2D.prototype.ellipse = function(args) {
   var ctx = this.drawingContext;
   var doFill = this._doFill, doStroke = this._doStroke;
+  var x = args[0],
+    y = args[1],
+    w = args[2],
+    h = args[3];
   if (doFill && !doStroke) {
     if(ctx.fillStyle === styleEmpty) {
       return this;
@@ -14364,20 +14981,19 @@ p5.Renderer2D.prototype.ellipse = function(x, y, w, h) {
       return this;
     }
   }
-  var vals = canvas.modeAdjust(x, y, w, h, this._ellipseMode);
   var kappa = 0.5522847498,
-    ox = (vals.w / 2) * kappa, // control point offset horizontal
-    oy = (vals.h / 2) * kappa, // control point offset vertical
-    xe = vals.x + vals.w,      // x-end
-    ye = vals.y + vals.h,      // y-end
-    xm = vals.x + vals.w / 2,  // x-middle
-    ym = vals.y + vals.h / 2;  // y-middle
+    ox = (w / 2) * kappa, // control point offset horizontal
+    oy = (h / 2) * kappa, // control point offset vertical
+    xe = x + w,      // x-end
+    ye = y + h,      // y-end
+    xm = x + w / 2,  // x-middle
+    ym = y + h / 2;  // y-middle
   ctx.beginPath();
-  ctx.moveTo(vals.x, ym);
-  ctx.bezierCurveTo(vals.x, ym - oy, xm - ox, vals.y, xm, vals.y);
-  ctx.bezierCurveTo(xm + ox, vals.y, xe, ym - oy, xe, ym);
+  ctx.moveTo(x, ym);
+  ctx.bezierCurveTo(x, ym - oy, xm - ox, y, xm, y);
+  ctx.bezierCurveTo(xm + ox, y, xe, ym - oy, xe, ym);
   ctx.bezierCurveTo(xe, ym + oy, xm + ox, ye, xm, ye);
-  ctx.bezierCurveTo(xm - ox, ye, vals.x, ym + oy, vals.x, ym);
+  ctx.bezierCurveTo(xm - ox, ye, x, ym + oy, x, ym);
   ctx.closePath();
   if (doFill) {
     ctx.fill();
@@ -14465,7 +15081,15 @@ p5.Renderer2D.prototype.quad =
   return this;
 };
 
-p5.Renderer2D.prototype.rect = function(x, y, w, h, tl, tr, br, bl) {
+p5.Renderer2D.prototype.rect = function(args) {
+  var x = args[0],
+    y = args[1],
+    w = args[2],
+    h = args[3],
+    tl = args[4],
+    tr = args[5],
+    br = args[6],
+    bl = args[7];
   var ctx = this.drawingContext;
   var doFill = this._doFill, doStroke = this._doStroke;
   if (doFill && !doStroke) {
@@ -14477,7 +15101,6 @@ p5.Renderer2D.prototype.rect = function(x, y, w, h, tl, tr, br, bl) {
       return this;
     }
   }
-  var vals = canvas.modeAdjust(x, y, w, h, this._rectMode);
   // Translate the line by (0.5, 0.5) to draw a crisp rectangle border
   if (this._doStroke && ctx.lineWidth % 2 === 1) {
     ctx.translate(0.5, 0.5);
@@ -14486,7 +15109,7 @@ p5.Renderer2D.prototype.rect = function(x, y, w, h, tl, tr, br, bl) {
 
   if (typeof tl === 'undefined') {
     // No rounded corners
-    ctx.rect(vals.x, vals.y, vals.w, vals.h);
+    ctx.rect(x, y, w, h);
   } else {
     // At least one rounded corner
     // Set defaults when not specified
@@ -14494,31 +15117,26 @@ p5.Renderer2D.prototype.rect = function(x, y, w, h, tl, tr, br, bl) {
     if (typeof br === 'undefined') { br = tr; }
     if (typeof bl === 'undefined') { bl = br; }
 
-    // Cache and compute several values
-    var _x = vals.x;
-    var _y = vals.y;
-    var _w = vals.w;
-    var _h = vals.h;
-    var hw = _w / 2;
-    var hh = _h / 2;
+    var hw = w / 2;
+    var hh = h / 2;
 
     // Clip radii
-    if (_w < 2 * tl) { tl = hw; }
-    if (_h < 2 * tl) { tl = hh; }
-    if (_w < 2 * tr) { tr = hw; }
-    if (_h < 2 * tr) { tr = hh; }
-    if (_w < 2 * br) { br = hw; }
-    if (_h < 2 * br) { br = hh; }
-    if (_w < 2 * bl) { bl = hw; }
-    if (_h < 2 * bl) { bl = hh; }
+    if (w < 2 * tl) { tl = hw; }
+    if (h < 2 * tl) { tl = hh; }
+    if (w < 2 * tr) { tr = hw; }
+    if (h < 2 * tr) { tr = hh; }
+    if (w < 2 * br) { br = hw; }
+    if (h < 2 * br) { br = hh; }
+    if (w < 2 * bl) { bl = hw; }
+    if (h < 2 * bl) { bl = hh; }
 
     // Draw shape
     ctx.beginPath();
-    ctx.moveTo(_x + tl, _y);
-    ctx.arcTo(_x + _w, _y, _x + _w, _y + _h, tr);
-    ctx.arcTo(_x + _w, _y + _h, _x, _y + _h, br);
-    ctx.arcTo(_x, _y + _h, _x, _y, bl);
-    ctx.arcTo(_x, _y, _x + _w, _y, tl);
+    ctx.moveTo(x + tl, y);
+    ctx.arcTo(x + w, y, x + w, y + h, tr);
+    ctx.arcTo(x + w, y + h, x, y + h, br);
+    ctx.arcTo(x, y + h, x, y, bl);
+    ctx.arcTo(x, y, x + w, y, tl);
     ctx.closePath();
   }
   if (this._doFill) {
@@ -14533,9 +15151,12 @@ p5.Renderer2D.prototype.rect = function(x, y, w, h, tl, tr, br, bl) {
   return this;
 };
 
-p5.Renderer2D.prototype.triangle = function(x1, y1, x2, y2, x3, y3) {
+p5.Renderer2D.prototype.triangle = function(args) {
   var ctx = this.drawingContext;
   var doFill = this._doFill, doStroke = this._doStroke;
+  var x1=args[0], y1=args[1];
+  var x2=args[2], y2=args[3];
+  var x3=args[4], y3=args[5];
   if (doFill && !doStroke) {
     if(ctx.fillStyle === styleEmpty) {
       return this;
@@ -14906,8 +15527,8 @@ function(n00, n01, n02, n10, n11, n12) {
 
 p5.Renderer2D.prototype.resetMatrix = function() {
   this.drawingContext.setTransform(1, 0, 0, 1, 0, 0);
-  this.drawingContext.scale(this._pInst.pixelDensity,
-                            this._pInst.pixelDensity);
+  this.drawingContext.scale(this._pInst._pixelDensity,
+                            this._pInst._pixelDensity);
   return this;
 };
 
@@ -14915,23 +15536,15 @@ p5.Renderer2D.prototype.rotate = function(r) {
   this.drawingContext.rotate(r);
 };
 
-p5.Renderer2D.prototype.scale = function() {
-  var x = 1.0,
-    y = 1.0;
-  if (arguments.length === 1) {
-    x = y = arguments[0];
-  } else {
-    x = arguments[0];
-    y = arguments[1];
-  }
+p5.Renderer2D.prototype.scale = function(x,y) {
   this.drawingContext.scale(x, y);
-
   return this;
 };
 
 p5.Renderer2D.prototype.shearX = function(angle) {
   if (this._pInst._angleMode === constants.DEGREES) {
-    angle = this._pInst.radians(angle);
+    // undoing here, because it gets redone in tan()
+    angle = this._pInst.degrees(angle);
   }
   this.drawingContext.transform(1, 0, this._pInst.tan(angle), 1, 0, 0);
   return this;
@@ -14939,7 +15552,8 @@ p5.Renderer2D.prototype.shearX = function(angle) {
 
 p5.Renderer2D.prototype.shearY = function(angle) {
   if (this._pInst._angleMode === constants.DEGREES) {
-    angle = this._pInst.radians(angle);
+    // undoing here, because it gets redone in tan()
+    angle = this._pInst.degrees(angle);
   }
   this.drawingContext.transform(1, this._pInst.tan(angle), 0, 1, 0, 0);
   return this;
@@ -14958,12 +15572,12 @@ p5.Renderer2D.prototype.translate = function(x, y) {
 p5.Renderer2D.prototype.text = function (str, x, y, maxWidth, maxHeight) {
 
   var p = this._pInst, cars, n, ii, jj, line, testLine,
-    testWidth, words, totalHeight, baselineHacked;
+    testWidth, words, totalHeight, baselineHacked,
+    finalMaxHeight = Number.MAX_VALUE;
 
   // baselineHacked: (HACK)
-  // This is an ugly temporary fix to conform to
-  // Processing's vertical alignment implementation
-  // for BASELINE vetical alignment in a boundings box
+  // A temporary fix to conform to Processing's implementation
+  // of BASELINE vertical alignment in a bounding box
 
   if (!(this._doFill || this._doStroke)) {
     return;
@@ -14994,7 +15608,7 @@ p5.Renderer2D.prototype.text = function (str, x, y, maxWidth, maxHeight) {
       }
     }
 
-    if (this._rectMode === constants.CENTER ){
+    if (this._rectMode === constants.CENTER) {
 
       x -= maxWidth / 2;
       y -= maxHeight / 2;
@@ -15002,28 +15616,31 @@ p5.Renderer2D.prototype.text = function (str, x, y, maxWidth, maxHeight) {
 
     switch (this.drawingContext.textAlign) {
 
-    case constants.CENTER:
-      x += maxWidth / 2;
-      break;
-    case constants.RIGHT:
-      x += maxWidth;
-      break;
+      case constants.CENTER:
+        x += maxWidth / 2;
+        break;
+      case constants.RIGHT:
+        x += maxWidth;
+        break;
     }
 
     if (typeof maxHeight !== 'undefined') {
 
       switch (this.drawingContext.textBaseline) {
-      case constants.BOTTOM:
-        y += (maxHeight - totalHeight);
-        break;
-      case constants._CTX_MIDDLE:
-        y += (maxHeight - totalHeight) / 2;
-        break;
-      case constants.BASELINE:
-        baselineHacked = true;
-        this.drawingContext.textBaseline = constants.TOP;
-        break;
+        case constants.BOTTOM:
+          y += (maxHeight - totalHeight);
+          break;
+        case constants._CTX_MIDDLE: // CENTER?
+          y += (maxHeight - totalHeight) / 2;
+          break;
+        case constants.BASELINE:
+          baselineHacked = true;
+          this.drawingContext.textBaseline = constants.TOP;
+          break;
       }
+
+      // remember the max-allowed y-position for any line (fix to #928)
+      finalMaxHeight = (y + maxHeight) - p.textAscent();
     }
 
     for (ii = 0; ii < cars.length; ii++) {
@@ -15034,7 +15651,7 @@ p5.Renderer2D.prototype.text = function (str, x, y, maxWidth, maxHeight) {
         testLine = line + words[n] + ' ';
         testWidth = this.textWidth(testLine);
         if (testWidth > maxWidth && line.length > 0) {
-          this._renderText(p, line, x, y);
+          this._renderText(p, line, x, y, finalMaxHeight);
           line = words[n] + ' ';
           y += p.textLeading();
         } else {
@@ -15042,14 +15659,24 @@ p5.Renderer2D.prototype.text = function (str, x, y, maxWidth, maxHeight) {
         }
       }
 
-      this._renderText(p, line, x, y);
+      this._renderText(p, line, x, y, finalMaxHeight);
       y += p.textLeading();
     }
   }
   else {
+    // Offset to account for vertically centering multiple lines of text - no
+    // need to adjust anything for vertical align top or baseline
+    var offset = 0,
+      vAlign = p.textAlign().vertical;
+    if (vAlign === constants.CENTER) {
+      offset = ((cars.length - 1) * p.textLeading()) / 2;
+    } else if (vAlign === constants.BOTTOM) {
+      offset = (cars.length - 1) * p.textLeading();
+    }
+
     for (jj = 0; jj < cars.length; jj++) {
 
-      this._renderText(p, cars[jj], x, y);
+      this._renderText(p, cars[jj], x, y-offset, finalMaxHeight);
       y += p.textLeading();
     }
   }
@@ -15057,10 +15684,15 @@ p5.Renderer2D.prototype.text = function (str, x, y, maxWidth, maxHeight) {
   if (baselineHacked) {
     this.drawingContext.textBaseline = constants.BASELINE;
   }
+
   return p;
 };
 
-p5.Renderer2D.prototype._renderText = function(p, line, x, y) {
+p5.Renderer2D.prototype._renderText = function(p, line, x, y, maxY) {
+
+  if (y >= maxY) {
+    return; // don't render lines beyond our maxY position
+  }
 
   p.push(); // fix to #803
 
@@ -15083,7 +15715,7 @@ p5.Renderer2D.prototype._renderText = function(p, line, x, y) {
   }
   else { // an opentype font, let it handle the rendering
 
-    this._textFont._renderPath(line, x, y);
+    this._textFont._renderPath(line, x, y, { renderer: this });
   }
 
   p.pop();
@@ -15095,7 +15727,7 @@ p5.Renderer2D.prototype.textWidth = function(s) {
 
   if (this._isOpenType()) {
 
-    return this._textFont._textWidth(s);
+    return this._textFont._textWidth(s, this._textSize);
   }
 
   return this.drawingContext.measureText(s).width;
@@ -15179,7 +15811,7 @@ p5.Renderer2D.prototype.pop = function() {
 
 module.exports = p5.Renderer2D;
 
-},{"../image/filters":65,"./canvas":46,"./constants":47,"./core":48,"./p5.Renderer":54}],56:[function(_dereq_,module,exports){
+},{"../image/filters":59,"./canvas":40,"./constants":41,"./core":42,"./p5.Renderer":48}],50:[function(_dereq_,module,exports){
 /**
  * @module Rendering
  * @submodule Rendering
@@ -15190,22 +15822,28 @@ var p5 = _dereq_('./core');
 var constants = _dereq_('./constants');
 _dereq_('./p5.Graphics');
 _dereq_('./p5.Renderer2D');
-_dereq_('../3d/p5.Renderer3D');
+_dereq_('../webgl/p5.RendererGL');
+var defaultId = 'defaultCanvas0'; // this gets set again in createCanvas
 
 /**
  * Creates a canvas element in the document, and sets the dimensions of it
  * in pixels. This method should be called only once at the start of setup.
  * Calling createCanvas more than once in a sketch will result in very
  * unpredicable behavior. If you want more than one drawing canvas
- * you could use createGraphics (hidden by default but it can be shown).<br>
+ * you could use createGraphics (hidden by default but it can be shown).
+ * <br><br>
  * The system variables width and height are set by the parameters passed
  * to this function. If createCanvas() is not used, the window will be
  * given a default size of 100x100 pixels.
+ * <br><br>
+ * For more ways to position the canvas, see the
+ * <a href='https://github.com/processing/p5.js/wiki/Positioning-your-canvas'>
+ * positioning the canvas</a> wiki page.
  *
  * @method createCanvas
  * @param  {Number} w width of the canvas
  * @param  {Number} h height of the canvas
- * @param  optional:{String} renderer 'p2d' | 'webgl'
+ * @param  {Constant} [renderer] P2D or WEBGL
  * @return {Object} canvas generated
  * @example
  * <div>
@@ -15217,6 +15855,10 @@ _dereq_('../3d/p5.Renderer3D');
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * Black line extending from top-left of canvas to bottom right.
+ *
  */
 
 p5.prototype.createCanvas = function(w, h, renderer) {
@@ -15232,17 +15874,22 @@ p5.prototype.createCanvas = function(w, h, renderer) {
   }
 
   if(r === constants.WEBGL){
-    c = document.getElementById('defaultCanvas');
+    c = document.getElementById(defaultId);
     if(c){ //if defaultCanvas already exists
       c.parentNode.removeChild(c); //replace the existing defaultCanvas
     }
     c = document.createElement('canvas');
-    c.id = 'defaultCanvas';
+    c.id = defaultId;
   }
   else {
     if (isDefault) {
       c = document.createElement('canvas');
-      c.id = 'defaultCanvas';
+      var i = 0;
+      while (document.getElementById('defaultCanvas'+i)) {
+        i++;
+      }
+      defaultId = 'defaultCanvas'+i;
+      c.id = defaultId;
     } else { // resize the default canvas if new one is created
       c = this.canvas;
     }
@@ -15250,7 +15897,7 @@ p5.prototype.createCanvas = function(w, h, renderer) {
 
   // set to invisible if still in setup (to prevent flashing with manipulate)
   if (!this._setupDone) {
-    c.className += ' p5_hidden'; // tag to show later
+    c.dataset.hidden = true; // tag to show later
     c.style.visibility='hidden';
   }
 
@@ -15265,7 +15912,7 @@ p5.prototype.createCanvas = function(w, h, renderer) {
   // Init our graphics renderer
   //webgl mode
   if (r === constants.WEBGL) {
-    this._setProperty('_renderer', new p5.Renderer3D(c, this, true));
+    this._setProperty('_renderer', new p5.RendererGL(c, this, true));
     this._isdefaultGraphics = true;
   }
   //P2D mode
@@ -15284,10 +15931,9 @@ p5.prototype.createCanvas = function(w, h, renderer) {
 };
 
 /**
- * Resizes the canvas to given width and height. Note that the
- * canvas will be cleared so anything drawn previously in setup
- * or draw will disappear on resize. Setup will not be called
- * again.
+ * Resizes the canvas to given width and height. The canvas will be cleared
+ * and draw will be called immediately, allowing the sketch to re-render itself
+ * in the resized canvas.
  * @method resizeCanvas
  * @example
  * <div class="norender"><code>
@@ -15303,11 +15949,27 @@ p5.prototype.createCanvas = function(w, h, renderer) {
  *   resizeCanvas(windowWidth, windowHeight);
  * }
  * </code></div>
+ *
+ * @alt
+ * No image displayed.
+ *
  */
 p5.prototype.resizeCanvas = function (w, h, noRedraw) {
   if (this._renderer) {
+
+    // save canvas properties
+    var props = {};
+    for (var key in this.drawingContext) {
+      var val = this.drawingContext[key];
+      if (typeof val !== 'object' && typeof val !== 'function') {
+        props[key] = val;
+      }
+    }
     this._renderer.resize(w, h);
-    this._renderer._applyDefaults();
+    // reset canvas properties
+    for (var savedKey in props) {
+      this.drawingContext[savedKey] = props[savedKey];
+    }
     if (!noRedraw) {
       this.redraw();
     }
@@ -15327,6 +15989,10 @@ p5.prototype.resizeCanvas = function (w, h, noRedraw) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * no image displayed
+ *
  */
 p5.prototype.noCanvas = function() {
   if (this.canvas) {
@@ -15342,7 +16008,7 @@ p5.prototype.noCanvas = function() {
  * @method createGraphics
  * @param  {Number} w width of the offscreen graphics buffer
  * @param  {Number} h height of the offscreen graphics buffer
- * @param {String} renderer either 'p2d' or 'webgl'.
+ * @param  {Constant} [renderer] P2D or WEBGL
  * undefined defaults to p2d
  * @return {Object} offscreen graphics buffer
  * @example
@@ -15363,6 +16029,10 @@ p5.prototype.noCanvas = function() {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 4 grey squares alternating light and dark grey. White quarter circle mid-left.
+ *
  */
 p5.prototype.createGraphics = function(w, h, renderer){
   return new p5.Graphics(w, h, renderer, this);
@@ -15403,7 +16073,7 @@ p5.prototype.createGraphics = function(w, h, renderer){
  * </ul>
  *
  * @method blendMode
- * @param  {String/Constant} mode blend mode to set for canvas
+ * @param  {Constant} mode blend mode to set for canvas
  * @example
  * <div>
  * <code>
@@ -15425,6 +16095,10 @@ p5.prototype.createGraphics = function(w, h, renderer){
  * line(75, 25, 25, 75);
  * </code>
  * </div>
+ * @alt
+ * translucent image thick red & blue diagonal rounded lines intersecting center
+ * Thick red & blue diagonal rounded lines intersecting center. dark at overlap
+ *
  */
 p5.prototype.blendMode = function(mode) {
   if (mode === constants.BLEND || mode === constants.DARKEST ||
@@ -15443,7 +16117,7 @@ p5.prototype.blendMode = function(mode) {
 
 module.exports = p5;
 
-},{"../3d/p5.Renderer3D":36,"./constants":47,"./core":48,"./p5.Graphics":53,"./p5.Renderer2D":55}],57:[function(_dereq_,module,exports){
+},{"../webgl/p5.RendererGL":91,"./constants":41,"./core":42,"./p5.Graphics":47,"./p5.Renderer2D":49}],51:[function(_dereq_,module,exports){
 
 // requestAnim shim layer by Paul Irish
 window.requestAnimationFrame = (function(){
@@ -15512,18 +16186,21 @@ window.performance.now = (function(){
  * shim for Uint8ClampedArray.slice
  * (allows arrayCopy to work with pixels[])
  * with thanks to http://halfpapstudios.com/blog/tag/html5-canvas/
+ * Enumerable set to false to protect for...in from
+ * Uint8ClampedArray.prototype pollution.
  */
 (function () {
   'use strict';
-
-  if (typeof Uint8ClampedArray !== 'undefined') {
-    //Firefox and Chrome
-    Uint8ClampedArray.prototype.slice = Array.prototype.slice;
+  if (typeof Uint8ClampedArray !== 'undefined' &&
+      !Uint8ClampedArray.prototype.slice) {
+    Object.defineProperty(Uint8ClampedArray.prototype, 'slice', {
+      value: Array.prototype.slice,
+      writable: true, configurable: true, enumerable: false
+    });
   }
 }());
 
-
-},{}],58:[function(_dereq_,module,exports){
+},{}],52:[function(_dereq_,module,exports){
 /**
  * @module Structure
  * @submodule Structure
@@ -15539,21 +16216,20 @@ p5.prototype.exit = function() {
   throw 'exit() not implemented, see remove()';
 };
 /**
- * <p>Stops p5.js from continuously executing the code within draw().
+ * Stops p5.js from continuously executing the code within draw().
  * If loop() is called, the code in draw() begins to run continuously again.
  * If using noLoop() in setup(), it should be the last line inside the block.
- * </p>
- *
- * <p>When noLoop() is used, it's not possible to manipulate or access the
+ * <br><br>
+ * When noLoop() is used, it's not possible to manipulate or access the
  * screen inside event handling functions such as mousePressed() or
  * keyPressed(). Instead, use those functions to call redraw() or loop(),
  * which will run draw(), which can update the screen properly. This means
  * that when noLoop() has been called, no drawing can happen, and functions
- * like saveFrame() or loadPixels() may not be used.</p>
- *
- * <p>Note that if the sketch is resized, redraw() will be called to update
+ * like saveFrame() or loadPixels() may not be used.
+ * <br><br>
+ * Note that if the sketch is resized, redraw() will be called to update
  * the sketch, even after noLoop() has been specified. Otherwise, the sketch
- * would enter an odd state until loop() was called.</p>
+ * would enter an odd state until loop() was called.
  *
  * @method noLoop
  * @example
@@ -15592,6 +16268,11 @@ p5.prototype.exit = function() {
  *   loop();
  * }
  * </code></div>
+ *
+ * @alt
+ * 113 pixel long line extending from top-left to bottom right of canvas.
+ * horizontal line moves slowly from left. Loops but stops on mouse press.
+ *
  */
 p5.prototype.noLoop = function() {
   this._loop = false;
@@ -15627,6 +16308,10 @@ p5.prototype.noLoop = function() {
  *   noLoop();
  * }
  * </code></div>
+ *
+ * @alt
+ * horizontal line moves slowly from left. Loops but stops on mouse press.
+ *
  */
 
 p5.prototype.loop = function() {
@@ -15684,21 +16369,28 @@ p5.prototype.loop = function() {
  * ellipse(100, 50, 33, 33);  // Right circle
  * </code>
  * </div>
+ *
+ * @alt
+ * Gold ellipse + thick black outline @center 2 white ellipses on left and right.
+ * 2 Gold ellipses left black right blue stroke. 2 white ellipses on left+right.
+ *
  */
 p5.prototype.push = function () {
   this._renderer.push();
   this._styles.push({
-    doStroke: this._renderer._doStroke,
-    doFill: this._renderer._doFill,
-    tint: this._renderer._tint,
-    imageMode: this._renderer._imageMode,
-    rectMode: this._renderer._rectMode,
-    ellipseMode: this._renderer._ellipseMode,
-    colorMode: this._renderer._colorMode,
-    textFont: this._renderer._textFont,
-    textLeading: this._renderer._textLeading,
-    textSize: this._renderer._textSize,
-    textStyle: this._renderer._textStyle
+    _doStroke: this._renderer._doStroke,
+    _strokeSet: this._renderer._strokeSet,
+    _doFill: this._renderer._doFill,
+    _fillSet: this._renderer._fillSet,
+    _tint: this._renderer._tint,
+    _imageMode: this._renderer._imageMode,
+    _rectMode: this._renderer._rectMode,
+    _ellipseMode: this._renderer._ellipseMode,
+    _colorMode: this._renderer._colorMode,
+    _textFont: this._renderer._textFont,
+    _textLeading: this._renderer._textLeading,
+    _textSize: this._renderer._textSize,
+    _textStyle: this._renderer._textStyle
   });
 };
 
@@ -15752,21 +16444,18 @@ p5.prototype.push = function () {
  * ellipse(100, 50, 33, 33);  // Right circle
  * </code>
  * </div>
+ *
+ * @alt
+ * Gold ellipse + thick black outline @center 2 white ellipses on left and right.
+ * 2 Gold ellipses left black right blue stroke. 2 white ellipses on left+right.
+ *
  */
 p5.prototype.pop = function () {
   this._renderer.pop();
   var lastS = this._styles.pop();
-  this._renderer._doStroke = lastS.doStroke;
-  this._renderer._doFill = lastS.doFill;
-  this._renderer._tint = lastS.tint;
-  this._renderer._imageMode = lastS.imageMode;
-  this._renderer._rectMode = lastS.rectMode;
-  this._renderer._ellipseMode = lastS.ellipseMode;
-  this._renderer._colorMode = lastS.colorMode;
-  this._renderer._textFont = lastS.textFont;
-  this._renderer._textLeading = lastS.textLeading;
-  this._renderer._textSize = lastS.textSize;
-  this._renderer._textStyle = lastS.textStyle;
+  for(var prop in lastS){
+    this._renderer[prop] = lastS[prop];
+  }
 };
 
 p5.prototype.pushStyle = function() {
@@ -15782,53 +16471,95 @@ p5.prototype.popStyle = function() {
  * Executes the code within draw() one time. This functions allows the
  * program to update the display window only when necessary, for example
  * when an event registered by mousePressed() or keyPressed() occurs.
- *
+ * <br><br>
  * In structuring a program, it only makes sense to call redraw() within
  * events such as mousePressed(). This is because redraw() does not run
  * draw() immediately (it only sets a flag that indicates an update is
  * needed).
- *
+ * <br><br>
  * The redraw() function does not work properly when called inside draw().
  * To enable/disable animations, use loop() and noLoop().
+ * <br><br>
+ * In addition you can set the number of redraws per method call. Just
+ * add an integer as single parameter for the number of redraws.
  *
  * @method redraw
+ * @param  {Integer} [n] Redraw for n-times. The default value is 1.
  * @example
- *   <div><code>
- *     var x = 0;
+ * <div><code>
+ * var x = 0;
  *
- *     function setup() {
- *       createCanvas(100, 100);
- *       noLoop();
- *     }
+ * function setup() {
+ *   createCanvas(100, 100);
+ *   noLoop();
+ * }
  *
- *     function draw() {
- *       background(204);
- *       line(x, 0, x, height);
- *     }
+ * function draw() {
+ *   background(204);
+ *   line(x, 0, x, height);
+ * }
  *
- *     function mousePressed() {
- *       x += 1;
- *       redraw();
- *     }
- *   </code></div>
+ * function mousePressed() {
+ *   x += 1;
+ *   redraw();
+ * }
+ * </code></div>
+ *
+ * <div class='norender'><code>
+ * var x = 0;
+ *
+ * function setup() {
+ *   createCanvas(100, 100);
+ *   noLoop();
+ * }
+ *
+ * function draw() {
+ *   background(204);
+ *   x += 1;
+ *   line(x, 0, x, height);
+ * }
+ *
+ * function mousePressed() {
+ *   redraw(5);
+ * }
+ * </code></div>
+ *
+ * @alt
+ * black line on far left of canvas
+ * black line on far left of canvas
+ *
  */
 p5.prototype.redraw = function () {
+  this.resetMatrix();
+  if(this._renderer.isP3D){
+    this._renderer._update();
+  }
+
+  var numberOfRedraws = 1;
+  if (arguments.length === 1) {
+    try {
+      if (parseInt(arguments[0]) > 1) {
+        numberOfRedraws = parseInt(arguments[0]);
+      }
+    } catch (error) {
+      // Do nothing, because the default value didn't be changed.
+    }
+  }
   var userSetup = this.setup || window.setup;
   var userDraw = this.draw || window.draw;
   if (typeof userDraw === 'function') {
-    this.push();
     if (typeof userSetup === 'undefined') {
-      this.scale(this.pixelDensity, this.pixelDensity);
+      this.scale(this._pixelDensity, this._pixelDensity);
     }
     var self = this;
-    this._registeredMethods.pre.forEach(function (f) {
+    var callMethod = function (f) {
       f.call(self);
-    });
-    userDraw();
-    this._registeredMethods.post.forEach(function (f) {
-      f.call(self);
-    });
-    this.pop();
+    };
+    for (var idxRedraw = 0; idxRedraw < numberOfRedraws; idxRedraw++) {
+      this._registeredMethods.pre.forEach(callMethod);
+      userDraw();
+      this._registeredMethods.post.forEach(callMethod);
+    }
   }
 };
 
@@ -15841,7 +16572,7 @@ p5.prototype.size = function() {
 
 module.exports = p5;
 
-},{"./core":48}],59:[function(_dereq_,module,exports){
+},{"./core":42}],53:[function(_dereq_,module,exports){
 /**
  * @module Transform
  * @submodule Transform
@@ -15875,6 +16606,10 @@ var constants = _dereq_('./constants');
  * // Example in the works.
  * </code>
  * </div>
+ *
+ * @alt
+ * no image diplayed
+ *
  */
 p5.prototype.applyMatrix = function(n00, n01, n02, n10, n11, n12) {
   this._renderer.applyMatrix(n00, n01, n02, n10, n11, n12);
@@ -15904,6 +16639,10 @@ p5.prototype.pushMatrix = function() {
  * // Example in the works.
  * </code>
  * </div>
+ *
+ * @alt
+ * no image diplayed
+ *
  */
 p5.prototype.resetMatrix = function() {
   this._renderer.resetMatrix();
@@ -15914,14 +16653,14 @@ p5.prototype.resetMatrix = function() {
  * Rotates a shape the amount specified by the angle parameter. This
  * function accounts for angleMode, so angles can be entered in either
  * RADIANS or DEGREES.
- *
+ * <br><br>
  * Objects are always rotated around their relative position to the
  * origin and positive numbers rotate objects in a clockwise direction.
  * Transformations apply to everything that happens after and subsequent
  * calls to the function accumulates the effect. For example, calling
  * rotate(HALF_PI) and then rotate(HALF_PI) is the same as rotate(PI).
  * All tranformations are reset when draw() begins again.
- *
+ * <br><br>
  * Technically, rotate() multiplies the current transformation matrix
  * by a rotation matrix. This function can be further controlled by
  * the push() and pop().
@@ -15938,15 +16677,31 @@ p5.prototype.resetMatrix = function() {
  * rect(-26, -26, 52, 52);
  * </code>
  * </div>
+ *
+ * @alt
+ * white 52x52 rect with black outline at center rotated counter 45 degrees
+ *
+ */
+/**
+ * @method rotate
+ * @param  {Number} rad angle in radians
+ * @param  {p5.Vector|Array} axis axis to rotate around
+ * @return {p5} the p5 object
  */
 p5.prototype.rotate = function() {
-  var r = arguments[0];
+  var args = new Array(arguments.length);
+  var r;
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
   if (this._angleMode === constants.DEGREES) {
-    r = this.radians(r);
+    r = this.radians(args[0]);
+  } else if (this._angleMode === constants.RADIANS){
+    r = args[0];
   }
   //in webgl mode
-  if(arguments.length > 1){
-    this._renderer.rotate(r, arguments[1]);
+  if(args.length > 1){
+    this._renderer.rotate(r, args[1]);
   }
   else {
     this._renderer.rotate(r);
@@ -15955,61 +16710,43 @@ p5.prototype.rotate = function() {
 };
 
 /**
- * [rotateX description]
- * @param  {[type]} rad [description]
- * @return {[type]}     [description]
+ * Rotates around X axis.
+ * @method  rotateX
+ * @param  {Number} rad angles in radians
+ * @return {p5} the p5 object
  */
 p5.prototype.rotateX = function(rad) {
   if (this._renderer.isP3D) {
-    this._validateParameters(
-      'rotateX',
-      arguments,
-      [
-        ['Number']
-      ]
-    );
     this._renderer.rotateX(rad);
   } else {
-    throw 'not yet implemented.';
+    throw 'not supported in p2d. Please use webgl mode';
   }
   return this;
 };
 
 /**
- * [rotateY description]
- * @param  {[type]} rad [description]
- * @return {[type]}     [description]
+ * Rotates around Y axis.
+ * @method rotateY
+ * @param  {Number} rad angles in radians
+ * @return {p5} the p5 object
  */
 p5.prototype.rotateY = function(rad) {
   if (this._renderer.isP3D) {
-    this._validateParameters(
-      'rotateY',
-      arguments,
-      [
-        ['Number']
-      ]
-    );
     this._renderer.rotateY(rad);
   } else {
-    throw 'not yet implemented.';
+    throw 'not supported in p2d. Please use webgl mode';
   }
   return this;
 };
 
 /**
- * [rotateZ description]
- * @param  {[type]} rad [description]
- * @return {[type]}     [description]
+ * Rotates around Z axis. Webgl mode only.
+ * @method rotateZ
+ * @param  {Number} rad angles in radians
+ * @return {p5} the p5 object
  */
 p5.prototype.rotateZ = function(rad) {
   if (this._renderer.isP3D) {
-    this._validateParameters(
-      'rotateZ',
-      arguments,
-      [
-        ['Number']
-      ]
-    );
     this._renderer.rotateZ(rad);
   } else {
     throw 'not supported in p2d. Please use webgl mode';
@@ -16023,21 +16760,22 @@ p5.prototype.rotateZ = function(rad) {
  * coordinate system. Scale values are specified as decimal percentages.
  * For example, the function call scale(2.0) increases the dimension of a
  * shape by 200%.
- *
+ * <br><br>
  * Transformations apply to everything that happens after and subsequent
  * calls to the function multiply the effect. For example, calling scale(2.0)
  * and then scale(1.5) is the same as scale(3.0). If scale() is called
  * within draw(), the transformation is reset when the loop begins again.
- *
- * Using this fuction with the z parameter requires using P3D as a
- * parameter for size(), as shown in the third example above. This function
- * can be further controlled with push() and pop().
+ * <br><br>
+ * Using this function with the z parameter is only available in WEBGL mode.
+ * This function can be further controlled with push() and pop().
  *
  * @method scale
- * @param  {Number} s   percentage to scale the object, or percentage to
+ * @param  {Number|p5.Vector|Array} s
+ *                      percent to scale the object, or percentage to
  *                      scale the object in the x-axis if multiple arguments
  *                      are given
- * @param  {Number} [y] percentage to scale the object in the y-axis
+ * @param  {Number} [y] percent to scale the object in the y-axis
+ * @param  {Number} [z] percent to scale the object in the z-axis (webgl only)
  * @return {p5}         the p5 object
  * @example
  * <div>
@@ -16055,28 +16793,44 @@ p5.prototype.rotateZ = function(rad) {
  * rect(30, 20, 50, 50);
  * </code>
  * </div>
+ *
+ * @alt
+ * white 52x52 rect with black outline at center rotated counter 45 degrees
+ * 2 white rects with black outline- 1 50x50 at center. other 25x65 bottom left
+ *
  */
 p5.prototype.scale = function() {
-  if (this._renderer.isP3D) {
-    this._validateParameters(
-      'scale',
-      arguments,
-      [
-        //p3d
-        ['Number', 'Number', 'Number']
-      ]
-    );
-    this._renderer.scale(arguments[0], arguments[1], arguments[2]);
-  } else {
-    this._validateParameters(
-      'scale',
-      arguments,
-      [
-        //p2d
-        ['Number', 'Number']
-      ]
-    );
-    this._renderer.scale.apply(this._renderer, arguments);
+  var x,y,z;
+  var args = new Array(arguments.length);
+  for(var i = 0; i < args.length; i++) {
+    args[i] = arguments[i];
+  }
+  if(args[0] instanceof p5.Vector){
+    x = args[0].x;
+    y = args[0].y;
+    z = args[0].z;
+  }
+  else if(args[0] instanceof Array){
+    x = args[0][0];
+    y = args[0][1];
+    z = args[0][2] || 1;
+  }
+  else {
+    if(args.length === 1){
+      x = y = z = args[0];
+    }
+    else {
+      x = args[0];
+      y = args[1];
+      z = args[2] || 1;
+    }
+  }
+
+  if(this._renderer.isP3D){
+    this._renderer.scale.call(this._renderer, x,y,z);
+  }
+  else {
+    this._renderer.scale.call(this._renderer, x,y);
   }
   return this;
 };
@@ -16086,13 +16840,13 @@ p5.prototype.scale = function() {
  * parameter. Angles should be specified in the current angleMode.
  * Objects are always sheared around their relative position to the origin
  * and positive numbers shear objects in a clockwise direction.
- *
+ * <br><br>
  * Transformations apply to everything that happens after and subsequent
  * calls to the function accumulates the effect. For example, calling
  * shearX(PI/2) and then shearX(PI/2) is the same as shearX(PI).
  * If shearX() is called within the draw(), the transformation is reset when
  * the loop begins again.
- *
+ * <br><br>
  * Technically, shearX() multiplies the current transformation matrix by a
  * rotation matrix. This function can be further controlled by the
  * push() and pop() functions.
@@ -16109,6 +16863,10 @@ p5.prototype.scale = function() {
  * rect(0, 0, 30, 30);
  * </code>
  * </div>
+ *
+ * @alt
+  * white irregular quadrilateral with black outline at top middle.
+ *
  */
 p5.prototype.shearX = function(angle) {
   if (this._angleMode === constants.DEGREES) {
@@ -16123,13 +16881,13 @@ p5.prototype.shearX = function(angle) {
  * parameter. Angles should be specified in the current angleMode. Objects
  * are always sheared around their relative position to the origin and
  * positive numbers shear objects in a clockwise direction.
- *
+ * <br><br>
  * Transformations apply to everything that happens after and subsequent
  * calls to the function accumulates the effect. For example, calling
  * shearY(PI/2) and then shearY(PI/2) is the same as shearY(PI). If
  * shearY() is called within the draw(), the transformation is reset when
  * the loop begins again.
- *
+ * <br><br>
  * Technically, shearY() multiplies the current transformation matrix by a
  * rotation matrix. This function can be further controlled by the
  * push() and pop() functions.
@@ -16146,6 +16904,10 @@ p5.prototype.shearX = function(angle) {
  * rect(0, 0, 30, 30);
  * </code>
  * </div>
+ *
+ * @alt
+ * white irregular quadrilateral with black outline at middle bottom.
+ *
  */
 p5.prototype.shearY = function(angle) {
   if (this._angleMode === constants.DEGREES) {
@@ -16159,7 +16921,7 @@ p5.prototype.shearY = function(angle) {
  * Specifies an amount to displace objects within the display window.
  * The x parameter specifies left/right translation, the y parameter
  * specifies up/down translation.
- *
+ * <br><br>
  * Transformations are cumulative and apply to everything that happens after
  * and subsequent calls to the function accumulates the effect. For example,
  * calling translate(50, 0) and then translate(20, 0) is the same as
@@ -16170,6 +16932,7 @@ p5.prototype.shearY = function(angle) {
  * @method translate
  * @param  {Number} x left/right translation
  * @param  {Number} y up/down translation
+ * @param  {Number} [z] forward/backward translation (webgl only)
  * @return {p5}       the p5 object
  * @example
  * <div>
@@ -16188,27 +16951,16 @@ p5.prototype.shearY = function(angle) {
  * rect(0, 0, 55, 55);  // Draw rect at new 0,0
  * </code>
  * </div>
+ *
+ * @alt
+ * white 55x55 rect with black outline at center right.
+ * 3 white 55x55 rects with black outlines at top-l, center-r and bottom-r.
+ *
  */
 p5.prototype.translate = function(x, y, z) {
   if (this._renderer.isP3D) {
-    this._validateParameters(
-      'translate',
-      arguments,
-      [
-        //p3d
-        ['Number', 'Number', 'Number']
-      ]
-    );
     this._renderer.translate(x, y, z);
   } else {
-    this._validateParameters(
-      'translate',
-      arguments,
-      [
-        //p2d
-        ['Number', 'Number']
-      ]
-    );
     this._renderer.translate(x, y);
   }
   return this;
@@ -16216,7 +16968,7 @@ p5.prototype.translate = function(x, y, z) {
 
 module.exports = p5;
 
-},{"./constants":47,"./core":48}],60:[function(_dereq_,module,exports){
+},{"./constants":41,"./core":42}],54:[function(_dereq_,module,exports){
 /**
  * @module Shape
  * @submodule Vertex
@@ -16236,6 +16988,7 @@ var isBezier = false;
 var isCurve = false;
 var isQuadratic = false;
 var isContour = false;
+var isFirstContour = true;
 
 /**
  * Use the beginContour() and endContour() functions to create negative
@@ -16274,6 +17027,10 @@ var isContour = false;
  * endShape(CLOSE);
  * </code>
  * </div>
+ *
+ * @alt
+ * white rect and smaller grey rect with red outlines in center of canvas.
+ *
  */
 p5.prototype.beginContour = function() {
   contourVertices = [];
@@ -16286,21 +17043,21 @@ p5.prototype.beginContour = function() {
  * complex forms. beginShape() begins recording vertices for a shape and
  * endShape() stops recording. The value of the kind parameter tells it which
  * types of shapes to create from the provided vertices. With no mode
- * specified, the shape can be any irregular polygon. The parameters
- * available for beginShape() are POINTS, LINES, TRIANGLES, TRIANGLE_FAN,
- * TRIANGLE_STRIP, QUADS, and QUAD_STRIP. After calling the beginShape()
- * function, a series of vertex() commands must follow. To stop drawing the
- * shape, call endShape(). Each shape will be outlined with the current
- * stroke color and filled with the fill color.
- *
+ * specified, the shape can be any irregular polygon.
+ * <br><br>
+ * The parameters available for beginShape() are POINTS, LINES, TRIANGLES,
+ * TRIANGLE_FAN, TRIANGLE_STRIP, QUADS, and QUAD_STRIP. After calling the
+ * beginShape() function, a series of vertex() commands must follow. To stop
+ * drawing the shape, call endShape(). Each shape will be outlined with the
+ * current stroke color and filled with the fill color.
+ * <br><br>
  * Transformations such as translate(), rotate(), and scale() do not work
  * within beginShape(). It is also not possible to use other shapes, such as
  * ellipse() or rect() within beginShape().
  *
  * @method beginShape
- * @param  {Number/Constant} kind either POINTS, LINES, TRIANGLES,
- *                                TRIANGLE_FAN, TRIANGLE_STRIP, QUADS,
- *                                or QUAD_STRIP
+ * @param  {Constant} kind either POINTS, LINES, TRIANGLES, TRIANGLE_FAN
+ *                                TRIANGLE_STRIP, QUADS, or QUAD_STRIP
  * @return {Object}               the p5 object
  * @example
  * <div>
@@ -16443,6 +17200,19 @@ p5.prototype.beginContour = function() {
  * endShape(CLOSE);
  * </code>
  * </div>
+  * @alt
+ * white square-shape with black outline in middle-right of canvas.
+ * 4 black points in a square shape in middle-right of canvas.
+ * 2 horizontal black lines. In the top-right and bottom-right of canvas.
+ * 3 line shape with horizontal on top, vertical in middle and horizontal bottom.
+ * square line shape in middle-right of canvas.
+ * 2 white triangle shapes mid-right canvas. left one pointing up and right down.
+ * 5 horizontal interlocking and alternating white triangles in mid-right canvas.
+ * 4 interlocking white triangles in 45 degree rotated square-shape.
+ * 2 white rectangle shapes in mid-right canvas. Both 20x55.
+ * 3 side-by-side white rectangles center rect is smaller in mid-right canvas.
+ * Thick white l-shape with black outline mid-top-left of canvas.
+ *
  */
 p5.prototype.beginShape = function(kind) {
   if (kind === constants.POINTS ||
@@ -16469,7 +17239,9 @@ p5.prototype.beginShape = function(kind) {
  * Specifies vertex coordinates for Bezier curves. Each call to
  * bezierVertex() defines the position of two control points and
  * one anchor point of a Bezier curve, adding a new segment to a
- * line or shape. The first time bezierVertex() is used within a
+ * line or shape.
+ * <br><br>
+ * The first time bezierVertex() is used within a
  * beginShape() call, it must be prefaced with a call to vertex()
  * to set the first anchor point. This function must be used between
  * beginShape() and endShape() and only when there is no MODE
@@ -16503,6 +17275,11 @@ p5.prototype.beginShape = function(kind) {
  * endShape();
  * </code>
  * </div>
+ *
+ * @alt
+ * crescent-shaped line in middle of canvas. Points facing left.
+ * white crescent shape in middle of canvas. Points facing left.
+ *
  */
 p5.prototype.bezierVertex = function(x2, y2, x3, y3, x4, y4) {
   if (vertices.length === 0) {
@@ -16526,8 +17303,9 @@ p5.prototype.bezierVertex = function(x2, y2, x3, y3, x4, y4) {
 /**
  * Specifies vertex coordinates for curves. This function may only
  * be used between beginShape() and endShape() and only when there
- * is no MODE parameter specified to beginShape(). The first and
- * last points in a series of curveVertex() lines will be used to
+ * is no MODE parameter specified to beginShape().
+ * <br><br>
+ * The first and last points in a series of curveVertex() lines will be used to
  * guide the beginning and end of a the curve. A minimum of four
  * points is required to draw a tiny curve between the second and
  * third points. Adding a fifth point with curveVertex() will draw
@@ -16553,6 +17331,10 @@ p5.prototype.bezierVertex = function(x2, y2, x3, y3, x4, y4) {
  * endShape();
  * </code>
  * </div>
+ *
+ * @alt
+ * Upside-down u-shape line, mid canvas. left point extends beyond canvas view.
+ *
  */
 p5.prototype.curveVertex = function(x,y) {
   isCurve = true;
@@ -16597,6 +17379,10 @@ p5.prototype.curveVertex = function(x,y) {
  * endShape(CLOSE);
  * </code>
  * </div>
+ *
+ * @alt
+ * white rect and smaller grey rect with red outlines in center of canvas.
+ *
  */
 p5.prototype.endContour = function() {
   var vert = contourVertices[0].slice(); // copy all data
@@ -16604,7 +17390,12 @@ p5.prototype.endContour = function() {
   vert.moveTo = false;
   contourVertices.push(vert);
 
-  vertices.push(vertices[0]);
+  // prevent stray lines with multiple contours
+  if (isFirstContour) {
+    vertices.push(vertices[0]);
+    isFirstContour = false;
+  }
+
   for (var i = 0; i < contourVertices.length; i++) {
     vertices.push(contourVertices[i]);
   }
@@ -16619,7 +17410,7 @@ p5.prototype.endContour = function() {
  * the shape (to connect the beginning and the end).
  *
  * @method endShape
- * @param  {Number/Constant} mode use CLOSE to close the shape
+ * @param  {Constant} mode use CLOSE to close the shape
  * @return {Object}               the p5 object
  * @example
  * <div>
@@ -16639,10 +17430,15 @@ p5.prototype.endContour = function() {
  * endShape();
  * </code>
  * </div>
+ *
+ * @alt
+ * Triangle line shape with smallest interior angle on bottom and upside-down L.
+ *
  */
 p5.prototype.endShape = function(mode) {
   if(this._renderer.isP3D){
-    this._renderer.endShape();
+    this._renderer.endShape(mode, isCurve, isBezier,
+      isQuadratic, isContour, shapeKind);
   }else{
     if (vertices.length === 0) { return this; }
     if (!this._renderer._doStroke && !this._renderer._doFill) { return this; }
@@ -16662,6 +17458,7 @@ p5.prototype.endShape = function(mode) {
     isBezier = false;
     isQuadratic = false;
     isContour = false;
+    isFirstContour = true;
 
     // If the shape is closed, the first element was added as last element.
     // We must remove it again to prevent the list of vertices from growing
@@ -16712,6 +17509,11 @@ p5.prototype.endShape = function(mode) {
  * endShape();
  * </code>
  * </div>
+ *
+ * @alt
+ * arched-shaped black line with 4 pixel thick stroke weight.
+ * backwards s-shaped black line with 4 pixel thick stroke weight.
+ *
  */
 p5.prototype.quadraticVertex = function(cx, cy, x3, y3) {
   //if we're drawing a contour, put the points into an
@@ -16766,27 +17568,15 @@ p5.prototype.quadraticVertex = function(cx, cy, x3, y3) {
  * endShape();
  * </code>
  * </div>
+ *
+ * @alt
+ * 4 black points in a square shape in middle-right of canvas.
+ *
  */
 p5.prototype.vertex = function(x, y, moveTo) {
   if(this._renderer.isP3D){
-    this._validateParameters(
-      'vertex',
-      arguments,
-      [
-        ['Number', 'Number', 'Number']
-      ]
-    );
-    this._renderer.vertex
-    (arguments[0], arguments[1], arguments[2]);
+    this._renderer.vertex(x, y, moveTo);
   }else{
-    this._validateParameters(
-      'vertex',
-      arguments,
-      [
-        ['Number', 'Number'],
-        ['Number', 'Number', 'Number']
-      ]
-    );
     var vert = [];
     vert.isVert = true;
     vert[0] = x;
@@ -16814,7 +17604,7 @@ p5.prototype.vertex = function(x, y, moveTo) {
 
 module.exports = p5;
 
-},{"./constants":47,"./core":48}],61:[function(_dereq_,module,exports){
+},{"./constants":41,"./core":42}],55:[function(_dereq_,module,exports){
 /**
  * @module Events
  * @submodule Acceleration
@@ -16897,12 +17687,258 @@ p5.prototype._updatePAccelerations = function(){
   this._setProperty('pAccelerationZ', this.accelerationZ);
 };
 
+/**
+ * The system variable rotationX always contains the rotation of the
+ * device along the x axis. Value is represented as 0 to +/-180 degrees.
+ * <br><br>
+ * Note: The order the rotations are called is important, ie. if used
+ * together, it must be called in the order Z-X-Y or there might be
+ * unexpected behaviour.
+ *
+ * @example
+ * <div>
+ * <code>
+ * function setup(){
+ *   createCanvas(100, 100, WEBGL);
+ * }
+ *
+ * function draw(){
+ *   background(200);
+ *   //rotateZ(radians(rotationZ));
+ *   rotateX(radians(rotationX));
+ *   //rotateY(radians(rotationY));
+ *   box(200, 200, 200);
+ * }
+ * </code>
+ * </div>
+ *
+ * @property rotationX
+ *
+ * @alt
+ * red horizontal line right, green vertical line bottom. black background.
+ *
+ */
+p5.prototype.rotationX = 0;
+
+/**
+ * The system variable rotationY always contains the rotation of the
+ * device along the y axis. Value is represented as 0 to +/-90 degrees.
+ * <br><br>
+ * Note: The order the rotations are called is important, ie. if used
+ * together, it must be called in the order Z-X-Y or there might be
+ * unexpected behaviour.
+ *
+ * @example
+ * <div>
+ * <code>
+ * function setup(){
+ *   createCanvas(100, 100, WEBGL);
+ * }
+ *
+ * function draw(){
+ *   background(200);
+ *   //rotateZ(radians(rotationZ));
+ *   //rotateX(radians(rotationX));
+ *   rotateY(radians(rotationY));
+ *   box(200, 200, 200);
+ * }
+ * </code>
+ * </div>
+ *
+ * @property rotationY
+ *
+ * @alt
+ * red horizontal line right, green vertical line bottom. black background.
+ */
+p5.prototype.rotationY = 0;
+
+/**
+ * The system variable rotationZ always contains the rotation of the
+ * device along the z axis. Value is represented as 0 to 359 degrees.
+ * <br><br>
+ * Unlike rotationX and rotationY, this variable is available for devices
+ * with a built-in compass only.
+ * <br><br>
+ * Note: The order the rotations are called is important, ie. if used
+ * together, it must be called in the order Z-X-Y or there might be
+ * unexpected behaviour.
+ *
+ * @example
+ * <div>
+ * <code>
+ * function setup(){
+ *   createCanvas(100, 100, WEBGL);
+ * }
+ *
+ * function draw(){
+ *   background(200);
+ *   rotateZ(radians(rotationZ));
+ *   //rotateX(radians(rotationX));
+ *   //rotateY(radians(rotationY));
+ *   box(200, 200, 200);
+ * }
+ * </code>
+ * </div>
+ *
+ * @property rotationZ
+ *
+ * @alt
+ * red horizontal line right, green vertical line bottom. black background.
+ */
+p5.prototype.rotationZ = 0;
+
+/**
+ * The system variable pRotationX always contains the rotation of the
+ * device along the x axis in the frame previous to the current frame. Value
+ * is represented as 0 to +/-180 degrees.
+ * <br><br>
+ * pRotationX can also be used with rotationX to determine the rotate
+ * direction of the device along the X-axis.
+ * @example
+ * <div class='norender'>
+ * <code>
+ * // A simple if statement looking at whether
+ * // rotationX - pRotationX < 0 is true or not will be
+ * // sufficient for determining the rotate direction
+ * // in most cases.
+ *
+ * // Some extra logic is needed to account for cases where
+ * // the angles wrap around.
+ * var rotateDirection = 'clockwise';
+ *
+ * // Simple range conversion to make things simpler.
+ * // This is not absolutely neccessary but the logic
+ * // will be different in that case.
+ *
+ * var rX = rotationX + 180;
+ * var pRX = pRotationX + 180;
+ *
+ * if ((rX - pRX > 0 && rX - pRX < 270)|| rX - pRX < -270){
+ *   rotateDirection = 'clockwise';
+ * } else if (rX - pRX < 0 || rX - pRX > 270){
+ *   rotateDirection = 'counter-clockwise';
+ * }
+ * </code>
+ * </div>
+ *
+ * @alt
+ * no image to display.
+ *
+ *
+ * @property pRotationX
+ */
+p5.prototype.pRotationX = 0;
+
+/**
+ * The system variable pRotationY always contains the rotation of the
+ * device along the y axis in the frame previous to the current frame. Value
+ * is represented as 0 to +/-90 degrees.
+ * <br><br>
+ * pRotationY can also be used with rotationY to determine the rotate
+ * direction of the device along the Y-axis.
+ * @example
+ * <div class='norender'>
+ * <code>
+ * // A simple if statement looking at whether
+ * // rotationY - pRotationY < 0 is true or not will be
+ * // sufficient for determining the rotate direction
+ * // in most cases.
+ *
+ * // Some extra logic is needed to account for cases where
+ * // the angles wrap around.
+ * var rotateDirection = 'clockwise';
+ *
+ * // Simple range conversion to make things simpler.
+ * // This is not absolutely neccessary but the logic
+ * // will be different in that case.
+ *
+ * var rY = rotationY + 180;
+ * var pRY = pRotationY + 180;
+ *
+ * if ((rY - pRY > 0 && rY - pRY < 270)|| rY - pRY < -270){
+ *   rotateDirection = 'clockwise';
+ * } else if (rY - pRY < 0 || rY - pRY > 270){
+ *   rotateDirection = 'counter-clockwise';
+ * }
+ * </code>
+ * </div>
+ *
+ * @alt
+ * no image to display.
+ *
+ *
+ * @property pRotationY
+ */
+p5.prototype.pRotationY = 0;
+
+/**
+ * The system variable pRotationZ always contains the rotation of the
+ * device along the z axis in the frame previous to the current frame. Value
+ * is represented as 0 to 359 degrees.
+ * <br><br>
+ * pRotationZ can also be used with rotationZ to determine the rotate
+ * direction of the device along the Z-axis.
+ * @example
+ * <div class='norender'>
+ * <code>
+ * // A simple if statement looking at whether
+ * // rotationZ - pRotationZ < 0 is true or not will be
+ * // sufficient for determining the rotate direction
+ * // in most cases.
+ *
+ * // Some extra logic is needed to account for cases where
+ * // the angles wrap around.
+ * var rotateDirection = 'clockwise';
+ *
+ * if ((rotationZ - pRotationZ > 0 &&
+ *   rotationZ - pRotationZ < 270)||
+ *   rotationZ - pRotationZ < -270){
+ *
+ *   rotateDirection = 'clockwise';
+ *
+ * } else if (rotationZ - pRotationZ < 0 ||
+ *   rotationZ - pRotationZ > 270){
+ *
+ *   rotateDirection = 'counter-clockwise';
+ *
+ * }
+ * </code>
+ * </div>
+ *
+ * @alt
+ * no image to display.
+ *
+ *
+ * @property pRotationZ
+ */
+p5.prototype.pRotationZ = 0;
+
+var startAngleX = 0;
+var startAngleY = 0;
+var startAngleZ = 0;
+
+var rotateDirectionX = 'clockwise';
+var rotateDirectionY = 'clockwise';
+var rotateDirectionZ = 'clockwise';
+
+var pRotateDirectionX;
+var pRotateDirectionY;
+var pRotateDirectionZ;
+
+p5.prototype._updatePRotations = function(){
+  this._setProperty('pRotationX', this.rotationX);
+  this._setProperty('pRotationY', this.rotationY);
+  this._setProperty('pRotationZ', this.rotationZ);
+};
+
+p5.prototype.turnAxis = undefined;
+
 var move_threshold = 0.5;
 var shake_threshold = 30;
 
 /**
  * The setMoveThreshold() function is used to set the movement threshold for
- * the deviceMoved() function.
+ * the deviceMoved() function. The default threshold is set to 0.5.
  *
  * @method setMoveThreshold
  * @param {number} value The threshold value
@@ -16926,15 +17962,13 @@ p5.prototype.setShakeThreshold = function(val){
   }
 };
 
-var old_max_axis = '';
-var new_max_axis = '';
-
 /**
- * The deviceMoved() function is called when the devices orientation changes
- * by more than the threshold value.
+ * The deviceMoved() function is called when the device is moved by more than
+ * the threshold value along X, Y or Z axis. The default threshold is set to
+ * 0.5.
  * @method deviceMoved
  * @example
- * <div>
+ * <div class="norender">
  * <code>
  * // Run this example on a mobile device
  * // Move the device around
@@ -16953,14 +17987,23 @@ var new_max_axis = '';
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 50x50 black rect in center of canvas. turns white on mobile when device moves
+ *
  */
 
 /**
  * The deviceTurned() function is called when the device rotates by
- * more than 90 degrees.
+ * more than 90 degrees continuously.
+ * <br><br>
+ * The axis that triggers the deviceTurned() method is stored in the turnAxis
+ * variable. The deviceTurned() method can be locked to trigger on any axis:
+ * X, Y or Z by comparing the turnAxis variable to 'X', 'Y' or 'Z'.
+ *
  * @method deviceTurned
  * @example
- * <div>
+ * <div class="norender">
  * <code>
  * // Run this example on a mobile device
  * // Rotate the device by 90 degrees
@@ -16972,13 +18015,41 @@ var new_max_axis = '';
  *   rect(25, 25, 50, 50);
  * }
  * function deviceTurned() {
- *   value = value + 5;
- *   if (value > 255) {
+ *   if (value == 0){
+ *     value = 255
+ *   } else if (value == 255) {
  *     value = 0;
  *   }
  * }
  * </code>
  * </div>
+ * <div>
+ * <code>
+ * // Run this example on a mobile device
+ * // Rotate the device by 90 degrees in the
+ * // X-axis to change the value.
+ *
+ * var value = 0;
+ * function draw() {
+ *   fill(value);
+ *   rect(25, 25, 50, 50);
+ * }
+ * function deviceTurned() {
+ *   if (turnAxis == 'X'){
+ *     if (value == 0){
+ *       value = 255
+ *     } else if (value == 255) {
+ *       value = 0;
+ *     }
+ *   }
+ * }
+ * </code>
+ * </div>
+ *
+ * @alt
+ * 50x50 black rect in center of canvas. turns white on mobile when device turns
+ * 50x50 black rect in center of canvas. turns white on mobile when x-axis turns
+ *
  */
 
 /**
@@ -16987,7 +18058,7 @@ var new_max_axis = '';
  * the threshold value. The default threshold is set to 30.
  * @method deviceShaken
  * @example
- * <div>
+ * <div class="norender">
  * <code>
  * // Run this example on a mobile device
  * // Shake the device to change the value.
@@ -17005,24 +18076,24 @@ var new_max_axis = '';
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 50x50 black rect in center of canvas. turns white on mobile when device shakes
+ *
  */
 
 p5.prototype._ondeviceorientation = function (e) {
-  this._setProperty('accelerationX', e.beta);
-  this._setProperty('accelerationY', e.gamma);
-  this._setProperty('accelerationZ', e.alpha);
+  this._updatePRotations();
+  this._setProperty('rotationX', e.beta);
+  this._setProperty('rotationY', e.gamma);
+  this._setProperty('rotationZ', e.alpha);
   this._handleMotion();
 };
 p5.prototype._ondevicemotion = function (e) {
+  this._updatePAccelerations();
   this._setProperty('accelerationX', e.acceleration.x * 2);
   this._setProperty('accelerationY', e.acceleration.y * 2);
   this._setProperty('accelerationZ', e.acceleration.z * 2);
-  this._handleMotion();
-};
-p5.prototype._onMozOrientation = function (e) {
-  this._setProperty('accelerationX', e.x);
-  this._setProperty('accelerationY', e.y);
-  this._setProperty('accelerationZ', e.z);
   this._handleMotion();
 };
 p5.prototype._handleMotion = function() {
@@ -17043,23 +18114,70 @@ p5.prototype._handleMotion = function() {
   }
   var deviceTurned = this.deviceTurned || window.deviceTurned;
   if (typeof deviceTurned === 'function') {
-    var max_val = 0;
-    if (Math.abs(this.accelerationX) > max_val) {
-      max_val = this.accelerationX;
-      new_max_axis = 'x';
+    // The angles given by rotationX etc is from range -180 to 180.
+    // The following will convert them to 0 to 360 for ease of calculation
+    // of cases when the angles wrapped around.
+    // _startAngleX will be converted back at the end and updated.
+    var wRX = this.rotationX + 180;
+    var wPRX = this.pRotationX + 180;
+    var wSAX = startAngleX + 180;
+    if ((wRX - wPRX > 0 && wRX - wPRX < 270)|| wRX - wPRX < -270){
+      rotateDirectionX = 'clockwise';
+    } else if (wRX - wPRX < 0 || wRX - wPRX > 270){
+      rotateDirectionX = 'counter-clockwise';
     }
-    if (Math.abs(this.accelerationY) > max_val) {
-      max_val = this.accelerationY;
-      new_max_axis = 'y';
+    if (rotateDirectionX !== pRotateDirectionX){
+      wSAX = wRX;
     }
-    if (Math.abs(this.accelerationZ) > max_val) {
-      new_max_axis = 'z';
+    if (Math.abs(wRX - wSAX) > 90 && Math.abs(wRX - wSAX) < 270){
+      wSAX = wRX;
+      this._setProperty('turnAxis', 'X');
+      deviceTurned();
     }
-    if (old_max_axis !== '' && old_max_axis !== new_max_axis) {
-      deviceTurned(new_max_axis);
+    pRotateDirectionX = rotateDirectionX;
+    startAngleX = wSAX - 180;
 
+    // Y-axis is identical to X-axis except for changing some names.
+    var wRY = this.rotationY + 180;
+    var wPRY = this.pRotationY + 180;
+    var wSAY = startAngleY + 180;
+    if ((wRY - wPRY > 0 && wRY - wPRY < 270)|| wRY - wPRY < -270){
+      rotateDirectionY = 'clockwise';
+    } else if (wRY - wPRY < 0 || wRY - this.pRotationY > 270){
+      rotateDirectionY = 'counter-clockwise';
     }
-    old_max_axis = new_max_axis;
+    if (rotateDirectionY !== pRotateDirectionY){
+      wSAY = wRY;
+    }
+    if (Math.abs(wRY - wSAY) > 90 && Math.abs(wRY - wSAY) < 270){
+      wSAY = wRY;
+      this._setProperty('turnAxis', 'Y');
+      deviceTurned();
+    }
+    pRotateDirectionY = rotateDirectionY;
+    startAngleY = wSAY - 180;
+
+    // Z-axis is already in the range 0 to 360
+    // so no conversion is needed.
+    if ((this.rotationZ - this.pRotationZ > 0 &&
+      this.rotationZ - this.pRotationZ < 270)||
+      this.rotationZ - this.pRotationZ < -270){
+      rotateDirectionZ = 'clockwise';
+    } else if (this.rotationZ - this.pRotationZ < 0 ||
+      this.rotationZ - this.pRotationZ > 270){
+      rotateDirectionZ = 'counter-clockwise';
+    }
+    if (rotateDirectionZ !== pRotateDirectionZ){
+      startAngleZ = this.rotationZ;
+    }
+    if (Math.abs(this.rotationZ - startAngleZ) > 90 &&
+      Math.abs(this.rotationZ - startAngleZ) < 270){
+      startAngleZ = this.rotationZ;
+      this._setProperty('turnAxis', 'Z');
+      deviceTurned();
+    }
+    pRotateDirectionZ = rotateDirectionZ;
+    this._setProperty('turnAxis', undefined);
   }
   var deviceShaken = this.deviceShaken || window.deviceShaken;
   if (typeof deviceShaken === 'function') {
@@ -17079,7 +18197,7 @@ p5.prototype._handleMotion = function() {
 
 module.exports = p5;
 
-},{"../core/core":48}],62:[function(_dereq_,module,exports){
+},{"../core/core":42}],56:[function(_dereq_,module,exports){
 /**
  * @module Events
  * @submodule Keyboard
@@ -17116,6 +18234,10 @@ var downKeys = {};
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 50x50 white rect that turns black on keypress.
+ *
  */
 p5.prototype.isKeyPressed = false;
 p5.prototype.keyIsPressed = false; // khan
@@ -17141,6 +18263,10 @@ p5.prototype.keyIsPressed = false; // khan
  *   text(key, 33,65); // Display last key pressed.
  * }
  * </div></code>
+ *
+ * @alt
+ * canvas displays any key value that is pressed in pink font.
+ *
  */
 p5.prototype.key = '';
 
@@ -17148,6 +18274,8 @@ p5.prototype.key = '';
  * The variable keyCode is used to detect special keys such as BACKSPACE,
  * DELETE, ENTER, RETURN, TAB, ESCAPE, SHIFT, CONTROL, OPTION, ALT, UP_ARROW,
  * DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW.
+ * You can also check for custom keys by looking up the keyCode of any key
+ * on a site like this: <a href="http://keycode.info/">keycode.info</a>.
  *
  * @property keyCode
  * @example
@@ -17167,6 +18295,10 @@ p5.prototype.key = '';
  *   return false; // prevent default
  * }
  * </code></div>
+ *
+ * @alt
+ * Grey rect center. turns white when up arrow pressed and black when down
+ *
  */
 p5.prototype.keyCode = 0;
 
@@ -17232,9 +18364,17 @@ p5.prototype.keyCode = 0;
  *   return false; // prevent any default behaviour
  * }
  * </code>
+ *
+ * @alt
+ * black rect center. turns white when key pressed and black when released
+ * black rect center. turns white when left arrow pressed and black when right.
+ *
  * </div>
  */
 p5.prototype._onkeydown = function (e) {
+  if (downKeys[e.which]) { // prevent multiple firings
+    return;
+  }
   this._setProperty('isKeyPressed', true);
   this._setProperty('keyIsPressed', true);
   this._setProperty('keyCode', e.which);
@@ -17278,13 +18418,22 @@ p5.prototype._onkeydown = function (e) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * black rect center. turns white when key pressed and black when pressed again
+ *
  */
 p5.prototype._onkeyup = function (e) {
   var keyReleased = this.keyReleased || window.keyReleased;
-  this._setProperty('isKeyPressed', false);
-  this._setProperty('keyIsPressed', false);
   downKeys[e.which] = false;
-  //delete this._downKeys[e.which];
+
+  if(!areDownKeys()) {
+    this._setProperty('isKeyPressed', false);
+    this._setProperty('keyIsPressed', false);
+  }
+
+  this._setProperty('_lastKeyCodeTyped', null);
+
   var key = String.fromCharCode(e.which);
   if (!key) {
     key = e.which;
@@ -17305,11 +18454,12 @@ p5.prototype._onkeyup = function (e) {
  * key pressed will be stored in the key variable.
  * <br><br>
  * Because of how operating systems handle key repeats, holding down a key
- * will cause multiple calls to keyTyped(), the rate is set by the operating
- * system and how each computer is configured.<br><br>
- * Browsers may have different default
- * behaviors attached to various key events. To prevent any default
- * behavior for this event, add "return false" to the end of the method.
+ * will cause multiple calls to keyTyped() (and keyReleased() as well). The
+ * rate of repeat is set by the operating system and how each computer is
+ * configured.<br><br>
+ * Browsers may have different default behaviors attached to various key
+ * events. To prevent any default behavior for this event, add "return false"
+ * to the end of the method.
  *
  * @method keyTyped
  * @example
@@ -17326,13 +18476,22 @@ p5.prototype._onkeyup = function (e) {
  *   } else if (key === 'b') {
  *     value = 0;
  *   }
- *   return false; // prevent any default behavior
+ *   // uncomment to prevent any default behavior
+ *   // return false;
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * black rect center. turns white when 'a' key typed and black when 'b' pressed
+ *
  */
 p5.prototype._onkeypress = function (e) {
+  if (e.which === this._lastKeyCodeTyped) { // prevent multiple firings
+    return;
+  }
   this._setProperty('keyCode', e.which);
+  this._setProperty('_lastKeyCodeTyped', e.which); // track last keyCode
   this._setProperty('key', String.fromCharCode(e.which));
   var keyTyped = this.keyTyped || window.keyTyped;
   if (typeof keyTyped === 'function') {
@@ -17344,7 +18503,7 @@ p5.prototype._onkeypress = function (e) {
 };
 /**
  * The onblur function is called when the user is no longer focused
- * on the p5 element. Because the keyup events will no fire if the user is
+ * on the p5 element. Because the keyup events will not fire if the user is
  * not focused on the element we must assume all keys currently down have
  * been released.
  */
@@ -17353,7 +18512,7 @@ p5.prototype._onblur = function (e) {
 };
 
 /**
- * The keyIsDown function checks if the key is currently down, i.e. pressed.
+ * The keyIsDown() function checks if the key is currently down, i.e. pressed.
  * It can be used if you have an object that moves, and you want several keys
  * to be able to affect its behaviour simultaneously, such as moving a
  * sprite diagonally. You can put in any number representing the keyCode of
@@ -17390,14 +18549,36 @@ p5.prototype._onblur = function (e) {
  *   ellipse(x, y, 50, 50);
  * }
  * </code></div>
+ *
+ * @alt
+ * 50x50 red ellipse moves left, right, up and down with arrow presses.
+ *
  */
 p5.prototype.keyIsDown = function(code) {
   return downKeys[code];
 };
 
+/**
+ * The checkDownKeys function returns a boolean true if any keys pressed
+ * and a false if no keys are currently pressed.
+
+ * Helps avoid instances where a multiple keys are pressed simultaneously and
+ * releasing a single key will then switch the
+ * keyIsPressed property to true.
+ * @private
+**/
+function areDownKeys() {
+  for (var key in downKeys) {
+    if (downKeys.hasOwnProperty(key) && downKeys[key] === true) {
+      return true;
+    }
+  }
+  return false;
+}
+
 module.exports = p5;
 
-},{"../core/core":48}],63:[function(_dereq_,module,exports){
+},{"../core/core":42}],57:[function(_dereq_,module,exports){
 /**
  * @module Events
  * @submodule Mouse
@@ -17412,9 +18593,19 @@ module.exports = p5;
 var p5 = _dereq_('../core/core');
 var constants = _dereq_('../core/constants');
 
+/*
+ * This is a flag which is false until the first time
+ * we receive a mouse event. The pmouseX and pmouseY
+ * values will match the mouseX and mouseY values until
+ * this interaction takes place.
+ */
+p5.prototype._hasMouseInteracted = false;
+
 /**
  * The system variable mouseX always contains the current horizontal
- * position of the mouse, relative to (0, 0) of the canvas.
+ * position of the mouse, relative to (0, 0) of the canvas. If touch is
+ * used instead of mouse input, mouseX will hold the x value of the most
+ * recent touch point.
  *
  * @property mouseX
  *
@@ -17428,12 +18619,18 @@ var constants = _dereq_('../core/constants');
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * horizontal black line moves left and right with mouse x-position
+ *
  */
 p5.prototype.mouseX = 0;
 
 /**
  * The system variable mouseY always contains the current vertical position
- * of the mouse, relative to (0, 0) of the canvas.
+ * of the mouse, relative to (0, 0) of the canvas. If touch is
+ * used instead of mouse input, mouseY will hold the y value of the most
+ * recent touch point.
  *
  * @property mouseY
  *
@@ -17447,13 +18644,17 @@ p5.prototype.mouseX = 0;
  *}
  * </code>
  * </div>
+ *
+ * @alt
+ * vertical black line moves up and down with mouse y-position
+ *
  */
 p5.prototype.mouseY = 0;
 
 /**
  * The system variable pmouseX always contains the horizontal position of
- * the mouse in the frame previous to the current frame, relative to (0, 0)
- * of the canvas.
+ * the mouse or finger in the frame previous to the current frame, relative to
+ * (0, 0) of the canvas.
  *
  * @property pmouseX
  *
@@ -17474,13 +18675,17 @@ p5.prototype.mouseY = 0;
  *
  * </code>
  * </div>
+ *
+ * @alt
+ * line trail is created from cursor movements. faster movement make longer line.
+ *
  */
 p5.prototype.pmouseX = 0;
 
 /**
  * The system variable pmouseY always contains the vertical position of the
- * mouse in the frame previous to the current frame, relative to (0, 0) of
- * the canvas.
+ * mouse or finger in the frame previous to the current frame, relative to
+ * (0, 0) of the canvas.
  *
  * @property pmouseY
  *
@@ -17499,6 +18704,10 @@ p5.prototype.pmouseX = 0;
  *
  * </code>
  * </div>
+ *
+ * @alt
+ * 60x60 black rect center, fuschia background. rect flickers on mouse movement
+ *
  */
 p5.prototype.pmouseY = 0;
 
@@ -17532,6 +18741,10 @@ p5.prototype.pmouseY = 0;
  *
  * </code>
  * </div>
+ *
+ * @alt
+ * 60x60 black rect y moves with mouse y and fuschia canvas moves with mouse x
+ *
  */
 p5.prototype.winMouseX = 0;
 
@@ -17565,6 +18778,10 @@ p5.prototype.winMouseX = 0;
  *
  * </code>
  * </div>
+ *
+ * @alt
+ * 60x60 black rect x moves with mouse x and fuschia canvas y moves with mouse y
+ *
  */
 p5.prototype.winMouseY = 0;
 
@@ -17602,6 +18819,10 @@ p5.prototype.winMouseY = 0;
  *
  * </code>
  * </div>
+ *
+ * @alt
+ * fuschia ellipse moves with mouse x and y. Grows and shrinks with mouse speed
+ *
  */
 p5.prototype.pwinMouseX = 0;
 
@@ -17640,6 +18861,10 @@ p5.prototype.pwinMouseX = 0;
  *
  * </code>
  * </div>
+ *
+ * @alt
+ * fuschia ellipse moves with mouse x and y. Grows and shrinks with mouse speed
+ *
  */
 p5.prototype.pwinMouseY = 0;
 
@@ -17671,6 +18896,10 @@ p5.prototype.pwinMouseY = 0;
 	* }
 	* </code>
  * </div>
+ *
+ * @alt
+ * 50x50 black ellipse appears on center of fuschia canvas on mouse click/press.
+ *
  */
 p5.prototype.mouseButton = 0;
 
@@ -17696,39 +18925,53 @@ p5.prototype.mouseButton = 0;
 	* }
 	* </code>
 	* </div>
+  *
+ * @alt
+ * black 50x50 rect becomes ellipse with mouse click/press. fuschia background.
+ *
  */
 p5.prototype.mouseIsPressed = false;
 p5.prototype.isMousePressed = false; // both are supported
 
-p5.prototype._updateMouseCoords = function(e) {
-  if(e.type === 'touchstart' ||
-     e.type === 'touchmove' ||
-     e.type === 'touchend') {
-    this._setProperty('mouseX', this.touchX);
-    this._setProperty('mouseY', this.touchY);
-  } else {
-    if(this._curElement !== null) {
-      var mousePos = getMousePos(this._curElement.elt, e);
-      this._setProperty('mouseX', mousePos.x);
-      this._setProperty('mouseY', mousePos.y);
-    }
+p5.prototype._updateNextMouseCoords = function(e) {
+  if(this._curElement !== null && (!e.touches || e.touches.length>0)) {
+    var mousePos = getMousePos(this._curElement.elt, this.width, this.height, e);
+    this._setProperty('mouseX', mousePos.x);
+    this._setProperty('mouseY', mousePos.y);
+    this._setProperty('winMouseX', mousePos.winX);
+    this._setProperty('winMouseY', mousePos.winY);
   }
-  this._setProperty('winMouseX', e.pageX);
-  this._setProperty('winMouseY', e.pageY);
+  if (!this._hasMouseInteracted) {
+    // For first draw, make previous and next equal
+    this._updateMouseCoords();
+    this._setProperty('_hasMouseInteracted', true);
+  }
 };
 
-p5.prototype._updatePMouseCoords = function(e) {
+p5.prototype._updateMouseCoords = function() {
   this._setProperty('pmouseX', this.mouseX);
   this._setProperty('pmouseY', this.mouseY);
   this._setProperty('pwinMouseX', this.winMouseX);
   this._setProperty('pwinMouseY', this.winMouseY);
 };
 
-function getMousePos(canvas, evt) {
+function getMousePos(canvas, w, h, evt) {
+  if (evt && !evt.clientX) { // use touches if touch and not mouse
+    if (evt.touches) {
+      evt = evt.touches[0];
+    } else if (evt.changedTouches) {
+      evt = evt.changedTouches[0];
+    }
+  }
   var rect = canvas.getBoundingClientRect();
+  var sx = canvas.scrollWidth / w;
+  var sy = canvas.scrollHeight / h;
   return {
-    x: evt.clientX - rect.left,
-    y: evt.clientY - rect.top
+    x: (evt.clientX - rect.left) / sx,
+    y: (evt.clientY - rect.top) / sy,
+    winX: evt.clientX,
+    winY: evt.clientY,
+    id: evt.identifier
   };
 }
 
@@ -17739,10 +18982,6 @@ p5.prototype._setMouseButton = function(e) {
     this._setProperty('mouseButton', constants.RIGHT);
   } else {
     this._setProperty('mouseButton', constants.LEFT);
-    if(e.type === 'touchstart' || e.type === 'touchmove') {
-      this._setProperty('mouseX', this.touchX);
-      this._setProperty('mouseY', this.touchY);
-    }
   }
 };
 
@@ -17751,7 +18990,7 @@ p5.prototype._setMouseButton = function(e) {
  * button is not pressed.<br><br>
  * Browsers may have different default
  * behaviors attached to various mouse events. To prevent any default
- * behavior for this event, add `return false` to the end of the method.
+ * behavior for this event, add "return false" to the end of the method.
  *
  * @method mouseMoved
  * @example
@@ -17783,6 +19022,11 @@ p5.prototype._setMouseButton = function(e) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * black 50x50 rect becomes lighter with mouse movements until white then resets
+ * no image displayed
+ *
  */
 
 /**
@@ -17791,7 +19035,7 @@ p5.prototype._setMouseButton = function(e) {
  * touchMoved() function will be called instead if it is defined.<br><br>
  * Browsers may have different default
  * behaviors attached to various mouse events. To prevent any default
- * behavior for this event, add `return false` to the end of the method.
+ * behavior for this event, add "return false" to the end of the method.
  *
  * @method mouseDragged
  * @example
@@ -17823,11 +19067,16 @@ p5.prototype._setMouseButton = function(e) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * black 50x50 rect turns lighter with mouse click and drag until white, resets
+ * no image displayed
+ *
  */
 p5.prototype._onmousemove = function(e){
   var context = this._isGlobal ? window : this;
   var executeDefault;
-  this._updateMouseCoords(e);
+  this._updateNextMouseCoords(e);
   if (!this.isMousePressed) {
     if (typeof context.mouseMoved === 'function') {
       executeDefault = context.mouseMoved(e);
@@ -17847,7 +19096,6 @@ p5.prototype._onmousemove = function(e){
       if(executeDefault === false) {
         e.preventDefault();
       }
-      this._updateTouchCoords(e);
     }
   }
 };
@@ -17860,7 +19108,7 @@ p5.prototype._onmousemove = function(e){
  * called instead if it is defined.<br><br>
  * Browsers may have different default
  * behaviors attached to various mouse events. To prevent any default
- * behavior for this event, add `return false` to the end of the method.
+ * behavior for this event, add "return false" to the end of the method.
  *
  * @method mousePressed
  * @example
@@ -17893,6 +19141,11 @@ p5.prototype._onmousemove = function(e){
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * black 50x50 rect turns white with mouse click/press.
+ * no image displayed
+ *
  */
 p5.prototype._onmousedown = function(e) {
   var context = this._isGlobal ? window : this;
@@ -17900,7 +19153,7 @@ p5.prototype._onmousedown = function(e) {
   this._setProperty('isMousePressed', true);
   this._setProperty('mouseIsPressed', true);
   this._setMouseButton(e);
-  this._updateMouseCoords(e);
+  this._updateNextMouseCoords(e);
   if (typeof context.mousePressed === 'function') {
     executeDefault = context.mousePressed(e);
     if(executeDefault === false) {
@@ -17911,7 +19164,6 @@ p5.prototype._onmousedown = function(e) {
     if(executeDefault === false) {
       e.preventDefault();
     }
-    this._updateTouchCoords(e);
   }
 };
 
@@ -17921,7 +19173,7 @@ p5.prototype._onmousedown = function(e) {
  * function will be called instead if it is defined.<br><br>
  * Browsers may have different default
  * behaviors attached to various mouse events. To prevent any default
- * behavior for this event, add `return false` to the end of the method.
+ * behavior for this event, add "return false" to the end of the method.
  *
  *
  * @method mouseReleased
@@ -17956,6 +19208,11 @@ p5.prototype._onmousedown = function(e) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * black 50x50 rect turns white with mouse click/press.
+ * no image displayed
+ *
  */
 p5.prototype._onmouseup = function(e) {
   var context = this._isGlobal ? window : this;
@@ -17972,16 +19229,18 @@ p5.prototype._onmouseup = function(e) {
     if(executeDefault === false) {
       e.preventDefault();
     }
-    this._updateTouchCoords(e);
   }
 };
+
+p5.prototype._ondragend = p5.prototype._onmouseup;
+p5.prototype._ondragover = p5.prototype._onmousemove;
 
 /**
  * The mouseClicked() function is called once after a mouse button has been
  * pressed and then released.<br><br>
  * Browsers may have different default
  * behaviors attached to various mouse events. To prevent any default
- * behavior for this event, add `return false` to the end of the method.
+ * behavior for this event, add "return false" to the end of the method.
  *
  * @method mouseClicked
  * @example
@@ -18015,6 +19274,11 @@ p5.prototype._onmouseup = function(e) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * black 50x50 rect turns white with mouse click/press.
+ * no image displayed
+ *
  */
 p5.prototype._onclick = function(e) {
   var context = this._isGlobal ? window : this;
@@ -18027,51 +19291,50 @@ p5.prototype._onclick = function(e) {
 };
 
 /**
- * The function mouseWheel is executed every time a scroll event is detected
- * either triggered by an actual mouse wheel or by a touchpad.<br>
- * The event.delta property returns -1 or +1 depending on the scroll
- * direction and the user's settings. (on OS X with "natural" scrolling
- * enabled, the values are inverted).<br><br>
+ * The function mouseWheel() is executed every time a vertical mouse wheel
+ * event is detected either triggered by an actual mouse wheel or by a
+ * touchpad.<br><br>
+ * The event.delta property returns the amount the mouse wheel
+ * have scrolled. The values can be positive or negative depending on the
+ * scroll direction (on OS X with "natural" scrolling enabled, the signs
+ * are inverted).<br><br>
  * Browsers may have different default behaviors attached to various
  * mouse events. To prevent any default behavior for this event, add
- * `return false` to the end of the method.
- *
- * The event.wheelDelta or event.detail properties can also be accessed but
- * their behavior may differ depending on the browser.
- * See <a href="http://www.javascriptkit.com/javatutors/onmousewheel.shtml">
- * mouse wheel event in JS</a>.
+ * "return false" to the end of the method.<br><br>
+ * Due to the current support of the "wheel" event on Safari, the function
+ * may only work as expected if "return false" is included while using Safari.
  *
  * @method mouseWheel
  *
-	* @example
-	* <div>
-	* <code>
-	* var pos = 25;
-	*
-	* function draw() {
-	*   background(237, 34, 93);
-	*   fill(0);
-	*   rect(25, pos, 50, 50);
-	* }
-	*
-	* function mouseWheel(event) {
-	*   //event.delta can be +1 or -1 depending
-	*   //on the wheel/scroll direction
-	*   print(event.delta);
-	*   //move the square one pixel up or down
-	*   pos += event.delta;
-	*   //uncomment to block page scrolling
-	*   //return false;
-	* }
-	* </code>
-	* </div>
+ * @example
+ * <div>
+ * <code>
+ * var pos = 25;
+ *
+ * function draw() {
+ *   background(237, 34, 93);
+ *   fill(0);
+ *   rect(25, pos, 50, 50);
+ * }
+ *
+ * function mouseWheel(event) {
+ *   print(event.delta);
+ *   //move the square according to the vertical scroll amount
+ *   pos += event.delta;
+ *   //uncomment to block page scrolling
+ *   //return false;
+ * }
+ * </code>
+ * </div>
+ *
+ * @alt
+ * black 50x50 rect moves up and down with vertical scroll. fuschia background
+ *
  */
-p5.prototype._onmousewheel = p5.prototype._onDOMMouseScroll = function(e) {
+p5.prototype._onwheel = function(e) {
   var context = this._isGlobal ? window : this;
   if (typeof context.mouseWheel === 'function') {
-    //creating a delta property (either +1 or -1)
-    //for cross-browser compatibility
-    e.delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+    e.delta = e.deltaY;
     var executeDefault = context.mouseWheel(e);
     if(executeDefault === false) {
       e.preventDefault();
@@ -18081,7 +19344,7 @@ p5.prototype._onmousewheel = p5.prototype._onDOMMouseScroll = function(e) {
 
 module.exports = p5;
 
-},{"../core/constants":47,"../core/core":48}],64:[function(_dereq_,module,exports){
+},{"../core/constants":41,"../core/core":42}],58:[function(_dereq_,module,exports){
 /**
  * @module Events
  * @submodule Touch
@@ -18094,102 +19357,49 @@ module.exports = p5;
 var p5 = _dereq_('../core/core');
 
 /**
- * The system variable touchX always contains the horizontal position of
- * one finger, relative to (0, 0) of the canvas. This is best used for
- * single touch interactions. For multi-touch interactions, use the
- * touches[] array.
- *
- * @property touchX
- */
-p5.prototype.touchX = 0;
-
-/**
- * The system variable touchY always contains the vertical position of
- * one finger, relative to (0, 0) of the canvas. This is best used for
- * single touch interactions. For multi-touch interactions, use the
- * touches[] array.
- *
- * @property touchY
- */
-p5.prototype.touchY = 0;
-
-/**
- * The system variable ptouchX always contains the horizontal position of
- * one finger, relative to (0, 0) of the canvas, in the frame previous to the
- * current frame.
- *
- * @property ptouchX
- */
-p5.prototype.ptouchX = 0;
-
-/**
- * The system variable ptouchY always contains the vertical position of
- * one finger, relative to (0, 0) of the canvas, in the frame previous to the
- * current frame.
- *
- * @property ptouchY
- */
-p5.prototype.ptouchY = 0;
-
-/**
  * The system variable touches[] contains an array of the positions of all
- * current touch points, relative to (0, 0) of the canvas. Each element in
- * the array is an object with x and y properties.
+ * current touch points, relative to (0, 0) of the canvas, and IDs identifying a
+ * unique touch as it moves. Each element in the array is an object with x, y,
+ * and id properties.
  *
- * @property touches[]
+ * @property {Object[]} touches
  */
 p5.prototype.touches = [];
 
-/**
- * The boolean system variable touchIsDown is true if the screen is
- * touched and false if not.
- *
- * @property touchIsDown
- */
-p5.prototype.touchIsDown = false;
-
 p5.prototype._updateTouchCoords = function(e) {
-  if(e.type === 'mousedown' ||
-     e.type === 'mousemove' ||
-     e.type === 'mouseup'){
-    this._setProperty('touchX', this.mouseX);
-    this._setProperty('touchY', this.mouseY);
-  } else {
-    var touchPos = getTouchPos(this._curElement.elt, e, 0);
-    this._setProperty('touchX', touchPos.x);
-    this._setProperty('touchY', touchPos.y);
-
+  if (this._curElement !== null) {
     var touches = [];
     for(var i = 0; i < e.touches.length; i++){
-      var pos = getTouchPos(this._curElement.elt, e, i);
-      touches[i] = {x: pos.x, y: pos.y};
+      touches[i] = getTouchInfo(this._curElement.elt,
+        this.width, this.height, e, i);
     }
     this._setProperty('touches', touches);
   }
 };
 
-p5.prototype._updatePTouchCoords = function() {
-  this._setProperty('ptouchX', this.touchX);
-  this._setProperty('ptouchY', this.touchY);
-};
 
-function getTouchPos(canvas, e, i) {
+function getTouchInfo(canvas, w, h, e, i) {
   i = i || 0;
   var rect = canvas.getBoundingClientRect();
+  var sx = canvas.scrollWidth / w;
+  var sy = canvas.scrollHeight / h;
   var touch = e.touches[i] || e.changedTouches[i];
-  return  {
-    x: touch.clientX - rect.left,
-    y: touch.clientY - rect.top
+  return {
+    x: (touch.clientX - rect.left) / sx,
+    y: (touch.clientY - rect.top) / sy,
+    winX: touch.clientX,
+    winY: touch.clientY,
+    id: touch.identifier
   };
 }
 
 /**
  * The touchStarted() function is called once after every time a touch is
  * registered. If no touchStarted() function is defined, the mousePressed()
- * function will be called instead if it is defined. Browsers may have
- * different default
- * behaviors attached to various touch events. To prevent any default
- * behavior for this event, add `return false` to the end of the method.
+ * function will be called instead if it is defined.<br><br>
+ * Browsers may have different default behaviors attached to various touch
+ * events. To prevent any default behavior for this event, add "return false"
+ * to the end of the method.
  *
  * @method touchStarted
  * @example
@@ -18216,18 +19426,22 @@ function getTouchPos(canvas, e, i) {
  * <div class="norender">
  * <code>
  * function touchStarted() {
- *   ellipse(touchX, touchY, 5, 5);
+ *   ellipse(mouseX, mouseY, 5, 5);
  *   // prevent default
  *   return false;
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 50x50 black rect turns white with touch event.
+ * no image displayed
  */
 p5.prototype._ontouchstart = function(e) {
   var context = this._isGlobal ? window : this;
   var executeDefault;
   this._updateTouchCoords(e);
-  this._setProperty('touchIsDown', true);
+  this._updateNextMouseCoords(e);
   if(typeof context.touchStarted === 'function') {
     executeDefault = context.touchStarted(e);
     if(executeDefault === false) {
@@ -18244,10 +19458,11 @@ p5.prototype._ontouchstart = function(e) {
 
 /**
  * The touchMoved() function is called every time a touch move is registered.
- * If no touchStarted() function is defined, the mouseDragged() function will
- * be called instead if it is defined. Browsers may have different default
- * behaviors attached to various touch events. To prevent any default
- * behavior for this event, add `return false` to the end of the method.
+ * If no touchMoved() function is defined, the mouseDragged() function will
+ * be called instead if it is defined.<br><br>
+ * Browsers may have different default behaviors attached to various touch
+ * events. To prevent any default behavior for this event, add "return false"
+ * to the end of the method.
  *
  * @method touchMoved
  * @example
@@ -18273,17 +19488,23 @@ p5.prototype._ontouchstart = function(e) {
  * <div class="norender">
  * <code>
  * function touchMoved() {
- *   ellipse(touchX, touchY, 5, 5);
+ *   ellipse(mouseX, mouseY, 5, 5);
  *   // prevent default
  *   return false;
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 50x50 black rect turns lighter with touch until white. resets
+ * no image displayed
+ *
  */
 p5.prototype._ontouchmove = function(e) {
   var context = this._isGlobal ? window : this;
   var executeDefault;
   this._updateTouchCoords(e);
+  this._updateNextMouseCoords(e);
   if (typeof context.touchMoved === 'function') {
     executeDefault = context.touchMoved(e);
     if(executeDefault === false) {
@@ -18294,16 +19515,16 @@ p5.prototype._ontouchmove = function(e) {
     if(executeDefault === false) {
       e.preventDefault();
     }
-    this._updateMouseCoords(e);
   }
 };
 
 /**
  * The touchEnded() function is called every time a touch ends. If no
- * touchStarted() function is defined, the mouseReleased() function will be
- * called instead if it is defined. Browsers may have different default
- * behaviors attached to various touch events. To prevent any default
- * behavior for this event, add `return false` to the end of the method.
+ * touchEnded() function is defined, the mouseReleased() function will be
+ * called instead if it is defined.<br><br>
+ * Browsers may have different default behaviors attached to various touch
+ * events. To prevent any default behavior for this event, add "return false"
+ * to the end of the method.
  *
  * @method touchEnded
  * @example
@@ -18330,15 +19551,21 @@ p5.prototype._ontouchmove = function(e) {
  * <div class="norender">
  * <code>
  * function touchEnded() {
- *   ellipse(touchX, touchY, 5, 5);
+ *   ellipse(mouseX, mouseY, 5, 5);
  *   // prevent default
  *   return false;
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 50x50 black rect turns white with touch.
+ * no image displayed
+ *
  */
 p5.prototype._ontouchend = function(e) {
   this._updateTouchCoords(e);
+  this._updateNextMouseCoords(e);
   if (this.touches.length === 0) {
     this._setProperty('touchIsDown', false);
   }
@@ -18354,13 +19581,15 @@ p5.prototype._ontouchend = function(e) {
     if(executeDefault === false) {
       e.preventDefault();
     }
-    this._updateMouseCoords(e);
+  } else {
+    e.preventDefault();
+    return false;
   }
 };
 
 module.exports = p5;
 
-},{"../core/core":48}],65:[function(_dereq_,module,exports){
+},{"../core/core":42}],59:[function(_dereq_,module,exports){
 /*global ImageData:false */
 
 /**
@@ -18602,7 +19831,7 @@ Filters.opaque = function (canvas) {
 
 /**
  * Sets each pixel to its inverse value. No parameter is used.
- * @param {Invert}
+ * @param  {Canvas} canvas
  */
 Filters.invert = function (canvas) {
   var pixels = Filters._toPixels(canvas);
@@ -18963,7 +20192,7 @@ Filters.blur = function(canvas, radius){
 
 module.exports = Filters;
 
-},{}],66:[function(_dereq_,module,exports){
+},{}],60:[function(_dereq_,module,exports){
 /**
  * @module Image
  * @submodule Image
@@ -18991,7 +20220,7 @@ var frames = [];
  * Creates a new p5.Image (the datatype for storing images). This provides a
  * fresh buffer of pixels to play with. Set the size of the buffer with the
  * width and height parameters.
- *
+ * <br><br>
  * .pixels gives access to an array containing the values for all the pixels
  * in the display window.
  * These values are numbers. This array is the size (including an appropriate
@@ -19001,9 +20230,8 @@ var frames = [];
  * more info. It may also be simpler to use set() or get().
  * <br><br>
  * Before accessing the pixels of an image, the data must loaded with the
- * loadPixels()
- * function. After the array data has been modified, the updatePixels()
- * function must be run to update the changes.
+ * loadPixels() function. After the array data has been modified, the
+ * updatePixels() function must be run to update the changes.
  *
  * @method createImage
  * @param  {Integer} width  width in pixels
@@ -19044,7 +20272,7 @@ var frames = [];
  * var pink = color(255, 102, 204);
  * img = createImage(66, 66);
  * img.loadPixels();
- * var d = pixelDensity;
+ * var d = pixelDensity();
  * var halfImage = 4 * (width * d) * (height/2 * d);
  * for (var i = 0; i < halfImage; i+=4) {
  *   img.pixels[i] = red(pink);
@@ -19056,22 +20284,28 @@ var frames = [];
  * image(img, 17, 17);
  * </code>
  * </div>
+ *
+ * @alt
+ * 66x66 dark turquoise rect in center of canvas.
+ * 2 gradated dark turquoise rects fade left. 1 center 1 bottom right of canvas
+ * no image displayed
+ *
  */
 p5.prototype.createImage = function(width, height) {
   return new p5.Image(width, height);
 };
 
 /**
- *  Save the current canvas as an image. In Safari, will open the
+ *  Save the current canvas as an image. In Safari, this will open the
  *  image in the window and the user must provide their own
  *  filename on save-as. Other browsers will either save the
  *  file immediately, or prompt the user with a dialogue window.
  *
  *  @method saveCanvas
- *  @param  {[selectedCanvas]} canvas a variable representing a
+ *  @param  {Canvas} [selectedCanvas] a variable representing a
  *                             specific html5 canvas (optional)
- *  @param  {[String]} filename
- *  @param  {[String]} extension 'jpg' or 'png'
+ *  @param  {String} [filename]
+ *  @param  {String} [extension] 'jpg' or 'png'
  *  @example
  *  <div class='norender'><code>
  *  function setup() {
@@ -19098,6 +20332,12 @@ p5.prototype.createImage = function(width, height) {
  *  saveCanvas('myCanvas');
  *  saveCanvas();
  *  </code></div>
+ *
+ * @alt
+ * no image displayed
+ * no image displayed
+ * no image displayed
+ *
  */
 p5.prototype.saveCanvas = function() {
 
@@ -19157,18 +20397,18 @@ p5.prototype.saveCanvas = function() {
     }
     else {
       switch(extension){
-      case 'png':
-        mimeType = 'image/png';
-        break;
-      case 'jpeg':
-        mimeType = 'image/jpeg';
-        break;
-      case 'jpg':
-        mimeType = 'image/jpeg';
-        break;
-      default:
-        mimeType = 'image/png';
-        break;
+        case 'png':
+          mimeType = 'image/png';
+          break;
+        case 'jpeg':
+          mimeType = 'image/jpeg';
+          break;
+        case 'jpg':
+          mimeType = 'image/jpeg';
+          break;
+        default:
+          mimeType = 'image/png';
+          break;
       }
     }
     var downloadMime = 'image/octet-stream';
@@ -19183,16 +20423,40 @@ p5.prototype.saveCanvas = function() {
  *  Capture a sequence of frames that can be used to create a movie.
  *  Accepts a callback. For example, you may wish to send the frames
  *  to a server where they can be stored or converted into a movie.
- *  If no callback is provided, the browser will attempt to download
- *  all of the images that have just been created.
+ *  If no callback is provided, the browser will pop up save dialogues in an
+ *  attempt to download all of the images that have just been created. With the
+ *  callback provided the image data isn't saved by default but instead passed
+ *  as an argument to the callback function as an array of objects, with the
+ *  size of array equal to the total number of frames.
  *
  *  @method saveFrames
- *  @param  {[type]}   filename  [description]
- *  @param  {[type]}   extension [description]
- *  @param  {[type]}   _duration [description]
- *  @param  {[type]}   _fps      [description]
- *  @param  {[Function]} callback  [description]
- *  @return {[type]}             [description]
+ *  @param  {String}   filename
+ *  @param  {String}   extension 'jpg' or 'png'
+ *  @param  {Number}   duration  Duration in seconds to save the frames for.
+ *  @param  {Number}   framerate  Framerate to save the frames in.
+ *  @param  {Function} [callback] A callback function that will be executed
+                                  to handle the image data. This function
+                                  should accept an array as argument. The
+                                  array will contain the specified number of
+                                  frames of objects. Each object has three
+                                  properties: imageData - an
+                                  image/octet-stream, filename and extension.
+ *  @example
+ *  <div><code>
+ *  function draw() {
+ *    background(mouseX);
+ *  }
+ *
+ *  function mousePressed() {
+ *    saveFrames("out", "png", 1, 25, function(data){
+ *      print(data);
+ *    });
+ *  }
+ *  </code></div>
+ *
+ * @alt
+ * canvas background goes from light to dark with mouse x.
+ *
  */
 p5.prototype.saveFrames = function(fName, ext, _duration, _fps, callback) {
   var duration = _duration || 3;
@@ -19238,18 +20502,18 @@ p5.prototype._makeFrame = function(filename, extension, _cnv) {
   }
   else {
     switch(extension.toLowerCase()){
-    case 'png':
-      mimeType = 'image/png';
-      break;
-    case 'jpeg':
-      mimeType = 'image/jpeg';
-      break;
-    case 'jpg':
-      mimeType = 'image/jpeg';
-      break;
-    default:
-      mimeType = 'image/png';
-      break;
+      case 'png':
+        mimeType = 'image/png';
+        break;
+      case 'jpeg':
+        mimeType = 'image/jpeg';
+        break;
+      case 'jpg':
+        mimeType = 'image/jpeg';
+        break;
+      default:
+        mimeType = 'image/png';
+        break;
     }
   }
   var downloadMime = 'image/octet-stream';
@@ -19265,7 +20529,7 @@ p5.prototype._makeFrame = function(filename, extension, _cnv) {
 
 module.exports = p5;
 
-},{"../core/core":48}],67:[function(_dereq_,module,exports){
+},{"../core/core":42}],61:[function(_dereq_,module,exports){
 /**
  * @module Image
  * @submodule Loading & Displaying
@@ -19287,8 +20551,8 @@ _dereq_('../core/error_helpers');
  * <br><br>
  * The image may not be immediately available for rendering
  * If you want to ensure that the image is ready before doing
- * anything with it you can do perform those operations in the
- * callback, or place the loadImage() call in preload().
+ * anything with it, place the loadImage() call in preload().
+ * You may also supply a callback function to handle the image when it's ready.
  * <br><br>
  * The path to the image should be relative to the HTML file
  * that links in your sketch. Loading an from a URL or other
@@ -19325,10 +20589,16 @@ _dereq_('../core/error_helpers');
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * image of the underside of a white umbrella and grided ceililng above
+ * image of the underside of a white umbrella and grided ceililng above
+ *
  */
 p5.prototype.loadImage = function(path, successCallback, failureCallback) {
   var img = new Image();
   var pImg = new p5.Image(1, 1, this);
+  var decrementPreload = p5._getDecrementPreload.apply(this, arguments);
 
   img.onload = function() {
     pImg.width = pImg.canvas.width = img.width;
@@ -19340,10 +20610,15 @@ p5.prototype.loadImage = function(path, successCallback, failureCallback) {
     if (typeof successCallback === 'function') {
       successCallback(pImg);
     }
+    if (decrementPreload && (successCallback !== decrementPreload)) {
+      decrementPreload();
+    }
   };
   img.onerror = function(e) {
     p5._friendlyFileLoadError(0,img.src);
-    if (typeof failureCallback === 'function') {
+    // don't get failure callback mixed up with decrementPreload
+    if ((typeof failureCallback === 'function') &&
+      (failureCallback !== decrementPreload)) {
       failureCallback(e);
     }
   };
@@ -19364,14 +20639,34 @@ p5.prototype.loadImage = function(path, successCallback, failureCallback) {
 };
 
 /**
+ * Validates clipping params. Per drawImage spec sWidth and sHight cannot be
+ * negative or greater than image intrinsic width and height
+ * @private
+ * @param {Number} sVal
+ * @param {Number} iVal
+ * @returns {Number}
+ * @private
+ */
+function _sAssign(sVal, iVal) {
+  if (sVal > 0 && sVal < iVal) {
+    return sVal;
+  }
+  else {
+    return iVal;
+  }
+}
+
+/**
  * Draw an image to the main canvas of the p5js sketch
  *
  * @method image
- * @param  {p5.Image} image    the image to display
- * @param  {Number}   [x=0]    x-coordinate of the image
- * @param  {Number}   [y=0]    y-coordinate of the image
- * @param  {Number}   [width]  width to display the image
- * @param  {Number}   [height] height to display the image
+ * @param  {p5.Image} img    the image to display
+ * @param  {Number}   x      the x-coordinate at which to place the top-left
+ *                           corner of the source image
+ * @param  {Number}   y      the y-coordinate at which to place the top-left
+ *                           corner of the source image
+ * @param  {Number}   width  the width to draw the image
+ * @param  {Number}   height the height to draw the image
  * @example
  * <div>
  * <code>
@@ -19381,6 +20676,8 @@ p5.prototype.loadImage = function(path, successCallback, failureCallback) {
  * }
  * function setup() {
  *   image(img, 0, 0);
+ *   image(img, 0, 0, 100, 100);
+ *   image(img, 0, 0, 100, 100, 0, 0, 100, 100);
  * }
  * </code>
  * </div>
@@ -19394,37 +20691,99 @@ p5.prototype.loadImage = function(path, successCallback, failureCallback) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * image of the underside of a white umbrella and grided ceiling above
+ * image of the underside of a white umbrella and grided ceiling above
+ *
  */
-p5.prototype.image = function(img, x, y, width, height) {
-  // Temporarily disabling until options for p5.Graphics are added.
-  // this._validateParameters(
-  //   'image',
-  //   arguments,
-  //   [
-  //     ['p5.Image', 'Number', 'Number'],
-  //     ['p5.Image', 'Number', 'Number', 'Number', 'Number']
-  //   ]
-  // );
+/**
+ * @method image
+ * @param  {p5.Image} img
+ * @param  {Number}   dx     the x-coordinate in the destination canvas at
+ *                           which to place the top-left corner of the
+ *                           source image
+ * @param  {Number}   dy     the y-coordinate in the destination canvas at
+ *                           which to place the top-left corner of the
+ *                           source image
+ * @param  {Number}   dWidth the width to draw the image in the destination
+ *                           canvas
+ * @param  {Number}   dHeight the height to draw the image in the destination
+ *                            canvas
+ * @param  {Number}   sx     the x-coordinate of the top left corner of the
+ *                           sub-rectangle of the source image to draw into
+ *                           the destination canvas
+ * @param  {Number}   sy     the y-coordinate of the top left corner of the
+ *                           sub-rectangle of the source image to draw into
+ *                           the destination canvas
+ * @param {Number}    [sWidth] the width of the sub-rectangle of the
+ *                           source image to draw into the destination
+ *                           canvas
+ * @param {Number}    [sHeight] the height of the sub-rectangle of the
+ *                            source image to draw into the destination context
+ */
+p5.prototype.image =
+  function(img, dx, dy, dWidth, dHeight, sx, sy, sWidth, sHeight) {
+  // set defaults per spec: https://goo.gl/3ykfOq
 
-  // set defaults
-  x = x || 0;
-  y = y || 0;
-  width = width || img.width;
-  height = height || img.height;
-  var vals = canvas.modeAdjust(x, y, width, height, this._renderer._imageMode);
+  var defW = img.width;
+  var defH = img.height;
+
+  if (img.elt && img.elt.videoWidth && !img.canvas) { // video no canvas
+    var actualW = img.elt.videoWidth;
+    var actualH = img.elt.videoHeight;
+    defW = img.elt.videoWidth;
+    defH = img.elt.width*actualH/actualW;
+  }
+
+  var _dx = dx;
+  var _dy = dy;
+  var _dw = dWidth || defW;
+  var _dh = dHeight || defH;
+  var _sx = sx || 0;
+  var _sy = sy || 0;
+  var _sw = sWidth || defW;
+  var _sh = sHeight || defH;
+
+  _sw = _sAssign(_sw, defW);
+  _sh = _sAssign(_sh, defH);
+
+
+  // This part needs cleanup and unit tests
+  // see issues https://github.com/processing/p5.js/issues/1741
+  // and https://github.com/processing/p5.js/issues/1673
+  var pd = 1;
+
+  if (img.elt && img.elt.videoWidth && img.elt.style.width && !img.canvas) {
+    pd = img.elt.videoWidth / parseInt(img.elt.style.width, 10);
+  }
+  else if (img.elt && img.elt.width && img.elt.style.width) {
+    pd = img.elt.width / parseInt(img.elt.style.width, 10);
+  }
+
+  _sx *= pd;
+  _sy *= pd;
+  _sh *= pd;
+  _sw *= pd;
+
+  var vals = canvas.modeAdjust(_dx, _dy, _dw, _dh,
+    this._renderer._imageMode);
+
   // tint the image if there is a tint
-  this._renderer.image(img, vals.x, vals.y, vals.w, vals.h);
+  this._renderer.image(img, _sx, _sy, _sw, _sh, vals.x, vals.y, vals.w,
+    vals.h);
 };
+
 
 /**
  * Sets the fill value for displaying images. Images can be tinted to
  * specified colors or made transparent by including an alpha value.
- *
+ * <br><br>
  * To apply transparency to an image without affecting its color, use
  * white as the tint color and specify an alpha value. For instance,
  * tint(255, 128) will make an image 50% transparent (assuming the default
  * alpha range of 0-255, which can be changed with colorMode()).
- *
+ * <br><br>
  * The value for the gray parameter must be less than or equal to the current
  * maximum value as specified by colorMode(). The default maximum value is
  * 255.
@@ -19479,10 +20838,16 @@ p5.prototype.image = function(img, x, y, width, height) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 2 side by side images of umbrella and ceiling, one image with blue tint
+ * Images of umbrella and ceiling, one half of image with blue tint
+ * 2 side by side images of umbrella and ceiling, one image translucent
+ *
  */
 p5.prototype.tint = function () {
   var c = this.color.apply(this, arguments);
-  this._renderer._tint = c.rgba;
+  this._renderer._tint = c.levels;
 };
 
 /**
@@ -19505,6 +20870,10 @@ p5.prototype.tint = function () {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 2 side by side images of bricks, left image with blue tint
+ *
  */
 p5.prototype.noTint = function() {
   this._renderer._tint = null;
@@ -19553,16 +20922,17 @@ p5.prototype._getTintedImageCanvas = function(img) {
  * third parameters of image() as the upper-left corner of the image. If
  * two additional parameters are specified, they are used to set the image's
  * width and height.
- *
+ * <br><br>
  * imageMode(CORNERS) interprets the second and third parameters of image()
  * as the location of one corner, and the fourth and fifth parameters as the
  * opposite corner.
+ * <br><br>
  * imageMode(CENTER) interprets the second and third parameters of image()
  * as the image's center point. If two additional parameters are specified,
  * they are used to set the image's width and height.
  *
  * @method imageMode
- * @param {String} m The mode: either CORNER, CORNERS, or CENTER.
+ * @param {Constant} mode either CORNER, CORNERS, or CENTER
  * @example
  *
  * <div>
@@ -19603,6 +20973,12 @@ p5.prototype._getTintedImageCanvas = function(img) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * small square image of bricks
+ * horizontal rectangle image of bricks
+ * large square image of bricks
+ *
  */
 p5.prototype.imageMode = function(m) {
   if (m === constants.CORNER ||
@@ -19615,7 +20991,7 @@ p5.prototype.imageMode = function(m) {
 
 module.exports = p5;
 
-},{"../core/canvas":46,"../core/constants":47,"../core/core":48,"../core/error_helpers":51,"./filters":65}],68:[function(_dereq_,module,exports){
+},{"../core/canvas":40,"../core/constants":41,"../core/core":42,"../core/error_helpers":45,"./filters":59}],62:[function(_dereq_,module,exports){
 /**
  * @module Image
  * @submodule Image
@@ -19640,14 +21016,17 @@ var Filters = _dereq_('./filters');
 
 /**
  * Creates a new p5.Image. A p5.Image is a canvas backed representation of an
- * image. p5 can display .gif, .jpg and .png images. Images may be displayed
+ * image.
+ * <br><br>
+ * p5 can display .gif, .jpg and .png images. Images may be displayed
  * in 2D and 3D space. Before an image is used, it must be loaded with the
  * loadImage() function. The p5.Image class contains fields for the width and
  * height of the image, as well as an array called pixels[] that contains the
- * values for every pixel in the image. The methods described below allow
- * easy access to the image's pixels and alpha channel and simplify the
- * process of compositing.
- *
+ * values for every pixel in the image.
+ * <br><br>
+ * The methods described below allow easy access to the image's pixels and
+ * alpha channel and simplify the process of compositing.
+ * <br><br>
  * Before using the pixels[] array, be sure to use the loadPixels() method on
  * the image to make sure that the pixel data is properly loaded.
  *
@@ -19661,18 +21040,62 @@ p5.Image = function(width, height){
   /**
    * Image width.
    * @property width
+   * @example
+   * <div><code>
+   * var img;
+   * function preload() {
+   *   img = loadImage("assets/rockies.jpg");
+   * }
+   *
+   * function setup() {
+   *   createCanvas(100, 100);
+   *   image(img, 0, 0);
+   *   for (var i=0; i < img.width; i++) {
+   *     var c = img.get(i, img.height/2);
+   *     stroke(c);
+   *     line(i, height/2, i, height);
+   *   }
+   * }
+   * </code></div>
+   *
+   * @alt
+   * rocky mountains in top and horizontal lines in corresponding colors in bottom.
+   *
    */
   this.width = width;
   /**
    * Image height.
    * @property height
+   * @example
+   * <div><code>
+   * var img;
+   * function preload() {
+   *   img = loadImage("assets/rockies.jpg");
+   * }
+   *
+   * function setup() {
+   *   createCanvas(100, 100);
+   *   image(img, 0, 0);
+   *   for (var i=0; i < img.height; i++) {
+   *     var c = img.get(img.width/2, i);
+   *     stroke(c);
+   *     line(0, i, width/2, i);
+   *   }
+   * }
+   * </code></div>
+   *
+   * @alt
+   * rocky mountains on right and vertical lines in corresponding colors on left.
+   *
    */
   this.height = height;
   this.canvas = document.createElement('canvas');
   this.canvas.width = this.width;
   this.canvas.height = this.height;
   this.drawingContext = this.canvas.getContext('2d');
-  this.pixelDensity = 1;
+  this._pixelDensity = 1;
+  //used for webgl texturing only
+  this.isTexture = false;
   /**
    * Array containing the values for all the pixels in the display window.
    * These values are numbers. This array is the size (include an appropriate
@@ -19687,22 +21110,24 @@ p5.Image = function(width, height){
    * (0, 0). The second four values (indices 4-7) will contain the R, G, B, A
    * values of the pixel at (1, 0). More generally, to set values for a pixel
    * at (x, y):
-   * <code><pre>var d = pixelDensity;
+   * ```javascript
+   * var d = pixelDensity;
    * for (var i = 0; i < d; i++) {
    *   for (var j = 0; j < d; j++) {
    *     // loop over
-   *     idx = 4*((y * d + j) * width * d + (x * d + i));
+   *     idx = 4 * ((y * d + j) * width * d + (x * d + i));
    *     pixels[idx] = r;
    *     pixels[idx+1] = g;
    *     pixels[idx+2] = b;
    *     pixels[idx+3] = a;
    *   }
    * }
+   * ```
    * <br><br>
    * Before accessing this array, the data must loaded with the loadPixels()
    * function. After the array data has been modified, the updatePixels()
    * function must be run to update the changes.
-   * @property pixels[]
+   * @property {Number[]} pixels
    * @example
    * <div>
    * <code>
@@ -19732,6 +21157,11 @@ p5.Image = function(width, height){
    * image(img, 17, 17);
    * </code>
    * </div>
+   *
+   * @alt
+   * 66x66 turquoise rect in center of canvas
+   * 66x66 pink rect in center of canvas
+   *
    */
   this.pixels = [];
 };
@@ -19748,6 +21178,32 @@ p5.Image.prototype._setProperty = function (prop, value) {
  * Loads the pixels data for this image into the [pixels] attribute.
  *
  * @method loadPixels
+ * @example
+ * <div><code>
+ * var myImage;
+ * var halfImage;
+ *
+ * function preload() {
+ *   myImage = loadImage("assets/rockies.jpg");
+ * }
+ *
+ * function setup() {
+ *   myImage.loadPixels();
+ *   halfImage = 4 * width * height/2;
+ *   for(var i = 0; i < halfImage; i++){
+ *     myImage.pixels[i+halfImage] = myImage.pixels[i];
+ *   }
+ *   myImage.updatePixels();
+ * }
+ *
+ * function draw() {
+ *   image(myImage, 0, 0);
+ * }
+ * </code></div>
+ *
+   * @alt
+   * 2 images of rocky mountains vertically stacked
+   *
  */
 p5.Image.prototype.loadPixels = function(){
   p5.Renderer2D.prototype.loadPixels.call(this);
@@ -19766,6 +21222,32 @@ p5.Image.prototype.loadPixels = function(){
  *                              underlying canvas
  * @param {Integer|undefined} h height of the target update area for the
  *                              underlying canvas
+ * @example
+ * <div><code>
+ * var myImage;
+ * var halfImage;
+ *
+ * function preload() {
+ *   myImage = loadImage("assets/rockies.jpg");
+ * }
+ *
+ * function setup() {
+ *   myImage.loadPixels();
+ *   halfImage = 4 * width * height/2;
+ *   for(var i = 0; i < halfImage; i++){
+ *     myImage.pixels[i+halfImage] = myImage.pixels[i];
+ *   }
+ *   myImage.updatePixels();
+ * }
+ *
+ * function draw() {
+ *   image(myImage, 0, 0);
+ * }
+ * </code></div>
+ *
+ * @alt
+ * 2 images of rocky mountains vertically stacked
+ *
  */
 p5.Image.prototype.updatePixels = function(x, y, w, h){
   p5.Renderer2D.prototype.updatePixels.call(this, x, y, w, h);
@@ -19786,8 +21268,31 @@ p5.Image.prototype.updatePixels = function(x, y, w, h){
  * @param  {Number}               [y] y-coordinate of the pixel
  * @param  {Number}               [w] width
  * @param  {Number}               [h] height
- * @return {Array/Color | p5.Image}     color of pixel at x,y in array format
+ * @return {Array|Color|p5.Image}     color of pixel at x,y in array format
  *                                    [R, G, B, A] or p5.Image
+ * @example
+ * <div><code>
+ * var myImage;
+ * var c;
+ *
+ * function preload() {
+ *   myImage = loadImage("assets/rockies.jpg");
+ * }
+ *
+ * function setup() {
+ *   background(myImage);
+ *   noStroke();
+ *   c = myImage.get(60, 90);
+ *   fill(c);
+ *   rect(25, 25, 50, 50);
+ * }
+ *
+ * //get() returns color here
+ * </code></div>
+ *
+ * @alt
+ * image of rocky mountains with 50x50 green rect in front
+ *
  */
 p5.Image.prototype.get = function(x, y, w, h){
   return p5.Renderer2D.prototype.get.call(this, x, y, w, h);
@@ -19821,6 +21326,10 @@ p5.Image.prototype.get = function(x, y, w, h){
  * image(img, 34, 34);
  * </code>
  * </div>
+ *
+ * @alt
+ * 2 gradated dark turquoise rects fade left. 1 center 1 bottom right of canvas
+ *
  */
 p5.Image.prototype.set = function(x, y, imgOrCol){
   p5.Renderer2D.prototype.set.call(this, x, y, imgOrCol);
@@ -19851,6 +21360,10 @@ p5.Image.prototype.set = function(x, y, imgOrCol){
  *   img.resize(50, 100);
  * }
  * </code></div>
+ *
+ * @alt
+ * image of rocky mountains. zoomed in
+ *
  */
 p5.Image.prototype.resize = function(width, height){
 
@@ -19863,8 +21376,19 @@ p5.Image.prototype.resize = function(width, height){
   // reference to the backing canvas of a p5.Image. But since we do not
   // enforce that at the moment, I am leaving in the slower, but safer
   // implementation.
-  width = width || this.canvas.width;
-  height = height || this.canvas.height;
+
+  // auto-resize
+  if (width === 0 && height === 0) {
+    width = this.canvas.width;
+    height = this.canvas.height;
+  } else if (width === 0) {
+    width = this.canvas.width * height / this.canvas.height;
+  } else if (height === 0) {
+    height = this.canvas.height * width / this.canvas.width;
+  }
+
+  width = Math.floor(width);
+  height = Math.floor(height);
 
   var tempCanvas = document.createElement('canvas');
   tempCanvas.width = width;
@@ -19908,6 +21432,29 @@ p5.Image.prototype.resize = function(width, height){
  * @param  {Integer} dy Y coordinate of the destination's upper left corner
  * @param  {Integer} dw destination image width
  * @param  {Integer} dh destination image height
+ * @example
+ * <div><code>
+ * var photo;
+ * var bricks;
+ * var x;
+ * var y;
+ *
+ * function preload() {
+ *   photo = loadImage("assets/rockies.jpg");
+ *   bricks = loadImage("assets/bricks.jpg");
+ * }
+ *
+ * function setup() {
+ *   x = bricks.width/2;
+ *   y = bricks.height/2;
+ *   photo.copy(bricks, 0, 0, x, y, 0, 0, x, y);
+ *   image(photo, 0, 0);
+ * }
+ * </code></div>
+ *
+ * @alt
+ * image of rocky mountains and smaller image on top of bricks at top left
+ *
  */
 p5.Image.prototype.copy = function () {
   p5.prototype.copy.apply(this, arguments);
@@ -19919,17 +21466,34 @@ p5.Image.prototype.copy = function () {
  * this image.
  *
  * @method mask
- * @param {p5.Image|undefined} srcImage source image
+ * @param {p5.Image} srcImage source image
+ * @example
+ * <div><code>
+ * var photo, maskImage;
+ * function preload() {
+ *   photo = loadImage("assets/rockies.jpg");
+ *   maskImage = loadImage("assets/mask2.png");
+ * }
  *
- * TODO: - Accept an array of alpha values.
- *       - Use other channels of an image. p5 uses the
- *       blue channel (which feels kind of arbitrary). Note: at the
- *       moment this method does not match native processings original
- *       functionality exactly.
+ * function setup() {
+ *   createCanvas(100, 100);
+ *   photo.mask(maskImage);
+ *   image(photo, 0, 0);
+ * }
+ * </code></div>
+ *
+ * @alt
+ * image of rocky mountains with white at right
+ *
  *
  * http://blogs.adobe.com/webplatform/2013/01/28/blending-features-in-canvas/
  *
  */
+// TODO: - Accept an array of alpha values.
+//       - Use other channels of an image. p5 uses the
+//       blue channel (which feels kind of arbitrary). Note: at the
+//       moment this method does not match native processings original
+//       functionality exactly.
 p5.Image.prototype.mask = function(p5Image) {
   if(p5Image === undefined){
     p5Image = this;
@@ -19938,7 +21502,7 @@ p5.Image.prototype.mask = function(p5Image) {
 
   var scaleFactor = 1;
   if (p5Image instanceof p5.Renderer) {
-    scaleFactor = p5Image._pInst.pixelDensity;
+    scaleFactor = p5Image._pInst._pixelDensity;
   }
 
   var copyArgs = [
@@ -19954,7 +21518,7 @@ p5.Image.prototype.mask = function(p5Image) {
   ];
 
   this.drawingContext.globalCompositeOperation = 'destination-in';
-  this.copy.apply(this, copyArgs);
+  p5.Image.prototype.copy.apply(this, copyArgs);
   this.drawingContext.globalCompositeOperation = currBlend;
 };
 
@@ -19966,6 +21530,26 @@ p5.Image.prototype.mask = function(p5Image) {
  *                           opaque see Filters.js for docs on each available
  *                           filter
  * @param {Number|undefined} value
+ * @example
+ * <div><code>
+ * var photo1;
+ * var photo2;
+ *
+ * function preload() {
+ *   photo1 = loadImage("assets/rockies.jpg");
+ *   photo2 = loadImage("assets/rockies.jpg");
+ * }
+ *
+ * function setup() {
+ *   photo2.filter("gray");
+ *   image(photo1, 0, 0);
+ *   image(photo2, width/2, 0);
+ * }
+ * </code></div>
+ *
+ * @alt
+ * 2 images of rocky mountains left one in color, right in black and white
+ *
  */
 p5.Image.prototype.filter = function(operation, value) {
   Filters.apply(this.canvas, Filters[operation.toLowerCase()], value);
@@ -19994,6 +21578,57 @@ p5.Image.prototype.filter = function(operation, value) {
  *
  *
  * http://blogs.adobe.com/webplatform/2013/01/28/blending-features-in-canvas/
+ * @example
+ * <div><code>
+ * var mountains;
+ * var bricks;
+ *
+ * function preload() {
+ *   mountains = loadImage("assets/rockies.jpg");
+ *   bricks = loadImage("assets/bricks_third.jpg");
+ * }
+ *
+ * function setup() {
+ *   mountains.blend(bricks, 0, 0, 33, 100, 67, 0, 33, 100, ADD);
+ *   image(mountains, 0, 0);
+ *   image(bricks, 0, 0);
+ * }
+ * </code></div>
+ * <div><code>
+ * var mountains;
+ * var bricks;
+ *
+ * function preload() {
+ *   mountains = loadImage("assets/rockies.jpg");
+ *   bricks = loadImage("assets/bricks_third.jpg");
+ * }
+ *
+ * function setup() {
+ *   mountains.blend(bricks, 0, 0, 33, 100, 67, 0, 33, 100, DARKEST);
+ *   image(mountains, 0, 0);
+ *   image(bricks, 0, 0);
+ * }
+ * </code></div>
+ * <div><code>
+ * var mountains;
+ * var bricks;
+ *
+ * function preload() {
+ *   mountains = loadImage("assets/rockies.jpg");
+ *   bricks = loadImage("assets/bricks_third.jpg");
+ * }
+ *
+ * function setup() {
+ *   mountains.blend(bricks, 0, 0, 33, 100, 67, 0, 33, 100, LIGHTEST);
+ *   image(mountains, 0, 0);
+ *   image(bricks, 0, 0);
+ * }
+ * </code></div>
+ *
+ * @alt
+ * image of rocky mountains. Brick images on left and right. Right overexposed
+ * image of rockies. Brickwall images on left and right. Right mortar transparent
+ * image of rockies. Brickwall images on left and right. Right translucent
  *
  */
 p5.Image.prototype.blend = function() {
@@ -20008,6 +21643,28 @@ p5.Image.prototype.blend = function() {
  * @method save
  * @param {String} filename give your file a name
  * @param  {String} extension 'png' or 'jpg'
+ * @example
+ * <div><code>
+ * var photo;
+ *
+ * function preload() {
+ *   photo = loadImage("assets/rockies.jpg");
+ * }
+ *
+ * function draw() {
+ *   image(photo, 0, 0);
+ * }
+ *
+ * function keyTyped() {
+ *   if (key == 's') {
+ *     photo.save("photo", "png");
+ *   }
+ * }
+ * </code></div>
+ *
+ * @alt
+ * image of rocky mountains.
+ *
  */
 p5.Image.prototype.save = function(filename, extension) {
   var mimeType;
@@ -20018,18 +21675,18 @@ p5.Image.prototype.save = function(filename, extension) {
   else {
     // en.wikipedia.org/wiki/Comparison_of_web_browsers#Image_format_support
     switch(extension.toLowerCase()){
-    case 'png':
-      mimeType = 'image/png';
-      break;
-    case 'jpeg':
-      mimeType = 'image/jpeg';
-      break;
-    case 'jpg':
-      mimeType = 'image/jpeg';
-      break;
-    default:
-      mimeType = 'image/png';
-      break;
+      case 'png':
+        mimeType = 'image/png';
+        break;
+      case 'jpeg':
+        mimeType = 'image/jpeg';
+        break;
+      case 'jpg':
+        mimeType = 'image/jpeg';
+        break;
+      default:
+        mimeType = 'image/png';
+        break;
     }
   }
   var downloadMime = 'image/octet-stream';
@@ -20041,8 +21698,7 @@ p5.Image.prototype.save = function(filename, extension) {
 };
 
 module.exports = p5.Image;
-
-},{"../core/core":48,"./filters":65}],69:[function(_dereq_,module,exports){
+},{"../core/core":42,"./filters":59}],63:[function(_dereq_,module,exports){
 /**
  * @module Image
  * @submodule Pixels
@@ -20067,24 +21723,26 @@ _dereq_('../color/p5.Color');
  * high denisty displays will have more pixels[] (by a factor of
  * pixelDensity^2).
  * For example, if the image is 100x100 pixels, there will be 40,000. On a
- * retina display, there will be 160,000. The first four values
- * (indices 0-3) in the array will be the R, G, B, A values of the pixel at
- * (0, 0). The second four values (indices 4-7) will contain the R, G, B, A
- * values of the pixel at (1, 0). More generally, to set values for a pixel
- * at (x, y):
- * <code><pre>var d = pixelDensity;
+ * retina display, there will be 160,000.
+ * <br><br>
+ * The first four values (indices 0-3) in the array will be the R, G, B, A
+ * values of the pixel at (0, 0). The second four values (indices 4-7) will
+ * contain the R, G, B, A values of the pixel at (1, 0). More generally, to
+ * set values for a pixel at (x, y):
+ * ```javascript
+ * var d = pixelDensity;
  * for (var i = 0; i < d; i++) {
  *   for (var j = 0; j < d; j++) {
  *     // loop over
- *     idx = 4*((y * d + j) * width * d + (x * d + i));
+ *     idx = 4 * ((y * d + j) * width * d + (x * d + i));
  *     pixels[idx] = r;
  *     pixels[idx+1] = g;
  *     pixels[idx+2] = b;
  *     pixels[idx+3] = a;
  *   }
  * }
- * </pre></code>
- * While the above method is complex, it is flexible enough to work with
+ * ```
+ * <p>While the above method is complex, it is flexible enough to work with
  * any pixelDensity. Note that set() will automatically take care of
  * setting all the appropriate values in pixels[] for a given (x, y) at
  * any pixelDensity, but the performance may not be as fast when lots of
@@ -20097,15 +21755,15 @@ _dereq_('../color/p5.Color');
  * Note that this is not a standard javascript array.  This means that
  * standard javascript functions such as <code>slice()</code> or
  * <code>arrayCopy()</code> do not
- * work.
+ * work.</p>
  *
- * @property pixels[]
+ * @property {Number[]} pixels
  * @example
  * <div>
  * <code>
  * var pink = color(255, 102, 204);
  * loadPixels();
- * var d = pixelDensity;
+ * var d = pixelDensity();
  * var halfImage = 4 * (width * d) * (height/2 * d);
  * for (var i = 0; i < halfImage; i+=4) {
  *   pixels[i] = red(pink);
@@ -20116,6 +21774,10 @@ _dereq_('../color/p5.Color');
  * updatePixels();
  * </code>
  * </div>
+ *
+ * @alt
+ * top half of canvas pink, bottom grey
+ *
  */
 p5.prototype.pixels = [];
 
@@ -20185,9 +21847,20 @@ p5.prototype.pixels = [];
  *   blend(img1, 0, 0, 33, 100, 67, 0, 33, 100, ADD);
  * }
  * </code></div>
+ *
+ * @alt
+ * image of rocky mountains. Brick images on left and right. Right overexposed
+ * image of rockies. Brickwall images on left and right. Right mortar transparent
+ * image of rockies. Brickwall images on left and right. Right translucent
+ *
+ *
  */
 p5.prototype.blend = function() {
-  this._renderer.blend.apply(this._renderer, arguments);
+  if (this._renderer) {
+    this._renderer.blend.apply(this._renderer, arguments);
+  } else {
+    p5.Renderer2D.prototype.blend.apply(this, arguments);
+  }
 };
 
 /**
@@ -20218,15 +21891,20 @@ p5.prototype.blend = function() {
  * }
  *
  * function setup() {
- *   background(img0);
- *   image(img1, 0, 0);
- *   copy(7, 22, 10, 10, 35, 25, 50, 50);
+ *   background(img);
+ *   copy(img, 7, 22, 10, 10, 35, 25, 50, 50);
  *   stroke(255);
  *   noFill();
  *   // Rectangle shows area being copied
  *   rect(7, 22, 10, 10);
  * }
  * </code></div>
+ *
+ * @alt
+ * image of rocky mountains. Brick images on left and right. Right overexposed
+ * image of rockies. Brickwall images on left and right. Right mortar transparent
+ * image of rockies. Brickwall images on left and right. Right translucent
+ *
  */
 p5.prototype.copy = function () {
   p5.Renderer2D._copyHelper.apply(this, arguments);
@@ -20278,7 +21956,7 @@ p5.prototype.copy = function () {
  * Increases the light areas. No parameter is used.
  *
  * @method filter
- * @param  {String} filterType
+ * @param  {Constant} filterType
  * @param  {Number} filterParam an optional parameter unique
  *  to each filter, see above
  *
@@ -20387,9 +22065,26 @@ p5.prototype.copy = function () {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * black and white image of a brick wall.
+ * greyscale image of a brickwall
+ * image of a brickwall
+ * jade colored image of a brickwall
+ * red and pink image of a brickwall
+ * image of a brickwall
+ * blurry image of a brickwall
+ * image of a brickwall
+ * image of a brickwall with less detail
+ *
  */
 p5.prototype.filter = function(operation, value) {
-  Filters.apply(this.canvas, Filters[operation.toLowerCase()], value);
+  if(this.canvas !== undefined) {
+    Filters.apply(this.canvas, Filters[operation.toLowerCase()], value);
+  }
+  else {
+    Filters.apply(this.elt, Filters[operation.toLowerCase()], value);
+  }
 };
 
 /**
@@ -20399,18 +22094,21 @@ p5.prototype.filter = function(operation, value) {
  * the display window by specifying additional w and h parameters. When
  * getting an image, the x and y parameters define the coordinates for the
  * upper-left corner of the image, regardless of the current imageMode().
- *
+ * <br><br>
  * If the pixel requested is outside of the image window, [0,0,0,255] is
  * returned. To get the numbers scaled according to the current color ranges
  * and taking into account colorMode, use getColor instead of get.
- *
+ * <br><br>
  * Getting the color of a single pixel with get(x, y) is easy, but not as fast
  * as grabbing the data directly from pixels[]. The equivalent statement to
  * get(x, y) using pixels[] with pixel density d is
- * [pixels[(y*width*d+x)*d],
- * pixels[(y*width*d+x)*d+1],
- * pixels[(y*width*d+x)*d+2],
- * pixels[(y*width*d+x)*d+3] ].
+ * <code>
+ * var off = (y * width + x) * d * 4;
+ * [pixels[off],
+ * pixels[off+1],
+ * pixels[off+2],
+ * pixels[off+3]]</code>
+ * <br><br>
  * See the reference for pixels[] for more information.
  *
  * @method get
@@ -20450,6 +22148,11 @@ p5.prototype.filter = function(operation, value) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 2 images of the rocky mountains, side-by-side
+ * Image of the rocky mountains with 50x50 green rect in center of canvas
+ *
  */
 p5.prototype.get = function(x, y, w, h){
   return this._renderer.get(x, y, w, h);
@@ -20470,7 +22173,7 @@ p5.prototype.get = function(x, y, w, h){
  *
  * function setup() {
  *   image(img, 0, 0);
- *   var d = pixelDensity;
+ *   var d = pixelDensity();
  *   var halfImage = 4 * (img.width * d) *
        (img.height/2 * d);
  *   loadPixels();
@@ -20481,6 +22184,10 @@ p5.prototype.get = function(x, y, w, h){
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * two images of the rocky mountains. one on top, one on bottom of canvas.
+ *
  */
 p5.prototype.loadPixels = function() {
   this._renderer.loadPixels();
@@ -20490,14 +22197,15 @@ p5.prototype.loadPixels = function() {
  * <p>Changes the color of any pixel, or writes an image directly to the
  * display window.</p>
  * <p>The x and y parameters specify the pixel to change and the c parameter
- * specifies the color value. This can be a p5.COlor object, or [R, G, B, A]
+ * specifies the color value. This can be a p5.Color object, or [R, G, B, A]
  * pixel array. It can also be a single grayscale value.
  * When setting an image, the x and y parameters define the coordinates for
  * the upper-left corner of the image, regardless of the current imageMode().
  * </p>
  * <p>
- * After using set(), you must call updatePixels() for your changes to
- * appear.  This should be called once all pixels have been set.
+ * After using set(), you must call updatePixels() for your changes to appear.
+ * This should be called once all pixels have been set, and must be called before
+ * calling .get() or drawing the image.
  * </p>
  * <p>Setting the color of a single pixel with set(x, y) is easy, but not as
  * fast as putting the data directly into pixels[]. Setting the pixels[]
@@ -20550,6 +22258,11 @@ p5.prototype.loadPixels = function() {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 4 black points in the shape of a square middle-right of canvas.
+ * square with orangey-brown gradient lightening at bottom right.
+ * image of the rocky mountains. with lines like an 'x' through the center.
  */
 p5.prototype.set = function (x, y, imgOrCol) {
   this._renderer.set(x, y, imgOrCol);
@@ -20567,7 +22280,7 @@ p5.prototype.set = function (x, y, imgOrCol) {
  * @param  {Number} [y]    y-coordinate of the upper-left corner of region
  *                         to update
  * @param  {Number} [w]    width of region to update
- * @param  {Number} [w]    height of region to update
+ * @param  {Number} [h]    height of region to update
  * @example
  * <div>
  * <code>
@@ -20578,8 +22291,8 @@ p5.prototype.set = function (x, y, imgOrCol) {
  *
  * function setup() {
  *   image(img, 0, 0);
- *   var halfImage = 4 * (img.width * pixelDensity) *
- *     (img.height * pixelDensity/2);
+ *   var halfImage = 4 * (img.width * pixelDensity()) *
+ *     (img.height * pixelDensity()/2);
  *   loadPixels();
  *   for (var i = 0; i < halfImage; i++) {
  *     pixels[i+halfImage] = pixels[i];
@@ -20588,34 +22301,68 @@ p5.prototype.set = function (x, y, imgOrCol) {
  * }
  * </code>
  * </div>
+ * @alt
+ * two images of the rocky mountains. one on top, one on bottom of canvas.
  */
 p5.prototype.updatePixels = function (x, y, w, h) {
+  // graceful fail - if loadPixels() or set() has not been called, pixel
+  // array will be empty, ignore call to updatePixels()
+  if (this.pixels.length === 0) {
+    return;
+  }
   this._renderer.updatePixels(x, y, w, h);
 };
 
 module.exports = p5;
 
-},{"../color/p5.Color":42,"../core/core":48,"./filters":65}],70:[function(_dereq_,module,exports){
+},{"../color/p5.Color":36,"../core/core":42,"./filters":59}],64:[function(_dereq_,module,exports){
 /**
  * @module IO
  * @submodule Input
  * @for p5
  * @requires core
- * @requires reqwest
  */
+
+/* globals Request: false */
 
 'use strict';
 
 var p5 = _dereq_('../core/core');
-var reqwest = _dereq_('reqwest');
 var opentype = _dereq_('opentype.js');
+_dereq_('whatwg-fetch');
+_dereq_('es6-promise').polyfill();
+var fetchJsonp = _dereq_('fetch-jsonp');
 _dereq_('../core/error_helpers');
+
+/**
+ * Checks if we are in preload and returns the last arg which will be the
+ * _decrementPreload function if called from a loadX() function.  Should
+ * only be used in loadX() functions.
+ * @private
+ */
+p5._getDecrementPreload = function () {
+  var decrementPreload = arguments[arguments.length - 1];
+
+  // when in preload decrementPreload will always be the last arg as it is set
+  // with args.push() before invocation in _wrapPreload
+  if ((window.preload || (this && this.preload)) &&
+    typeof decrementPreload === 'function') {
+    return decrementPreload;
+  } else {
+    return null;
+  }
+};
 
 /**
  * Loads an opentype font file (.otf, .ttf) from a file or a URL,
  * and returns a PFont Object. This method is asynchronous,
  * meaning it may not finish before the next line in your sketch
  * is executed.
+ * <br><br>
+ * The path to the font should be relative to the HTML file
+ * that links in your sketch. Loading an from a URL or other
+ * remote location may be blocked due to your browser's built-in
+ * security.
  *
  * @method loadFont
  * @param  {String}        path       name of the file or url to load
@@ -20642,8 +22389,8 @@ _dereq_('../core/error_helpers');
  * }
  * </code></div>
  *
- * <p>Outside preload(), you may supply a callback function to handle the
- * object:</p>
+ * Outside of preload(), you may supply a callback function to handle the
+ * object:
  *
  * <div><code>
  * function setup() {
@@ -20658,19 +22405,42 @@ _dereq_('../core/error_helpers');
  *
  * </code></div>
  *
+ * <p>You can also use the string name of the font to style other HTML
+ * elements.</p>
+ *
+ * <div><code>
+ * var myFont;
+ *
+ * function preload() {
+ *   myFont = loadFont('assets/Avenir.otf');
+ * }
+ *
+ * function setup() {
+ *   var myDiv = createDiv('hello there');
+ *   myDiv.style('font-family', 'Avenir');
+ * }
+ * </code></div>
+ *
+ * @alt
+ * p5*js in p5's theme dark pink
+ * p5*js in p5's theme dark pink
+ *
  */
-p5.prototype.loadFont = function(path, onSuccess, onError) {
+p5.prototype.loadFont = function (path, onSuccess, onError) {
 
   var p5Font = new p5.Font(this);
+  var decrementPreload = p5._getDecrementPreload.apply(this, arguments);
 
-  opentype.load(path, function(err, font) {
+  opentype.load(path, function (err, font) {
 
     if (err) {
 
-      if (typeof onError !== 'undefined') {
+      if ((typeof onError !== 'undefined') && (onError !== decrementPreload)) {
         return onError(err);
       }
-      throw err;
+      p5._friendlyFileLoadError(4, path);
+      console.error(err, path);
+      return;
     }
 
     p5Font.font = font;
@@ -20678,24 +22448,44 @@ p5.prototype.loadFont = function(path, onSuccess, onError) {
     if (typeof onSuccess !== 'undefined') {
       onSuccess(p5Font);
     }
+
+    if (decrementPreload && (onSuccess !== decrementPreload)) {
+      decrementPreload();
+    }
+
+    // check that we have an acceptable font type
+    var validFontTypes = [ 'ttf', 'otf', 'woff', 'woff2' ],
+      fileNoPath = path.split('\\').pop().split('/').pop(),
+      lastDotIdx = fileNoPath.lastIndexOf('.'), fontFamily, newStyle,
+      fileExt = lastDotIdx < 1 ? null : fileNoPath.substr(lastDotIdx + 1);
+
+    // if so, add it to the DOM (name-only) for use with p5.dom
+    if (validFontTypes.indexOf(fileExt) > -1) {
+
+      fontFamily = fileNoPath.substr(0, lastDotIdx);
+      newStyle = document.createElement('style');
+      newStyle.appendChild(document.createTextNode('\n@font-face {' +
+        '\nfont-family: ' + fontFamily + ';\nsrc: url(' + path + ');\n}\n'));
+      document.head.appendChild(newStyle);
+    }
+
   });
 
   return p5Font;
 };
 
-
 //BufferedReader
-p5.prototype.createInput = function() {
+p5.prototype.createInput = function () {
   // TODO
   throw 'not yet implemented';
 };
 
-p5.prototype.createReader = function() {
+p5.prototype.createReader = function () {
   // TODO
   throw 'not yet implemented';
 };
 
-p5.prototype.loadBytes = function() {
+p5.prototype.loadBytes = function () {
   // TODO
   throw 'not yet implemented';
 };
@@ -20703,15 +22493,21 @@ p5.prototype.loadBytes = function() {
 /**
  * Loads a JSON file from a file or a URL, and returns an Object or Array.
  * This method is asynchronous, meaning it may not finish before the next
- * line in your sketch is executed.
+ * line in your sketch is executed. JSONP is supported via a polyfill and you
+ * can pass in as the second argument an object with definitions of the json
+ * callback following the syntax specified <a href="https://github.com/camsong/
+ * fetch-jsonp">here</a>.
  *
  * @method loadJSON
  * @param  {String}        path       name of the file or url to load
- * @param  {Function}      [callback] function to be executed after
- *                                    loadJSON()
- *                                    completes, Array is passed in as first
- *                                    argument
+ * @param  {Object}        [jsonpOptions] options object for jsonp related settings
  * @param  {String}        [datatype] "json" or "jsonp"
+ * @param  {Function}      [callback] function to be executed after
+ *                                    loadJSON() completes, data is passed
+ *                                    in as first argument
+ * @param  {Function}      [errorCallback] function to be executed if
+ *                                    there is an error, response is passed
+ *                                    in as first argument
  * @return {Object|Array}             JSON data
  * @example
  *
@@ -20721,7 +22517,8 @@ p5.prototype.loadBytes = function() {
  * <div><code>
  * var weather;
  * function preload() {
- *   var url = 'http://api.openweathermap.org/data/2.5/weather?q=London,UK';
+ *   var url = 'http://api.openweathermap.org/data/2.5/weather?q=London,UK'+
+ *    '&APPID=7bbbb47522848e8b9c26ba35c226c734';
  *   weather = loadJSON(url);
  * }
  *
@@ -20738,13 +22535,14 @@ p5.prototype.loadBytes = function() {
  * }
  * </code></div>
  *
- * <p>Outside preload(), you may supply a callback function to handle the
+ *
+ * <p>Outside of preload(), you may supply a callback function to handle the
  * object:</p>
-
  * <div><code>
  * function setup() {
  *   noLoop();
- *   var url = 'http://api.openweathermap.org/data/2.5/weather?q=NewYork,USA';
+ *   var url = 'http://api.openweathermap.org/data/2.5/weather?q=NewYork'+
+ *    '&APPID=7bbbb47522848e8b9c26ba35c226c734';
  *   loadJSON(url, drawWeather);
  * }
  *
@@ -20760,30 +22558,52 @@ p5.prototype.loadBytes = function() {
  * }
  * </code></div>
  *
+ * @alt
+ * 50x50 ellipse that changes from black to white depending on the current humidity
+ * 50x50 ellipse that changes from black to white depending on the current humidity
+ *
  */
-p5.prototype.loadJSON = function() {
+p5.prototype.loadJSON = function () {
   var path = arguments[0];
-  var callback = arguments[1];
-  var ret = []; // array needed for preload
-  // assume jsonp for URLs
-  var t = 'json'; //= path.indexOf('http') === -1 ? 'json' : 'jsonp';
+  var callback;
+  var errorCallback;
+  var options;
+  var decrementPreload = p5._getDecrementPreload.apply(this, arguments);
+
+  var ret = {}; // object needed for preload
+  var t = 'json';
 
   // check for explicit data type argument
-  if (typeof arguments[2] === 'string'){
-    if (arguments[2] === 'jsonp' || arguments[2] === 'json') {
-      t = arguments[2];
+  for (var i = 1; i < arguments.length; i++) {
+    var arg = arguments[i];
+    if (typeof arg === 'string') {
+      if (arg === 'jsonp' || arg === 'json') {
+        t = arg;
+      }
+    } else if (typeof arg === 'function') {
+      if(!callback){
+        callback = arg;
+      }else{
+        errorCallback = arg;
+      }
+    } else if (typeof arg === 'object' && arg.hasOwnProperty('jsonpCallback')){
+      t = 'jsonp';
+      options = arg;
     }
   }
 
-  reqwest({url: path, type: t, crossOrigin: true})
-    .then(function(resp) {
-      for (var k in resp) {
-        ret[k] = resp[k];
-      }
-      if (typeof callback !== 'undefined') {
-        callback(resp);
-      }
-    });
+  p5.prototype.httpDo(path, 'GET', options, t, function(resp){
+    for (var k in resp) {
+      ret[k] = resp[k];
+    }
+    if (typeof callback !== 'undefined') {
+      callback(resp);
+    }
+    if (decrementPreload && (callback !== decrementPreload)) {
+      decrementPreload();
+    }
+  }, errorCallback);
+
   return ret;
 };
 
@@ -20791,12 +22611,12 @@ p5.prototype.loadJSON = function() {
  * Reads the contents of a file and creates a String array of its individual
  * lines. If the name of the file is used as the parameter, as in the above
  * example, the file must be located in the sketch directory/folder.
- *
+ * <br><br>
  * Alternatively, the file maybe be loaded from anywhere on the local
  * computer using an absolute path (something that starts with / on Unix and
  * Linux, or a drive letter on Windows), or the filename parameter can be a
  * URL for a file found on a network.
- *
+ * <br><br>
  * This method is asynchronous, meaning it may not finish before the next
  * line in your sketch is executed.
  *
@@ -20805,6 +22625,9 @@ p5.prototype.loadJSON = function() {
  * @param  {Function} [callback] function to be executed after loadStrings()
  *                               completes, Array is passed in as first
  *                               argument
+ * @param  {Function} [errorCallback] function to be executed if
+ *                               there is an error, response is passed
+ *                               in as first argument
  * @return {Array}               Array of Strings
  * @example
  *
@@ -20824,7 +22647,7 @@ p5.prototype.loadJSON = function() {
  * }
  * </code></div>
  *
- * <p>Outside preload(), you may supply a callback function to handle the
+ * <p>Outside of preload(), you may supply a callback function to handle the
  * object:</p>
  *
  * <div><code>
@@ -20838,26 +22661,30 @@ p5.prototype.loadJSON = function() {
  *   text(result[ind], 10, 10, 80, 80);
  * }
  * </code></div>
+ *
+ * @alt
+ * randomly generated text from a file, for example "i smell like butter"
+ * randomly generated text from a file, for example "i have three feet"
+ *
  */
-p5.prototype.loadStrings = function (path, callback) {
+p5.prototype.loadStrings = function (path, callback, errorCallback) {
   var ret = [];
-  var req = new XMLHttpRequest();
-  req.open('GET', path, true);
-  req.onreadystatechange = function () {
-    if (req.readyState === 4 && (req.status === 200 )) {
-      var arr = req.responseText.match(/[^\r\n]+/g);
-      for (var k in arr) {
-        ret[k] = arr[k];
-      }
-      if (typeof callback !== 'undefined') {
-        callback(ret);
-      }
+  var decrementPreload = p5._getDecrementPreload.apply(this, arguments);
+
+  p5.prototype.httpDo(path, 'GET', 'text', function(data){
+    var arr = data.match(/[^\r\n]+/g);
+    for (var k in arr) {
+      ret[k] = arr[k];
     }
-    else{
-      p5._friendlyFileLoadError(3,path);
+
+    if (typeof callback !== 'undefined') {
+      callback(ret);
     }
-  };
-  req.send(null);
+    if (decrementPreload && (callback !== decrementPreload)) {
+      decrementPreload();
+    }
+  }, errorCallback);
+
   return ret;
 };
 
@@ -20890,67 +22717,84 @@ p5.prototype.loadStrings = function (path, callback) {
  * <p>This method is asynchronous, meaning it may not finish before the next
  * line in your sketch is executed. Calling loadTable() inside preload()
  * guarantees to complete the operation before setup() and draw() are called.
- * Outside preload(), you may supply a callback function to handle the object.
+ * <p>Outside of preload(), you may supply a callback function to handle the
+ * object:</p>
  * </p>
  *
  * @method loadTable
  * @param  {String}         filename   name of the file or URL to load
- * @param  {String|Strings} [options]  "header" "csv" "tsv"
+ * @param  {String} [options]  "header" "csv" "tsv"
  * @param  {Function}       [callback] function to be executed after
- *                                     loadTable() completes, Table object is
- *                                     passed in as first argument
+ *                                     loadTable() completes. On success, the
+ *                                     Table object is passed in as the
+ *                                     first argument.
+ * @param  {Function}  [errorCallback] function to be executed if
+ *                                     there is an error, response is passed
+ *                                     in as first argument
  * @return {Object}                    Table object containing data
  *
  * @example
-	* <div class="norender">
-	* <code>
-	* // Given the following CSV file called "mammals.csv"
+ * <div class="norender">
+ * <code>
+ * // Given the following CSV file called "mammals.csv"
  * // located in the project's "assets" folder:
  * //
-	* // id,species,name
-	* // 0,Capra hircus,Goat
-	* // 1,Panthera pardus,Leopard
-	* // 2,Equus zebra,Zebra
-	*
-	* var table;
-	*
-	* function preload() {
-	*   //my table is comma separated value "csv"
-	*   //and has a header specifying the columns labels
-	*   table = loadTable("assets/mammals.csv", "csv", "header");
-	*   //the file can be remote
-	*   //table = loadTable("http://p5js.org/reference/assets/mammals.csv",
-	*   //                  "csv", "header");
-	* }
-	*
-	* function setup() {
-	*   //count the columns
-	*   print(table.getRowCount() + " total rows in table");
-	*   print(table.getColumnCount() + " total columns in table");
-	*
-	*   print(table.getColumn("name"));
-	*   //["Goat", "Leopard", "Zebra"]
-	*
-	*   //cycle through the table
-	*   for (var r = 0; r < table.getRowCount(); r++)
-	*     for (var c = 0; c < table.getColumnCount(); c++) {
-	*       print(table.getString(r, c));
-	*     }
-	* }
-	* </code>
-	* </div>
+ * // id,species,name
+ * // 0,Capra hircus,Goat
+ * // 1,Panthera pardus,Leopard
+ * // 2,Equus zebra,Zebra
+ *
+ * var table;
+ *
+ * function preload() {
+ *   //my table is comma separated value "csv"
+ *   //and has a header specifying the columns labels
+ *   table = loadTable("assets/mammals.csv", "csv", "header");
+ *   //the file can be remote
+ *   //table = loadTable("http://p5js.org/reference/assets/mammals.csv",
+ *   //                  "csv", "header");
+ * }
+ *
+ * function setup() {
+ *   //count the columns
+ *   print(table.getRowCount() + " total rows in table");
+ *   print(table.getColumnCount() + " total columns in table");
+ *
+ *   print(table.getColumn("name"));
+ *   //["Goat", "Leopard", "Zebra"]
+ *
+ *   //cycle through the table
+ *   for (var r = 0; r < table.getRowCount(); r++)
+ *     for (var c = 0; c < table.getColumnCount(); c++) {
+ *       print(table.getString(r, c));
+ *     }
+ * }
+ * </code>
+ * </div>
+ *
+ * @alt
+ * randomly generated text from a file, for example "i smell like butter"
+ * randomly generated text from a file, for example "i have three feet"
+ *
  */
 p5.prototype.loadTable = function (path) {
   var callback = null;
+  var errorCallback = null;
   var options = [];
   var header = false;
   var sep = ',';
   var separatorSet = false;
+  var decrementPreload = p5._getDecrementPreload.apply(this, arguments);
+
   for (var i = 1; i < arguments.length; i++) {
-    if (typeof(arguments[i]) === 'function' ){
-      callback = arguments[i];
-    }
-    else if (typeof(arguments[i]) === 'string') {
+    if ((typeof (arguments[i]) === 'function') &&
+      (arguments[i] !== decrementPreload)) {
+      if(!callback){
+        callback = arguments[i];
+      }else{
+        errorCallback = arguments[i];
+      }
+    } else if (typeof (arguments[i]) === 'string') {
       options.push(arguments[i]);
       if (arguments[i] === 'header') {
         header = true;
@@ -20958,17 +22802,14 @@ p5.prototype.loadTable = function (path) {
       if (arguments[i] === 'csv') {
         if (separatorSet) {
           throw new Error('Cannot set multiple separator types.');
-        }
-        else {
+        } else {
           sep = ',';
           separatorSet = true;
         }
-      }
-      else if (arguments[i] === 'tsv') {
+      } else if (arguments[i] === 'tsv') {
         if (separatorSet) {
           throw new Error('Cannot set multiple separator types.');
-        }
-        else {
+        } else {
           sep = '\t';
           separatorSet = true;
         }
@@ -20977,148 +22818,146 @@ p5.prototype.loadTable = function (path) {
   }
 
   var t = new p5.Table();
-  reqwest({url: path, crossOrigin: true, type: 'csv'})
-    .then(function(resp) {
-      resp = resp.responseText;
 
-      var state = {};
+  p5.prototype.httpDo(path, 'GET', 'text', function(resp){
+    var state = {};
 
-      // define constants
-      var PRE_TOKEN = 0,
-          MID_TOKEN = 1,
-          POST_TOKEN = 2,
-          POST_RECORD = 4;
+    // define constants
+    var PRE_TOKEN = 0,
+      MID_TOKEN = 1,
+      POST_TOKEN = 2,
+      POST_RECORD = 4;
 
-      var QUOTE = '\"',
-             CR = '\r',
-             LF = '\n';
+    var QUOTE = '\"',
+      CR = '\r',
+      LF = '\n';
 
-      var records = [];
-      var offset = 0;
-      var currentRecord = null;
-      var currentChar;
+    var records = [];
+    var offset = 0;
+    var currentRecord = null;
+    var currentChar;
 
-      var recordBegin = function () {
-        state.escaped = false;
-        currentRecord = [];
-        tokenBegin();
-      };
+    var tokenBegin = function () {
+      state.currentState = PRE_TOKEN;
+      state.token = '';
+    };
 
-      var recordEnd = function () {
-        state.currentState = POST_RECORD;
-        records.push(currentRecord);
-        currentRecord = null;
-      };
+    var tokenEnd = function () {
+      currentRecord.push(state.token);
+      tokenBegin();
+    };
 
-      var tokenBegin = function() {
-        state.currentState = PRE_TOKEN;
-        state.token = '';
-      };
+    var recordBegin = function () {
+      state.escaped = false;
+      currentRecord = [];
+      tokenBegin();
+    };
 
-      var tokenEnd = function() {
-        currentRecord.push(state.token);
-        tokenBegin();
-      };
+    var recordEnd = function () {
+      state.currentState = POST_RECORD;
+      records.push(currentRecord);
+      currentRecord = null;
+    };
 
-      while(true) {
-        currentChar = resp[offset++];
+    while (true) {
+      currentChar = resp[offset++];
 
-        // EOF
-        if(currentChar == null) {
-          if (state.escaped) {
-            throw new Error('Unclosed quote in file.');
-          }
-          if (currentRecord){
-            tokenEnd();
-            recordEnd();
-            break;
-          }
+      // EOF
+      if (currentChar == null) {
+        if (state.escaped) {
+          throw new Error('Unclosed quote in file.');
         }
-        if(currentRecord === null) {
-          recordBegin();
+        if (currentRecord) {
+          tokenEnd();
+          recordEnd();
+          break;
         }
+      }
+      if (currentRecord === null) {
+        recordBegin();
+      }
 
-        // Handle opening quote
-        if (state.currentState === PRE_TOKEN) {
-          if (currentChar === QUOTE) {
-            state.escaped = true;
-            state.currentState = MID_TOKEN;
-            continue;
-          }
+      // Handle opening quote
+      if (state.currentState === PRE_TOKEN) {
+        if (currentChar === QUOTE) {
+          state.escaped = true;
           state.currentState = MID_TOKEN;
-        }
-
-        // mid-token and escaped, look for sequences and end quote
-        if (state.currentState === MID_TOKEN && state.escaped) {
-          if (currentChar === QUOTE) {
-            if (resp[offset] === QUOTE) {
-              state.token += QUOTE;
-              offset++;
-            }
-            else {
-              state.escaped = false;
-              state.currentState = POST_TOKEN;
-            }
-          }
-          else {
-            state.token += currentChar;
-          }
           continue;
         }
+        state.currentState = MID_TOKEN;
+      }
 
-
-        // fall-through: mid-token or post-token, not escaped
-        if (currentChar === CR ) {
-          if( resp[offset] === LF  ) {
+      // mid-token and escaped, look for sequences and end quote
+      if (state.currentState === MID_TOKEN && state.escaped) {
+        if (currentChar === QUOTE) {
+          if (resp[offset] === QUOTE) {
+            state.token += QUOTE;
             offset++;
+          } else {
+            state.escaped = false;
+            state.currentState = POST_TOKEN;
           }
-          tokenEnd();
-          recordEnd();
-        }
-        else if (currentChar === LF) {
-          tokenEnd();
-          recordEnd();
-        }
-        else if (currentChar === sep) {
-          tokenEnd();
-        }
-        else if( state.currentState === MID_TOKEN ){
+        } else {
           state.token += currentChar;
         }
+        continue;
       }
 
-      // set up column names
-      if (header) {
-        t.columns = records.shift();
+      // fall-through: mid-token or post-token, not escaped
+      if (currentChar === CR) {
+        if (resp[offset] === LF) {
+          offset++;
+        }
+        tokenEnd();
+        recordEnd();
+      } else if (currentChar === LF) {
+        tokenEnd();
+        recordEnd();
+      } else if (currentChar === sep) {
+        tokenEnd();
+      } else if (state.currentState === MID_TOKEN) {
+        state.token += currentChar;
       }
-      else {
-        for (i = 0; i < records.length; i++){
-          t.columns[i] = i.toString();
+    }
+
+    // set up column names
+    if (header) {
+      t.columns = records.shift();
+    } else {
+      for (i = 0; i < records[0].length; i++) {
+        t.columns[i] = 'null';
+      }
+    }
+    var row;
+    for (i = 0; i < records.length; i++) {
+      //Handles row of 'undefined' at end of some CSVs
+      if (i === records.length - 1 && records[i].length === 1) {
+        if (records[i][0] === 'undefined') {
+          break;
         }
       }
-      var row;
-      for (i =0; i<records.length; i++) {
-        //Handles row of 'undefined' at end of some CSVs
-        if (i === records.length - 1 && records[i].length === 1) {
-          if(records[i][0] === 'undefined'){
-            break;
-          }
-        }
-        row = new p5.TableRow();
-        row.arr = records[i];
-        row.obj = makeObject(records[i], t.columns);
-        t.addRow(row);
-      }
-      if (callback !== null) {
-        callback(t);
-      }
-    })
-    .fail(function(err,msg){
-      p5._friendlyFileLoadError(2,path);
-      if (typeof callback !== 'undefined') {
-        callback(false);
-      }
-    });
+      row = new p5.TableRow();
+      row.arr = records[i];
+      row.obj = makeObject(records[i], t.columns);
+      t.addRow(row);
+    }
+    if (callback !== null) {
+      callback(t);
+    }
+    if (decrementPreload && (callback !== decrementPreload)) {
+      decrementPreload();
+    }
+
+  }, function(err){
+    // Error handling
+    p5._friendlyFileLoadError(2, path);
+
+    if(errorCallback){
+      errorCallback(err.status + ' ' + err.statusText);
+    }else{
+      console.log(err.status + ' ' + err.statusText);
+    }
+  });
 
   return t;
 };
@@ -21127,18 +22966,43 @@ p5.prototype.loadTable = function (path) {
 function makeObject(row, headers) {
   var ret = {};
   headers = headers || [];
-  if (typeof(headers) === 'undefined'){
-    for (var j = 0; j < row.length; j++ ){
+  if (typeof (headers) === 'undefined') {
+    for (var j = 0; j < row.length; j++) {
       headers[j.toString()] = j;
     }
   }
-  for (var i = 0; i < headers.length; i++){
+  for (var i = 0; i < headers.length; i++) {
     var key = headers[i];
     var val = row[i];
     ret[key] = val;
   }
   return ret;
 }
+
+/*global parseXML */
+p5.prototype.parseXML = function (two) {
+  var one = new p5.XML();
+  var i;
+  if (two.children.length) {
+    for ( i = 0; i < two.children.length; i++ ) {
+      var node = parseXML(two.children[i]);
+      one.addChild(node);
+    }
+    one.setName(two.nodeName);
+    one._setCont(two.textContent);
+    one._setAttributes(two);
+    for (var j = 0; j < one.children.length; j++) {
+      one.children[j].parent = one;
+    }
+    return one;
+  }
+  else {
+    one.setName(two.nodeName);
+    one._setCont(two.textContent);
+    one._setAttributes(two);
+    return one;
+  }
+};
 
 /**
  * Reads the contents of a file and creates an XML object with its values.
@@ -21153,32 +23017,36 @@ function makeObject(row, headers) {
  * This method is asynchronous, meaning it may not finish before the next
  * line in your sketch is executed. Calling loadXML() inside preload()
  * guarantees to complete the operation before setup() and draw() are called.
- * Outside preload(), you may supply a callback function to handle the object.
+ *
+ * <p>Outside of preload(), you may supply a callback function to handle the
+ * object:</p>
  *
  * @method loadXML
  * @param  {String}   filename   name of the file or URL to load
  * @param  {Function} [callback] function to be executed after loadXML()
  *                               completes, XML object is passed in as
  *                               first argument
+ * @param  {Function} [errorCallback] function to be executed if
+ *                               there is an error, response is passed
+ *                               in as first argument
  * @return {Object}              XML object containing data
  */
-p5.prototype.loadXML = function(path, callback) {
-  var ret = document.implementation.createDocument(null, null);
-  reqwest({
-    url: path,
-    type: 'xml',
-    crossOrigin: true,
-    error: function(err){
-      p5._friendlyFileLoadError(1,path);
+p5.prototype.loadXML = function (path, callback, errorCallback) {
+  var ret = {};
+  var decrementPreload = p5._getDecrementPreload.apply(this, arguments);
+
+  p5.prototype.httpDo(path, 'GET', 'xml', function(xml){
+    for(var key in xml) {
+      ret[key] = xml[key];
     }
-  })
-    .then(function(resp){
-      var x = resp.documentElement;
-      ret.appendChild(x);
-      if (typeof callback !== 'undefined') {
-        callback(resp);
-      }
-    });
+    if (typeof callback !== 'undefined') {
+      callback(ret);
+    }
+    if (decrementPreload && (callback !== decrementPreload)) {
+      decrementPreload();
+    }
+  }, errorCallback);
+
   return ret;
 };
 
@@ -21188,19 +23056,13 @@ p5.prototype.loadXML = function(path, callback) {
 
 // };
 
-p5.prototype.parseXML = function() {
+p5.prototype.selectFolder = function () {
   // TODO
   throw 'not yet implemented';
 
 };
 
-p5.prototype.selectFolder = function() {
-  // TODO
-  throw 'not yet implemented';
-
-};
-
-p5.prototype.selectInput = function() {
+p5.prototype.selectInput = function () {
   // TODO
   throw 'not yet implemented';
 
@@ -21208,106 +23070,216 @@ p5.prototype.selectInput = function() {
 
 /**
  * Method for executing an HTTP GET request. If data type is not specified,
- * p5 will try to guess based on the URL, defaulting to text.
+ * p5 will try to guess based on the URL, defaulting to text. This is equivalent to
+ * calling <code>httpDo(path, 'GET')</code>.
  *
  * @method httpGet
  * @param  {String}        path       name of the file or url to load
- * @param  {Object}        [data]     param data passed sent with request
  * @param  {String}        [datatype] "json", "jsonp", "xml", or "text"
+ * @param  {Object}        [data]     param data passed sent with request
  * @param  {Function}      [callback] function to be executed after
  *                                    httpGet() completes, data is passed in
  *                                    as first argument
+ * @param  {Function}      [errorCallback] function to be executed if
+ *                                    there is an error, response is passed
+ *                                    in as first argument
  */
 p5.prototype.httpGet = function () {
-  var args = Array.prototype.slice.call(arguments);
-  args.push('GET');
+  var args = new Array(arguments.length);
+  args[0] = arguments[0];
+  args[1] = 'GET';
+  for (var i = 2; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
   p5.prototype.httpDo.apply(this, args);
 };
 
-
 /**
  * Method for executing an HTTP POST request. If data type is not specified,
- * p5 will try to guess based on the URL, defaulting to text.
+ * p5 will try to guess based on the URL, defaulting to text. This is equivalent to
+ * calling <code>httpDo(path, 'POST')</code>.
  *
  * @method httpPost
  * @param  {String}        path       name of the file or url to load
- * @param  {Object}        [data]     param data passed sent with request
  * @param  {String}        [datatype] "json", "jsonp", "xml", or "text"
+ * @param  {Object}        [data]     param data passed sent with request
  * @param  {Function}      [callback] function to be executed after
  *                                    httpGet() completes, data is passed in
  *                                    as first argument
+ * @param  {Function}      [errorCallback] function to be executed if
+ *                                    there is an error, response is passed
+ *                                    in as first argument
  */
 p5.prototype.httpPost = function () {
-  var args = Array.prototype.slice.call(arguments);
-  args.push('POST');
+  var args = new Array(arguments.length);
+  args[0] = arguments[0];
+  args[1] = 'POST';
+  for (var i = 2; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
   p5.prototype.httpDo.apply(this, args);
 };
 
 /**
  * Method for executing an HTTP request. If data type is not specified,
- * p5 will try to guess based on the URL, defaulting to text.
+ * p5 will try to guess based on the URL, defaulting to text.<br><br>
+ * For more advanced use, you may also pass in the path as the first argument
+ * and a object as the second argument, the signature follows the one specified
+ * in the Fetch API specification.
  *
  * @method httpDo
  * @param  {String}        path       name of the file or url to load
  * @param  {String}        [method]   either "GET", "POST", or "PUT",
  *                                    defaults to "GET"
- * @param  {Object}        [data]     param data passed sent with request
  * @param  {String}        [datatype] "json", "jsonp", "xml", or "text"
+ * @param  {Object}        [data]     param data passed sent with request
  * @param  {Function}      [callback] function to be executed after
  *                                    httpGet() completes, data is passed in
  *                                    as first argument
+ * @param  {Function}      [errorCallback] function to be executed if
+ *                                    there is an error, response is passed
+ *                                    in as first argument
  */
-p5.prototype.httpDo = function() {
-  var method = 'GET';
-  var path = arguments[0];
-  var data = {};
+
+/**
+ * @method httpDo
+ * @param  {String}        path
+ * @param  {Object}        options   Request object options as documented in the
+ *                                    "fetch" API
+ * <a href="https://developer.mozilla.org/en/docs/Web/API/Fetch_API">reference</a>
+ * @param  {Function}      [callback]
+ * @param  {Function}      [errorCallback]
+ */
+p5.prototype.httpDo = function () {
   var type = '';
   var callback;
+  var errorCallback;
+  var request;
+  var jsonpOptions = {};
+  var cbCount = 0;
+  // Trim the callbacks off the end to get an idea of how many arguments are passed
+  for (var i = arguments.length-1; i > 0; i--){
+    if(typeof arguments[i] === 'function'){
+      cbCount++;
+    }else{
+      break;
+    }
+  }
+  // The number of arguments minus callbacks
+  var argsCount = arguments.length - cbCount;
+  if(argsCount === 2 &&
+     typeof arguments[0] === 'string' &&
+     typeof arguments[1] === 'object'){
+    // Intended for more advanced use, pass in Request parameters directly
+    request = new Request(arguments[0], arguments[1]);
+    callback = arguments[2];
+    errorCallback = arguments[3];
 
-  for (var i=1; i<arguments.length; i++) {
-    var a = arguments[i];
-    if (typeof a === 'string') {
-      if (a === 'GET' || a === 'POST' || a === 'PUT') {
-        method = a;
+    // do some sort of smart type checking
+    if (type === '') {
+      if (request.url.indexOf('json') !== -1) {
+        type = 'json';
+      } else if (request.url.indexOf('xml') !== -1) {
+        type = 'xml';
       } else {
-        type = a;
+        type = 'text';
       }
-    } else if (typeof a === 'object') {
-      data = a;
-    } else if (typeof a === 'function') {
-      callback = a;
     }
-  }
+  }else{
+    // Provided with arguments
+    var path = arguments[0];
+    var method = 'GET';
+    var data;
 
-  // do some sort of smart type checking
-  if (type === '') {
-    if (path.indexOf('json') !== -1) {
-      type = 'json';
-    } else if (path.indexOf('xml') !== -1) {
-      type = 'xml';
-    } else {
-      type = 'text';
-    }
-  }
-
-  reqwest({
-    url: path,
-    method: method,
-    data: data,
-    type: type,
-    crossOrigin: true,
-    success: function (resp) {
-      if (typeof callback !== 'undefined') {
-        if (type === 'text') {
-          callback(resp.response);
+    for (var j = 1; j < arguments.length; j++) {
+      var a = arguments[j];
+      if (typeof a === 'string') {
+        if (a === 'GET' || a === 'POST' || a === 'PUT' || a === 'DELETE') {
+          method = a;
+        } else if(a === 'json' || a === 'jsonp' || a === 'xml' || a === 'text') {
+          type = a;
         } else {
-          callback(resp);
+          data = a;
+        }
+      } else if (typeof a === 'object') {
+        if(a.hasOwnProperty('jsonpCallback')){
+          for (var attr in a) {
+            jsonpOptions[attr] = a[attr];
+          }
+        }else{
+          data = JSON.stringify(a);
+        }
+      } else if (typeof a === 'function') {
+        if (!callback) {
+          callback = a;
+        } else {
+          errorCallback = a;
         }
       }
     }
-  });
-};
+    // do some sort of smart type checking
+    if (type === '') {
+      if (path.indexOf('json') !== -1) {
+        type = 'json';
+      } else if (path.indexOf('xml') !== -1) {
+        type = 'xml';
+      } else {
+        type = 'text';
+      }
+    }
 
+    request = new Request(path, {
+      method: method,
+      mode: 'cors',
+      body: data
+    });
+  }
+
+  if(type === 'jsonp'){
+    fetchJsonp(arguments[0], jsonpOptions)
+      .then(function(res){
+        if(res.ok){
+          return res.json();
+        }
+        throw res;
+      }).then(function(resp){
+        callback(resp);
+      }).catch(function(err){
+        if (errorCallback) {
+          errorCallback(err);
+        } else {
+          console.log(err.status + ' ' + err.statusText);
+        }
+      });
+  }else{
+    fetch(request)
+      .then(function(res){
+        if(res.ok){
+          if(type === 'json'){
+            return res.json();
+          }else{
+            return res.text();
+          }
+        }
+
+        throw res;
+      })
+      .then(function(resp){
+        if (type === 'xml'){
+          var parser = new DOMParser();
+          resp = parser.parseFromString(resp, 'text/xml');
+          resp = parseXML(resp.documentElement);
+        }
+        callback(resp);
+      }).catch(function(err, msg){
+        if (errorCallback) {
+          errorCallback(err);
+        } else {
+          console.log(err.status + ' ' + err.statusText);
+        }
+      });
+  }
+};
 
 /**
  * @module IO
@@ -21320,25 +23292,25 @@ window.URL = window.URL || window.webkitURL;
 // private array of p5.PrintWriter objects
 p5.prototype._pWriters = [];
 
-p5.prototype.beginRaw = function() {
+p5.prototype.beginRaw = function () {
   // TODO
   throw 'not yet implemented';
 
 };
 
-p5.prototype.beginRecord = function() {
+p5.prototype.beginRecord = function () {
   // TODO
   throw 'not yet implemented';
 
 };
 
-p5.prototype.createOutput = function() {
+p5.prototype.createOutput = function () {
   // TODO
 
   throw 'not yet implemented';
 };
 
-p5.prototype.createWriter  = function(name, extension) {
+p5.prototype.createWriter = function (name, extension) {
   var newPW;
   // check that it doesn't already exist
   for (var i in p5.prototype._pWriters) {
@@ -21347,35 +23319,41 @@ p5.prototype.createWriter  = function(name, extension) {
       // return p5.prototype._pWriters[i]; // return it w/ contents intact.
       // or, could return a new, empty one with a unique name:
       newPW = new p5.PrintWriter(name + window.millis(), extension);
-      p5.prototype._pWriters.push( newPW );
+      p5.prototype._pWriters.push(newPW);
       return newPW;
     }
   }
   newPW = new p5.PrintWriter(name, extension);
-  p5.prototype._pWriters.push( newPW );
+  p5.prototype._pWriters.push(newPW);
   return newPW;
 };
 
-p5.prototype.endRaw = function() {
+p5.prototype.endRaw = function () {
   // TODO
 
   throw 'not yet implemented';
 };
 
-p5.prototype.endRecord  = function() {
+p5.prototype.endRecord = function () {
   // TODO
   throw 'not yet implemented';
 
 };
 
-p5.PrintWriter = function(filename, extension) {
+p5.PrintWriter = function (filename, extension) {
   var self = this;
   this.name = filename;
   this.content = '';
-  this.print = function(data) { this.content += data; };
-  this.println = function(data) { this.content += data + '\n'; };
-  this.flush = function() { this.content = ''; };
-  this.close = function() {
+  this.print = function (data) {
+    this.content += data;
+  };
+  this.print = function (data) {
+    this.content += data + '\n';
+  };
+  this.flush = function () {
+    this.content = '';
+  };
+  this.close = function () {
     // convert String to Array for the writeFile Blob
     var arr = [];
     arr.push(this.content);
@@ -21392,7 +23370,7 @@ p5.PrintWriter = function(filename, extension) {
   };
 };
 
-p5.prototype.saveBytes = function() {
+p5.prototype.saveBytes = function () {
   // TODO
   throw 'not yet implemented';
 
@@ -21446,7 +23424,7 @@ p5.prototype.saveBytes = function() {
  *  </code></pre>
  *
  *  @method save
- *  @param  {[Object|String]} objectOrFilename  If filename is provided, will
+ *  @param  {Object|String} [objectOrFilename]  If filename is provided, will
  *                                             save canvas as an image with
  *                                             either png or jpg extension
  *                                             depending on the filename.
@@ -21454,18 +23432,18 @@ p5.prototype.saveBytes = function() {
  *                                             save depending on the object
  *                                             and filename (see examples
  *                                             above).
- *  @param  {[String]} filename If an object is provided as the first
+ *  @param  {String} [filename] If an object is provided as the first
  *                               parameter, then the second parameter
  *                               indicates the filename,
  *                               and should include an appropriate
  *                               file extension (see examples above).
- *  @param  {[Boolean/String]} options  Additional options depend on
+ *  @param  {Boolean|String} [options]  Additional options depend on
  *                            filetype. For example, when saving JSON,
  *                            <code>true</code> indicates that the
  *                            output will be optimized for filesize,
  *                            rather than readability.
  */
-p5.prototype.save = function(object, _filename, _options) {
+p5.prototype.save = function (object, _filename, _options) {
   // parse the arguments and figure out which things we are saving
   var args = arguments;
   // =================================================
@@ -21487,37 +23465,33 @@ p5.prototype.save = function(object, _filename, _options) {
   }
 
   // if 1st param is String and only one arg, assume it is canvas filename
-  else if (args.length === 1 && typeof(args[0]) === 'string') {
+  else if (args.length === 1 && typeof (args[0]) === 'string') {
     p5.prototype.saveCanvas(cnv, args[0]);
   }
 
   // =================================================
   // OPTION 2: extension clarifies saveStrings vs. saveJSON
-
   else {
     var extension = _checkFileExtension(args[1], args[2])[1];
-    switch(extension){
-    case 'json':
-      p5.prototype.saveJSON(args[0], args[1], args[2]);
-      return;
-    case 'txt':
-      p5.prototype.saveStrings(args[0], args[1], args[2]);
-      return;
-    // =================================================
-    // OPTION 3: decide based on object...
-    default:
-      if (args[0] instanceof Array) {
+    switch (extension) {
+      case 'json':
+        p5.prototype.saveJSON(args[0], args[1], args[2]);
+        return;
+      case 'txt':
         p5.prototype.saveStrings(args[0], args[1], args[2]);
-      }
-      else if (args[0] instanceof p5.Table) {
-        p5.prototype.saveTable(args[0], args[1], args[2], args[3]);
-      }
-      else if (args[0] instanceof p5.Image) {
-        p5.prototype.saveCanvas(args[0].canvas, args[1]);
-      }
-      else if (args[0] instanceof p5.SoundFile) {
-        p5.prototype.saveSound(args[0], args[1], args[2], args[3]);
-      }
+        return;
+        // =================================================
+        // OPTION 3: decide based on object...
+      default:
+        if (args[0] instanceof Array) {
+          p5.prototype.saveStrings(args[0], args[1], args[2]);
+        } else if (args[0] instanceof p5.Table) {
+          p5.prototype.saveTable(args[0], args[1], args[2], args[3]);
+        } else if (args[0] instanceof p5.Image) {
+          p5.prototype.saveCanvas(args[0].canvas, args[1]);
+        } else if (args[0] instanceof p5.SoundFile) {
+          p5.prototype.saveSound(args[0], args[1], args[2], args[3]);
+        }
     }
   }
 };
@@ -21547,7 +23521,7 @@ p5.prototype.save = function(object, _filename, _options) {
  *    json.name = 'Lion';
  *
  *  // To save, un-comment the line below, then click 'run'
- *  // saveJSONObject(json, 'lion.json');
+ *  // saveJSON(json, 'lion.json');
  *  }
  *
  *  // Saves the following to a file called "lion.json":
@@ -21557,13 +23531,17 @@ p5.prototype.save = function(object, _filename, _options) {
  *  //   "name": "Lion"
  *  // }
  *  </div></code>
+ *
+ * @alt
+ * no image displayed
+ *
  */
-p5.prototype.saveJSON = function(json, filename, opt) {
+p5.prototype.saveJSON = function (json, filename, opt) {
   var stringify;
-  if (opt){
-    stringify = JSON.stringify( json );
+  if (opt) {
+    stringify = JSON.stringify(json);
   } else {
-    stringify = JSON.stringify( json, undefined, 2);
+    stringify = JSON.stringify(json, undefined, 2);
   }
   console.log(stringify);
   this.saveStrings(stringify.split('\n'), filename, 'json');
@@ -21572,7 +23550,7 @@ p5.prototype.saveJSON = function(json, filename, opt) {
 p5.prototype.saveJSONObject = p5.prototype.saveJSON;
 p5.prototype.saveJSONArray = p5.prototype.saveJSON;
 
-p5.prototype.saveStream = function() {
+p5.prototype.saveStream = function () {
   // TODO
   throw 'not yet implemented';
 
@@ -21603,13 +23581,17 @@ p5.prototype.saveStream = function() {
  *  // cat
  *  // dog
  *  </code></div>
+ *
+ * @alt
+ * no image displayed
+ *
  */
-p5.prototype.saveStrings = function(list, filename, extension) {
+p5.prototype.saveStrings = function (list, filename, extension) {
   var ext = extension || 'txt';
   var pWriter = this.createWriter(filename, ext);
-  for (var i in list) {
+  for (var i = 0; i < list.length; i++) {
     if (i < list.length - 1) {
-      pWriter.println(list[i]);
+      pWriter.print(list[i]);
     } else {
       pWriter.print(list[i]);
     }
@@ -21618,13 +23600,13 @@ p5.prototype.saveStrings = function(list, filename, extension) {
   pWriter.flush();
 };
 
-p5.prototype.saveXML = function() {
+p5.prototype.saveXML = function () {
   // TODO
   throw 'not yet implemented';
 
 };
 
-p5.prototype.selectOutput = function() {
+p5.prototype.selectOutput = function () {
   // TODO
   throw 'not yet implemented';
 
@@ -21653,7 +23635,7 @@ function escapeHelper(content) {
  *  @method saveTable
  *  @param  {p5.Table} Table  the Table object to save to a file
  *  @param  {String} filename the filename to which the Table should be saved
- *  @param  {[String]} options  can be one of "tsv", "csv", or "html"
+ *  @param  {String} [options]  can be one of "tsv", "csv", or "html"
  *  @example
  *  <div><code>
  *  var table;
@@ -21678,8 +23660,12 @@ function escapeHelper(content) {
  *    // id,species,name
  *    // 0,Panthera leo,Lion
  *  </code></div>
+ *
+ * @alt
+ * no image displayed
+ *
  */
-p5.prototype.saveTable = function(table, filename, options) {
+p5.prototype.saveTable = function (table, filename, options) {
   var pWriter = this.createWriter(filename, options);
 
   var header = table.columns;
@@ -21691,24 +23677,23 @@ p5.prototype.saveTable = function(table, filename, options) {
   if (options !== 'html') {
     // make header if it has values
     if (header[0] !== '0') {
-      for (var h = 0; h < header.length; h++ ) {
-        if (h < header.length - 1){
+      for (var h = 0; h < header.length; h++) {
+        if (h < header.length - 1) {
           pWriter.print(header[h] + sep);
         } else {
-          pWriter.println(header[h]);
+          pWriter.print(header[h]);
         }
       }
     }
 
     // make rows
-    for (var i = 0; i < table.rows.length; i++ ) {
+    for (var i = 0; i < table.rows.length; i++) {
       var j;
       for (j = 0; j < table.rows[i].arr.length; j++) {
         if (j < table.rows[i].arr.length - 1) {
           pWriter.print(table.rows[i].arr[j] + sep);
-        }
-        else if (i < table.rows.length - 1) {
-          pWriter.println(table.rows[i].arr[j]);
+        } else if (i < table.rows.length - 1) {
+          pWriter.print(table.rows[i].arr[j]);
         } else {
           pWriter.print(table.rows[i].arr[j]); // no line break
         }
@@ -21718,40 +23703,40 @@ p5.prototype.saveTable = function(table, filename, options) {
 
   // otherwise, make HTML
   else {
-    pWriter.println('<html>');
-    pWriter.println('<head>');
+    pWriter.print('<html>');
+    pWriter.print('<head>');
     var str = '  <meta http-equiv=\"content-type\" content';
     str += '=\"text/html;charset=utf-8\" />';
-    pWriter.println(str);
-    pWriter.println('</head>');
+    pWriter.print(str);
+    pWriter.print('</head>');
 
-    pWriter.println('<body>');
-    pWriter.println('  <table>');
+    pWriter.print('<body>');
+    pWriter.print('  <table>');
 
     // make header if it has values
     if (header[0] !== '0') {
-      pWriter.println('    <tr>');
-      for (var k = 0; k < header.length; k++ ) {
+      pWriter.print('    <tr>');
+      for (var k = 0; k < header.length; k++) {
         var e = escapeHelper(header[k]);
-        pWriter.println('      <td>' +e);
-        pWriter.println('      </td>');
+        pWriter.print('      <td>' + e);
+        pWriter.print('      </td>');
       }
-      pWriter.println('    </tr>');
+      pWriter.print('    </tr>');
     }
 
     // make rows
     for (var row = 0; row < table.rows.length; row++) {
-      pWriter.println('    <tr>');
+      pWriter.print('    <tr>');
       for (var col = 0; col < table.columns.length; col++) {
         var entry = table.rows[row].getString(col);
         var htmlEntry = escapeHelper(entry);
-        pWriter.println('      <td>' +htmlEntry);
-        pWriter.println('      </td>');
+        pWriter.print('      <td>' + htmlEntry);
+        pWriter.print('      </td>');
       }
-      pWriter.println('    </tr>');
+      pWriter.print('    </tr>');
     }
-    pWriter.println('  </table>');
-    pWriter.println('</body>');
+    pWriter.print('  </table>');
+    pWriter.print('</body>');
     pWriter.print('</html>');
   }
   // close and flush the pWriter
@@ -21770,12 +23755,14 @@ p5.prototype.saveTable = function(table, filename, options) {
  *  @param  {[String]} extension
  *  @private
  */
-p5.prototype.writeFile = function(dataToDownload, filename, extension) {
+p5.prototype.writeFile = function (dataToDownload, filename, extension) {
   var type = 'application\/octet-stream';
-  if (p5.prototype._isSafari() ) {
+  if (p5.prototype._isSafari()) {
     type = 'text\/plain';
   }
-  var blob = new Blob(dataToDownload, {'type': type});
+  var blob = new Blob(dataToDownload, {
+    'type': type
+  });
   var href = window.URL.createObjectURL(blob);
   p5.prototype.downloadFile(href, filename, extension);
 };
@@ -21790,7 +23777,7 @@ p5.prototype.writeFile = function(dataToDownload, filename, extension) {
  *  @param  {[String]} filename
  *  @param  {[String]} extension
  */
-p5.prototype.downloadFile = function(href, fName, extension) {
+p5.prototype.downloadFile = function (href, fName, extension) {
   var fx = _checkFileExtension(fName, extension);
   var filename = fx[0];
   var ext = fx[1];
@@ -21800,16 +23787,20 @@ p5.prototype.downloadFile = function(href, fName, extension) {
   a.download = filename;
 
   // Firefox requires the link to be added to the DOM before click()
-  a.onclick = destroyClickedElement;
+  a.onclick = function(e) {
+    destroyClickedElement(e);
+    e.stopPropagation();
+  };
+
   a.style.display = 'none';
   document.body.appendChild(a);
 
   // Safari will open this file in the same page as a confusing Blob.
-  if (p5.prototype._isSafari() ) {
+  if (p5.prototype._isSafari()) {
     var aText = 'Hello, Safari user! To download this file...\n';
     aText += '1. Go to File --> Save As.\n';
     aText += '2. Choose "Page Source" as the Format.\n';
-    aText += '3. Name it with this extension: .\"' + ext+'\"';
+    aText += '3. Name it with this extension: .\"' + ext + '\"';
     alert(aText);
   }
   a.click();
@@ -21855,7 +23846,7 @@ p5.prototype._checkFileExtension = _checkFileExtension;
  *  @return  {Boolean} [description]
  *  @private
  */
-p5.prototype._isSafari = function() {
+p5.prototype._isSafari = function () {
   var x = Object.prototype.toString.call(window.HTMLElement);
   return x.indexOf('Constructor') > 0;
 };
@@ -21872,7 +23863,8 @@ function destroyClickedElement(event) {
 }
 
 module.exports = p5;
-},{"../core/core":48,"../core/error_helpers":51,"opentype.js":8,"reqwest":27}],71:[function(_dereq_,module,exports){
+
+},{"../core/core":42,"../core/error_helpers":45,"es6-promise":2,"fetch-jsonp":3,"opentype.js":10,"whatwg-fetch":32}],65:[function(_dereq_,module,exports){
 /**
  * @module IO
  * @submodule Table
@@ -21977,6 +23969,10 @@ p5.Table = function (rows) {
 	* }
 	* </code>
 	* </div>
+	*
+ * @alt
+ * no image displayed
+ *
  */
 p5.Table.prototype.addRow = function(row) {
   // make sure it is a valid TableRow
@@ -22027,6 +24023,10 @@ p5.Table.prototype.addRow = function(row) {
 	* }
 	* </code>
 	* </div>
+	*
+    * @alt
+ 	* no image displayed
+ 	*
  */
 p5.Table.prototype.removeRow = function(id) {
   this.rows[id].table = null; // remove reference to table
@@ -22072,6 +24072,10 @@ p5.Table.prototype.removeRow = function(id) {
 	* }
 	* </code>
 	* </div>
+	*
+ 	*@alt
+ 	* no image displayed
+ 	*
  */
 p5.Table.prototype.getRow = function(r) {
   return this.rows[r];
@@ -22116,6 +24120,10 @@ p5.Table.prototype.getRow = function(r) {
 	* }
 	* </code>
 	* </div>
+	*
+    * @alt
+    * no image displayed
+    *
  */
 p5.Table.prototype.getRows = function() {
   return this.rows;
@@ -22161,6 +24169,10 @@ p5.Table.prototype.getRows = function() {
 	* }
 	* </code>
 	* </div>
+	*
+ * @alt
+ * no image displayed
+ *
  */
 p5.Table.prototype.findRow = function(value, column) {
   // try the Object
@@ -22228,6 +24240,10 @@ p5.Table.prototype.findRow = function(value, column) {
 	* }
 	* </code>
 	* </div>
+	*
+ 	*@alt
+ 	* no image displayed
+ 	*
  */
 p5.Table.prototype.findRows = function(value, column) {
   var ret = [];
@@ -22282,17 +24298,50 @@ p5.Table.prototype.matchRow = function(regexp, column) {
 };
 
 /**
- *  Finds the first row in the Table that matches the regular
- *  expression provided, and returns a reference to that row.
- *  Even if multiple rows are possible matches, only the first
- *  matching row is returned. The column to search may be specified
- *  by either its ID or title.
+ *  Finds the rows in the Table that match the regular expression provided,
+ *  and returns references to those rows. Returns an array, so for must be
+ *  used to iterate through all the rows, as shown in the example. The
+ *  column to search may be specified by either its ID or title.
  *
  *  @method  matchRows
  *  @param  {String} regexp The regular expression to match
  *  @param  {String|Number} [column] The column ID (number) or
  *                                   title (string)
  *  @return {Array}        An Array of TableRow objects
+ *  @example
+ *  var table;
+ *
+ *  function setup() {
+ *
+ *    table = new p5.Table();
+ *
+ *    table.addColumn('name');
+ *    table.addColumn('type');
+ *
+ *    var newRow = table.addRow();
+ *    newRow.setString('name', 'Lion');
+ *    newRow.setString('type', 'Mammal');
+ *
+ *    newRow = table.addRow();
+ *    newRow.setString('name', 'Snake');
+ *    newRow.setString('type', 'Reptile');
+ *
+ *    newRow = table.addRow();
+ *    newRow.setString('name', 'Mosquito');
+ *    newRow.setString('type', 'Insect');
+ *
+ *    newRow = table.addRow();
+ *    newRow.setString('name', 'Lizard');
+ *    newRow.setString('type', 'Reptile');
+ *
+ *    var rows = table.matchRows('R.*', 'type');
+ *    for (var i = 0; i < rows.length; i++) {
+ *      print(rows[i].getString('name') + ': ' + rows[i].getString('type'));
+ *    }
+ *  }
+ *  // Sketch prints:
+ *  // Snake: Reptile
+ *  // Lizard: Reptile
  */
 p5.Table.prototype.matchRows = function(regexp, column) {
   var ret = [];
@@ -22349,6 +24398,10 @@ p5.Table.prototype.matchRows = function(regexp, column) {
 	* }
 	* </code>
 	* </div>
+	*
+ 	*@alt
+ 	* no image displayed
+ 	*
  */
 p5.Table.prototype.getColumn = function(value) {
   var ret = [];
@@ -22396,6 +24449,10 @@ p5.Table.prototype.getColumn = function(value) {
 	* }
 	* </code>
 	* </div>
+	*
+ 	*@alt
+ 	* no image displayed
+ 	*
  */
 p5.Table.prototype.clearRows = function() {
   delete this.rows;
@@ -22443,6 +24500,10 @@ p5.Table.prototype.clearRows = function() {
 	* }
 	* </code>
 	* </div>
+	*
+ 	*@alt
+ 	* no image displayed
+ 	*
  */
 p5.Table.prototype.addColumn = function(title) {
   var t = title || null;
@@ -22597,6 +24658,10 @@ p5.Table.prototype.trim = function(column) {
 	* }
 	* </code>
 	* </div>
+	*
+ 	*@alt
+ 	* no image displayed
+ 	*
  */
 p5.Table.prototype.removeColumn = function(c) {
   var cString;
@@ -22667,6 +24732,10 @@ p5.Table.prototype.removeColumn = function(c) {
 	* }
 	* </code>
 	* </div>
+	*
+ 	*@alt
+ 	* no image displayed
+ 	*
  */
 p5.Table.prototype.set = function(row, column, value) {
   this.rows[row].set(column, value);
@@ -22710,6 +24779,9 @@ p5.Table.prototype.set = function(row, column, value) {
 	* }
 	* </code>
 	* </div>
+	*
+ 	*@alt
+ 	* no image displayed
  */
 p5.Table.prototype.setNum = function(row, column, value){
   this.rows[row].setNum(column, value);
@@ -22769,6 +24841,10 @@ p5.Table.prototype.setString = function(row, column, value){
 	* }
 	* </code>
 	* </div>
+	*
+ 	*@alt
+ 	* no image displayed
+ 	*
  */
 p5.Table.prototype.get = function(row, column) {
   return this.rows[row].get(column);
@@ -22810,6 +24886,10 @@ p5.Table.prototype.get = function(row, column) {
 	* }
 	* </code>
 	* </div>
+	*
+ 	*@alt
+ 	* no image displayed
+ 	*
  */
 p5.Table.prototype.getNum = function(row, column) {
   return this.rows[row].getNum(column);
@@ -22854,6 +24934,10 @@ p5.Table.prototype.getNum = function(row, column) {
 	* }
 	* </code>
 	* </div>
+	*
+ 	*@alt
+ 	* no image displayed
+ 	*
  */
 p5.Table.prototype.getString = function(row, column) {
   return this.rows[row].getString(column);
@@ -22896,7 +24980,10 @@ p5.Table.prototype.getString = function(row, column) {
 	* }
 	* </code>
 	* </div>
-
+	*
+ 	*@alt
+ 	* no image displayed
+ 	*
  */
 p5.Table.prototype.getObject = function (headerColumn) {
   var tableObject = {};
@@ -22936,7 +25023,7 @@ p5.Table.prototype.getArray = function () {
 
 module.exports = p5.Table;
 
-},{"../core/core":48}],72:[function(_dereq_,module,exports){
+},{"../core/core":42}],66:[function(_dereq_,module,exports){
 /**
  * @module IO
  * @submodule Table
@@ -23106,7 +25193,806 @@ p5.TableRow.prototype.getString = function(column) {
 
 module.exports = p5.TableRow;
 
-},{"../core/core":48}],73:[function(_dereq_,module,exports){
+},{"../core/core":42}],67:[function(_dereq_,module,exports){
+/**
+ * @module IO
+ * @submodule XML
+ * @requires core
+ */
+
+'use strict';
+
+var p5 = _dereq_('../core/core');
+
+/**
+ * XML is a representation of an XML object, able to parse XML code. Use
+ * loadXML() to load external XML files and create XML objects.
+ *
+ * @class p5.XML
+ * @constructor
+ * @return {p5.XML}    p5.XML object generated
+ * @example
+ * <div class='norender'><code>
+ * // The following short XML file called "mammals.xml" is parsed
+ * // in the code below.
+ * //
+ * // <?xml version="1.0"?>
+ * // &lt;mammals&gt;
+ * //   &lt;animal id="0" species="Capra hircus">Goat&lt;/animal&gt;
+ * //   &lt;animal id="1" species="Panthera pardus">Leopard&lt;/animal&gt;
+ * //   &lt;animal id="2" species="Equus zebra">Zebra&lt;/animal&gt;
+ * // &lt;/mammals&gt;
+ *
+ * var xml;
+ *
+ * function preload() {
+ *   xml = loadXML("assets/mammals.xml");
+ * }
+ *
+ * function setup() {
+ *   var children = xml.getChildren("animal");
+ *
+ *   for (var i = 0; i < children.length; i++) {
+ *     var id = children[i].getNumber("id");
+ *     var coloring = children[i].getString("species");
+ *     var name = children[i].getContent();
+ *     print(id + ", " + coloring + ", " + name);
+ *   }
+ * }
+ *
+ * // Sketch prints:
+ * // 0, Capra hircus, Goat
+ * // 1, Panthera pardus, Leopard
+ * // 2, Equus zebra, Zebra
+ * </code></div>
+  *
+  * @alt
+  * no image displayed
+  *
+ */
+p5.XML = function () {
+  this.name = null; //done
+  this.attributes = {}; //done
+  this.children = [];
+  this.parent = null;
+  this.content = null; //done
+};
+
+
+/**
+ * Gets a copy of the element's parent. Returns the parent as another
+ * p5.XML object.
+ *
+ * @method getParent
+ * @return {Object}   element parent
+ * @example
+ * <div class='norender'><code>
+ * // The following short XML file called "mammals.xml" is parsed
+ * // in the code below.
+ * //
+ * // <?xml version="1.0"?>
+ * // &lt;mammals&gt;
+ * //   &lt;animal id="0" species="Capra hircus">Goat&lt;/animal&gt;
+ * //   &lt;animal id="1" species="Panthera pardus">Leopard&lt;/animal&gt;
+ * //   &lt;animal id="2" species="Equus zebra">Zebra&lt;/animal&gt;
+ * // &lt;/mammals&gt;
+ *
+ * var xml;
+ *
+ * function preload() {
+ *   xml = loadXML("assets/mammals.xml");
+ * }
+ *
+ * function setup() {
+ *   var children = xml.getChildren("animal");
+ *   var parent = children[1].getParent();
+ *   print(parent.getName());
+ * }
+ *
+ * // Sketch prints:
+ * // mammals
+ * </code></div>
+ */
+p5.XML.prototype.getParent = function() {
+  return this.parent;
+};
+
+/**
+ *  Gets the element's full name, which is returned as a String.
+ *
+ * @method getName
+ * @return {String} the name of the node
+ * @example&lt;animal
+ * <div class='norender'><code>
+ * // The following short XML file called "mammals.xml" is parsed
+ * // in the code below.
+ * //
+ * // <?xml version="1.0"?>
+ * // &lt;mammals&gt;
+ * //   &lt;animal id="0" species="Capra hircus">Goat&lt;/animal&gt;
+ * //   &lt;animal id="1" species="Panthera pardus">Leopard&lt;/animal&gt;
+ * //   &lt;animal id="2" species="Equus zebra">Zebra&lt;/animal&gt;
+ * // &lt;/mammals&gt;
+ *
+ * var xml;
+ *
+ * function preload() {
+ *   xml = loadXML("assets/mammals.xml");
+ * }
+ *
+ * function setup() {
+ *   print(xml.getName());
+ * }
+ *
+ * // Sketch prints:
+ * // mammals
+ * </code></div>
+ */
+p5.XML.prototype.getName = function() {
+  return this.name;
+};
+
+/**
+ * Sets the element's name, which is specified as a String.
+ *
+ * @method setName
+ * @param {String} the new name of the node
+ * @example&lt;animal
+ * <div class='norender'><code>
+ * // The following short XML file called "mammals.xml" is parsed
+ * // in the code below.
+ * //
+ * // <?xml version="1.0"?>
+ * // &lt;mammals&gt;
+ * //   &lt;animal id="0" species="Capra hircus">Goat&lt;/animal&gt;
+ * //   &lt;animal id="1" species="Panthera pardus">Leopard&lt;/animal&gt;
+ * //   &lt;animal id="2" species="Equus zebra">Zebra&lt;/animal&gt;
+ * // &lt;/mammals&gt;
+ *
+ * var xml;
+ *
+ * function preload() {
+ *   xml = loadXML("assets/mammals.xml");
+ * }
+ *
+ * function setup() {
+ *   print(xml.getName());
+ *   xml.setName("fish");
+ *   print(xml.getName());
+ * }
+ *
+ * // Sketch prints:
+ * // mammals
+ * // fish
+ * </code></div>
+ */
+p5.XML.prototype.setName = function(name) {
+  this.name = name;
+};
+
+/**
+ * Checks whether or not the element has any children, and returns the result
+ * as a boolean.
+ *
+ * @method hasChildren
+ * @return {boolean}
+ * @example&lt;animal
+ * <div class='norender'><code>
+ * // The following short XML file called "mammals.xml" is parsed
+ * // in the code below.
+ * //
+ * // <?xml version="1.0"?>
+ * // &lt;mammals&gt;
+ * //   &lt;animal id="0" species="Capra hircus">Goat&lt;/animal&gt;
+ * //   &lt;animal id="1" species="Panthera pardus">Leopard&lt;/animal&gt;
+ * //   &lt;animal id="2" species="Equus zebra">Zebra&lt;/animal&gt;
+ * // &lt;/mammals&gt;
+ *
+ * var xml;
+ *
+ * function preload() {
+ *   xml = loadXML("assets/mammals.xml");
+ * }
+ *
+ * function setup() {
+ *   print(xml.hasChildren());
+ * }
+ *
+ * // Sketch prints:
+ * // true
+ * </code></div>
+ */
+p5.XML.prototype.hasChildren = function() {
+  return this.children.length > 0;
+};
+
+/**
+ * Get the names of all of the element's children, and returns the names as an
+ * array of Strings. This is the same as looping through and calling getName()
+ * on each child element individually.
+ *
+ * @method listChildren
+ * @return {Array} names of the children of the element
+ * @example&lt;animal
+ * <div class='norender'><code>
+ * // The following short XML file called "mammals.xml" is parsed
+ * // in the code below.
+ * //
+ * // <?xml version="1.0"?>
+ * // &lt;mammals&gt;
+ * //   &lt;animal id="0" species="Capra hircus">Goat&lt;/animal&gt;
+ * //   &lt;animal id="1" species="Panthera pardus">Leopard&lt;/animal&gt;
+ * //   &lt;animal id="2" species="Equus zebra">Zebra&lt;/animal&gt;
+ * // &lt;/mammals&gt;
+ *
+ * var xml;
+ *
+ * function preload() {
+ *   xml = loadXML("assets/mammals.xml");
+ * }
+ *
+ * function setup() {
+ *   print(xml.listChildren());
+ * }
+ *
+ * // Sketch prints:
+ * // ["animal", "animal", "animal"]
+ * </code></div>
+ */
+p5.XML.prototype.listChildren = function() {
+  return this.children.map(function(c) { return c.name; });
+};
+
+/**
+ * Returns all of the element's children as an array of p5.XML objects. When
+ * the name parameter is specified, then it will return all children that match
+ * that name.
+ *
+ * @method getChildren
+ * @param {String} [name] element name
+ * @return {Array} children of the element
+ * @example&lt;animal
+ * <div class='norender'><code>
+ * // The following short XML file called "mammals.xml" is parsed
+ * // in the code below.
+ * //
+ * // <?xml version="1.0"?>
+ * // &lt;mammals&gt;
+ * //   &lt;animal id="0" species="Capra hircus">Goat&lt;/animal&gt;
+ * //   &lt;animal id="1" species="Panthera pardus">Leopard&lt;/animal&gt;
+ * //   &lt;animal id="2" species="Equus zebra">Zebra&lt;/animal&gt;
+ * // &lt;/mammals&gt;
+ *
+ * var xml;
+ *
+ * function preload() {
+ *   xml = loadXML("assets/mammals.xml");
+ * }
+ *
+ * function setup() {
+ *   var animals = xml.getChildren("animal");
+ *
+ *   for (var i = 0; i < animals.length; i++) {
+ *     print(animals[i].getContent());
+ *   }
+ * }
+ *
+ * // Sketch prints:
+ * // "Goat"
+ * // "Leopard"
+ * // "Zebra"
+ * </code></div>
+ */
+p5.XML.prototype.getChildren = function(param) {
+  if (param) {
+    return this.children.filter(function(c) { return c.name === param; });
+  }
+  else {
+    return this.children;
+  }
+};
+
+/**
+ * Returns the first of the element's children that matches the name parameter
+ * or the child of the given index.It returns undefined if no matching
+ * child is found.
+ *
+ * @method getChild
+ * @param {String|Number} name element name or index
+ * @return {p5.XML}
+ * @example&lt;animal
+ * <div class='norender'><code>
+ * // The following short XML file called "mammals.xml" is parsed
+ * // in the code below.
+ * //
+ * // <?xml version="1.0"?>
+ * // &lt;mammals&gt;
+ * //   &lt;animal id="0" species="Capra hircus">Goat&lt;/animal&gt;
+ * //   &lt;animal id="1" species="Panthera pardus">Leopard&lt;/animal&gt;
+ * //   &lt;animal id="2" species="Equus zebra">Zebra&lt;/animal&gt;
+ * // &lt;/mammals&gt;
+ *
+ * var xml;
+ *
+ * function preload() {
+ *   xml = loadXML("assets/mammals.xml");
+ * }
+ *
+ * function setup() {
+ *   var firstChild = xml.getChild("animal");
+ *   print(firstChild.getContent());
+ * }
+ *
+ * // Sketch prints:
+ * // "Goat"
+ * </code></div>
+ * <div class='norender'><code>
+ * var xml;
+ *
+ * function preload() {
+ *   xml = loadXML("assets/mammals.xml");
+ * }
+ *
+ * function setup() {
+ *   var secondChild = xml.getChild(1);
+ *   print(secondChild.getContent());
+ * }
+ *
+ * // Sketch prints:
+ * // "Leopard"
+ * </code></div>
+ */
+p5.XML.prototype.getChild = function(param) {
+  if(typeof param === 'string') {
+    return this.children.find(function(c) {
+      return c.name === param;
+    });
+  }
+  else {
+    return this.children[param];
+  }
+};
+
+/**
+ * Appends a new child to the element. The child can be specified with
+ * either a String, which will be used as the new tag's name, or as a
+ * reference to an existing p5.XML object.
+ * A reference to the newly created child is returned as an p5.XML object.
+ *
+ * @method addChild
+ * @param {Object} a p5.XML Object which will be the child to be added
+ */
+p5.XML.prototype.addChild = function(node) {
+  if (node instanceof p5.XML) {
+    this.children.push(node);
+  } else {
+    // PEND
+  }
+};
+
+/**
+ * Removes the element specified by name or index.
+ *
+ * @method removeChild
+ * @param {String|Number} name element name or index
+ * @example
+ * <div class='norender'><code>
+ * // The following short XML file called "mammals.xml" is parsed
+ * // in the code below.
+ * //
+ * // <?xml version="1.0"?>
+ * // &lt;mammals&gt;
+ * //   &lt;animal id="0" species="Capra hircus">Goat&lt;/animal&gt;
+ * //   &lt;animal id="1" species="Panthera pardus">Leopard&lt;/animal&gt;
+ * //   &lt;animal id="2" species="Equus zebra">Zebra&lt;/animal&gt;
+ * // &lt;/mammals&gt;
+ *
+ * var xml;
+ *
+ * function preload() {
+ *   xml = loadXML("assets/mammals.xml");
+ * }
+ *
+ * function setup() {
+ *   xml.removeChild("animal");
+ *   var children = xml.getChildren();
+ *   for (var i=0; i<children.length; i++) {
+ *     print(children[i].getContent());
+ *   }
+ * }
+ *
+ * // Sketch prints:
+ * // "Leopard"
+ * // "Zebra"
+ * </code></div>
+ * <div class='norender'><code>
+ * var xml;
+ *
+ * function preload() {
+ *   xml = loadXML("assets/mammals.xml");
+ * }
+ *
+ * function setup() {
+ *   xml.removeChild(1);
+ *   var children = xml.getChildren();
+ *   for (var i=0; i<children.length; i++) {
+ *     print(children[i].getContent());
+ *   }
+ * }
+ *
+ * // Sketch prints:
+ * // "Goat"
+ * // "Zebra"
+ * </code></div>
+ */
+p5.XML.prototype.removeChild = function(param) {
+  var ind = -1;
+  if(typeof param === 'string') {
+    for (var i=0; i<this.children.length; i++) {
+      if (this.children[i].name === param) {
+        ind = i;
+        break;
+      }
+    }
+  } else {
+    ind = param;
+  }
+  if (ind !== -1) {
+    this.children.splice(ind, 1);
+  }
+};
+
+
+/**
+ * Counts the specified element's number of attributes, returned as an Number.
+ *
+ * @method getAttributeCount
+ * @return {Number}
+ * @example
+ * <div class='norender'><code>
+ * // The following short XML file called "mammals.xml" is parsed
+ * // in the code below.
+ * //
+ * // <?xml version="1.0"?>
+ * // &lt;mammals&gt;
+ * //   &lt;animal id="0" species="Capra hircus">Goat&lt;/animal&gt;
+ * //   &lt;animal id="1" species="Panthera pardus">Leopard&lt;/animal&gt;
+ * //   &lt;animal id="2" species="Equus zebra">Zebra&lt;/animal&gt;
+ * // &lt;/mammals&gt;
+ *
+ * var xml;
+ *
+ * function preload() {
+ *   xml = loadXML("assets/mammals.xml");
+ * }
+ *
+ * function setup() {
+ *   var firstChild = xml.getChild("animal");
+ *   print(firstChild.getAttributeCount());
+ * }
+ *
+ * // Sketch prints:
+ * // 2
+ * </code></div>
+ */
+p5.XML.prototype.getAttributeCount = function() {
+  return Object.keys(this.attributes).length;
+};
+
+/**
+ * Gets all of the specified element's attributes, and returns them as an
+ * array of Strings.
+ *
+ * @method listAttributes
+ * @return {Array} an array of strings containing the names of attributes
+ * @example
+ * <div class='norender'><code>
+ * // The following short XML file called "mammals.xml" is parsed
+ * // in the code below.
+ * //
+ * // <?xml version="1.0"?>
+ * // &lt;mammals&gt;
+ * //   &lt;animal id="0" species="Capra hircus">Goat&lt;/animal&gt;
+ * //   &lt;animal id="1" species="Panthera pardus">Leopard&lt;/animal&gt;
+ * //   &lt;animal id="2" species="Equus zebra">Zebra&lt;/animal&gt;
+ * // &lt;/mammals&gt;
+ *
+ * var xml;
+ *
+ * function preload() {
+ *   xml = loadXML("assets/mammals.xml");
+ * }
+ *
+ * function setup() {
+ *   var firstChild = xml.getChild("animal");
+ *   print(firstChild.listAttributes());
+ * }
+ *
+ * // Sketch prints:
+ * // ["id", "species"]
+ * </code></div>
+ */
+p5.XML.prototype.listAttributes = function() {
+  return Object.keys(this.attributes);
+};
+
+/**
+ *  Checks whether or not an element has the specified attribute.
+ *
+ * @method hasAttribute
+ * @param {String} the attribute to be checked
+ * @return {boolean} true if attribute found else false
+ * @example
+ * <div class='norender'><code>
+ * // The following short XML file called "mammals.xml" is parsed
+ * // in the code below.
+ * //
+ * // <?xml version="1.0"?>
+ * // &lt;mammals&gt;
+ * //   &lt;animal id="0" species="Capra hircus">Goat&lt;/animal&gt;
+ * //   &lt;animal id="1" species="Panthera pardus">Leopard&lt;/animal&gt;
+ * //   &lt;animal id="2" species="Equus zebra">Zebra&lt;/animal&gt;
+ * // &lt;/mammals&gt;
+ *
+ * var xml;
+ *
+ * function preload() {
+ *   xml = loadXML("assets/mammals.xml");
+ * }
+ *
+ * function setup() {
+ *   var firstChild = xml.getChild("animal");
+ *   print(firstChild.hasAttribute("species"));
+ *   print(firstChild.hasAttribute("color"));
+ * }
+ *
+ * // Sketch prints:
+ * // true
+ * // false
+ * </code></div>
+ */
+p5.XML.prototype.hasAttribute = function(name) {
+  return this.attributes[name] ? true : false;
+};
+
+/**
+ * Returns an attribute value of the element as an Number. If the defaultValue
+ * parameter is specified and the attribute doesn't exist, then defaultValue
+ * is returned. If no defaultValue is specified and the attribute doesn't
+ * exist, the value 0 is returned.
+ *
+ * @method getNumber
+ * @param {String} name            the non-null full name of the attribute
+ * @param {Number} [defaultValue]  the default value of the attribute
+ * @return {Number}
+ * @example
+ * <div class='norender'><code>
+ * // The following short XML file called "mammals.xml" is parsed
+ * // in the code below.
+ * //
+ * // <?xml version="1.0"?>
+ * // &lt;mammals&gt;
+ * //   &lt;animal id="0" species="Capra hircus">Goat&lt;/animal&gt;
+ * //   &lt;animal id="1" species="Panthera pardus">Leopard&lt;/animal&gt;
+ * //   &lt;animal id="2" species="Equus zebra">Zebra&lt;/animal&gt;
+ * // &lt;/mammals&gt;
+ *
+ * var xml;
+ *
+ * function preload() {
+ *   xml = loadXML("assets/mammals.xml");
+ * }
+ *
+ * function setup() {
+ *   var firstChild = xml.getChild("animal");
+ *   print(firstChild.getNumber("id"));
+ * }
+ *
+ * // Sketch prints:
+ * // 0
+ * </code></div>
+ */
+p5.XML.prototype.getNumber = function(name, defaultValue) {
+  return Number(this.attributes[name]) || defaultValue || 0;
+};
+
+/**
+ * Returns an attribute value of the element as an String. If the defaultValue
+ * parameter is specified and the attribute doesn't exist, then defaultValue
+ * is returned. If no defaultValue is specified and the attribute doesn't
+ * exist, null is returned.
+ *
+ * @method getString
+ * @param {String} name            the non-null full name of the attribute
+ * @param {Number} [defaultValue]  the default value of the attribute
+ * @return {Number}
+ * @example
+ * <div class='norender'><code>
+ * // The following short XML file called "mammals.xml" is parsed
+ * // in the code below.
+ * //
+ * // <?xml version="1.0"?>
+ * // &lt;mammals&gt;
+ * //   &lt;animal id="0" species="Capra hircus">Goat&lt;/animal&gt;
+ * //   &lt;animal id="1" species="Panthera pardus">Leopard&lt;/animal&gt;
+ * //   &lt;animal id="2" species="Equus zebra">Zebra&lt;/animal&gt;
+ * // &lt;/mammals&gt;
+ *
+ * var xml;
+ *
+ * function preload() {
+ *   xml = loadXML("assets/mammals.xml");
+ * }
+ *
+ * function setup() {
+ *   var firstChild = xml.getChild("animal");
+ *   print(firstChild.getString("species"));
+ * }
+ *
+ * // Sketch prints:
+ * // "Capra hircus"
+ * </code></div>
+ */
+p5.XML.prototype.getString = function(name, defaultValue) {
+  return String(this.attributes[name]) || defaultValue || null;
+};
+
+/**
+ * Sets the content of an element's attribute. The first parameter specifies
+ * the attribute name, while the second specifies the new content.
+ *
+ * @method setAttribute
+ * @param {String} name            the full name of the attribute
+ * @param {Number} value           the value of the attribute
+ * @example
+ * <div class='norender'><code>
+ * // The following short XML file called "mammals.xml" is parsed
+ * // in the code below.
+ * //
+ * // <?xml version="1.0"?>
+ * // &lt;mammals&gt;
+ * //   &lt;animal id="0" species="Capra hircus">Goat&lt;/animal&gt;
+ * //   &lt;animal id="1" species="Panthera pardus">Leopard&lt;/animal&gt;
+ * //   &lt;animal id="2" species="Equus zebra">Zebra&lt;/animal&gt;
+ * // &lt;/mammals&gt;
+ *
+ * var xml;
+ *
+ * function preload() {
+ *   xml = loadXML("assets/mammals.xml");
+ * }
+ *
+ * function setup() {
+ *   var firstChild = xml.getChild("animal");
+ *   print(firstChild.getString("species"));
+ *   firstChild.setAttribute("species", "Jamides zebra");
+ *   print(firstChild.getString("species"));
+ * }
+ *
+ * // Sketch prints:
+ * // "Capra hircus"
+ * // "Jamides zebra"
+ * </code></div>
+ */
+p5.XML.prototype.setAttribute = function(name, value) {
+  if (this.attributes[name]) {
+    this.attributes[name] = value;
+  }
+};
+
+/**
+ * Returns the content of an element. If there is no such content,
+ * defaultValue is returned if specified, otherwise null is returned.
+ *
+ * @method getContent
+ * @param {String} [defaultValue] value returned if no content is found
+ * @return {String}
+ * @example
+ * <div class='norender'><code>
+ * // The following short XML file called "mammals.xml" is parsed
+ * // in the code below.
+ * //
+ * // <?xml version="1.0"?>
+ * // &lt;mammals&gt;
+ * //   &lt;animal id="0" species="Capra hircus">Goat&lt;/animal&gt;
+ * //   &lt;animal id="1" species="Panthera pardus">Leopard&lt;/animal&gt;
+ * //   &lt;animal id="2" species="Equus zebra">Zebra&lt;/animal&gt;
+ * // &lt;/mammals&gt;
+ *
+ * var xml;
+ *
+ * function preload() {
+ *   xml = loadXML("assets/mammals.xml");
+ * }
+ *
+ * function setup() {
+ *   var firstChild = xml.getChild("animal");
+ *   print(firstChild.getContent());
+ * }
+ *
+ * // Sketch prints:
+ * // "Goat"
+ * </code></div>
+ */
+p5.XML.prototype.getContent = function(defaultValue) {
+  return this.content || defaultValue || null;
+};
+
+/**
+ * Sets the element's content.
+ *
+ * @method setContent
+ * @param {String} text the new content
+ * @example
+ * <div class='norender'><code>
+ * // The following short XML file called "mammals.xml" is parsed
+ * // in the code below.
+ * //
+ * // <?xml version="1.0"?>
+ * // &lt;mammals&gt;
+ * //   &lt;animal id="0" species="Capra hircus">Goat&lt;/animal&gt;
+ * //   &lt;animal id="1" species="Panthera pardus">Leopard&lt;/animal&gt;
+ * //   &lt;animal id="2" species="Equus zebra">Zebra&lt;/animal&gt;
+ * // &lt;/mammals&gt;
+ *
+ * var xml;
+ *
+ * function preload() {
+ *   xml = loadXML("assets/mammals.xml");
+ * }
+ *
+ * function setup() {
+ *   var firstChild = xml.getChild("animal");
+ *   print(firstChild.getContent());
+ *   firstChild.setContent("Mountain Goat");
+ *   print(firstChild.getContent());
+ * }
+ *
+ * // Sketch prints:
+ * // "Goat"
+ * // "Mountain Goat"
+ * </code></div>
+ */
+p5.XML.prototype.setContent = function( content ) {
+  if(!this.children.length) {
+    this.content = content;
+  }
+};
+
+/* HELPERS */
+/**
+ * This method is called while the parsing of XML (when loadXML() is
+ * called). The difference between this method and the setContent()
+ * method defined later is that this one is used to set the content
+ * when the node in question has more nodes under it and so on and
+ * not directly text content. While in the other one is used when
+ * the node in question directly has text inside it.
+ *
+ */
+p5.XML.prototype._setCont = function(content) {
+  var str;
+  str = content;
+  str = str.replace(/\s\s+/g, ',');
+  //str = str.split(',');
+  this.content = str;
+};
+
+/**
+ * This method is called while the parsing of XML (when loadXML() is
+ * called). The XML node is passed and its attributes are stored in the
+ * p5.XML's attribute Object.
+ *
+ */
+p5.XML.prototype._setAttributes = function(node) {
+  var  i, att = {};
+  for( i = 0; i < node.attributes.length; i++) {
+    att[node.attributes[i].nodeName] = node.attributes[i].nodeValue;
+  }
+  this.attributes = att;
+};
+
+module.exports = p5.XML;
+},{"../core/core":42}],68:[function(_dereq_,module,exports){
 /**
  * @module Math
  * @submodule Calculation
@@ -23134,7 +26020,11 @@ var p5 = _dereq_('../core/core');
  *   print(x); // -3
  *   print(y); // 3
  * }
- * </div></code>
+ * </code></div>
+ *
+ * @alt
+ * no image displayed
+ *
  */
 p5.prototype.abs = Math.abs;
 
@@ -23170,7 +26060,11 @@ p5.prototype.abs = Math.abs;
  *   text(nfc(ax, 2,2), ax, ay - 5);
  *   text(nfc(bx,1,1), bx, by - 5);
  * }
- * </div></code>
+ * </code></div>
+  *
+ * @alt
+ * 2 horizontal lines & number sets. increase with mouse x. bottom to 2 decimals
+ *
  */
 p5.prototype.ceil = Math.ceil;
 
@@ -23208,7 +26102,11 @@ p5.prototype.ceil = Math.ceil;
  *   fill(0);
  *   ellipse(xc, 66, 9,9); // Constrained
  * }
- * </div></code>
+ * </code></div>
+ *
+ * @alt
+ * 2 vertical lines. 2 ellipses move with mouse X 1 does not move passed lines
+ *
  */
 p5.prototype.constrain = function(n, low, high) {
   return Math.max(Math.min(n, high), low);
@@ -23220,8 +26118,10 @@ p5.prototype.constrain = function(n, low, high) {
  * @method dist
  * @param  {Number} x1 x-coordinate of the first point
  * @param  {Number} y1 y-coordinate of the first point
+ * @param  {Number} [z1] z-coordinate of the first point
  * @param  {Number} x2 x-coordinate of the second point
  * @param  {Number} y2 y-coordinate of the second point
+ * @param  {Number} [z2] z-coordinate of the second point
  * @return {Number}    distance between the two points
  * @example
  * <div><code>
@@ -23252,10 +26152,19 @@ p5.prototype.constrain = function(n, low, high) {
  *   pop();
  *   // Fancy!
  * }
- * </div></code>
+ * </code></div>
+ *
+ * @alt
+ * 2 ellipses joined by line. 1 ellipse moves with mouse X&Y. Distance displayed.
+ *
  */
-p5.prototype.dist = function(x1, y1, x2, y2) {
-  return Math.sqrt( (x2-x1)*(x2-x1) + (y2-y1)*(y2-y1) );
+p5.prototype.dist = function(x1, y1, z1, x2, y2, z2) {
+  if (arguments.length === 4) {
+    // In the case of 2d: z1 means x2 and x2 means y2
+    return hypot(z1-x1, x2-y1);
+  } else if (arguments.length === 6) {
+    return hypot(x2-x1, y2-y1, z2-z1);
+  }
 };
 
 /**
@@ -23300,7 +26209,11 @@ p5.prototype.dist = function(x1, y1, x2, y2) {
  *   line(0, 0, 0, height);
  *   line(0, height-1, width, height-1);
  * }
- * </div></code>
+ * </code></div>
+ *
+ * @alt
+ * ellipse moves along a curve with mouse x. e^n displayed.
+ *
  */
 p5.prototype.exp = Math.exp;
 
@@ -23335,7 +26248,11 @@ p5.prototype.exp = Math.exp;
  *   text(nfc(ax, 2,2), ax, ay - 5);
  *   text(nfc(bx,1,1), bx, by - 5);
  * }
- * </div></code>
+ * </code></div>
+ *
+ * @alt
+ * 2 horizontal lines & number sets. increase with mouse x. bottom to 2 decimals
+ *
  */
 p5.prototype.floor = Math.floor;
 
@@ -23373,7 +26290,11 @@ p5.prototype.floor = Math.floor;
  *   point(d, y);
  *   point(e, y);
  * }
- * </div></code>
+ * </code></div>
+ *
+ * @alt
+ * 5 points horizontally staggered mid-canvas. mid 3 are grey, outer black
+ *
  */
 p5.prototype.lerp = function(start, stop, amt) {
   return amt*(stop-start)+start;
@@ -23415,7 +26336,7 @@ p5.prototype.lerp = function(start, stop, amt) {
  *   noFill();
  *   stroke(0);
  *   beginShape();
- *   for(var x=0; x<width; x++) {
+ *   for(var x=0; x < width; x++) {
  *     xValue = map(x, 0, width, 0, maxX);
  *     yValue = log(xValue);
  *     y = map(yValue, -maxY, maxY, height, 0);
@@ -23425,7 +26346,11 @@ p5.prototype.lerp = function(start, stop, amt) {
  *   line(0,0,0,height);
  *   line(0,height/2,width, height/2);
  * }
- * </div></code>
+ * </code></div>
+ *
+ * @alt
+ * ellipse moves along a curve with mouse x. natural logarithm of n displayed.
+ *
  */
 p5.prototype.log = Math.log;
 
@@ -23449,22 +26374,27 @@ p5.prototype.log = Math.log;
  *   var y2 = 70;
  *
  *   line(0, 0, x1, y1);
- *   print(mag(x1, y1));  // Prints "36.05551"
+ *   print(mag(x1, y1));  // Prints "36.05551275463989"
  *   line(0, 0, x2, y1);
- *   print(mag(x2, y1));  // Prints "85.44004"
+ *   print(mag(x2, y1));  // Prints "85.44003745317531"
  *   line(0, 0, x1, y2);
- *   print(mag(x1, y2));  // Prints "72.8011"
+ *   print(mag(x1, y2));  // Prints "72.80109889280519"
  *   line(0, 0, x2, y2);
- *   print(mag(x2, y2));  // Prints "106.30146"
+ *   print(mag(x2, y2));  // Prints "106.3014581273465"
  * }
- * </div></code>
+ * </code></div>
+ *
+ * @alt
+ * 4 lines of different length radiate from top left of canvas.
+ *
  */
 p5.prototype.mag = function(x, y) {
-  return Math.sqrt(x*x+y*y);
+  return hypot(x, y);
 };
 
 /**
  * Re-maps a number from one range to another.
+ * <br><br>
  * In the first example above, the number 25 is converted from a value in the
  * range of 0 to 100 into a value that ranges from the left edge of the
  * window (0) to the right edge (width).
@@ -23474,30 +26404,33 @@ p5.prototype.mag = function(x, y) {
  * @param  {Number} start1 lower bound of the value's current range
  * @param  {Number} stop1  upper bound of the value's current range
  * @param  {Number} start2 lower bound of the value's target range
- * @param  {Number} stop   upper bound of the value's target range
+ * @param  {Number} stop2  upper bound of the value's target range
  * @return {Number}        remapped number
  * @example
  *   <div><code>
- *     createCanvas(200, 200);
  *     var value = 25;
  *     var m = map(value, 0, 100, 0, width);
- *     ellipse(m, 200, 10, 10);
+ *     ellipse(m, 50, 10, 10);
  *   </code></div>
  *
  *   <div><code>
  *     function setup() {
- *       createCanvs(200, 200);
  *       noStroke();
  *     }
  *
  *     function draw() {
  *       background(204);
- *       var x1 = map(mouseX, 0, width, 50, 150);
- *       ellipse(x1, 75, 50, 50);
- *       var x2 = map(mouseX, 0, width, 0, 200);
- *       ellipse(x2, 125, 50, 50);
+ *       var x1 = map(mouseX, 0, width, 25, 75);
+ *       ellipse(x1, 25, 25, 25);
+ *       var x2 = map(mouseX, 0, width, 0, 100);
+ *       ellipse(x2, 75, 25, 25);
  *     }
- *   </div></code>
+ *   </code></div>
+ *
+ * @alt
+ * 10 by 10 white ellipse with in mid left canvas
+ * 2 25 by 25 white ellipses move with mouse x. Bottom has more range from X
+ *
  */
 p5.prototype.map = function(n, start1, stop1, start2, stop2) {
   return ((n-start1)/(stop1-start1))*(stop2-start2)+start2;
@@ -23532,7 +26465,11 @@ p5.prototype.map = function(n, start1, stop1, start2, stop2) {
  *   textSize(32);
  *   text(max(numArray), maxX, maxY);
  * }
- * </div></code>
+ * </code></div>
+ *
+ * @alt
+ * Small text at top reads: Array Elements 2 1 5 4 8 9. Large text at center: 9
+ *
  */
 p5.prototype.max = function() {
   if (arguments[0] instanceof Array) {
@@ -23571,7 +26508,11 @@ p5.prototype.max = function() {
  *   textSize(32);
  *   text(min(numArray), maxX, maxY);
  * }
- * </div></code>
+ * </code></div>
+ *
+ * @alt
+ * Small text at top reads: Array Elements 2 1 5 4 8 9. Large text at center: 1
+ *
  */
 p5.prototype.min = function() {
   if (arguments[0] instanceof Array) {
@@ -23623,7 +26564,11 @@ p5.prototype.min = function() {
  *   normalX = 20;
  *   text(normalized, normalX, normalY);
  * }
- * </div></code>
+ * </code></div>
+ *
+ * @alt
+ * ellipse moves with mouse. 0 shown left & 100 right and updating values center
+ *
  */
 p5.prototype.norm = function(n, start, stop) {
   return this.map(n, start, stop, 0, 1);
@@ -23655,7 +26600,11 @@ p5.prototype.norm = function(n, start, stop) {
  *
  *   ellipse(eLoc*8, eLoc*8, pow(eSize, 4), pow(eSize, 4));
  * }
- * </div></code>
+ * </code></div>
+ *
+ * @alt
+ * small to large ellipses radiating from top left of canvas
+ *
  */
 p5.prototype.pow = Math.pow;
 
@@ -23690,7 +26639,11 @@ p5.prototype.pow = Math.pow;
  *   text(nfc(ax, 2,2), ax, ay - 5);
  *   text(nfc(bx,1,1), bx, by - 5);
  * }
- * </div></code>
+ * </code></div>
+ *
+ * @alt
+ * horizontal center line squared values displayed on top and regular on bottom.
+ *
  */
 p5.prototype.round = Math.round;
 
@@ -23725,12 +26678,17 @@ p5.prototype.round = Math.round;
  *   line(0, height/2, width, height/2);
  *
  *   // Draw text.
+ *   var spacing = 15;
  *   noStroke();
  *   fill(0);
  *   text("x = " + x1, 0, y1 + spacing);
- *   text("sqrt(x) = " + x2, 0, y2 + spacing);
+ *   text("sq(x) = " + x2, 0, y2 + spacing);
  * }
- * </div></code>
+ * </code></div>
+ *
+ * @alt
+ * horizontal center line squared values displayed on top and regular on bottom.
+ *
  */
 p5.prototype.sq = function(n) { return n*n; };
 
@@ -23772,13 +26730,59 @@ p5.prototype.sq = function(n) { return n*n; };
  *   text("x = " + x1, 0, y1 + spacing);
  *   text("sqrt(x) = " + x2, 0, y2 + spacing);
  * }
- * </div></code>
+ * </code></div>
+ *
+ * @alt
+ * horizontal center line squareroot values displayed on top and regular on bottom.
+ *
  */
 p5.prototype.sqrt = Math.sqrt;
 
+// Calculate the length of the hypotenuse of a right triangle
+// This won't under- or overflow in intermediate steps
+// https://en.wikipedia.org/wiki/Hypot
+function hypot(x, y, z) {
+  // Use the native implementation if it's available
+  if (typeof Math.hypot === 'function') {
+    return Math.hypot.apply(null, arguments);
+  }
+
+  // Otherwise use the V8 implementation
+  // https://github.com/v8/v8/blob/8cd3cf297287e581a49e487067f5cbd991b27123/src/js/math.js#L217
+  var length = arguments.length;
+  var args = [];
+  var max = 0;
+  for (var i = 0; i < length; i++) {
+    var n = arguments[i];
+    n = +n;
+    if (n === Infinity || n === -Infinity) {
+      return Infinity;
+    }
+    n = Math.abs(n);
+    if (n > max) {
+      max = n;
+    }
+    args[i] = n;
+  }
+
+  if (max === 0) {
+    max = 1;
+  }
+  var sum = 0;
+  var compensation = 0;
+  for (var j = 0; j < length; j++) {
+    var m = args[j] / max;
+    var summand = m * m - compensation;
+    var preliminary = sum + summand;
+    compensation = (preliminary - sum) - summand;
+    sum = preliminary;
+  }
+  return Math.sqrt(sum) * max;
+}
+
 module.exports = p5;
 
-},{"../core/core":48}],74:[function(_dereq_,module,exports){
+},{"../core/core":42}],69:[function(_dereq_,module,exports){
 /**
  * @module Math
  * @submodule Math
@@ -23812,7 +26816,7 @@ p5.prototype.createVector = function (x, y, z) {
 
 module.exports = p5;
 
-},{"../core/core":48}],75:[function(_dereq_,module,exports){
+},{"../core/core":42}],70:[function(_dereq_,module,exports){
 //////////////////////////////////////////////////////////////
 
 // http://mrl.nyu.edu/~perlin/noise/
@@ -23912,7 +26916,13 @@ var perlin; // will be initialized lazily by noise() or noiseSeed()
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * vertical line moves left to right with updating noise values.
+ * horizontal wave pattern effected by mouse x-position & updating noise values.
+ *
  */
+
 p5.prototype.noise = function(x,y,z) {
   y = y || 0;
   z = z || 0;
@@ -23983,15 +26993,17 @@ p5.prototype.noise = function(x,y,z) {
  * function. Similar to harmonics in physics, noise is computed over
  * several octaves. Lower octaves contribute more to the output signal and
  * as such define the overall intensity of the noise, whereas higher octaves
- * create finer grained details in the noise sequence. By default, noise is
- * computed over 4 octaves with each octave contributing exactly half than
- * its predecessor, starting at 50% strength for the 1st octave. This
- * falloff amount can be changed by adding an additional function
+ * create finer grained details in the noise sequence.
+ * <br><br>
+ * By default, noise is computed over 4 octaves with each octave contributing
+ * exactly half than its predecessor, starting at 50% strength for the 1st
+ * octave. This falloff amount can be changed by adding an additional function
  * parameter. Eg. a falloff factor of 0.75 means each octave will now have
  * 75% impact (25% less) of the previous lower octave. Any value between
  * 0.0 and 1.0 is valid, however note that values greater than 0.5 might
- * result in greater than 1.0 values returned by <b>noise()</b>.<br /><br
- * />By changing these parameters, the signal created by the <b>noise()</b>
+ * result in greater than 1.0 values returned by <b>noise()</b>.
+ * <br><br>
+ * By changing these parameters, the signal created by the <b>noise()</b>
  * function can be adapted to fit very specific needs and characteristics.
  *
  * @method noiseDetail
@@ -24027,6 +27039,10 @@ p5.prototype.noise = function(x,y,z) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 2 vertical grey smokey patterns affected my mouse x-position and noise.
+ *
  */
 p5.prototype.noiseDetail = function(lod, falloff) {
   if (lod>0)     { perlin_octaves=lod; }
@@ -24057,6 +27073,10 @@ p5.prototype.noiseDetail = function(lod, falloff) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * vertical grey lines drawing in pattern affected by noise.
+ *
  */
 p5.prototype.noiseSeed = function(seed) {
   // Linear Congruential Generator
@@ -24099,7 +27119,7 @@ p5.prototype.noiseSeed = function(seed) {
 
 module.exports = p5;
 
-},{"../core/core":48}],76:[function(_dereq_,module,exports){
+},{"../core/core":42}],71:[function(_dereq_,module,exports){
 /**
  * @module Math
  * @submodule Math
@@ -24116,18 +27136,20 @@ var constants = _dereq_('../core/constants');
  * A class to describe a two or three dimensional vector, specifically
  * a Euclidean (also known as geometric) vector. A vector is an entity
  * that has both magnitude and direction. The datatype, however, stores
- * the components of the vector (x,y for 2D, and x,y,z for 3D). The magnitude
- * and direction can be accessed via the methods mag() and heading(). In many
- * of the p5.js examples, you will see p5.Vector used to describe a position,
- * velocity, or acceleration. For example, if you consider a rectangle moving
- * across the screen, at any given instant it has a position (a vector that
- * points from the origin to its location), a velocity (the rate at which the
- * object's position changes per time unit, expressed as a vector), and
+ * the components of the vector (x, y for 2D, and x, y, z for 3D). The magnitude
+ * and direction can be accessed via the methods mag() and heading().
+ * <br><br>
+ * In many of the p5.js examples, you will see p5.Vector used to describe a
+ * position, velocity, or acceleration. For example, if you consider a rectangle
+ * moving across the screen, at any given instant it has a position (a vector
+ * that points from the origin to its location), a velocity (the rate at which
+ * the object's position changes per time unit, expressed as a vector), and
  * acceleration (the rate at which the object's velocity changes per time
- * unit, expressed as a vector). Since vectors represent groupings of values,
- * we cannot simply use traditional addition/multiplication/etc. Instead,
- * we'll need to do some "vector" math, which is made easy by the methods
- * inside the p5.Vector class.
+ * unit, expressed as a vector).
+ * <br><br>
+ * Since vectors represent groupings of values, we cannot simply use
+ * traditional addition/multiplication/etc. Instead, we'll need to do some
+ * "vector" math, which is made easy by the methods inside the p5.Vector class.
  *
  * @class p5.Vector
  * @constructor
@@ -24146,6 +27168,10 @@ var constants = _dereq_('../core/constants');
  * ellipse(v1.x, v1.y, 50, 50);
  * </code>
  * </div>
+ *
+ * @alt
+ * 2 white ellipses. One center-left the other bottom right and off canvas
+ *
  */
 p5.Vector = function() {
   var x,y,z;
@@ -24251,7 +27277,7 @@ p5.Vector.prototype.set = function (x, y, z) {
  * <div class="norender">
  * <code>
  * var v1 = createVector(1, 2, 3);
- * var v2 = v.copy();
+ * var v2 = v1.copy();
  * print(v1.x == v2.x && v1.y == v2.y && v1.z == v2.z);
  * // Prints "true"
  * </code>
@@ -24285,7 +27311,7 @@ p5.Vector.prototype.copy = function () {
  * <code>
  * var v = createVector(1, 2, 3);
  * v.add(4,5,6);
- * // v's compnents are set to [5, 7, 9]
+ * // v's components are set to [5, 7, 9]
  * </code>
  * </div>
  * <div class="norender">
@@ -24336,7 +27362,7 @@ p5.Vector.prototype.add = function (x, y, z) {
  * <code>
  * var v = createVector(4, 5, 6);
  * v.sub(1, 1, 1);
- * // v's compnents are set to [3, 4, 5]
+ * // v's components are set to [3, 4, 5]
  * </code>
  * </div>
  *
@@ -24347,7 +27373,7 @@ p5.Vector.prototype.add = function (x, y, z) {
  * var v2 = createVector(1, 2, 3);
  *
  * var v3 = p5.Vector.sub(v1, v2);
- * // v3 has compnents [1, 1, 1]
+ * // v3 has components [1, 1, 1]
  * </code>
  * </div>
  */
@@ -24384,7 +27410,7 @@ p5.Vector.prototype.sub = function (x, y, z) {
  * <code>
  * var v = createVector(1, 2, 3);
  * v.mult(2);
- * // v's compnents are set to [2, 4, 6]
+ * // v's components are set to [2, 4, 6]
  * </code>
  * </div>
  *
@@ -24393,7 +27419,7 @@ p5.Vector.prototype.sub = function (x, y, z) {
  * // Static method
  * var v1 = createVector(1, 2, 3);
  * var v2 = p5.Vector.mult(v1, 2);
- * // v2 has compnents [2, 4, 6]
+ * // v2 has components [2, 4, 6]
  * </code>
  * </div>
  */
@@ -24417,7 +27443,7 @@ p5.Vector.prototype.mult = function (n) {
  * <div class="norender">
  * <code>
  * var v = createVector(6, 4, 2);
- * v.div(2); //v's compnents are set to [3, 2, 1]
+ * v.div(2); //v's components are set to [3, 2, 1]
  * </code>
  * </div>
  *
@@ -24426,7 +27452,7 @@ p5.Vector.prototype.mult = function (n) {
  * // Static method
  * var v1  = createVector(6, 4, 2);
  * var v2 = p5.Vector.div(v, 2);
- * // v2 has compnents [3, 2, 1]
+ * // v2 has components [3, 2, 1]
  * </code>
  * </div>
  */
@@ -24447,7 +27473,7 @@ p5.Vector.prototype.div = function (n) {
  * <div class="norender">
  * <code>
  * var v = createVector(20.0, 30.0, 40.0);
- * var m = v.mag(10);
+ * var m = v.mag();
  * print(m); // Prints "53.85164807134504"
  * </code>
  * </div>
@@ -24599,16 +27625,16 @@ p5.Vector.prototype.dist = function (v) {
  * <div class="norender">
  * <code>
  * var v = createVector(10, 20, 2);
- * // v has compnents [10.0, 20.0, 2.0]
+ * // v has components [10.0, 20.0, 2.0]
  * v.normalize();
- * // v's compnents are set to
+ * // v's components are set to
  * // [0.4454354, 0.8908708, 0.089087084]
  * </code>
  * </div>
  *
  */
 p5.Vector.prototype.normalize = function () {
-  return this.div(this.mag());
+  return this.mag() === 0 ? this : this.div(this.mag());
 };
 
 /**
@@ -24622,18 +27648,18 @@ p5.Vector.prototype.normalize = function () {
  * <div class="norender">
  * <code>
  * var v = createVector(10, 20, 2);
- * // v has compnents [10.0, 20.0, 2.0]
+ * // v has components [10.0, 20.0, 2.0]
  * v.limit(5);
- * // v's compnents are set to
+ * // v's components are set to
  * // [2.2271771, 4.4543543, 0.4454354]
  * </code>
  * </div>
  */
-p5.Vector.prototype.limit = function (l) {
+p5.Vector.prototype.limit = function (max) {
   var mSq = this.magSq();
-  if(mSq > l*l) {
+  if(mSq > max*max) {
     this.div(Math.sqrt(mSq)); //normalize it
-    this.mult(l);
+    this.mult(max);
   }
   return this;
 };
@@ -24648,10 +27674,10 @@ p5.Vector.prototype.limit = function (l) {
  * @example
  * <div class="norender">
  * <code>
- * var v1 = createVector(10, 20, 2);
- * // v has compnents [10.0, 20.0, 2.0]
- * v1.setMag(10);
- * // v's compnents are set to [6.0, 8.0, 0.0]
+ * var v = createVector(10, 20, 2);
+ * // v has components [10.0, 20.0, 2.0]
+ * v.setMag(10);
+ * // v's components are set to [6.0, 8.0, 0.0]
  * </code>
  * </div>
  */
@@ -24702,19 +27728,19 @@ p5.Vector.prototype.heading = function () {
  * <div class="norender">
  * <code>
  * var v = createVector(10.0, 20.0);
- * // v has compnents [10.0, 20.0, 0.0]
+ * // v has components [10.0, 20.0, 0.0]
  * v.rotate(HALF_PI);
- * // v's compnents are set to [-20.0, 9.999999, 0.0]
+ * // v's components are set to [-20.0, 9.999999, 0.0]
  * </code>
  * </div>
  */
 p5.Vector.prototype.rotate = function (a) {
+  var newHeading = this.heading() + a;
   if (this.p5) {
     if (this.p5._angleMode === constants.DEGREES) {
-      a = polarGeometry.degreesToRadians(a);
+      newHeading = polarGeometry.degreesToRadians(newHeading);
     }
   }
-  var newHeading = this.heading() + a;
   var mag = this.mag();
   this.x = Math.cos(newHeading) * mag;
   this.y = Math.sin(newHeading) * mag;
@@ -25135,9 +28161,20 @@ p5.Vector.angleBetween = function (v1, v2) {
   return angle;
 };
 
+/**
+ * @static
+ */
+p5.Vector.mag = function (vecT){
+  var x = vecT.x,
+    y = vecT.y,
+    z = vecT.z;
+  var magSq = x * x + y * y + z * z;
+  return Math.sqrt(magSq);
+};
+
 module.exports = p5.Vector;
 
-},{"../core/constants":47,"../core/core":48,"./polargeometry":77}],77:[function(_dereq_,module,exports){
+},{"../core/constants":41,"../core/core":42,"./polargeometry":72}],72:[function(_dereq_,module,exports){
 
 module.exports = {
 
@@ -25151,7 +28188,7 @@ module.exports = {
 
 };
 
-},{}],78:[function(_dereq_,module,exports){
+},{}],73:[function(_dereq_,module,exports){
 /**
  * @module Math
  * @submodule Random
@@ -25164,6 +28201,8 @@ module.exports = {
 var p5 = _dereq_('../core/core');
 
 var seeded = false;
+var previous = false;
+var y2 = 0;
 
 // Linear Congruential Generator
 // Variant of a Lehman Generator
@@ -25216,24 +28255,37 @@ var lcg = (function() {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * many vertical lines drawn in white, black or grey.
+ *
  */
 p5.prototype.randomSeed = function(seed) {
   lcg.setSeed(seed);
   seeded = true;
+  previous = false;
 };
 
 /**
- * Return a random number.
+ * Return a random floating-point number.
  *
  * Takes either 0, 1 or 2 arguments.
- * If no argument is given, returns a random number between 0 and 1.
- * If one argument is given, returns a random number between 0 and the number.
- * If two arguments are given, returns a random number between them,
- * inclusive.
+ *
+ * If no argument is given, returns a random number from 0
+ * up to (but not including) 1.
+ *
+ * If one argument is given and it is a number, returns a random number from 0
+ * up to (but not including) the number.
+ *
+ * If one argument is given and it is an array, returns a random element from
+ * that array.
+ *
+ * If two arguments are given, returns a random number from the
+ * first argument up to (but not including) the second argument.
  *
  * @method random
- * @param  {Number} min   the lower bound
- * @param  {Number} max   the upper bound
+ * @param  {Number} [min]   the lower bound (inclusive)
+ * @param  {Number} [max]   the upper bound (exclusive)
  * @return {Number} the random number
  * @example
  * <div>
@@ -25255,12 +28307,24 @@ p5.prototype.randomSeed = function(seed) {
  * </div>
  * <div>
  * <code>
- * // Get a random element from an array
+ * // Get a random element from an array using the random(Array) syntax
  * var words = [ "apple", "bear", "cat", "dog" ];
- * var index = floor(random(words.length));  // Convert to integer
- * text(words[index],10,50);  // Displays one of the four words
+ * var word = random(words);  // select random word
+ * text(word,10,50);  // draw the word
  * </code>
  * </div>
+ *
+ * @alt
+ * 100 horizontal lines from center canvas to right. size+fill change each time
+ * 100 horizontal lines from center of canvas. height & side change each render
+ * word displayed at random. Either apple, bear, cat, or dog
+ *
+ */
+/**
+ * @method random
+ * @param  {Array} choices   the array to choose from
+ * @return {*} the random element from the array
+ * @example
  */
 p5.prototype.random = function (min, max) {
 
@@ -25271,12 +28335,15 @@ p5.prototype.random = function (min, max) {
   } else {
     rand = Math.random();
   }
-
-  if (arguments.length === 0) {
+  if (typeof min === 'undefined') {
     return rand;
   } else
-  if (arguments.length === 1) {
-    return rand * min;
+  if (typeof max === 'undefined') {
+    if (min instanceof Array) {
+      return min[Math.floor(rand * min.length)];
+    } else {
+      return rand * min;
+    }
   } else {
     if (min > max) {
       var tmp = min;
@@ -25293,14 +28360,15 @@ p5.prototype.random = function (min, max) {
  *
  * Returns a random number fitting a Gaussian, or
  * normal, distribution. There is theoretically no minimum or maximum
- * value that <b>randomGaussian()</b> might return. Rather, there is
+ * value that randomGaussian() might return. Rather, there is
  * just a very low probability that values far from the mean will be
  * returned; and a higher probability that numbers near the mean will
  * be returned.
- * Takes either 0, 1 or 2 arguments.
- * If no args, returns a mean of 0 and standard deviation of 1
- * If one arg, that arg is the mean (standard deviation is 1)
- * If two args, first is mean, second is standard deviation
+ * <br><br>
+ * Takes either 0, 1 or 2 arguments.<br>
+ * If no args, returns a mean of 0 and standard deviation of 1.<br>
+ * If one arg, that arg is the mean (standard deviation is 1).<br>
+ * If two args, first is mean, second is standard deviation.
  *
  * @method randomGaussian
  * @param  {Number} mean  the mean
@@ -25339,9 +28407,10 @@ p5.prototype.random = function (min, max) {
  *}
  * </code>
  * </div>
+ * @alt
+ * 100 horizontal lines from center of canvas. height & side change each render
+ * black lines radiate from center of canvas. size determined each render
  */
-var y2;
-var previous = false;
 p5.prototype.randomGaussian = function(mean, sd)  {
   var y1,x1,x2,w;
   if (previous) {
@@ -25366,7 +28435,7 @@ p5.prototype.randomGaussian = function(mean, sd)  {
 
 module.exports = p5;
 
-},{"../core/core":48}],79:[function(_dereq_,module,exports){
+},{"../core/core":42}],74:[function(_dereq_,module,exports){
 /**
  * @module Math
  * @submodule Trigonometry
@@ -25400,7 +28469,7 @@ p5.prototype._angleMode = constants.RADIANS;
  * var c = cos(a);
  * var ac = acos(c);
  * // Prints: "3.1415927 : -1.0 : 3.1415927"
- * println(a + " : " + c + " : " +  ac);
+ * print(a + " : " + c + " : " +  ac);
  * </code>
  * </div>
  *
@@ -25410,7 +28479,7 @@ p5.prototype._angleMode = constants.RADIANS;
  * var c = cos(a);
  * var ac = acos(c);
  * // Prints: "3.926991 : -0.70710665 : 2.3561943"
- * println(a + " : " + c + " : " +  ac);
+ * print(a + " : " + c + " : " +  ac);
  * </code>
  * </div>
  */
@@ -25438,7 +28507,7 @@ p5.prototype.acos = function(ratio) {
  * var s = sin(a);
  * var as = asin(s);
  * // Prints: "1.0471976 : 0.86602545 : 1.0471976"
- * println(a + " : " + s + " : " +  as);
+ * print(a + " : " + s + " : " +  as);
  * </code>
  * </div>
  *
@@ -25448,7 +28517,7 @@ p5.prototype.acos = function(ratio) {
  * var s = sin(a);
  * var as = asin(s);
  * // Prints: "4.1887903 : -0.86602545 : -1.0471976"
- * println(a + " : " + s + " : " +  as);
+ * print(a + " : " + s + " : " +  as);
  * </code>
  * </div>
  *
@@ -25477,7 +28546,7 @@ p5.prototype.asin = function(ratio) {
  * var t = tan(a);
  * var at = atan(t);
  * // Prints: "1.0471976 : 1.7320509 : 1.0471976"
- * println(a + " : " + t + " : " +  at);
+ * print(a + " : " + t + " : " +  at);
  * </code>
  * </div>
  *
@@ -25487,7 +28556,7 @@ p5.prototype.asin = function(ratio) {
  * var t = tan(a);
  * var at = atan(t);
  * // Prints: "4.1887903 : 1.7320513 : 1.0471977"
- * println(a + " : " + t + " : " +  at);
+ * print(a + " : " + t + " : " +  at);
  * </code>
  * </div>
  *
@@ -25504,9 +28573,11 @@ p5.prototype.atan = function(ratio) {
  * Calculates the angle (in radians) from a specified point to the coordinate
  * origin as measured from the positive x-axis. Values are returned as a
  * float in the range from PI to -PI. The atan2() function is most often used
- * for orienting geometry to the position of the cursor. Note: The
- * y-coordinate of the point is the first parameter, and the x-coordinate is
- * the second parameter, due the the structure of calculating the tangent.
+ * for orienting geometry to the position of the cursor.
+ * <br><br>
+ * Note: The y-coordinate of the point is the first parameter, and the
+ * x-coordinate is the second parameter, due the the structure of calculating
+ * the tangent.
  *
  * @method atan2
  * @param  {Number} y y-coordinate of the point
@@ -25525,6 +28596,10 @@ p5.prototype.atan = function(ratio) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * 60 by 10 rect at center of canvas rotates with mouse movements
+ *
  */
 p5.prototype.atan2 = function (y, x) {
   if (this._angleMode === constants.RADIANS) {
@@ -25554,6 +28629,9 @@ p5.prototype.atan2 = function (y, x) {
  * </code>
  * </div>
  *
+ * @alt
+ * vertical black lines form wave patterns, extend-down on left and right side
+ *
  */
 p5.prototype.cos = function(angle) {
   if (this._angleMode === constants.RADIANS) {
@@ -25582,6 +28660,10 @@ p5.prototype.cos = function(angle) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * vertical black lines extend down and up from center to form wave pattern
+ *
  */
 p5.prototype.sin = function(angle) {
   if (this._angleMode === constants.RADIANS) {
@@ -25609,7 +28691,10 @@ p5.prototype.sin = function(angle) {
  *     a = a + inc;
  *   }
  * </code>
- * </div>
+ *
+ *
+ * @alt
+ * vertical black lines end down and up from center to form spike pattern
  *
  */
 p5.prototype.tan = function(angle) {
@@ -25636,8 +28721,8 @@ p5.prototype.tan = function(angle) {
  * <code>
  * var rad = PI/4;
  * var deg = degrees(rad);
- * println(rad + " radians is " + deg + " degrees");
- * // Prints: 45 degrees is 0.7853981633974483 radians
+ * print(rad + " radians is " + deg + " degrees");
+ * // Prints: 0.7853981633974483 radians is 45 degrees
  * </code>
  * </div>
  *
@@ -25661,7 +28746,7 @@ p5.prototype.degrees = function(angle) {
  * <code>
  * var deg = 45.0;
  * var rad = radians(deg);
- * println(deg + " degrees is " + rad + " radians");
+ * print(deg + " degrees is " + rad + " radians");
  * // Prints: 45 degrees is 0.7853981633974483 radians
  * </code>
  * </div>
@@ -25674,7 +28759,7 @@ p5.prototype.radians = function(angle) {
  * Sets the current mode of p5 to given mode. Default mode is RADIANS.
  *
  * @method angleMode
- * @param {Number/Constant} mode either RADIANS or DEGREES
+ * @param {Constant} mode either RADIANS or DEGREES
  *
  * @example
  * <div>
@@ -25695,6 +28780,10 @@ p5.prototype.radians = function(angle) {
  * </code>
  * </div>
  *
+ * @alt
+ * 40 by 10 rect in center rotates with mouse moves. 20 by 10 rect moves faster.
+ *
+ *
  */
 p5.prototype.angleMode = function(mode) {
   if (mode === constants.DEGREES || mode === constants.RADIANS) {
@@ -25704,7 +28793,7 @@ p5.prototype.angleMode = function(mode) {
 
 module.exports = p5;
 
-},{"../core/constants":47,"../core/core":48,"./polargeometry":77}],80:[function(_dereq_,module,exports){
+},{"../core/constants":41,"../core/core":42,"./polargeometry":72}],75:[function(_dereq_,module,exports){
 /**
  * @module Typography
  * @submodule Attributes
@@ -25718,14 +28807,24 @@ module.exports = p5;
 var p5 = _dereq_('../core/core');
 
 /**
- * Sets the current alignment for drawing text. The parameters LEFT, CENTER,
- * and RIGHT set the alignment of text in relation to the values for
- * the x and y parameters of the text() function.
+ * Sets the current alignment for drawing text. Accepts two
+ * arguments: horizAlign (LEFT, CENTER, or RIGHT) and
+ * vertAlign (TOP, BOTTOM, CENTER, or BASELINE).
+ *
+ * The horizAlign parameter is in reference to the x value
+ * of the text() function, while the vertAlign parameter is
+ * in reference to the y value.
+ *
+ * So if you write textAlign(LEFT), you are aligning the left
+ * edge of your text to the x value you give in text(). If you
+ * write textAlign(RIGHT, TOP), you are aligning the right edge
+ * of your text to the x value and the top of edge of the text
+ * to the y value.
  *
  * @method textAlign
- * @param {Number/Constant} horizAlign horizontal alignment, either LEFT,
+ * @param {Constant} horizAlign horizontal alignment, either LEFT,
  *                            CENTER, or RIGHT
- * @param {Number/Constant} vertAlign vertical alignment, either TOP,
+ * @param {Constant} vertAlign vertical alignment, either TOP,
  *                            BOTTOM, CENTER, or BASELINE
  * @return {Number}
  * @example
@@ -25740,6 +28839,10 @@ var p5 = _dereq_('../core/core');
  * text("IJKL", 50, 70);
  * </code>
  * </div>
+ *
+ * @alt
+ *Letters ABCD displayed at top right, EFGH at center and IJKL at bottom left.
+ *
  */
 p5.prototype.textAlign = function(horizAlign, vertAlign) {
   return this._renderer.textAlign.apply(this._renderer, arguments);
@@ -25769,6 +28872,10 @@ p5.prototype.textAlign = function(horizAlign, vertAlign) {
  * text(lines, 70, 25);
  * </code>
  * </div>
+ *
+ * @alt
+ *set L1 L2 & L3 displayed vertically 3 times. spacing increases for each set
+ *
  */
 p5.prototype.textLeading = function(theLeading) {
   return this._renderer.textLeading.apply(this._renderer, arguments);
@@ -25792,6 +28899,10 @@ p5.prototype.textLeading = function(theLeading) {
  * text("Font Size 16", 10, 90);
  * </code>
  * </div>
+ *
+ * @alt
+ *Font Size 12 displayed small, Font Size 14 medium & Font Size 16 large
+ *
  */
 p5.prototype.textSize = function(theSize) {
   return this._renderer.textSize.apply(this._renderer, arguments);
@@ -25803,7 +28914,7 @@ p5.prototype.textSize = function(theSize) {
  * (opentype, truetype, etc.) please load styled fonts instead.
  *
  * @method textStyle
- * @param {Number/Constant} theStyle styling for text, either NORMAL,
+ * @param {Number|Constant} theStyle styling for text, either NORMAL,
  *                            ITALIC, or BOLD
  * @return {Object|String}
  * @example
@@ -25819,6 +28930,10 @@ p5.prototype.textSize = function(theSize) {
  * text("Font Style Bold", 10, 90);
  * </code>
  * </div>
+ *
+ * @alt
+ *words Font Style Normal displayed normally, Italic in italic and bold in bold
+ *
  */
 p5.prototype.textStyle = function(theStyle) {
   return this._renderer.textStyle.apply(this._renderer, arguments);
@@ -25846,8 +28961,15 @@ p5.prototype.textStyle = function(theStyle) {
  * line(sWidth, 50, sWidth, 100);
  * </code>
  * </div>
+ *
+ * @alt
+ *Letter P and p5.js are displayed with vertical lines at end. P is wide
+ *
  */
 p5.prototype.textWidth = function(theText) {
+  if (theText.length === 0) {
+    return 0;
+  }
   return this._renderer.textWidth.apply(this._renderer, arguments);
 };
 
@@ -25916,7 +29038,7 @@ p5.prototype._updateTextMetrics = function() {
 
 module.exports = p5;
 
-},{"../core/core":48}],81:[function(_dereq_,module,exports){
+},{"../core/core":42}],76:[function(_dereq_,module,exports){
 /**
  * @module Typography
  * @submodule Loading & Displaying
@@ -25940,10 +29062,10 @@ _dereq_('../core/error_helpers');
  * with textSize(). Change the color of the text with the fill() function.
  * Change the outline of the text with the stroke() and strokeWeight()
  * functions.
- *
+ * <br><br>
  * The text displays in relation to the textAlign() function, which gives the
  * option to draw to the left, right, and center of the coordinates.
- *
+ * <br><br>
  * The x2 and y2 parameters define a rectangular area to display within and
  * may only be used with string data. When these parameters are specified,
  * they are interpreted based on the current rectMode() setting. Text that
@@ -25977,18 +29099,13 @@ _dereq_('../core/error_helpers');
  * text(s, 10, 10, 70, 80); // Text wraps within text box
  * </code>
  * </div>
+ *
+ * @alt
+ *'word' displayed 3 times going from black, blue to translucent blue
+ * The quick brown fox jumped over the lazy dog.
+ *
  */
 p5.prototype.text = function(str, x, y, maxWidth, maxHeight) {
-
-  this._validateParameters(
-    'text',
-    arguments,
-    [
-      ['*', 'Number', 'Number'],
-      ['*', 'Number', 'Number', 'Number', 'Number']
-    ]
-  );
-
   return (!(this._renderer._doFill || this._renderer._doStroke)) ? this :
     this._renderer.text.apply(this._renderer, arguments);
 };
@@ -25998,7 +29115,8 @@ p5.prototype.text = function(str, x, y, maxWidth, maxHeight) {
  *
  * @method textFont
  * @param {Object|String} f a font loaded via loadFont(), or a String
- *  representing a browser-based dfault font.
+ * representing a <a href="https://mzl.la/2dOw8WD">web safe font</a> (a font
+ * that is generally available across all systems).
  * @return {Object} this
  * @example
  * <div>
@@ -26031,6 +29149,10 @@ p5.prototype.text = function(str, x, y, maxWidth, maxHeight) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ *words Font Style Normal displayed normally, Italic in italic and bold in bold
+ *
  */
 p5.prototype.textFont = function(theFont, theSize) {
 
@@ -26058,7 +29180,7 @@ p5.prototype.textFont = function(theFont, theSize) {
 
 module.exports = p5;
 
-},{"../core/constants":47,"../core/core":48,"../core/error_helpers":51}],82:[function(_dereq_,module,exports){
+},{"../core/constants":41,"../core/core":42,"../core/error_helpers":45}],77:[function(_dereq_,module,exports){
 /**
  * This module defines the p5.Font class and functions for
  * drawing text to the display canvas.
@@ -26132,25 +29254,30 @@ p5.Font.prototype.list = function() {
  * <div>
  * <code>
  * var font;
- * var text = 'Lorem ipsum dolor sit amet.';
+ * var textString = 'Lorem ipsum dolor sit amet.';
  * function preload() {
- *    font = loadFont('./assets/fonts/Regular.otf');
+ *    font = loadFont('./assets/Regular.otf');
  * };
  * function setup() {
  *    background(210);
-
- *    var bbox = font.textBounds(text, 10, 30, 12);
+ *
+ *    var bbox = font.textBounds(textString, 10, 30, 12);
  *    fill(255);
  *    stroke(0);
  *    rect(bbox.x, bbox.y, bbox.w, bbox.h);
  *    fill(0);
  *    noStroke();
- *     *    textFont(font);
-  *    textSize(12);
- *    text(text, 10, 30);
+ *
+ *    textFont(font);
+ *    textSize(12);
+ *    text(textString, 10, 30);
  * };
  * </code>
  * </div>
+ *
+ * @alt
+ *words Lorem ipsum dol go off canvas and contained by white bounding box
+ *
  */
 p5.Font.prototype.textBounds = function(str, x, y, fontSize, options) {
 
@@ -26158,7 +29285,17 @@ p5.Font.prototype.textBounds = function(str, x, y, fontSize, options) {
   y = y !== undefined ? y : 0;
   fontSize = fontSize || this.parent._renderer._textSize;
 
-  var result = this.cache[cacheKey('textBounds', str, x, y, fontSize)];
+  // Check cache for existing bounds. Take into consideration the text alignment
+  // settings. Default alignment should match opentype's origin: left-aligned &
+  // alphabetic baseline.
+  var p = (options && options.renderer && options.renderer._pInst) ||
+    this.parent,
+    ctx = p._renderer.drawingContext,
+    alignment = ctx.textAlign || constants.LEFT,
+    baseline = ctx.textBaseline || constants.BASELINE;
+  var result = this.cache[cacheKey('textBounds', str, x, y, fontSize, alignment,
+    baseline)];
+
   if (!result) {
 
     var xCoords = [], yCoords = [], self = this,
@@ -26172,7 +29309,7 @@ p5.Font.prototype.textBounds = function(str, x, y, fontSize, options) {
 
         var gm = glyph.getMetrics();
 
-        if (glyph.name !== 'space') {
+        if (glyph.name !== 'space' && glyph.unicode !== 32) {
 
           xCoords.push(gX + (gm.xMax * scale));
           yCoords.push(gY + (-gm.yMin * scale));
@@ -26185,10 +29322,15 @@ p5.Font.prototype.textBounds = function(str, x, y, fontSize, options) {
         }
       });
 
-    minX = Math.max(0, Math.min.apply(null, xCoords));
+    // fix to #1409 (not sure why these max() functions were here)
+    /*minX = Math.max(0, Math.min.apply(null, xCoords));
     minY = Math.max(0, Math.min.apply(null, yCoords));
     maxX = Math.max(0, Math.max.apply(null, xCoords));
-    maxY = Math.max(0, Math.max.apply(null, yCoords));
+    maxY = Math.max(0, Math.max.apply(null, yCoords));*/
+    minX = Math.min.apply(null, xCoords);
+    minY = Math.min.apply(null, yCoords);
+    maxX = Math.max.apply(null, xCoords);
+    maxY = Math.max.apply(null, yCoords);
 
     result = {
       x: minX,
@@ -26198,9 +29340,66 @@ p5.Font.prototype.textBounds = function(str, x, y, fontSize, options) {
       advance: minX - x
     };
 
-    this.cache[cacheKey('textBounds', str, x, y, fontSize)] = result;
+    // Bounds are now calculated, so shift the x & y to match alignment settings
+    var textWidth = result.w + result.advance;
+    var pos = this._handleAlignment(p, ctx, str, result.x, result.y, textWidth);
+    result.x = pos.x;
+    result.y = pos.y;
+
+    this.cache[cacheKey('textBounds', str, x, y, fontSize, alignment,
+      baseline)] = result;
   }
   //else console.log('cache-hit');
+
+  return result;
+};
+
+
+/**
+ * Computes an array of points following the path for specified text
+ *
+ * @param  {String} txt     a line of text
+ * @param  {Number} x        x-position
+ * @param  {Number} y        y-position
+ * @param  {Number} fontSize font size to use (optional)
+ * @param  {Object} options  an (optional) object that can contain:
+ *
+ * <br>sampleFactor - the ratio of path-length to number of samples
+ * (default=.25); higher values yield more points and are therefore
+ * more precise
+ *
+ * <br>simplifyThreshold - if set to a non-zero value, collinear points will be
+ * be removed from the polygon; the value represents the threshold angle to use
+ * when determining whether two edges are collinear
+ *
+ * @return {Array}  an array of points, each with x, y, alpha (the path angle)
+ */
+p5.Font.prototype.textToPoints = function(txt, x, y, fontSize, options) {
+
+  var xoff = 0, result = [], glyphs = this._getGlyphs(txt);
+
+  fontSize = fontSize || this.parent._renderer._textSize;
+
+  for (var i = 0; i < glyphs.length; i++) {
+
+    if (glyphs[i].name !== 'space') { // fix to #1817
+
+      var gpath = glyphs[i].getPath(x, y, fontSize),
+        paths = splitPaths(gpath.commands);
+
+      for (var j = 0; j < paths.length; j++) {
+
+        var pts = pathToPoints(paths[j], options);
+
+        for (var k = 0; k < pts.length; k++) {
+          pts[k].x += xoff;
+          result.push(pts[k]);
+        }
+      }
+    }
+
+    xoff += glyphs[i].advanceWidth * this._scale(fontSize);
+  }
 
   return result;
 };
@@ -26233,7 +29432,8 @@ p5.Font.prototype._getGlyphs = function(str) {
  */
 p5.Font.prototype._getPath = function(line, x, y, options) {
 
-  var p = this.parent,
+  var p = (options && options.renderer && options.renderer._pInst) ||
+    this.parent,
     ctx = p._renderer.drawingContext,
     pos = this._handleAlignment(p, ctx, line, x, y);
 
@@ -26345,8 +29545,7 @@ p5.Font.prototype._getSVG = function(line, x, y, options) {
  */
 p5.Font.prototype._renderPath = function(line, x, y, options) {
 
-  // /console.log('_renderPath', typeof line);
-  var pdata, pg = this.parent._renderer,
+  var pdata, pg = (options && options.renderer) || this.parent._renderer,
     ctx = pg.drawingContext;
 
   if (typeof line === 'object' && line.commands) {
@@ -26355,7 +29554,7 @@ p5.Font.prototype._renderPath = function(line, x, y, options) {
   } else {
 
     //pos = handleAlignment(p, ctx, line, x, y);
-    pdata = this._getPath(line, x, y, pg._textSize, options).commands;
+    pdata = this._getPath(line, x, y, options).commands;
   }
 
   ctx.beginPath();
@@ -26418,12 +29617,13 @@ p5.Font.prototype._scale = function(fontSize) {
     this.parent._renderer._textSize);
 };
 
-p5.Font.prototype._handleAlignment = function(p, ctx, line, x, y) {
+p5.Font.prototype._handleAlignment = function(p, ctx, line, x, y, textWidth) {
+  var fontSize = p._renderer._textSize,
+    textAscent = this._textAscent(fontSize),
+    textDescent = this._textDescent(fontSize);
 
-  var textWidth = this._textWidth(line),
-    textAscent = this._textAscent(),
-    textDescent = this._textDescent(),
-    textHeight = textAscent + textDescent;
+  textWidth = textWidth !== undefined ? textWidth :
+    this._textWidth(line, fontSize);
 
   if (ctx.textAlign === constants.CENTER) {
     x -= textWidth / 2;
@@ -26432,9 +29632,9 @@ p5.Font.prototype._handleAlignment = function(p, ctx, line, x, y) {
   }
 
   if (ctx.textBaseline === constants.TOP) {
-    y += textHeight;
+    y += textAscent;
   } else if (ctx.textBaseline === constants._CTX_MIDDLE) {
-    y += textHeight / 2 - textDescent;
+    y += textAscent / 2;
   } else if (ctx.textBaseline === constants.BOTTOM) {
     y -= textDescent;
   }
@@ -26442,11 +29642,609 @@ p5.Font.prototype._handleAlignment = function(p, ctx, line, x, y) {
   return { x: x, y: y };
 };
 
-function cacheKey() {
-  var args = Array.prototype.slice.call(arguments),
-    i = args.length,
-    hash = '';
+// path-utils
 
+function pathToPoints(cmds, options) {
+
+  var opts = parseOpts(options, {
+    sampleFactor: 0.1,
+    simplifyThreshold: 0,
+  });
+
+  var len = pointAtLength(cmds,0,1), // total-length
+    t = len / (len * opts.sampleFactor),
+    pts = [];
+
+  for (var i = 0; i < len; i += t) {
+    pts.push(pointAtLength(cmds, i));
+  }
+
+  if (opts.simplifyThreshold) {
+    /*var count = */simplify(pts, opts.simplifyThreshold);
+    //console.log('Simplify: removed ' + count + ' pts');
+  }
+
+  return pts;
+}
+
+function simplify(pts, angle) {
+
+  angle = (typeof angle === 'undefined') ? 0 : angle;
+
+  var num = 0;
+  for (var i = pts.length - 1; pts.length > 3 && i >= 0; --i) {
+
+    if (collinear(at(pts, i - 1), at(pts, i), at(pts, i + 1), angle)) {
+
+      // Remove the middle point
+      pts.splice(i % pts.length, 1);
+      num++;
+    }
+  }
+  return num;
+}
+
+function splitPaths(cmds) {
+
+  var paths = [], current;
+  for (var i = 0; i < cmds.length; i++) {
+    if (cmds[i].type === 'M') {
+      if (current) {
+        paths.push(current);
+      }
+      current = [];
+    }
+    current.push(cmdToArr(cmds[i]));
+  }
+  paths.push(current);
+
+  return paths;
+}
+
+function cmdToArr(cmd) {
+
+  var arr = [ cmd.type ];
+  if (cmd.type === 'M' || cmd.type === 'L') { // moveto or lineto
+    arr.push(cmd.x, cmd.y);
+  } else if (cmd.type === 'C') {
+    arr.push(cmd.x1, cmd.y1, cmd.x2, cmd.y2, cmd.x, cmd.y);
+  } else if (cmd.type === 'Q') {
+    arr.push(cmd.x1, cmd.y1, cmd.x, cmd.y);
+  }
+  // else if (cmd.type === 'Z') { /* no-op */ }
+  return arr;
+}
+
+function parseOpts(options, defaults) {
+
+  if (typeof options !== 'object') {
+    options = defaults;
+  }
+  else {
+    for (var key in defaults) {
+      if (typeof options[key] === 'undefined') {
+        options[key] = defaults[key];
+      }
+    }
+  }
+  return options;
+}
+
+//////////////////////// Helpers ////////////////////////////
+
+function at(v, i) {
+  var s = v.length;
+  return v[i < 0 ? i % s + s : i % s];
+}
+
+function collinear(a, b, c, thresholdAngle) {
+
+  if (!thresholdAngle) {
+    return areaTriangle(a, b, c) === 0;
+  }
+
+  if (typeof collinear.tmpPoint1 === 'undefined') {
+    collinear.tmpPoint1 = [];
+    collinear.tmpPoint2 = [];
+  }
+
+  var ab = collinear.tmpPoint1, bc = collinear.tmpPoint2;
+  ab.x = b.x - a.x;
+  ab.y = b.y - a.y;
+  bc.x = c.x - b.x;
+  bc.y = c.y - b.y;
+
+  var dot = ab.x * bc.x + ab.y * bc.y,
+    magA = Math.sqrt(ab.x * ab.x + ab.y * ab.y),
+    magB = Math.sqrt(bc.x * bc.x + bc.y * bc.y),
+    angle = Math.acos(dot / (magA * magB));
+
+  return angle < thresholdAngle;
+}
+
+function areaTriangle(a, b, c) {
+  return (((b[0] - a[0]) * (c[1] - a[1])) - ((c[0] - a[0]) * (b[1] - a[1])));
+}
+
+// Portions of below code copyright 2008 Dmitry Baranovskiy (via MIT license)
+
+function findDotsAtSegment(p1x, p1y, c1x, c1y, c2x, c2y, p2x, p2y, t) {
+
+  var t1 = 1 - t, t13 = Math.pow(t1, 3), t12 = Math.pow(t1, 2), t2 = t * t,
+    t3 = t2 * t, x = t13 * p1x + t12 * 3 * t * c1x + t1 * 3 * t * t * c2x +
+    t3 * p2x, y = t13 * p1y + t12 * 3 * t * c1y + t1 * 3 * t * t * c2y +
+    t3 * p2y, mx = p1x + 2 * t * (c1x - p1x) + t2 * (c2x - 2 * c1x + p1x),
+    my = p1y + 2 * t * (c1y - p1y) + t2 * (c2y - 2 * c1y + p1y),
+    nx = c1x + 2 * t * (c2x - c1x) + t2 * (p2x - 2 * c2x + c1x),
+    ny = c1y + 2 * t * (c2y - c1y) + t2 * (p2y - 2 * c2y + c1y),
+    ax = t1 * p1x + t * c1x, ay = t1 * p1y + t * c1y,
+    cx = t1 * c2x + t * p2x, cy = t1 * c2y + t * p2y,
+    alpha = (90 - Math.atan2(mx - nx, my - ny) * 180 / Math.PI);
+
+  if (mx > nx || my < ny) { alpha += 180; }
+
+  return { x: x, y: y, m: { x: mx, y: my }, n: { x: nx, y: ny },
+    start: { x: ax, y: ay }, end: { x: cx, y: cy }, alpha: alpha
+  };
+}
+
+function getPointAtSegmentLength(p1x,p1y,c1x,c1y,c2x,c2y,p2x,p2y,length) {
+  return (length == null) ? bezlen(p1x, p1y, c1x, c1y, c2x, c2y, p2x, p2y) :
+    findDotsAtSegment(p1x, p1y, c1x, c1y, c2x, c2y, p2x, p2y,
+      getTatLen(p1x, p1y, c1x, c1y, c2x, c2y, p2x, p2y, length));
+}
+
+function pointAtLength(path, length, istotal) {
+  path = path2curve(path);
+  var x, y, p, l, sp = '', subpaths = {}, point, len = 0;
+  for (var i = 0, ii = path.length; i < ii; i++) {
+    p = path[i];
+    if (p[0] === 'M') {
+      x = +p[1];
+      y = +p[2];
+    } else {
+      l = getPointAtSegmentLength(x, y, p[1], p[2], p[3], p[4], p[5], p[6]);
+      if (len + l > length) {
+        if (!istotal) {
+          point = getPointAtSegmentLength(x, y, p[1], p[2], p[3], p[4], p[5],
+            p[6], length - len);
+          return { x: point.x, y: point.y, alpha: point.alpha };
+        }
+      }
+      len += l;
+      x = +p[5];
+      y = +p[6];
+    }
+    sp += p.shift() + p;
+  }
+  subpaths.end = sp;
+
+  point = istotal ? len : findDotsAtSegment
+    (x, y, p[0], p[1], p[2], p[3], p[4], p[5], 1);
+
+  if (point.alpha) {
+    point = { x: point.x, y: point.y, alpha: point.alpha };
+  }
+
+  return point;
+}
+
+function pathToAbsolute(pathArray) {
+
+  var res = [], x = 0, y = 0, mx = 0, my = 0, start = 0;
+  if (pathArray[0][0] === 'M') {
+    x = +pathArray[0][1];
+    y = +pathArray[0][2];
+    mx = x;
+    my = y;
+    start++;
+    res[0] = ['M', x, y];
+  }
+
+  var dots,crz = pathArray.length===3 && pathArray[0][0]==='M' &&
+    pathArray[1][0].toUpperCase()==='R' && pathArray[2][0].toUpperCase()==='Z';
+
+  for (var r, pa, i = start, ii = pathArray.length; i < ii; i++) {
+    res.push(r = []);
+    pa = pathArray[i];
+    if (pa[0] !== String.prototype.toUpperCase.call(pa[0])) {
+      r[0] = String.prototype.toUpperCase.call(pa[0]);
+      switch (r[0]) {
+        case 'A':
+          r[1] = pa[1];
+          r[2] = pa[2];
+          r[3] = pa[3];
+          r[4] = pa[4];
+          r[5] = pa[5];
+          r[6] = +(pa[6] + x);
+          r[7] = +(pa[7] + y);
+          break;
+        case 'V':
+          r[1] = +pa[1] + y;
+          break;
+        case 'H':
+          r[1] = +pa[1] + x;
+          break;
+        case 'R':
+          dots = [x, y].concat(pa.slice(1));
+          for (var j = 2, jj = dots.length; j < jj; j++) {
+            dots[j] = +dots[j] + x;
+            dots[++j] = +dots[j] + y;
+          }
+          res.pop();
+          res = res.concat(catmullRom2bezier(dots, crz));
+          break;
+        case 'M':
+          mx = +pa[1] + x;
+          my = +pa[2] + y;
+          break;
+        default:
+          for (j = 1, jj = pa.length; j < jj; j++) {
+            r[j] = +pa[j] + ((j % 2) ? x : y);
+          }
+      }
+    } else if (pa[0] === 'R') {
+      dots = [x, y].concat(pa.slice(1));
+      res.pop();
+      res = res.concat(catmullRom2bezier(dots, crz));
+      r = ['R'].concat(pa.slice(-2));
+    } else {
+      for (var k = 0, kk = pa.length; k < kk; k++) {
+        r[k] = pa[k];
+      }
+    }
+    switch (r[0]) {
+      case 'Z':
+        x = mx;
+        y = my;
+        break;
+      case 'H':
+        x = r[1];
+        break;
+      case 'V':
+        y = r[1];
+        break;
+      case 'M':
+        mx = r[r.length - 2];
+        my = r[r.length - 1];
+        break;
+      default:
+        x = r[r.length - 2];
+        y = r[r.length - 1];
+    }
+  }
+  return res;
+}
+
+function path2curve(path, path2) {
+
+  var p = pathToAbsolute(path), p2 = path2 && pathToAbsolute(path2),
+    attrs = { x: 0, y: 0, bx: 0, by: 0, X: 0, Y: 0, qx: null, qy: null },
+    attrs2 = { x: 0, y: 0, bx: 0, by: 0, X: 0, Y: 0, qx: null, qy: null },
+
+    processPath = function(path, d, pcom) {
+      var nx, ny, tq = { T: 1, Q: 1 };
+      if (!path) { return ['C', d.x, d.y, d.x, d.y, d.x, d.y]; }
+      if (!(path[0] in tq)) { d.qx = d.qy = null; }
+      switch (path[0]) {
+        case 'M':
+          d.X = path[1];
+          d.Y = path[2];
+          break;
+        case 'A':
+          path = ['C'].concat(a2c.apply(0, [d.x, d.y].concat(path.slice(1))));
+          break;
+        case 'S':
+          if (pcom === 'C' || pcom === 'S') {
+            nx = d.x * 2 - d.bx;
+            ny = d.y * 2 - d.by;
+          } else {
+            nx = d.x;
+            ny = d.y;
+          }
+          path = ['C', nx, ny].concat(path.slice(1));
+          break;
+        case 'T':
+          if (pcom === 'Q' || pcom === 'T') {
+            d.qx = d.x * 2 - d.qx;
+            d.qy = d.y * 2 - d.qy;
+          } else {
+            d.qx = d.x;
+            d.qy = d.y;
+          }
+          path = ['C'].concat(q2c(d.x, d.y, d.qx, d.qy, path[1], path[2]));
+          break;
+        case 'Q':
+          d.qx = path[1];
+          d.qy = path[2];
+          path = ['C'].concat(q2c(d.x,d.y,path[1],path[2],path[3],path[4]));
+          break;
+        case 'L':
+          path = ['C'].concat(l2c(d.x, d.y, path[1], path[2]));
+          break;
+        case 'H':
+          path = ['C'].concat(l2c(d.x, d.y, path[1], d.y));
+          break;
+        case 'V':
+          path = ['C'].concat(l2c(d.x, d.y, d.x, path[1]));
+          break;
+        case 'Z':
+          path = ['C'].concat(l2c(d.x, d.y, d.X, d.Y));
+          break;
+      }
+      return path;
+    },
+
+    fixArc = function(pp, i) {
+      if (pp[i].length > 7) {
+        pp[i].shift();
+        var pi = pp[i];
+        while (pi.length) {
+          pcoms1[i] = 'A';
+          if (p2) { pcoms2[i] = 'A'; }
+          pp.splice(i++, 0, ['C'].concat(pi.splice(0, 6)));
+        }
+        pp.splice(i, 1);
+        ii = Math.max(p.length, p2 && p2.length || 0);
+      }
+    },
+
+    fixM = function(path1, path2, a1, a2, i) {
+      if (path1 && path2 && path1[i][0] === 'M' && path2[i][0] !== 'M') {
+        path2.splice(i, 0, ['M', a2.x, a2.y]);
+        a1.bx = 0;
+        a1.by = 0;
+        a1.x = path1[i][1];
+        a1.y = path1[i][2];
+        ii = Math.max(p.length, p2 && p2.length || 0);
+      }
+    },
+
+    pcoms1 = [], // path commands of original path p
+    pcoms2 = [], // path commands of original path p2
+    pfirst = '', // temporary holder for original path command
+    pcom = ''; // holder for previous path command of original path
+
+  for (var i = 0, ii = Math.max(p.length, p2 && p2.length || 0); i < ii; i++) {
+    if (p[i]) { pfirst = p[i][0]; } // save current path command
+
+    if (pfirst !== 'C') {
+      pcoms1[i] = pfirst; // Save current path command
+      if (i) { pcom = pcoms1[i - 1]; } // Get previous path command pcom
+    }
+    p[i] = processPath(p[i], attrs, pcom);
+
+    if (pcoms1[i] !== 'A' && pfirst === 'C') { pcoms1[i] = 'C'; }
+
+    fixArc(p, i); // fixArc adds also the right amount of A:s to pcoms1
+
+    if (p2) { // the same procedures is done to p2
+      if (p2[i]) { pfirst = p2[i][0]; }
+      if (pfirst !== 'C') {
+        pcoms2[i] = pfirst;
+        if (i) { pcom = pcoms2[i - 1]; }
+      }
+      p2[i] = processPath(p2[i], attrs2, pcom);
+
+      if (pcoms2[i] !== 'A' && pfirst === 'C') { pcoms2[i] = 'C'; }
+
+      fixArc(p2, i);
+    }
+    fixM(p, p2, attrs, attrs2, i);
+    fixM(p2, p, attrs2, attrs, i);
+    var seg = p[i], seg2 = p2 && p2[i], seglen = seg.length,
+      seg2len = p2 && seg2.length;
+    attrs.x = seg[seglen - 2];
+    attrs.y = seg[seglen - 1];
+    attrs.bx = parseFloat(seg[seglen - 4]) || attrs.x;
+    attrs.by = parseFloat(seg[seglen - 3]) || attrs.y;
+    attrs2.bx = p2 && (parseFloat(seg2[seg2len - 4]) || attrs2.x);
+    attrs2.by = p2 && (parseFloat(seg2[seg2len - 3]) || attrs2.y);
+    attrs2.x = p2 && seg2[seg2len - 2];
+    attrs2.y = p2 && seg2[seg2len - 1];
+  }
+
+  return p2 ? [p, p2] : p;
+}
+
+function a2c(x1, y1, rx, ry, angle, lac, sweep_flag, x2, y2, recursive) {
+  // for more information of where this Math came from visit:
+  // http://www.w3.org/TR/SVG11/implnote.html#ArcImplementationNotes
+  var PI = Math.PI, _120 = PI * 120 / 180, f1, f2, cx, cy,
+    rad = PI / 180 * (+angle || 0), res = [], xy,
+    rotate = function (x, y, rad) {
+      var X = x * Math.cos(rad) - y * Math.sin(rad),
+        Y = x * Math.sin(rad) + y * Math.cos(rad);
+      return { x: X, y: Y };
+    };
+  if (!recursive) {
+    xy = rotate(x1, y1, -rad);
+    x1 = xy.x;
+    y1 = xy.y;
+    xy = rotate(x2, y2, -rad);
+    x2 = xy.x;
+    y2 = xy.y;
+    var x = (x1 - x2) / 2, y = (y1 - y2) / 2,
+      h = (x * x) / (rx * rx) + (y * y) / (ry * ry);
+    if (h > 1) {
+      h = Math.sqrt(h);
+      rx = h * rx;
+      ry = h * ry;
+    }
+    var rx2 = rx * rx, ry2 = ry * ry,
+      k = (lac === sweep_flag ? -1 : 1) * Math.sqrt(Math.abs
+        ((rx2 * ry2 - rx2 * y * y - ry2 * x * x)/(rx2 * y * y + ry2 * x * x)));
+
+    cx = k * rx * y / ry + (x1 + x2) / 2;
+    cy = k * -ry * x / rx + (y1 + y2) / 2;
+    f1 = Math.asin(((y1 - cy) / ry).toFixed(9));
+    f2 = Math.asin(((y2 - cy) / ry).toFixed(9));
+
+    f1 = x1 < cx ? PI - f1 : f1;
+    f2 = x2 < cx ? PI - f2 : f2;
+
+    if (f1 < 0) { f1 = PI * 2 + f1; }
+    if (f2 < 0) { f2 = PI * 2 + f2; }
+
+    if (sweep_flag && f1 > f2) {
+      f1 = f1 - PI * 2;
+    }
+    if (!sweep_flag && f2 > f1) {
+      f2 = f2 - PI * 2;
+    }
+  } else {
+    f1 = recursive[0];
+    f2 = recursive[1];
+    cx = recursive[2];
+    cy = recursive[3];
+  }
+  var df = f2 - f1;
+  if (Math.abs(df) > _120) {
+    var f2old = f2, x2old = x2, y2old = y2;
+    f2 = f1 + _120 * (sweep_flag && f2 > f1 ? 1 : -1);
+    x2 = cx + rx * Math.cos(f2);
+    y2 = cy + ry * Math.sin(f2);
+    res = a2c(x2, y2, rx, ry, angle, 0, sweep_flag, x2old, y2old,
+      [f2, f2old, cx, cy]);
+  }
+  df = f2 - f1;
+  var c1 = Math.cos(f1),
+    s1 = Math.sin(f1),
+    c2 = Math.cos(f2),
+    s2 = Math.sin(f2),
+    t = Math.tan(df / 4),
+    hx = 4 / 3 * rx * t,
+    hy = 4 / 3 * ry * t,
+    m1 = [x1, y1],
+    m2 = [x1 + hx * s1, y1 - hy * c1],
+    m3 = [x2 + hx * s2, y2 - hy * c2],
+    m4 = [x2, y2];
+  m2[0] = 2 * m1[0] - m2[0];
+  m2[1] = 2 * m1[1] - m2[1];
+  if (recursive) {
+    return [m2, m3, m4].concat(res);
+  } else {
+    res = [m2, m3, m4].concat(res).join().split(',');
+    var newres = [];
+    for (var i = 0, ii = res.length; i < ii; i++) {
+      newres[i] = i % 2 ? rotate(res[i - 1], res[i], rad).y : rotate(res[i],
+        res[i + 1], rad).x;
+    }
+    return newres;
+  }
+}
+
+// http://schepers.cc/getting-to-the-point
+function catmullRom2bezier(crp, z) {
+  var d = [];
+  for (var i = 0, iLen = crp.length; iLen - 2 * !z > i; i += 2) {
+    var p = [{
+      x: +crp[i - 2],
+      y: +crp[i - 1]
+    }, {
+      x: +crp[i],
+      y: +crp[i + 1]
+    }, {
+      x: +crp[i + 2],
+      y: +crp[i + 3]
+    }, {
+      x: +crp[i + 4],
+      y: +crp[i + 5]
+    }];
+    if (z) {
+      if (!i) {
+        p[0] = {
+          x: +crp[iLen - 2],
+          y: +crp[iLen - 1]
+        };
+      } else if (iLen - 4 === i) {
+        p[3] = {
+          x: +crp[0],
+          y: +crp[1]
+        };
+      } else if (iLen - 2 === i) {
+        p[2] = {
+          x: +crp[0],
+          y: +crp[1]
+        };
+        p[3] = {
+          x: +crp[2],
+          y: +crp[3]
+        };
+      }
+    } else {
+      if (iLen - 4 === i) {
+        p[3] = p[2];
+      } else if (!i) {
+        p[0] = {
+          x: +crp[i],
+          y: +crp[i + 1]
+        };
+      }
+    }
+    d.push(['C', (-p[0].x + 6 * p[1].x + p[2].x) / 6, (-p[0].y + 6 * p[1].y +
+      p[2].y) / 6, (p[1].x + 6 * p[2].x - p[3].x) / 6, (p[1].y + 6 * p[2].y -
+      p[3].y) / 6, p[2].x, p[2].y ]);
+  }
+
+  return d;
+}
+
+function l2c(x1, y1, x2, y2) { return [x1, y1, x2, y2, x2, y2]; }
+
+function q2c(x1, y1, ax, ay, x2, y2) {
+  var _13 = 1 / 3, _23 = 2 / 3;
+  return [
+    _13 * x1 + _23 * ax, _13 * y1 + _23 * ay,
+    _13 * x2 + _23 * ax, _13 * y2 + _23 * ay, x2, y2
+  ];
+}
+
+function bezlen(x1, y1, x2, y2, x3, y3, x4, y4, z) {
+  if (z == null) { z = 1; }
+  z = z > 1 ? 1 : z < 0 ? 0 : z;
+  var z2 = z / 2,
+    n = 12, Tvalues = [-0.1252, 0.1252, -0.3678, 0.3678, -0.5873, 0.5873,
+       -0.7699, 0.7699, -0.9041, 0.9041, -0.9816, 0.9816],
+    sum = 0, Cvalues = [0.2491, 0.2491, 0.2335, 0.2335, 0.2032, 0.2032,
+      0.1601, 0.1601, 0.1069, 0.1069, 0.0472, 0.0472 ];
+  for (var i = 0; i < n; i++) {
+    var ct = z2 * Tvalues[i] + z2,
+      xbase = base3(ct, x1, x2, x3, x4),
+      ybase = base3(ct, y1, y2, y3, y4),
+      comb = xbase * xbase + ybase * ybase;
+    sum += Cvalues[i] * Math.sqrt(comb);
+  }
+  return z2 * sum;
+}
+
+function getTatLen(x1, y1, x2, y2, x3, y3, x4, y4, ll) {
+  if (ll < 0 || bezlen(x1, y1, x2, y2, x3, y3, x4, y4) < ll) {
+    return;
+  }
+  var t = 1, step = t / 2, t2 = t - step, l, e = 0.01;
+  l = bezlen(x1, y1, x2, y2, x3, y3, x4, y4, t2);
+  while (Math.abs(l - ll) > e) {
+    step /= 2;
+    t2 += (l < ll ? 1 : -1) * step;
+    l = bezlen(x1, y1, x2, y2, x3, y3, x4, y4, t2);
+  }
+  return t2;
+}
+
+function base3(t, p1, p2, p3, p4) {
+  var t1 = -3 * p1 + 9 * p2 - 9 * p3 + 3 * p4,
+    t2 = t * t1 + 6 * p1 - 12 * p2 + 6 * p3;
+  return t * t2 - 3 * p1 + 3 * p2;
+}
+
+function cacheKey() {
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
+  i = args.length;
+  var hash = '';
   while (i--) {
     hash += (args[i] === Object(args[i])) ?
       JSON.stringify(args[i]) : args[i];
@@ -26456,7 +30254,7 @@ function cacheKey() {
 
 module.exports = p5.Font;
 
-},{"../core/constants":47,"../core/core":48}],83:[function(_dereq_,module,exports){
+},{"../core/constants":41,"../core/core":42}],78:[function(_dereq_,module,exports){
 /**
  * @module Data
  * @submodule Array Functions
@@ -26500,11 +30298,11 @@ p5.prototype.append = function(array, value) {
  * elements to copy is determined by length. Note that copying values
  * overwrites existing values in the destination array. To append values
  * instead of overwriting them, use concat().
- *
- * The simplified version with only two arguments — arrayCopy(src, dst) —
+ * <br><br>
+ * The simplified version with only two arguments, arrayCopy(src, dst),
  * copies an entire array to another of the same size. It is equivalent to
  * arrayCopy(src, 0, dst, 0, src.length).
- *
+ * <br><br>
  * Using this function is far more efficient for copying array data than
  * iterating through a for() loop and copying each element individually.
  *
@@ -26513,7 +30311,7 @@ p5.prototype.append = function(array, value) {
  * @param {Number} [srcPosition] starting position in the source Array
  * @param {Array}  dst           the destination Array
  * @param {Number} [dstPosition] starting position in the destination Array
- * @param {Nimber} [length]      number of Array elements to be copied
+ * @param {Number} [length]      number of Array elements to be copied
  *
  * @example
  *  <div class="norender"><code>
@@ -26650,10 +30448,9 @@ p5.prototype.shorten = function(list) {
 };
 
 /**
- * Randomizes the order of the elements of an array.
- * Implements Fisher-Yates Shuffle Algorithm
- * http://Bost.Ocks.org/mike/shuffle/
- * http://en.Wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+ * Randomizes the order of the elements of an array. Implements
+ * <a href="http://Bost.Ocks.org/mike/shuffle/" target=_blank>
+ * Fisher-Yates Shuffle Algorithm</a>.
  *
  * @method shuffle
  * @param  {Array}   array  Array to shuffle
@@ -26675,7 +30472,8 @@ p5.prototype.shorten = function(list) {
  * </code></div>
  */
 p5.prototype.shuffle = function(arr, bool) {
-  arr = bool || ArrayBuffer.isView(arr)? arr : arr.slice();
+  var isView = ArrayBuffer && ArrayBuffer.isView && ArrayBuffer.isView(arr);
+  arr = bool || isView ? arr : arr.slice();
 
   var rnd, tmp, idx = arr.length;
   while (idx > 1) {
@@ -26707,7 +30505,7 @@ p5.prototype.shuffle = function(arr, bool) {
  *   print(words); // ["banana", "apple", "pear", "lime"]
  *   var count = 4; // length of array
  *
- *   sort(words, count);
+ *   words = sort(words, count);
  *   print(words); // ["apple", "banana", "lime", "pear"]
  * }
  * </div></code>
@@ -26717,7 +30515,7 @@ p5.prototype.shuffle = function(arr, bool) {
  *   print(numbers); // [2,6,1,5,14,9,8,12]
  *   var count = 5; // Less than the length of the array
  *
- *   sort(numbers, count);
+ *   numbers = sort(numbers, count);
  *   print(numbers); // [1,2,5,6,14,9,8,12]
  * }
  * </div></code>
@@ -26804,7 +30602,7 @@ p5.prototype.subset = function(list, start, count) {
 
 module.exports = p5;
 
-},{"../core/core":48}],84:[function(_dereq_,module,exports){
+},{"../core/core":42}],79:[function(_dereq_,module,exports){
 /**
  * @module Data
  * @submodule Conversion
@@ -26822,6 +30620,9 @@ var p5 = _dereq_('../core/core');
  * For example, float("1234.56") evaluates to 1234.56, but float("giraffe")
  * will return NaN.
  *
+ * When an array of values is passed in, then an array of floats of the same
+ * length is returned.
+ *
  * @method float
  * @param {String}  str float string to parse
  * @return {Number}     floating point representation of string
@@ -26831,8 +30632,15 @@ var p5 = _dereq_('../core/core');
  * var diameter = float(str);
  * ellipse(width/2, height/2, diameter, diameter);
  * </code></div>
+ *
+ * @alt
+ * 20 by 20 white ellipse in the center of the canvas
+ *
  */
 p5.prototype.float = function(str) {
+  if (str instanceof Array) {
+    return str.map(parseFloat);
+  }
   return parseFloat(str);
 };
 
@@ -26855,8 +30663,8 @@ p5.prototype.float = function(str) {
  * </code></div>
  */
 p5.prototype.int = function(n, radix) {
+  radix = radix || 10;
   if (typeof n === 'string') {
-    radix = radix || 10;
     return parseInt(n, radix);
   } else if (typeof n === 'number') {
     return n | 0;
@@ -27065,7 +30873,7 @@ p5.prototype.unhex = function(n) {
 
 module.exports = p5;
 
-},{"../core/core":48}],85:[function(_dereq_,module,exports){
+},{"../core/core":42}],80:[function(_dereq_,module,exports){
 /**
  * @module Data
  * @submodule String Functions
@@ -27098,6 +30906,10 @@ var p5 = _dereq_('../core/core');
  * text(message, 5, 50);
  * </code>
  * </div>
+ *
+ * @alt
+ * "hello world!" displayed middle left of canvas.
+ *
  */
 p5.prototype.join = function(list, separator) {
   return list.join(separator);
@@ -27110,11 +30922,11 @@ p5.prototype.join = function(list, separator) {
  * If no groups are specified in the regular expression, but the sequence
  * matches, an array of length 1 (with the matched text as the first element
  * of the array) will be returned.
- *
+ * <br><br>
  * To use the function, first check to see if the result is null. If the
  * result is null, then the sequence did not match at all. If the sequence
  * did match, an array is returned.
- *
+ * <br><br>
  * If there are groups (specified by sets of parentheses) in the regular
  * expression, then the contents of each will be returned in the array.
  * Element [0] of a regular expression match returns the entire matching
@@ -27134,6 +30946,10 @@ p5.prototype.join = function(list, separator) {
  * text(match, 5, 50);
  * </code>
  * </div>
+ *
+ * @alt
+ * "p5js*" displayed middle left of canvas.
+ *
  */
 p5.prototype.match =  function(str, reg) {
   return str.match(reg);
@@ -27146,11 +30962,11 @@ p5.prototype.match =  function(str, reg) {
  * will be returned. If no groups are specified in the regular expression,
  * but the sequence matches, a two dimensional array is still returned, but
  * the second dimension is only of length one.
- *
+ * <br><br>
  * To use the function, first check to see if the result is null. If the
  * result is null, then the sequence did not match at all. If the sequence
  * did match, a 2D array is returned.
- *
+ * <br><br>
  * If there are groups (specified by sets of parentheses) in the regular
  * expression, then the contents of each will be returned in the array.
  * Assuming a loop with counter variable i, element [i][0] of a regular
@@ -27223,6 +31039,10 @@ p5.prototype.matchAll = function(str, reg) {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * "0011253" top left, "0112.531" mid left, "112.531061" bottom left canvas
+ *
  */
 p5.prototype.nf = function () {
   if (arguments[0] instanceof Array) {
@@ -27320,6 +31140,10 @@ function doNf() {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * "11,253,106.115" top middle and "1.00,1.00,2.00" displayed bottom mid
+ *
  */
 p5.prototype.nfc = function () {
   if (arguments[0] instanceof Array) {
@@ -27391,6 +31215,10 @@ function doNfc() {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * "+11253106.11" top middle and "-11253106.11" displayed bottom middle
+ *
  */
 p5.prototype.nfp = function() {
   var nfRes = this.nf.apply(this, arguments);
@@ -27444,6 +31272,10 @@ function addNfp() {
  * }
  * </code>
  * </div>
+ *
+ * @alt
+ * "11253106.11" top middle and "-11253106.11" displayed bottom middle
+ *
  */
 p5.prototype.nfs = function() {
   var nfRes = this.nf.apply(this, arguments);
@@ -27474,17 +31306,21 @@ function addNfs() {
  * @method split
  * @param  {String} value the String to be split
  * @param  {String} delim the String used to separate the data
- * @return {Array}        Array of Strings
+ * @return {Array}  Array of Strings
  * @example
  * <div>
  * <code>
- *var names = "Pat,Xio,Alex"
+ * var names = "Pat,Xio,Alex"
  * var splitString = split(names, ",");
  * text(splitString[0], 5, 30);
  * text(splitString[1], 5, 50);
  * text(splitString[2], 5, 70);
  * </code>
  * </div>
+ *
+ * @alt
+ * "pat" top left, "Xio" mid left and "Alex" displayed bottom left
+ *
  */
 p5.prototype.split = function(str, delim) {
   return str.split(delim);
@@ -27494,7 +31330,7 @@ p5.prototype.split = function(str, delim) {
  * The splitTokens() function splits a String at one or many character
  * delimiters or "tokens." The delim parameter specifies the character or
  * characters to be used as a boundary.
- *
+ * <br><br>
  * If no delim characters are specified, any whitespace character is used to
  * split. Whitespace characters include tab (\t), line feed (\n), carriage
  * return (\r), form feed (\f), and space.
@@ -27513,13 +31349,29 @@ p5.prototype.split = function(str, delim) {
  *
  *   print(myStrArr); // prints : ["Mango"," Banana"," Lime"]
  * }
- * </div>
  * </code>
+ * </div>
  */
 p5.prototype.splitTokens = function() {
-  var d;
+  var d,sqo,sqc,str;
+  str = arguments[1];
   if (arguments.length > 1) {
-    d = new RegExp('[' + arguments[1] + ']', 'g');
+    sqc = /\]/g.exec(str);
+    sqo = /\[/g.exec(str);
+    if ( sqo && sqc ) {
+      str = str.slice(0, sqc.index) + str.slice(sqc.index+1);
+      sqo = /\[/g.exec(str);
+      str = str.slice(0, sqo.index) + str.slice(sqo.index+1);
+      d = new RegExp('[\\['+str+'\\]]','g');
+    } else if ( sqc ) {
+      str = str.slice(0, sqc.index) + str.slice(sqc.index+1);
+      d = new RegExp('[' + str + '\\]]', 'g');
+    } else if(sqo) {
+      str = str.slice(0, sqo.index) + str.slice(sqo.index+1);
+      d = new RegExp('[' + str + '\\[]', 'g');
+    } else {
+      d = new RegExp('[' + str + ']', 'g');
+    }
   } else {
     d = /\s/g;
   }
@@ -27532,7 +31384,7 @@ p5.prototype.splitTokens = function() {
  * and tab, this function also removes the Unicode "nbsp" character.
  *
  * @method trim
- * @param  {String|Array} [str] a String or Array of Strings to be trimmed
+ * @param  {String|Array} str a String or Array of Strings to be trimmed
  * @return {String|Array}       a trimmed String or Array of Strings
  * @example
  * <div>
@@ -27541,6 +31393,10 @@ p5.prototype.splitTokens = function() {
  * text(string +" here", 2, 50);
  * </code>
  * </div>
+ *
+ * @alt
+ * "No new lines here" displayed center canvas
+ *
  */
 p5.prototype.trim = function(str) {
   if (str instanceof Array) {
@@ -27552,9 +31408,9 @@ p5.prototype.trim = function(str) {
 
 module.exports = p5;
 
-},{"../core/core":48}],86:[function(_dereq_,module,exports){
+},{"../core/core":42}],81:[function(_dereq_,module,exports){
 /**
- * @module Input
+ * @module IO
  * @submodule Time & Date
  * @for p5
  * @requires core
@@ -27573,10 +31429,14 @@ var p5 = _dereq_('../core/core');
  * @example
  * <div>
  * <code>
- * var day = day();
- * text("Current day: \n"+day, 5, 50);
+ * var d = day();
+ * text("Current day: \n" + d, 5, 50);
  * </code>
  * </div>
+ *
+ * @alt
+ * Current day is displayed
+ *
  */
 p5.prototype.day = function() {
   return new Date().getDate();
@@ -27591,10 +31451,14 @@ p5.prototype.day = function() {
  * @example
  * <div>
  * <code>
- * var hour = hour();
- * text("Current hour:\n"+hour, 5, 50);
+ * var h = hour();
+ * text("Current hour:\n" + h, 5, 50);
  * </code>
  * </div>
+ *
+ * @alt
+ * Current hour is displayed
+ *
  */
 p5.prototype.hour = function() {
   return new Date().getHours();
@@ -27609,10 +31473,14 @@ p5.prototype.hour = function() {
  * @example
  * <div>
  * <code>
- * var minute = minute();
- * text("Current minute: \n:"+minute, 5, 50);
+ * var m = minute();
+ * text("Current minute: \n" + m, 5, 50);
  * </code>
  * </div>
+ *
+ * @alt
+ * Current minute is displayed
+ *
  */
 p5.prototype.minute = function() {
   return new Date().getMinutes();
@@ -27629,9 +31497,13 @@ p5.prototype.minute = function() {
  * <div>
  * <code>
  * var millisecond = millis();
- * text("Milliseconds \nrunning: "+millisecond, 5, 50);
+ * text("Milliseconds \nrunning: \n" + millisecond, 5, 40);
  * </code>
  * </div>
+ *
+ * @alt
+ * number of milliseconds since program has started displayed
+ *
  */
 p5.prototype.millis = function() {
   return window.performance.now();
@@ -27646,10 +31518,14 @@ p5.prototype.millis = function() {
  * @example
  * <div>
  * <code>
- * var month = month();
- * text("Current month: \n"+month, 5, 50);
+ * var m = month();
+ * text("Current month: \n" + m, 5, 50);
  * </code>
  * </div>
+ *
+ * @alt
+ * Current month is displayed
+ *
  */
 p5.prototype.month = function() {
   return new Date().getMonth() + 1; //January is 0!
@@ -27664,10 +31540,14 @@ p5.prototype.month = function() {
  * @example
  * <div>
  * <code>
- * var second = second();
- * text("Current second: \n" +second, 5, 50);
+ * var s = second();
+ * text("Current second: \n" + s, 5, 50);
  * </code>
  * </div>
+ *
+ * @alt
+ * Current second is displayed
+ *
  */
 p5.prototype.second = function() {
   return new Date().getSeconds();
@@ -27682,10 +31562,14 @@ p5.prototype.second = function() {
  * @example
  * <div>
  * <code>
- * var year = year();
- * text("Current year: \n" +year, 5, 50);
+ * var y = year();
+ * text("Current year: \n" + y, 5, 50);
  * </code>
  * </div>
+ *
+ * @alt
+ * Current year is displayed
+ *
  */
 p5.prototype.year = function() {
   return new Date().getFullYear();
@@ -27693,5 +31577,3550 @@ p5.prototype.year = function() {
 
 module.exports = p5;
 
-},{"../core/core":48}]},{},[39])(39)
+},{"../core/core":42}],82:[function(_dereq_,module,exports){
+/**
+ * @module Lights, Camera
+ * @submodule Camera
+ * @for p5
+ * @requires core
+ */
+
+'use strict';
+
+var p5 = _dereq_('../core/core');
+
+/**
+ * Sets camera position
+ * @method camera
+ * @param  {Number} x  camera position value on x axis
+ * @param  {Number} y  camera position value on y axis
+ * @param  {Number} z  camera position value on z axis
+ * @return {p5}        the p5 object
+ * @example
+ * <div>
+ * <code>
+ * function setup(){
+ *   createCanvas(100, 100, WEBGL);
+ * }
+ * function draw(){
+ *  //move the camera away from the plane by a sin wave
+ *  camera(0, 0, sin(frameCount * 0.01) * 100);
+ *  plane(120, 120);
+ * }
+ * </code>
+ * </div>
+ *
+ * @alt
+ * blue square shrinks in size grows to fill canvas. disappears then loops.
+ *
+ */
+p5.prototype.camera = function(x, y, z){
+  //what it manipulates is the model view matrix
+  this._renderer.translate(-x, -y, -z);
+};
+
+/**
+ * Sets perspective camera
+ * @method  perspective
+ * @param  {Number} fovy   camera frustum vertical field of view,
+ *                         from bottom to top of view, in degrees
+ * @param  {Number} aspect camera frustum aspect ratio
+ * @param  {Number} near   frustum near plane length
+ * @param  {Number} far    frustum far plane length
+ * @return {p5}            the p5 object
+ * @example
+ * <div>
+ * <code>
+ * //drag mouse to toggle the world!
+ * //you will see there's a vanish point
+ * function setup(){
+ *   createCanvas(100, 100, WEBGL);
+ *   var fov = 60 / 180 * PI;
+ *   var cameraZ = (height/2.0) / tan(fov/2.0);
+ *   perspective(60 / 180 * PI, width/height, cameraZ * 0.1, cameraZ * 10);
+ * }
+ * function draw(){
+ *  background(200);
+ *  orbitControl();
+ *  for(var i = -1; i < 2; i++){
+ *     for(var j = -2; j < 3; j++){
+ *       push();
+ *       translate(i*160, 0, j*160);
+ *       box(40, 40, 40);
+ *       pop();
+ *     }
+ *   }
+ * }
+ * </code>
+ * </div>
+ *
+ * @alt
+ * colored 3d boxes toggleable with mouse position
+ *
+ */
+p5.prototype.perspective = function(fovy,aspect,near,far) {
+  fovy = fovy || (60 / 180 * this.PI);
+  aspect = aspect || (this.width/this.height);
+  near = near || ((this.height/2.0) / this.tan(fovy/2.0) * 0.1);
+  far = far || ((this.height/2.0) / this.tan(fovy/2.0) * 10);
+  this._renderer.uPMatrix = p5.Matrix.identity();
+  this._renderer.uPMatrix.perspective(fovy,aspect,near,far);
+  this._renderer._curCamera = 'custom';
+};
+
+/**
+ * Setup ortho camera
+ * @method  ortho
+ * @param  {Number} left   camera frustum left plane
+ * @param  {Number} right  camera frustum right plane
+ * @param  {Number} bottom camera frustum bottom plane
+ * @param  {Number} top    camera frustum top plane
+ * @param  {Number} near   camera frustum near plane
+ * @param  {Number} far    camera frustum far plane
+ * @return {p5}            the p5 object
+ * @example
+ * <div>
+ * <code>
+ * //drag mouse to toggle the world!
+ * //there's no vanish point
+ * function setup(){
+ *   createCanvas(100, 100, WEBGL);
+ *   ortho(-width/2, width/2, height/2, -height/2, 0, 500);
+ * }
+ * function draw(){
+ *  background(200);
+ *  orbitControl();
+ *  for(var i = -1; i < 2; i++){
+ *     for(var j = -2; j < 3; j++){
+ *       push();
+ *       translate(i*160, 0, j*160);
+ *       box(40, 40, 40);
+ *       pop();
+ *     }
+ *   }
+ * }
+ * </code>
+ * </div>
+ *
+ * @alt
+ * 3 3d boxes, reveal several more boxes on 3d plane when mouse used to toggle
+ *
+ */
+p5.prototype.ortho = function(left,right,bottom,top,near,far) {
+  left = left || (-this.width/2);
+  right = right || (this.width/2);
+  bottom = bottom || (-this.height/2);
+  top = top || (this.height/2);
+  near = near || 0;
+  far = far || Math.max(this.width, this.height);
+  this._renderer.uPMatrix = p5.Matrix.identity();
+  this._renderer.uPMatrix.ortho(left,right,bottom,top,near,far);
+  this._renderer._curCamera = 'custom';
+};
+
+module.exports = p5;
+
+},{"../core/core":42}],83:[function(_dereq_,module,exports){
+'use strict';
+
+var p5 = _dereq_('../core/core');
+
+//@TODO: implement full orbit controls including
+//pan, zoom, quaternion rotation, etc.
+p5.prototype.orbitControl = function(){
+  if(this.mouseIsPressed){
+    this.rotateY((this.mouseX - this.width / 2) / (this.width / 2));
+    this.rotateX((this.mouseY - this.height / 2) / (this.width / 2));
+  }
+  return this;
+};
+
+module.exports = p5;
+},{"../core/core":42}],84:[function(_dereq_,module,exports){
+/**
+ * @module Lights, Camera
+ * @submodule Lights
+ * @for p5
+ * @requires core
+ */
+
+'use strict';
+
+var p5 = _dereq_('../core/core');
+
+/**
+ * Creates an ambient light with a color
+ * @method  ambientLight
+ * @param  {Number|Array|String|p5.Color} v1  gray value,
+ * red or hue value (depending on the current color mode),
+ * or color Array, or CSS color string
+ * @param  {Number}            [v2] optional: green or saturation value
+ * @param  {Number}            [v3] optional: blue or brightness value
+ * @param  {Number}            [a]  optional: opacity
+ * @return {p5}                the p5 object
+ * @example
+ * <div>
+ * <code>
+ * function setup(){
+ *   createCanvas(100, 100, WEBGL);
+ * }
+ * function draw(){
+ *   background(0);
+ *   ambientLight(150);
+ *   ambientMaterial(250);
+ *   sphere(50);
+ * }
+ * </code>
+ * </div>
+ *
+ * @alt
+ * nothing displayed
+ *
+ */
+p5.prototype.ambientLight = function(v1, v2, v3, a){
+  var gl = this._renderer.GL;
+  var shaderProgram = this._renderer._getShader(
+    'lightVert', 'lightTextureFrag');
+
+  gl.useProgram(shaderProgram);
+  shaderProgram.uAmbientColor = gl.getUniformLocation(
+    shaderProgram,
+    'uAmbientColor[' + this._renderer.ambientLightCount + ']');
+
+  var color = this._renderer._pInst.color.apply(
+    this._renderer._pInst, arguments);
+  var colors = color._array;
+
+  gl.uniform3f( shaderProgram.uAmbientColor,
+    colors[0], colors[1], colors[2]);
+
+  //in case there's no material color for the geometry
+  shaderProgram.uMaterialColor = gl.getUniformLocation(
+    shaderProgram, 'uMaterialColor' );
+  gl.uniform4f( shaderProgram.uMaterialColor, 1, 1, 1, 1);
+
+  this._renderer.ambientLightCount ++;
+  shaderProgram.uAmbientLightCount =
+    gl.getUniformLocation(shaderProgram, 'uAmbientLightCount');
+  gl.uniform1i(shaderProgram.uAmbientLightCount,
+    this._renderer.ambientLightCount);
+
+  return this;
+};
+
+/**
+ * Creates a directional light with a color and a direction
+ * @method  directionalLight
+ * @param  {Number|Array|String|p5.Color} v1   gray value,
+ * red or hue value (depending on the current color mode),
+ * or color Array, or CSS color string
+ * @param  {Number}          [v2] optional: green or saturation value
+ * @param  {Number}          [v3] optional: blue or brightness value
+ * @param  {Number}          [a]  optional: opacity
+ * @param  {Number|p5.Vector} x   x axis direction or a p5.Vector
+ * @param  {Number}          [y]  optional: y axis direction
+ * @param  {Number}          [z]  optional: z axis direction
+ * @return {p5}              the p5 object
+ * @example
+ * <div>
+ * <code>
+ * function setup(){
+ *   createCanvas(100, 100, WEBGL);
+ * }
+ * function draw(){
+ *   background(0);
+ *   //move your mouse to change light direction
+ *   var dirX = (mouseX / width - 0.5) *2;
+ *   var dirY = (mouseY / height - 0.5) *(-2);
+ *   directionalLight(250, 250, 250, dirX, dirY, 0.25);
+ *   ambientMaterial(250);
+ *   sphere(50);
+ * }
+ * </code>
+ * </div>
+ *
+ * @alt
+ * light source on canvas changeable with mouse position
+ *
+ */
+p5.prototype.directionalLight = function(v1, v2, v3, a, x, y, z) {
+  var gl = this._renderer.GL;
+  var shaderProgram = this._renderer._getShader(
+    'lightVert', 'lightTextureFrag');
+
+  gl.useProgram(shaderProgram);
+  shaderProgram.uDirectionalColor = gl.getUniformLocation(
+    shaderProgram,
+    'uDirectionalColor[' + this._renderer.directionalLightCount + ']');
+
+  //@TODO: check parameters number
+  var color = this._renderer._pInst.color.apply(
+    this._renderer._pInst, [v1, v2, v3]);
+  var colors = color._array;
+
+  gl.uniform3f( shaderProgram.uDirectionalColor,
+    colors[0], colors[1], colors[2]);
+
+  var _x, _y, _z;
+
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
+  if(typeof args[args.length-1] === 'number'){
+    _x = args[args.length-3];
+    _y = args[args.length-2];
+    _z = args[args.length-1];
+
+  }else{
+    try{
+      _x = args[args.length-1].x;
+      _y = args[args.length-1].y;
+      _z = args[args.length-1].z;
+    }
+    catch(error){
+      throw error;
+    }
+  }
+
+  shaderProgram.uLightingDirection = gl.getUniformLocation(
+    shaderProgram,
+    'uLightingDirection[' + this._renderer.directionalLightCount + ']');
+  gl.uniform3f( shaderProgram.uLightingDirection, _x, _y, _z);
+
+  //in case there's no material color for the geometry
+  shaderProgram.uMaterialColor = gl.getUniformLocation(
+    shaderProgram, 'uMaterialColor' );
+  gl.uniform4f( shaderProgram.uMaterialColor, 1, 1, 1, 1);
+
+  this._renderer.directionalLightCount ++;
+  shaderProgram.uDirectionalLightCount =
+    gl.getUniformLocation(shaderProgram, 'uDirectionalLightCount');
+  gl.uniform1i(shaderProgram.uDirectionalLightCount,
+    this._renderer.directionalLightCount);
+
+  return this;
+};
+
+/**
+ * Creates a point light with a color and a light position
+ * @method  pointLight
+ * @param  {Number|Array|String|p5.Color} v1   gray value,
+ * red or hue value (depending on the current color mode),
+ * or color Array, or CSS color string
+ * @param  {Number}          [v2] optional: green or saturation value
+ * @param  {Number}          [v3] optional: blue or brightness value
+ * @param  {Number}          [a]  optional: opacity
+ * @param  {Number|p5.Vector} x   x axis position or a p5.Vector
+ * @param  {Number}          [y]  optional: y axis position
+ * @param  {Number}          [z]  optional: z axis position
+ * @return {p5}              the p5 object
+ * @example
+ * <div>
+ * <code>
+ * function setup(){
+ *   createCanvas(100, 100, WEBGL);
+ * }
+ * function draw(){
+ *   background(0);
+ *   //move your mouse to change light position
+ *   var locY = (mouseY / height - 0.5) *(-2);
+ *   var locX = (mouseX / width - 0.5) *2;
+ *   //to set the light position,
+ *   //think of the world's coordinate as:
+ *   // -1,1 -------- 1,1
+ *   //   |            |
+ *   //   |            |
+ *   //   |            |
+ *   // -1,-1---------1,-1
+ *   pointLight(250, 250, 250, locX, locY, 0);
+ *   ambientMaterial(250);
+ *   sphere(50);
+ * }
+ * </code>
+ * </div>
+ *
+ * @alt
+ * spot light on canvas changes position with mouse
+ *
+ */
+p5.prototype.pointLight = function(v1, v2, v3, a, x, y, z) {
+  var gl = this._renderer.GL;
+  var shaderProgram = this._renderer._getShader(
+    'lightVert', 'lightTextureFrag');
+
+  gl.useProgram(shaderProgram);
+  shaderProgram.uPointLightColor = gl.getUniformLocation(
+    shaderProgram,
+    'uPointLightColor[' + this._renderer.pointLightCount + ']');
+
+  //@TODO: check parameters number
+  var color = this._renderer._pInst.color.apply(
+    this._renderer._pInst, [v1, v2, v3]);
+  var colors = color._array;
+
+  gl.uniform3f( shaderProgram.uPointLightColor,
+    colors[0], colors[1], colors[2]);
+
+  var _x, _y, _z;
+
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
+  if(typeof args[args.length-1] === 'number'){
+    _x = args[args.length-3];
+    _y = args[args.length-2];
+    _z = args[args.length-1];
+
+  }else{
+    try{
+      _x = args[args.length-1].x;
+      _y = args[args.length-1].y;
+      _z = args[args.length-1].z;
+    }
+    catch(error){
+      throw error;
+    }
+  }
+
+  shaderProgram.uPointLightLocation = gl.getUniformLocation(
+    shaderProgram,
+    'uPointLightLocation[' + this._renderer.pointLightCount + ']');
+  gl.uniform3f( shaderProgram.uPointLightLocation, _x, _y, _z);
+
+  //in case there's no material color for the geometry
+  shaderProgram.uMaterialColor = gl.getUniformLocation(
+    shaderProgram, 'uMaterialColor' );
+  gl.uniform4f( shaderProgram.uMaterialColor, 1, 1, 1, 1);
+
+  this._renderer.pointLightCount ++;
+  shaderProgram.uPointLightCount =
+    gl.getUniformLocation(shaderProgram, 'uPointLightCount');
+  gl.uniform1i(shaderProgram.uPointLightCount,
+    this._renderer.pointLightCount);
+
+  return this;
+};
+
+module.exports = p5;
+
+},{"../core/core":42}],85:[function(_dereq_,module,exports){
+/**
+ * @module Shape
+ * @submodule 3D Models
+ * @for p5
+ * @requires core
+ * @requires p5.Geometry3D
+ */
+
+'use strict';
+
+var p5 = _dereq_('../core/core');
+_dereq_('./p5.Geometry');
+
+/**
+ * Load a 3d model from an OBJ file.
+ * <br><br>
+ * One of the limitations of the OBJ format is that it doesn't have a built-in
+ * sense of scale. This means that models exported from different programs might
+ * be very different sizes. If your model isn't displaying, try calling
+ * loadModel() with the normalized parameter set to true. This will resize the
+ * model to a scale appropriate for p5. You can also make additional changes to
+ * the final size of your model with the scale() function.
+ *
+ * @method loadModel
+ * @param  {String} path Path of the model to be loaded
+ * @param  {Boolean} [normalize] If true, scale the model to a
+ *                                standardized size when loading
+ * @param  {Function(p5.Geometry3D)} [successCallback] Function to be called
+ *                                   once the model is loaded. Will be passed
+ *                                   the 3D model object.
+ * @param  {Function(Event)}    [failureCallback] called with event error if
+ *                                the image fails to load.
+ * @return {p5.Geometry} the p5.Geometry3D object
+ * @example
+ * <div>
+ * <code>
+ * //draw a spinning teapot
+ * var teapot;
+ *
+ * function setup(){
+ *   createCanvas(100, 100, WEBGL);
+ *
+ *   teapot = loadModel('assets/teapot.obj');
+ * }
+ *
+ * function draw(){
+ *   background(200);
+ *   rotateX(frameCount * 0.01);
+ *   rotateY(frameCount * 0.01);
+ *   model(teapot);
+ * }
+ * </code>
+ * </div>
+ *
+ * @alt
+ * Vertically rotating 3-d teapot with red, green and blue gradient.
+ *
+ */
+p5.prototype.loadModel = function () {
+  var path = arguments[0];
+  var normalize;
+  var successCallback;
+  var failureCallback;
+  if(typeof arguments[1] === 'boolean') {
+    normalize = arguments[1];
+    successCallback = arguments[2];
+    failureCallback = arguments[3];
+  } else {
+    normalize = false;
+    successCallback = arguments[1];
+    failureCallback = arguments[2];
+  }
+
+  var model = new p5.Geometry();
+  model.gid = path + '|' + normalize;
+  this.loadStrings(path, function(strings) {
+    parseObj(model, strings);
+
+    if (normalize) {
+      model.normalize();
+    }
+
+    if (typeof successCallback === 'function') {
+      successCallback(model);
+    }
+  }.bind(this), failureCallback);
+
+  return model;
+};
+
+/**
+ * Parse OBJ lines into model. For reference, this is what a simple model of a
+ * square might look like:
+ *
+ * v -0.5 -0.5 0.5
+ * v -0.5 -0.5 -0.5
+ * v -0.5 0.5 -0.5
+ * v -0.5 0.5 0.5
+ *
+ * f 4 3 2 1
+ */
+function parseObj( model, lines ) {
+  // OBJ allows a face to specify an index for a vertex (in the above example),
+  // but it also allows you to specify a custom combination of vertex, UV
+  // coordinate, and vertex normal. So, "3/4/3" would mean, "use vertex 3 with
+  // UV coordinate 4 and vertex normal 3". In WebGL, every vertex with different
+  // parameters must be a different vertex, so loadedVerts is used to
+  // temporarily store the parsed vertices, normals, etc., and indexedVerts is
+  // used to map a specific combination (keyed on, for example, the string
+  // "3/4/3"), to the actual index of the newly created vertex in the final
+  // object.
+  var loadedVerts = {'v' : [],
+                    'vt' : [],
+                    'vn' : []};
+  var indexedVerts = {};
+
+  for (var line = 0; line < lines.length; ++line) {
+    // Each line is a separate object (vertex, face, vertex normal, etc)
+    // For each line, split it into tokens on whitespace. The first token
+    // describes the type.
+    var tokens = lines[line].trim().split(/\b\s+/);
+
+    if (tokens.length > 0) {
+      if (tokens[0] === 'v' || tokens[0] === 'vn') {
+        // Check if this line describes a vertex or vertex normal.
+        // It will have three numeric parameters.
+        var vertex = new p5.Vector(parseFloat(tokens[1]),
+                                   parseFloat(tokens[2]),
+                                   parseFloat(tokens[3]));
+        loadedVerts[tokens[0]].push(vertex);
+      } else if (tokens[0] === 'vt') {
+        // Check if this line describes a texture coordinate.
+        // It will have two numeric parameters.
+        var texVertex = [parseFloat(tokens[1]), parseFloat(tokens[2])];
+        loadedVerts[tokens[0]].push(texVertex);
+      } else if (tokens[0] === 'f') {
+        // Check if this line describes a face.
+        // OBJ faces can have more than three points. Triangulate points.
+        for (var tri = 3; tri < tokens.length; ++tri) {
+          var face = [];
+
+          var vertexTokens = [1, tri - 1, tri];
+
+          for (var tokenInd = 0; tokenInd < vertexTokens.length; ++tokenInd) {
+            // Now, convert the given token into an index
+            var vertString = tokens[vertexTokens[tokenInd]];
+            var vertIndex = 0;
+
+            // TODO: Faces can technically use negative numbers to refer to the
+            // previous nth vertex. I haven't seen this used in practice, but
+            // it might be good to implement this in the future.
+
+            if (indexedVerts[vertString] !== undefined) {
+              vertIndex = indexedVerts[vertString];
+            } else {
+              var vertParts = vertString.split('/');
+              for (var i = 0; i < vertParts.length; i++) {
+                vertParts[i] = parseInt(vertParts[i]) - 1;
+              }
+
+              vertIndex = indexedVerts[vertString] = model.vertices.length;
+              model.vertices.push(loadedVerts.v[vertParts[0]].copy());
+              if (loadedVerts.vt[vertParts[1]]) {
+                model.uvs.push(loadedVerts.vt[vertParts[1]].slice());
+              } else {
+                model.uvs.push([0, 0]);
+              }
+
+              if (loadedVerts.vn[vertParts[2]]) {
+                model.vertexNormals.push(loadedVerts.vn[vertParts[2]].copy());
+              }
+            }
+
+            face.push(vertIndex);
+          }
+
+          model.faces.push(face);
+        }
+      }
+    }
+  }
+
+  // If the model doesn't have normals, compute the normals
+  if(model.vertexNormals.length === 0) {
+    model.computeNormals();
+  }
+
+  return model;
+}
+
+/**
+ * Render a 3d model to the screen.
+ *
+ * @method model
+ * @param  {p5.Geometry} model Loaded 3d model to be rendered
+ * @example
+ * <div>
+ * <code>
+ * //draw a spinning teapot
+ * var teapot;
+ *
+ * function setup(){
+ *   createCanvas(100, 100, WEBGL);
+ *
+ *   teapot = loadModel('assets/teapot.obj');
+ * }
+ *
+ * function draw(){
+ *   background(200);
+ *   rotateX(frameCount * 0.01);
+ *   rotateY(frameCount * 0.01);
+ *   model(teapot);
+ * }
+ * </code>
+ * </div>
+ *
+ * @alt
+ * Vertically rotating 3-d teapot with red, green and blue gradient.
+ *
+ */
+p5.prototype.model = function ( model ) {
+  if (model.vertices.length > 0) {
+    if (!this._renderer.geometryInHash(model.gid)) {
+      this._renderer.createBuffers(model.gid, model);
+    }
+
+    this._renderer.drawBuffers(model.gid);
+  }
+};
+
+module.exports = p5;
+
+},{"../core/core":42,"./p5.Geometry":87}],86:[function(_dereq_,module,exports){
+/**
+ * @module Lights, Camera
+ * @submodule Material
+ * @for p5
+ * @requires core
+ */
+
+'use strict';
+
+var p5 = _dereq_('../core/core');
+//require('./p5.Texture');
+
+/**
+ * Normal material for geometry. You can view all
+ * possible materials in this
+ * <a href="https://http://p5js.org/examples/3d-materials.html">example</a>.
+ * @method normalMaterial
+ * @return {p5}                the p5 object
+ * @example
+ * <div>
+ * <code>
+ * function setup(){
+ *   createCanvas(100, 100, WEBGL);
+ * }
+ *
+ * function draw(){
+ *  background(200);
+ *  normalMaterial();
+ *  sphere(50);
+ * }
+ * </code>
+ * </div>
+ *
+ * @alt
+ * Red, green and blue gradient.
+ *
+ */
+p5.prototype.normalMaterial = function(){
+  this._renderer._getShader('normalVert', 'normalFrag');
+  return this;
+};
+
+/**
+ * Texture for geometry.  You can view other possible materials in this
+ * <a href="https://http://p5js.org/examples/3d-materials.html">example</a>.
+ * @method texture
+ * @param {p5.Image | p5.MediaElement | p5.Graphics} tex 2-dimensional graphics
+ *                    to render as texture
+ * @return {p5}                the p5 object
+ * @example
+ * <div>
+ * <code>
+ * var img;
+ * function setup(){
+ *   createCanvas(100, 100, WEBGL);
+ *   img = loadImage("assets/laDefense.jpg");
+ * }
+ *
+ * function draw(){
+ *   background(0);
+ *   rotateZ(frameCount * 0.01);
+ *   rotateX(frameCount * 0.01);
+ *   rotateY(frameCount * 0.01);
+ *   //pass image as texture
+ *   texture(img);
+ *   box(200, 200, 200);
+ * }
+ * </code>
+ * </div>
+ *
+ * <div>
+ * <code>
+ * var pg;
+ * function setup(){
+ *   createCanvas(100, 100, WEBGL);
+ *   pg = createGraphics(200, 200);
+ *   pg.textSize(100);
+ * }
+ *
+ * function draw(){
+ *   background(0);
+ *   pg.background(255);
+ *   pg.text('hello!', 0, 100);
+ *   //pass image as texture
+ *   texture(pg);
+ *   plane(200);
+ * }
+ * </code>
+ * </div>
+ *
+ * <div>
+ * <code>
+ * var vid;
+ * function preload(){
+ *   vid = createVideo("assets/fingers.mov");
+ *   vid.hide();
+ *   vid.loop();
+ * }
+ * function setup(){
+ *   createCanvas(100, 100, WEBGL);
+ * }
+ *
+ * function draw(){
+ *   background(0);
+ *   //pass video frame as texture
+ *   texture(vid);
+ *   plane(200);
+ * }
+ * </code>
+ * </div>
+ *
+ * @alt
+ * Rotating view of many images umbrella and grid roof on a 3d plane
+ * black canvas
+ * black canvas
+ *
+ */
+p5.prototype.texture = function(){
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
+  var gl = this._renderer.GL;
+  var shaderProgram = this._renderer._getShader('lightVert',
+    'lightTextureFrag');
+  gl.useProgram(shaderProgram);
+  var textureData;
+  //if argument is not already a texture
+  //create a new one
+  if(!args[0].isTexture){
+    if (args[0] instanceof p5.Image) {
+      textureData = args[0].canvas;
+    }
+    //if param is a video
+    else if (typeof p5.MediaElement !== 'undefined' &&
+            args[0] instanceof p5.MediaElement){
+      if(!args[0].loadedmetadata) {return;}
+      textureData = args[0].elt;
+    }
+    //used with offscreen 2d graphics renderer
+    else if(args[0] instanceof p5.Graphics){
+      textureData = args[0].elt;
+    }
+    var tex = gl.createTexture();
+    args[0]._setProperty('tex', tex);
+    args[0]._setProperty('isTexture', true);
+    this._renderer._bind.call(this, tex, textureData);
+  }
+  else {
+    if(args[0] instanceof p5.Graphics ||
+      (typeof p5.MediaElement !== 'undefined' &&
+      args[0] instanceof p5.MediaElement)){
+      textureData = args[0].elt;
+    }
+    else if(args[0] instanceof p5.Image){
+      textureData = args[0].canvas;
+    }
+    this._renderer._bind.call(this, args[0].tex, textureData);
+  }
+  //this is where we'd activate multi textures
+  //eg. gl.activeTexture(gl.TEXTURE0 + (unit || 0));
+  //but for now we just have a single texture.
+  //@TODO need to extend this functionality
+  gl.activeTexture(gl.TEXTURE0);
+  gl.bindTexture(gl.TEXTURE_2D, args[0].tex);
+  gl.uniform1i(gl.getUniformLocation(shaderProgram, 'isTexture'), true);
+  gl.uniform1i(gl.getUniformLocation(shaderProgram, 'uSampler'), 0);
+  return this;
+};
+
+/**
+ * Texture Util functions
+ */
+p5.RendererGL.prototype._bind = function(tex, data){
+  var gl = this._renderer.GL;
+  gl.bindTexture(gl.TEXTURE_2D, tex);
+  gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+  gl.texImage2D(gl.TEXTURE_2D, 0,
+    gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, data);
+  gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+  gl.texParameteri(gl.TEXTURE_2D,
+  gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D,
+  gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D,
+  gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D,
+  gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  gl.bindTexture(gl.TEXTURE_2D, null);
+};
+
+/**
+ * Checks whether val is a pot
+ * more info on power of 2 here:
+ * https://www.opengl.org/wiki/NPOT_Texture
+ * @param  {Number}  value
+ * @return {Boolean}
+ */
+// function _isPowerOf2 (value){
+//   return (value & (value - 1)) === 0;
+// }
+
+/**
+ * returns the next highest power of 2 value
+ * @param  {Number} value [description]
+ * @return {Number}       [description]
+ */
+// function _nextHighestPOT (value){
+//   --value;
+//   for (var i = 1; i < 32; i <<= 1) {
+//     value = value | value >> i;
+//   }
+//   return value + 1;
+
+/**
+ * Ambient material for geometry with a given color. You can view all
+ * possible materials in this
+ * <a href="https://http://p5js.org/examples/3d-materials.html">example</a>.
+ * @method  ambientMaterial
+ * @param  {Number|Array|String|p5.Color} v1  gray value,
+ * red or hue value (depending on the current color mode),
+ * or color Array, or CSS color string
+ * @param  {Number}            [v2] optional: green or saturation value
+ * @param  {Number}            [v3] optional: blue or brightness value
+ * @param  {Number}            [a]  optional: opacity
+* @return {p5}                 the p5 object
+ * @example
+ * <div>
+ * <code>
+ * function setup(){
+ *   createCanvas(100, 100, WEBGL);
+ * }
+ * function draw(){
+ *  background(0);
+ *  ambientLight(100);
+ *  pointLight(250, 250, 250, 100, 100, 0);
+ *  ambientMaterial(250);
+ *  sphere(50);
+ * }
+ * </code>
+ * </div>
+ *
+ * @alt
+ * radiating light source from top right of canvas
+ *
+ */
+p5.prototype.ambientMaterial = function(v1, v2, v3, a) {
+  var gl = this._renderer.GL;
+  var shaderProgram =
+    this._renderer._getShader('lightVert', 'lightTextureFrag');
+
+  gl.useProgram(shaderProgram);
+  shaderProgram.uMaterialColor = gl.getUniformLocation(
+    shaderProgram, 'uMaterialColor' );
+  var colors = this._renderer._applyColorBlend.apply(this._renderer, arguments);
+
+  gl.uniform4f(shaderProgram.uMaterialColor,
+    colors[0], colors[1], colors[2], colors[3]);
+
+  shaderProgram.uSpecular = gl.getUniformLocation(
+    shaderProgram, 'uSpecular' );
+  gl.uniform1i(shaderProgram.uSpecular, false);
+
+  gl.uniform1i(gl.getUniformLocation(shaderProgram, 'isTexture'), false);
+
+  return this;
+};
+
+/**
+ * Specular material for geometry with a given color. You can view all
+ * possible materials in this
+ * <a href="https://http://p5js.org/examples/3d-materials.html">example</a>.
+ * @method specularMaterial
+ * @param  {Number|Array|String|p5.Color} v1  gray value,
+ * red or hue value (depending on the current color mode),
+ * or color Array, or CSS color string
+ * @param  {Number}            [v2] optional: green or saturation value
+ * @param  {Number}            [v3] optional: blue or brightness value
+ * @param  {Number}            [a]  optional: opacity
+ * @return {p5}                the p5 object
+ * @example
+ * <div>
+ * <code>
+ * function setup(){
+ *   createCanvas(100, 100, WEBGL);
+ * }
+ * function draw(){
+ *  background(0);
+ *  ambientLight(100);
+ *  pointLight(250, 250, 250, 100, 100, 0);
+ *  specularMaterial(250);
+ *  sphere(50);
+ * }
+ * </code>
+ * </div>
+ *
+ * @alt
+ * diffused radiating light source from top right of canvas
+ *
+ */
+p5.prototype.specularMaterial = function(v1, v2, v3, a) {
+  var gl = this._renderer.GL;
+  var shaderProgram =
+    this._renderer._getShader('lightVert', 'lightTextureFrag');
+  gl.useProgram(shaderProgram);
+  gl.uniform1i(gl.getUniformLocation(shaderProgram, 'isTexture'), false);
+  shaderProgram.uMaterialColor = gl.getUniformLocation(
+    shaderProgram, 'uMaterialColor' );
+  var colors = this._renderer._applyColorBlend.apply(this._renderer, arguments);
+  gl.uniform4f(shaderProgram.uMaterialColor,
+    colors[0], colors[1], colors[2], colors[3]);
+  shaderProgram.uSpecular = gl.getUniformLocation(
+    shaderProgram, 'uSpecular' );
+  gl.uniform1i(shaderProgram.uSpecular, true);
+
+  return this;
+};
+
+/**
+ * @private blends colors according to color components.
+ * If alpha value is less than 1, we need to enable blending
+ * on our gl context.  Otherwise opaque objects need to a depthMask.
+ * @param  {Number} v1 [description]
+ * @param  {Number} v2 [description]
+ * @param  {Number} v3 [description]
+ * @param  {Number} a  [description]
+ * @return {[Number]}  Normalized numbers array
+ */
+p5.RendererGL.prototype._applyColorBlend = function(v1,v2,v3,a){
+  var gl = this.GL;
+  var color = this._pInst.color.apply(
+    this._pInst, arguments);
+  var colors = color._array;
+  if(colors[colors.length-1] < 1.0){
+    gl.depthMask(false);
+    gl.enable(gl.BLEND);
+    gl.blendEquation( gl.FUNC_ADD );
+    gl.blendFunc( gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA );
+  } else {
+    gl.depthMask(true);
+    gl.disable(gl.BLEND);
+  }
+  return colors;
+};
+
+module.exports = p5;
+
+},{"../core/core":42}],87:[function(_dereq_,module,exports){
+//some of the functions are adjusted from Three.js(http://threejs.org)
+
+'use strict';
+
+var p5 = _dereq_('../core/core');
+
+/**
+ * p5 Geometry class
+ * @constructor
+ * @param  {Function | Object} vertData callback function or Object
+ *                     containing routine(s) for vertex data generation
+ * @param  {Number} [detailX] number of vertices on horizontal surface
+ * @param  {Number} [detailY] number of vertices on horizontal surface
+ * @param {Function} [callback] function to call upon object instantiation.
+ *
+ */
+p5.Geometry = function
+(detailX, detailY, callback){
+  //an array containing every vertex
+  //@type [p5.Vector]
+  this.vertices = [];
+  //an array containing 1 normal per vertex
+  //@type [p5.Vector]
+  //[p5.Vector, p5.Vector, p5.Vector,p5.Vector, p5.Vector, p5.Vector,...]
+  this.vertexNormals = [];
+  //an array containing each three vertex indices that form a face
+  //[[0, 1, 2], [2, 1, 3], ...]
+  this.faces = [];
+  //a 2D array containing uvs for every vertex
+  //[[0.0,0.0],[1.0,0.0], ...]
+  this.uvs = [];
+  this.detailX = (detailX !== undefined) ? detailX: 1;
+  this.detailY = (detailY !== undefined) ? detailY: 1;
+  if(callback instanceof Function){
+    callback.call(this);
+  }
+  return this;
+};
+
+p5.Geometry.prototype.computeFaces = function(){
+  var sliceCount = this.detailX + 1;
+  var a, b, c, d;
+  for (var i = 0; i < this.detailY; i++){
+    for (var j = 0; j < this.detailX; j++){
+      a = i * sliceCount + j;// + offset;
+      b = i * sliceCount + j + 1;// + offset;
+      c = (i + 1)* sliceCount + j + 1;// + offset;
+      d = (i + 1)* sliceCount + j;// + offset;
+      this.faces.push([a, b, d]);
+      this.faces.push([d, b, c]);
+    }
+  }
+  return this;
+};
+
+p5.Geometry.prototype._getFaceNormal = function(faceId,vertId){
+  //This assumes that vA->vB->vC is a counter-clockwise ordering
+  var face = this.faces[faceId];
+  var vA = this.vertices[face[vertId%3]];
+  var vB = this.vertices[face[(vertId+1)%3]];
+  var vC = this.vertices[face[(vertId+2)%3]];
+  var n = p5.Vector.cross(
+    p5.Vector.sub(vB,vA),
+    p5.Vector.sub(vC,vA));
+  var sinAlpha = p5.Vector.mag(n) /
+  (p5.Vector.mag(p5.Vector.sub(vB,vA))*
+    p5.Vector.mag(p5.Vector.sub(vC,vA)));
+  n = n.normalize();
+  return n.mult(Math.asin(sinAlpha));
+};
+/**
+ * computes smooth normals per vertex as an average of each
+ * face.
+ */
+p5.Geometry.prototype.computeNormals = function (){
+  for(var v=0; v < this.vertices.length; v++){
+    var normal = new p5.Vector();
+    for(var i=0; i < this.faces.length; i++){
+      //if our face contains a given vertex
+      //calculate an average of the normals
+      //of the triangles adjacent to that vertex
+      if(this.faces[i][0] === v ||
+        this.faces[i][1] === v ||
+        this.faces[i][2] === v)
+      {
+        normal = normal.add(this._getFaceNormal(i, v));
+      }
+    }
+    normal = normal.normalize();
+    this.vertexNormals.push(normal);
+  }
+  return this;
+};
+
+/**
+ * Averages the vertex normals. Used in curved
+ * surfaces
+ * @return {p5.Geometry}
+ */
+p5.Geometry.prototype.averageNormals = function() {
+
+  for(var i = 0; i <= this.detailY; i++){
+    var offset = this.detailX + 1;
+    var temp = p5.Vector
+      .add(this.vertexNormals[i*offset],
+        this.vertexNormals[i*offset + this.detailX]);
+    temp = p5.Vector.div(temp, 2);
+    this.vertexNormals[i*offset] = temp;
+    this.vertexNormals[i*offset + this.detailX] = temp;
+  }
+  return this;
+};
+
+/**
+ * Averages pole normals.  Used in spherical primitives
+ * @return {p5.Geometry}
+ */
+p5.Geometry.prototype.averagePoleNormals = function() {
+
+  //average the north pole
+  var sum = new p5.Vector(0, 0, 0);
+  for(var i = 0; i < this.detailX; i++){
+    sum.add(this.vertexNormals[i]);
+  }
+  sum = p5.Vector.div(sum, this.detailX);
+
+  for(i = 0; i < this.detailX; i++){
+    this.vertexNormals[i] = sum;
+  }
+
+  //average the south pole
+  sum = new p5.Vector(0, 0, 0);
+  for(i = this.vertices.length - 1;
+    i > this.vertices.length - 1 - this.detailX; i--){
+    sum.add(this.vertexNormals[i]);
+  }
+  sum = p5.Vector.div(sum, this.detailX);
+
+  for(i = this.vertices.length - 1;
+    i > this.vertices.length - 1 - this.detailX; i--){
+    this.vertexNormals[i] = sum;
+  }
+  return this;
+};
+
+/**
+ * Modifies all vertices to be centered within the range -100 to 100.
+ * @return {p5.Geometry}
+ */
+p5.Geometry.prototype.normalize = function() {
+  if(this.vertices.length > 0) {
+    // Find the corners of our bounding box
+    var maxPosition = this.vertices[0].copy();
+    var minPosition = this.vertices[0].copy();
+
+    for(var i = 0; i < this.vertices.length; i++) {
+      maxPosition.x = Math.max(maxPosition.x, this.vertices[i].x);
+      minPosition.x = Math.min(minPosition.x, this.vertices[i].x);
+      maxPosition.y = Math.max(maxPosition.y, this.vertices[i].y);
+      minPosition.y = Math.min(minPosition.y, this.vertices[i].y);
+      maxPosition.z = Math.max(maxPosition.z, this.vertices[i].z);
+      minPosition.z = Math.min(minPosition.z, this.vertices[i].z);
+    }
+
+    var center = p5.Vector.lerp(maxPosition, minPosition, 0.5);
+    var dist = p5.Vector.sub(maxPosition, minPosition);
+    var longestDist = Math.max(Math.max(dist.x, dist.y), dist.z);
+    var scale = 200 / longestDist;
+
+    for(i = 0; i < this.vertices.length; i++) {
+      this.vertices[i].sub(center);
+      this.vertices[i].mult(scale);
+    }
+  }
+  return this;
+};
+
+module.exports = p5.Geometry;
+
+},{"../core/core":42}],88:[function(_dereq_,module,exports){
+/**
+* @requires constants
+* @todo see methods below needing further implementation.
+* future consideration: implement SIMD optimizations
+* when browser compatibility becomes available
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/
+*   Reference/Global_Objects/SIMD
+*/
+
+'use strict';
+
+var p5 = _dereq_('../core/core');
+var polarGeometry = _dereq_('../math/polargeometry');
+var constants = _dereq_('../core/constants');
+var GLMAT_ARRAY_TYPE = (
+    typeof Float32Array !== 'undefined') ?
+  Float32Array : Array;
+
+/**
+ * A class to describe a 4x4 matrix
+ * for model and view matrix manipulation in the p5js webgl renderer.
+ * class p5.Matrix
+ * @constructor
+ * @param {Array} [mat4] array literal of our 4x4 matrix
+ */
+p5.Matrix = function() {
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
+  // This is default behavior when object
+  // instantiated using createMatrix()
+  // @todo implement createMatrix() in core/math.js
+  if(args[0] instanceof p5) {
+    // save reference to p5 if passed in
+    this.p5 = args[0];
+    if(args[1] === 'mat3'){
+      this.mat3 = args[2] || new GLMAT_ARRAY_TYPE([
+        1, 0, 0,
+        0, 1, 0,
+        0, 0, 1
+      ]);
+    }
+    else {
+      this.mat4  = args[1] || new GLMAT_ARRAY_TYPE([
+        1, 0, 0, 0,
+        0, 1, 0, 0,
+        0, 0, 1, 0,
+        0, 0, 0, 1
+      ]);
+    }
+    // default behavior when object
+    // instantiated using new p5.Matrix()
+  } else {
+    if(args[0] === 'mat3'){
+      this.mat3 = args[1] || new GLMAT_ARRAY_TYPE([
+        1, 0, 0,
+        0, 1, 0,
+        0, 0, 1
+      ]);
+    }
+    else {
+      this.mat4 = args[0] || new GLMAT_ARRAY_TYPE([
+        1, 0, 0, 0,
+        0, 1, 0, 0,
+        0, 0, 1, 0,
+        0, 0, 0, 1
+      ]);
+    }
+  }
+  return this;
+};
+
+/**
+ * Sets the x, y, and z component of the vector using two or three separate
+ * variables, the data from a p5.Matrix, or the values from a float array.
+ *
+ * @param {p5.Matrix|Array} [inMatrix] the input p5.Matrix or
+ *                                     an Array of length 16
+ */
+p5.Matrix.prototype.set = function (inMatrix) {
+  if (inMatrix instanceof p5.Matrix) {
+    this.mat4 = inMatrix.mat4;
+    return this;
+  }
+  else if (inMatrix instanceof GLMAT_ARRAY_TYPE) {
+    this.mat4 = inMatrix;
+    return this;
+  }
+  return this;
+};
+
+/**
+ * Gets a copy of the vector, returns a p5.Matrix object.
+ *
+ * @return {p5.Matrix} the copy of the p5.Matrix object
+ */
+p5.Matrix.prototype.get = function () {
+  return new p5.Matrix(this.mat4);
+};
+
+/**
+ * return a copy of a matrix
+ * @return {p5.Matrix}   the result matrix
+ */
+p5.Matrix.prototype.copy = function(){
+  var copied = new p5.Matrix();
+  copied.mat4[0] = this.mat4[0];
+  copied.mat4[1] = this.mat4[1];
+  copied.mat4[2] = this.mat4[2];
+  copied.mat4[3] = this.mat4[3];
+  copied.mat4[4] = this.mat4[4];
+  copied.mat4[5] = this.mat4[5];
+  copied.mat4[6] = this.mat4[6];
+  copied.mat4[7] = this.mat4[7];
+  copied.mat4[8] = this.mat4[8];
+  copied.mat4[9] = this.mat4[9];
+  copied.mat4[10] = this.mat4[10];
+  copied.mat4[11] = this.mat4[11];
+  copied.mat4[12] = this.mat4[12];
+  copied.mat4[13] = this.mat4[13];
+  copied.mat4[14] = this.mat4[14];
+  copied.mat4[15] = this.mat4[15];
+  return copied;
+};
+
+/**
+ * return an identity matrix
+ * @return {p5.Matrix}   the result matrix
+ */
+p5.Matrix.identity = function(){
+  return new p5.Matrix();
+};
+
+/**
+ * transpose according to a given matrix
+ * @param  {p5.Matrix | Typed Array} a  the matrix to be based on to transpose
+ * @return {p5.Matrix}                  this
+ */
+p5.Matrix.prototype.transpose = function(a){
+  var a01, a02, a03, a12, a13, a23;
+  if(a instanceof p5.Matrix){
+    a01 = a.mat4[1];
+    a02 = a.mat4[2];
+    a03 = a.mat4[3];
+    a12 = a.mat4[6];
+    a13 = a.mat4[7];
+    a23 = a.mat4[11];
+
+    this.mat4[0] = a.mat4[0];
+    this.mat4[1] = a.mat4[4];
+    this.mat4[2] = a.mat4[8];
+    this.mat4[3] = a.mat4[12];
+    this.mat4[4] = a01;
+    this.mat4[5] = a.mat4[5];
+    this.mat4[6] = a.mat4[9];
+    this.mat4[7] = a.mat4[13];
+    this.mat4[8] = a02;
+    this.mat4[9] = a12;
+    this.mat4[10] = a.mat4[10];
+    this.mat4[11] = a.mat4[14];
+    this.mat4[12] = a03;
+    this.mat4[13] = a13;
+    this.mat4[14] = a23;
+    this.mat4[15] = a.mat4[15];
+
+  }else if(a instanceof GLMAT_ARRAY_TYPE){
+    a01 = a[1];
+    a02 = a[2];
+    a03 = a[3];
+    a12 = a[6];
+    a13 = a[7];
+    a23 = a[11];
+
+    this.mat4[0] = a[0];
+    this.mat4[1] = a[4];
+    this.mat4[2] = a[8];
+    this.mat4[3] = a[12];
+    this.mat4[4] = a01;
+    this.mat4[5] = a[5];
+    this.mat4[6] = a[9];
+    this.mat4[7] = a[13];
+    this.mat4[8] = a02;
+    this.mat4[9] = a12;
+    this.mat4[10] = a[10];
+    this.mat4[11] = a[14];
+    this.mat4[12] = a03;
+    this.mat4[13] = a13;
+    this.mat4[14] = a23;
+    this.mat4[15] = a[15];
+  }
+  return this;
+};
+
+/**
+ * invert  matrix according to a give matrix
+ * @param  {p5.Matrix or Typed Array} a   the matrix to be based on to invert
+ * @return {p5.Matrix}                    this
+ */
+p5.Matrix.prototype.invert = function(a){
+  var a00, a01, a02, a03, a10, a11, a12, a13,
+  a20, a21, a22, a23, a30, a31, a32, a33;
+  if(a instanceof p5.Matrix){
+    a00 = a.mat4[0];
+    a01 = a.mat4[1];
+    a02 = a.mat4[2];
+    a03 = a.mat4[3];
+    a10 = a.mat4[4];
+    a11 = a.mat4[5];
+    a12 = a.mat4[6];
+    a13 = a.mat4[7];
+    a20 = a.mat4[8];
+    a21 = a.mat4[9];
+    a22 = a.mat4[10];
+    a23 = a.mat4[11];
+    a30 = a.mat4[12];
+    a31 = a.mat4[13];
+    a32 = a.mat4[14];
+    a33 = a.mat4[15];
+  }else if(a instanceof GLMAT_ARRAY_TYPE){
+    a00 = a[0];
+    a01 = a[1];
+    a02 = a[2];
+    a03 = a[3];
+    a10 = a[4];
+    a11 = a[5];
+    a12 = a[6];
+    a13 = a[7];
+    a20 = a[8];
+    a21 = a[9];
+    a22 = a[10];
+    a23 = a[11];
+    a30 = a[12];
+    a31 = a[13];
+    a32 = a[14];
+    a33 = a[15];
+  }
+  var b00 = a00 * a11 - a01 * a10,
+  b01 = a00 * a12 - a02 * a10,
+  b02 = a00 * a13 - a03 * a10,
+  b03 = a01 * a12 - a02 * a11,
+  b04 = a01 * a13 - a03 * a11,
+  b05 = a02 * a13 - a03 * a12,
+  b06 = a20 * a31 - a21 * a30,
+  b07 = a20 * a32 - a22 * a30,
+  b08 = a20 * a33 - a23 * a30,
+  b09 = a21 * a32 - a22 * a31,
+  b10 = a21 * a33 - a23 * a31,
+  b11 = a22 * a33 - a23 * a32,
+
+  // Calculate the determinant
+  det = b00 * b11 - b01 * b10 + b02 * b09 + b03 * b08 -
+  b04 * b07 + b05 * b06;
+
+  if (!det) {
+    return null;
+  }
+  det = 1.0 / det;
+
+  this.mat4[0] = (a11 * b11 - a12 * b10 + a13 * b09) * det;
+  this.mat4[1] = (a02 * b10 - a01 * b11 - a03 * b09) * det;
+  this.mat4[2] = (a31 * b05 - a32 * b04 + a33 * b03) * det;
+  this.mat4[3] = (a22 * b04 - a21 * b05 - a23 * b03) * det;
+  this.mat4[4] = (a12 * b08 - a10 * b11 - a13 * b07) * det;
+  this.mat4[5] = (a00 * b11 - a02 * b08 + a03 * b07) * det;
+  this.mat4[6] = (a32 * b02 - a30 * b05 - a33 * b01) * det;
+  this.mat4[7] = (a20 * b05 - a22 * b02 + a23 * b01) * det;
+  this.mat4[8] = (a10 * b10 - a11 * b08 + a13 * b06) * det;
+  this.mat4[9] = (a01 * b08 - a00 * b10 - a03 * b06) * det;
+  this.mat4[10] = (a30 * b04 - a31 * b02 + a33 * b00) * det;
+  this.mat4[11] = (a21 * b02 - a20 * b04 - a23 * b00) * det;
+  this.mat4[12] = (a11 * b07 - a10 * b09 - a12 * b06) * det;
+  this.mat4[13] = (a00 * b09 - a01 * b07 + a02 * b06) * det;
+  this.mat4[14] = (a31 * b01 - a30 * b03 - a32 * b00) * det;
+  this.mat4[15] = (a20 * b03 - a21 * b01 + a22 * b00) * det;
+
+  return this;
+};
+
+/**
+ * Inverts a 3x3 matrix
+ * @return {[type]} [description]
+ */
+p5.Matrix.prototype.invert3x3 = function (){
+  var a00 = this.mat3[0],
+  a01 = this.mat3[1],
+  a02 = this.mat3[2],
+  a10 = this.mat3[3],
+  a11 = this.mat3[4],
+  a12 = this.mat3[5],
+  a20 = this.mat3[6],
+  a21 = this.mat3[7],
+  a22 = this.mat3[8],
+  b01 = a22 * a11 - a12 * a21,
+  b11 = -a22 * a10 + a12 * a20,
+  b21 = a21 * a10 - a11 * a20,
+
+  // Calculate the determinant
+  det = a00 * b01 + a01 * b11 + a02 * b21;
+  if (!det) {
+    return null;
+  }
+  det = 1.0 / det;
+  this.mat3[0] = b01 * det;
+  this.mat3[1] = (-a22 * a01 + a02 * a21) * det;
+  this.mat3[2] = (a12 * a01 - a02 * a11) * det;
+  this.mat3[3] = b11 * det;
+  this.mat3[4] = (a22 * a00 - a02 * a20) * det;
+  this.mat3[5] = (-a12 * a00 + a02 * a10) * det;
+  this.mat3[6] = b21 * det;
+  this.mat3[7] = (-a21 * a00 + a01 * a20) * det;
+  this.mat3[8] = (a11 * a00 - a01 * a10) * det;
+  return this;
+};
+
+/**
+ * transposes a 3x3 p5.Matrix by a mat3
+ * @param  {[Number]} mat3 1-dimensional array
+ * @return {p5.Matrix} this
+ */
+p5.Matrix.prototype.transpose3x3 = function (mat3){
+  var a01 = mat3[1], a02 = mat3[2], a12 = mat3[5];
+  this.mat3[1] = mat3[3];
+  this.mat3[2] = mat3[6];
+  this.mat3[3] = a01;
+  this.mat3[5] = mat3[7];
+  this.mat3[6] = a02;
+  this.mat3[7] = a12;
+  return this;
+};
+
+/**
+ * converts a 4x4 matrix to its 3x3 inverse tranform
+ * commonly used in MVMatrix to NMatrix conversions.
+ * @param  {p5.Matrix} mat4 the matrix to be based on to invert
+ * @return {p5.Matrix} this with mat3
+ * @todo  finish implementation
+ */
+p5.Matrix.prototype.inverseTranspose = function (matrix){
+  if(this.mat3 === undefined){
+    console.error('sorry, this function only works with mat3');
+  }
+  else {
+    //convert mat4 -> mat3
+    this.mat3[0] = matrix.mat4[0];
+    this.mat3[1] = matrix.mat4[1];
+    this.mat3[2] = matrix.mat4[2];
+    this.mat3[3] = matrix.mat4[4];
+    this.mat3[4] = matrix.mat4[5];
+    this.mat3[5] = matrix.mat4[6];
+    this.mat3[6] = matrix.mat4[8];
+    this.mat3[7] = matrix.mat4[9];
+    this.mat3[8] = matrix.mat4[10];
+  }
+
+  this.invert3x3().transpose3x3(this.mat3);
+  return this;
+};
+
+/**
+ * inspired by Toji's mat4 determinant
+ * @return {Number} Determinant of our 4x4 matrix
+ */
+p5.Matrix.prototype.determinant = function(){
+  var d00 = (this.mat4[0] * this.mat4[5]) - (this.mat4[1] * this.mat4[4]),
+    d01 = (this.mat4[0] * this.mat4[6]) - (this.mat4[2] * this.mat4[4]),
+    d02 = (this.mat4[0] * this.mat4[7]) - (this.mat4[3] * this.mat4[4]),
+    d03 = (this.mat4[1] * this.mat4[6]) - (this.mat4[2] * this.mat4[5]),
+    d04 = (this.mat4[1] * this.mat4[7]) - (this.mat4[3] * this.mat4[5]),
+    d05 = (this.mat4[2] * this.mat4[7]) - (this.mat4[3] * this.mat4[6]),
+    d06 = (this.mat4[8] * this.mat4[13]) - (this.mat4[9] * this.mat4[12]),
+    d07 = (this.mat4[8] * this.mat4[14]) - (this.mat4[10] * this.mat4[12]),
+    d08 = (this.mat4[8] * this.mat4[15]) - (this.mat4[11] * this.mat4[12]),
+    d09 = (this.mat4[9] * this.mat4[14]) - (this.mat4[10] * this.mat4[13]),
+    d10 = (this.mat4[9] * this.mat4[15]) - (this.mat4[11] * this.mat4[13]),
+    d11 = (this.mat4[10] * this.mat4[15]) - (this.mat4[11] * this.mat4[14]);
+
+  // Calculate the determinant
+  return d00 * d11 - d01 * d10 + d02 * d09 +
+    d03 * d08 - d04 * d07 + d05 * d06;
+};
+
+/**
+ * multiply two mat4s
+ * @param {p5.Matrix|Array}  multMatrix The matrix we want to multiply by
+ * @return {p5.Matrix}         this
+ */
+p5.Matrix.prototype.mult = function(multMatrix){
+  var _dest = new GLMAT_ARRAY_TYPE(16);
+  var _src = new GLMAT_ARRAY_TYPE(16);
+
+  if(multMatrix instanceof p5.Matrix) {
+    _src = multMatrix.mat4;
+  }
+  else if(multMatrix instanceof GLMAT_ARRAY_TYPE){
+    _src = multMatrix;
+  }
+
+  // each row is used for the multiplier
+  var b0  = this.mat4[0], b1 = this.mat4[1],
+    b2 = this.mat4[2], b3 = this.mat4[3];
+  _dest[0] = b0*_src[0] + b1*_src[4] + b2*_src[8] + b3*_src[12];
+  _dest[1] = b0*_src[1] + b1*_src[5] + b2*_src[9] + b3*_src[13];
+  _dest[2] = b0*_src[2] + b1*_src[6] + b2*_src[10] + b3*_src[14];
+  _dest[3] = b0*_src[3] + b1*_src[7] + b2*_src[11] + b3*_src[15];
+
+  b0 = this.mat4[4];
+  b1 = this.mat4[5];
+  b2 = this.mat4[6];
+  b3 = this.mat4[7];
+  _dest[4] = b0*_src[0] + b1*_src[4] + b2*_src[8] + b3*_src[12];
+  _dest[5] = b0*_src[1] + b1*_src[5] + b2*_src[9] + b3*_src[13];
+  _dest[6] = b0*_src[2] + b1*_src[6] + b2*_src[10] + b3*_src[14];
+  _dest[7] = b0*_src[3] + b1*_src[7] + b2*_src[11] + b3*_src[15];
+
+  b0 = this.mat4[8];
+  b1 = this.mat4[9];
+  b2 = this.mat4[10];
+  b3 = this.mat4[11];
+  _dest[8] = b0*_src[0] + b1*_src[4] + b2*_src[8] + b3*_src[12];
+  _dest[9] = b0*_src[1] + b1*_src[5] + b2*_src[9] + b3*_src[13];
+  _dest[10] = b0*_src[2] + b1*_src[6] + b2*_src[10] + b3*_src[14];
+  _dest[11] = b0*_src[3] + b1*_src[7] + b2*_src[11] + b3*_src[15];
+
+  b0 = this.mat4[12];
+  b1 = this.mat4[13];
+  b2 = this.mat4[14];
+  b3 = this.mat4[15];
+  _dest[12] = b0*_src[0] + b1*_src[4] + b2*_src[8] + b3*_src[12];
+  _dest[13] = b0*_src[1] + b1*_src[5] + b2*_src[9] + b3*_src[13];
+  _dest[14] = b0*_src[2] + b1*_src[6] + b2*_src[10] + b3*_src[14];
+  _dest[15] = b0*_src[3] + b1*_src[7] + b2*_src[11] + b3*_src[15];
+
+  this.mat4 = _dest;
+
+  return this;
+};
+
+/**
+ * scales a p5.Matrix by scalars or a vector
+ * @param  {p5.Vector|Array} s vector to scale by
+ * @return {p5.Matrix}  this
+ */
+p5.Matrix.prototype.scale = function() {
+  var x,y,z;
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
+  //if our 1st arg is a type p5.Vector
+  if (args[0] instanceof p5.Vector){
+    x = args[0].x;
+    y = args[0].y;
+    z = args[0].z;
+  }
+  //otherwise if it's an array
+  else if (args[0] instanceof Array){
+    x = args[0][0];
+    y = args[0][1];
+    z = args[0][2];
+  }
+  var _dest = new GLMAT_ARRAY_TYPE(16);
+  _dest[0] = this.mat4[0] * x;
+  _dest[1] = this.mat4[1] * x;
+  _dest[2] = this.mat4[2] * x;
+  _dest[3] = this.mat4[3] * x;
+  _dest[4] = this.mat4[4] * y;
+  _dest[5] = this.mat4[5] * y;
+  _dest[6] = this.mat4[6] * y;
+  _dest[7] = this.mat4[7] * y;
+  _dest[8] = this.mat4[8] * z;
+  _dest[9] = this.mat4[9] * z;
+  _dest[10] = this.mat4[10] * z;
+  _dest[11] = this.mat4[11] * z;
+  _dest[12] = this.mat4[12];
+  _dest[13] = this.mat4[13];
+  _dest[14] = this.mat4[14];
+  _dest[15] = this.mat4[15];
+
+  this.mat4 = _dest;
+  return this;
+};
+
+/**
+ * rotate our Matrix around an axis by the given angle.
+ * @param  {Number} a The angle of rotation in radians
+ * @param  {p5.Vector|Array} axis  the axis(es) to rotate around
+ * @return {p5.Matrix}                    this
+ * inspired by Toji's gl-matrix lib, mat4 rotation
+ */
+p5.Matrix.prototype.rotate = function(a, axis){
+  var x, y, z, _a, len;
+
+  if (this.p5) {
+    if (this.p5._angleMode === constants.DEGREES) {
+      _a = polarGeometry.degreesToRadians(a);
+    }
+  }
+  else {
+    _a = a;
+  }
+  if (axis instanceof p5.Vector) {
+    x = axis.x;
+    y = axis.y;
+    z = axis.z;
+  }
+  else if (axis instanceof Array) {
+    x = axis[0];
+    y = axis[1];
+    z = axis[2];
+  }
+
+  len = Math.sqrt(x * x + y * y + z * z);
+  x *= (1/len);
+  y *= (1/len);
+  z *= (1/len);
+
+  var a00 = this.mat4[0];
+  var a01 = this.mat4[1];
+  var a02 = this.mat4[2];
+  var a03 = this.mat4[3];
+  var a10 = this.mat4[4];
+  var a11 = this.mat4[5];
+  var a12 = this.mat4[6];
+  var a13 = this.mat4[7];
+  var a20 = this.mat4[8];
+  var a21 = this.mat4[9];
+  var a22 = this.mat4[10];
+  var a23 = this.mat4[11];
+
+  //sin,cos, and tan of respective angle
+  var sA = Math.sin(_a);
+  var cA = Math.cos(_a);
+  var tA = 1 - cA;
+  // Construct the elements of the rotation matrix
+  var b00 = x * x * tA + cA;
+  var b01 = y * x * tA + z * sA;
+  var b02 = z * x * tA - y * sA;
+  var b10 = x * y * tA - z * sA;
+  var b11 = y * y * tA + cA;
+  var b12 = z * y * tA + x * sA;
+  var b20 = x * z * tA + y * sA;
+  var b21 = y * z * tA - x * sA;
+  var b22 = z * z * tA + cA;
+
+  // rotation-specific matrix multiplication
+  this.mat4[0] = a00 * b00 + a10 * b01 + a20 * b02;
+  this.mat4[1] = a01 * b00 + a11 * b01 + a21 * b02;
+  this.mat4[2] = a02 * b00 + a12 * b01 + a22 * b02;
+  this.mat4[3] = a03 * b00 + a13 * b01 + a23 * b02;
+  this.mat4[4] = a00 * b10 + a10 * b11 + a20 * b12;
+  this.mat4[5] = a01 * b10 + a11 * b11 + a21 * b12;
+  this.mat4[6] = a02 * b10 + a12 * b11 + a22 * b12;
+  this.mat4[7] = a03 * b10 + a13 * b11 + a23 * b12;
+  this.mat4[8] = a00 * b20 + a10 * b21 + a20 * b22;
+  this.mat4[9] = a01 * b20 + a11 * b21 + a21 * b22;
+  this.mat4[10] = a02 * b20 + a12 * b21 + a22 * b22;
+  this.mat4[11] = a03 * b20 + a13 * b21 + a23 * b22;
+
+  return this;
+};
+
+/**
+ * @todo  finish implementing this method!
+ * translates
+ * @param  {Array} v vector to translate by
+ * @return {p5.Matrix}                    this
+ */
+p5.Matrix.prototype.translate = function(v){
+  var x = v[0],
+    y = v[1],
+    z = v[2] || 0;
+  this.mat4[12] =
+    this.mat4[0] * x +this.mat4[4] * y +this.mat4[8] * z +this.mat4[12];
+  this.mat4[13] =
+    this.mat4[1] * x +this.mat4[5] * y +this.mat4[9] * z +this.mat4[13];
+  this.mat4[14] =
+    this.mat4[2] * x +this.mat4[6] * y +this.mat4[10] * z +this.mat4[14];
+  this.mat4[15] =
+    this.mat4[3] * x +this.mat4[7] * y +this.mat4[11] * z +this.mat4[15];
+};
+
+p5.Matrix.prototype.rotateX = function(a){
+  this.rotate(a, [1,0,0]);
+};
+p5.Matrix.prototype.rotateY = function(a){
+  this.rotate(a, [0,1,0]);
+};
+p5.Matrix.prototype.rotateZ = function(a){
+  this.rotate(a, [0,0,1]);
+};
+
+/**
+ * sets the perspective matrix
+ * @param  {Number} fovy   [description]
+ * @param  {Number} aspect [description]
+ * @param  {Number} near   near clipping plane
+ * @param  {Number} far    far clipping plane
+ * @return {void}
+ */
+p5.Matrix.prototype.perspective = function(fovy,aspect,near,far){
+
+  var f = 1.0 / Math.tan(fovy / 2),
+    nf = 1 / (near - far);
+
+  this.mat4[0] = f / aspect;
+  this.mat4[1] = 0;
+  this.mat4[2] = 0;
+  this.mat4[3] = 0;
+  this.mat4[4] = 0;
+  this.mat4[5] = f;
+  this.mat4[6] = 0;
+  this.mat4[7] = 0;
+  this.mat4[8] = 0;
+  this.mat4[9] = 0;
+  this.mat4[10] = (far + near) * nf;
+  this.mat4[11] = -1;
+  this.mat4[12] = 0;
+  this.mat4[13] = 0;
+  this.mat4[14] = (2 * far * near) * nf;
+  this.mat4[15] = 0;
+
+  return this;
+
+};
+
+/**
+ * sets the ortho matrix
+ * @param  {Number} left   [description]
+ * @param  {Number} right  [description]
+ * @param  {Number} bottom [description]
+ * @param  {Number} top    [description]
+ * @param  {Number} near   near clipping plane
+ * @param  {Number} far    far clipping plane
+ * @return {void}
+ */
+p5.Matrix.prototype.ortho = function(left,right,bottom,top,near,far){
+
+  var lr = 1 / (left - right),
+    bt = 1 / (bottom - top),
+    nf = 1 / (near - far);
+  this.mat4[0] = -2 * lr;
+  this.mat4[1] = 0;
+  this.mat4[2] = 0;
+  this.mat4[3] = 0;
+  this.mat4[4] = 0;
+  this.mat4[5] = -2 * bt;
+  this.mat4[6] = 0;
+  this.mat4[7] = 0;
+  this.mat4[8] = 0;
+  this.mat4[9] = 0;
+  this.mat4[10] = 2 * nf;
+  this.mat4[11] = 0;
+  this.mat4[12] = (left + right) * lr;
+  this.mat4[13] = (top + bottom) * bt;
+  this.mat4[14] = (far + near) * nf;
+  this.mat4[15] = 1;
+
+  return this;
+};
+
+/**
+ * PRIVATE
+ */
+// matrix methods adapted from:
+// https://developer.mozilla.org/en-US/docs/Web/WebGL/
+// gluPerspective
+//
+// function _makePerspective(fovy, aspect, znear, zfar){
+//    var ymax = znear * Math.tan(fovy * Math.PI / 360.0);
+//    var ymin = -ymax;
+//    var xmin = ymin * aspect;
+//    var xmax = ymax * aspect;
+//    return _makeFrustum(xmin, xmax, ymin, ymax, znear, zfar);
+//  }
+
+////
+//// glFrustum
+////
+//function _makeFrustum(left, right, bottom, top, znear, zfar){
+//  var X = 2*znear/(right-left);
+//  var Y = 2*znear/(top-bottom);
+//  var A = (right+left)/(right-left);
+//  var B = (top+bottom)/(top-bottom);
+//  var C = -(zfar+znear)/(zfar-znear);
+//  var D = -2*zfar*znear/(zfar-znear);
+//  var frustrumMatrix =[
+//  X, 0, A, 0,
+//  0, Y, B, 0,
+//  0, 0, C, D,
+//  0, 0, -1, 0
+//];
+//return frustrumMatrix;
+// }
+
+// function _setMVPMatrices(){
+////an identity matrix
+////@TODO use the p5.Matrix class to abstract away our MV matrices and
+///other math
+//var _mvMatrix =
+//[
+//  1.0,0.0,0.0,0.0,
+//  0.0,1.0,0.0,0.0,
+//  0.0,0.0,1.0,0.0,
+//  0.0,0.0,0.0,1.0
+//];
+
+module.exports = p5.Matrix;
+
+},{"../core/constants":41,"../core/core":42,"../math/polargeometry":72}],89:[function(_dereq_,module,exports){
+/**
+ * Welcome to RendererGL Immediate Mode.
+ * Immediate mode is used for drawing custom shapes
+ * from a set of vertices.  Immediate Mode is activated
+ * when you call beginShape() & de-activated when you call endShape().
+ * Immediate mode is a style of programming borrowed
+ * from OpenGL's (now-deprecated) immediate mode.
+ * It differs from p5.js' default, Retained Mode, which caches
+ * geometries and buffers on the CPU to reduce the number of webgl
+ * draw calls. Retained mode is more efficient & performative,
+ * however, Immediate Mode is useful for sketching quick
+ * geometric ideas.
+ */
+'use strict';
+
+var p5 = _dereq_('../core/core');
+var constants = _dereq_('../core/constants');
+
+/**
+ * Begin shape drawing.  This is a helpful way of generating
+ * custom shapes quickly.  However in WEBGL mode, application
+ * performance will likely drop as a result of too many calls to
+ * beginShape() / endShape().  As a high performance alternative,
+ * please use p5.js geometry primitives.
+ * @param  {Number} mode webgl primitives mode.  beginShape supports the
+ *                       following modes:
+ *                       POINTS,LINES,LINE_STRIP,LINE_LOOP,TRIANGLES,
+ *                       TRIANGLE_STRIP,and TRIANGLE_FAN.
+ * @return {[type]}      [description]
+ */
+p5.RendererGL.prototype.beginShape = function(mode){
+  //default shape mode is line_strip
+  this.immediateMode.shapeMode = (mode !== undefined ) ?
+    mode : constants.LINE_STRIP;
+  //if we haven't yet initialized our
+  //immediateMode vertices & buffers, create them now!
+  if(this.immediateMode.vertexPositions === undefined){
+    this.immediateMode.vertexPositions = [];
+    this.immediateMode.vertexColors = [];
+    this.immediateMode.vertexBuffer = this.GL.createBuffer();
+    this.immediateMode.colorBuffer = this.GL.createBuffer();
+  } else {
+    this.immediateMode.vertexPositions.length = 0;
+    this.immediateMode.vertexColors.length = 0;
+  }
+  this.isImmediateDrawing = true;
+  return this;
+};
+/**
+ * adds a vertex to be drawn in a custom Shape.
+ * @param  {Number} x x-coordinate of vertex
+ * @param  {Number} y y-coordinate of vertex
+ * @param  {Number} z z-coordinate of vertex
+ * @return {p5.RendererGL}   [description]
+ * @TODO implement handling of p5.Vector args
+ */
+p5.RendererGL.prototype.vertex = function(x, y, z){
+  this.immediateMode.vertexPositions.push(x, y, z);
+  var vertexColor = this.curFillColor || [0.5, 0.5, 0.5, 1.0];
+  this.immediateMode.vertexColors.push(
+    vertexColor[0],
+    vertexColor[1],
+    vertexColor[2],
+    vertexColor[3]);
+  return this;
+};
+
+/**
+ * End shape drawing and render vertices to screen.
+ * @return {p5.RendererGL} [description]
+ */
+p5.RendererGL.prototype.endShape =
+function(mode, isCurve, isBezier,isQuadratic, isContour, shapeKind){
+  var gl = this.GL;
+  this._bindImmediateBuffers(
+    this.immediateMode.vertexPositions,
+    this.immediateMode.vertexColors);
+  if(mode){
+    if(this.drawMode === 'fill'){
+      switch(this.immediateMode.shapeMode){
+        case constants.LINE_STRIP:
+          this.immediateMode.shapeMode = constants.TRIANGLE_FAN;
+          break;
+        case constants.LINES:
+          this.immediateMode.shapeMode = constants.TRIANGLE_FAN;
+          break;
+        case constants.TRIANGLES:
+          this.immediateMode.shapeMode = constants.TRIANGLE_FAN;
+          break;
+      }
+    } else {
+      switch(this.immediateMode.shapeMode){
+        case constants.LINE_STRIP:
+          this.immediateMode.shapeMode = constants.LINE_LOOP;
+          break;
+        case constants.LINES:
+          this.immediateMode.shapeMode = constants.LINE_LOOP;
+          break;
+      }
+    }
+  }
+  //QUADS & QUAD_STRIP are not supported primitives modes
+  //in webgl.
+  if(this.immediateMode.shapeMode === constants.QUADS ||
+    this.immediateMode.shapeMode === constants.QUAD_STRIP){
+    throw new Error('sorry, ' + this.immediateMode.shapeMode+
+      ' not yet implemented in webgl mode.');
+  }
+  else {
+    gl.enable(gl.BLEND);
+    gl.drawArrays(this.immediateMode.shapeMode, 0,
+      this.immediateMode.vertexPositions.length / 3);
+  }
+  //clear out our vertexPositions & colors arrays
+  //after rendering
+  this.immediateMode.vertexPositions.length = 0;
+  this.immediateMode.vertexColors.length = 0;
+  this.isImmediateDrawing = false;
+  return this;
+};
+/**
+ * Bind immediateMode buffers to data,
+ * then draw gl arrays
+ * @param  {Array} vertices Numbers array representing
+ *                          vertex positions
+ * @return {p5.RendererGL}
+ */
+p5.RendererGL.prototype._bindImmediateBuffers = function(vertices, colors){
+  this._setDefaultCamera();
+  var gl = this.GL;
+  var shaderKey = this._getCurShaderId();
+  var shaderProgram = this.mHash[shaderKey];
+  //vertex position Attribute
+  shaderProgram.vertexPositionAttribute =
+    gl.getAttribLocation(shaderProgram, 'aPosition');
+  gl.enableVertexAttribArray(shaderProgram.vertexPositionAttribute);
+  gl.bindBuffer(gl.ARRAY_BUFFER, this.immediateMode.vertexBuffer);
+  gl.bufferData(
+    gl.ARRAY_BUFFER, new Float32Array(vertices), gl.DYNAMIC_DRAW);
+  gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
+    3, gl.FLOAT, false, 0, 0);
+
+  shaderProgram.vertexColorAttribute =
+    gl.getAttribLocation(shaderProgram, 'aVertexColor');
+  gl.enableVertexAttribArray(shaderProgram.vertexColorAttribute);
+  gl.bindBuffer(gl.ARRAY_BUFFER, this.immediateMode.colorBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER,
+    new Float32Array(colors),gl.DYNAMIC_DRAW);
+  gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
+    4, gl.FLOAT, false, 0, 0);
+  //matrix
+  this._setMatrixUniforms(shaderKey);
+  //@todo implement in all shaders (not just immediateVert)
+  //set our default point size
+  // this._setUniform1f(shaderKey,
+  //   'uPointSize',
+  //   this.pointSize);
+  return this;
+};
+
+//////////////////////////////////////////////
+// COLOR
+//////////////////////////////////////////////
+
+p5.RendererGL.prototype._getColorVertexShader = function(){
+  var gl = this.GL;
+  var mId = 'immediateVert|vertexColorFrag';
+  var shaderProgram;
+
+  if(!this.materialInHash(mId)){
+    shaderProgram =
+      this._initShaders('immediateVert', 'vertexColorFrag', true);
+    this.mHash[mId] = shaderProgram;
+    shaderProgram.vertexColorAttribute =
+    gl.getAttribLocation(shaderProgram, 'aVertexColor');
+    gl.enableVertexAttribArray(shaderProgram.vertexColorAttribute);
+  }else{
+    shaderProgram = this.mHash[mId];
+  }
+  return shaderProgram;
+};
+
+module.exports = p5.RendererGL;
+},{"../core/constants":41,"../core/core":42}],90:[function(_dereq_,module,exports){
+//Retained Mode. The default mode for rendering 3D primitives
+//in WEBGL.
+'use strict';
+
+var p5 = _dereq_('../core/core');
+var hashCount = 0;
+/**
+ * _initBufferDefaults
+ * @description initializes buffer defaults. runs each time a new geometry is
+ * registered
+ * @param  {String} gId  key of the geometry object
+ */
+p5.RendererGL.prototype._initBufferDefaults = function(gId) {
+  //@TODO remove this limit on hashes in gHash
+  hashCount ++;
+  if(hashCount > 1000){
+    var key = Object.keys(this.gHash)[0];
+    delete this.gHash[key];
+    hashCount --;
+  }
+
+  var gl = this.GL;
+  //create a new entry in our gHash
+  this.gHash[gId] = {};
+  this.gHash[gId].vertexBuffer = gl.createBuffer();
+  this.gHash[gId].normalBuffer = gl.createBuffer();
+  this.gHash[gId].uvBuffer = gl.createBuffer();
+  this.gHash[gId].indexBuffer = gl.createBuffer();
+};
+/**
+ * createBuffers description
+ * @param  {String} gId    key of the geometry object
+ * @param  {p5.Geometry}  obj contains geometry data
+ */
+p5.RendererGL.prototype.createBuffers = function(gId, obj) {
+  var gl = this.GL;
+  this._setDefaultCamera();
+  //initialize the gl buffers for our geom groups
+  this._initBufferDefaults(gId);
+  //return the current shaderProgram from our material hash
+  var shaderProgram = this.mHash[this._getCurShaderId()];
+  //@todo rename "numberOfItems" property to something more descriptive
+  //we mult the num geom faces by 3
+  this.gHash[gId].numberOfItems = obj.faces.length * 3;
+  gl.bindBuffer(gl.ARRAY_BUFFER, this.gHash[gId].vertexBuffer);
+  gl.bufferData(
+    gl.ARRAY_BUFFER,
+    new Float32Array( vToNArray(obj.vertices) ),
+    gl.STATIC_DRAW);
+  //vertex position
+  shaderProgram.vertexPositionAttribute =
+    gl.getAttribLocation(shaderProgram, 'aPosition');
+  gl.enableVertexAttribArray(shaderProgram.vertexPositionAttribute);
+
+  gl.vertexAttribPointer(
+    shaderProgram.vertexPositionAttribute,
+    3, gl.FLOAT, false, 0, 0);
+
+  gl.bindBuffer(gl.ARRAY_BUFFER, this.gHash[gId].normalBuffer);
+  gl.bufferData(
+    gl.ARRAY_BUFFER,
+    new Float32Array( vToNArray(obj.vertexNormals) ),
+    gl.STATIC_DRAW);
+  //vertex normal
+  shaderProgram.vertexNormalAttribute =
+    gl.getAttribLocation(shaderProgram, 'aNormal');
+  gl.enableVertexAttribArray(shaderProgram.vertexNormalAttribute);
+
+  gl.vertexAttribPointer(
+    shaderProgram.vertexNormalAttribute,
+    3, gl.FLOAT, false, 0, 0);
+
+  gl.bindBuffer(gl.ARRAY_BUFFER, this.gHash[gId].uvBuffer);
+  gl.bufferData(
+    gl.ARRAY_BUFFER,
+    new Float32Array( flatten(obj.uvs) ),
+    gl.STATIC_DRAW);
+  //texture coordinate Attribute
+  shaderProgram.textureCoordAttribute =
+    gl.getAttribLocation(shaderProgram, 'aTexCoord');
+  gl.enableVertexAttribArray(shaderProgram.textureCoordAttribute);
+  gl.vertexAttribPointer(
+    shaderProgram.textureCoordAttribute,
+    2, gl.FLOAT, false, 0, 0);
+
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.gHash[gId].indexBuffer);
+  gl.bufferData(
+    gl.ELEMENT_ARRAY_BUFFER,
+    new Uint16Array( flatten(obj.faces) ),
+    gl.STATIC_DRAW);
+};
+
+/**
+ * Draws buffers given a geometry key ID
+ * @param  {String} gId     ID in our geom hash
+ * @return {p5.RendererGL} this
+ */
+p5.RendererGL.prototype.drawBuffers = function(gId) {
+  this._setDefaultCamera();
+  var gl = this.GL;
+  var shaderKey = this._getCurShaderId();
+  var shaderProgram = this.mHash[shaderKey];
+  //vertex position buffer
+  gl.bindBuffer(gl.ARRAY_BUFFER, this.gHash[gId].vertexBuffer);
+  gl.vertexAttribPointer(
+    shaderProgram.vertexPositionAttribute,
+    3, gl.FLOAT, false, 0, 0);
+  //normal buffer
+  gl.bindBuffer(gl.ARRAY_BUFFER, this.gHash[gId].normalBuffer);
+  gl.vertexAttribPointer(
+    shaderProgram.vertexNormalAttribute,
+    3, gl.FLOAT, false, 0, 0);
+  // uv buffer
+  gl.bindBuffer(gl.ARRAY_BUFFER, this.gHash[gId].uvBuffer);
+  gl.vertexAttribPointer(
+    shaderProgram.textureCoordAttribute,
+    2, gl.FLOAT, false, 0, 0);
+  //vertex index buffer
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.gHash[gId].indexBuffer);
+  this._setMatrixUniforms(shaderKey);
+  gl.drawElements(
+    gl.TRIANGLES, this.gHash[gId].numberOfItems,
+    gl.UNSIGNED_SHORT, 0);
+  return this;
+};
+///////////////////////////////
+//// UTILITY FUNCTIONS
+//////////////////////////////
+/**
+ * turn a two dimensional array into one dimensional array
+ * @param  {Array} arr 2-dimensional array
+ * @return {Array}     1-dimensional array
+ * [[1, 2, 3],[4, 5, 6]] -> [1, 2, 3, 4, 5, 6]
+ */
+function flatten(arr){
+  if (arr.length>0){
+    return arr.reduce(function(a, b){
+      return a.concat(b);
+    });
+  } else {
+    return [];
+  }
+}
+
+/**
+ * turn a p5.Vector Array into a one dimensional number array
+ * @param  {Array} arr  an array of p5.Vector
+ * @return {Array]}     a one dimensional array of numbers
+ * [p5.Vector(1, 2, 3), p5.Vector(4, 5, 6)] ->
+ * [1, 2, 3, 4, 5, 6]
+ */
+function vToNArray(arr){
+  return flatten(arr.map(function(item){
+    return [item.x, item.y, item.z];
+  }));
+}
+module.exports = p5.RendererGL;
+
+},{"../core/core":42}],91:[function(_dereq_,module,exports){
+'use strict';
+
+var p5 = _dereq_('../core/core');
+var shader = _dereq_('./shader');
+_dereq_('../core/p5.Renderer');
+_dereq_('./p5.Matrix');
+var uMVMatrixStack = [];
+
+//@TODO should implement public method
+//to override these attributes
+var attributes = {
+  alpha: true,
+  depth: true,
+  stencil: true,
+  antialias: false,
+  premultipliedAlpha: false,
+  preserveDrawingBuffer: false
+};
+
+/**
+ * 3D graphics class
+ * @class p5.RendererGL
+ * @constructor
+ * @extends p5.Renderer
+ * @todo extend class to include public method for offscreen
+ * rendering (FBO).
+ *
+ */
+p5.RendererGL = function(elt, pInst, isMainCanvas) {
+  p5.Renderer.call(this, elt, pInst, isMainCanvas);
+  this._initContext();
+
+  this.isP3D = true; //lets us know we're in 3d mode
+  this.GL = this.drawingContext;
+  //lights
+  this.ambientLightCount = 0;
+  this.directionalLightCount = 0;
+  this.pointLightCount = 0;
+  //camera
+  this._curCamera = null;
+
+  /**
+   * model view, projection, & normal
+   * matrices
+   */
+  this.uMVMatrix = new p5.Matrix();
+  this.uPMatrix  = new p5.Matrix();
+  this.uNMatrix = new p5.Matrix('mat3');
+  //Geometry & Material hashes
+  this.gHash = {};
+  this.mHash = {};
+  //Imediate Mode
+  //default drawing is done in Retained Mode
+  this.isImmediateDrawing = false;
+  this.immediateMode = {};
+  this.curFillColor = [0.5,0.5,0.5,1.0];
+  this.curStrokeColor = [0.5,0.5,0.5,1.0];
+  this.pointSize = 5.0;//default point/stroke
+  return this;
+};
+
+p5.RendererGL.prototype = Object.create(p5.Renderer.prototype);
+
+//////////////////////////////////////////////
+// Setting
+//////////////////////////////////////////////
+
+p5.RendererGL.prototype._initContext = function() {
+  try {
+    this.drawingContext = this.canvas.getContext('webgl', attributes) ||
+      this.canvas.getContext('experimental-webgl', attributes);
+    if (this.drawingContext === null) {
+      throw new Error('Error creating webgl context');
+    } else {
+      console.log('p5.RendererGL: enabled webgl context');
+      var gl = this.drawingContext;
+      gl.enable(gl.DEPTH_TEST);
+      gl.depthFunc(gl.LEQUAL);
+      gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+    }
+  } catch (er) {
+    throw new Error(er);
+  }
+};
+//detect if user didn't set the camera
+//then call this function below
+p5.RendererGL.prototype._setDefaultCamera = function(){
+  if(this._curCamera === null){
+    var _w = this.width;
+    var _h = this.height;
+    this.uPMatrix = p5.Matrix.identity();
+    var cameraZ = (this.height / 2) / Math.tan(Math.PI * 30 / 180);
+    this.uPMatrix.perspective(60 / 180 * Math.PI, _w / _h,
+                              cameraZ * 0.1, cameraZ * 10);
+    this._curCamera = 'default';
+  }
+};
+
+p5.RendererGL.prototype._update = function() {
+  this.uMVMatrix = p5.Matrix.identity();
+  this.translate(0, 0, -(this.height / 2) / Math.tan(Math.PI * 30 / 180));
+  this.ambientLightCount = 0;
+  this.directionalLightCount = 0;
+  this.pointLightCount = 0;
+};
+
+/**
+ * [background description]
+ * @return {[type]} [description]
+ */
+p5.RendererGL.prototype.background = function() {
+  var gl = this.GL;
+  var _col = this._pInst.color.apply(this._pInst, arguments);
+  var _r = (_col.levels[0]) / 255;
+  var _g = (_col.levels[1]) / 255;
+  var _b = (_col.levels[2]) / 255;
+  var _a = (_col.levels[3]) / 255;
+  gl.clearColor(_r, _g, _b, _a);
+  gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+};
+
+//@TODO implement this
+// p5.RendererGL.prototype.clear = function() {
+//@TODO
+// };
+
+//////////////////////////////////////////////
+// SHADER
+//////////////////////////////////////////////
+
+/**
+ * [_initShaders description]
+ * @param  {string} vertId [description]
+ * @param  {string} fragId [description]
+ * @return {[type]}        [description]
+ */
+p5.RendererGL.prototype._initShaders =
+function(vertId, fragId, isImmediateMode) {
+  var gl = this.GL;
+  //set up our default shaders by:
+  // 1. create the shader,
+  // 2. load the shader source,
+  // 3. compile the shader
+  var _vertShader = gl.createShader(gl.VERTEX_SHADER);
+  //load in our default vertex shader
+  gl.shaderSource(_vertShader, shader[vertId]);
+  gl.compileShader(_vertShader);
+  // if our vertex shader failed compilation?
+  if (!gl.getShaderParameter(_vertShader, gl.COMPILE_STATUS)) {
+    alert('Yikes! An error occurred compiling the shaders:' +
+      gl.getShaderInfoLog(_vertShader));
+    return null;
+  }
+
+  var _fragShader = gl.createShader(gl.FRAGMENT_SHADER);
+  //load in our material frag shader
+  gl.shaderSource(_fragShader, shader[fragId]);
+  gl.compileShader(_fragShader);
+  // if our frag shader failed compilation?
+  if (!gl.getShaderParameter(_fragShader, gl.COMPILE_STATUS)) {
+    alert('Darn! An error occurred compiling the shaders:' +
+      gl.getShaderInfoLog(_fragShader));
+    return null;
+  }
+
+  var shaderProgram = gl.createProgram();
+  gl.attachShader(shaderProgram, _vertShader);
+  gl.attachShader(shaderProgram, _fragShader);
+  gl.linkProgram(shaderProgram);
+  if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
+    alert('Snap! Error linking shader program');
+  }
+  //END SHADERS SETUP
+
+  this._getLocation(shaderProgram, isImmediateMode);
+
+  return shaderProgram;
+};
+
+p5.RendererGL.prototype._getLocation =
+function(shaderProgram, isImmediateMode) {
+  var gl = this.GL;
+  gl.useProgram(shaderProgram);
+
+  //projection Matrix uniform
+  shaderProgram.uPMatrixUniform =
+    gl.getUniformLocation(shaderProgram, 'uProjectionMatrix');
+  //model view Matrix uniform
+  shaderProgram.uMVMatrixUniform =
+    gl.getUniformLocation(shaderProgram, 'uModelViewMatrix');
+
+  //@TODO: figure out a better way instead of if statement
+  if(isImmediateMode === undefined){
+    //normal Matrix uniform
+    shaderProgram.uNMatrixUniform =
+    gl.getUniformLocation(shaderProgram, 'uNormalMatrix');
+
+    shaderProgram.samplerUniform =
+    gl.getUniformLocation(shaderProgram, 'uSampler');
+  }
+};
+
+/**
+ * Sets a shader uniform given a shaderProgram and uniform string
+ * @param {String} shaderKey key to material Hash.
+ * @param {String} uniform location in shader.
+ * @param { Number} data data to bind uniform.  Float data type.
+ * @todo currently this function sets uniform1f data.
+ * Should generalize function to accept any uniform
+ * data type.
+ */
+p5.RendererGL.prototype._setUniform1f = function(shaderKey,uniform,data)
+{
+  var gl = this.GL;
+  var shaderProgram = this.mHash[shaderKey];
+  gl.useProgram(shaderProgram);
+  shaderProgram[uniform] = gl.getUniformLocation(shaderProgram, uniform);
+  gl.uniform1f(shaderProgram[uniform], data);
+  return this;
+};
+
+p5.RendererGL.prototype._setMatrixUniforms = function(shaderKey) {
+  var gl = this.GL;
+  var shaderProgram = this.mHash[shaderKey];
+
+  gl.useProgram(shaderProgram);
+
+  gl.uniformMatrix4fv(
+    shaderProgram.uPMatrixUniform,
+    false, this.uPMatrix.mat4);
+
+  gl.uniformMatrix4fv(
+    shaderProgram.uMVMatrixUniform,
+    false, this.uMVMatrix.mat4);
+
+  this.uNMatrix.inverseTranspose(this.uMVMatrix);
+
+  gl.uniformMatrix3fv(
+    shaderProgram.uNMatrixUniform,
+    false, this.uNMatrix.mat3);
+};
+//////////////////////////////////////////////
+// GET CURRENT | for shader and color
+//////////////////////////////////////////////
+p5.RendererGL.prototype._getShader = function(vertId, fragId, isImmediateMode) {
+  var mId = vertId + '|' + fragId;
+  //create it and put it into hashTable
+  if(!this.materialInHash(mId)){
+    var shaderProgram = this._initShaders(vertId, fragId, isImmediateMode);
+    this.mHash[mId] = shaderProgram;
+  }
+  this.curShaderId = mId;
+
+  return this.mHash[this.curShaderId];
+};
+
+p5.RendererGL.prototype._getCurShaderId = function(){
+  //if the shader ID is not yet defined
+  var mId, shaderProgram;
+  if(this.drawMode !== 'fill' && this.curShaderId === undefined){
+    //default shader: normalMaterial()
+    mId = 'normalVert|normalFrag';
+    shaderProgram = this._initShaders('normalVert', 'normalFrag');
+    this.mHash[mId] = shaderProgram;
+    this.curShaderId = mId;
+  } else if(this.isImmediateDrawing && this.drawMode === 'fill'){
+    mId = 'immediateVert|vertexColorFrag';
+    shaderProgram = this._initShaders('immediateVert', 'vertexColorFrag');
+    this.mHash[mId] = shaderProgram;
+    this.curShaderId = mId;
+  }
+  return this.curShaderId;
+};
+
+//////////////////////////////////////////////
+// COLOR
+//////////////////////////////////////////////
+/**
+ * Basic fill material for geometry with a given color
+ * @method  fill
+ * @param  {Number|Array|String|p5.Color} v1  gray value,
+ * red or hue value (depending on the current color mode),
+ * or color Array, or CSS color string
+ * @param  {Number}            [v2] optional: green or saturation value
+ * @param  {Number}            [v3] optional: blue or brightness value
+ * @param  {Number}            [a]  optional: opacity
+ * @return {p5}                the p5 object
+ * @example
+ * <div>
+ * <code>
+ * function setup(){
+ *   createCanvas(100, 100, WEBGL);
+ * }
+ *
+ * function draw(){
+ *  background(0);
+ *  fill(250, 0, 0);
+ *  rotateX(frameCount * 0.01);
+ *  rotateY(frameCount * 0.01);
+ *  rotateZ(frameCount * 0.01);
+ *  box(200, 200, 200);
+ * }
+ * </code>
+ * </div>
+ *
+ * @alt
+ * red canvas
+ *
+ */
+p5.RendererGL.prototype.fill = function(v1, v2, v3, a) {
+  var gl = this.GL;
+  var shaderProgram;
+  //see material.js for more info on color blending in webgl
+  var colors = this._applyColorBlend.apply(this, arguments);
+  this.curFillColor = colors;
+  this.drawMode = 'fill';
+  if(this.isImmediateDrawing){
+    shaderProgram =
+    this._getShader('immediateVert','vertexColorFrag');
+    gl.useProgram(shaderProgram);
+  } else {
+    shaderProgram =
+    this._getShader('normalVert', 'basicFrag');
+    gl.useProgram(shaderProgram);
+    //RetainedMode uses a webgl uniform to pass color vals
+    //in ImmediateMode, we want access to each vertex so therefore
+    //we cannot use a uniform.
+    shaderProgram.uMaterialColor = gl.getUniformLocation(
+      shaderProgram, 'uMaterialColor' );
+    gl.uniform4f( shaderProgram.uMaterialColor,
+      colors[0],
+      colors[1],
+      colors[2],
+      colors[3]);
+  }
+  return this;
+};
+p5.RendererGL.prototype.stroke = function(r, g, b, a) {
+  var color = this._pInst.color.apply(this._pInst, arguments);
+  var colorNormalized = color._array;
+  this.curStrokeColor = colorNormalized;
+  this.drawMode = 'stroke';
+  return this;
+};
+
+//@TODO
+p5.RendererGL.prototype._strokeCheck = function(){
+  if(this.drawMode === 'stroke'){
+    throw new Error(
+      'stroke for shapes in 3D not yet implemented, use fill for now :('
+    );
+  }
+};
+
+/**
+ * [strokeWeight description]
+ * @param  {Number} pointSize stroke point size
+ * @return {[type]}           [description]
+ * @todo  strokeWeight currently works on points only.
+ * implement on all wireframes and strokes.
+ */
+p5.RendererGL.prototype.strokeWeight = function(pointSize) {
+  this.pointSize = pointSize;
+  return this;
+};
+//////////////////////////////////////////////
+// HASH | for material and geometry
+//////////////////////////////////////////////
+
+p5.RendererGL.prototype.geometryInHash = function(gId){
+  return this.gHash[gId] !== undefined;
+};
+
+p5.RendererGL.prototype.materialInHash = function(mId){
+  return this.mHash[mId] !== undefined;
+};
+
+/**
+ * [resize description]
+ * @param  {[type]} w [description]
+ * @param  {[tyoe]} h [description]
+ * @return {[type]}   [description]
+ */
+p5.RendererGL.prototype.resize = function(w,h) {
+  var gl = this.GL;
+  p5.Renderer.prototype.resize.call(this, w, h);
+  gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+  // If we're using the default camera, update the aspect ratio
+  if(this._curCamera === 'default') {
+    this._curCamera = null;
+    this._setDefaultCamera();
+  }
+};
+
+/**
+ * clears color and depth buffers
+ * with r,g,b,a
+ * @param {Number} r normalized red val.
+ * @param {Number} g normalized green val.
+ * @param {Number} b normalized blue val.
+ * @param {Number} a normalized alpha val.
+ */
+p5.RendererGL.prototype.clear = function() {
+  var gl = this.GL;
+  gl.clearColor(arguments[0],
+    arguments[1],
+    arguments[2],
+    arguments[3]);
+  gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+};
+
+/**
+ * [translate description]
+ * @param  {[type]} x [description]
+ * @param  {[type]} y [description]
+ * @param  {[type]} z [description]
+ * @return {[type]}   [description]
+ * @todo implement handle for components or vector as args
+ */
+p5.RendererGL.prototype.translate = function(x, y, z) {
+  this.uMVMatrix.translate([x,-y,z]);
+  return this;
+};
+
+/**
+ * Scales the Model View Matrix by a vector
+ * @param  {Number | p5.Vector | Array} x [description]
+ * @param  {Number} [y] y-axis scalar
+ * @param  {Number} [z] z-axis scalar
+ * @return {this}   [description]
+ */
+p5.RendererGL.prototype.scale = function(x,y,z) {
+  this.uMVMatrix.scale([x,y,z]);
+  return this;
+};
+
+p5.RendererGL.prototype.rotate = function(rad, axis){
+  this.uMVMatrix.rotate(rad, axis);
+  return this;
+};
+
+p5.RendererGL.prototype.rotateX = function(rad) {
+  this.rotate(rad, [1,0,0]);
+  return this;
+};
+
+p5.RendererGL.prototype.rotateY = function(rad) {
+  this.rotate(rad, [0,1,0]);
+  return this;
+};
+
+p5.RendererGL.prototype.rotateZ = function(rad) {
+  this.rotate(rad, [0,0,1]);
+  return this;
+};
+
+/**
+ * pushes a copy of the model view matrix onto the
+ * MV Matrix stack.
+ */
+p5.RendererGL.prototype.push = function() {
+  uMVMatrixStack.push(this.uMVMatrix.copy());
+};
+
+/**
+ * [pop description]
+ * @return {[type]} [description]
+ */
+p5.RendererGL.prototype.pop = function() {
+  if (uMVMatrixStack.length === 0) {
+    throw new Error('Invalid popMatrix!');
+  }
+  this.uMVMatrix = uMVMatrixStack.pop();
+};
+
+p5.RendererGL.prototype.resetMatrix = function() {
+  this.uMVMatrix = p5.Matrix.identity();
+  this.translate(0, 0, -800);
+  return this;
+};
+
+// Text/Typography
+// @TODO:
+p5.RendererGL.prototype._applyTextProperties = function() {
+  //@TODO finish implementation
+  console.error('text commands not yet implemented in webgl');
+};
+module.exports = p5.RendererGL;
+
+},{"../core/core":42,"../core/p5.Renderer":48,"./p5.Matrix":88,"./shader":93}],92:[function(_dereq_,module,exports){
+/**
+ * @module Shape
+ * @submodule 3D Primitives
+ * @for p5
+ * @requires core
+ * @requires p5.Geometry
+ */
+
+'use strict';
+
+var p5 = _dereq_('../core/core');
+_dereq_('./p5.Geometry');
+/**
+ * Draw a plane with given a width and height
+ * @method plane
+ * @param  {Number} width      width of the plane
+ * @param  {Number} height     height of the plane
+ * @param  {Number} [detailX]  Optional number of triangle
+ *                             subdivisions in x-dimension
+ * @param {Number} [detailY]   Optional number of triangle
+ *                             subdivisions in y-dimension
+ * @return {p5}                the p5 object
+ * @example
+ * <div>
+ * <code>
+ * //draw a plane with width 200 and height 200
+ * function setup(){
+ *   createCanvas(100, 100, WEBGL);
+ * }
+ *
+ * function draw(){
+ *   background(200);
+ *   plane(50, 50);
+ * }
+ * </code>
+ * </div>
+ *
+ * @alt
+ * Nothing displayed on canvas
+ * Rotating interior view of a box with sides that change color.
+ * 3d red and green gradient.
+ * Rotating interior view of a cylinder with sides that change color.
+ * Rotating view of a cylinder with sides that change color.
+ * 3d red and green gradient.
+ * rotating view of a multi-colored cylinder with concave sides.
+ */
+p5.prototype.plane = function(){
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
+  var width = args[0] || 50;
+  var height = args[1] || width;
+  var detailX = typeof args[2] === 'number' ? args[2] : 1;
+  var detailY = typeof args[3] === 'number' ? args[3] : 1;
+
+  var gId = 'plane|'+width+'|'+height+'|'+detailX+'|'+detailY;
+
+  if(!this._renderer.geometryInHash(gId)){
+    var _plane = function(){
+      var u,v,p;
+      for (var i = 0; i <= this.detailY; i++){
+        v = i / this.detailY;
+        for (var j = 0; j <= this.detailX; j++){
+          u = j / this.detailX;
+          p = new p5.Vector(width * u - width/2,
+            height * v - height/2,
+            0);
+          this.vertices.push(p);
+          this.uvs.push([u,v]);
+        }
+      }
+    };
+    var planeGeom =
+    new p5.Geometry(detailX, detailY, _plane);
+    planeGeom
+      .computeFaces()
+      .computeNormals();
+    this._renderer.createBuffers(gId, planeGeom);
+  }
+
+  this._renderer.drawBuffers(gId);
+
+};
+
+/**
+ * Draw a box with given width, height and depth
+ * @method  box
+ * @param  {Number} width     width of the box
+ * @param  {Number} Height    height of the box
+ * @param  {Number} depth     depth of the box
+ * @param {Number} [detailX]  Optional number of triangle
+ *                            subdivisions in x-dimension
+ * @param {Number} [detailY]  Optional number of triangle
+ *                            subdivisions in y-dimension
+ * @return {p5}               the p5 object
+ * @example
+ * <div>
+ * <code>
+ * //draw a spinning box with width, height and depth 200
+ * function setup(){
+ *   createCanvas(100, 100, WEBGL);
+ * }
+ *
+ * function draw(){
+ *   background(200);
+ *   rotateX(frameCount * 0.01);
+ *   rotateY(frameCount * 0.01);
+ *   box(200, 200, 200);
+ * }
+ * </code>
+ * </div>
+ */
+p5.prototype.box = function(){
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
+  var width = args[0] || 50;
+  var height = args[1] || width;
+  var depth = args[2] || width;
+
+  var detailX = typeof args[3] === 'number' ? args[3] : 4;
+  var detailY = typeof args[4] === 'number' ? args[4] : 4;
+  var gId = 'box|'+width+'|'+height+'|'+depth+'|'+detailX+'|'+detailY;
+
+  if(!this._renderer.geometryInHash(gId)){
+    var _box = function(){
+      var cubeIndices = [
+        [0, 4, 2, 6],// -1, 0, 0],// -x
+        [1, 3, 5, 7],// +1, 0, 0],// +x
+        [0, 1, 4, 5],// 0, -1, 0],// -y
+        [2, 6, 3, 7],// 0, +1, 0],// +y
+        [0, 2, 1, 3],// 0, 0, -1],// -z
+        [4, 5, 6, 7]// 0, 0, +1] // +z
+      ];
+      var id=0;
+      for (var i = 0; i < cubeIndices.length; i++) {
+        var cubeIndex = cubeIndices[i];
+        var v = i * 4;
+        for (var j = 0; j < 4; j++) {
+          var d = cubeIndex[j];
+          //inspired by lightgl:
+          //https://github.com/evanw/lightgl.js
+          //octants:https://en.wikipedia.org/wiki/Octant_(solid_geometry)
+          var octant = new p5.Vector(
+            ((d & 1) * 2 - 1)*width/2,
+            ((d & 2) - 1) *height/2,
+            ((d & 4) / 2 - 1) * depth/2);
+          this.vertices.push( octant );
+          this.uvs.push([j & 1, (j & 2) / 2]);
+          id++;
+        }
+        this.faces.push([v, v + 1, v + 2]);
+        this.faces.push([v + 2, v + 1, v + 3]);
+      }
+    };
+    var boxGeom = new p5.Geometry(detailX,detailY, _box);
+    boxGeom.computeNormals();
+    //initialize our geometry buffer with
+    //the key val pair:
+    //geometry Id, Geom object
+    this._renderer.createBuffers(gId, boxGeom);
+  }
+  this._renderer.drawBuffers(gId);
+
+  return this;
+
+};
+
+/**
+ * Draw a sphere with given radius
+ * @method sphere
+ * @param  {Number} radius            radius of circle
+ * @param  {Number} [detailX]         optional: number of segments,
+ *                                    the more segments the smoother geometry
+ *                                    default is 24
+ * @param  {Number} [detailY]         optional: number of segments,
+ *                                    the more segments the smoother geometry
+ *                                    default is 16
+ * @return {p5}                       the p5 object
+ * @example
+ * <div>
+ * <code>
+ * // draw a sphere with radius 200
+ * function setup(){
+ *   createCanvas(100, 100, WEBGL);
+ * }
+ *
+ * function draw(){
+ *   background(200);
+ *   sphere(50);
+ * }
+ * </code>
+ * </div>
+ */
+p5.prototype.sphere = function(){
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
+  var radius = args[0] || 50;
+  var detailX = typeof args[1] === 'number' ? args[1] : 24;
+  var detailY = typeof args[2] === 'number' ? args[2] : 16;
+  var gId = 'sphere|'+radius+'|'+detailX+'|'+detailY;
+  if(!this._renderer.geometryInHash(gId)){
+    var _sphere = function(){
+      var u,v,p;
+      for (var i = 0; i <= this.detailY; i++){
+        v = i / this.detailY;
+        for (var j = 0; j <= this.detailX; j++){
+          u = j / this.detailX;
+          var theta = 2 * Math.PI * u;
+          var phi = Math.PI * v - Math.PI / 2;
+          p = new p5.Vector(radius * Math.cos(phi) * Math.sin(theta),
+            radius * Math.sin(phi),
+            radius * Math.cos(phi) * Math.cos(theta));
+          this.vertices.push(p);
+          this.uvs.push([u,v]);
+        }
+      }
+    };
+    var sphereGeom = new p5.Geometry(detailX, detailY, _sphere);
+    sphereGeom
+      .computeFaces()
+      .computeNormals()
+      .averageNormals()
+      .averagePoleNormals();
+    this._renderer.createBuffers(gId, sphereGeom);
+  }
+  this._renderer.drawBuffers(gId);
+
+  return this;
+};
+
+
+/**
+* @private
+* helper function for creating both cones and cyllinders
+*/
+var _truncatedCone = function(
+  bottomRadius,
+  topRadius,
+  height,
+  detailX,
+  detailY,
+  topCap,
+  bottomCap) {
+  detailX = (detailX < 3) ? 3 : detailX;
+  detailY = (detailY < 1) ? 1 : detailY;
+  topCap = (topCap === undefined) ? true : topCap;
+  bottomCap = (bottomCap === undefined) ? true : bottomCap;
+  var extra = (topCap ? 2 : 0) + (bottomCap ? 2 : 0);
+  var vertsAroundEdge = detailX + 1;
+
+  // ensure constant slant
+  var slant = Math.atan2(bottomRadius - topRadius, height);
+  var start = topCap ? -2 : 0;
+  var end = detailY + (bottomCap ? 2 : 0);
+  var yy, ii;
+  for (yy = start; yy <= end; ++yy) {
+    var v = yy / detailY;
+    var y = height * v;
+    var ringRadius;
+    if (yy < 0) {
+      y = 0;
+      v = 1;
+      ringRadius = bottomRadius;
+    } else if (yy > detailY) {
+      y = height;
+      v = 1;
+      ringRadius = topRadius;
+    } else {
+      ringRadius = bottomRadius +
+        (topRadius - bottomRadius) * (yy / detailY);
+    }
+    if (yy === -2 || yy === detailY + 2) {
+      ringRadius = 0;
+      v = 0;
+    }
+    y -= height / 2;
+    for (ii = 0; ii < vertsAroundEdge; ++ii) {
+      //VERTICES
+      this.vertices.push(
+        new p5.Vector(
+          Math.sin(ii*Math.PI * 2 /detailX) * ringRadius,
+          y,
+          Math.cos(ii*Math.PI * 2 /detailX) * ringRadius)
+        );
+      //VERTEX NORMALS
+      this.vertexNormals.push(
+        new p5.Vector(
+          (yy < 0 || yy > detailY) ? 0 :
+          (Math.sin(ii * Math.PI * 2 / detailX) * Math.cos(slant)),
+          (yy < 0) ? -1 : (yy > detailY ? 1 : Math.sin(slant)),
+          (yy < 0 || yy > detailY) ? 0 :
+          (Math.cos(ii * Math.PI * 2 / detailX) * Math.cos(slant)))
+        );
+      //UVs
+      this.uvs.push([(ii / detailX), v]);
+    }
+  }
+  for (yy = 0; yy < detailY + extra; ++yy) {
+    for (ii = 0; ii < detailX; ++ii) {
+      this.faces.push([vertsAroundEdge * (yy + 0) + 0 + ii,
+        vertsAroundEdge * (yy + 0) + 1 + ii,
+        vertsAroundEdge * (yy + 1) + 1 + ii]);
+      this.faces.push([vertsAroundEdge * (yy + 0) + 0 + ii,
+        vertsAroundEdge * (yy + 1) + 1 + ii,
+        vertsAroundEdge * (yy + 1) + 0 + ii]);
+    }
+  }
+};
+
+/**
+ * Draw a cylinder with given radius and height
+ * @method  cylinder
+ * @param  {Number} radius     radius of the surface
+ * @param  {Number} height     height of the cylinder
+ * @param  {Number} [detailX]  optional: number of segments,
+ *                             the more segments the smoother geometry
+ *                             default is 24
+ * @param {Number} [detailY]   optional: number of segments in y-dimension,
+ *                             the more segments the smoother geometry
+ *                             default is 16
+ * @return {p5}                the p5 object
+ * @example
+ * <div>
+ * <code>
+ * //draw a spinning cylinder with radius 200 and height 200
+ * function setup(){
+ *   createCanvas(100, 100, WEBGL);
+ * }
+ *
+ * function draw(){
+ *   background(200);
+ *   rotateX(frameCount * 0.01);
+ *   rotateZ(frameCount * 0.01);
+ *   cylinder(200, 200);
+ * }
+ * </code>
+ * </div>
+ */
+p5.prototype.cylinder = function(){
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
+  var radius = args[0] || 50;
+  var height = args[1] || radius;
+  var detailX = typeof args[2] === 'number' ? args[2] : 24;
+  var detailY = typeof args[3] === 'number' ? args[3] : 16;
+  var gId = 'cylinder|'+radius+'|'+height+'|'+detailX+'|'+detailY;
+  if(!this._renderer.geometryInHash(gId)){
+    var cylinderGeom = new p5.Geometry(detailX, detailY);
+    _truncatedCone.call(
+      cylinderGeom,
+      radius,
+      radius,
+      height,
+      detailX,
+      detailY,
+      true,true);
+    cylinderGeom.computeNormals();
+    this._renderer.createBuffers(gId, cylinderGeom);
+  }
+
+  this._renderer.drawBuffers(gId);
+
+  return this;
+};
+
+
+/**
+ * Draw a cone with given radius and height
+ * @method cone
+ * @param  {Number} radius            radius of the bottom surface
+ * @param  {Number} height            height of the cone
+ * @param  {Number} [detailX]         optional: number of segments,
+ *                                    the more segments the smoother geometry
+ *                                    default is 24
+ * @param  {Number} [detailY]         optional: number of segments,
+ *                                    the more segments the smoother geometry
+ *                                    default is 16
+ * @return {p5}                       the p5 object
+ * @example
+ * <div>
+ * <code>
+ * //draw a spinning cone with radius 200 and height 200
+ * function setup(){
+ *   createCanvas(100, 100, WEBGL);
+ * }
+ *
+ * function draw(){
+ *   background(200);
+ *   rotateX(frameCount * 0.01);
+ *   rotateZ(frameCount * 0.01);
+ *   cone(200, 200);
+ * }
+ * </code>
+ * </div>
+ */
+p5.prototype.cone = function(){
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
+  var baseRadius = args[0] || 50;
+  var height = args[1] || baseRadius;
+  var detailX = typeof args[2] === 'number' ? args[2] : 24;
+  var detailY = typeof args[3] === 'number' ? args[3] : 16;
+  var gId = 'cone|'+baseRadius+'|'+height+'|'+detailX+'|'+detailY;
+  if(!this._renderer.geometryInHash(gId)){
+    var coneGeom = new p5.Geometry(detailX, detailY);
+    _truncatedCone.call(coneGeom,
+      baseRadius,
+      0,//top radius 0
+      height,
+      detailX,
+      detailY,
+      true,
+      true);
+    //for cones we need to average Normals
+    coneGeom
+      .computeNormals();
+    this._renderer.createBuffers(gId, coneGeom);
+  }
+
+  this._renderer.drawBuffers(gId);
+
+  return this;
+};
+
+/**
+ * Draw an ellipsoid with given radius
+ * @method ellipsoid
+ * @param  {Number} radiusx           xradius of circle
+ * @param  {Number} radiusy           yradius of circle
+ * @param  {Number} radiusz           zradius of circle
+ * @param  {Number} [detailX]         optional: number of segments,
+ *                                    the more segments the smoother geometry
+ *                                    default is 24. Avoid detail number above
+ *                                    150, it may crash the browser.
+ * @param  {Number} [detailY]         optional: number of segments,
+ *                                    the more segments the smoother geometry
+ *                                    default is 16. Avoid detail number above
+ *                                    150, it may crash the browser.
+ * @return {p5}                       the p5 object
+ * @example
+ * <div>
+ * <code>
+ * // draw an ellipsoid with radius 20, 30 and 40.
+ * function setup(){
+ *   createCanvas(100, 100, WEBGL);
+ * }
+ *
+ * function draw(){
+ *   background(200);
+ *   ellipsoid(20, 30, 40);
+ * }
+ * </code>
+ * </div>
+ */
+p5.prototype.ellipsoid = function(){
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
+  var detailX = typeof args[3] === 'number' ? args[3] : 24;
+  var detailY = typeof args[4] === 'number' ? args[4] : 24;
+  var radiusX = args[0] || 50;
+  var radiusY = args[1] || radiusX;
+  var radiusZ = args[2] || radiusX;
+
+  var gId = 'ellipsoid|'+radiusX+'|'+radiusY+
+  '|'+radiusZ+'|'+detailX+'|'+detailY;
+
+
+  if(!this._renderer.geometryInHash(gId)){
+    var _ellipsoid = function(){
+      var u,v,p;
+      for (var i = 0; i <= this.detailY; i++){
+        v = i / this.detailY;
+        for (var j = 0; j <= this.detailX; j++){
+          u = j / this.detailX;
+          var theta = 2 * Math.PI * u;
+          var phi = Math.PI * v - Math.PI / 2;
+          p = new p5.Vector(radiusX * Math.cos(phi) * Math.sin(theta),
+            radiusY * Math.sin(phi),
+            radiusZ * Math.cos(phi) * Math.cos(theta));
+          this.vertices.push(p);
+          this.uvs.push([u,v]);
+        }
+      }
+    };
+    var ellipsoidGeom = new p5.Geometry(detailX, detailY,_ellipsoid);
+    ellipsoidGeom
+      .computeFaces()
+      .computeNormals();
+    this._renderer.createBuffers(gId, ellipsoidGeom);
+  }
+
+  this._renderer.drawBuffers(gId);
+
+  return this;
+};
+
+/**
+ * Draw a torus with given radius and tube radius
+ * @method torus
+ * @param  {Number} radius        radius of the whole ring
+ * @param  {Number} tubeRadius    radius of the tube
+ * @param  {Number} [detailX]     optional: number of segments in x-dimension,
+ *                                the more segments the smoother geometry
+ *                                default is 24
+ * @param  {Number} [detailY]     optional: number of segments in y-dimension,
+ *                                the more segments the smoother geometry
+ *                                default is 16
+ * @return {p5}                   the p5 object
+ * @example
+ * <div>
+ * <code>
+ * //draw a spinning torus with radius 200 and tube radius 60
+ * function setup(){
+ *   createCanvas(100, 100, WEBGL);
+ * }
+ *
+ * function draw(){
+ *   background(200);
+ *   rotateX(frameCount * 0.01);
+ *   rotateY(frameCount * 0.01);
+ *   torus(200, 60);
+ * }
+ * </code>
+ * </div>
+ */
+p5.prototype.torus = function(){
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
+  var detailX = typeof args[2] === 'number' ? args[2] : 24;
+  var detailY = typeof args[3] === 'number' ? args[3] : 16;
+
+  var radius = args[0] || 50;
+  var tubeRadius = args[1] || 10;
+
+  var gId = 'torus|'+radius+'|'+tubeRadius+'|'+detailX+'|'+detailY;
+
+  if(!this._renderer.geometryInHash(gId)){
+    var _torus = function(){
+      var u,v,p;
+      for (var i = 0; i <= this.detailY; i++){
+        v = i / this.detailY;
+        for (var j = 0; j <= this.detailX; j++){
+          u = j / this.detailX;
+          var theta = 2 * Math.PI * u;
+          var phi = 2 * Math.PI * v;
+          p = new p5.Vector(
+            (radius + tubeRadius * Math.cos(phi)) * Math.cos(theta),
+            (radius + tubeRadius * Math.cos(phi)) * Math.sin(theta),
+            tubeRadius * Math.sin(phi));
+          this.vertices.push(p);
+          this.uvs.push([u,v]);
+        }
+      }
+    };
+    var torusGeom = new p5.Geometry(detailX, detailY, _torus);
+    torusGeom
+      .computeFaces()
+      .computeNormals()
+      .averageNormals();
+    this._renderer.createBuffers(gId, torusGeom);
+  }
+
+  this._renderer.drawBuffers(gId);
+
+  return this;
+};
+
+///////////////////////
+/// 2D primitives
+/////////////////////////
+
+//@TODO
+p5.RendererGL.prototype.point = function(x, y, z){
+  console.log('point not yet implemented in webgl');
+  return this;
+};
+
+p5.RendererGL.prototype.triangle = function
+(args){
+  var x1=args[0], y1=args[1];
+  var x2=args[2], y2=args[3];
+  var x3=args[4], y3=args[5];
+  var gId = 'tri|'+x1+'|'+y1+'|'+
+  x2+'|'+y2+'|'+
+  x3+'|'+y3;
+  if(!this.geometryInHash(gId)){
+    var _triangle = function(){
+      var vertices = [];
+      vertices.push(new p5.Vector(x1,y1,0));
+      vertices.push(new p5.Vector(x2,y2,0));
+      vertices.push(new p5.Vector(x3,y3,0));
+      this.vertices = vertices;
+      this.faces = [[0,1,2]];
+      this.uvs = [[0,0],[0,1],[1,1]];
+    };
+    var triGeom = new p5.Geometry(1,1,_triangle);
+    triGeom.computeNormals();
+    this.createBuffers(gId, triGeom);
+  }
+
+  this.drawBuffers(gId);
+  return this;
+};
+
+p5.RendererGL.prototype.ellipse = function
+(args){
+  var x = args[0];
+  var y = args[1];
+  var width = args[2];
+  var height = args[3];
+  //detailX and Y are optional 6th & 7th
+  //arguments
+  var detailX = args[4] || 24;
+  var detailY = args[5] || 16;
+  var gId = 'ellipse|'+args[0]+'|'+args[1]+'|'+args[2]+'|'+
+  args[3];
+  if(!this.geometryInHash(gId)){
+    var _ellipse = function(){
+      var u,v,p;
+      var centerX = x+width*0.5;
+      var centerY = y+height*0.5;
+      for (var i = 0; i <= this.detailY; i++){
+        v = i / this.detailY;
+        for (var j = 0; j <= this.detailX; j++){
+          u = j / this.detailX;
+          var theta = 2 * Math.PI * u;
+          if(v === 0){
+            p = new p5.Vector(centerX, centerY, 0);
+          }
+          else{
+            var _x = centerX + width*0.5 * Math.cos(theta);
+            var _y = centerY + height*0.5 * Math.sin(theta);
+            p = new p5.Vector(_x, _y, 0);
+          }
+          this.vertices.push(p);
+          this.uvs.push([u,v]);
+        }
+      }
+    };
+    var ellipseGeom = new p5.Geometry(detailX,detailY,_ellipse);
+    ellipseGeom
+      .computeFaces()
+      .computeNormals();
+    this.createBuffers(gId, ellipseGeom);
+  }
+  this.drawBuffers(gId);
+  return this;
+};
+
+p5.RendererGL.prototype.rect = function
+(args){
+  var gId = 'rect|'+args[0]+'|'+args[1]+'|'+args[2]+'|'+
+  args[3];
+  var x = args[0];
+  var y = args[1];
+  var width = args[2];
+  var height = args[3];
+  var detailX = args[4] || 24;
+  var detailY = args[5] || 16;
+  if(!this.geometryInHash(gId)){
+    var _rect = function(){
+      var u,v,p;
+      for (var i = 0; i <= this.detailY; i++){
+        v = i / this.detailY;
+        for (var j = 0; j <= this.detailX; j++){
+          u = j / this.detailX;
+          // var _x = x-width/2;
+          // var _y = y-height/2;
+          p = new p5.Vector(
+            x + (width*u),
+            y + (height*v),
+            0
+          );
+          this.vertices.push(p);
+          this.uvs.push([u,v]);
+        }
+      }
+    };
+    var rectGeom = new p5.Geometry(detailX,detailY,_rect);
+    rectGeom
+      .computeFaces()
+      .computeNormals();
+    this.createBuffers(gId, rectGeom);
+  }
+  this.drawBuffers(gId);
+  return this;
+};
+
+p5.RendererGL.prototype.quad = function(){
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
+  var x1 = args[0],
+    y1 = args[1],
+    x2 = args[2],
+    y2 = args[3],
+    x3 = args[4],
+    y3 = args[5],
+    x4 = args[6],
+    y4 = args[7];
+  var gId = 'quad|'+x1+'|'+y1+'|'+
+  x2+'|'+y2+'|'+
+  x3+'|'+y3+'|'+
+  x4+'|'+y4;
+  if(!this.geometryInHash(gId)){
+    var _quad = function(){
+      this.vertices.push(new p5.Vector(x1,y1,0));
+      this.vertices.push(new p5.Vector(x2,y2,0));
+      this.vertices.push(new p5.Vector(x3,y3,0));
+      this.vertices.push(new p5.Vector(x4,y4,0));
+      this.uvs.push([0, 0], [1, 0], [1, 1], [0, 1]);
+    };
+    var quadGeom = new p5.Geometry(2,2,_quad);
+    quadGeom.computeNormals();
+    quadGeom.faces = [[0,1,2],[2,3,0]];
+    this.createBuffers(gId, quadGeom);
+  }
+  this.drawBuffers(gId);
+  return this;
+};
+
+//this implementation of bezier curve
+//is based on Bernstein polynomial
+p5.RendererGL.prototype.bezier = function
+(args){
+  var bezierDetail=args[12] || 20;//value of Bezier detail
+  this.beginShape();
+  var coeff=[0,0,0,0];//  Bernstein polynomial coeffecients
+  var vertex=[0,0,0]; //(x,y,z) coordinates of points in bezier curve
+  for(var i=0; i<=bezierDetail; i++){
+    coeff[0]=Math.pow(1-(i/bezierDetail),3);
+    coeff[1]=(3*(i/bezierDetail)) * (Math.pow(1-(i/bezierDetail),2));
+    coeff[2]=(3*Math.pow(i/bezierDetail,2)) * (1-(i/bezierDetail));
+    coeff[3]=Math.pow(i/bezierDetail,3);
+    vertex[0]=args[0]*coeff[0] + args[3]*coeff[1] +
+              args[6]*coeff[2] + args[9]*coeff[3];
+    vertex[1]=args[1]*coeff[0] + args[4]*coeff[1] +
+              args[7]*coeff[2] + args[10]*coeff[3];
+    vertex[2]=args[2]*coeff[0] + args[5]*coeff[1] +
+              args[8]*coeff[2] + args[11]*coeff[3];
+    this.vertex(vertex[0],vertex[1],vertex[2]);
+  }
+  this.endShape();
+  return this;
+};
+
+p5.RendererGL.prototype.curve=function
+(args){
+  var curveDetail=args[12];
+  this.beginShape();
+  var coeff=[0,0,0,0];//coeffecients of the equation
+  var vertex=[0,0,0]; //(x,y,z) coordinates of points in bezier curve
+  for(var i=0; i<=curveDetail; i++){
+    coeff[0]=Math.pow((i/curveDetail),3) * 0.5;
+    coeff[1]=Math.pow((i/curveDetail),2) * 0.5;
+    coeff[2]=(i/curveDetail) * 0.5;
+    coeff[3]=0.5;
+    vertex[0]=coeff[0]*(-args[0] + (3*args[3]) - (3*args[6]) +args[9]) +
+              coeff[1]*((2*args[0]) - (5*args[3]) + (4*args[6]) - args[9]) +
+              coeff[2]*(-args[0] + args[6]) +
+              coeff[3]*(2*args[3]);
+    vertex[1]=coeff[0]*(-args[1] + (3*args[4]) - (3*args[7]) +args[10]) +
+              coeff[1]*((2*args[1]) - (5*args[4]) + (4*args[7]) - args[10]) +
+              coeff[2]*(-args[1] + args[7]) +
+              coeff[3]*(2*args[4]);
+    vertex[2]=coeff[0]*(-args[2] + (3*args[5]) - (3*args[8]) +args[11]) +
+              coeff[1]*((2*args[2]) - (5*args[5]) + (4*args[8]) - args[11]) +
+              coeff[2]*(-args[2] + args[8]) +
+              coeff[3]*(2*args[5]);
+    this.vertex(vertex[0],vertex[1],vertex[2]);
+  }
+  this.endShape();
+  return this;
+};
+
+module.exports = p5;
+
+},{"../core/core":42,"./p5.Geometry":87}],93:[function(_dereq_,module,exports){
+
+
+module.exports = {
+  immediateVert:
+    "attribute vec3 aPosition;\nattribute vec4 aVertexColor;\n\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nuniform float uResolution;\nuniform float uPointSize;\n\nvarying vec4 vColor;\nvoid main(void) {\n  vec4 positionVec4 = vec4(aPosition * vec3(1.0, -1.0, 1.0), 1.0);\n  gl_Position = uProjectionMatrix * uModelViewMatrix * positionVec4;\n  vColor = aVertexColor;\n  gl_PointSize = uPointSize;\n}\n",
+  vertexColorVert:
+    "attribute vec3 aPosition;\nattribute vec4 aVertexColor;\n\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\n\nvarying vec4 vColor;\n\nvoid main(void) {\n  vec4 positionVec4 = vec4(aPosition * vec3(1.0, -1.0, 1.0), 1.0);\n  gl_Position = uProjectionMatrix * uModelViewMatrix * positionVec4;\n  vColor = aVertexColor;\n}\n",
+  vertexColorFrag:
+    "precision mediump float;\nvarying vec4 vColor;\nvoid main(void) {\n  gl_FragColor = vColor;\n}",
+  normalVert:
+    "attribute vec3 aPosition;\nattribute vec3 aNormal;\nattribute vec2 aTexCoord;\n\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nuniform mat3 uNormalMatrix;\n\nvarying vec3 vVertexNormal;\nvarying highp vec2 vVertTexCoord;\n\nvoid main(void) {\n  vec4 positionVec4 = vec4(aPosition * vec3(1.0, -1.0, 1.0), 1.0);\n  gl_Position = uProjectionMatrix * uModelViewMatrix * positionVec4;\n  vVertexNormal = vec3( uNormalMatrix * aNormal );\n  vVertTexCoord = aTexCoord;\n}\n",
+  normalFrag:
+    "precision mediump float;\nvarying vec3 vVertexNormal;\nvoid main(void) {\n  gl_FragColor = vec4(vVertexNormal, 1.0);\n}",
+  basicFrag:
+    "precision mediump float;\nvarying vec3 vVertexNormal;\nuniform vec4 uMaterialColor;\nvoid main(void) {\n  gl_FragColor = uMaterialColor;\n}",
+  lightVert:
+    "attribute vec3 aPosition;\nattribute vec3 aNormal;\nattribute vec2 aTexCoord;\n\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nuniform mat3 uNormalMatrix;\nuniform int uAmbientLightCount;\nuniform int uDirectionalLightCount;\nuniform int uPointLightCount;\n\nuniform vec3 uAmbientColor[8];\nuniform vec3 uLightingDirection[8];\nuniform vec3 uDirectionalColor[8];\nuniform vec3 uPointLightLocation[8];\nuniform vec3 uPointLightColor[8];\nuniform bool uSpecular;\n\nvarying vec3 vVertexNormal;\nvarying vec2 vVertTexCoord;\nvarying vec3 vLightWeighting;\n\nvec3 ambientLightFactor = vec3(0.0, 0.0, 0.0);\nvec3 directionalLightFactor = vec3(0.0, 0.0, 0.0);\nvec3 pointLightFactor = vec3(0.0, 0.0, 0.0);\nvec3 pointLightFactor2 = vec3(0.0, 0.0, 0.0);\n\nvoid main(void){\n\n  vec4 positionVec4 = vec4(aPosition, 1.0);\n  gl_Position = uProjectionMatrix * uModelViewMatrix * positionVec4;\n\n  vec3 vertexNormal = vec3( uNormalMatrix * aNormal );\n  vVertexNormal = vertexNormal;\n  vVertTexCoord = aTexCoord;\n\n  vec4 mvPosition = uModelViewMatrix * vec4(aPosition, 1.0);\n  vec3 eyeDirection = normalize(-mvPosition.xyz);\n\n  float shininess = 32.0;\n  float specularFactor = 2.0;\n  float diffuseFactor = 0.3;\n\n  for(int i = 0; i < 8; i++){\n    if(uAmbientLightCount == i) break;\n    ambientLightFactor += uAmbientColor[i];\n  }\n\n  for(int j = 0; j < 8; j++){\n    if(uDirectionalLightCount == j) break;\n    vec3 dir = uLightingDirection[j];\n    float directionalLightWeighting = max(dot(vertexNormal, dir), 0.0);\n    directionalLightFactor += uDirectionalColor[j] * directionalLightWeighting;\n  }\n\n  for(int k = 0; k < 8; k++){\n    if(uPointLightCount == k) break;\n    vec3 loc = uPointLightLocation[k];\n    vec3 lightDirection = normalize(loc - mvPosition.xyz);\n\n    float directionalLightWeighting = max(dot(vertexNormal, lightDirection), 0.0);\n    pointLightFactor += uPointLightColor[k] * directionalLightWeighting;\n\n    //factor2 for specular\n    vec3 reflectionDirection = reflect(-lightDirection, vertexNormal);\n    float specularLightWeighting = pow(max(dot(reflectionDirection, eyeDirection), 0.0), shininess);\n\n    pointLightFactor2 += uPointLightColor[k] * (specularFactor * specularLightWeighting\n      +  directionalLightWeighting * diffuseFactor);\n  }\n\n  if(!uSpecular){\n    vLightWeighting =  ambientLightFactor + directionalLightFactor + pointLightFactor;\n  }else{\n    vLightWeighting = ambientLightFactor + directionalLightFactor + pointLightFactor2;\n  }\n\n}\n",
+  lightTextureFrag:
+    "precision mediump float;\n\nuniform vec4 uMaterialColor;\nuniform sampler2D uSampler;\nuniform bool isTexture;\n\nvarying vec3 vLightWeighting;\nvarying highp vec2 vVertTexCoord;\n\nvoid main(void) {\n  if(!isTexture){\n    gl_FragColor = vec4(vec3(uMaterialColor.rgb * vLightWeighting), uMaterialColor.a);\n  }else{\n    vec4 textureColor = texture2D(uSampler, vVertTexCoord);\n    if(vLightWeighting == vec3(0., 0., 0.)){\n      gl_FragColor = textureColor;\n    }else{\n      gl_FragColor = vec4(vec3(textureColor.rgb * vLightWeighting), textureColor.a);\n    }\n  }\n}"
+};
+},{}]},{},[33])(33)
 });
