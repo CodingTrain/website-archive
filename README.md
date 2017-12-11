@@ -8,19 +8,13 @@
 
 All times are in EDT and are subject to change! You can confirm the exact time by visiting [The Coding Train Live](https://www.youtube.com/user/shiffman/) the day of.
 
-### Friday, Dec 8: 2:30pm - 4:30pm
-* more OOP in JS
-* WEBGL revisited
-* JS array functions: `map()`, `fill()`, `reduce()`
-* WEBGL challenge?
-* Game of Life Challenge
-
 ### Tuesday, Dec 12: Bonus Makeup Session! 10:30am - 12:30pm
-* K-means clustering?
-* Topics TBA
+* WEBGL revisited
+* WEBGL challenge?
+* JS array functions: `map()`, `fill()`, `reduce()`
 
-### Thursday, Dec 14: Bonus Makeup Session! 10:30am - 12:30pm
-* Topics TBA
+### Thursday, Dec 14: Bonus Makeup Session! 3:30pm - 5:30pm
+* K-means clustering?
 
 ### Friday, Dec 15: 10:30am - 12:30pm
 * Topics TBA
