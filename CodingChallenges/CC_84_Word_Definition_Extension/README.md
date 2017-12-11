@@ -1,7 +1,7 @@
-# Coding Challenge 83: Chrome Extension with p5.js Sketch
+# Coding Challenge 84: Word Definition Extension
 * [Edited Video](https://www.youtube.com/watch?v=GWDx1GnxhOw)
 * [Original Live Stream](https://www.youtube.com/watch?v=h3p0U8yWrMU)
-* [Example Running Online](https://codingtrain.github.io/Rainbow-Code/CodingChallenges/CC_83_Chrome_Extension_with_p5js_Sketch)
+* [Example Running Online](https://codingtrain.github.io/Rainbow-Code/CodingChallenges/CC_84_Word_Definition_Extension)
 
 
 ## Community Editions

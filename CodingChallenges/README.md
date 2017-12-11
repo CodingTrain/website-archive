@@ -216,3 +216,5 @@ Here is the playlist of all my coding challenges:
   - [Javascript Version](CC_83_Chrome_Extension_with_p5js_Sketch)
 - Coding Challenge #84: Word Definition Extension
   - [Javascript Version](CC_84_Word_Definition_Extension)
+- Coding Challenge #85: The Game of Life
+  - [Javascript Version](CC_85_The_Game_of_Life)
