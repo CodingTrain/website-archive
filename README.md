@@ -8,12 +8,14 @@
 
 All times are in EDT and are subject to change! You can confirm the exact time by visiting [The Coding Train Live](https://www.youtube.com/user/shiffman/) the day of.
 
-### Tuesday, Dec 12: Bonus Makeup Session! 10:30am - 12:30pm
+### Tuesday, Dec 12: Bonus Makeup Session! 11am - 1pm
 * WEBGL revisited
-* WEBGL challenge?
+* Simple Harmonic Motion
+* WEBGL challenge: [cube wave](https://beesandbombs.tumblr.com/post/149654056864/cube-wave)
 * JS array functions: `map()`, `fill()`, `reduce()`
 
 ### Thursday, Dec 14: Bonus Makeup Session! 3:30pm - 5:30pm
+* word2vec
 * K-means clustering?
 
 ### Friday, Dec 15: 10:30am - 12:30pm
@@ -26,9 +28,7 @@ All times are in EDT and are subject to change! You can confirm the exact time b
 
 # Topics Under Consideration
 * Mappa p5 library (traveling sales on a map?)
-* game of life coding challenge
 * boids coding challenge
-* word2vec
 * Promises
 * Bayesian text classification
 * `exec()` with node (densecap with p5 and node?)
