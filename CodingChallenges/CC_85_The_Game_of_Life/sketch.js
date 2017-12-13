@@ -23,7 +23,7 @@ function setup() {
   grid = make2DArray(cols, rows);
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
-      grid[i][j] = new Cell(i, j); //floor(random(2));
+      grid[i][j] = floor(random(2));
     }
   }
 }
