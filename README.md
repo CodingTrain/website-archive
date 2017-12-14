@@ -15,6 +15,11 @@ All times are in EDT and are subject to change! You can confirm the exact time b
 * JS array functions: `map()`, `fill()`, `reduce()`
 
 ### Thursday, Dec 14: Bonus Makeup Session! 3:30pm - 5:30pm
+* Continue WEBGL
+  * Redo lights & material
+  * Cube wave?
+  * Textures
+  * Camera
 * word2vec
 * K-means clustering?
 
