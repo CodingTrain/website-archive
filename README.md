@@ -8,18 +8,16 @@
 
 All times are in EDT and are subject to change! You can confirm the exact time by visiting [The Coding Train Live](https://www.youtube.com/user/shiffman/) the day of.
 
-### Thursday, Dec 14: Bonus Makeup Session! 3:00pm - 5:00pm
-* WEBGL revisited
 
 ### Friday, Dec 15: 10:30am - 12:30pm
-* Continue WEBGL
+* `createGraphics()`
+* Continue WEBGL?
+  * 2D canvas texture
   * Custom shapes
     * `beginShape` and `endShape`
     * Models with `.obj` file?
-  * Redo camera
-  * Shaders?
-* word2vec
-* K-means clustering?
+  * Redo camera?
+  * `fill()`, `map()`, `reduce()`
 
 ### Monday, Dec 18: ITP Show live stream!
 
@@ -27,6 +25,8 @@ All times are in EDT and are subject to change! You can confirm the exact time b
 * Topics TBA
 
 # Topics Under Consideration
+* word2vec
+* K-means clustering?
 * Mappa p5 library (traveling sales on a map?)
 * boids coding challenge
 * Promises
