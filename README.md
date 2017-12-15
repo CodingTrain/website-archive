@@ -10,12 +10,16 @@ All times are in EDT and are subject to change! You can confirm the exact time b
 
 ### Thursday, Dec 14: Bonus Makeup Session! 3:00pm - 5:00pm
 * WEBGL revisited
-* JS array functions: `map()`, `fill()`, `reduce()`
-* word2vec
-* K-means clustering?
 
 ### Friday, Dec 15: 10:30am - 12:30pm
-* Topics TBA
+* Continue WEBGL
+  * Custom shapes
+    * `beginShape` and `endShape`
+    * Models with `.obj` file?
+  * Redo camera
+  * Shaders?
+* word2vec
+* K-means clustering?
 
 ### Monday, Dec 18: ITP Show live stream!
 
