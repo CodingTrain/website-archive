@@ -5,4 +5,5 @@
 
 
 ## Community Editions
+- Alexandru Nastase: [Demo](https://alexandrunst.github.io/Game-of-Life/) | [Source](https://github.com/AlexandruNst/Game-of-Life)
 - Add your version here
