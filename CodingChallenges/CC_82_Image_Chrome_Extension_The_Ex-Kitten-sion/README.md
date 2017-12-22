@@ -4,3 +4,4 @@
 
 ## Community Editions
 - [Chrome Bearstension](https://github.com/AlcinaW/chrome-bearstension)
+- [ShiffDance Chrome Extension](https://github.com/LankySmurph/chrome-shiffdance)
