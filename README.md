@@ -8,20 +8,7 @@
 
 All times are in EDT and are subject to change! You can confirm the exact time by visiting [The Coding Train Live](https://www.youtube.com/user/shiffman/) the day of.
 
-
-### Friday, Dec 15: 10:30am - 12:30pm
-* `createGraphics()`
-* Continue WEBGL?
-  * 2D canvas texture
-  * Custom shapes
-    * `beginShape` and `endShape`
-    * Models with `.obj` file?
-  * Redo camera?
-  * `fill()`, `map()`, `reduce()`
-
-### Monday, Dec 18: ITP Show live stream!
-
-### Thursday, Dec 21: Processing Foundation Holiday Telethon Extravaganza!
+### TBA
 * Topics TBA
 
 # Topics Under Consideration
@@ -37,6 +24,9 @@ All times are in EDT and are subject to change! You can confirm the exact time b
 * dialogflow
 
 # Past Live Streams
+* [Live Stream #111: More WebGL with p5.js!](https://youtu.be/Xiu8pbHtrEY?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
+* [Live Stream #110: WebGL with p5.js Continued](https://youtu.be/4ncCxWm6jj0?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
+* [Live Stream #109: WebGL with p5.js](https://youtu.be/Gi9PuLHlzzI?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
 * [Live Stream #108: More OOP with ES6 & The Game of Life](https://youtu.be/U8S1qDjIE2Y?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
 * [Live Stream #107: Chrome Extensions Continued](https://youtu.be/h3p0U8yWrMU?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
 * [Live Stream #106.2: Chrome Extensions - Part 2](https://youtu.be/y0zS83xj0g0?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
