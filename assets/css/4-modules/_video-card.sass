@@ -1,0 +1,80 @@
+.video-card
+  $padding: 2rem
+
+  width: 35rem
+  box-shadow: 0em 0em 1em 0.5em #EEE
+  padding-bottom: 1em
+  border-radius: 0.5em
+  overflow: hidden
+  margin: 3rem 0rem
+
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+
+
+  > a
+    text-decoration: none
+    color: $text-color
+
+  .video-badge
+    position: absolute
+    background: $ct-green
+    color: #FFF
+    font-family: $sans-serif
+    font-size: 2rem
+    padding: 0.5em
+    border-radius: 0.25em 0em
+
+  .video-header
+    .video-thumbnail
+      width: 35rem
+      height: 35rem * 9 / 16
+      background-size: cover
+      background-position: center
+
+    h3
+      font-size: 2rem
+      padding: 1.25em 1em 0.5em
+      margin: 0
+      text-align: left
+
+    .video-date
+      font-size: 1.5rem
+      padding: 0em (20em / 1em)
+
+  .video-description
+    padding: 0.625em 1.25em
+
+    ul
+      padding-left: 1.5em
+
+  .buttons
+    display: flex
+    justify-content: space-between
+    padding: 0em $padding ($padding / 2)
+
+    @media (max-width: $mobile)
+      flex-wrap: wrap
+
+    a
+      @extend .cta-button
+      font-size: 1.5rem
+      background: $ct-purple
+      color: #FFF
+      flex-grow: 2
+      margin-left: 0.25em
+      margin-right: 0.25em
+
+      @media (max-width: $mobile)
+        margin: 0
+
+      &:first-child
+        margin-left: 0
+      
+      &:last-child
+        margin-right: 0
+
+      @media (max-width: $mobile)
+        flex-basis: 100%
+        margin-top: 0.5em
