@@ -1,0 +1,73 @@
+{% comment %}
+  This module is used to render a list of links from a given array of link
+  objects. Those link objects can contain the folllowing properties:
+    - title string                  The link's title.
+    - video_id string               A youtube video id.
+    - playlist_id string            A youtube playlist id.
+    - url string                    Internal or external URL.
+    - author[.name] string|Author   The author's name of the linked content.
+    - author.url string             The author's URL of the linked content.
+    - source string                 Link to the source code of the link's destination.
+  
+  Parameters:
+    title string    The title of this list of links.
+    link Link[]     The link objects to display in the list.
+    class string    A CSS class that should be applied to the list's container.
+{% endcomment %}
+
+
+<div class="link-list {{ include.class }}">
+  <h3>{{ include.title }}</h3>
+  <ul>
+    {% for link in include.links %}
+      <li>
+        {% comment %} Link for skipping the video to a specific timecode. {% endcomment %}
+        {% if link.time %}
+          <a href="#{{ link.time }}" class="video-control-link">{{ link.time }}</a> -
+        {% endif %}
+
+
+        {% comment %} Link for referencing internal or external videos/playlists. {% endcomment %}
+        {% if link.video_id %}
+          {% assign url = 'https://youtu.be/' | append: link.video_id %}
+        {% elsif link.playlist_id %}
+          {% assign url = 'https://www.youtube.com/playlist?list=' | append: link.playlist_id %}
+        {% else %}
+          {% assign url = link.url %}
+        {% endif %}
+
+          
+        {% comment %} Generate link based on its destination (internal or external). {% endcomment %}
+        {% if url contains 'http://' or url contains 'https://' %}
+
+          {% comment %} External link (open in new tab/window). {% endcomment %}
+          <a href="{{ link.url }}" target="blank">{{ link.title }}</a>
+        {% elsif url %}
+
+          {% comment %} Internal link (make sure that the url is correct). {% endcomment %}
+          <a href="{{ link.url | relative_url }}">{{ link.title }}</a>
+        {% else %}
+
+          {% comment %} No link, just show the text. {% endcomment %}
+          <span class="fake-link">{{ link.title }}</span>
+        {% endif %}
+
+
+        {% comment %} Link to the destination's author. {% endcomment %}
+        {% if link.author %}
+          {% if link.author.url %}
+            <i>by <a href="{{ link.author.url }}" target="blank">{{ link.author.name }}</a></i>
+          {% else %}
+            <i>by {{ link.author.name | default: link.author }}</i>
+          {% endif %}
+        {% endif %}
+
+
+        {% comment %} Link to the source code. {% endcomment %}
+        {% if link.source %}
+          (<a href="{{ link.source }}" target="blank">Source Code</a>)
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>

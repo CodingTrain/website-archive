@@ -1,0 +1,10 @@
+{% comment %}
+  This modules includes a simple video player for youtube videos.
+  IMPORTANT: There can only be one video player per page in order for time links
+             to work properly.
+
+  Parameters:
+    video_id string     The video's id (taken from YouTube).
+{% endcomment %}
+
+<div id="video-player" class="video-player" data-videoid="{{ include.video_id }}"></div>
