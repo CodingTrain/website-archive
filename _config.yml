@@ -1,0 +1,99 @@
+#
+# Jekyll Configuraton for https://codingtrain.github.io/Rainwbow-Code/
+#
+#  ToDo for Jekyll v3.7:
+#    - move collections into a subfolder using collections_dir: <path>
+#    - set layout series-index for relevant files automatically (using a glob pattern).
+#
+
+
+
+# --- Site Settings ---
+
+# The site's title.
+title: The Coding Train // Code Reposiory
+
+# Location from where the site will be served (repository name for GitHub Pages).
+baseurl: /Rainbow-Code
+
+# Path prefix for links to GitHub repositories (followed by :collection/:repository).
+repository_prefix: https://github.com/CodingTrain/Rainbow-Code/tree/master/
+
+# Prefix for download links (downloads only the relevant code from GitHub).
+github_download_prefix: https://minhaskamal.github.io/DownGit/#/home?url=
+
+
+
+# --- Build Settings ---
+
+# Use Kramdown as the preferred Markdown parser.
+markdown: kramdown
+
+# Exclude code for Node.js and Q_and_A
+exclude: [ 'Node', 'Q_and_A' ]
+
+# Include future videos (used for 'Upcoming Streams' section).
+future: true
+
+# Use EDT as the site's timezone.
+timezone: America/New_York
+
+# Compress HTML for production builds.
+compress_html: { ignore: { envs: ['development'] } }
+
+# Search for SASS files inside assets/css.
+sass: { sass_dir: 'assets/css' }
+
+
+
+# --- Jekyll Locations ---
+layouts_dir:  _jekyll/layouts
+includes_dir: _jekyll/includes
+
+
+
+# --- Collections ---
+collections:
+  Streams:          { output: true }
+  CodingChallenges: { output: true }
+  Tutorials:        { output: true }
+  GuestTutorials:   { output: true }
+  Courses:          { output: true }
+
+
+
+# --- Defaults ---
+
+defaults:
+
+  # Streams
+  - scope:              { path: "", type: "Streams" }
+    values:
+      layout:           "video"
+      video_type:       "stream"
+
+  # Coding Challenges
+  - scope:              { path: "", type: "CodingChallenges" }
+    values:
+      layout:           "video"
+      video_type:       "coding challenge"
+      video_type_short: "challenge"
+
+  # Tutorials
+  - scope:              { path: "", type: "Tutorials" }
+    values:
+      layout:           "video"
+      video_type:       "tutorial"
+
+  # Guest Tutorials
+  - scope:              { path: "", type: "GuestTutorials" }
+    values:
+      layout:           "video"
+      video_type:       "guest tutorial"
+      video_type_short: "tutorial"
+  
+  # Courses
+  - scope:              { path: "", type: "Courses" }
+    values:
+      layout:           "video"
+      video_type:       "session"

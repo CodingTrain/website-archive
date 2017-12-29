@@ -1,0 +1,74 @@
+---
+layout: base
+---
+
+<div class="series-index">
+  {% comment %} Extract the path of this series. {% endcomment %}
+  {% assign thisSeriesPath = page.path | remove: '/index.md' | append: '/' %}
+
+  {% comment %} Only select videos that are in this series. {% endcomment %}
+  {% assign videos = site[page.collection] %}
+  {% include 1-tools/sort-videos.html videos=videos seriesPage=page %}
+  {% assign sortedVideos = out_sortedVideos %}
+
+  {% comment %} Remove series path from video path. {% endcomment %}
+  {% assign videoPathWithoutSeries = sortedVideos[0].path | remove: thisSeriesPath %}
+
+  {% comment %} If the video path contains at least one '/' {% endcomment %}
+  {% if videoPathWithoutSeries contains '/' %}
+    {% assign hasMultipleSeries = true %}
+  {% endif %}
+
+  {% comment %} Show the page's subtitle. {% endcomment %}
+  <div class="subtitle">
+    {% comment %} Show current series with its number if the page only displays a list of videos. {% endcomment %}
+    {% unless hasMultipleSeries %}
+      {% include 1-tools/series-for-video.html video=page %}
+      {% if page.series_number %}
+        {{ out_series.title }}
+        {{ page.video_type }} #{{ page.series_number }}{% if page.subtitle %}:{% endif %}
+      {% endif %}
+    {% endunless %}
+
+    {{ page.subtitle }}
+  </div>
+
+  {% comment %} Show the series description. {% endcomment %}
+  <div class="description">{{ content }}</div>
+
+  {% comment %} This page displays a list of other series. {% endcomment %}
+  {% if hasMultipleSeries %}
+
+    {% comment %} Get the ID of all series in this collection. {% endcomment %}
+    {% assign seriesIndexPages = videos | where: 'layout', 'series-index'
+                                        | where_exp: 'seriesIndex', 'seriesIndex.path != page.path'
+                                        | sort: 'series_number' %}
+
+    {% comment %} Count the number of '/' in this page's path. {% endcomment %}
+    {% comment %} This is used to only show series which are direct children to this series. {% endcomment %}
+    {% assign slashCountInThisPagePath = page.path | split: '/' | size | plus: 1 %}
+
+    {% comment %} Show the first three videos for every series ... {% endcomment %}
+    {% for seriesIndexPage in seriesIndexPages %}
+
+      {% comment %} ... but only if the series is a direct children to this series. {% endcomment %}
+      {% assign slashCountInIndexPage = seriesIndexPage.path | split: '/' | size %}
+      {% if slashCountInIndexPage == slashCountInThisPagePath %}
+
+        {% comment %} Display title, description and videos. {% endcomment %}
+        <div class="series">
+          <h3>{% if seriesIndexPage.series_number %}{{ seriesIndexPage.video_type }} #{{ seriesIndexPage.series_number }}: {% endif %}{{ seriesIndexPage.title }}</h3>
+          <div class="subtitle">{{ seriesIndexPage.subtitle }}</div>
+          <div class="description-excerpt">{{ seriesIndexPage.excerpt }}</div>
+          {% include 3-modules/video-list.html videos=sortedVideos seriesPage=seriesIndexPage limit=3 reverse=seriesIndexPage.reverse %}
+        </div>
+
+      {% endif %}
+    {% endfor %}
+
+  {% comment %} This page displays a list of videos. {% endcomment %}
+  {% else %}
+    {% comment %} Display all videos. {% endcomment %}
+    {% include 3-modules/video-list.html sortedVideos=sortedVideos reverse=page.reverse %}
+  {% endif %}
+</div>

@@ -1,0 +1,38 @@
+footer
+  margin-top: 50px
+
+  .links
+    display: flex
+
+    @media (max-width: $tablet-small)
+      flex-wrap: wrap
+
+    a
+      padding: 40px
+      flex-basis: 100%
+      text-align: center
+      font-family: $sans-serif
+      text-decoration: none
+      color: #FFF
+      margin: 0
+
+      span
+        display: inline-block
+        font-size: 18px
+
+        transition: all 150ms
+        transform: scale(1)
+
+      &:hover
+        span
+          transform: scale(1.2)
+
+      &.nature-of-code
+        background: $ct-red
+
+      &.learning-processing
+        background: $ct-yellow
+        color: $text-color
+
+      &.shiffman-net
+        background: $ct-blue
