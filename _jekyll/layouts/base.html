@@ -7,6 +7,15 @@
   </head>
   <body>
     {% include 2-base/header.html %}
+
+    <div class="wrapper" style="{{ page.style }}">
+      {% if page.title %}
+        <h2>{{ page.title }}</h2>
+      {% endif %}
+
+      {{ content }}
+    </div>
+
     {% include 2-base/footer.html %}
   </body>
 </html>
