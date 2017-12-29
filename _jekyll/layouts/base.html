@@ -9,11 +9,24 @@
     {% include 2-base/header.html %}
 
     <div class="wrapper" style="{{ page.style }}">
-      {% if page.title %}
-        <h2>{{ page.title }}</h2>
-      {% endif %}
 
-      {{ content }}
+      {% comment %} Show 'no content' error message for videos without a video id. {% endcomment %}
+      {% if page.layout == 'video' and page.video_id == null %}
+
+        <div class="no-content" style="text-align: center">
+          <h2>Sorry, but this videos hasn't been processed yet</h2>
+          <a href="{{ '/' | relative_url }}">Check out other videos</a>
+        </div>
+        
+      {% else %}
+
+        {% if page.title %}
+          <h2>{{ page.title }}</h2>
+        {% endif %}
+
+        {{ content }}
+
+      {% endif %}
     </div>
 
     {% include 2-base/footer.html %}
