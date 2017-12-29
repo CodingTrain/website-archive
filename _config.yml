@@ -38,6 +38,9 @@ future: true
 # Use EDT as the site's timezone.
 timezone: America/New_York
 
+# Compress HTML for production builds.
+compress_html: { ignore: { envs: ['development'] } }
+
 # Search for SASS files inside assets/css.
 sass: { sass_dir: 'assets/css' }
 
