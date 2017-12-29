@@ -16,6 +16,12 @@ title: The Coding Train // Code Reposiory
 # Location from where the site will be served (repository name for GitHub Pages).
 baseurl: /Rainbow-Code
 
+# Path prefix for links to GitHub repositories (followed by :collection/:repository).
+repository_prefix: https://github.com/CodingTrain/Rainbow-Code/tree/master/
+
+# Prefix for download links (downloads only the relevant code from GitHub).
+github_download_prefix: https://minhaskamal.github.io/DownGit/#/home?url=
+
 
 
 # --- Build Settings ---
