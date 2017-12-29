@@ -1,0 +1,42 @@
+#
+# Jekyll Configuraton for https://codingtrain.github.io/Rainwbow-Code/
+#
+#  ToDo for Jekyll v3.7:
+#    - move collections into a subfolder using collections_dir: <path>
+#    - set layout series-index for relevant files automatically (using a glob pattern).
+#
+
+
+
+# --- Site Settings ---
+
+# The site's title.
+title: The Coding Train // Code Reposiory
+
+# Location from where the site will be served (repository name for GitHub Pages).
+baseurl: /Rainbow-Code
+
+
+
+# --- Build Settings ---
+
+# Use Kramdown as the preferred Markdown parser.
+markdown: kramdown
+
+# Exclude code for Node.js and Q_and_A
+exclude: [ 'Node', 'Q_and_A' ]
+
+# Include future videos (used for 'Upcoming Streams' section).
+future: true
+
+# Use EDT as the site's timezone.
+timezone: America/New_York
+
+# Search for SASS files inside assets/css.
+sass: { sass_dir: 'assets/css' }
+
+
+
+# --- Jekyll Locations ---
+layouts_dir:  _jekyll/layouts
+includes_dir: _jekyll/includes
