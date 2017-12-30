@@ -1,3 +1,9 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+
+// Video: https://youtu.be/O1mYw-3Wl_Q
+
 let angle = 0;
 let kitten;
 let cam;

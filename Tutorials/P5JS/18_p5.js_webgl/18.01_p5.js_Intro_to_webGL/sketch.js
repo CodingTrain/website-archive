@@ -1,3 +1,9 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+
+// Video: https://youtu.be/nqiKWXUX-o8
+
 function setup() {
   createCanvas(400, 300, WEBGL);
 }
