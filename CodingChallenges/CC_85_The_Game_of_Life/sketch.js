@@ -2,6 +2,9 @@
 // http://codingtra.in
 // http://patreon.com/codingtrain
 
+// Game of Life
+// Video: https://youtu.be/FWSR_7kZuYg
+
 function make2DArray(cols, rows) {
   let arr = new Array(cols);
   for (let i = 0; i < arr.length; i++) {

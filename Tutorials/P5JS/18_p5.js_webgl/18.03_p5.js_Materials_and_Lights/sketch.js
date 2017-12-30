@@ -1,3 +1,9 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+
+// Video: https://youtu.be/k2FguXvqp60
+
 let angle = 0;
 
 function setup() {
