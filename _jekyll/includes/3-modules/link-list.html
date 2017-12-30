@@ -41,11 +41,11 @@
         {% if url contains 'http://' or url contains 'https://' %}
 
           {% comment %} External link (open in new tab/window). {% endcomment %}
-          <a href="{{ link.url }}" target="blank">{{ link.title }}</a>
+          <a href="{{ url }}" target="blank">{{ link.title }}</a>
         {% elsif url %}
 
           {% comment %} Internal link (make sure that the url is correct). {% endcomment %}
-          <a href="{{ link.url | relative_url }}">{{ link.title }}</a>
+          <a href="{{ url | relative_url }}">{{ link.title }}</a>
         {% else %}
 
           {% comment %} No link, just show the text. {% endcomment %}
