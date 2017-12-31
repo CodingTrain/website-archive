@@ -55,7 +55,7 @@ layout: base
         {% capture live_example_url %}/{{ page.collection }}/{{ page.live_example | default: page.repository }}{% endcapture %}
         
         <div class="code-actions">
-          <a href="{{ site.github_download_prefix | append: site.repository_prefix | append: page.collection | append: page.repository }}" target="blank">Get the Code</a>
+          <a href="{{ site.github_download_prefix | append: site.github.repository_url | append: '/tree/' | append: site.github.source.branch | append: '/' | append: page.collection | append: page.repository }}" target="blank">Get the Code</a>
           <a href="{{ live_example_url | relative_url }}" target="blank" class="{% if page.live_example == false %}disabled{% endif %}">Live Example</a>
         </div>
         
