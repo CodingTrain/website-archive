@@ -71,6 +71,7 @@ defaults:
     values:
       layout:           "video"
       video_type:       "stream"
+      can_contribute:   false
 
   # Coding Challenges
   - scope:              { path: "", type: "CodingChallenges" }
@@ -78,12 +79,14 @@ defaults:
       layout:           "video"
       video_type:       "coding challenge"
       video_type_short: "challenge"
+      can_contribute:   true
 
   # Tutorials
   - scope:              { path: "", type: "Tutorials" }
     values:
       layout:           "video"
       video_type:       "tutorial"
+      can_contribute:   false
 
   # Guest Tutorials
   - scope:              { path: "", type: "GuestTutorials" }
@@ -91,9 +94,11 @@ defaults:
       layout:           "video"
       video_type:       "guest tutorial"
       video_type_short: "tutorial"
+      can_contribute:   false
   
   # Courses
   - scope:              { path: "", type: "Courses" }
     values:
       layout:           "video"
       video_type:       "session"
+      can_contribute:   false

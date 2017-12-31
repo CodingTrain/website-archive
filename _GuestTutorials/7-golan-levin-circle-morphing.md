@@ -3,6 +3,7 @@ title: "Circle Morphing with Golan Levin"
 video_number: 7
 date: 2017-10-25
 video_id: mvgcNOX8JGQ
+can_contribute: true
 
 custom_sections:
 

@@ -64,9 +64,25 @@ layout: base
   </div>
 
   <div class="links-and-books">
-    {% comment %} List of community contributions. {% endcomment %}
-    {% if page.contributions %}
-      {% include 3-modules/link-list.html links=page.contributions title='Community Contributions' %}
+    {% comment %} List of community contributions (only visible if can_contribute is true). {% endcomment %}
+    {% if page.can_contribute %}
+      <div class="contributions">
+        {% comment %} Include the list of community contributions. {% endcomment %}
+        {% include 3-modules/link-list.html links=page.contributions title='Community Contributions' %}
+
+        {% comment %} Generate a URL to edit this video's file directly on GitHub. {% endcomment %}
+        {% assign addContributionURL = site.github.repository_url | append: '/edit/' | append: site.github.source.branch | append: '/' | append: page.path %}
+
+        {% comment %} Display a message depending on wether there have been made community contributions already. {% endcomment %}
+        {% if page.contributions %}
+          <p>You can also <a href="{{ addContributionURL }}" target="blank">add your own version!</a>
+        {% else %}
+          <p>
+            It seems like there haven't been made any variations based on this {{ page.video_type }} by the community yet.
+            Be the first and <a href="{{ addContributionURL }}" target="blank">add your own</a>!
+          </p>
+        {% endif %}
+      </div>
     {% endif %}
 
     {% comment %} List of discussed links. {% endcomment %}
