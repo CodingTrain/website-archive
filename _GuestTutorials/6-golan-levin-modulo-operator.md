@@ -3,6 +3,7 @@ title: "The Modulo Operator with Golan Levin"
 video_number: 6
 date: 2017-10-24
 video_id: r5Iy3v1co0A
+can_contribute: true
 
 custom_sections:
 
