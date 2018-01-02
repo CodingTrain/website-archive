@@ -75,11 +75,15 @@ layout: base
 
         {% comment %} Display a message depending on wether there have been made community contributions already. {% endcomment %}
         {% if page.contributions %}
-          <p>You can also <a href="{{ addContributionURL }}" target="blank">add your own version!</a>
+          <p>
+            You can also <a href="{{ addContributionURL }}" target="blank">add your own version!</a>
+            (<a href="{{ site.github.wiki_url | append: '/Community-Contributions-Guide' }}" target="blank">See how</a>)
+          </p>
         {% else %}
           <p>
             It seems like there haven't been made any variations based on this {{ page.video_type }} by the community yet.
             Be the first and <a href="{{ addContributionURL }}" target="blank">add your own</a>!
+            If you don't know how, take a look at <a href="{{ site.github.wiki_url | append: '/Community-Contributions-Guide' }}" target="blank">this guide</a>.
           </p>
         {% endif %}
       </div>
