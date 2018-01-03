@@ -2,7 +2,7 @@
 
 Using cropped images to make falling snowflakes.
 
-Video for this challenge on [youtube](https://www.youtube.com/watch?v=cl-mHFCGzYk&t=209s)
+Video for this challenge on [youtube](https://www.youtube.com/watch?v=cl-mHFCGzYk)
 
 ## Community Variations
 
