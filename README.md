@@ -8,8 +8,8 @@
 
 All times are in EDT and are subject to change! You can confirm the exact time by visiting [The Coding Train Live](https://www.youtube.com/user/shiffman/) the day of.
 
-### TBA
-* Topics TBA
+### Friday, Jan 5 - 2pm - 4pm
+* Continuing Matrix math for neural networks / ML tutorials!
 
 # Topics Under Consideration
 * word2vec
