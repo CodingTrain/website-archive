@@ -1,0 +1,36 @@
+{% comment %}
+  Tries to find the series object for this video.
+  If a series object is passed in, it finds the parent series.
+  
+  Parameters:
+    video Video|Series    The video object.
+
+  Returns:
+    out_series Series?    The series object.
+{% endcomment %}
+
+
+{% comment %} Split the video path to ... {% endcomment %}
+{% assign int_videoPathComponents = include.video.path | split: '/' %}
+
+{% comment %} ... extract the file name. {% endcomment %}
+{% assign int_videoFileName = int_videoPathComponents | last %}
+
+{% comment %} Use the parent series if the passed object is already a series. {% endcomment %}
+{% if int_videoFileName == 'index.md' %}
+  {% assign seriesName = int_videoPathComponents | pop | last %}
+  {% assign int_videoFileName = int_videoFileName | prepend: '/' | prepend: seriesName %}
+{% endif %}
+
+{% comment %} Find the series path. {% endcomment %}
+{% assign int_seriesPath = include.video.path | remove: int_videoFileName | append: 'index.md' %}
+
+{% comment %} Count the path's slashes (a.k.a nesting level) ... {% endcomment %}
+{% assign int_seriesPathSlashCount = int_seriesPath | split: '/' | size %}
+{% if int_seriesPathSlashCount > 2 %}
+
+  {% comment %} ... and return the series object if if the path leads to a series. {% endcomment %}
+  {% assign out_series = site[include.video.collection] | where: 'path', int_seriesPath | first %}
+{% else %}
+  {% assign out_series = null %}
+{% endif %}
