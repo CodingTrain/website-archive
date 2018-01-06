@@ -1,0 +1,38 @@
+{% comment %}
+  This code generates links to the previous/next video in the collection sorted by the 'video_number' property.
+  page.previous/page.next doesn't work since jekyll always (at the time of developing this site) sorts collections by date.
+  Code adapted from budparr (https://gist.github.com/budparr/3e637e575471401d01ec).
+
+  Parameters:
+    videos Video[]            Array of sorted videos.
+    currentVideo Video        The current video.
+
+  Returns:
+    out_previousVideo Video   The page of the previous video.
+    out_nextVideo Video       The page of the next video.
+{% endcomment %}
+
+
+{% comment %} Create variables for previous and next video. {% endcomment %}
+{% assign out_previousVideo = null %}
+{% assign out_nextVideo = null %}
+
+{% comment %} For all videos ... {% endcomment %}
+{% for int_video in include.videos %}
+
+  {% comment %} ... find this video ... {% endcomment %}
+  {% if int_video.id == include.currentVideo.id %}
+
+    {% comment %} ... save the next video if it exists ... {% endcomment %}
+    {% unless forloop.last %}
+      {% assign out_nextVideo = include.videos[forloop.index] %}
+    {% endunless %}
+
+    {% comment %} ... and leave the loop. {% endcomment %}
+    {% break %}
+
+  {% endif %}
+
+  {% comment %} This video might be the previous video, so keep a reference. {% endcomment %}
+  {% assign out_previousVideo = int_video %}
+{% endfor %}
