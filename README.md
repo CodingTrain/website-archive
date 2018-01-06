@@ -20,7 +20,7 @@ All times are in EDT and are subject to change! You can confirm the exact time b
 * Bayesian text classification
 * `exec()` with node (densecap with p5 and node?)
 * iTerm
-* Alexa skill 
+* Alexa skill
 * dialogflow
 
 # Past Live Streams
@@ -143,3 +143,4 @@ All times are in EDT and are subject to change! You can confirm the exact time b
 * [Live Stream #3: p5.js Conditionals and Loops - Part 2](https://youtu.be/6G02PLQ8L7k?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
 * [Live Stream #2: p5.js Conditionals and Loops](https://youtu.be/uEVJRE_6v0A?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
 * [Live Stream #1: p5.js Video Lesson Recording Session](https://youtu.be/TdUC3JgwUJY?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
+
