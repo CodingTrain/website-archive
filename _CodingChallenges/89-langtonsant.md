@@ -7,7 +7,7 @@ repository: /CC_89_langtonsant
 
 links:
   - title: "Langton's Ant on Wikipedia"
-    url: https://github.com/toferj/p5js/tree/master/fireworks
+    url: https://en.wikipedia.org/wiki/Langton's_ant
   - title: "Langton's Ant on Numberphile"
     author:
       name: "Numberphile"
