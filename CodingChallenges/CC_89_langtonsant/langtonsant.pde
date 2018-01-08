@@ -1,4 +1,9 @@
-// Langton's Ant Coding Challenge
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+
+// Snowfall
+// Edited Video: https://youtu.be/G1EgjgMo48U
 
 int[][] grid;
 int x;
@@ -68,7 +73,7 @@ void moveForward() {
 
 void draw() {
   background(255);
-  
+
   ant.loadPixels();
   for (int n = 0; n < 100000; n++) {
     int state = grid[x][y];
@@ -79,7 +84,7 @@ void draw() {
       turnLeft();
       grid[x][y] = 0;
     }
-     
+
     color col = color(255);
     if (grid[x][y] == 1) {
       col = color(0);
@@ -90,7 +95,7 @@ void draw() {
   }
   ant.updatePixels();
 
-  
+
   image(ant,0,0);
   //loadPixels();
   //for (int i = 0; i < width; i++) {
