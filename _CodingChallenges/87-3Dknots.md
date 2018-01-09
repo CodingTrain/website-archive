@@ -17,4 +17,4 @@ videos:
   video_id: "RkuBWEkBrZA"
 ---
 
-In this coding challenge, I attempt to make 3D Knots using Processing and Paul Bourke's formulae (http://paulbourke.net/geometry/knots/).
+In this coding challenge, I attempt to make 3D Knots using Processing and Paul Bourke's formulae.
