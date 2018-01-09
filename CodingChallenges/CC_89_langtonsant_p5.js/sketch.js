@@ -10,7 +10,6 @@ let ANTLEFT = 3;
 
 function setup() {
   createCanvas(400, 400);
-  pixelDensity(5);
   grid = make2DArray(width,height);
   x = width/2;
   y = height/2;
