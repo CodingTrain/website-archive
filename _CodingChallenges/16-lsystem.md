@@ -4,7 +4,6 @@ video_number: 16
 date: 2016-05-31
 video_id: E1B4UoSQMFw
 repository: /CC_16_LSystem
-live_example: false
 links:
 - title: "Nature of Code class on Kadenze"  
   url: "https://www.kadenze.com/courses/the-nature-of-code/info"

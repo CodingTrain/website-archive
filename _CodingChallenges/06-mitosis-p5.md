@@ -4,7 +4,6 @@ video_number: 6
 date: 2016-04-27
 video_id: jxGS3fKPKJA
 repository: /CC_06_Mitosis_p5.js
-live_example: false
 
   
 

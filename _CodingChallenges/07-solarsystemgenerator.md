@@ -4,7 +4,7 @@ video_number: 7
 date: 2016-04-28
 video_id: l8SiJ-RmeHU
 repository: /CC_07_SolarSystemGenerator
-live_example: false
+live_example: /CC_07_SolarSystemGenerator_p5.js
 
   
 

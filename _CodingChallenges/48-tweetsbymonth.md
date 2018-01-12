@@ -4,7 +4,6 @@ video_number: 48
 date: 2017-01-06
 video_id: UrznYJltZrU
 repository: /CC_48_TweetsByMonth
-live_example: false
 links:
 - title: "My TF-IDF video"  
   url: "https://youtu.be/RPMYV-eb6lI"

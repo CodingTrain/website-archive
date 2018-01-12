@@ -4,7 +4,7 @@ video_number: 11
 date: 2016-05-04
 video_id: IKB1hWWedMk
 repository: /CC_11_PerlinNoiseTerrain
-live_example: false
+live_example: /CC_11_PerlinNoiseTerrain_p5.js
 
   
 

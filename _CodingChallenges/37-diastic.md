@@ -4,7 +4,6 @@ video_number: 37
 date: 2016-09-12
 video_id: u-HUtrpyi1c
 repository: /CC_37_diastic
-live_example: false
 
   
 

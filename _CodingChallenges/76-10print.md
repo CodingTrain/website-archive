@@ -4,7 +4,6 @@ video_number: 76
 date: 2017-09-26
 video_id: bEyTZ5ZZxZs
 repository: /CC_76_10PRINT
-live_example: false
 links:
 - title: "10PRINT"  
   url: "http://10print.org/"

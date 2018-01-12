@@ -4,7 +4,6 @@ video_number: 23
 date: 2016-06-21
 video_id: ksRoh-10lak
 repository: /CC_23_SuperShape2D
-live_example: false
 links:
 - title: "Paul Bourke's Supershapes (Superformula) website"  
   url: "http://paulbourke.net/geometry/supershape/"

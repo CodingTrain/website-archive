@@ -4,7 +4,6 @@ video_number: 3
 date: 2016-04-20
 video_id: AaGK-fj-BAM
 repository: /CC_03_Snake_game_p5.js
-live_example: false
 
   
 

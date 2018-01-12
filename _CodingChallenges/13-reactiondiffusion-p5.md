@@ -4,7 +4,6 @@ video_number: 13
 date: 2016-05-26
 video_id: BV9ny785UNc
 repository: /CC_13_ReactionDiffusion_p5.js
-live_example: false
 links:
 - title: "Nature of Code class on Kadenze"  
   url: "https://www.kadenze.com/courses/the-nature-of-code/info"

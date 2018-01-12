@@ -4,7 +4,6 @@ video_number: 43
 date: 2016-10-31
 video_id: 8Z9FRiW2Jlc
 repository: /CC_43_ContextFreeGrammar
-live_example: false
 
   
 

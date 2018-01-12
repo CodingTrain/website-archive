@@ -4,7 +4,7 @@ video_number: 67
 date: 2017-03-27
 video_id: IIrC5Qcb2G4
 repository: /CC_67_Pong
-live_example: false
+live_example: /CC_67_Pong_p5.js
 links:
 - title: "Pong on Wikipedia"  
   url: "https://en.wikipedia.org/wiki/Pong"

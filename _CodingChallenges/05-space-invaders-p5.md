@@ -4,7 +4,6 @@ video_number: 5
 date: 2016-04-26
 video_id: biN3v3ef-Y0
 repository: /CC_05_Space_invaders_p5.js
-live_example: false
 
   
 

@@ -4,7 +4,6 @@ video_number: 29
 date: 2016-08-02
 video_id: bGz7mv2vD6g
 repository: /CC_29_SmartRockets
-live_example: false
 
   
 

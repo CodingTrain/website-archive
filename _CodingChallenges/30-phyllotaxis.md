@@ -4,7 +4,7 @@ video_number: 30
 date: 2016-08-03
 video_id: KWoJgHFYWxY
 repository: /CC_30_Phyllotaxis
-live_example: false
+live_example: /CC_30_phyllotaxis_p5.js
 links:
 - title: "Phyllotaxis on Wikipedia"  
   url: "https://en.wikipedia.org/wiki/Phyllotaxis"

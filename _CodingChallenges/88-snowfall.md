@@ -4,7 +4,6 @@ video_number: 88
 date: 2017-12-25
 video_id: cl-mHFCGzYk
 repository: /CC_88_snowfall
-live_example: false
 links:
 - title: "Alca's Snowflakes Codepen"  
   url: "https://codepen.io/Alca/pen/ppEgxb"
