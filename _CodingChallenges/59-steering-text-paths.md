@@ -4,7 +4,6 @@ video_number: 59
 date: 2017-02-21
 video_id: 4hA7G3gup-4
 repository: /CC_59_Steering_Text_Paths
-live_example: false
 links:
 - title: "Nature of Code Steering Behaviors Playlist"  
   url: "https://www.youtube.com/playlist?list=PLRqwX-V7Uu6YHt0dtyf4uiw8tKOxQLvlW"

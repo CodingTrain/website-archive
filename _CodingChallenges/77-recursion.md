@@ -4,7 +4,6 @@ video_number: 77
 date: 2017-10-05
 video_id: jPsZwrV9ld0
 repository: /CC_77_Recursion
-live_example: false
 links:
 - title: "Benoit Mandlebrot's The Fractal Geometry of Nature"  
   url: "http://amzn.to/2xiVwht"

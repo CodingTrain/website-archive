@@ -4,7 +4,6 @@ video_number: 36
 date: 2016-09-02
 video_id: rX5p-QRP6R4
 repository: /CC_36_Blobby
-live_example: false
 
   
 

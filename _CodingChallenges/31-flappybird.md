@@ -4,7 +4,6 @@ video_number: 31
 date: 2016-08-10
 video_id: cXgA1d_E-jY
 repository: /CC_31_FlappyBird_p5.js
-live_example: false
 links:
 - title: "Flappy Bird on Wikipedia"  
   url: "https://en.wikipedia.org/wiki/Flappy_Bird"

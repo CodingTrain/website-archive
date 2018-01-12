@@ -4,7 +4,7 @@ video_number: 2
 date: 2016-04-18
 video_id: LG8ZK-rRkXo
 repository: /CC_02_MengerSponge
-live_example: false
+live_example: /CC_02_MengerSponge_p5.js
 
   
 

@@ -4,7 +4,7 @@ video_number: 61
 date: 2017-02-28
 video_id: 0dwJ-bkJwDI
 repository: /CC_61_fractal_spirograph
-live_example: false
+live_example: /CC_61_fractal_spirograph_p5.js
 links:
 - title: "C.J.Chen's blog on Fractal Spirograph"  
   url: "http://benice-equation.blogspot.ca/2012/01/fractal-spirograph.html"

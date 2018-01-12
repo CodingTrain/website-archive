@@ -4,7 +4,6 @@ video_number: 33
 date: 2016-08-22
 video_id: flQgnCUxHlw
 repository: /CC_33_poisson_disc
-live_example: false
 links:
 - title: "Jason Davies' reference"  
   url: "https://www.jasondavies.com/poisson-disc/"

@@ -4,7 +4,6 @@ video_number: 52
 date: 2017-01-27
 video_id: l__fEY1xanY
 repository: /CC_52_random_walk
-live_example: false
 
   
 

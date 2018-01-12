@@ -4,7 +4,6 @@ video_number: 14
 date: 2016-05-30
 video_id: 0jjeOYMjmDU
 repository: CC_14_FractalTree
-live_example: false
 links:
 - title: "Nature of Code class on Kadenze"  
   url: "https://www.kadenze.com/courses/the-nature-of-code/info"

@@ -4,7 +4,6 @@ video_number: 86
 date: 2017-12-28
 video_id: H81Tdrmz2LA
 repository: /CC_86_beesandbombs
-live_example: false
 
 links:
 - title: "p5.js reference"  

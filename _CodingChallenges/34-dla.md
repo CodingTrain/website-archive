@@ -4,7 +4,6 @@ video_number: 34
 date: 2016-08-18
 video_id: Cl_Gjj80gPE
 repository: /CC_34_DLA
-live_example: false
 links:
 - title: "Diffusion-Limited Aggregation Wikipedia"  
   url: "https://en.wikipedia.org/wiki/Diffusion-limited_aggregation"

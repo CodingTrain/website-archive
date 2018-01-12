@@ -4,7 +4,6 @@ video_number: 60
 date: 2017-02-27
 video_id: O_0fRV4MTZo
 repository: /CC_60_Butterfly_Wings
-live_example: false
 links:
 - title: "Katie Rose Pipkin's moth generator"  
   url: "https://twitter.com/mothgenerator"

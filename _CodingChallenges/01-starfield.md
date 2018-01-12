@@ -3,8 +3,8 @@ title: "Starfield in Processing"
 video_number: 1
 date: 2016-04-13
 video_id: 17WoOqgXsRM
-repository:
-live_example: false
+repository: /CC_01_StarField
+live_example: /CC_01_StarField_p5.js
 
   
 

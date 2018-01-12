@@ -4,7 +4,6 @@ video_number: 53
 date: 2017-01-31
 video_id: bqF9w9TTfeo
 repository: /CC_53_random_walk_levy
-live_example: false
 links:
 - title: "Lévy Flight on Wikipedia"  
   url: "https://en.wikipedia.org/wiki/L%C3%A9vy_flight"

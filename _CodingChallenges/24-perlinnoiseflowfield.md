@@ -4,7 +4,6 @@ video_number: 24
 date: 2016-06-27
 video_id: BjoM9oKOAKY
 repository: /CC_24_PerlinNoiseFlowField
-live_example: false
 
   
 
