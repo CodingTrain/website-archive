@@ -5,5 +5,5 @@
 ## Community Editions
 * Add your version here
 * Lugsole's contribution [Source Code](https://github.com/Lugsole/Cube_Wave)
-* amoetodi's contribution [Source Code](https://github.com/amoetodi/CC86) [Live Demo](http://amoetodi.github.io/CC86)
+* stellartux's contribution [Source Code](https://github.com/stellartux/CC86) [Live Demo](http://stellartux.github.io/CC86)
 * Davenewt's colour-cycling contribution [Demo on Codepen](https://codepen.io/anon/pen/wprwdP?editors=0010)
