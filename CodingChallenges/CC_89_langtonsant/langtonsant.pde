@@ -2,7 +2,7 @@
 // http://codingtra.in
 // http://patreon.com/codingtrain
 
-// Snowfall
+// Langton's Ant
 // Edited Video: https://youtu.be/G1EgjgMo48U
 
 int[][] grid;
