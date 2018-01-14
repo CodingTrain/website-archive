@@ -3,7 +3,7 @@ title: "Langton's Ant"
 video_number: 89
 date: 2018-01-07
 video_id: G1EgjgMo48U
-repository: /CC_89_langtonsant
+repository: CC_89_langtonsant
 
 contributions:
   - title: "In P5.js with several ants and dynamic changes"
