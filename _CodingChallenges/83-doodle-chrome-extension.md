@@ -3,7 +3,8 @@ title: "Chrome Extension with p5.js Sketch - Doodle Chrome Extension"
 video_number: 83
 date: 2017-11-16
 video_id: IXXNIcQQLU8
-repository: /CC_83_Chrome_Extension_with_p5js_Sketch
+repository: CC_83_Chrome_Extension_with_p5js_Sketch
+live_example: false
 
 links:
   - title: "Programming from A to Z"

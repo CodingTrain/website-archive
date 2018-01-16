@@ -1,0 +1,34 @@
+{% comment %}
+  This code searches for all available versions of the repository passed in.
+
+  Parameters:
+    repositoryBasePath  string  Base path to the repository (without the suffixes).
+
+  Returns:
+    out_codeVariations  site.code_variations[]  Array of found code variations.
+    out_liveExamples    site.code_variations[]  Array of found variations that are suitable live examples.
+{% endcomment %}
+
+
+{% comment %} List of live examples available (first will be used). {% endcomment %}
+{% assign out_codeVariations = '' | split: '' %}
+{% assign out_liveExamples = '' | split: '' %}
+
+{% comment %} For every possible code variation ... {% endcomment %}
+{% for int_variation in site.code_variations %}
+
+  {% comment %} ... get the exact repository path and count the files inside. {% endcomment %}
+  {% assign int_repositoryPath = include.repositoryBasePath | append: int_variation.suffix %}
+  {% assign int_fileCount = site.static_files | where_exp: 'file', 'file.path contains int_repositoryPath' | size %}
+
+  {% comment %} If there are files inside, display a download link ... {% endcomment %}
+  {% if int_fileCount > 0 %}
+    {% assign out_codeVariations = out_codeVariations | push: int_variation %}
+
+    {% comment %} ... and add it to the live examples array for future use. {% endcomment %}
+    {% if int_variation.live_example %}
+      {% assign out_liveExamples = out_liveExamples | push: int_variation %}
+    {% endif %}
+
+  {% endif %}
+{% endfor %}

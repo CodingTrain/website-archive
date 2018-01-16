@@ -3,7 +3,7 @@ title: "Fireworks"
 video_number: 27
 date: 2016-07-02
 video_id: CKeyIbT3vXI
-repository: /CC_27_Fireworks_2D_p5
+repository: CC_27_Fireworks_2D
 
 links: 
   - title: "Pixel Pyros"

@@ -3,7 +3,7 @@ title: "Number Guessing Chatbot"
 video_number: 79
 date: 2017-10-13
 video_id: zGe1m_bLOFk
-repository: /CC_79_Number_Guessing_Chatbot
+repository: CC_79_Number_Guessing_Chatbot
 
 links: 
   - title: "RiveScript"

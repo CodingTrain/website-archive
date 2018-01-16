@@ -3,7 +3,7 @@ title: "Mapping Earthquake Data"
 video_number: 57
 date: 2017-02-13
 video_id: ZiYdOwOrGyc
-repository: /CC_57_Earthquake_Viz
+repository: CC_57_Earthquake_Viz
 
 links: 
   - title: "Mapbox.js"

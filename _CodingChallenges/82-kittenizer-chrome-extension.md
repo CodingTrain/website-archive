@@ -3,7 +3,7 @@ title: "Image Chrome Extension - The Ex-Kitten-sion!"
 video_number: 82
 date: 2017-11-16
 video_id: 8zMMOdI5SOk
-repository: /CC_82_Image_Chrome_Extension_The_Ex-Kitten-sion
+repository: CC_82_Image_Chrome_Extension_The_Ex-Kitten-sion
 live_example: false
 
 links:

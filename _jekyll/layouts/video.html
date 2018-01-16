@@ -49,14 +49,80 @@ layout: base
       {% endif %}
 
       {% comment %} Show links for live example and code download. {% endcomment %}
-      {% if page.repository %}
-
-        {% comment %} Generate URL for live example. {% endcomment %}
-        {% capture live_example_url %}/{{ page.collection }}/{{ page.live_example | default: page.repository }}{% endcapture %}
-        
+      {% if page.repository != null %}
         <div class="code-actions">
-          <a href="{{ site.github_download_prefix | append: site.github.repository_url | append: '/tree/' | append: site.github.source.branch | append: '/' | append: page.collection | append: page.repository }}" target="blank">Get the Code</a>
-          <a href="{{ live_example_url | relative_url }}" target="blank" class="{% if page.live_example == false %}disabled{% endif %}">Live Example</a>
+
+          {% comment %} Repository references an external location. {% endcomment %}
+          {% if page.repository contains '://' %}
+
+            {% assign downloadURL = page.repository %}
+            {% assign liveExampleURL = page.live_example %}
+
+          {% comment %} Repository references an internal location. {% endcomment %}
+          {% elsif page.repository != false %}
+
+            {% comment %} Repository base paths (suffixes will be appendet later). {% endcomment %}
+            {% assign repositoryBasePath = '/' | append: page.collection | append: '/' | append: page.repository %}
+            {% assign downloadBasePath = site.github_download_prefix | append: site.github.repository_url | append: '/tree/' | append: site.github.source.branch | append: repositoryBasePath %}
+
+            {% comment %} Find all code variations. {% endcomment %}
+            {% include 1-tools/code-variations.html repositoryBasePath=repositoryBasePath downloadBasePath=downloadBasePath %}
+
+            {% comment %} Count the number of code variations. {% endcomment %}
+            {% assign codeVariationsCount = out_codeVariations | size %}
+
+            {% comment %} If multiple code variatios exist, display the dropdown download-button. {% endcomment %}
+            {% if codeVariationsCount > 1 %}
+
+              <div class="download-button">
+                <span class="title">Get the Code</span>
+                <ul>
+                  {% for variation in out_codeVariations %} 
+                    <li><a href="{{ downloadBasePath | append: variation.suffix }}" target="blank">{{ variation.name }} Version</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+
+              {% comment %} Set download URL to something "special", so the button doesn't get rendered twice. {% endcomment %}
+              {% assign downloadURL = '::MULTIPLE_URLS::' %}
+
+            {% comment %} If only one variation exists, use a simple link. {% endcomment %}
+            {% elsif codeVariationsCount == 1 %}
+              {% assign downloadURL = downloadBasePath | append: out_codeVariations[0].suffix %}
+
+            {% comment %} If no variation could be found, use whatever was passed in. {% endcomment %}
+            {% else %}
+              {% assign downloadURL = downloadBasePath %}
+              {% assign liveExampleURL = repositoryBasePath | relative_url %}
+            {% endif %}
+
+            {% comment %} Get the live example URL based on what's given (page.live_example overrides). {% endcomment %}
+            {% if page.live_example != null %}
+              {% assign liveExampleURL = page.live_example %}
+            {% elsif out_liveExamples[0] != null %}
+              {% assign liveExampleURL = repositoryBasePath | append: out_liveExamples[0].suffix | relative_url %}
+            {% endif %}
+
+          {% endif %}
+
+          {% comment %} If the page repository exists ... {% endcomment %}
+          {% if page.repository != false %}
+
+            {% comment %} ... display a download button for the code if needed ... {% endcomment %}
+            {% if downloadURL and downloadURL != '::MULTIPLE_URLS::' %}
+              <a href="{{ downloadURL }}" target="blank">Get the Code</a>
+            {% endif %}
+
+            {% comment %} ... and show a link to a live example. {% endcomment %}
+            <a href="{{ liveExampleURL }}" target="blank" class="{% unless liveExampleURL %}disabled{% endunless %}">Live Example</a>
+
+          {% comment %} Otherwise dislay an error message. {% endcomment %}
+          {% else %}
+            <p>
+              The code corresponding to this {{ page.video_type }} hasn't been added yet.
+              If you want to help with this, check out the <a href="{{ site.github.repository_url }}" target="blank">GitHub repository</a>.
+            </p>
+          {% endif %}
         </div>
         
       {% endif %}

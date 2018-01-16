@@ -3,7 +3,7 @@ title: "Voice Chatbot with p5.Speech"
 video_number: 80
 date: 2017-10-23
 video_id: iFTgphKCP9U
-repository: /CC_80_Voice_Chatbot_with_p5.Speech
+repository: CC_80_Voice_Chatbot_with_p5.Speech
 
 links: 
   - title: "NYU Ability Project"

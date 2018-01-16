@@ -22,6 +22,18 @@ repository: CodingTrain/Rainbow-Code
 # Prefix for download links (downloads only the relevant code from GitHub).
 github_download_prefix: https://minhaskamal.github.io/DownGit/#/home?url=
 
+# Suffixes for auto-detecting the video's code that's available for download/preview.
+#
+# name          string  Name of the code variation.
+# suffix        string  Suffix indicating that variation.
+# live_example  boolean Wether this variation should be used as the live example (fist match is used).
+code_variations:
+  - name: P5.JS
+    suffix: _p5.js
+    live_example: true
+  - name: Processing
+    suffix: _Processing
+
 
 
 # --- Build Settings ---

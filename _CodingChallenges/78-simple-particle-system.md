@@ -3,7 +3,7 @@ title: "Simple Particle System"
 video_number: 78
 date: 2017-10-11
 video_id: UcdigVaIYAk
-repository: /CC_78_Simple_Particle_System
+repository: CC_78_Simple_Particle_System
 
 links:
   - title: "Particle System on Wikipedia"
