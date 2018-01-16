@@ -1,5 +1,12 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+
+// Floyd Steinberg Dithering
+// Edited Video: https://youtu.be/0L2n8Tg2FwI
 
 PImage kitten;
+
 void setup() {
   size(1024, 512);
   kitten = loadImage("kitten.jpg");
