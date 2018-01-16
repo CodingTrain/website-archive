@@ -18,10 +18,33 @@ int index(int x, int y) {
   return x + y * kitten.width;
 }
 
+void addError(int x,int y, float factor,float errR, float errG, float errB){
+      if (x < 0 || x >= kitten.width|| y < 0 || y >= kitten.height) return;
+      int index = index(x,y);
+      color c = kitten.pixels[index];
+      float r = red(c);
+      float g = green(c);
+      float b = blue(c);
+      r = r + errR * factor;
+      g = g + errG * factor;
+      b = b + errB * factor;
+      kitten.pixels[index] = color(r, g, b);
+
+}
+
+void distributeError(int x ,int y, float errR, float errG, float errB){
+    addError(x+1,y  ,7/16.0,errR,errG,errB);
+    addError(x-1,y+1,3/16.0,errR,errG,errB);
+    addError(x  ,y+1,5/16.0,errR,errG,errB);
+    addError(x+1,y+1,1/16.0,errR,errG,errB);
+
+}
+
+
 void draw() {
   kitten.loadPixels();
-  for (int y = 0; y < kitten.height-1; y++) {
-    for (int x = 1; x < kitten.width-1; x++) {
+  for (int y = 0; y < kitten.height; y++) {
+    for (int x = 0; x < kitten.width; x++) {
       color pix = kitten.pixels[index(x, y)];
       float oldR = red(pix);
       float oldG = green(pix);
@@ -36,47 +59,7 @@ void draw() {
       float errG = oldG - newG;
       float errB = oldB - newB;
 
-
-      int index = index(x+1, y  );
-      color c = kitten.pixels[index];
-      float r = red(c);
-      float g = green(c);
-      float b = blue(c);
-      r = r + errR * 7/16.0;
-      g = g + errG * 7/16.0;
-      b = b + errB * 7/16.0;
-      kitten.pixels[index] = color(r, g, b);
-
-      index = index(x-1, y+1  );
-      c = kitten.pixels[index];
-      r = red(c);
-      g = green(c);
-      b = blue(c);
-      r = r + errR * 3/16.0;
-      g = g + errG * 3/16.0;
-      b = b + errB * 3/16.0;
-      kitten.pixels[index] = color(r, g, b);
-
-      index = index(x, y+1);
-      c = kitten.pixels[index];
-      r = red(c);
-      g = green(c);
-      b = blue(c);
-      r = r + errR * 5/16.0;
-      g = g + errG * 5/16.0;
-      b = b + errB * 5/16.0;
-      kitten.pixels[index] = color(r, g, b);
-
-
-      index = index(x+1, y+1);
-      c = kitten.pixels[index];
-      r = red(c);
-      g = green(c);
-      b = blue(c);
-      r = r + errR * 1/16.0;
-      g = g + errG * 1/16.0;
-      b = b + errB * 1/16.0;
-      kitten.pixels[index] = color(r, g, b);
+      distributeError(x,y,errR,errG,errB);
     }
   }
   kitten.updatePixels();
