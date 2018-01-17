@@ -6,13 +6,18 @@ video_id: nnlAH1zDBDE
 repository: /CC_49_ObamaMosaic
 live_example: false
 links:
+- title: "The White House Social Media Data"
+  url: "https://obamawhitehouse.archives.gov/blog/2017/01/05/new-lenses-first-social-media-presidency"
+- title: "ITP 'Obamathon' Github Repo"
+  url: "https://github.com/ITPNYU/Obamathon/tree/master/examples/P5/TweetsByMonth"
+videos:
 - title: "My Video on Pixel Arrays"  
-  url: "https://youtu.be/EmtU0eloTlE"
+  video_id: "https://youtu.be/EmtU0eloTlE"
   
 
 
   
 ---
 
-In this Coding Challenge, I use a collection of Obama Administration's facebook images to create a "photo mosaic" of President Obama with Processing (Java).
+In this coding challenge, I use a collection of Obama Administration's facebook images to create a "photo mosaic" of President Obama with Processing (Java).
 

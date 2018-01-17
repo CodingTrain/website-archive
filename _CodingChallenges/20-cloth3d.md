@@ -5,12 +5,14 @@ date: 2016-06-09
 video_id: jrk_lOg_pVA
 repository: /CC_20_Cloth3D
 live_example: false
-
+links:
+- title: "Toxiclibs Physics Library"  
+  url: "http://toxiclibs.org/"
   
 
 
   
 ---
 
-In this Coding Challenge, I use the toxiclibs physics library to create a 3D cloth in Processing.
+In this coding challenge, I use the toxiclibs physics library to create a 3D cloth in Processing.
 

@@ -17,5 +17,5 @@ links:
   
 ---
 
-In this Coding Challenge, I attempt to code the Menger Sponge (fractals) using Processing.
+In this coding challenge, I attempt to code the Menger Sponge (fractals) using Processing.
 

@@ -5,8 +5,6 @@ date: 2016-05-31
 video_id: E1B4UoSQMFw
 repository: /CC_16_LSystem
 links:
-- title: "Nature of Code class on Kadenze"  
-  url: "https://www.kadenze.com/courses/the-nature-of-code/info"
 - title: "Algorithmic Botany"  
   url: "http://algorithmicbotany.org/"
   
