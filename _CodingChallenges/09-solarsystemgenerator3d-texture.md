@@ -11,7 +11,11 @@ links:
   author: "Jonathan Feinberg"
 - title: "Planet texture maps"
   url: "http://planetpixelemporium.com"
-  
+videos:
+- title: "Solar System in Processing - Part 1 (2D)" 
+  url: "/CodingChallenges/07-solarsystemgenerator"
+- title: "Solar System in Processing - Part 2 (3D)" 
+  url: "/CodingChallenges/08-solarsystemgenerator3d"
 
 
   
