@@ -9,12 +9,14 @@ links:
 - title: "PeasyCam library"  
   url: "http://mrfeinberg.com/peasycam/"
   author: "Jonathan Feinberg"
-videos:
-- title: "Solar System in Processing - Part 1 (2D)" 
-  url: "/CodingChallenges/07-solarsystemgenerator"
-- title: "Solar System in Processing - Part 3 (3D textures)" 
-  url: "/CodingChallenges/09-solarsystemgenerator3d-texture"
 
+custom_sections:
+  - title: "Other Parts of this Challenge"
+    items:
+    - title: "Solar System in Processing - Part 1 (2D)" 
+      url: "/CodingChallenges/07-solarsystemgenerator"
+    - title: "Solar System in Processing - Part 3 (3D textures)" 
+      url: "/CodingChallenges/09-solarsystemgenerator3d-texture"
   
 ---
 
