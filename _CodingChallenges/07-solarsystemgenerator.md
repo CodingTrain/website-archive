@@ -9,11 +9,15 @@ live_example: /CC_07_SolarSystemGenerator_p5.js
 videos:
 - title: "My Video about Gravitational Attraction"
   video_id: "fML1KpvvQTc"
-- title: "Solar System in Processing - Part 2 (3D)" 
-  url: "/CodingChallenges/08-solarsystemgenerator3d"
-- title: "Solar System in Processing - Part 3 (3D textures)" 
-  url: "/CodingChallenges/09-solarsystemgenerator3d-texture"
 
+
+custom_sections:
+  - title: "Other Parts of this Challenge"
+    items:
+    - title: "Solar System in Processing - Part 2 (3D)" 
+      url: "/CodingChallenges/08-solarsystemgenerator3d"
+    - title: "Solar System in Processing - Part 3 (3D textures)" 
+      url: "/CodingChallenges/09-solarsystemgenerator3d-texture"
   
 ---
 
