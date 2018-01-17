@@ -11,5 +11,5 @@ repository: /CC_05_Space_invaders_p5.js
   
 ---
 
-In this viewer submitted Coding Challenge, I take on the task of coding a Space Invaders game to play in browser in JavaScript/HTML and the p5.js library.
+In this viewer submitted coding challenge, I take on the task of coding a Space Invaders game to play in browser in JavaScript/HTML and the p5.js library.
 

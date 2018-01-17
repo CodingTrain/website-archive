@@ -11,7 +11,9 @@ links:
   url: "https://developer.chrome.com/extensions"
 - title: "Wordnik"  
   url: "https://www.wordnik.com/"
-  
+videos:
+- title: "My Video on Cross-Browser Extensions"
+  video_id: "RJtjp-Vtwjs"
 
 
   

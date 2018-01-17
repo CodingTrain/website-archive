@@ -16,4 +16,4 @@ videos:
     video_id: "Su792jEauZg"
 ---
 
-In this Coding Challenge, I create a Chrome Extension which adds a p5.js drawing canvas on top of any webpage you visit.
+In this coding challenge, I create a Chrome Extension which adds a p5.js drawing canvas on top of any webpage you visit.

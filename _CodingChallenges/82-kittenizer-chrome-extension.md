@@ -35,4 +35,4 @@ contributions:
     url: https://github.com/LankySmurph/chrome-shiffdance
 ---
 
-In this Coding Challenge, I create a chrome extension which replaces all image on a page with the picture of a kitten.
+In this coding challenge, I create a chrome extension which replaces all image on a page with the picture of a kitten.

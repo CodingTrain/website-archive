@@ -12,5 +12,5 @@ links:
   
 ---
 
-In this Coding Challenge, I attempt to code a p5.js version of the Snake Game.
+In this coding challenge, I attempt to code a p5.js version of the Snake Game.
 
