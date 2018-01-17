@@ -4,9 +4,10 @@ video_number: 3
 date: 2016-04-20
 video_id: AaGK-fj-BAM
 repository: /CC_03_Snake_game_p5.js
-
+links:
+- title: "Snake Game on Wikipedia"
+  url: "https://en.wikipedia.org/wiki/Snake_(video_game)"
   
-
 
   
 ---
