@@ -43,6 +43,7 @@ All times are in EDT and are subject to change! You can confirm the exact time b
 * dialogflow
 
 # Past Live Streams
+* [Live Stream #114.2 - Revisiting the Feedforward Algorithm](https://youtu.be/K7o20pXDLNA?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
 * [Live Stream #114: Neural Networks Continued](https://youtu.be/iCxqLVm2H3w?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
 * [Live Stream #113: The Return of Neural Networks](https://youtu.be/raFdpMUWO9Q?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
 * [Live Stream #112: Happy Holidays from the Coding Train!](https://youtu.be/dEWmwQMKgIk?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
