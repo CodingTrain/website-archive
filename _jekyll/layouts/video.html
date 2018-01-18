@@ -89,6 +89,12 @@ layout: base
       </div>
     {% endif %}
 
+    {% comment %} List of related parts. {% endcomment %}
+    {% if page.parts %}
+      {% capture partsTitle %}Other parts of this {{ page.video_type }}{% endcapture %}
+      {% include 3-modules/link-list.html links=page.parts title=partsTitle %}
+    {% endif %}
+
     {% comment %} List of discussed links. {% endcomment %}
     {% if page.links %}
       {% capture linksTitle %}Links discussed in this {{ page.video_type }}{% endcapture %}
