@@ -7,3 +7,4 @@
 ## Community Editions
 - Add your version here
 - Lugsole's contribution on [View Online](https://lugsole.github.io/Circle_Morphing/index.html) & [Source Code](https://github.com/Lugsole/Circle_Morphing)
+- Circle Morphing by changing spacing by Maik1999 - [Source/Demo](https://codepen.io/maik1999/pen/BmyMyp)
