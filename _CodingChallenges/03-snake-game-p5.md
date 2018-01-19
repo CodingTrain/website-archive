@@ -6,7 +6,11 @@ video_id: AaGK-fj-BAM
 repository: /CC_03_Snake_game_p5.js
 
   
-
+- title: "Swifty Snake Game"
+  author:
+    name: "Bob Voorneveld"
+    url: "https://www.bobvoorneveld.nl"
+  source: "https://github.com/bobvoorneveld/Coding-Challenges/tree/master/CC003-The%20Snake%20Game"
 
   
 ---
