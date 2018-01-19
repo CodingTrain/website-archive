@@ -4,6 +4,7 @@
 // Code for: https://youtu.be/QHEQuoIKgNE
 
 var circles;
+var attempts = 0;
 
 function setup() {
   createCanvas(640, 360);
@@ -16,7 +17,6 @@ function draw() {
 
   var total = 5;
   var count = 0;
-  var attempts = 0;
 
   while (count < total) {
     var newC = newCircle();

@@ -5,6 +5,7 @@
 
 var circles;
 var img;
+var attempts = 0;
 
 function preload() {
   img = loadImage("assets/kitten.jpg");
@@ -28,7 +29,6 @@ function draw() {
 
   var total = 10;
   var count = 0;
-  var attempts = 0;
 
   while (count < total) {
     var newC = newCircle();

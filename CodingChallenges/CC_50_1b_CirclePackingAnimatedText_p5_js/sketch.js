@@ -6,6 +6,7 @@
 var circles;
 var spots;
 var img;
+var attempts = 0;
 
 function preload() {
   img = loadImage("assets/2017.png");
@@ -42,7 +43,6 @@ function draw() {
 
   var total = 10;
   var count = 0;
-  var attempts = 0;
 
   while (count < total) {
     var newC = newCircle();
