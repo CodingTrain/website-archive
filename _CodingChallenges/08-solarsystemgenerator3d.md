@@ -10,13 +10,11 @@ links:
   url: "http://mrfeinberg.com/peasycam/"
   author: "Jonathan Feinberg"
 
-custom_sections:
-  - title: "Other Parts of this Challenge"
-    items:
-    - title: "Solar System in Processing - Part 1 (2D)" 
-      url: "/CodingChallenges/07-solarsystemgenerator"
-    - title: "Solar System in Processing - Part 3 (3D textures)" 
-      url: "/CodingChallenges/09-solarsystemgenerator3d-texture"
+parts:
+- title: "Solar System in Processing - Part 1 (2D)" 
+  url: "/CodingChallenges/07-solarsystemgenerator"
+- title: "Solar System in Processing - Part 3 (3D textures)" 
+  url: "/CodingChallenges/09-solarsystemgenerator3d-texture"
   
 ---
 
