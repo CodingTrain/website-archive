@@ -10,7 +10,7 @@ live_example: /CC_01_StarField_p5.js
   author:
     name: "Bob Voorneveld"
     url: "https://www.bobvoorneveld.nl"
-  source: "https://github.com/bobvoorneveld/Coding-Challenges/tree/master/CC001-Starfield"
+  url: "https://github.com/bobvoorneveld/Coding-Challenges/tree/master/CC001-Starfield"
 
 ---
 
