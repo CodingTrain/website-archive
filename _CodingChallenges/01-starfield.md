@@ -6,11 +6,12 @@ video_id: 17WoOqgXsRM
 repository: /CC_01_StarField
 live_example: /CC_01_StarField_p5.js
 
-- title: "Swifty Starfield"
-  author:
-    name: "Bob Voorneveld"
-    url: "https://www.bobvoorneveld.nl"
-  url: "https://github.com/bobvoorneveld/Coding-Challenges/tree/master/CC001-Starfield"
+contributions:
+  - title: "Swifty Starfield"
+    author:
+      name: "Bob Voorneveld"
+      url: "https://www.bobvoorneveld.nl"
+    url: "https://github.com/bobvoorneveld/Coding-Challenges/tree/master/CC001-Starfield"
 
 ---
 
