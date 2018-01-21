@@ -13,5 +13,5 @@ links:
   
 ---
 
-In this Coding Challenge, I attempt to program in JavaScript (using the p5.js framework) a clone of the game Flappy Bird.
+In this coding challenge, I attempt to program in JavaScript (using the p5.js framework) a clone of the game Flappy Bird.
 

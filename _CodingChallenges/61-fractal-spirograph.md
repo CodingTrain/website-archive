@@ -8,12 +8,12 @@ live_example: /CC_61_fractal_spirograph_p5.js
 links:
 - title: "C.J.Chen's blog on Fractal Spirograph"  
   url: "http://benice-equation.blogspot.ca/2012/01/fractal-spirograph.html"
-- title: "My video on Polar Coordinates"  
-  url: "https://youtu.be/znOBmOrtz_M"
-- title: "My Coding Challenge on 2D Solar System"  
-  url: "https://youtu.be/l8SiJ-RmeHU"
   
-
+videos:
+- title: "My Video on Polar Coordinates"
+  video_id: "znOBmOrtz_M"
+- title: "My Coding Challenge on 2D Solar System"
+  video_id: "l8SiJ-RmeHU"
 
   
 ---
