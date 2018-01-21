@@ -8,8 +8,9 @@ live_example: false
 links:
 - title: "Wikipedia on Julia Set"  
   url: "https://en.wikipedia.org/wiki/Julia_set"
-- title: "Paul Bourke's Julia Set page"  
+- title: "Julia Set page"  
   url: "http://paulbourke.net/fractals/juliaset/"
+  author: "Paul Bourke"
   
 
 

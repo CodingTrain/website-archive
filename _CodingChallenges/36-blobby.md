@@ -11,5 +11,5 @@ repository: /CC_36_Blobby
   
 ---
 
-In this short Coding Challenge, I demonstrate how to turn an circle (or any shape you want) into a blob and give the edges have a liquidy / blobby / wobbly look.  A technique using beginShape() and endShape() along with perlin noise is used.
+In this short coding challenge, I demonstrate how to turn an circle (or any shape you want) into a blob and give the edges have a liquidy / blobby / wobbly look.  A technique using beginShape() and endShape() along with perlin noise is used.
 
