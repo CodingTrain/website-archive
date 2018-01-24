@@ -1,3 +1,5 @@
+source("astar.R")
+
 d <- matrix(Inf, nrow = 100, ncol = 100)
 
 huller <- sample(2:99, 25)
