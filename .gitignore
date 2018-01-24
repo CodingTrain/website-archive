@@ -1,3 +1,10 @@
+### Node.JS ###
 .DS_Store
 config.js
 node_modules
+
+
+### Jekyll ###
+_site/
+.sass-cache/
+.jekyll-metadata

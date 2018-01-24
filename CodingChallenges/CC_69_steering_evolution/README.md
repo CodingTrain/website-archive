@@ -30,7 +30,23 @@
   *Improved the reproduction function
   * All vehicles have a sex (male or female)
   *A better description of the reproduce function in readme
+  
+  #### Versions By: [Simon Tiger](https://github.com/simon-tiger)
+   * Game in Processing ([Repository](https://github.com/simon-tiger/Game_SteeringBehaviorsEvolution))
+     * I am now highlighting the best one
+     * Something moving around with perlin noise adds poison (instead of just adding poison randomly)
+     * Hopefully, soon I will make p5.js version
 
+#### Predators!
+#### By: [Elton Doehnert](https://github.com/Doehnert)
+[Repository](https://github.com/Doehnert/predators) | [Demo](https://doehnert.github.io/predators/)
+  * Instead of poison there are predators that pursuit the preys
+  * The faster the prey moves, the faster is dies
+  * The predator evolves his maxspeed, prey perception and prey weight
+  * The preys evolves Food weight, Food perception, Poison/Prey weight, Poison/Prey perception, maxspeed
 
-
-
+#### Slider Inputs
+#### By: [Addison H](https://github.com/addyh)
+[Repository](https://github.com/addyh/addyh.github.io/tree/master/evolutionary-steering) | [Demo](https://addyh.github.io/evolutionary-steering/)
+  * Features sliders to modify global values and DNA mutations.
+  * Lists out the stats of all vehicles, highlighting the best.

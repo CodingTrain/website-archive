@@ -1,0 +1,17 @@
+{% comment %}
+  This file will be included before every page
+{% endcomment %}
+
+
+<header>
+  <input type="checkbox" id="nav-toggle">
+  <nav>
+    <label for="nav-toggle">☰</label>
+    <div class="links">
+      <a href="{{ '/CodingChallenges' | relative_url }}">Coding Challenges</a>
+      <a href="{{ '/Tutorials' | relative_url }}">Tutorials</a>
+      <a href="{{ '/Streams' | relative_url }}">Streams</a>
+      <a href="{{ '/Courses' | relative_url }}">Courses</a>
+    </div>
+  </nav>
+</header>

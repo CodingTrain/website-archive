@@ -18,3 +18,14 @@ Included features:
 - Added simple scoring and highscore
 - Multiple food options at the same time
 ***
+
+### By: [bjorvack](https://github.com/bjorvack)
+[Repository](https://github.com/bjorvack/code-challenges/tree/master/challenges/cc-003-snake) | [Demo](https://bjorvack.github.io/code-challenges/challenges/cc-003-snake/)
+
+Reworked snake in ES6
+***
+
+### By: [elena-in-code](https://github.com/elena-in-code)
+[Repository](https://github.com/elena-in-code/Snake-Game) | [Demo](https://elena-in-code.github.io/Snake-Game/)
+
+***

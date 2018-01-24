@@ -1,0 +1,85 @@
+.video
+
+  h3
+    font-size: 2rem
+
+  .player-and-topics,
+  .links-and-books
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+
+    @media (max-width: $tablet-big)
+      flex-direction: column
+
+
+    > div
+      flex-basis: calc(50% - 2em)
+      margin: 2em 0
+      
+      @media (max-width: $tablet-big)
+        flex-basis: auto
+        margin: 1em 0
+        width: 100%
+
+    .player
+      text-align: center
+
+      .video-player
+        width: 55rem
+        height: 55rem * 9 / 16
+
+        @media (max-width: $tablet-small)
+          width: 100%
+          height: calc(100vw * 9 / 16 - 2rem)
+
+      .player-controls
+        display: flex
+        width: 55rem
+        margin: 1em auto
+
+        @media (max-width: $tablet-small)
+          width: 100%
+
+        a
+          @extend .cta-button
+          background: $ct-purple
+          color: #FFF
+        
+          &.watch-all-videos
+            flex-grow: 2
+            margin: auto 0.5em
+
+          &.disabled
+            background: lighten($ct-purple, 15%)
+            cursor: not-allowed
+            pointer-events: none
+
+    .topics
+      h3
+        margin-top: 2em
+
+      ul
+        padding-left: 1.5em
+
+      .code-actions
+        display: flex
+        justify-content: space-between
+        margin-top: 2em
+
+        a
+          @extend .cta-button
+          flex: 1
+          background: $ct-purple
+          color: #FFF
+
+          &:first-child
+            margin-right: 0.5em
+
+          &.disabled
+            background: lighten($ct-purple, 15%)
+            cursor: not-allowed
+            pointer-events: none
+
+  .player-and-topics
+    align-items: center

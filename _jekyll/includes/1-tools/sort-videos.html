@@ -1,0 +1,44 @@
+{% comment %}
+  Sorts videos based on the video_number property and optionally filters them.
+
+  Parameters:
+    videos Video[]              Array of videos that will be sorted.
+    reverse bool                Wether to reverse the order in which videos are storedin the array (default: false).
+    future bool                 Wether to include future videos (default: false).
+    [1.1] seriesPath string     The series path by which the videos will be filtered.
+    [1.2] seriesPage string     The series page by which the videos will be filtered.
+
+  Returns:
+    out_sortedVideos Video[]    Array of sorted videos.
+{% endcomment %}
+
+
+{% comment %} Filter by the given series path. {% endcomment %}
+{% if include.seriesPath %}
+  {% assign int_seriesPath = include.series_path %}
+
+{% comment %} Filter by the series path extracted from the given series page. {% endcomment %}
+{% elsif include.seriesPage %}
+  {% assign int_seriesPath = include.seriesPage.path | remove: '/index.md' %}
+
+{% comment %} Don't use any filters. {% endcomment %}
+{% else %}
+  {% assign int_seriesPath = '' %}
+{% endif %}
+
+{% comment %} Filter videos by series path (only if necessary). {% endcomment %}
+{% assign int_videos = include.videos | where_exp: 'video', 'video.path contains int_seriesPath' %}
+
+{% comment %} Remove future videos and videos that aren't linked to YouTube if they shouldn't be included. {% endcomment %}
+{% unless include.future %}
+  {% assign int_videos = int_videos | where_exp: 'video', 'video.date <= site.time'
+                                    | where_exp: 'video', 'video.video_id' %}
+{% endunless %}
+
+{% comment %} Filter out the index pages. {% endcomment %}
+{% assign out_sortedVideos = int_videos | where: 'layout', 'video' | sort: 'video_number' %}
+
+{% comment %} Reverse video order if include.reverse is set to true. {% endcomment %}
+{% if include.reverse %}
+  {% assign out_sortedVideos = out_sortedVideos | reverse %}
+{% endif %}

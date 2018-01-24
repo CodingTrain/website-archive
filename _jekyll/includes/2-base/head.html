@@ -1,0 +1,32 @@
+{% comment %}
+  This file contains everything that should be included in each page's head tag.
+{% endcomment %}
+
+
+{% comment %}
+  Global site tag (gtag.js) - Google Analytics
+  This will only be included in production mode so local testing doesn't affect
+  the tracking result.
+{% endcomment %}
+{% if jekyll.environment == 'production' %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112820770-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+      
+    gtag('config', 'UA-112820770-1');
+  </script>
+{% endif %}
+
+<title>{{ site.title }}</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+<link rel="icon" href="{{ '/assets/images/favicon.png?v=1.0' | relative_url }}">
+<link rel="apple-touch-icon" href="{{ '/assets/images/favicon.png?v=1.0' | relative_url }}">
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="{{ '/assets/javascript/functions.js' | relative_url }}"></script>
