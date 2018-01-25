@@ -6,12 +6,12 @@ video_id: LG8ZK-rRkXo
 repository: /CC_02_MengerSponge
 live_example: /CC_02_MengerSponge_p5.js
 
-  
-- title: "Swifty Menger sponge"
-  author:
-    name: "Bob Voorneveld"
-    url: "https://www.bobvoorneveld.nl"
-  source: "https://github.com/bobvoorneveld/Coding-Challenges/tree/master/CC002-Menger%20Sponge%20Fractal"
+contributions:
+  - title: "Swifty Menger sponge"
+    author:
+      name: "Bob Voorneveld"
+      url: "https://www.bobvoorneveld.nl"
+    source: "https://github.com/bobvoorneveld/Coding-Challenges/tree/master/CC002-Menger%20Sponge%20Fractal"
   
 ---
 
