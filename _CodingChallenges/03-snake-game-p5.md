@@ -9,6 +9,13 @@ links:
   url: "https://en.wikipedia.org/wiki/Snake_(video_game)"
   
 
+contributions:
+  - title: "Swifty Snake Game"
+    author:
+      name: "Bob Voorneveld"
+      url: "https://www.bobvoorneveld.nl"
+    source: "https://github.com/bobvoorneveld/Coding-Challenges/tree/master/CC003-The%20Snake%20Game"
+
   
 ---
 
