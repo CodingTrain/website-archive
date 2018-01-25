@@ -1,27 +1,25 @@
 ---
 title: "More OOP with ES6 & The Game of Life"
 video_number: 108
-date: 2017-11-17
-video_id: h3p0U8yWrMU
+date: 2017-12-08
+video_id: U8S1qDjIE2Y
 
 topics:
-  - title: "Chrome Extensions: Pop-ups"
-    time: "29:36"
-    url: "/Courses/programming-with-text/11-chrome-extensions/11.5-pop-ups"
-  - title: "Chrome Extensions: Pop-ups Part 2"
-    time: "54:08"
-    url: "/Courses/programming-with-text/11-chrome-extensions/11.6-pop-ups-messaging"
-  - title: "Chrome Extensions: Override"
-    time: "1:24:43"
-    url: "/Courses/programming-with-text/11-chrome-extensions/11.7-new-tab-override"
-  - title: "Coding Challenge: Chrome Extension Word Definition"
-    time: "1:48:04"
-    url: "/CodingChallenges/84-word-definition-extension"
-  - title: "Cross-browser Extensions"
-    time: "2:32:37"
-    url: "Courses/programming-with-text/11-chrome-extensions/11.8-cross-browser-extensions"
-  - title: "Conclusion/Q&A"
-    time: "2:40:00"
+  - title: "Checking Object Intersection Part 1"
+    time: "33:07"
+    url: "/Courses/"
+  - title: "Checking Object Intersection Part 2"
+    time: "52:20"
+    url: "/Courses/"
+  - title: "for...of Loop"
+    time: "1:27:23"
+    url: "/Courses/"
+  - title: "Objects & images"
+    time: "1:45:05"
+    url: "/Courses/"
+  - title: "Coding Callenge: Conway's Game of Life"
+    time: "2:21:50"
+    url: "/CodingChallenges/"
 
 links:
   - title: "ITP Winter Show 2017"
@@ -59,7 +57,7 @@ videos:
   - title: "Node.js tutorial"
     url: "/Tutorials/15-twitter-bot/15.1-intro-nodejs"
   - title: "Maze Generator"
-    url: "/_CodingChallenges/10.1-maze-dfs-p5"
+    url: "/CodingChallenges/10.1-maze-dfs-p5"
   - title: "Coding Train Trailer video"
     url: "https://youtu.be/PBsUD40nPkI"
   - title: "Let and Var video"
@@ -68,18 +66,6 @@ videos:
     url: "/Tutorials/10-working-with-data/10.8-wordnik-api"
   - title: "Chrome Ex-kitten-sion"
     url: "/CodingChallenges/82-kittenizer-chrome-extension"
-
-books:
-  - title: "Creative Coding Book List"
-    url: "https://processing.org/books"
-  - title: "10 PRINT"
-    url: "https://10print.org/"
-  - title: "Form+Code"
-    url: "http://formandcode.com/"
-  - title: "Exploratory Programming for the Arts and Humanities"
-    url: "https://www.amazon.com/Exploratory-Programming-Arts-Humanities-Press/dp/0262034204/"
-  - title: "Learning Processing"
-    url: "http://learningprocessing.com/"
 ---
-
-This live session is continues my series on Chrome/Browser Extensions.
+This live session continues my tutorials on Object Oriented Programming with ES6.
+I also attempt a coding challenge: Conway's Game of Life with p5.js.
