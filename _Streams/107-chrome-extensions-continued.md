@@ -59,7 +59,7 @@ videos:
   - title: "Node.js tutorial"
     url: "/Tutorials/15-twitter-bot/15.1-intro-nodejs"
   - title: "Maze Generator"
-    url: "/_CodingChallenges/10.1-maze-dfs-p5"
+    url: "/CodingChallenges/10.1-maze-dfs-p5"
   - title: "Coding Train Trailer video"
     url: "https://youtu.be/PBsUD40nPkI"
   - title: "Let and Var video"
