@@ -6,8 +6,6 @@ video_id: JcopTKXt8L8
 repository: /CC_18_SpaceColonizer3D
 live_example: false
 links:
-- title: "Nature of Code class on Kadenze"  
-  url: "https://www.kadenze.com/courses/the-nature-of-code/info"
 - title: "Algorithmic Botany"  
   url: "http://algorithmicbotany.org/"
 - title: "Space Colonization Algorithm"  
@@ -18,5 +16,5 @@ links:
   
 ---
 
-In this coding challenge, I'm building on top of the Space Colonization video and creating a 3D Fractal Tree, using the same algorithm, in Processing
+In this coding challenge, I'm building on top of the [Space Colonization video](https://youtu.be/kKT0v3qhIQY) and creating a 3D Fractal Tree, using the same algorithm, in Processing
 

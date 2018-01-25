@@ -16,4 +16,4 @@ links:
     url: "https://tisch.nyu.edu/itp"
 ---
 
-In this Coding Challenge, I make something called a "Word Interactor" (help me with a better name!) using Regular Expressions, JavaScript, and the p5.js library for DOM Manipulation.
+In this coding challenge, I make something called a "Word Interactor" (help me with a better name!) using regular expressions, JavaScript, and the p5.js library for DOM manipulation.
