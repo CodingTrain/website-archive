@@ -6,21 +6,25 @@ video_id: RkuBWEkBrZA
 repository: /CC_25_SphereGeometry
 live_example: false
 links:
-- title: "Video on Polar Coordinates"  
-  url: "http://www.youtube.com/watch?v=znOBmOrtz_M"
-- title: "Paul Bourke's Supershapes (Superformula) website"  
+- title: "Supershapes (Superformula)"  
   url: "http://paulbourke.net/geometry/supershape/"
-- title: "Reza Ali's 3D Supershapes"  
+  author: "Paul Bourke"
+- title: "3D Supershapes"
   url: "http://www.syedrezaali.com/3d-supershapes/"
-- title: "Wikipedia's Spherical Coordinates System"  
+  author: "Reza Ali"
+- title: "Spherical Coordinates System on Wikipedia"  
   url: "https://en.wikipedia.org/wiki/Spherical_coordinate_system"
-- title: "peasycam website"  
+- title: "Peasycam"  
   url: "http://mrfeinberg.com/peasycam/"
+  author: Jonathan Feinberg
+videos:
+- title: "My Video on Polar Coordinates"  
+  video_id: "znOBmOrtz_M"
   
 
 
   
 ---
 
-In this Coding Challenge, I create a sphere in Processing using spherical coordinates and triangle strips. This is the 3rd part of a multi-part series on superformulas, superellipses and supershapes.
+In this coding challenge, I create a sphere in Processing using spherical coordinates and triangle strips. This is the 3rd part of a multi-part series on superformulas, superellipses and supershapes.
 

@@ -5,21 +5,22 @@ date: 2017-02-27
 video_id: O_0fRV4MTZo
 repository: /CC_60_Butterfly_Wings
 links:
-- title: "Katie Rose Pipkin's moth generator"  
+- title: "Moth Generator"  
   url: "https://twitter.com/mothgenerator"
-- title: "Katie Rose's website"  
-  url: "http://katierosepipkin.com/"
+  author:
+    name: "Katie Rose Pipkin"
+    url: "http://katierosepipkin.com/" 
 - title: "Rose (mathematics)"  
   url: "https://en.wikipedia.org/wiki/Rose_(mathematics)"
-- title: "My video on Polar Coordinates"  
-  url: "https://youtu.be/znOBmOrtz_M"
 - title: "My playlist on Perlin Noise"  
   url: "https://www.youtube.com/playlist?list=PLRqwX-V7Uu6bgPNQAdxQZpJuJCjeOr7VD"
   
-
+videos:
+- title: "My Video on Polar Coordinates"
+  video_id: "znOBmOrtz_M"
 
   
 ---
 
-In this coding challenge, I use trigonometry and perlin noise to procedurally generate butterfly wing designs with p5.js. This challenge is inspired by Katie Rose Pipkin's Moth Generator. 
+In this coding challenge, I use trigonometry and perlin noise to procedurally generate butterfly wing designs with p5.js. This challenge is inspired by Katie Rose Pipkin's [Moth Generator.](https://twitter.com/mothgenerator) 
 

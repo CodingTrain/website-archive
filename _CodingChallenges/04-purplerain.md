@@ -12,5 +12,5 @@ live_example: /CC_04_PurpleRain_p5.js
   
 ---
 
-In this viewer submitted Coding Challenge, I attempt to code a Purple Rain Simulator in Processing.
+In this viewer submitted coding challenge, I attempt to code a Purple Rain Simulator in Processing.
 
