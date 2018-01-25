@@ -1,0 +1,83 @@
+---
+title: "More OOP with ES6 & The Game of Life"
+video_number: 108
+date: 2017-12-08
+video_id: U8S1qDjIE2Y
+
+topics:
+  - title: "Checking Object Intersection Part 1"
+    time: "33:07"
+    url: "/Courses/"
+  - title: "Checking Object Intersection Part 2"
+    time: "52:20"
+    url: "/Courses/"
+  - title: "for...of Loop"
+    time: "1:27:23"
+    url: "/Courses/"
+  - title: "Objects & images"
+    time: "1:45:05"
+    url: "/Courses/"
+  - title: "Coding Callenge: Conway's Game of Life"
+    time: "2:21:50"
+    url: "/CodingChallenges/"
+
+links:
+  - title: "ITP Winter Show 2017"
+    url: "https://itp.nyu.edu/shows/winter2017/show/"
+  - title: "Processing Fellowship 2018"
+    url: "https://processingfoundation.org/fellowships"
+  - title: "Interactive Media Arts at NYU"
+    url: "https://itp.nyu.edu/ima/"
+  - title: "Programming from A to Z"
+    url: "http://shiffman.net/a2z/chrome-ext/"
+  - title: "Unsplash"
+    url: "https://unsplash.com/"
+  - title: "chrome.extension reference"
+    url: "https://developer.chrome.com/extensions"
+  - title: "Wordnik"
+    url: "https://www.wordnik.com/"
+  - title: "Mozilla Browser Extensions reference"
+    url: "https://developer.mozilla.org/en-US/Add-ons/WebExtensions"
+  - title: "deeplearn.js"
+    url: "https://deeplearnjs.org/"
+  - title: "ITP's p5ML"
+    url: "https://github.com/itpnyu/p5-deeplearn-js"
+  - title: "Teachable Machines"
+    url: "https://teachablemachine.withgoogle.com/"
+  - title: "ICM-2017"
+    url: "https://github.com/itpnyu/icm-2017"
+  - title: "Kadenze"
+    url: "https://kadenze.com"
+  - title: "Code Newbie Podcast"
+    url: "https://www.codenewbie.org/"
+  - title: "Adam Blau on Twitter"
+    url: "https://twitter.com/adamblau"
+
+videos:
+  - title: "Node.js tutorial"
+    url: "/Tutorials/15-twitter-bot/15.1-intro-nodejs"
+  - title: "Maze Generator"
+    url: "/CodingChallenges/10.1-maze-dfs-p5"
+  - title: "Coding Train Trailer video"
+    url: "https://youtu.be/PBsUD40nPkI"
+  - title: "Let and Var video"
+    url: "/Tutorials/16-javascript-es6/16.1-let-vs-var"
+  - title: "Wordnik tutorial"
+    url: "/Tutorials/10-working-with-data/10.8-wordnik-api"
+  - title: "Chrome Ex-kitten-sion"
+    url: "/CodingChallenges/82-kittenizer-chrome-extension"
+
+books:
+  - title: "Creative Coding Book List"
+    url: "https://processing.org/books"
+  - title: "10 PRINT"
+    url: "https://10print.org/"
+  - title: "Form+Code"
+    url: "http://formandcode.com/"
+  - title: "Exploratory Programming for the Arts and Humanities"
+    url: "https://www.amazon.com/Exploratory-Programming-Arts-Humanities-Press/dp/0262034204/"
+  - title: "Learning Processing"
+    url: "http://learningprocessing.com/"
+---
+
+This live session is continues my series on Chrome/Browser Extensions.
