@@ -29,6 +29,6 @@ contributions:
     source: https://github.com/Lugsole/TOR_MAP
 ---
 
-In this Coding Challenge, I visualize earthquake data from the [USGS](http://earthquake.usgs.gov/data/) by mapping the latitude, longitude and the magnitude of earthquakes with p5.js.
+In this coding challenge, I visualize earthquake data from the [USGS](http://earthquake.usgs.gov/data/) by mapping the latitude, longitude and the magnitude of earthquakes with p5.js.
 
 The map imagery is pulled from [mapbox.js](https://www.mapbox.com/mapbox.js/api/v3.0.1/) and the math demonstrated coverts latitude, longitude to x,y via [Web Mercator](https://en.wikipedia.org/wiki/Web_Mercator).

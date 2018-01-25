@@ -13,6 +13,7 @@ links:
     url: http://seb.ly/work/pixelpyros/
   - title: "peasycam website"
     url: http://mrfeinberg.com/peasycam/
+    author: "Jonathan Feinberg"
 
 contributions:
   - title: "Memorial Day Fireworks (with hearts)"
@@ -23,4 +24,4 @@ contributions:
     source: https://github.com/toferj/p5js/tree/master/fireworks
 ---
 
-In this 4th of July themed Coding Challenge, I build an HTML5 canvas Fireworks simulation from scratch using the p5.js JavaScript library. I also show how to use Processing to create 3D Fireworks. This code is based off of my Nature of Code particle system examples.
+In this 4th of July themed coding challenge, I build an HTML5 canvas Fireworks simulation from scratch using the p5.js JavaScript library. I also show how to use Processing to create 3D Fireworks.

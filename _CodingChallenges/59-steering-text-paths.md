@@ -7,13 +7,14 @@ repository: /CC_59_Steering_Text_Paths
 links:
 - title: "Nature of Code Steering Behaviors Playlist"  
   url: "https://www.youtube.com/playlist?list=PLRqwX-V7Uu6YHt0dtyf4uiw8tKOxQLvlW"
-- title: "Craig Reynolds' Steering Behaviors paper"  
+- title: "Steering Behaviors paper"  
   url: "http://www.red3d.com/cwr/steer/"
+  author: "Craig Reynolds"
   
 
 
   
 ---
 
-In this Coding Challenge, I look at extracting font path points from text in p5.js with p5.Font.textToPoints().  I render the text as particles with steering behaviors that react to the mouse.
+In this coding challenge, I look at extracting font path points from text in p5.js with p5.Font.textToPoints().  I render the text as particles with steering behaviors that react to the mouse.
 
