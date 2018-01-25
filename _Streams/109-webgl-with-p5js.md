@@ -7,16 +7,16 @@ video_id: Gi9PuLHlzzI
 topics:
   - title: "Introduction to WebGL in p5.js"
     time: "20:55"
-    url: "/Tutorials/18-webgl/18.1-introduction-to-webgl.md"
+    url: "/Tutorials/18-webgl/18.1-introduction-to-webgl"
   - title: "3D Geometry"
     time: "36:05"
-    url:  "/Tutorials/18-webgl/18.2-3d-geometries.md"
+    url:  "/Tutorials/18-webgl/18.2-3d-geometries"
   - title: "Lights and Material"
     time: "50:55"
-    url: "/Tutorials/18-webgl/18.3-light-and-material.md"
+    url: "/Tutorials/18-webgl/18.3-light-and-material"
   - title: "Coding Challenge: Bees and Bombs"
     time: "1:51:36"
-    url: "/CodingChallenges/86-beesandbombs.md"
+    url: "/CodingChallenges/86-beesandbombs"
 
 links:
   - title: "Bees and Bombs on Twitter"
@@ -34,7 +34,7 @@ links:
 
 videos:
   - title: "p5-manager"
-    url: "/Tutorials/9-additional-topics/9.21-p5-manager.md"
+    url: "/Tutorials/9-additional-topics/9.21-p5-manager"
   - title: "Simple Harmonic Motion"
     url: "https://www.youtube.com/watch?v=GvwPwIUSYqE"
 ---
