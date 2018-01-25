@@ -7,19 +7,19 @@ video_id: U8S1qDjIE2Y
 topics:
   - title: "Checking Object Intersection Part 1"
     time: "33:07"
-    url: "/Tutorials/7-object-interaction/7.6-object-communication-part-1.md"
+    url: "/Tutorials/7-object-interaction/7.6-object-communication-part-1"
   - title: "Checking Object Intersection Part 2"
     time: "52:20"
-    url: "/Tutorials/7-object-interaction/7.7-object-communication-part-2.md"
+    url: "/Tutorials/7-object-interaction/7.7-object-communication-part-2"
   - title: "for...of Loop"
     time: "1:27:23"
-    url: "/Tutorials/16-javascript-es6/16.4-for-of-loop.md"
+    url: "/Tutorials/16-javascript-es6/16.4-for-of-loop"
   - title: "Objects & images"
     time: "1:45:05"
-    url: "/Tutorials/7-object-interaction/7.7.8-objects-and-images.md"
+    url: "/Tutorials/7-object-interaction/7.7.8-objects-and-images"
   - title: "Coding Callenge: Conway's Game of Life"
     time: "2:21:50"
-    url: "/CodingChallenges/85-the-game-of-life.md"
+    url: "/CodingChallenges/85-the-game-of-life"
 
 links:
   - title: "ITP Winter Show 2017"
@@ -47,9 +47,9 @@ videos:
   - title: "My Video on The Game of Life"
     url: "https://www.youtube.com/watch?v=tENSCEO-LEc"
   - title: "2D Arrays in JavaScript"
-    url: "/Tutorials/9-additional-topics/9.15-2d-arrays-in-javascript.md"
+    url: "/Tutorials/9-additional-topics/9.15-2d-arrays-in-javascript"
   - title: "The Modulo Operator with Golan Levin"
-    url: "/GuestTutorials/6-golan-levin-modulo-operator.md"
+    url: "/GuestTutorials/6-golan-levin-modulo-operator"
 ---
 This live session continues my tutorials on Object Oriented Programming with ES6.
 I also attempt a coding challenge: Conway's Game of Life with p5.js.
