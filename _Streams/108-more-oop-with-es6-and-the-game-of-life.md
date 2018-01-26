@@ -16,7 +16,7 @@ topics:
     url: "/Tutorials/16-javascript-es6/16.4-for-of-loop"
   - title: "Objects & images"
     time: "1:45:05"
-    url: "/Tutorials/7-object-interaction/7.7.8-objects-and-images"
+    url: "/Tutorials/7-object-interaction/7.8-objects-and-images"
   - title: "Coding Callenge: Conway's Game of Life"
     time: "2:21:50"
     url: "/CodingChallenges/85-the-game-of-life"
