@@ -218,3 +218,17 @@ Here is the playlist of all my coding challenges:
   - [Javascript Version](CC_84_Word_Definition_Extension)
 - Coding Challenge #85: The Game of Life
   - [Javascript Version](CC_85_The_Game_of_Life)
+  - [Processing Version](CC_85_The_Game_Of_Life_Processing)
+- Coding Challenge #86: Bees and Bombs
+  - [Javascript Version](CC_86_beesandbombs)
+- Coding Challenge #87: 3D Knot
+  - [Processing Version](CC_87_3D_Knots)
+- Coding Challenge #88: Snowfall
+  - [Javascript Version](CC_88_snowfall)
+  - [Processing Version](CC_88_snowfall_Processing)
+- Coding Challenge #89: Langton's ant
+  - [Javascript Version](CC_89_langtonsant_p5.js)
+  - [Processing Version](CC_89_langtonsant)
+- Coding Challenge #90: Dithering
+  - [Javascript Version](CC_90_dithering_p5.js)
+  - [Processing Version](CC_90_dithering)

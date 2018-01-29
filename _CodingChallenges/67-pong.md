@@ -10,10 +10,10 @@ links:
   url: "https://en.wikipedia.org/wiki/Pong"
 - title: "Paddle angles drawing"  
   url: "https://i1.wp.com/zekechan.net/wp-content/uploads/2015/07/pong-05b.png?resize=600%2C500"
-- title: "My Video on Polar Coordinates"  
-  url: "https://youtu.be/N633bLi_YCw "
   
-
+videos:
+- title: "My Video on Polar Coordinates"
+  video_id: "N633bLi_YCw"
 
   
 ---

@@ -6,19 +6,22 @@ video_id: akM4wMZIBWg
 repository: /CC_26_SuperShape3D
 live_example: false
 links:
-- title: "Paul Bourke's Supershapes (Superformula) website"  
+- title: "Supershapes (Superformula)"  
   url: "http://paulbourke.net/geometry/supershape/"
-- title: "Reza Ali's 3D Supershapes"  
+  author: "Paul Bourke"
+- title: "3D Supershapes"
   url: "http://www.syedrezaali.com/3d-supershapes/"
-- title: "Wikipedia's Spherical Coordinates System"  
+  author: "Reza Ali"
+- title: "Spherical Coordinates System on Wikipedia"  
   url: "https://en.wikipedia.org/wiki/Spherical_coordinate_system"
-- title: "peasycam website"  
+- title: "Peasycam"  
   url: "http://mrfeinberg.com/peasycam/"
+  author: Jonathan Feinberg
   
 
 
   
 ---
 
-In this Coding Challenge, I use the "superformula" to make a 3D "supershape" in Processing.  This is part 4 of a multi-part series on superformulas, superellipses and supershapes
+In this coding challenge, I use the "superformula" to make a 3D "supershape" in Processing.  This is part 4 of a multi-part series on superformulas, superellipses and supershapes
 

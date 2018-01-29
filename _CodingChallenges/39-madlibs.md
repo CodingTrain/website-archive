@@ -10,4 +10,4 @@ links:
     url: "https://github.com/jsoma/tabletop"
 ---
 
-In this Coding Challenge, I make a Mad Libs web application using p5.js and tabletop.js (a JavaScript library for connecting to google sheet data.)
+In this coding challenge, I make a Mad Libs web application using p5.js and tabletop.js (a JavaScript library for connecting to google sheet data.)
