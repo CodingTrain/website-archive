@@ -5,8 +5,16 @@
 
 <header>
   <input type="checkbox" id="nav-toggle">
+
+  <a href="{{ '/' | relative_url }}"><div class="header-image">
+    <label for="nav-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+  </div></a>
+
   <nav>
-    <label for="nav-toggle">☰</label>
     <div class="links">
       <a href="{{ '/CodingChallenges' | relative_url }}">Coding Challenges</a>
       <a href="{{ '/Tutorials' | relative_url }}">Tutorials</a>
