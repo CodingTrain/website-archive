@@ -48,6 +48,14 @@
             max-width: 35rem
             margin: 0.5em
 
+  .featured-videos
+    .video-card:nth-child(2)
+      @media (max-width: $tablet-big) and (min-width: $tablet-small)
+        display: none
+
+  h2
+    margin-top: 8rem
+    text-align: center
 
   .learn-to-code a.youtube
     background: $ct-red !important

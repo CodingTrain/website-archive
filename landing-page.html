@@ -12,8 +12,22 @@ permalink: /
 
 {% comment %} Use the latest coding challenge if a stream hasn't been scheduled yet. {% endcomment %}
 {% if nextStream == null %}
+  {% assign offset = 1 %}
   {% assign nextStream = out_sortedVideos | first %}
+{% else %}
+  {% assign offset = 0 %}
 {% endif %}
+
+{% assign featuredVideos = '' | split: '' %}
+
+{% comment %} Add latest coding challenges to featured videos array. {% endcomment %}
+{% for challenge in out_sortedVideos limit:2 offset:offset %}
+  {% assign featuredVideos = featuredVideos | push: challenge %}
+{% endfor %}
+
+{% comment %} Get lastest stream and add it to the featured videos array. {% endcomment %}
+{% include 1-tools/sort-videos.html videos=site.Streams reverse=true %}
+{% assign featuredVideos = featuredVideos | push: out_sortedVideos[0] %}
 
 <div class="landing-page">
   <div class="welcome-message">
@@ -29,5 +43,10 @@ permalink: /
 
     {% include 3-modules/video-card.html video=nextStream %}
 
+  </div>
+
+  <h2>Latest Videos</h2>
+  <div class="featured-videos">
+    {% include 3-modules/video-list.html sortedVideos=featuredVideos %}
   </div>
 </div>
