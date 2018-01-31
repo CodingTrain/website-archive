@@ -49,4 +49,16 @@ permalink: /
   <div class="featured-videos">
     {% include 3-modules/video-list.html sortedVideos=featuredVideos %}
   </div>
+
+  <h2>Support The Coding Train</h2>
+  <div class="support">
+    {% capture patreonLogo %}{% include 4-vector-graphics/patreon.svg %}{% endcapture %}
+    {% include 3-modules/hero-item.html image=patreonLogo title='Consider supporting?' content='Support The Coding Train on Patreon and get some awesome rewards!' url='https://www.patreon.com/codingtrain' cta='Become a Patron' class='patreon' %}
+
+    {% capture merchStoreImage %}<img src="{{ '/assets/images/merch-store.png' | relative_url }}" />{% endcapture %}
+    {% include 3-modules/hero-item.html image=merchStoreImage title='Want more of The Coding Train in your live?' content='Visit the merch store and get some shirts, mugs and more!' url='http://codingtrain.storenvy.com/' cta='Get some merch' class='merch-store' %}
+
+    {% capture amazonStoreImage %}<img src="{{ '/assets/images/amazon-store.png' | relative_url }}" />{% endcapture %}
+    {% include 3-modules/hero-item.html image=amazonStoreImage title="Haven't learned enough?" content='Read one of the books featured on The Coding Train!' url='https://www.amazon.com/shop/thecodingtrain' cta='Start reading' class='amazon-store' %}
+  </div>
 </div>
