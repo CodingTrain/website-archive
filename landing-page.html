@@ -36,8 +36,8 @@ permalink: /
       <p>Daniel Shiffman makes videos on how to code!</p>
       <p>The Coding Train features "creative coding" video tutorials with new ones released every week.</p>
       <div class="ctas">
-        <a href="https://youtube.com/user/shiffman" target="_blank" class="youtube">Subscribe on YouTube</a>
-        <a href="https://patreon.com/codingtrain" target="_blank" class="patreon">Become a Patron</a>
+        <a href="{{ site.links.youtube }}" target="_blank" class="youtube">Subscribe on YouTube</a>
+        <a href="{{ site.links.patreon }}" target="_blank" class="patreon">Become a Patron</a>
       </div>
     </div>
 
@@ -48,18 +48,18 @@ permalink: /
   <h2>Latest Videos</h2>
   <div class="featured-videos">
     {% include 3-modules/video-list.html sortedVideos=featuredVideos %}
-    <a href="https://youtube.com/user/shiffman" target="_blank" class="more-videos">Watch more videos</a>
+    <a href="{{ site.links.youtube }}" target="_blank" class="more-videos">Watch more videos</a>
   </div>
 
   <h2>Support The Coding Train</h2>
   <div class="support">
     {% capture patreonLogo %}{% include 4-vector-graphics/patreon.svg %}{% endcapture %}
-    {% include 3-modules/hero-item.html image=patreonLogo title='Consider supporting?' content='Support The Coding Train on Patreon and get some awesome rewards!' url='https://www.patreon.com/codingtrain' cta='Become a Patron' class='patreon' %}
+    {% include 3-modules/hero-item.html image=patreonLogo title='Consider supporting?' content='Support The Coding Train on Patreon and get some awesome rewards!' url=site.links.patreon cta='Become a Patron' class='patreon' %}
 
     {% capture merchStoreImage %}<img src="{{ '/assets/images/merch-store.png' | relative_url }}" />{% endcapture %}
-    {% include 3-modules/hero-item.html image=merchStoreImage title='Want more of The Coding Train in your live?' content='Visit the merch store and get some shirts, mugs and more!' url='http://codingtrain.storenvy.com/' cta='Get some merch' class='merch-store' %}
+    {% include 3-modules/hero-item.html image=merchStoreImage title='Want more of The Coding Train in your live?' content='Visit the merch store and get some shirts, mugs and more!' url=site.links.merch cta='Get some merch' class='merch-store' %}
 
     {% capture amazonStoreImage %}<img src="{{ '/assets/images/amazon-store.png' | relative_url }}" />{% endcapture %}
-    {% include 3-modules/hero-item.html image=amazonStoreImage title="Haven't learned enough?" content='Read one of the books featured on The Coding Train!' url='https://www.amazon.com/shop/thecodingtrain' cta='Start reading' class='amazon-store' %}
+    {% include 3-modules/hero-item.html image=amazonStoreImage title="Haven't learned enough?" content='Read one of the books featured on The Coding Train!' url=site.links.amazon cta='Start reading' class='amazon-store' %}
   </div>
 </div>
