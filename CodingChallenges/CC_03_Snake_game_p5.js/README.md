@@ -29,3 +29,16 @@ Reworked snake in ES6
 [Repository](https://github.com/elena-in-code/Snake-Game) | [Demo](https://elena-in-code.github.io/Snake-Game/)
 
 ***
+
+### By [Bruce Chen](https://github.com/BruceChen034020)
+[Repository](https://github.com/BruceChen034020/SnakeGame) | [Demo](https://brucechen034020.github.io/SnakeGame/)
+
+Welcome to Snake Game. <br> <br>
+White is snake. Red is food. Gray is wall, and so are the borders. <br> <br>
+Some evil punishments will come if you don't eat any food for too long. 
+If you haven't eat any food for 5 seconds, the food will go away. 
+If you haven't eat for 15 seconds, the wall will come towards you. 
+If you haven't eat for 30 seconds, the snake will be accelerated, and you will be taken 200 points off.
+<br> <br> So go eat the food! <br> <br>
+Besides being punished, you can speed the snake up voluntarily by continuously pressing the same arrow key 2 times.
+***
