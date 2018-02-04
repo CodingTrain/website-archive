@@ -22,6 +22,21 @@ repository: CodingTrain/Rainbow-Code
 # Prefix for download links (downloads only the relevant code from GitHub).
 github_download_prefix: https://minhaskamal.github.io/DownGit/#/home?url=
 
+# Links to other platforms.
+links:
+
+  # Link to YouTube.
+  youtube: https://youtube.com/user/shiffman
+
+  # Link to Patreon.
+  patreon: https://patreon.com/codingtrain
+
+  # Link to the merch store.
+  merch: http://codingtrain.storenvy.com/
+
+  # Link to the Amazon store.
+  amazon: https://www.amazon.com/shop/thecodingtrain
+
 
 
 # --- Build Settings ---
