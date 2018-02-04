@@ -43,6 +43,9 @@ All times are in EDT and are subject to change! You can confirm the exact time b
 * dialogflow
 
 # Past Live Streams
+* [Live Stream #118 - More Neural Networks](https://youtu.be/e8H588SXu6U?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
+* [Live Stream #117.2 - Unit Testing and CI with CircleCI - Part 2](https://youtu.be/arrIMSmPTMc?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
+* [Live Stream #117.1 - Unit Testing and CI with CircleCI - Part 1](https://youtu.be/ZXPMgpPj56s?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
 * [Live Stream #116.2 - Snakes & Ladders Continued + 2048](https://youtu.be/1v_E18xU3ok?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
 * [Live Stream #116.1 - Snakes & Ladders](https://youtu.be/nvvjYJ2L57c?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
 * [Live Stream #115 - Backpropagation](https://youtu.be/XHj52k75PYo?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
