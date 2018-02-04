@@ -14,7 +14,7 @@
 title: The Coding Train // Code Reposiory
 
 # Location from where the site will be served (repository name for GitHub Pages).
-baseurl: /Rainbow-Code
+baseurl: /
 
 # Name of the GitHub repository (used for generating links to GitHub).
 repository: CodingTrain/Rainbow-Code
