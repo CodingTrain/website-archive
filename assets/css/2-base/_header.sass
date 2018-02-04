@@ -1,118 +1,6 @@
 header
   margin-bottom: 5rem
 
-  #nav-toggle
-    display: none
-    
-    &:checked
-      ~ nav .links a
-        @media (max-width: $mobile)
-          visibility: visible
-          opacity: 1
-          transform: translateX(0rem)
-
-          @for $i from 1 through 4
-            &:nth-child(#{$i})
-              transition:
-                delay: ($i - 1) * 50ms
-
-      ~ a .header-image
-        &:after
-          @media (max-width: $mobile)
-            visibility: visible
-            opacity: 1
-      
-        label
-          position: fixed
-
-          span:nth-child(2)
-            @media (max-width: $mobile)
-              transform: translateX(10%)
-
-  label[for="nav-toggle"]
-    position: absolute
-    z-index: 9999
-    display: none
-    justify-content: space-around
-    align-items: flex-end
-    flex-direction: column
-    font-size: 35px
-    padding: 0.4em 0.35em
-    left: 0
-    border-radius: 0px 4px 4px 0px
-    background: $ct-blue
-    width: 2em
-    height: 1.7em
-
-    span
-      width: 80%
-      height: 0.15em
-      display: inline-block
-      background: #FFF
-      border-radius: 100rem
-      transition: all 600ms
-
-    @media (max-width: $mobile)
-      display: flex
-
-  nav
-    position: absolute
-    top: 0
-    z-index: 9999
-    width: 100%
-    height: 50px
-    font-size: 16px
-    overflow: hidden
-    background: linear-gradient(rgba(0,0,0,0.2), transparent)
-
-    transition: all 200ms
-
-    @media (max-width: $mobile)
-      height: auto
-      top: 10rem
-      position: fixed
-      background: none
-
-    .links
-      @extend .wrapper
-      height: 100%
-      display: flex
-      justify-content: center
-      align-items: center
-
-      @media (max-width: $mobile)
-        flex-direction: column
-        align-items: flex-start
-        height: auto
-        padding-left: 2rem
-
-      a
-        margin: 0em 1em
-        text-shadow: 0px 0px 5px #BBB
-        color: #FFF
-        font-family: $sans-serif
-        text-decoration: none
-
-        @media (max-width: $mobile)
-          // display: none
-          visibility: hidden
-          margin: 0.5em 0
-          text-shadow: none
-          background: $ct-blue
-          padding: 0.7em 1em
-          border-radius: 4px
-          opacity: 0
-          transform: translateX(-3rem)
-          // transition: all 500ms
-
-          @for $i from 1 through 4
-            &:nth-child(#{abs($i - 5)})
-              transition:
-                property: all
-                duration: 200ms
-                delay: ($i - 1) * 50ms
-                timing-function: ease-in-out
-
   .header-image
     height: 25rem
     background:
@@ -121,20 +9,6 @@ header
       size: cover
       repeat: no-repeat
     cursor: pointer
-
-    &:after
-      display: block
-      content: ''
-      background: rgba(0, 0, 0, 0.2)
-      z-index: 999
-      position: fixed
-      top: 0
-      left: 0
-      bottom: 0
-      right: 0
-      visibility: hidden
-      opacity: 0
-      transition: all 600ms
 
     @media (max-width: $tablet-small)
       height: 18rem
