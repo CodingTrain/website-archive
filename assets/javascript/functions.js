@@ -50,3 +50,17 @@ function timecodeToSeconds(timecode) {
 
   return seconds;
 }
+
+
+// When the window has finished loading ...
+window.addEventListener('load', () => {
+
+  // ... attach and onClick listener to the navigation (background) to close the mobile navigation drawer.
+  document.querySelector('.navigation')
+    .addEventListener('click', (event) => document.querySelector('#nav-toggle').checked = false);
+
+  // ... attach an onClick listener to the navigation child elements to prevent event propagation.
+  // (childrens' onClick event doesn't trigger parent's onClick event)
+  document.querySelector('.navigation *')
+    .addEventListener('click', event => event.stopPropagation());
+});
