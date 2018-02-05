@@ -232,3 +232,5 @@ Here is the playlist of all my coding challenges:
 - Coding Challenge #90: Dithering
   - [Javascript Version](CC_90_dithering_p5.js)
   - [Processing Version](CC_90_dithering)
+- Coding Challenge #91: Snakes & Ladders
+  - [Javascript Version](CC_91_snakesladders_p5.js)
