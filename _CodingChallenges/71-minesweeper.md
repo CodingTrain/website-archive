@@ -12,7 +12,13 @@ links:
 - title: "Flood fill on Wikipedia"  
   url: "https://en.wikipedia.org/wiki/Flood_fill"
   
-
+contributions:
+  - title: "My awesome version of the number guessing chatbot"
+    author:
+      name: "Bruce Chen"
+      url: "https://github.com/BruceChen034020?tab=repositories"
+    url: "https://brucechen034020.github.io/SnakeGame/"
+    source: "https://github.com/BruceChen034020/SnakeGame"
 
   
 ---
