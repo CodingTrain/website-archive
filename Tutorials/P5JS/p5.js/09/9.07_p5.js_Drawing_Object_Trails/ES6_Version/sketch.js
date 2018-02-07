@@ -86,7 +86,7 @@ class Particle {
 /*
 Coding Train
 Daniel Shiffman
-https://www.youtube.com/thecodingtrain//
+https://www.youtube.com/thecodingtrain/
 https://www.patreon.com/codingtrain
 
 Framework

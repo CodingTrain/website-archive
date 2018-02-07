@@ -13,8 +13,8 @@ I'm using this repo to keep track of supplemental content for my video lessons. 
 * [Learning Processing](http://learningprocessing.com/videos/ "Learning Processing Videos")
 
 # Youtube
-* [Learning Processing](https://www.youtube.com/thecodingtrain//playlists?view=50&shelf_id=2&sort=dd "Learning Processing - Youtube")
-* [The Nature of Code](https://www.youtube.com/thecodingtrain//playlists?view=50&shelf_id=6&sort=dd "The Nature of Code - Youtube")
+* [Learning Processing](https://www.youtube.com/thecodingtrain/playlists?view=50&shelf_id=2&sort=dd "Learning Processing - Youtube")
+* [The Nature of Code](https://www.youtube.com/thecodingtrain/playlists?view=50&shelf_id=6&sort=dd "The Nature of Code - Youtube")
 
 # Vimeo channels
 * [Introduction to Computational Media](https://vimeo.com/channels/introcompmedia "Introduction to Computational Media - Vimeo")

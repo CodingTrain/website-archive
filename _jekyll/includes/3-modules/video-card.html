@@ -14,7 +14,7 @@
   {% if include.video.date <= site.time %}
     <a href="{{ include.video.url | relative_url }}">
   {% else %}
-    <a href="https://www.youtube.com/thecodingtrain//live" target="blank">
+    <a href="https://www.youtube.com/thecodingtrain/live" target="blank">
   {% endif %}
 
     {% comment %} The video badge (with its number). {% endcomment %}
@@ -54,7 +54,7 @@
   {% comment %} CTAs (link to YouTube and internal video page or livestream). {% endcomment %}
   <div class="buttons">
     {% if include.video.date > site.time %}
-      <a href="https://www.youtube.com/thecodingtrain//live" target="blank">Tune in Live</a>
+      <a href="https://www.youtube.com/thecodingtrain/live" target="blank">Tune in Live</a>
     {% else %}
       <a href="https://youtu.be/{{ include.video.video_id }}">Watch on YT</a>
       <a href="{{ include.video.url | relative_url }}">To the {{ include.video.video_type_short | default: include.video.video_type }}</a>
