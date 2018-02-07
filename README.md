@@ -1,12 +1,12 @@
 # Key Links
-* [The Coding Train](https://www.youtube.com/user/shiffman/)
+* [The Coding Train](https://www.youtube.com/thecodingtrain//)
 * [Become a Patron](http://patreon.com/codingtrain "Coding Train - Patreon")
 * [Suggest a Topic!](https://github.com/CodingTrain/Rainbow-Topics/)  
 * [Coding Train Store](http://codingtrain.storenvy.com)
 
 # Future Live Streams
 
-All times are in EDT and are subject to change! You can confirm the exact time by visiting [The Coding Train Live](https://www.youtube.com/user/shiffman/) the day of.
+All times are in EDT and are subject to change! You can confirm the exact time by visiting [The Coding Train Live](https://www.youtube.com/thecodingtrain//) the day of.
 
 ### Friday, Jan 5 - 2pm - 4pm
 * Continuing Matrix math for neural networks / ML tutorials!
