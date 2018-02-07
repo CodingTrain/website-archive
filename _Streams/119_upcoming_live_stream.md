@@ -1,13 +1,11 @@
 ---
 title: "Upcoming Live Stream"
 video_number: 116
-date: 2018-02-09 4:00pm
-
-topics:
-- title: "MNIST Coding Challenge"
-- title: "Pendulum Coding Challenge"
-- title: "Spring Coding Challenge"
-- title: "Double Pendulum Coding Challenge"
+date: 2018-02-09 10:00am
 ---
 
-More neural networks and also pendulums!
+topics:
+* MNIST Coding Challenge
+* Pendulum Coding Challenge
+* Spring Coding Challenge
+* Double Pendulum Coding Challenge
