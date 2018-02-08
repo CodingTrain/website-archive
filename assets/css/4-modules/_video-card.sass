@@ -2,7 +2,8 @@
   $padding: 2rem
 
   width: 35rem
-  box-shadow: 0em 0em 1em 0.5em #EEE
+  //box-shadow: 0em 0em 1em 0.5em #EEE
+  box-shadow: 0 10px 20px $box-shadow-primary, 0 6px 6px $box-shadow-secondary
   padding-bottom: 1em
   border-radius: 0.5em
   overflow: hidden
@@ -21,7 +22,8 @@
     position: absolute
     background: $ct-green
     color: #FFF
-    font-family: $sans-serif
+    font-family: $title-text
+    letter-spacing: $title-text-letter-spacing
     font-size: 2rem
     padding: 0.5em
     border-radius: 0.25em 0em
@@ -35,16 +37,18 @@
 
     h3
       font-size: 2rem
-      padding: 1.25em 1em 0.5em
+      padding: 1.25em .5em .4em 1em
       margin: 0
       text-align: left
 
     .video-date
+      color: $secondary-color
       font-size: 1.5rem
-      padding: 0em (20em / 1em)
+      padding: 0em 1.25em
 
   .video-description
-    padding: 0.625em 1.25em
+    padding: 0 1.25em 1.5em 1.25em
+    flex: 1
 
     ul
       padding-left: 1.5em
@@ -65,13 +69,15 @@
       flex-grow: 2
       margin-left: 0.25em
       margin-right: 0.25em
+      padding: 15px
+      //white-space: nowrap
 
       @media (max-width: $mobile)
         margin: 0
 
       &:first-child
         margin-left: 0
-      
+
       &:last-child
         margin-right: 0
 
