@@ -13,22 +13,29 @@
   flex-direction: column
   justify-content: space-between
 
-
   > a
     text-decoration: none
     color: $text-color
 
-  .video-badge
-    position: absolute
-    background: $ct-green
-    color: #FFF
-    font-family: $title-text
-    letter-spacing: $title-text-letter-spacing
-    font-size: 2rem
-    padding: 0.5em
-    border-radius: 0.25em 0em
-
   .video-header
+
+    .thumb-container
+      width: 100%
+      height: auto
+      position: relative
+
+      .video-badge
+        position: absolute
+        right: 0
+        bottom: 0
+        background: $ct-green
+        color: #FFF
+        font-family: $title-text
+        letter-spacing: $title-text-letter-spacing
+        font-size: 2rem
+        padding: .5em .5em .5em .6em
+        border-radius: 0.25em 0em 0em
+
     .video-thumbnail
       width: 35rem
       height: 35rem * 9 / 16
