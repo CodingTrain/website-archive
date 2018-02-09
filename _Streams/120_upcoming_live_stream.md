@@ -1,7 +1,7 @@
 ---
 title: "Upcoming Live Stream"
 video_number: 120
-date: 2018-02-09 11:00am
+date: 2018-02-09 11:30am
 ---
 
 topics:
