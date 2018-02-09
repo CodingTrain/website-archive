@@ -57,11 +57,11 @@ window.addEventListener('load', () => {
 
   // ... attach and onClick listener to the navigation (background) to close the mobile navigation drawer.
   document.querySelector('.navigation')
-    .addEventListener('click', (event) => document.querySelector('#nav-toggle').checked = false);
+    .addEventListener('click', e => document.querySelector('#nav-toggle').checked = false);
 
   // ... attach an onClick listener to the navigation child elements to prevent event propagation.
   // (childrens' onClick event doesn't trigger parent's onClick event)
-  document.querySelectorAll('.navigation *')
+  document.querySelectorAll('.navigation nav .links a')
     .forEach(
       node => node.addEventListener(
         'click', e => e.stopPropagation()
