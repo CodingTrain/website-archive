@@ -35,7 +35,7 @@ window.addEventListener('hashchange', skipVideoToHashTimecode);
 
 /**
  * Convert youtube time codes (format: HH:MM:SS or MM:SS or SS) to seconds.
- * 
+ *
  * @param {string} timecode   The youtube time code.
  */
 function timecodeToSeconds(timecode) {
@@ -61,6 +61,10 @@ window.addEventListener('load', () => {
 
   // ... attach an onClick listener to the navigation child elements to prevent event propagation.
   // (childrens' onClick event doesn't trigger parent's onClick event)
-  document.querySelector('.navigation *')
-    .addEventListener('click', event => event.stopPropagation());
+  document.querySelectorAll('.navigation *')
+    .forEach(
+      node => node.addEventListener(
+        'click', e => e.stopPropagation()
+      )
+    );
 });
