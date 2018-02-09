@@ -1,35 +1,39 @@
+.mobilenav-toggle
+  display: none
+  justify-content: space-around
+  align-items: center
+  flex-direction: column
+  font-size: 35px
+  padding: 0.4em 0.35em
+  border-radius: 0px $standard-border-radius $standard-border-radius 0px
+  background: $ct-blue
+  width: 7rem
+  height: 6rem
+  position: fixed
+  left: 0
+  top: 20px
+  z-index: 10000
+
+  @media (max-width: $mobile)
+    display: flex
+
+  span
+    width: 80%
+    height: 0.15em
+    display: inline-block
+    background: #FFF
+    border-radius: .075em
+    transition: all 375ms $timing-function
+
 .navigation
   position: absolute
   top: 0
   width: 100%
-  z-index: 9999
+  z-index: 9000
 
   @media (max-width: $mobile)
     padding-top: 2rem
     width: auto
-
-  .mobilenav-toggle
-    display: none
-    justify-content: space-around
-    align-items: center
-    flex-direction: column
-    font-size: 35px
-    padding: 0.4em 0.35em
-    border-radius: 0px $standard-border-radius $standard-border-radius 0px
-    background: $ct-blue
-    width: 7rem
-    height: 6rem
-
-    @media (max-width: $mobile)
-      display: flex
-
-    span
-      width: 80%
-      height: 0.15em
-      display: inline-block
-      background: #FFF
-      border-radius: .075em
-      transition: all 375ms $timing-function
 
   nav
     width: 100%
@@ -106,12 +110,12 @@
         filter: blur(10px)
         pointer-events: none
 
+    ~ .mobilenav-toggle span:nth-child(2)
+      transform: translateX(20%)
+
     ~ .navigation
       @media (max-width: $mobile)
         background: rgba(#FFF, 0.5)
-
-      .mobilenav-toggle span:nth-child(2)
-        transform: translateX(20%)
 
       nav .links a
         @media (max-width: $mobile)
