@@ -1,14 +1,22 @@
+@mixin text-style($type)
+  @if $type == 'title'
+    font-family: $title-text
+    letter-spacing: $title-text-letter-spacing
+  @else if $type == 'body'
+    font-family: $body-text
+    letter-spacing: $body-text-letter-spacing
+
+
+
 html, body
-  font-family: $body-text
-  letter-spacing: $body-text-letter-spacing
+  @include text-style('body')
   color: $text-color
   font-size: 1.6rem
 
 
 h1, h2, h3, h4, h5, h6,
 button, .cta-button
-  font-family: $title-text
-  letter-spacing: $title-text-letter-spacing
+  @include text-style('title')
   font-weight: normal
 
 h1
@@ -25,7 +33,5 @@ h3
 .subtitle
   text-align: center
   margin: -1.25em 0em 2em
-  letter-spacing: $title-text-letter-spacing
-  font:
-    family: $title-text
-    size: 1.8rem
+  @include text-style('title')
+  font-size: 1.8rem
