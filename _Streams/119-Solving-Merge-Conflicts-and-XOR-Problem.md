@@ -7,10 +7,8 @@ video_id: f9vaiHoq-Fk
 topics:
   - title: "Resolving merge conflicts"
     time: "26:40"
-    url: "Not uploaded yet"
   - title: "XOR Problem"
     time: "52:51"
-    url: "Not uploaded yet"
  
 links:
   - title: "Toy-Neural-Network-JS"
