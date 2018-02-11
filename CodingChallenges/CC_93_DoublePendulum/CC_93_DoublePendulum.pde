@@ -1,3 +1,10 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+
+// Double Pendulum
+// https://youtu.be/uWzPe_S-RVE
+
 float r1 = 200;
 float r2 = 200;
 float m1 = 40;
