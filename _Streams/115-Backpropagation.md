@@ -7,7 +7,6 @@ video_id: XHj52k75PYo
 topics:
   - title: "Reading Random Numbers"
     time: "30:20"
-    url: ""
   - title: "Backpropagation Part 1"
     time: "36:22"
     url: "https://www.youtube.com/watch?v=QJoa0JYaX1I"
@@ -16,7 +15,6 @@ topics:
     url: "https://www.youtube.com/watch?v=r2-P1Fi1g60"
   - title: "Learning with Gradient Descent"
     time: "1:40:25"
-    url: ""
  
 links:
   - title: "SFPC's Learning to Teach 2018"
