@@ -9,6 +9,7 @@ topics:
     time: "26:40"
   - title: "XOR Problem"
     time: "52:51"
+    url: "/CodingChallenges/92-xor"
  
 links:
   - title: "Toy-Neural-Network-JS"
