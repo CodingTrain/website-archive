@@ -1,7 +1,7 @@
 ---
 title: "XOR Problem"
 video_number: 92
-date: 2018-02-10
+date: 2018-02-12
 video_id: 188B6k_F9jU
 repository: /CC_92_xor
 
