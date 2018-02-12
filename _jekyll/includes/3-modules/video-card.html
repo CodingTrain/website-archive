@@ -17,21 +17,24 @@
     <a href="https://www.youtube.com/thecodingtrain/live" target="blank">
   {% endif %}
 
-    {% comment %} The video badge (with its number). {% endcomment %}
-    {% include 1-tools/series-for-video.html video=video %}
-    <span class="video-badge">#{% if out_series.series_number%}{{ out_series.series_number }}.{% endif %}{{ include.video.video_number }}</span>
-
     {% comment %} Video thumbnail. {% endcomment %}
     <div class="video-header">
-      <div
-        class="video-thumbnail"
+      <div class="thumb-container">
 
-        {% if include.video.video_id %}
-          style="background-image: url(https://i.ytimg.com/vi/{{include.video.video_id}}/hqdefault.jpg)"
-        {% else %}
-          style="background-image: url({{ '/assets/images/streamcover.jpg' | relative_url }})"
-        {% endif %}
-      >
+        {% comment %} The video badge (with its number). {% endcomment %}
+        {% include 1-tools/series-for-video.html video=video %}
+        <span class="video-badge">#{% if out_series.series_number%}{{ out_series.series_number }}.{% endif %}{{ include.video.video_number }}</span>
+
+        <div
+          class="video-thumbnail"
+
+          {% if include.video.video_id %}
+            style="background-image: url(https://i.ytimg.com/vi/{{include.video.video_id}}/mqdefault.jpg)"
+          {% else %}
+            style="background-image: url({{ '/assets/images/streamcover.jpg' | relative_url }})"
+          {% endif %}
+        >
+        </div>
       </div>
 
       {% comment %} Video title. {% endcomment %}
