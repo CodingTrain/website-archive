@@ -33,7 +33,7 @@ links:
     url: "https://en.wikipedia.org/wiki/Langton%27s_ant"
   - title: "ITP Physical Computing"
     url: "https://itp.nyu.edu/physcomp/"
-  - title: "Bryan WC Chung's "Pro Processing for Images and Computer Vision with OpenCV: Solutions for Media Artists and Creative Coders"
+  - title: "Bryan WC Chung's Pro Processing for Images and Computer Vision with OpenCV"
     url: "https://www.amazon.com/Processing-Images-Computer-Vision-OpenCV/dp/1484227743"
 
 videos:
