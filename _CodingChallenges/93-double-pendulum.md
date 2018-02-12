@@ -1,7 +1,7 @@
 ---
 title: "Double Pendulum"
 video_number: 93
-date: 2018-02-10
+date: 2018-02-13
 video_id: uWzPe_S-RVE
 repository: /CC_93_DoublePendulum
 live_example: /CC_93_DoublePendulum_p5.js
