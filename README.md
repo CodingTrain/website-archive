@@ -1,15 +1,15 @@
 # Key Links
-* [The Coding Train](https://www.youtube.com/thecodingtrain/)
+* [The Coding Train on YouTube](https://www.youtube.com/thecodingtrain/)
 * [Become a Patron](http://patreon.com/codingtrain "Coding Train - Patreon")
 * [Suggest a Topic!](https://github.com/CodingTrain/Rainbow-Topics/)  
 * [Coding Train Store](http://codingtrain.storenvy.com)
+* [Coding Train Website](http://thecodingtrain.com)
 
 # Future Live Streams
 
 All times are in EDT and are subject to change! You can confirm the exact time by visiting [The Coding Train Live](https://www.youtube.com/thecodingtrain/) the day of.
 
-### Friday, Jan 5 - 2pm - 4pm
-* Continuing Matrix math for neural networks / ML tutorials!
+You can also visit the official [Coding Train website](http://thecodingtrain.com) to see what's planned for the next stream.
 
 # Topics Under Consideration
 * word2vec
@@ -22,6 +22,10 @@ All times are in EDT and are subject to change! You can confirm the exact time b
 * iTerm
 * Alexa skill 
 * dialogflow
+
+# Add your own variation
+
+If you want to share your own variation based on a Coding Train video, you can also do this by visiting the page corresponding to the video on our [website](http://thecodingtrain.com). Check out the [Community Contributions Guide](https://github.com/CodingTrain/website/wiki/Community-Contributions-Guide) to see how it's done. It will then be featured right under the video on the website for everyone to see!
 
 # Past Live Streams
 * [Live Stream #112: Happy Holidays from the Coding Train!](https://youtu.be/dEWmwQMKgIk?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
