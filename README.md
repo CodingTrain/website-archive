@@ -27,6 +27,10 @@ You can also visit the official [Coding Train website](http://thecodingtrain.com
 
 If you want to share your own variation based on a Coding Train video, you can also do this by visiting the page corresponding to the video on our [website](http://thecodingtrain.com). Check out the [Community Contributions Guide](https://github.com/CodingTrain/website/wiki/Community-Contributions-Guide) to see how it's done. It will then be featured right under the video on the website for everyone to see!
 
+# Help adding new videos
+
+We are currently in the process of migrating videos and community contributions to the new system. If you want to help with this, have a look at the [Content Contribution Guide](https://github.com/CodingTrain/website/wiki/Content-Contribution-Guide). Thanks for helping us out!
+
 # Past Live Streams
 * [Live Stream #112: Happy Holidays from the Coding Train!](https://youtu.be/dEWmwQMKgIk?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
 * [Live Stream #111: More WebGL with p5.js!](https://youtu.be/Xiu8pbHtrEY?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
