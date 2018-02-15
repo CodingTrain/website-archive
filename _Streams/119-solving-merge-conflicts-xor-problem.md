@@ -7,6 +7,7 @@ video_id: f9vaiHoq-Fk
 topics:
   - title: "Resolving merge conflicts"
     time: "26:40"
+    url: "https://www.youtube.com/watch?v=JtIX3HJKwfo"
   - title: "XOR Problem"
     time: "52:51"
     url: "/CodingChallenges/92-xor"
