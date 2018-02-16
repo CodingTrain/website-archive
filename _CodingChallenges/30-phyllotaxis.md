@@ -13,7 +13,13 @@ links:
 - title: "Phyllotaxis example"  
   url: "https://bl.ocks.org/mbostock/11463507"
   
-
+contributions:
+  - title: "PhylloTaxis leaf arrangement"
+    author:
+      name: "Fraasi"
+      url: "https://github.com/Fraasi"
+    url: "https://fraasi.github.io/Phyllotaxis-leaf-arrangement/PhylloTaxis.html"
+    source: "https://github.com/Fraasi/Phyllotaxis-leaf-arrangement"
 
   
 ---
