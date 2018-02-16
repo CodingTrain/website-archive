@@ -49,10 +49,11 @@ function addNumber() {
       }
     }
   }
-  if (options.length > 0);
-  let spot = random(options);
-  let r = random(1);
-  grid[spot.x][spot.y] = r > 0.5 ? 2 : 4;
+  if (options.length > 0) {
+    let spot = random(options);
+    let r = random(1);
+    grid[spot.x][spot.y] = r > 0.5 ? 2 : 4;
+  }
 }
 
 function compare(a, b) {
