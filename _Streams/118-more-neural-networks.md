@@ -16,7 +16,7 @@ topics:
     url: "https://www.youtube.com/watch?v=tlqinMNM4xs"
   - title: "XOR Coding Challenge"
     time: "2:14:50"
-    url: "Not uploaded yet"
+    url: "/CodingChallenges/92-xor"
  
 links:
   - title: "Toy-Neural-Network-JS"
