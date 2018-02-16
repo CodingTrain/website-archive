@@ -16,6 +16,13 @@ contributions:
       url: "https://www.bobvoorneveld.nl"
     source: "https://github.com/bobvoorneveld/Coding-Challenges/tree/master/CC003-The%20Snake%20Game"
 
+contributions:
+  - title: "Snake Game"
+    author:
+      name: "Bruce Chen"
+      url: "https://github.com/BruceChen034020?tab=repositories"
+    url: "https://brucechen034020.github.io/SnakeGame/"
+    source: "https://github.com/BruceChen034020/SnakeGame"
   
 ---
 
