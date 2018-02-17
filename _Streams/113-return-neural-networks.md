@@ -33,8 +33,6 @@ links:
     url: "https://en.wikipedia.org/wiki/Langton%27s_ant"
   - title: "ITP Physical Computing"
     url: "https://itp.nyu.edu/physcomp/"
-  - title: "Bryan WC Chung's Pro Processing for Images and Computer Vision with OpenCV"
-    url: "https://www.amazon.com/Processing-Images-Computer-Vision-OpenCV/dp/1484227743"
 
 videos:
   - title: "My Neural Networks series"
@@ -46,11 +44,16 @@ videos:
   - title: "Siraj Raval's channel"
     url: "https://www.youtube.com/channel/UCWN3xxRkmTPmbKwht9FuE5A"
   - title: "My Series on ES6"
-    url: "https://www.youtube.com/watch?v=q8SHaDQdul0"
+    url: "http://thecodingtrain.com/Tutorials/16-javascript-es6/"
   - title: "My Game of Life coding challenge"
-    url: "https://www.youtube.com/watch?v=FWSR_7kZuYg"
+    url: "http://thecodingtrain.com/CodingChallenges/85-the-game-of-life.html"
   - title: "My Tutorial on Pixels in Processing"
     url: "https://www.youtube.com/watch?v=EmtU0eloTlE"
+    
+books:
+  - title: "Pro Processing for Images and Computer Vision with OpenCV"
+    author.name: "Bryan WC Chung"
+    url: "https://www.amazon.com/Processing-Images-Computer-Vision-OpenCV/dp/1484227743"
 ---
 
 Happy New Year! As promised, with the new year comes the continuation of my series on neural networks. 
