@@ -18,6 +18,17 @@ function isGameOver() {
   return true;
 }
 
+function got2048(){
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 4; j++) {
+      if (grid[i][j] == 2048) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
 function blankGrid() {
   return [
     [0, 0, 0, 0],
@@ -138,8 +149,13 @@ function keyPressed() {
     updateCanvas();
 
     let gameover = isGameOver();
+    let wingame = got2048();
     if (gameover) {
       console.log("GAME OVER");
+    }
+    
+    if(wingame) {
+      alert("You have reached 2048!!!");
     }
   }
 
