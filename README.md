@@ -43,6 +43,8 @@ All times are in EDT and are subject to change! You can confirm the exact time b
 * dialogflow
 
 # Past Live Streams
+* [Live Stream #122: filter(), sort() and 2048](https://youtu.be/ze_o4YvZ6-s?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
+* [Live Stream #121: map() and reduce() in JavaScript](https://youtu.be/kWoZ9_ECZxQ?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
 * [Live Stream #120: MNIST and Pendulums](https://youtu.be/KhogNPC24eI?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
 * [Live Stream #119 - Solving Merge Conflicts and XOR Problem](https://youtu.be/f9vaiHoq-Fk?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
 * [Live Stream #118 - More Neural Networks](https://youtu.be/e8H588SXu6U?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
