@@ -1,0 +1,14 @@
+---
+title: "2048"
+video_number: 94
+date: 2018-02-16
+video_id: 
+
+contributions:
+  - title: "2048 with added colors!"
+    author:
+      name: "Isaac Sanchez"
+      url: "https://github.com/jelitter"
+    url: "https://jelitter.github.io/website/CodingChallenges/CC_94_2048/"
+    source: "https://github.com/jelitter/website/tree/master/CodingChallenges/CC_94_2048"
+---
