@@ -24,8 +24,6 @@ links:
     url: "https://itp.nyu.edu/shows/winter2017/show/"
   - title: "The Coding Train on Amazon"
     url: "https://www.amazon.com/shop/thecodingtrain"
-
-videos:
   - title: "p5.js"
     url: "https://p5js.org/"
   - title: "Processing"
