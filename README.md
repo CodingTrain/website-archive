@@ -10,7 +10,7 @@
 I try as best I can to announce the next live streams in advance. If it's scheduled you can find the time and topics on the the official [Coding Train website](http://thecodingtrain.com) homepage. All times are in EDT and are subject to change! You can confirm the exact time by visiting [The Coding Train Live](https://www.youtube.com/thecodingtrain/live). I typically schedule the time the morning of.
 
 # Topics Under Consideration
-I keep track of topics [in this repo]((https://github.com/CodingTrain/Rainbow-Topics/), but also a list of notes is here for me not to forget.
+I keep track of topics [in this repo](https://github.com/CodingTrain/Rainbow-Topics/), but also a list of notes is here for me not to forget.
 * word2vec
 * K-means clustering?
 * Mappa p5 library (traveling sales on a map?)
