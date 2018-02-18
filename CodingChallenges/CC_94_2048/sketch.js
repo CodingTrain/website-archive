@@ -106,6 +106,17 @@ function rotateGrid(grid) {
   }
   return newGrid;
 }
+
+function removeRotation(){ // this is to return back after the grid rotation 
+	let newGrid = blankGrid();
+	for (let i = 0; i < 4; i++) {
+		for (let j = 0; j < 4; j++) {
+			newGrid[j][i] = grid[i][j];
+		}
+	}
+	return newGrid;
+}
+
 // One "move"
 function keyPressed() {
   let flipped = false;
@@ -139,10 +150,11 @@ function keyPressed() {
       grid = flipGrid(grid);
     }
     if (rotated) {
-      grid = rotateGrid(grid);
-      grid = rotateGrid(grid);
-      grid = rotateGrid(grid);
-    }
+		/*grid = rotateGrid(grid);
+		grid = rotateGrid(grid);
+		grid = rotateGrid(grid);*/
+		grid = removeRotation(grid); // (CPU usage saving > the 'removeRotation' function rotate the grid backwards and is called only a time instead of 3)
+	}
 
     if (changed) {
       addNumber();
