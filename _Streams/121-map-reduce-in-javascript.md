@@ -24,11 +24,11 @@ videos:
   - title: "CircleCI: Unit Testing and CI"
     url: "https://www.youtube.com/watch?v=CB7vnoXI0pE"
   - title: "ES6 Arrow Function"
-    url: "https://www.youtube.com/watch?v=mrYMzpbFz18"
+    url: "http://thecodingtrain.com/Tutorials/16-javascript-es6/16.3-arrow-function.html"
   - title: "Closure in JavaScript"
     url: "https://www.youtube.com/watch?v=-jysK0nlz7A"
   - title: "Prototypes in JavaScript"
     url: "https://www.youtube.com/watch?v=hS_WqkyUah8"
 ---
 
-In this live stream, I cover higher order functions in JavaScript and discuss them in the context of arrays: map() and reduce()
+In this live stream, I cover higher order functions in JavaScript and discuss them in the context of arrays: `map()` and `reduce()`
