@@ -17,7 +17,7 @@ title: The Coding Train // Code Repository
 baseurl: /
 
 # Name of the GitHub repository (used for generating links to GitHub).
-repository: CodingTrain/Rainbow-Code
+repository: CodingTrain/website
 
 # Prefix for download links (downloads only the relevant code from GitHub).
 github_download_prefix: https://minhaskamal.github.io/DownGit/#/home?url=
