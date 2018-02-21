@@ -6,6 +6,7 @@
 ArrayList<Circle> circles;
 ArrayList<PVector> spots;
 PImage img;
+int attempts = 0;
 
 void setup() {
   size(900, 400);
@@ -20,8 +21,8 @@ void setup() {
       if (b > 1) {
         spots.add(new PVector(x,y));
       }
-      
-    } 
+
+    }
   }
   circles = new ArrayList<Circle>();
 }
@@ -31,7 +32,6 @@ void draw() {
 
   int total = 10;
   int count = 0;
-  int attempts = 0;
 
   while (count <  total) {
     Circle newC = newCircle();
@@ -44,7 +44,7 @@ void draw() {
       noLoop();
       println("FINISHED");
       break;
-    } 
+    }
   }
 
 
@@ -70,7 +70,7 @@ void draw() {
 }
 
 Circle newCircle() {
-  
+
   int r = int(random(0,spots.size()));
   PVector spot = spots.get(r);
   float x = spot.x;

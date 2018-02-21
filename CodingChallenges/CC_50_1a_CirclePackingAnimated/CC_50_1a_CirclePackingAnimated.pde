@@ -4,6 +4,7 @@
 // Code for: https://youtu.be/QHEQuoIKgNE
 
 ArrayList<Circle> circles;
+int attempts = 0;
 
 void setup() {
   size(640, 360);
@@ -16,7 +17,6 @@ void draw() {
 
   int total = 10;
   int count = 0;
-  int attempts = 0;
 
   while (count <  total) {
     Circle newC = newCircle();
@@ -29,7 +29,7 @@ void draw() {
       noLoop();
       println("FINISHED");
       break;
-    } 
+    }
   }
 
 
