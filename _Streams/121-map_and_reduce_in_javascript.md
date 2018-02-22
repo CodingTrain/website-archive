@@ -34,4 +34,4 @@ videos:
     url: "https://www.youtube.com/watch?v=hS_WqkyUah8"
 ---
 
-In this live stream, I cover higher order functions in JavaScript and discuss them in the context of arrays: map() and reduce().
+In this live stream, I cover higher order functions in JavaScript and discuss them in the context of arrays: `map()` and `reduce()`.
