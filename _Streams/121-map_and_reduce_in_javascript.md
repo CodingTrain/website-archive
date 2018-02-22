@@ -3,16 +3,15 @@ title: "map() and reduce() in JavaScript"
 video_number: 121
 date: 2018-02-16 11:00am
 video_id: kWoZ9_ECZxQ
----
 
 topics:
   - title: "Introduction to higher order functions"
     time: "19:04"
     url: ""
-  - title: "map()
+  - title: "map()"
     time: "44:00"
     url: ""
-  - title: "reduce()
+  - title: "reduce()"
     time: "1:09:53"
     url: ""
 
