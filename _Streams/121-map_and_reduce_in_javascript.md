@@ -7,13 +7,13 @@ video_id: kWoZ9_ECZxQ
 topics:
   - title: "Introduction to higher order functions"
     time: "19:04"
-    url: ""
-  - title: "map()"
+    url: "/Tutorials/16-javascript-es6/16.5-higher-order-functions"
+  - title: "map() and fill()"
     time: "44:00"
-    url: ""
+    url: "/Tutorials/16-javascript-es6/16.6-map-and-fill"
   - title: "reduce()"
     time: "1:09:53"
-    url: ""
+    url: "/Tutorials/16-javascript-es6/16.7-reduce"
 
 links:
   - title: "Arrays on MDN"
