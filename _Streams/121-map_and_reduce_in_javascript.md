@@ -1,7 +1,7 @@
 ---
 title: "map() and reduce() in JavaScript"
 video_number: 121
-date: 2018-02-16 11:00am
+date: 2018-02-16
 video_id: kWoZ9_ECZxQ
 
 topics:
@@ -27,12 +27,11 @@ videos:
   - title: "CircleCI: Unit Testing and CI"
     url: "https://www.youtube.com/watch?v=CB7vnoXI0pE"
   - title: "ES6 Arrow Function"
-    url: "https://www.youtube.com/watch?v=mrYMzpbFz18"
+    url: "/Tutorials/16-javascript-es6/16.3-arrow-function"
   - title: "Closure in JavaScript"
     url: "https://www.youtube.com/watch?v=-jysK0nlz7A"
   - title: "Prototypes in JavaScript"
     url: "https://www.youtube.com/watch?v=hS_WqkyUah8"
-
 ---
 
 In this live stream, I cover higher order functions in JavaScript and discuss them in the context of arrays: map() and reduce().
