@@ -24,7 +24,7 @@ videos:
   - title: "CircleCI: Unit Testing and CI"
     url: "https://www.youtube.com/watch?v=CB7vnoXI0pE"
   - title: "ES6 Arrow Function"
-    url: "http://thecodingtrain.com/Tutorials/16-javascript-es6/16.3-arrow-function.html"
+    url: "/Tutorials/16-javascript-es6/16.3-arrow-function"
   - title: "Closure in JavaScript"
     url: "https://www.youtube.com/watch?v=-jysK0nlz7A"
   - title: "Prototypes in JavaScript"
