@@ -1,11 +1,8 @@
 ---
 title: "Upcoming Live Stream"
-video_number: 121
-date: 2018-02-16 11:00am
+video_number: 122
+date: 2018-03-02 TBA
 ---
 
 topics:
-* Neural network library improvements
-* MNIST again
-* higher order functions, arrays --> `filter()`, `map()`, `reduce()`, etc.
-* ES6 inheritance and polymorphism
+* Quickdraw dataset doodle classification
