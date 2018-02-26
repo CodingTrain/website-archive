@@ -1,52 +1,20 @@
 let grid;
+let grid_new;
 let score = 0;
 
-function isGameOver() {
-  for (let i = 0; i < 4; i++) {
-    for (let j = 0; j < 4; j++) {
-      if (grid[i][j] == 0) {
-        return false;
-      }
-      if (i !== 3 && grid[i][j] === grid[i + 1][j]) {
-        return false;
-      }
-      if (j !== 3 && grid[i][j] === grid[i][j + 1]) {
-        return false;
-      }
-    }
-  }
-  return true;
-}
 
-function got2048(){
-  for (let i = 0; i < 4; i++) {
-    for (let j = 0; j < 4; j++) {
-      if (grid[i][j] == 2048) {
-        return true;
-      }
-    }
-  }
-  return false;
-}
-
-function blankGrid() {
-  return [
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0]
-  ];
-}
 
 function setup() {
   createCanvas(400, 400);
   noLoop();
   grid = blankGrid();
+  grid_new = blankGrid();
   // console.table(grid);
   addNumber();
   addNumber();
   updateCanvas();
 }
+
 
 function addNumber() {
   let options = [];
@@ -117,26 +85,32 @@ function removeRotation(){ // this is to return back after the grid rotation
 	return newGrid;
 }
 
+
 // One "move"
 function keyPressed() {
   let flipped = false;
   let rotated = false;
   let played = true;
-  if (keyCode === DOWN_ARROW) {
-    // DO NOTHING
-  } else if (keyCode === UP_ARROW) {
-    grid = flipGrid(grid);
-    flipped = true;
-  } else if (keyCode === RIGHT_ARROW) {
-    grid = rotateGrid(grid);
-    rotated = true;
-  } else if (keyCode === LEFT_ARROW) {
-    grid = rotateGrid(grid);
-    grid = flipGrid(grid);
-    rotated = true;
-    flipped = true;
-  } else {
-    played = false;
+  switch (keyCode) {
+    case DOWN_ARROW:
+      // do nothing
+      break;
+    case UP_ARROW:
+      grid = flipGrid(grid);
+      flipped = true;
+      break;
+    case RIGHT_ARROW:
+      grid = transposeGrid(grid, 1);
+      rotated = true;
+      break;
+    case LEFT_ARROW:
+      grid = transposeGrid(grid, 1);
+      grid = flipGrid(grid);
+      rotated = true;
+      flipped = true;
+      break;
+    default:
+      played = false;
   }
 
   if (played) {
@@ -145,7 +119,6 @@ function keyPressed() {
       grid[i] = operate(grid[i]);
     }
     let changed = compare(past, grid);
-
     if (flipped) {
       grid = flipGrid(grid);
     }
@@ -162,55 +135,22 @@ function keyPressed() {
     updateCanvas();
 
     let gameover = isGameOver();
-    let wingame = got2048();
     if (gameover) {
       console.log("GAME OVER");
     }
-    
-    if(wingame) {
-      alert("You have reached 2048!!!");
+
+    let gamewon = isGameWon();
+    if (gamewon) {
+      console.log("GAME WON");
     }
+
   }
-
-
 }
-
-function operate(row) {
-  row = slide(row);
-  row = combine(row);
-  row = slide(row);
-  return row;
-}
-
 
 function updateCanvas() {
   background(255);
   drawGrid();
   select('#score').html(score);
-
-}
-
-// making new array
-function slide(row) {
-  let arr = row.filter(val => val);
-  let missing = 4 - arr.length;
-  let zeros = Array(missing).fill(0);
-  arr = zeros.concat(arr);
-  return arr;
-}
-
-// operating on array itself
-function combine(row) {
-  for (let i = 3; i >= 1; i--) {
-    let a = row[i];
-    let b = row[i - 1];
-    if (a == b) {
-      row[i] = a + b;
-      score += row[i];
-      row[i - 1] = 0;
-    }
-  }
-  return row;
 }
 
 function drawGrid() {
@@ -219,17 +159,28 @@ function drawGrid() {
     for (let j = 0; j < 4; j++) {
       noFill();
       strokeWeight(2);
-      stroke(0);
-      rect(i * w, j * w, w, w);
       let val = grid[i][j];
-      if (grid[i][j] !== 0) {
+      let s = val.toString();
+      if (grid_new[i][j] === 1) {
+        stroke(200, 0, 200);
+        strokeWeight(16);
+        grid_new[i][j] = 0;
+      } else {
+        strokeWeight(4);
+        stroke(0);
+      }
+
+      if (val != 0) {
+        fill(colorsSizes[s].color);
+      } else {
+        noFill();
+      }
+      rect(i * w, j * w, w, w, 30);
+      if (val !== 0) {
         textAlign(CENTER, CENTER);
-        let s = "" + val;
-        let len = s.length - 1;
-        let sizes = [64, 64, 32, 16];
-        fill(0);
         noStroke();
-        textSize(sizes[len]);
+        fill(0);
+        textSize(colorsSizes[s].size);
         text(val, i * w + w / 2, j * w + w / 2);
       }
     }

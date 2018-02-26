@@ -12,6 +12,14 @@ links:
     url: "https://codepen.io/collection/DqRNLQ/"
   - title: "ICM-2017 Syllabus"  
     url: "https://github.com/ITPNYU/ICM-2017"
+    
+contributions:
+  - title: "Blue Digital Clock"
+    author:
+      name: "Jinwook Chang"
+      url: "http://jjwkdl.netlify.com"
+    url: "https://jjwkdl.github.io/blog-content/javascript/VisualArt/clock/"
+    source: "https://github.com/jjwkdl/blog-content/tree/master/javascript/VisualArt/clock"
 ---
 
 In this coding challenge, I attempt to program a clock in HTML5 canvas with the p5.js library.
