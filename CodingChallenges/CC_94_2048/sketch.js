@@ -15,6 +15,77 @@ function setup() {
   updateCanvas();
 }
 
+
+function addNumber() {
+  let options = [];
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 4; j++) {
+      if (grid[i][j] === 0) {
+        options.push({
+          x: i,
+          y: j
+        });
+      }
+    }
+  }
+  if (options.length > 0) {
+    let spot = random(options);
+    let r = random(1);
+    grid[spot.x][spot.y] = r > 0.5 ? 2 : 4;
+  }
+}
+
+function compare(a, b) {
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 4; j++) {
+      if (a[i][j] !== b[i][j]) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+function copyGrid(grid) {
+  let extra = blankGrid();
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 4; j++) {
+      extra[i][j] = grid[i][j];
+    }
+  }
+  return extra;
+
+
+}
+
+function flipGrid(grid) {
+  for (let i = 0; i < 4; i++) {
+    grid[i].reverse();
+  }
+  return grid;
+}
+
+function rotateGrid(grid) {
+  let newGrid = blankGrid();
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 4; j++) {
+      newGrid[i][j] = grid[j][i];
+    }
+  }
+  return newGrid;
+}
+
+function removeRotation(){ // this is to return back after the grid rotation 
+	let newGrid = blankGrid();
+	for (let i = 0; i < 4; i++) {
+		for (let j = 0; j < 4; j++) {
+			newGrid[j][i] = grid[i][j];
+		}
+	}
+	return newGrid;
+}
+
+
 // One "move"
 function keyPressed() {
   let flipped = false;
@@ -52,8 +123,12 @@ function keyPressed() {
       grid = flipGrid(grid);
     }
     if (rotated) {
-      grid = transposeGrid(grid, -1);
-    }
+		/*grid = rotateGrid(grid);
+		grid = rotateGrid(grid);
+		grid = rotateGrid(grid);*/
+		grid = removeRotation(grid); // (CPU usage saving > the 'removeRotation' function rotate the grid backwards and is called only a time instead of 3)
+	}
+
     if (changed) {
       addNumber();
     }
