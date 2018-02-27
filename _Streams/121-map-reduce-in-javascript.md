@@ -5,12 +5,15 @@ date: 2018-02-16
 video_id: kWoZ9_ECZxQ
 
 topics:
- - title: "Introduction to higher order functions"
-   time: "19:04"
- - title: "map()"
-   time: "44:00"
- - title: "reduce()"
-   time: "1:09:53"
+  - title: "Introduction to higher order functions"
+    time: "19:04"
+    url: "/Tutorials/16-javascript-es6/16.5-higher-order-functions"
+  - title: "map() and fill()"
+    time: "44:00"
+    url: "/Tutorials/16-javascript-es6/16.6-map-and-fill"
+  - title: "reduce()"
+    time: "1:09:53"
+    url: "/Tutorials/16-javascript-es6/16.7-reduce"
    
 links:
  - title: "Arrays on MDN"
