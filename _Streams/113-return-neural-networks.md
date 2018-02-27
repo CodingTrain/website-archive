@@ -44,9 +44,9 @@ videos:
   - title: "Siraj Raval's channel"
     url: "https://www.youtube.com/channel/UCWN3xxRkmTPmbKwht9FuE5A"
   - title: "My Series on ES6"
-    url: "http://thecodingtrain.com/Tutorials/16-javascript-es6/"
+    url: "/Tutorials/16-javascript-es6"
   - title: "My Game of Life coding challenge"
-    url: "http://thecodingtrain.com/CodingChallenges/85-the-game-of-life.html"
+    url: "/CodingChallenges/85-the-game-of-life"
   - title: "My Tutorial on Pixels in Processing"
     url: "https://www.youtube.com/watch?v=EmtU0eloTlE"
     
