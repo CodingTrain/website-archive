@@ -52,7 +52,7 @@ videos:
     
 books:
   - title: "Pro Processing for Images and Computer Vision with OpenCV"
-    author.name: "Bryan WC Chung"
+    author: "Bryan WC Chung"
     url: "https://www.amazon.com/Processing-Images-Computer-Vision-OpenCV/dp/1484227743"
 ---
 
