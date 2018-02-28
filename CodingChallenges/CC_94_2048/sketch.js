@@ -41,9 +41,8 @@ function keyPressed() {
   }
 
   let past = copyGrid(grid);
-  for (let i = 0; i < 4; i++) {
-    grid[i] = operate(grid[i]);
-  }
+  grid = grid.map(operate);
+
   let changed = compare(past, grid);
   if (flipped) {
     grid = flipGrid(grid);
@@ -56,13 +55,11 @@ function keyPressed() {
   }
   updateCanvas();
 
-  let gameover = isGameOver();
-  if (gameover) {
+  if (isGameOver()) {
     console.log("GAME OVER");
   }
 
-  let gamewon = isGameWon();
-  if (gamewon) {
+  if (isGameWon()) {
     console.log("GAME WON");
   }
 }
