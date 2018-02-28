@@ -1,10 +1,5 @@
 function blankGrid() {
-  return [
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0]
-  ];
+  return Array(4).fill(Array(4).fill(0));
 }
 
 function compare(a, b) {
@@ -29,8 +24,8 @@ function copyGrid(grid) {
 }
 
 function flipGrid(grid) {
-  for (let i = 0; i < 4; i++) {
-    grid[i].reverse();
+  for (let arr of grid) {
+    arr.reverse();
   }
   return grid;
 }
