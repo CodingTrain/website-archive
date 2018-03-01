@@ -22,6 +22,13 @@ contributions:
       url: "https://pyxol.com"
     url: "https://donwilson.github.io/p5-double-pendulum/"
     source: "https://github.com/donwilson/p5-double-pendulum"
+  - title: "Double Pendulum with sliders for masses, lengths and angles"
+    author: 
+      name: "Christian Frauscher"
+      url: "http://codeblock.at/"
+    url: "https://codepen.io/Grilly86/full/yvoVja",
+    source: "https://codepen.io/Grilly86/pen/yvoVja"  
+    
 ---
 
 In this coding challenge, I create a double pendulum simulation in Processing.
