@@ -7,7 +7,7 @@
 
 # Future Live Streams
 
-I am trying as best I can to announce the next live streams in advance. If it's scheduled you can find the time and topics on the the official [Coding Train website](http://thecodingtrain.com) homepage. All times are in EDT and are subject to change! You can confirm the exact time by visiting [The Coding Train Live](https://www.youtube.com/thecodingtrain/live). I typically schedule morning time.
+I am trying as best I can to announce the next live streams in advance. If it's scheduled you can find the time and topics on the the official [Coding Train website](http://thecodingtrain.com) homepage. All times are in EDT and are subject to change! You can confirm the exact time by visiting [The Coding Train Live](https://www.youtube.com/thecodingtrain/live). I typically add a specific time on YouTube in the morning.
 
 # Topics Under Consideration
 I keep track of topics [in this repo](https://github.com/CodingTrain/Rainbow-Topics/), but also a list of notes is here for me not to forget.
