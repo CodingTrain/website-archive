@@ -4,7 +4,7 @@
 // $ct-red: #F35956
 // $ct-yellow: #F1C500
 
-let colorsSizes = {
+const colorsSizes = {
   "2": {
     size: 64,
     color: "#FFF999"

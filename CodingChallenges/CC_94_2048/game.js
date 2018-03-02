@@ -1,8 +1,5 @@
 function operate(row) {
-  row = slide(row);
-  row = combine(row);
-  row = slide(row);
-  return row;
+  return slide(combine(slide(row)));
 }
 
 // making new array
@@ -29,9 +26,9 @@ function combine(row) {
 }
 
 function isGameWon() {
-  for (let i = 0; i < 4; i++) {
-    for (let j = 0; j < 4; j++) {
-      if (grid[i][j] == 2048) {
+  for (let row of grid) {
+    for (let cell of row) {
+      if (cell === 2048) {
         return true;
       }
     }
