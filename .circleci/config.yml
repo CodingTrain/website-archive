@@ -11,5 +11,6 @@ jobs:
 
     steps:
       - checkout
+      - run: cd unit_testing
       - run: npm install
       - run: npm test
