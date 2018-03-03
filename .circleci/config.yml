@@ -9,9 +9,9 @@ jobs:
       # specify the version you desire here
       - image: circleci/node:7.10
 
-    working_directory: ~/repo/unit_testing/unit_testing
     steps:
       - checkout
+      - working_directory: unit_testing
       - run: pwd
       - run: ls
       - run: npm install
