@@ -106,4 +106,18 @@ files.forEach((file)=>{
     expect(checkHasUndefinedReccursive(frontYaml)).toBe(false);
   });
 
+  test("Check that contributions of "+ CodingChallangesDir+"/"+file
+  +"has required properties", () => {
+    let contents = fs.readFileSync(CodingChallangesDir+"/"+file, 'utf8');
+    let yamlContents = contents.split("---")[1];
+    const frontYaml = yaml.safeLoad(yamlContents);
+    if (frontYaml.hasOwnProperty("contributions")) {
+      for (let contibutor of frontYaml["contributions"]) {
+        expect(contibutor.hasOwnProperty("title")).toBe(true);
+        expect(contibutor.hasOwnProperty("url")).toBe(true);
+        expect(contibutor.hasOwnProperty("author")).toBe(true);
+        expect(contibutor["author"].hasOwnProperty("name")).toBe(true);
+      }
+    }
+  });
 });
