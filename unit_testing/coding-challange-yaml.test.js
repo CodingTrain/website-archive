@@ -89,11 +89,20 @@ files.forEach((file)=>{
     }
   });
 
+  // didn't cause an error to website when videos property was null
+  // don't know if undefined properties will always be handled cleanly.
+  // if so, maybe add a "strict" variable, and only run this test if
+  // strict is set to true.
   test("Check no undefined properties of object from YAML of "+
     CodingChallangesDir+"/"+file, () => {
     let contents = fs.readFileSync(CodingChallangesDir+"/"+file, 'utf8');
     let yamlContents = contents.split("---")[1];
     const frontYaml = yaml.safeLoad(yamlContents);
+    if (checkHasUndefinedReccursive(frontYaml)) {
+      console.log("There was an undefined property in the object created from the YAML of "+
+        CodingChallangesDir+"/"+file+" here is the object:");
+      console.log(frontYaml);
+    }
     expect(checkHasUndefinedReccursive(frontYaml)).toBe(false);
   });
 
