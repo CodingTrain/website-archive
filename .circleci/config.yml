@@ -12,5 +12,6 @@ jobs:
     working_directory: ~/website/unit_testing
     steps:
       - checkout
+      - run: ls
       - run: npm install
       - run: npm test
