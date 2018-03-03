@@ -12,7 +12,7 @@ jobs:
     steps:
       - checkout
       - working_directory: unit_testing
-      - run: pwd
-      - run: ls
-      - run: npm install
-      - run: npm test
+      - run: cd unit_testing && pwd
+      - run: cd unit_testing && ls
+      - run: cd unit_testing && npm install
+      - run: cd unit_testing && npm test
