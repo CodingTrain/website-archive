@@ -1,4 +1,15 @@
+/***************************************************
+This file was created by Billy Timimi.
+Other contributors include: *add you your name here if you were kind enough to help.*
 
+The purpose of this file is to do unit testing of all the files in the
+_CodingChallenges directory, in order to insure they are all valid.
+
+If you are trying to read the source of the website and are unsure as to what
+this file does/what unit testing is, I reccomend you check out the coding train's
+video on it: https://www.youtube.com/watch?v=S3QwafQEvSs, it's where I learn't
+everything needed to create this script.
+***************************************************/
 
 const yaml = require('js-yaml');
 const fs = require('fs');
