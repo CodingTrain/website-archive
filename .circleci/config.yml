@@ -15,15 +15,15 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-{{ checksum "unit_testing/package.json" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
-      
+
       # todo: find nicer solution than constantly "cd"ing to unit_testing
       - run: cd unit_testing && npm install
 
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: v1-dependencies-{{ checksum "unit_testing/package.json" }}
       - run: cd unit_testing && npm test
