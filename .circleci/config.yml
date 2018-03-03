@@ -9,7 +9,7 @@ jobs:
       # specify the version you desire here
       - image: circleci/node:7.10
 
-    working_directory: ~/repo/unit_testing
+    working_directory: ~/../unit_testing
 
     steps:
       - checkout
