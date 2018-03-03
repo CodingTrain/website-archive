@@ -116,6 +116,19 @@ files.forEach((file)=>{
         expect(contibutor.hasOwnProperty("title")).toBe(true);
         expect(contibutor.hasOwnProperty("url")
         || contibutor.hasOwnProperty("source")).toBe(true);
+        /************ IMPORTANT NOTE **********************
+          The Community Contributions Guide (https://github.com/CodingTrain/website/wiki/Community-Contributions-Guide)
+          specifies that a user should include the following feilds in their contribution:
+            title, author.name and url ("Only title, author.name and url are required")
+          however when I tested that this was the case I found
+          contributer "bobvoorneveld" had chosen not to include a url, but had
+          chosen to include a link to his source code. This seems reasonable as
+          his projects were made with xcode and so it would be hard to share an
+          excecutable, and his decision didn't seem to break anything. In order
+          to allow his and others decisions to omit the url but include source,
+          I changed the test to allow for it. Maybe it should throw an error if
+          a strict variable is set to true.
+        ***************************************************/
         expect(contibutor.hasOwnProperty("author")).toBe(true);
         expect(contibutor["author"].hasOwnProperty("name")).toBe(true);
       }
