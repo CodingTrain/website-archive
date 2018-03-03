@@ -179,7 +179,7 @@ files.forEach((file)=>{
     if (frontYaml.hasOwnProperty("contributions")) {
       for (let contibutor of frontYaml["contributions"]) {
         expect(contibutor.hasOwnProperty("title")).toBe(true);
-        expect(contibutor.hasOwnProperty("url");
+        expect(contibutor.hasOwnProperty("url")
         || contibutor.hasOwnProperty("source")).toBe(true);
         /************ IMPORTANT NOTE **********************
           The Community Contributions Guide
