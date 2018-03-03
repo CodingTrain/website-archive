@@ -12,8 +12,8 @@ jobs:
     steps:
       - checkout
       - run:
-        command: npm install
-        working_directory: unit_tests
+          command: npm install
+          working_directory: unit_tests
       - run:
-        command: npm test
-        working_directory: unit_tests
+          command: npm test
+          working_directory: unit_tests
