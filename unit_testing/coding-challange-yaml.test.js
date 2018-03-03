@@ -107,7 +107,7 @@ files.forEach((file)=>{
   });
 
   test("Check that contributions of "+ CodingChallangesDir+"/"+file
-  +"has required properties", () => {
+  +" has required properties", () => {
     let contents = fs.readFileSync(CodingChallangesDir+"/"+file, 'utf8');
     let yamlContents = contents.split("---")[1];
     const frontYaml = yaml.safeLoad(yamlContents);
