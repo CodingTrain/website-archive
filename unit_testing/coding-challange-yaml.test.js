@@ -114,7 +114,8 @@ files.forEach((file)=>{
     if (frontYaml.hasOwnProperty("contributions")) {
       for (let contibutor of frontYaml["contributions"]) {
         expect(contibutor.hasOwnProperty("title")).toBe(true);
-        expect(contibutor.hasOwnProperty("url")).toBe(true);
+        expect(contibutor.hasOwnProperty("url")
+        || contibutor.hasOwnProperty("source")).toBe(true);
         expect(contibutor.hasOwnProperty("author")).toBe(true);
         expect(contibutor["author"].hasOwnProperty("name")).toBe(true);
       }
