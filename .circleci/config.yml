@@ -12,6 +12,7 @@ jobs:
     working_directory: ~/repo/unit_testing
     steps:
       - checkout
+      - run: pwd
       - run: ls
       - run: npm install
       - run: npm test
