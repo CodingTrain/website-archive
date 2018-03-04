@@ -22,23 +22,23 @@ let verbose = false;
 /*
 TODO: clear up this discription
 
-checkHasUndefinedReccursive() checks if an object has undefined or null
+checkHasUndefinedRecursive() checks if an object has undefined or null
 properties, and if it doesn't but it has properties which are objects,
 recursivly check the properties to see if the have an undefined property.
 
 Is used to check if YAML has undeined feilds.
 */
-function checkHasUndefinedReccursive(value) {
+function checkHasUndefinedRecursive(value) {
   if (value == null) { //this checks for undefined as undefined == null is true
     return true;
   }
   // If value is an object, test all of it's properties.
   if (value instanceof Object) {
-    accumilator = false;
+    accumulator = false;
     for (let key in value) {
-      accumilator = accumilator || checkHasUndefinedReccursive(value[key]);
+      accumulator = accumulator || checkHasUndefinedRecursive(value[key]);
     }
-    return accumilator;
+    return accumulator;
   }
   // if value is not an object or null or undefined (i.e. an int), return false.
   return false;
@@ -151,7 +151,7 @@ files.forEach((file) => {
   });
 
   // Checks if object created from YAML has any undefined properties using
-  // checkHasUndefinedReccursive function (defined line 32).
+  // checkHasUndefinedRecursive function (defined line 32).
   //     I didn't cause an error to website when videos property was null. I
   // don't know if undefined properties will always be handled cleanly. if so,
   // maybe add a "strict" variable, and only run this test if trict is set to
@@ -161,12 +161,12 @@ files.forEach((file) => {
     let contents = fs.readFileSync(CodingChallangesDir+"/"+file, 'utf8');
     let yamlContents = contents.split("---")[1];
     const frontYaml = yaml.safeLoad(yamlContents);
-    if (checkHasUndefinedReccursive(frontYaml)) {
+    if (checkHasUndefinedRecursive(frontYaml)) {
       console.log("There was an undefined property in the object created from the YAML of "+
         CodingChallangesDir+"/"+file+" here is the object:");
       console.log(frontYaml);
     }
-    expect(checkHasUndefinedReccursive(frontYaml)).toBe(false);
+    expect(checkHasUndefinedRecursive(frontYaml)).toBe(false);
   });
 
   // Checks that all contributions have the required properties using
