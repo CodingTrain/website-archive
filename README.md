@@ -43,6 +43,8 @@ All times are in EDT and are subject to change! You can confirm the exact time b
 * dialogflow
 
 # Past Live Streams
+* [Live Stream #123.2: Doodle Classifier Continued](https://youtu.be/Up0bkN4I_f4?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
+* [Live Stream #123.1: Doodle Classifier](https://youtu.be/lN6Lqva6OGg?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
 * [Live Stream #122: filter(), sort() and 2048](https://youtu.be/ze_o4YvZ6-s?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
 * [Live Stream #121: map() and reduce() in JavaScript](https://youtu.be/kWoZ9_ECZxQ?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
 * [Live Stream #120: MNIST and Pendulums](https://youtu.be/KhogNPC24eI?list=PLRqwX-V7Uu6bxnFR6no70vlxxuxDEzflz)
