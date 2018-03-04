@@ -54,7 +54,7 @@ test('Check that script can read _CodingChallanges directory.', () => {
   let files = fs.readdirSync(CodingChallangesDir);
   if (verbose) {
     console.log("_CodingChallanges directory successfully read, here are all the files:");
-    files.forEach((file)=>console.log("\t" + file));
+    files.forEach((file) => console.log("\t" + file));
   }
 });
 
@@ -62,7 +62,7 @@ test('Check that script can read _CodingChallanges directory.', () => {
 // on each file in the directory to check that all files are valid.
 // TODO: only run this if first test readable.
 let files = fs.readdirSync(CodingChallangesDir);
-files.forEach((file)=>{
+files.forEach((file) => {
   // First test if script can read file. Does this using fs.readFileSync() as
   // fs.readFile() is asynchronous so test passed when it shouldn't have.
   // Potential errors may include: wrong encoding, wrong privaliges.
