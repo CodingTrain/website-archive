@@ -4,8 +4,8 @@
 // Code for: https://youtu.be/kKT0v3qhIQY
 
 Tree tree;
-float min_dist = 5;
-float max_dist = 5;
+float min_dist = 10;
+float max_dist = 100;
 
 void setup() {
   size(600, 600);

@@ -11,7 +11,7 @@ footer
       padding: 40px
       flex-basis: 100%
       text-align: center
-      font-family: $sans-serif
+      @include text-style('title')
       text-decoration: none
       color: #FFF
       margin: 0
@@ -20,7 +20,7 @@ footer
         display: inline-block
         font-size: 18px
 
-        transition: all 150ms
+        transition: all 150ms $timing-function
         transform: scale(1)
 
       &:hover

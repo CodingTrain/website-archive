@@ -21,6 +21,14 @@ videos:
   video_id: "EmtU0eloTlE"
 - title: "My Video on 2D Arrays"
   video_id: "OTNpiLUSiB4"  
+  
+contributions:
+- title: "Dither Kitty! Use your own image!"
+  author:
+    name: "stellartux"
+    url: "https://github.com/stellartux"
+  url: "https://stellartux.github.io/CC90/"
+  source: "https://github.com/stellartux/CC90"
 
 
 ---
