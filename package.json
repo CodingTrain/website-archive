@@ -1,0 +1,26 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "* [The Coding Train on YouTube](https://www.youtube.com/thecodingtrain/) * [Become a Patron](http://patreon.com/codingtrain \"Coding Train - Patreon\") * [Suggest a Topic!](https://github.com/CodingTrain/Rainbow-Topics/)   * [Coding Train Store](http://codingtrain.storenvy.com) * [Coding Train Website](http://thecodingtrain.com)",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codingtrain/website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codingtrain/website/issues"
+  },
+  "homepage": "https://github.com/codingtrain/website#readme",
+  "devDependencies": {
+    "fs": "0.0.1-security",
+    "jest": "^22.3.0",
+    "markdown-link-check": "^3.1.6",
+    "path": "^0.12.7"
+  }
+}
