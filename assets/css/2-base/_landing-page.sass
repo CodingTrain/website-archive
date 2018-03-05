@@ -1,0 +1,83 @@
+.landing-page
+  padding-bottom: 5rem
+
+  .welcome-message,
+  .support
+    display: flex
+    justify-content: space-around
+
+    @media (max-width: $tablet-small)
+      flex-wrap: wrap
+
+  .welcome-message
+    align-items: center
+
+    .learn-to-code
+      width: 40%
+
+      @media (max-width: $tablet-small)
+        width: 100%
+        text-align: center
+
+      h1
+        color: lighten($text-color, 5%)
+        margin: 0
+
+        @media (max-width: $tablet-big)
+          margin-bottom: 0.5em
+
+        @media (max-width: $tablet-small)
+          font-size: 4rem
+
+      p
+        margin: 1em 0em
+        font-size: 1.1em
+
+      .ctas
+        margin-top: 2em
+
+        @media (max-width: $tablet-big)
+          text-align: center
+
+        a
+          @extend .cta-button
+          color: #FFF
+          margin-right: 1em
+          margin-bottom: 1em
+
+          @media (max-width: $tablet-big)
+            width: 80%
+            max-width: 35rem
+            margin: 0.5em
+
+          @media (max-width: $mobile)
+            width: 100%
+            margin: 0.5em 0 
+
+  .featured-videos
+    text-align: center
+
+    .video-card:nth-child(2)
+      @media (max-width: $tablet-big) and (min-width: $tablet-small)
+        display: none
+
+    .more-videos
+      @extend .cta-button
+      background: $ct-green
+      color: #FFF
+
+  h2
+    margin-top: 8rem
+    text-align: center
+
+  .learn-to-code a.youtube
+    background: $ct-red !important
+
+  .learn-to-code a.patreon, div.patreon a
+    background: $ct-blue !important
+
+  .merch-store a
+    background: #d9437f
+
+  .amazon-store a
+    background: #f5720f

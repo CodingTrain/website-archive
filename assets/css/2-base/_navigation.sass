@@ -1,0 +1,126 @@
+.mobilenav-toggle
+  display: none
+  justify-content: space-around
+  align-items: center
+  flex-direction: column
+  font-size: 35px
+  padding: 0.4em 0.35em
+  border-radius: 0px $standard-border-radius $standard-border-radius 0px
+  background: $ct-blue
+  width: 7rem
+  height: 6rem
+  position: fixed
+  left: 0
+  top: 20px
+  z-index: 10000
+
+  @media (max-width: $mobile)
+    display: flex
+
+  span
+    width: 80%
+    height: 0.15em
+    display: inline-block
+    background: #FFF
+    border-radius: .075em
+    transition: all 375ms $timing-function
+
+.navigation
+  position: absolute
+  top: 0
+  width: 100%
+  z-index: 9000
+
+  @media (max-width: $mobile)
+    padding-top: 2rem
+    width: auto
+
+  nav
+    width: 100%
+    height: 5rem
+    font-size: 16px
+    overflow: hidden
+    background: linear-gradient(rgba(0,0,0,0.2), transparent)
+
+    @media (max-width: $mobile)
+      height: auto
+      top: 10rem
+      position: fixed
+      background: none
+
+    .links
+      @extend .wrapper
+      height: 100%
+      display: flex
+      justify-content: center
+      align-items: center
+
+      @media (max-width: $mobile)
+        flex-direction: column
+        align-items: flex-start
+        height: auto
+        padding-left: 2rem
+
+      a
+        margin: 0em 1em
+        text-shadow: 0px 0px 5px #BBB
+        color: #FFF
+        @include text-style('title')
+        text-decoration: none
+
+        @media (max-width: $mobile)
+          visibility: hidden
+          margin: 0.5em 0
+          text-shadow: none
+          background: $ct-blue
+          padding: 0.7em 1em
+          border-radius: $standard-border-radius
+          opacity: 0
+          transform: translateX(-3rem)
+
+          @for $i from 1 through 4
+            &:nth-child(#{abs($i - 5)})
+              transition:
+                property: all
+                duration: 150ms
+                delay: ($i - 1) * 75ms
+                timing-function: $timing-function
+
+
+// Mobile Navigation Drawer
+.mobilenav-backdrop
+  transition: filter 375ms $timing-function
+
+#nav-toggle
+  display: none
+
+  &:checked
+    ~ .navigation
+      @media (max-width: $mobile)
+        position: fixed
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+
+    ~ .mobilenav-backdrop
+      @media (max-width: $mobile)
+        filter: blur(10px)
+        pointer-events: none
+
+    ~ .mobilenav-toggle span:nth-child(2)
+      transform: translateX(20%)
+
+    ~ .navigation
+      @media (max-width: $mobile)
+        background: rgba(#FFF, 0.5)
+
+      nav .links a
+        @media (max-width: $mobile)
+          visibility: visible
+          opacity: 1
+          transform: translateX(0rem)
+
+        @for $i from 1 through 4
+          &:nth-child(#{$i})
+            transition-delay: ($i - 1) * 75ms

@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "name": "unit_testing",
+  "version": "1.0.0",
+  "description": "Unit testing of coding train website.",
+  "main": "coding-challange-yaml.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "MeaningOf42",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^22.4.2"
+  }
+}

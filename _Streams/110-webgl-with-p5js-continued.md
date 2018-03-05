@@ -1,4 +1,3 @@
-
 ---
 title: "WebGL with p5.js Continued"
 video_number: 110
