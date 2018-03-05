@@ -1,51 +1,22 @@
 header
   margin-bottom: 5rem
 
-  #nav-toggle
-    display: none
-    
-    &:checked + nav
-      @media (max-width: $mobile)
-        height: 230px
+  .header-image
+    height: 25rem
+    background:
+      image: url(../images/header.jpg)
+      position: top center
+      size: cover
+      repeat: no-repeat
+    cursor: pointer
 
-  nav
-    width: 100%
-    height: 50px
-    font-size: 16px
-    background: $ct-blue
+    @media (max-width: $tablet-small)
+      height: 18rem
 
-    transition: all 200ms
-
-    label[for="nav-toggle"]
-      display: none
-      text-align: center
-      font-size: 30px
-      padding: 0.1em 0em
-      margin-bottom: 0.5em
-      color: #FFF
-
-      @media (max-width: $mobile)
-        display: block
-
-    .links
-      @extend .wrapper
-      height: 100%
+    @media (max-width: $mobile)
+      background:
+        image: url(../images/header-mobile.jpg)
+        position: center
+      height: 10rem
       display: flex
-      justify-content: center
       align-items: center
-
-      @media (max-width: $mobile)
-        flex-direction: column
-        height: auto
-
-      a
-        margin: 0em 1em
-        color: #FFF
-        font-family: $sans-serif
-        text-decoration: none
-
-        @media (max-width: $mobile)
-          margin: 0.5em 0
-
-  img
-    width: 100%

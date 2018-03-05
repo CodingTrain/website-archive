@@ -5,14 +5,18 @@ date: 2016-06-01
 video_id: kKT0v3qhIQY
 repository: /CC_17_SpaceColonizer
 links:
-- title: "Nature of Code class on Kadenze"  
-  url: "https://www.kadenze.com/courses/the-nature-of-code/info"
 - title: "Algorithmic Botany"  
   url: "http://algorithmicbotany.org/"
 - title: "Space Colonization Algorithm"  
   url: "http://algorithmicbotany.org/papers/colonization.egwnp2007.html"
   
-
+contributions:
+  - title: "Sakura Blossoms"
+    author:
+      name: "xxMrPHDxx"
+      url: "https://github.com/xxMrPHDxx/"
+    url: "https://xxmrphdxx.github.io/Fractal-Tree/space-colonization/"
+    source: "https://github.com/xxMrPHDxx/Fractal-Tree"
 
   
 ---

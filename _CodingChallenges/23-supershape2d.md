@@ -5,13 +5,13 @@ date: 2016-06-21
 video_id: ksRoh-10lak
 repository: /CC_23_SuperShape2D
 links:
-- title: "Paul Bourke's Supershapes (Superformula) website"  
+- title: "Supershapes (Superformula)"  
   url: "http://paulbourke.net/geometry/supershape/"
-  
+  author: "Paul Bourke"
 
 
   
 ---
 
-In this Coding Challenge, I show you how to make 2D supershapes in p5.js.
+In this coding challenge, I show you how to make 2D supershapes in p5.js.
 

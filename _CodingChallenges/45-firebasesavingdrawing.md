@@ -14,4 +14,4 @@ links:
     url: "http://www.aaronkoblin.com/work/thesheepmarket/"
 ---
 
-In this Coding Challenge, I make a HTML5 canvas doodling application (with p5.js).  Users can save and share drawings in real-time with the Database as a Service (DBaaS) Firebase.
+In this coding challenge, I make a HTML5 canvas doodling application (with p5.js).  Users can save and share drawings in real-time with the Database as a Service (DBaaS) Firebase.

@@ -11,5 +11,5 @@ repository: /CC_06_Mitosis_p5.js
   
 ---
 
-In this viewer submitted Coding Challenge, I program a cellular mitosis simulation in p5.js.
+In this viewer submitted coding challenge, I program a cellular mitosis simulation in p5.js.
 

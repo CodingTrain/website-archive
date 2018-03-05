@@ -1,7 +1,7 @@
 button,
 .cta-button
   display: inline-block
-  border-radius: 4px
+  border-radius: $standard-border-radius
   background: #FFF
   padding: 20px
   border: none
@@ -9,8 +9,8 @@ button,
   vertical-align: middle
   text-align: center
   box-shadow: 0px 6px 0px 0px rgba(0, 0, 0, 0.06)
-  
-  transition: all 150ms
+
+  transition: all 150ms $timing-function
   transform: scale(1)
 
   &:hover
@@ -19,7 +19,7 @@ button,
 
 a
   color: $text-color
-  transition: color 200ms
+  transition: color 200ms $timing-function
   text-decoration: underline
 
   &:hover

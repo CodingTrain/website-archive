@@ -13,5 +13,5 @@ links:
   
 ---
 
-In this Coding Challenge, I attempt to create rose (rhodonea) curves using trigonometry function and polar coordinates.
+In this coding challenge, I attempt to create rose (rhodonea) curves using trigonometry function and polar coordinates.
 
