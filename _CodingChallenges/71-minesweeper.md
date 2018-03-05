@@ -19,6 +19,14 @@ contributions:
       url: "https://github.com/BruceChen034020?tab=repositories"
     url: "https://brucechen034020.github.io/MineSweeper/"
     source: "https://github.com/BruceChen034020/MineSweeper"
+    
+  - title: "MineSweeper"
+    author:
+      name: "Po Mauguet"
+      url: "https://github.com/pom421/"
+    url: "http://pom421.github.io/CodingChallenges/CC_71_minesweeper/"
+    source: "https://github.com/pom421/pom421.github.io/tree/master/CodingChallenges/CC_71_minesweeper"
+
 
   
 ---
