@@ -13,7 +13,9 @@ in the YouTube tutorials, so that fellow Rainbow Coders can then
 use this code as a base for their own implementations.
 
 To make your contribution, fork this repository and make a pull request.
-If you are just editing a README.md, you may click the pencil when viewing
+Please make sure to **include a link to your running example** in the pull
+request's description so I can check our your version right away.
+If you are just editing a single file, you may click the pencil when viewing
 the file to edit in the browser.
 
 If you are unsure about git and GitHub, and how to make your contribution,
