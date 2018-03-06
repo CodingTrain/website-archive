@@ -8,6 +8,9 @@ links:
 - title: "Smart Rockets"  
   url: "http://www.blprnt.com/smartrockets/"
   author: "Jer Thorp"
+- title: "Smart Rockets"  
+  source: "https://github.com/se7enA/smart-rockets"
+  author: "Ashar Khan"
   
 
   
