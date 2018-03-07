@@ -22,15 +22,16 @@ const contribution = module.exports.contribution = exact({
   author: link.author.isRequired,
 });
 
-const video = module.exports.video = exact({
+const customSection = module.exports.customSection = exact({
+  title: PropTypes.string.isRequired,
+  items: PropTypes.arrayOf(PropTypes.shape(link)).isRequired,
+});
+
+const videoBase = module.exports.videoBase = exact({
   title: PropTypes.string.isRequired,
   video_number: PropTypes.number.isRequired,
   date: PropTypes.instanceOf(Date).isRequired,
-  video_id: PropTypes.string.isRequired,
-  repository: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.oneOf([false]),
-  ]).isRequired,
+  video_id: PropTypes.string,
   live_example: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.oneOf([false]),
@@ -43,4 +44,26 @@ const video = module.exports.video = exact({
   tools: PropTypes.arrayOf(PropTypes.shape(link)),
   parts: PropTypes.arrayOf(PropTypes.shape(link)),
   contributions: PropTypes.arrayOf(PropTypes.shape(contribution)),
+  custom_sections: PropTypes.arrayOf(PropTypes.shape(customSection)),
+});
+
+const video = module.exports.video = exact({
+  ...videoBase,
+  repository: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.oneOf([false]),
+  ]),
+  video_id: videoBase.video_id.isRequired,
+});
+
+const stream = module.exports.stream = exact({
+  ...videoBase
+});
+
+const series = module.exports.series = exact({
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
+  layout: PropTypes.oneOf(['series-index']),
+  series_number: PropTypes.number,
+  reverse: PropTypes.bool,
 });
