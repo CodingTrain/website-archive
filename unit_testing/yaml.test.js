@@ -128,6 +128,24 @@ const checkFolder = (videoFormat, previousPath, folder) => describe(folder, () =
       const frontYaml = yaml.safeLoad(yamlContents);
       assertPropTypes(videoFormat, frontYaml, "YAML", fileName);
     });
+
+    test('title matches internal numbering', () => {
+      // Get file name with leading zeros stripped
+      let fileNumber = fileName.split('-')[0];
+      fileNumber = fileNumber.replace(/^0+/, '');
+
+      let yamlContents = contents.split("---")[1];
+      const frontYaml = yaml.safeLoad(yamlContents);
+
+      // Gets internal representation as a string
+      let videoString = frontYaml.video_number.toString();
+      // If we're in a standalone
+      if(videoString === fileNumber) return;
+      // If the video has parts, check we match the last one only.
+      let parts = fileNumber.split('.');
+      if(videoString === parts[parts.length - 1]) return;
+      throw new Error('Expected file numbering to match internal numbering');
+    })
   }));
 });
 
