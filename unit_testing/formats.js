@@ -15,7 +15,12 @@ const link = module.exports.link = exact({
   video_id: PropTypes.string,
   playlist_id: PropTypes.string,
   source: PropTypes.string,
-})
+});
+
+const contribution = module.exports.contribution = exact({
+  ...link,
+  author: link.author.isRequired,
+});
 
 const video = module.exports.video = exact({
   title: PropTypes.string.isRequired,
@@ -25,7 +30,7 @@ const video = module.exports.video = exact({
   repository: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.oneOf([false]),
-  ]),
+  ]).isRequired,
   live_example: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.oneOf([false]),
@@ -37,5 +42,5 @@ const video = module.exports.video = exact({
   books: PropTypes.arrayOf(PropTypes.shape(link)),
   tools: PropTypes.arrayOf(PropTypes.shape(link)),
   parts: PropTypes.arrayOf(PropTypes.shape(link)),
-  contributions: PropTypes.arrayOf(PropTypes.shape(link)),
+  contributions: PropTypes.arrayOf(PropTypes.shape(contribution)),
 });
