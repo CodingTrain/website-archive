@@ -9,8 +9,12 @@ links:
   url: "http://www.blprnt.com/smartrockets/"
   author: "Jer Thorp"
   
-
-  
+contributions:  
+- title: "Smart Rockets"
+  author: 
+    name: "Ashar Khan"
+    url: https://github.com/se7enA/
+  url: https://github.com/se7enA/smart-rockets
 ---
 
 In this (very long) coding challenge, I implement a genetic algorithm from scratch and create "smart rockets" (based on a simulation by Jer Thorp).  The rockets evolve the "best" path to a target, moving around obstacles.
