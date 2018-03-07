@@ -66,6 +66,12 @@ const checkFolder = (videoFormat, previousPath, folder) => describe(folder, () =
     assertPropTypes(formatDefinitions.series, frontYaml, "YAML", 'index.md');
   });
 
+  test('files are uniquely numbered', () => {
+    let numbers = files.map(fileName => fileName.split('-')[0]);
+    let numberSet = new Set(numbers);
+    expect(numbers).toHaveLength(numberSet.size);
+  });
+
   files.forEach((fileName) => describe(fileName, () => {
     let filePath = path.join(currentPath, fileName);
     // First test if script can read file. Does this using fs.readFileSync() as
