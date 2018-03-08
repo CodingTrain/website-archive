@@ -1,5 +1,5 @@
 ---
-title: "More WebGL wit p5.js"
+title: "More WebGL with p5.js"
 video_number: 111
 date: 2017-12-15
 video_id: Xiu8pbHtrEY
