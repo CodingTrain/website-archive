@@ -22,6 +22,13 @@ videos:
 - title: "Neural Networks"
   author: "3Blue1Brown"
   playlist_id: "PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi"
+  
+contributions:
+- title: "XOR with Neural Network (Java)"
+  author:
+    name: "Kim Feichtinger"
+  url: "https://github.com/kim-marcel/xor_with_nn"
+  source: "https://github.com/kim-marcel/xor_with_nn"
 
 
 ---
