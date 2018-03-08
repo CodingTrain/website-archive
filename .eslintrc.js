@@ -4,7 +4,7 @@ module.exports = {
     amd: true,
     es6: true
   },
-  extends: ['eslint:recommended', 'prettier'],
+  extends: ['eslint:recommended', 'prettier', 'p5js', 'p5js/dom'],
   plugins: ['prettier'],
   rules: {
     'prettier/prettier': [

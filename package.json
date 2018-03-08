@@ -6,12 +6,14 @@
   "dependencies": {},
   "devDependencies": {
     "eslint": "^4.18.2",
+    "eslint-config-p5js": "^1.0.1",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
     "prettier": "^1.11.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/.bin/eslint CodingChallenges/CC_01_StarField_p5.js/*.js"
   },
   "repository": {
     "type": "git",
