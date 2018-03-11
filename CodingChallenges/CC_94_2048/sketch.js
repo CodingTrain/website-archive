@@ -29,11 +29,11 @@ function keyPressed() {
       flipped = true;
       break;
     case RIGHT_ARROW:
-      grid = transposeGrid(grid, 1);
+      grid = transposeGrid(grid);
       rotated = true;
       break;
     case LEFT_ARROW:
-      grid = transposeGrid(grid, 1);
+      grid = transposeGrid(grid);
       grid = flipGrid(grid);
       rotated = true;
       flipped = true;
@@ -52,7 +52,7 @@ function keyPressed() {
       grid = flipGrid(grid);
     }
     if (rotated) {
-      grid = transposeGrid(grid, -1);
+      grid = transposeGrid(grid);
     }
     if (changed) {
       addNumber();
