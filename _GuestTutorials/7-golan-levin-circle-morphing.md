@@ -4,6 +4,7 @@ video_number: 7
 date: 2017-10-25
 video_id: mvgcNOX8JGQ
 can_contribute: true
+repository: false
 
 custom_sections:
 
@@ -15,4 +16,4 @@ custom_sections:
       url: "http://www.flong.com/"
 ---
 
-This video is all about interpolation. Artist and educator Golan Levin provides historical background and then proposes a "circle morphing" coding challenge. 
+This video is all about interpolation. Artist and educator Golan Levin provides historical background and then proposes a "circle morphing" coding challenge.
