@@ -32,9 +32,9 @@ contributions:
 - title: "Image dithering in python that outputs to CSS"
   author:
     name: "MeaningOf42"
-    url: "github.com/MeaningOf42"
-  url: "meaningof42.github.io/pointless-site/css_dithering/index.html"
-  source: "github.com/MeaningOf42/pointless-site/tree/master/css_dithering"
+    url: "https://github.com/MeaningOf42"
+  url: "https://meaningof42.github.io/pointless-site/css_dithering/index.html"
+  source: "https://github.com/MeaningOf42/pointless-site/tree/master/css_dithering"
 
 
 ---
