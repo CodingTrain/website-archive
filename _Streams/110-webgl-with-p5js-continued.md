@@ -16,7 +16,6 @@ topics:
     url: "/Tutorials/18-webgl/18.5-camera"
   - title: "Debugging Open Source projects"
     time: "2:15:34"
-    url: false 
 
 links:
   - title: "Getting started with WebGL in p5"
