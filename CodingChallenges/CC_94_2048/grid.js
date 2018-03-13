@@ -35,15 +35,11 @@ function flipGrid(grid) {
   return grid;
 }
 
-function transposeGrid(grid, direction) {
+function transposeGrid(grid) {
   let newGrid = blankGrid();
   for (let i = 0; i < 4; i++) {
     for (let j = 0; j < 4; j++) {
-      if (direction == 1) {
-        newGrid[i][j] = grid[j][i];
-      } else {
-        newGrid[j][i] = grid[i][j];
-      }
+      newGrid[i][j] = grid[j][i];
     }
   }
   return newGrid;
