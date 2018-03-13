@@ -67,14 +67,27 @@ layout: base
     {% comment %} List of community contributions (only visible if can_contribute is true). {% endcomment %}
     {% if page.can_contribute %}
       <div class="contributions">
+        {% comment %} Converts page.video_number to a string. {% endcomment %}
+        {% capture video_number %}{{ page.video_number }}{% endcapture %}
+
+        {% comment %} Set video which contains the contributions. {% endcomment %}
+        {% comment %} Multi-part videos allow contributions only on the first part. {% endcomment %} 
+        {% if video_number contains '.' and page.contributions == null %}
+          {% assign video_number_base = video_number | split: '.' | first %}
+          {% assign firstPartVideoNumber = video_number_base | append: '.1' %}
+          {% assign contributionsVideo = site[page.collection] | where: 'video_number', firstPartVideoNumber | first %}
+        {% else %}
+          {% assign contributionsVideo = page %}
+        {% endif %}
+
         {% comment %} Include the list of community contributions. {% endcomment %}
-        {% include 3-modules/link-list.html links=page.contributions title='Community Contributions' %}
+        {% include 3-modules/link-list.html links=contributionsVideo.contributions title='Community Contributions' %}
 
         {% comment %} Generate a URL to edit this video's file directly on GitHub. {% endcomment %}
-        {% assign addContributionURL = site.github.repository_url | append: '/edit/' | append: site.github.source.branch | append: '/' | append: page.path %}
+        {% assign addContributionURL = site.github.repository_url | append: '/edit/' | append: site.github.source.branch | append: '/' | append: contributionsVideo.path %}
 
         {% comment %} Display a message depending on wether there have been made community contributions already. {% endcomment %}
-        {% if page.contributions %}
+        {% if contributionsVideo.contributions %}
           <p>
             You can also <a href="{{ addContributionURL }}" target="blank">add your own version!</a>
             (<a href="{{ site.github.wiki_url | append: '/Community-Contributions-Guide' }}" target="blank">See how</a>)
