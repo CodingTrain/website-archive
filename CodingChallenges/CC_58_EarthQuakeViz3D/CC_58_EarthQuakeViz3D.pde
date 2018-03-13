@@ -38,11 +38,11 @@ void draw() {
     float lat = row.getFloat("latitude");
     float lon = row.getFloat("longitude");
     float mag = row.getFloat("mag");
-    float theta = radians(lat) + PI/2;
+    float theta = radians(lat);
     float phi = radians(lon) + PI;
-    float x = r * sin(theta) * cos(phi);
-    float y = -r * sin(theta) * sin(phi);
-    float z = r * cos(theta);
+    float x = r * cos(theta) * cos(phi);
+    float y = -r * sin(theta);
+    float z = -r * cos(theta) * sin(phi);
     PVector pos = new PVector(x, y, z);
 
     float h = pow(10, mag);
