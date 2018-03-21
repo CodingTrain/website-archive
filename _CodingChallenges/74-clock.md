@@ -25,7 +25,7 @@ contributions:
     author:
       name: "Charly Poirier"
       url: "https://github.com/charlypoirier/"
-    url: "https://github.com/charlypoirier/JSClock"
+    source: "https://github.com/charlypoirier/JSClock"
 ---
 
 In this coding challenge, I attempt to program a clock in HTML5 canvas with the p5.js library.
