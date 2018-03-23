@@ -19,7 +19,7 @@ function setup() {
 function keyPressed() {
   let flipped = false;
   let rotated = false;
-  let played = true;
+  
   switch (keyCode) {
     case DOWN_ARROW:
       // do nothing
@@ -39,36 +39,33 @@ function keyPressed() {
       flipped = true;
       break;
     default:
-      played = false;
+      return;
   }
 
-  if (played) {
-    let past = copyGrid(grid);
-    for (let i = 0; i < 4; i++) {
-      grid[i] = operate(grid[i]);
-    }
-    let changed = compare(past, grid);
-    if (flipped) {
-      grid = flipGrid(grid);
-    }
-    if (rotated) {
-      grid = transposeGrid(grid);
-    }
-    if (changed) {
-      addNumber();
-    }
-    updateCanvas();
+  let past = copyGrid(grid);
+  for (let i = 0; i < 4; i++) {
+    grid[i] = operate(grid[i]);
+  }
+  let changed = compare(past, grid);
+  if (flipped) {
+    grid = flipGrid(grid);
+  }
+  if (rotated) {
+    grid = transposeGrid(grid);
+  }
+  if (changed) {
+    addNumber();
+  }
+  updateCanvas();
 
-    let gameover = isGameOver();
-    if (gameover) {
-      console.log("GAME OVER");
-    }
+  let gameover = isGameOver();
+  if (gameover) {
+    console.log("GAME OVER");
+  }
 
-    let gamewon = isGameWon();
-    if (gamewon) {
-      console.log("GAME WON");
-    }
-
+  let gamewon = isGameWon();
+  if (gamewon) {
+    console.log("GAME WON");
   }
 }
 
