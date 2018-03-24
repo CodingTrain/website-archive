@@ -20,6 +20,12 @@ contributions:
       url: "http://jjwkdl.netlify.com"
     url: "https://jjwkdl.github.io/blog-content/javascript/VisualArt/clock/"
     source: "https://github.com/jjwkdl/blog-content/tree/master/javascript/VisualArt/clock"
+   
+  - title: "JSClock"
+    author:
+      name: "Charly Poirier"
+      url: "https://github.com/charlypoirier/"
+    source: "https://github.com/charlypoirier/JSClock"
 ---
 
 In this coding challenge, I attempt to program a clock in HTML5 canvas with the p5.js library.
