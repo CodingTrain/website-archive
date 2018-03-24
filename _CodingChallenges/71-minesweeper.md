@@ -26,7 +26,13 @@ contributions:
       url: "https://github.com/pom421/"
     url: "http://pom421.github.io/CodingChallenges/CC_71_minesweeper/"
     source: "https://github.com/pom421/pom421.github.io/tree/master/CodingChallenges/CC_71_minesweeper"
-
+    
+  - title: "Minesweeper!"
+    author:
+      name: "Vignesh Joglekar"
+      url: "https://github.com/Vigasaurus/"
+    url: "https://vigasaurus.github.io/files/games/Minesweeper/minesweeper"
+    source: "https://github.com/Vigasaurus/vigasaurus.github.io/tree/master/files/games/Minesweeper"
 
   
 ---
