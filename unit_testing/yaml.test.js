@@ -74,6 +74,8 @@ const checkFolder = (videoFormat, previousPath, folder) => describe(folder, () =
 
   files.forEach((fileName) => describe(fileName, () => {
     let filePath = path.join(currentPath, fileName);
+    let yamlContents;
+    let decodedYaml;
     // First test if script can read file. Does this using fs.readFileSync() as
     // fs.readFile() is asynchronous so test passed when it shouldn't have.
     // Potential errors may include: wrong encoding, wrong privaliges.
@@ -120,13 +122,16 @@ const checkFolder = (videoFormat, previousPath, folder) => describe(folder, () =
       }
     });
 
+    test('has valid YAML', () => {
+      yamlContents = contents.split("---")[1];
+      decodedYaml = yaml.safeLoad(yamlContents);
+    });
+
     // Uses PropTypes to validate the structure and types of all of the
     // parts of the YAML, including if there are keys that don't exist
     // in the definition
     test("has valid YAML layout and types", () => {
-      let yamlContents = contents.split("---")[1];
-      const frontYaml = yaml.safeLoad(yamlContents);
-      assertPropTypes(videoFormat, frontYaml, "YAML", fileName);
+      assertPropTypes(videoFormat, decodedYaml, "YAML", fileName);
     });
 
     test('title matches internal numbering', () => {
@@ -134,18 +139,24 @@ const checkFolder = (videoFormat, previousPath, folder) => describe(folder, () =
       let fileNumber = fileName.split('-')[0];
       fileNumber = fileNumber.replace(/^0+/, '');
 
-      let yamlContents = contents.split("---")[1];
-      const frontYaml = yaml.safeLoad(yamlContents);
-
       // Gets internal representation as a string
-      let videoString = frontYaml.video_number.toString();
+      let videoString = decodedYaml.video_number.toString();
       // If we're in a standalone
       if(videoString === fileNumber) return;
       // If the video has parts, check we match the last one only.
       let parts = fileNumber.split('.');
       if(videoString === parts[parts.length - 1]) return;
       throw new Error('Expected file numbering to match internal numbering');
-    })
+    });
+
+    test('has no contributions if it\'s in a multi-part video but not the first part', () => {
+      let videoStringParts = decodedYaml.video_number.toString().split('.');
+      if(videoStringParts.length > 1) {
+        if(videoStringParts[videoStringParts.length - 1] !== '1') {
+          expect(decodedYaml.contributions).toBeUndefined();
+        }
+      }
+    });
   }));
 });
 
