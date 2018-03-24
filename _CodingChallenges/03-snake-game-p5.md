@@ -22,6 +22,14 @@ contributions:
       url: https://github.com/BruceChen034020
     url: https://brucechen034020.github.io/SnakeGame/
     source: https://github.com/BruceChen034020/SnakeGame
+    
+       
+  - title: "Snake Game"
+    author:
+      name: "Vignesh Joglekar"
+      url: "https://github.com/Vigasaurus/"
+    url: "https://vigasaurus.github.io/files/games/Snake/Snake_Game"
+    source: "https://github.com/Vigasaurus/vigasaurus.github.io/tree/master/files/games/Snake"
 ---
 
 In this coding challenge, I attempt to code a p5.js version of the Snake Game.
