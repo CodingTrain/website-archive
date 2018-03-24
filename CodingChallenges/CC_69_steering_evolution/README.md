@@ -50,3 +50,12 @@
 [Repository](https://github.com/addyh/addyh.github.io/tree/master/evolutionary-steering) | [Demo](https://addyh.github.io/evolutionary-steering/)
   * Features sliders to modify global values and DNA mutations.
   * Lists out the stats of all vehicles, highlighting the best.
+  
+#### Object Oriented Java-Version
+#### By: [Kim](https://github.com/kim-marcel)
+[Repository](https://github.com/kim-marcel/evolutionary_steering)
+  * Press 'd' to toggle Debug-Mode
+  * Press space-bar to generate a new ant at a random location with random genes
+  * Left-click: Add new food
+  * Right-click: Add new poison
+  * Predators eat poison and ants
