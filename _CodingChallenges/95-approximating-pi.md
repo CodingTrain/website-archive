@@ -3,7 +3,7 @@ title: "Approximating the Value of Pi"
 video_number: 95
 date: 2018-03-14
 video_id: 5cNnf_7e92Q
-repository: false
+repository: /CC_95_Approximating_Pi
 live_example: false
 
 links:
