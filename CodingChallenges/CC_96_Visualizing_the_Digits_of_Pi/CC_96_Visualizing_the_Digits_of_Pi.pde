@@ -4,7 +4,7 @@ int[] counts = new int[10];
 int index = 0;
 
 void setup() {
-  size(400, 400);
+  size(420, 420);
   pi = loadStrings("pi-1million.txt")[0];
 
   //println(pi.length());
@@ -14,29 +14,33 @@ void setup() {
   digits = int(sdigits);
 
   //printArray(digits);
+  background(0);
+  stroke(255);
+  noFill();
+  translate(width/2, height/2);
+  ellipse(0,0,400,400);
 }
 
 void draw() {
-  background(0);
+  
   translate(width/2, height/2);
   
-  int currentDigit = digits[index];
-  index ++;
-  counts[currentDigit]++;
+  int digit = digits[index];
+  int nextDigit = digits[index+1];
+  index++;
+  
+  float diff = TWO_PI/10;
+  
+  float a1 = map(digit,0,10,0,TWO_PI) + random(-diff,diff);
+  float a2 = map(nextDigit,0,10,0,TWO_PI) + random(-diff,diff);
+  
+  float x1 = 200 * cos(a1);
+  float y1 = 200 * sin(a1);
+  
+  float x2 = 200 * cos(a2);
+  float y2 = 200 * sin(a2);
+  
+  stroke(255,50);
+  line(x1,y1,x2,y2);
 
-  float w = width / counts.length;
-  for (int i = 0; i < counts.length; i++) {
-    //First viz by Dan
-    //float x = i * w;
-    //float y = height/2;
-    //float d = counts[i];
-    
-    //Second viz by Dan
-    float a = map(i, 0, counts.length, 0, TWO_PI);
-    float x = 200 * cos(a);
-    float y = 200 * sin(a);
-    float d = counts[i];
-    
-    ellipse(x,y,d,d);
-  }
 }
