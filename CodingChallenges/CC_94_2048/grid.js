@@ -1,3 +1,13 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+
+// 2048
+// https://youtu.be/JSn-DJU8qf0
+// https://youtu.be/8f8P1i0W26E
+// https://youtu.be/3iYvT8TBIro
+// https://youtu.be/vtMKeEGpMI4
+
 function blankGrid() {
   return [
     [0, 0, 0, 0],
@@ -35,15 +45,11 @@ function flipGrid(grid) {
   return grid;
 }
 
-function transposeGrid(grid, direction) {
+function transposeGrid(grid) {
   let newGrid = blankGrid();
   for (let i = 0; i < 4; i++) {
     for (let j = 0; j < 4; j++) {
-      if (direction == 1) {
-        newGrid[i][j] = grid[j][i];
-      } else {
-        newGrid[j][i] = grid[i][j];
-      }
+      newGrid[i][j] = grid[j][i];
     }
   }
   return newGrid;

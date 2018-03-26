@@ -1,8 +1,16 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+
+// 2048
+// https://youtu.be/JSn-DJU8qf0
+// https://youtu.be/8f8P1i0W26E
+// https://youtu.be/3iYvT8TBIro
+// https://youtu.be/vtMKeEGpMI4
+
 let grid;
 let grid_new;
 let score = 0;
-
-
 
 function setup() {
   createCanvas(400, 400);
@@ -29,11 +37,11 @@ function keyPressed() {
       flipped = true;
       break;
     case RIGHT_ARROW:
-      grid = transposeGrid(grid, 1);
+      grid = transposeGrid(grid);
       rotated = true;
       break;
     case LEFT_ARROW:
-      grid = transposeGrid(grid, 1);
+      grid = transposeGrid(grid);
       grid = flipGrid(grid);
       rotated = true;
       flipped = true;
@@ -52,7 +60,7 @@ function keyPressed() {
       grid = flipGrid(grid);
     }
     if (rotated) {
-      grid = transposeGrid(grid, -1);
+      grid = transposeGrid(grid);
     }
     if (changed) {
       addNumber();

@@ -21,7 +21,7 @@ videos:
   video_id: "EmtU0eloTlE"
 - title: "My Video on 2D Arrays"
   video_id: "OTNpiLUSiB4"  
-  
+
 contributions:
 - title: "Dither Kitty! Use your own image!"
   author:
@@ -29,6 +29,12 @@ contributions:
     url: "https://github.com/stellartux"
   url: "https://stellartux.github.io/CC90/"
   source: "https://github.com/stellartux/CC90"
+- title: "Image dithering in python that outputs to CSS"
+  author:
+    name: "MeaningOf42"
+    url: "https://github.com/MeaningOf42"
+  url: "https://meaningof42.github.io/pointless-site/css_dithering/index.html"
+  source: "https://github.com/MeaningOf42/pointless-site/tree/master/css_dithering"
 
 
 ---

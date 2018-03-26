@@ -28,6 +28,12 @@ contributions:
       url: "http://codeblock.at/"
     url: "https://codepen.io/Grilly86/full/yvoVja"
     source: "https://codepen.io/Grilly86/pen/yvoVja"  
+  - title: "Double Pendulum with movable base and different integration algorithms"
+    author:
+      name: "Daniel Heinrich"
+      url: "https://hmbd.wordpress.com/2017/12/16/interactive-multibody-dynamics-in-processing/"
+    url: "https://www.openprocessing.org/sketch/507468"
+    source: "https://www.openprocessing.org/sketch/507468"  
 
 ---
 
