@@ -1,3 +1,10 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+
+// Visualizing the Digits of Pi
+// https://youtu.be/WEd_UIKG-uc
+
 String pi;
 int[] digits;
 int[] counts = new int[10];
