@@ -7,6 +7,7 @@
 
  function setup() {
    createCanvas(400, 400);
+   frameRate(1); // there is no need for the sketch to run at 60 fps
    angleMode(DEGREES);
  }
 
@@ -26,11 +27,11 @@
    //arc(0, 0, 300, 300, 0, secondAngle);
 
    stroke(150, 100, 255);
-   let minuteAngle = map(mn, 0, 60, 0, 360);
+   let minuteAngle = map(mn + sc/60, 0, 60, 0, 360);
    //arc(0, 0, 280, 280, 0, minuteAngle);
 
    stroke(150, 255, 100);
-   let hourAngle = map(hr % 12, 0, 12, 0, 360);
+   let hourAngle = map(hr % 12 + mn/60 + sc/3600, 0, 12, 0, 360); //this will give the clock a more realistic look
    //arc(0, 0, 260, 260, 0, hourAngle);
 
    push();
