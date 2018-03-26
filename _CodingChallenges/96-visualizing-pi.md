@@ -3,7 +3,7 @@ title: "Visualizing the Digits of Pi"
 video_number: 96
 date: 2018-03-19
 video_id: WEd_UIKG-uc
-repository: CC_96_Visualizing_the_Digits_of_Pi
+repository: /CC_96_Visualizing_the_Digits_of_Pi
 live_example: false
 
 links:
