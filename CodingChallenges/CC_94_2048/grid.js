@@ -1,3 +1,13 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+
+// 2048
+// https://youtu.be/JSn-DJU8qf0
+// https://youtu.be/8f8P1i0W26E
+// https://youtu.be/3iYvT8TBIro
+// https://youtu.be/vtMKeEGpMI4
+
 function blankGrid() {
   return [
     [0, 0, 0, 0],
