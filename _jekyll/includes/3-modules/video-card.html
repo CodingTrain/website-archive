@@ -42,7 +42,7 @@
 
       {% comment %} Release date. {% endcomment %}
       {% if include.video.date > site.time %}
-        <span class="video-date">{{ include.video.date | date: '%d %b %Y - %H:%M' }} EDT</span>
+        <span class="video-date">{{ include.video.date | date: '%d %b %Y - %H:%M %Z' }}</span>
       {% else %}
         <span class="video-date">{{ include.video.date | date_to_string }}</span>
       {% endif %}
