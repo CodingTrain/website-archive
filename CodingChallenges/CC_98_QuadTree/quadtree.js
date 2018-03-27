@@ -22,20 +22,22 @@ class Rectangle {
   }
 
   contains(point) {
-    return (point.x >= this.x - this.w &&
+    return (
+      point.x >= this.x - this.w &&
       point.x <= this.x + this.w &&
       point.y >= this.y - this.h &&
-      point.y <= this.y + this.h);
+      point.y <= this.y + this.h
+    );
   }
 
   intersects(range) {
-    return !(range.x - range.w > this.x + this.w ||
+    return !(
+      range.x - range.w > this.x + this.w ||
       range.x + range.w < this.x - this.w ||
       range.y - range.h > this.y + this.h ||
-      range.y + range.h < this.y - this.h);
+      range.y + range.h < this.y - this.h
+    );
   }
-
-
 }
 
 class QuadTree {
@@ -60,10 +62,16 @@ class QuadTree {
     let sw = new Rectangle(x - w / 2, y + h / 2, w / 2, h / 2);
     this.southwest = new QuadTree(sw, this.capacity);
     this.divided = true;
+
+    // Move points from parent to quad children
+    for (var i = 0, len = this.points.length; i < len; i++) {
+      let p = this.points.pop();
+      let subdivision = this.findDivision(p);
+      subdivision.points.push(p);
+    }
   }
 
   insert(point) {
-
     if (!this.boundary.contains(point)) {
       return false;
     }
@@ -109,13 +117,17 @@ class QuadTree {
     return found;
   }
 
-
   show() {
     stroke(255);
     noFill();
     strokeWeight(1);
     rectMode(CENTER);
-    rect(this.boundary.x, this.boundary.y, this.boundary.w * 2, this.boundary.h * 2);
+    rect(
+      this.boundary.x,
+      this.boundary.y,
+      this.boundary.w * 2,
+      this.boundary.h * 2
+    );
     for (let p of this.points) {
       strokeWeight(2);
       point(p.x, p.y);
@@ -128,9 +140,4 @@ class QuadTree {
       this.southwest.show();
     }
   }
-
-
-
-
-
 }
