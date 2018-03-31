@@ -28,11 +28,13 @@ function draw() {
   stroke(0, 255, 0);
   rectMode(CENTER);
   let range = new Rectangle(mouseX, mouseY, 25, 25);
-  rect(range.x, range.y, range.w * 2, range.h * 2);
-  let points = qtree.query(range);
-  for (let p of points) {
-    strokeWeight(4);
-    point(p.x, p.y);
+  if (mouseX < width && mouseY < height) {
+    rect(range.x, range.y, range.w * 2, range.h * 2);
+    let points = qtree.query(range);
+    for (let p of points) {
+      strokeWeight(4);
+      point(p.x, p.y);
+    }
   }
 
 }
