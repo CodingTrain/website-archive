@@ -3,8 +3,11 @@
 // http://patreon.com/codingtrain
 
 // QuadTree
-// [video url 1]
-// [video url 2]
+// 1: https://www.youtube.com/watch?v=OJxEcs0w_kE
+// 2: https://www.youtube.com/watch?v=QQx_NmCIuCY
+
+// For more:
+// https://github.com/CodingTrain/QuadTree
 
 let qtree;
 
