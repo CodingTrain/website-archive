@@ -29,6 +29,13 @@ videos:
 - title: "Doodle Classifier Coding Challenge"
   video_id: "pqY_Tn2SIVA"
 
+contributions:
+  - title: "Training data based on color contrast"
+    author:
+      name: "Bartosz Legięć"
+      url: "https://legiec.io"
+    url: "https://bibixx.github.io/cc-color-predictor"
+    source: "https://github.com/bibixx/cc-color-predictor"
 ---
 
 In coding challenge, I use my neural network JavaScript library to create a "color predictor."
