@@ -15,6 +15,12 @@ contributions:
     name: "Ashar Khan"
     url: https://github.com/se7enA/
   url: https://github.com/se7enA/smart-rockets
+  
+- title: "Processing Port with extra Features"
+  author: 
+    name: "Alexander Kraus"
+    url: https://github.com/akraus53/
+  url: https://github.com/akraus53/Processing/tree/master/SmartRockets
 ---
 
 In this (very long) coding challenge, I implement a genetic algorithm from scratch and create "smart rockets" (based on a simulation by Jer Thorp).  The rockets evolve the "best" path to a target, moving around obstacles.
