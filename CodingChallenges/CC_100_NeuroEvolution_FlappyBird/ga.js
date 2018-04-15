@@ -14,8 +14,8 @@ function nextGeneration() {
 }
 
 function pickOne() {
-  var index = 0;
-  var r = random(1);
+  let index = 0;
+  let r = random(1);
   while (r > 0) {
     r = r - savedBirds[index].fitness;
     index++;
