@@ -3,12 +3,19 @@
 // http://patreon.com/codingtrain
 
 // Neuro-Evolution Flappy Bird
-
+let generation_cnt=0;
 function nextGeneration() {
   console.log('next generation');
+  generation_cnt++;
   calculateFitness();
   for (let i = 0; i < TOTAL; i++) {
-    birds[i] = pickOne();
+    pickedBrain = pickOne();
+//    localStorage.setItem('brain',pickedBrain.serialize());
+//     console.log( localStorage['brain']);
+    let child = new Bird(pickedBrain);
+    child.mutate();
+    birds[i] = child;
+    birds[i].mutate();
   }
   savedBirds = [];
 }
@@ -22,9 +29,7 @@ function pickOne() {
   }
   index--;
   let bird = savedBirds[index];
-  let child = new Bird(bird.brain);
-  child.mutate();
-  return child;
+  return (bird.brain)
 }
 
 function calculateFitness() {
