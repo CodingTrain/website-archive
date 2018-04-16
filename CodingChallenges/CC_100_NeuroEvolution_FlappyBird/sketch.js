@@ -4,7 +4,7 @@
 
 // Neuro-Evolution Flappy Bird
 
-const TOTAL = 500;
+const TOTAL = 50;
 let birds = [];
 let savedBirds = [];
 let pipes = [];
@@ -15,14 +15,19 @@ function setup() {
   createCanvas(640, 480);
   slider = createSlider(1, 100, 1);
   for (let i = 0; i < TOTAL; i++) {
-    birds[i] = new Bird();
+    brain = localStorage['brain'];
+    if(brain == null) birds[i] = new Bird();
+    else {
+      birds[i] = new Bird(NeuralNetwork.deserialize( localStorage.getItem('brain')));
+      birds[i].mutate(); //�������� ������ ������ ������ ���� �ʵ���
+    }
   }
 }
 
 function draw() {
 
   for (let n = 0; n < slider.value(); n++) {
-    if (counter % 75 == 0) {
+    if (counter % 100 == 0) {
       pipes.push(new Pipe());
     }
     counter++;
@@ -31,6 +36,15 @@ function draw() {
       pipes[i].update();
 
       for (let j = birds.length - 1; j >= 0; j--) {
+        //�Ʒ� �� �浹üũ
+        b= birds[j];
+        if(b.y> height-1 || b.y < 1) {
+          //     savedBirds.push(b);
+          //console.log('col');
+          savedBirds.push(birds.splice(j, 1)[0])
+          continue;
+        }
+
         if (pipes[i].hits(birds[j])) {
           savedBirds.push(birds.splice(j, 1)[0]);
         }
@@ -40,11 +54,11 @@ function draw() {
         pipes.splice(i, 1);
       }
     }
-
-    for (let bird of birds) {
-      bird.think(pipes);
-      bird.update();
+      for (let bird of birds) {
+        bird.think(pipes);
+        bird.update();
     }
+
 
     if (birds.length === 0) {
       counter = 0;
@@ -56,24 +70,26 @@ function draw() {
 
   // All the drawing stuff
   background(0);
-
+  textSize(20);
   for (let bird of birds) {
     bird.show();
+
   }
 
   for (let pipe of pipes) {
     pipe.show();
   }
-
-
-
+  stroke('red')
+  text('birds : '+birds.length,10,30)
 
 
 }
-
-// function keyPressed() {
-//   if (key == ' ') {
-//     bird.up();
-//     //console.log("SPACE");
-//   }
-// }
+var keypresscnt=0;
+function keyPressed() {
+  if(keypresscnt++ % 600) {
+    if (key == ' ') {
+      birds[0].up();
+      console.log("SPACE");
+    }
+}
+}
