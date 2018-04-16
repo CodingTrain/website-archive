@@ -8,8 +8,8 @@ class Bird {
   constructor(brain) {
     this.y = height / 2;
     this.x = 64;
-    this.gravity = 0.7;
-    this.lift = -12;
+    this.gravity = 0.3;
+    this.lift = -5;
     this.velocity = 0;
 
     this.score = 0;
@@ -17,20 +17,22 @@ class Bird {
     if (brain) {
       this.brain = brain.copy();
     } else {
-      this.brain = new NeuralNetwork(4, 4, 2);
+      this.brain = new NeuralNetwork(5, 10,2);
     }
   }
 
   show() {
     stroke(255);
-    fill(255, 100);
     ellipse(this.x, this.y, 32, 32);
+    fill(255, 100);
   }
 
-  up() {
+  up(lift) {
     this.velocity += this.lift;
   }
-
+  down(lift) {
+    //this.velocity += this.lift;
+  }
   mutate() {
     this.brain.mutate(0.1);
   }
@@ -54,16 +56,23 @@ class Bird {
     inputs[1] = closest.top / height;
     inputs[2] = closest.bottom / height;
     inputs[3] = closest.x / width;
+    inputs[4] = this.velocity;
     let output = this.brain.predict(inputs);
     if (output[0] > output[1]) {
-      this.up();
+      this.up(output[2]);
     }
+
 
   }
 
   update() {
     this.score++;
-
+    //하나만 세이브
+   if(this == birds[0] && (this.score % 50000)==0){
+        localStorage['gen_cnt'] = generation_cnt++;
+        console.log("brain saved")
+        localStorage.setItem('brain',this.brain.serialize());
+   }
     this.velocity += this.gravity;
     //this.velocity *= 0.9;
     this.y += this.velocity;
