@@ -1,3 +1,4 @@
+
 // Daniel Shiffman
 // http://codingtra.in
 // http://patreon.com/codingtrain
@@ -10,13 +11,16 @@ class Pipe {
     this.top = random(height / 6, 3 / 4 * height);
     this.bottom = height - (this.top + this.spacing);
     this.x = width;
-    this.w = 80;
-    this.speed = 6;
+
+    this.w = 50;
+    this.speed = 3;
+
   }
 
   hits(bird) {
     if (bird.y < this.top || bird.y > height - this.bottom) {
       if (bird.x > this.x && bird.x < this.x + this.w) {
+        this.highlight = true;
         return true;
       }
     }

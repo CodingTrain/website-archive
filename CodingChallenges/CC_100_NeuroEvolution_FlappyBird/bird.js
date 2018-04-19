@@ -3,13 +3,14 @@
 // http://patreon.com/codingtrain
 
 // Neuro-Evolution Flappy Bird
+var topScore = 2;
 
 class Bird {
   constructor(brain) {
     this.y = height / 2;
     this.x = 64;
-    this.gravity = 0.7;
-    this.lift = -12;
+    this.gravity = 0.3;
+    this.lift = -5;
     this.velocity = 0;
 
     this.score = 0;
@@ -17,22 +18,38 @@ class Bird {
     if (brain) {
       this.brain = brain.copy();
     } else {
-      this.brain = new NeuralNetwork(4, 4, 2);
+      this.brain = new NeuralNetwork(5,4,1);
+
     }
   }
 
   show() {
+    text('top score : '+topScore,10,50);
+
     stroke(255);
-    fill(255, 100);
     ellipse(this.x, this.y, 32, 32);
+    fill(255, 100);
+    stroke('red');
   }
 
-  up() {
+  up(lift) {
     this.velocity += this.lift;
-  }
 
+    //this.velocity -= lift*100;
+  }
+  down(lift) {
+    this.velocity += this.lift;
+    //this.gravity = lift*100;
+
+  }
   mutate() {
-    this.brain.mutate(0.1);
+  //초반 변형을 심하게 하여 빠른 진화
+    if(topScore > 3000)
+      this.brain.mutate(0.1);
+    else if(topScore > 1000)
+      this.brain.mutate(0.3);
+    else  this.brain.mutate(0.5);
+
   }
 
   think(pipes) {
@@ -54,16 +71,27 @@ class Bird {
     inputs[1] = closest.top / height;
     inputs[2] = closest.bottom / height;
     inputs[3] = closest.x / width;
+    inputs[4] = this.velocity;
     let output = this.brain.predict(inputs);
-    if (output[0] > output[1]) {
-      this.up();
+
+    if (output[0] > 0.5){//output[1]) {
+      this.up(output[1]);
     }
+
 
   }
 
   update() {
     this.score++;
 
+    if(this.score > topScore) topScore = this.score;
+    //하나만 세이브
+   if(this == birds[0] && (this.score % 50000)==0){
+        localStorage['gen_cnt'] = generation_cnt++;
+        console.log("brain saved " + birds.length + " survived" )
+
+        localStorage.setItem('brain',this.brain.serialize());
+   }
     this.velocity += this.gravity;
     //this.velocity *= 0.9;
     this.y += this.velocity;
