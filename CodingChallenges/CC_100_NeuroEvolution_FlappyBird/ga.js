@@ -1,3 +1,4 @@
+
 // Daniel Shiffman
 // http://codingtra.in
 // http://patreon.com/codingtrain
@@ -41,3 +42,4 @@ function calculateFitness() {
     bird.fitness = bird.score / sum;
   }
 }
+

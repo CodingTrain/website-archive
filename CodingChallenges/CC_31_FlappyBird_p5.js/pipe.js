@@ -4,11 +4,12 @@
 // Code for: https://youtu.be/cXgA1d_E-jY&
 
 function Pipe() {
-  this.top = random(height/2);
-  this.bottom = random(height/2);
+  this.spacing = 175;
+  this.top = random(height / 6, 3 / 4 * height);
+  this.bottom = height - (this.top + this.spacing);
   this.x = width;
-  this.w = 20;
-  this.speed = 2;
+  this.w = 80;
+  this.speed = 6;
 
   this.highlight = false;
 
