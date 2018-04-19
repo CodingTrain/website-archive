@@ -80,18 +80,19 @@ function draw() {
   // All the drawing stuff
   background(0);
 
-  textSize(20);
+
+    for (let pipe of pipes) {
+      pipe.show();
+    }
   for (let bird of birds) {
     bird.show();
 
 
   }
 
-  for (let pipe of pipes) {
-    pipe.show();
-  }
-
-  stroke('red')
+  textSize(20);
+  fill(255);
+  stroke('red');
   text('birds : '+birds.length,10,30)
 
 

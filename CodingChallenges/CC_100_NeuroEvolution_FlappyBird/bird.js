@@ -24,13 +24,12 @@ class Bird {
   }
 
   show() {
-    stroke(255);
-    ellipse(this.x, this.y, 32, 32);
-
-    stroke('red')
     text('top score : '+topScore,10,50);
 
+    stroke(255);
+    ellipse(this.x, this.y, 32, 32);
     fill(255, 100);
+    stroke('red');
   }
 
   up(lift) {
