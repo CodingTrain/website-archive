@@ -4,7 +4,9 @@
 
 // Neuro-Evolution Flappy Bird
 
-const TOTAL = 100;
+
+const TOTAL = 50;
+
 let birds = [];
 let savedBirds = [];
 let pipes = [];
@@ -19,7 +21,9 @@ function setup() {
     if(brain == null) birds[i] = new Bird();
     else {
       birds[i] = new Bird(NeuralNetwork.deserialize( localStorage.getItem('brain')));
-      birds[i].mutate(); //º¯Á¾À¸·Î »ı¼ºÇØ µ¿ÀÏÇÑ µ¿ÀÛÀ» ÇÏÁö ¾Êµµ·Ï
+
+      birds[i].mutate(); //å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™ å ì‹­ë“¸ì˜™å ì™ì˜™
+
     }
   }
 }
@@ -27,7 +31,9 @@ function setup() {
 function draw() {
 
   for (let n = 0; n < slider.value(); n++) {
-    if (counter % 75 == 0) {
+
+    if (counter % 100 == 0) {
+
       pipes.push(new Pipe());
     }
     counter++;
@@ -36,7 +42,9 @@ function draw() {
       pipes[i].update();
 
       for (let j = birds.length - 1; j >= 0; j--) {
-        //¾Æ·¡ À§ Ãæµ¹Ã¼Å©
+
+        //å ì‹£ë¤„ì˜™ å ì™ì˜™ å ì¸ëŒì²´í¬
+
         b= birds[j];
         if(b.y> height-1 || b.y < 1) {
           //     savedBirds.push(b);
@@ -57,7 +65,8 @@ function draw() {
       for (let bird of birds) {
         bird.think(pipes);
         bird.update();
-      }
+
+    }
 
 
     if (birds.length === 0) {
@@ -71,16 +80,19 @@ function draw() {
   // All the drawing stuff
   background(0);
 
+  textSize(20);
   for (let bird of birds) {
     bird.show();
+
+
   }
 
   for (let pipe of pipes) {
     pipe.show();
   }
 
-
-
+  stroke('red')
+  text('birds : '+birds.length,10,30)
 
 
 }
