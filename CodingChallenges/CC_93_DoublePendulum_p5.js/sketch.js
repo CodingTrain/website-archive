@@ -28,6 +28,8 @@ function setup() {
   cx = width / 2;
   cy = 50;
   buffer = createGraphics(width, height);
+  // correct buffer size for high DPI displays
+  buffer.pixelDensity(1);
   buffer.background(175);
   buffer.translate(cx, cy);
 }
