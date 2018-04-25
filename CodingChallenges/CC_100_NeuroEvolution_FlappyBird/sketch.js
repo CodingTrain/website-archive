@@ -59,7 +59,6 @@ function draw() {
       }
     }
 
-
     for (let bird of birds) {
       bird.think(pipes);
       bird.update();
