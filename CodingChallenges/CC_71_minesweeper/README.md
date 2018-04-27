@@ -14,9 +14,9 @@ Ported to typescript and added some color (no real extra functionality im afraid
 
 #### By: [dondanhill](https://github.com/dondanhill)
 
-Canvas [Repository](https://github.com/dondanhill/mine-buddy-html) | [Demo](https://dondanhill.github.io/mine-buddy-html/)
+Html [Repository](https://github.com/dondanhill/mine-buddy-html) | [Demo](https://dondanhill.github.io/mine-buddy-html/)
 
-Html [Repository](https://github.com/dondanhill/mine-buddy-canvas) | [Demo](https://dondanhill.github.io/mine-buddy-canvas/)
+Canvas [Repository](https://github.com/dondanhill/mine-buddy-canvas) | [Demo](https://dondanhill.github.io/mine-buddy-canvas/)
 
 #### By: [ChrisB](https://github.com/Parallax-Vector)
 
