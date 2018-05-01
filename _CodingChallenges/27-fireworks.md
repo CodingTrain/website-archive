@@ -24,7 +24,7 @@ contributions:
     source: https://github.com/toferj/p5js/tree/master/fireworks
   - title: "Rainbow Fireworks"
     author:
-      name: "Caitlin (10 yrs old, using her Dad's Github)
+      name: "Caitlin (10 yrs old, using her Dad's Github)"
       url: https://github.com/stevemolloy
     url: https://stevemolloy.github.io/rainbow_fireworks/fun/
     source: https://github.com/stevemolloy/rainbow_fireworks
