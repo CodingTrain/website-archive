@@ -26,8 +26,8 @@ contributions:
     author:
       name: "Caitlin (10 yrs old, using her Dad's Github)
       url: https://github.com/stevemolloy
-     url: https://stevemolloy.github.io/rainbow_fireworks/fun/
-     source: https://github.com/stevemolloy/rainbow_fireworks
+    url: https://stevemolloy.github.io/rainbow_fireworks/fun/
+    source: https://github.com/stevemolloy/rainbow_fireworks
 ---
 
 In this 4th of July themed coding challenge, I build an HTML5 canvas Fireworks simulation from scratch using the p5.js JavaScript library. I also show how to use Processing to create 3D Fireworks.
