@@ -10,7 +10,7 @@ topics:
     url: "https://www.youtube.com/watch?v=JtIX3HJKwfo"
   - title: "XOR Problem"
     time: "52:51"
-    url: "/CodingChallenges/92-xor"
+    url: "/CodingChallenges/092-xor"
  
 links:
   - title: "Toy-Neural-Network-JS"

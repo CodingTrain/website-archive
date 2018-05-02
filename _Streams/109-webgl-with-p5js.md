@@ -16,7 +16,7 @@ topics:
     url: "/Tutorials/18-webgl/18.3-light-and-material"
   - title: "Coding Challenge: Bees and Bombs"
     time: "1:51:36"
-    url: "/CodingChallenges/86-beesandbombs"
+    url: "/CodingChallenges/086-beesandbombs"
 
 links:
   - title: "Bees and Bombs on Twitter"

@@ -19,7 +19,7 @@ topics:
     url: "/Tutorials/7-object-interaction/7.8-objects-and-images"
   - title: "Coding Callenge: Conway's Game of Life"
     time: "2:21:50"
-    url: "/CodingChallenges/85-the-game-of-life"
+    url: "/CodingChallenges/085-the-game-of-life"
 
 links:
   - title: "ITP Winter Show 2017"
