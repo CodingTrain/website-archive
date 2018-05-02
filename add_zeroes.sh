@@ -16,10 +16,10 @@ do
 done
 
 # _CodingChallenges
-for i in $(find _CodingChallenges/ -maxdepth 1 -name [0-9]* | cut -b 19-)
+for i in $(find _CodingChallenges/ -maxdepth 1 -name [0-9]* | cut -b 19- | sed 's/.md$//')
 do
 	echo "Renaming $i => 0$i"
 	grep -rInEl $i . | xargs -r -L 1 -o sed -i -e "s/$i/0$i/g"
-	mv "_CodingChallenges/$i" "_CodingChallenges/0$i"
-	sed -i "3iredirect_from: CodingChallenges/`echo $i | sed 's/.md$/.html/'`" "_CodingChallenges/0$i"
+	mv "_CodingChallenges/$i.md" "_CodingChallenges/0$i.md"
+	sed -i "3iredirect_from: CodingChallenges/$i.html" "_CodingChallenges/0$i.md"
 done
