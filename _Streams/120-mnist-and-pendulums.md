@@ -9,7 +9,7 @@ topics:
     time: "1:15:30"
   - title: "Coding Challenge: Double Pendulum"
     time: "3:02:59"
-    url: "CodingChallenges/93-double-pendulum"
+    url: "CodingChallenges/093-double-pendulum"
 
 links:
   - title: "Toy-Neural-Network-JS"

@@ -16,7 +16,7 @@ topics:
     url: "/Courses/programming-with-text/11-chrome-extensions/11.7-new-tab-override"
   - title: "Coding Challenge: Chrome Extension Word Definition"
     time: "1:48:04"
-    url: "/CodingChallenges/84-word-definition-extension"
+    url: "/CodingChallenges/084-word-definition-extension"
   - title: "Cross-browser Extensions"
     time: "2:32:37"
     url: "Courses/programming-with-text/11-chrome-extensions/11.8-cross-browser-extensions"
@@ -59,7 +59,7 @@ videos:
   - title: "Node.js tutorial"
     url: "/Tutorials/15-twitter-bot/15.1-intro-nodejs"
   - title: "Maze Generator"
-    url: "/CodingChallenges/10.1-maze-dfs-p5"
+    url: "/CodingChallenges/010.1-maze-dfs-p5"
   - title: "Coding Train Trailer video"
     url: "https://youtu.be/PBsUD40nPkI"
   - title: "Let and Var video"
@@ -67,7 +67,7 @@ videos:
   - title: "Wordnik tutorial"
     url: "/Tutorials/10-working-with-data/10.8-wordnik-api"
   - title: "Chrome Ex-kitten-sion"
-    url: "/CodingChallenges/82-kittenizer-chrome-extension"
+    url: "/CodingChallenges/082-kittenizer-chrome-extension"
 
 books:
   - title: "Creative Coding Book List"

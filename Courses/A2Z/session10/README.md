@@ -3,8 +3,8 @@
 
 
 ### Link to source code to Coding Challenge #79 and #80:
-* [Number Guessing Chatbot](https://github.com/CodingTrain/Rainbow-Code/tree/master/challenges/CC_79_Number_Guessing_Chatbot)
-* [Voice Chatbot with p5.Speech](https://github.com/CodingTrain/Rainbow-Code/tree/master/challenges/CC_80_Voice_Chatbot_with_p5.Speech)
+* [Number Guessing Chatbot](https://github.com/CodingTrain/Rainbow-Code/tree/master/challenges/CC_079_Number_Guessing_Chatbot)
+* [Voice Chatbot with p5.Speech](https://github.com/CodingTrain/Rainbow-Code/tree/master/challenges/CC_080_Voice_Chatbot_with_p5.Speech)
 
 ### Questions? Need Support?
 * Join: http://patreon.com/codingtrain

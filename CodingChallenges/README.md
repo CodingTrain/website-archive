@@ -8,229 +8,229 @@ Here is the playlist of all my coding challenges:
 ## List of Coding Challenges
 
 - Coding Challenge #1: Starfield in Processing
-  - [Processing Version](CC_01_StarField/)
-  - [JavaScript Version](CC_01_StarField_p5.js/)
+  - [Processing Version](CC_001_StarField/)
+  - [JavaScript Version](CC_001_StarField_p5.js/)
 - Coding Challenge #2: Menger Sponge Fractal
-  - [Processing Version](CC_02_MengerSponge/)
-  - [JavaScript Version](CC_02_MengerSponge_p5.js/)
+  - [Processing Version](CC_002_MengerSponge/)
+  - [JavaScript Version](CC_002_MengerSponge_p5.js/)
 - Coding Challenge #3: The Snake Game
-  - [Processing Version](CC_03_Snake_game/)
-  - [JavaScript Version](CC_03_Snake_game_p5.js/)
+  - [Processing Version](CC_003_Snake_game/)
+  - [JavaScript Version](CC_003_Snake_game_p5.js/)
 - Coding Challenge #4: Purple Rain in Processing
-  - [Processing Version](CC_04_PurpleRain/)
-  - [JavaScript Version](CC_04_PurpleRain_p5.js/)
+  - [Processing Version](CC_004_PurpleRain/)
+  - [JavaScript Version](CC_004_PurpleRain_p5.js/)
 - Coding Challenge #5: Space Invaders
-  - [Processing Version](CC_05_Space_invaders/)
-  - [JavaScript Version](CC_05_Space_invaders_p5.js/)
+  - [Processing Version](CC_005_Space_invaders/)
+  - [JavaScript Version](CC_005_Space_invaders_p5.js/)
 - Coding Challenge #6: Mitosis Simulation
-  - [Processing Version](CC_06_Mitosis/)
-  - [JavaScript Version](CC_06_Mitosis_p5.js/)
+  - [Processing Version](CC_006_Mitosis/)
+  - [JavaScript Version](CC_006_Mitosis_p5.js/)
 - Coding Challenge #7: Solar System in Processing - Part 1 (2D)
-  - [Processing Version](CC_07_SolarSystemGenerator/)
+  - [Processing Version](CC_007_SolarSystemGenerator/)
 - Coding Challenge #8: Solar System in Processing - Part 2 (3D)
-  - [Processing Version](CC_08_SolarSystemGenerator3D/)
+  - [Processing Version](CC_008_SolarSystemGenerator3D/)
 - Coding Challenge #9: Solar System in Processing - Part 3 (3D textures)
-  - [Processing Version](CC_09_SolarSystemGenerator3D_texture/)
+  - [Processing Version](CC_009_SolarSystemGenerator3D_texture/)
 - Coding Challenge #10: Maze Generator
-  - [JavaScript Version](CC_10_Maze_DFS_p5.js/)
+  - [JavaScript Version](CC_010_Maze_DFS_p5.js/)
 - Coding Challenge #11: 3D Terrain Generation with Perlin Noise in Processing
-  - [Processing Version](CC_11_PerlinNoiseTerrain/)
-  - [JavaScript Version](CC_11_PerlinNoiseTerrain_p5.js/)
+  - [Processing Version](CC_011_PerlinNoiseTerrain/)
+  - [JavaScript Version](CC_011_PerlinNoiseTerrain_p5.js/)
 - Coding Challenge #12: The Lorenz Attractor
-  - [Processing Version](CC_12_LorenzAttractor/)
+  - [Processing Version](CC_012_LorenzAttractor/)
 - Coding Challenge #13: Reaction Diffusion Algorithm in p5.js
-  - [Processing Version](CC_13_ReactionDiffusion/)
-  - [JavaScript Version](CC_13_ReactionDiffusion_p5.js/)
+  - [Processing Version](CC_013_ReactionDiffusion/)
+  - [JavaScript Version](CC_013_ReactionDiffusion_p5.js/)
 - Coding Challenge #14: Fractal Trees - Recursive
-  - [JavaScript Version](CC_14_FractalTree/)
+  - [JavaScript Version](CC_014_FractalTree/)
 - Coding Challenge #15: Fractal Trees - Object Oriented
-  - [JavaScript Version](CC_15_FractalTreeArray/)
+  - [JavaScript Version](CC_015_FractalTreeArray/)
 - Coding Challenge #16: Fractal Trees - L-System
-  - [JavaScript Version](CC_16_LSystem/)
+  - [JavaScript Version](CC_016_LSystem/)
 - Coding Challenge #17: Fractal Trees - Space Colonization
-  - [Processing Version](CC_17_SpaceColonizer/)
-  - [JavaScript Version](CC_17_SpaceColonizer_p5/)
+  - [Processing Version](CC_017_SpaceColonizer/)
+  - [JavaScript Version](CC_017_SpaceColonizer_p5/)
 - Coding Challenge #18: 3D Fractal Trees
-  - [Processing Version](CC_18_SpaceColonizer3D/)
+  - [Processing Version](CC_018_SpaceColonizer3D/)
 - Coding Challenge #19: Superellipse
   - Pending
 - Coding Challenge #20: 3D Cloth with toxiclibs
-  - [Processing Version - 2D](CC_20_Cloth2D/)
-  - [Processing Version - 3D](CC_20_Cloth3D/)
+  - [Processing Version - 2D](CC_020_Cloth2D/)
+  - [Processing Version - 3D](CC_020_Cloth3D/)
 - Coding Challenge #21: Mandelbrot Set
-  - [Processing Version](CC_21_Mandelbrot/)
-  - [JavaScript Version](CC_21_Mandelbrot_p5.js/)
+  - [Processing Version](CC_021_Mandelbrot/)
+  - [JavaScript Version](CC_021_Mandelbrot_p5.js/)
 - Coding Challenge #22: Julia Set
-  - [Processing Version](CC_22_JuliaSet/)
+  - [Processing Version](CC_022_JuliaSet/)
 - Coding Challenge #23: 2D Supershapes
-  - [JavaScript Version](CC_23_SuperShape2D/)
+  - [JavaScript Version](CC_023_SuperShape2D/)
 - Coding Challenge #24: Perlin Noise Flow Field
-  - [JavaScript Version](CC_24_PerlinNoiseFlowField/)
+  - [JavaScript Version](CC_024_PerlinNoiseFlowField/)
 - Coding Challenge #25: Spherical Geometry
-  - [Processing Version](CC_25_SphereGeometry/)
+  - [Processing Version](CC_025_SphereGeometry/)
 - Coding Challenge #26: 3D Supershapes
-  - [Processing Version](CC_26_SuperShape3D/)
+  - [Processing Version](CC_026_SuperShape3D/)
 - Coding Challenge #27: Fireworks!
-  - [Processing Version - 2D](CC_27_FireWorks_2D/)
-  - [Processing Version - 3D](CC_27_FireWorks_3D/)
-  - [JavaScript Version](CC_27_Fireworks_2D_p5/)
+  - [Processing Version - 2D](CC_027_FireWorks_2D/)
+  - [Processing Version - 3D](CC_027_FireWorks_3D/)
+  - [JavaScript Version](CC_027_Fireworks_2D_p5/)
 - Coding Challenge #28: Metaballs
-  - [Processing Version](CC_28_MetaBalls/)
+  - [Processing Version](CC_028_MetaBalls/)
 - Coding Challenge #29: Smart Rockets
-  - [JavaScript Version](CC_29_SmartRockets/)
+  - [JavaScript Version](CC_029_SmartRockets/)
 - Coding Challenge #30: Phyllotaxis
-  - [Processing Version](CC_30_Phyllotaxis/)
-  - [JavaScript Version](CC_30_phyllotaxis_p5.js/)
+  - [Processing Version](CC_030_Phyllotaxis/)
+  - [JavaScript Version](CC_030_phyllotaxis_p5.js/)
 - Coding Challenge #31: Flappy Bird
-  - [Processing Version](CC_31_FlappyBird/)
-  - [JavaScript Version](CC_31_FlappyBird_p5.js/)
+  - [Processing Version](CC_031_FlappyBird/)
+  - [JavaScript Version](CC_031_FlappyBird_p5.js/)
 - Coding Challenge #32: Agar.io
-  - [JavaScript Version](CC_32.1_agar.io/) (Basic Game Mechanics)
-  - [JavaScript Version](CC_32.2_agario_sockets/) (Networking with Socket.IO and Node.js)
+  - [JavaScript Version](CC_032.1_agar.io/) (Basic Game Mechanics)
+  - [JavaScript Version](CC_032.2_agario_sockets/) (Networking with Socket.IO and Node.js)
 - Coding Challenge #33: Poisson-disc Sampling
-  - [JavaScript Version](CC_33_poisson_disc/)
+  - [JavaScript Version](CC_033_poisson_disc/)
 - Coding Challenge #34: Diffusion-Limited Aggregation
-  - [JavaScript Version](CC_34_DLA/)
+  - [JavaScript Version](CC_034_DLA/)
 - Coding Challenge #35: Traveling Salesperson
-  - [JavaScript Version](CC_35_TSP/CC_35.1_TSP/)
-  - [JavaScript Version](CC_35_TSP/CC_35.2_LexicographicOrder/) (Lexicographic Order)
-  - [JavaScript Version](CC_35_TSP/CC_35.3_TSP_Lexical/) (Traveling Salesperson with Lexicographic Order)
-  - [JavaScript Version](CC_35_TSP/CC_35.4_TSP_GA/) (Traveling Salesperson with Genetic Algorithm)
+  - [JavaScript Version](CC_035_TSP/CC_35.1_TSP/)
+  - [JavaScript Version](CC_035_TSP/CC_35.2_LexicographicOrder/) (Lexicographic Order)
+  - [JavaScript Version](CC_035_TSP/CC_35.3_TSP_Lexical/) (Traveling Salesperson with Lexicographic Order)
+  - [JavaScript Version](CC_035_TSP/CC_35.4_TSP_GA/) (Traveling Salesperson with Genetic Algorithm)
   - Pending (Traveling Salesperson with Genetic Algorithm and Crossover)
 - Coding Challenge #36: Blobby!
-  - [JavaScript Version](CC_36_Blobby/)
+  - [JavaScript Version](CC_036_Blobby/)
 - Coding Challenge #37: Diastic Machine
-  - [JavaScript Version](CC_37_diastic/)
+  - [JavaScript Version](CC_037_diastic/)
 - Coding Challenge #38: Word Interactor
-  - [JavaScript Version](CC_38_word_interactor/)
+  - [JavaScript Version](CC_038_word_interactor/)
 - Coding Challenge #39: Mad Libs Generator
-  - [JavaScript Version](CC_39_madlibs/)
+  - [JavaScript Version](CC_039_madlibs/)
 - Coding Challenge #40: Word Counter in JavaScript
-  - [Processing Version](CC_40_2_wordcounts/)
-  - [JavaScript Version](CC_40_1_wordcounts_p5/)
-  - [JavaScript Version](CC_40_3_tf-idf/) (TF-IDF)
+  - [Processing Version](CC_040_2_wordcounts/)
+  - [JavaScript Version](CC_040_1_wordcounts_p5/)
+  - [JavaScript Version](CC_040_3_tf-idf/) (TF-IDF)
 - Coding Challenge #41: Clappy Bird!
-  - [JavaScript Version](CC_41_ClappyBird_p5.js/)
+  - [JavaScript Version](CC_041_ClappyBird_p5.js/)
 - Coding Challenge #42: Markov Chains
-  - [JavaScript Version](CC_42-1_markov-chain/)
-    - [JavaScript Version](CC_42-2_markov-chain-names/) (Generate a new name for my YouTube channel)
+  - [JavaScript Version](CC_042-1_markov-chain/)
+    - [JavaScript Version](CC_042-2_markov-chain-names/) (Generate a new name for my YouTube channel)
 - Coding Challenge #43: Context-Free Grammar
-  - [JavaScript Version](CC_43_ContextFreeGrammar/)
+  - [JavaScript Version](CC_043_ContextFreeGrammar/)
 - Coding Challenge #44: AFINN-111 Sentiment Analysis
-  - [JavaScript Version](CC_44_afinn111SentimentAnalysis/)
+  - [JavaScript Version](CC_044_afinn111SentimentAnalysis/)
 - Coding Challenge #45: Saving p5.js Drawings to Firebase
-  - [JavaScript Version](CC_45_FirebaseSavingDrawing/)
+  - [JavaScript Version](CC_045_FirebaseSavingDrawing/)
 - Coding Challenge #46: Asteroids
-  - [JavaScript Version](CC_46_Asteroids/)
+  - [JavaScript Version](CC_046_Asteroids/)
 - Coding Challenge #47: Pixel Sorting in Processing
-  - [Processing Version](CC_47_PixelSortingAnimation/)
+  - [Processing Version](CC_047_PixelSortingAnimation/)
 - Coding Challenge #48: White House Social Media Data Visualization
-  - [JavaScript Version](CC_48_TweetsByMonth/)
+  - [JavaScript Version](CC_048_TweetsByMonth/)
 - Coding Challenge #49: Photo Mosaic with White House Social Media Images
-  - [Processing Version](CC_49_ObamaMosaic/)
+  - [Processing Version](CC_049_ObamaMosaic/)
 - Coding Challenge #50: Animated Circle Packing
-  - [Processing Version](CC_50_1a_CirclePackingAnimated/)
-  - [JavaScript Version](CC_50_1a_CirclePackingAnimated_p5_js/)
-  - [Processing Version](CC_50_1b_CirclePackingAnimatedText/) (Text)
-  - [JavaScript Version](CC_50_1b_CirclePackingAnimatedText_p5_js/) (Text)
-  - [Processing Version](CC_50_2_CirclePackingImage/) (Kitten Addendum)
-  - [JavaScript Version](CC_50_2_CirclePackingImage_p5_js/) (Kitten Addendum)
+  - [Processing Version](CC_050_1a_CirclePackingAnimated/)
+  - [JavaScript Version](CC_050_1a_CirclePackingAnimated_p5_js/)
+  - [Processing Version](CC_050_1b_CirclePackingAnimatedText/) (Text)
+  - [JavaScript Version](CC_050_1b_CirclePackingAnimatedText_p5_js/) (Text)
+  - [Processing Version](CC_050_2_CirclePackingImage/) (Kitten Addendum)
+  - [JavaScript Version](CC_050_2_CirclePackingImage_p5_js/) (Kitten Addendum)
 - Coding Challenge #51: A* Pathfinding Algorithm
-  - [JavaScript Version](CC_51_astar/)
+  - [JavaScript Version](CC_051_astar/)
 - Coding Challenge #52: Random Walker
-  - [JavaScript Version](CC_52_random_walk/)
+  - [JavaScript Version](CC_052_random_walk/)
 - Coding Challenge #53: Random Walker with Vectors and Lévy Flight
-  - [JavaScript Version](CC_53_random_walk_levy/)
+  - [JavaScript Version](CC_053_random_walk_levy/)
 - Coding Challenge #54: Islamic Star Patterns
-  - [JavaScript Version](CC_54_1_StarPatterns/)
-  - [JavaScript Version](CC_54_2_StarPatterns/) (Law of Sines)
+  - [JavaScript Version](CC_054_1_StarPatterns/)
+  - [JavaScript Version](CC_054_2_StarPatterns/) (Law of Sines)
 - Coding Challenge #55: Mathematical Rose Patterns
-  - [Processing Version](CC_55_Roses/)
-  - [JavaScript Version](CC_55_Roses_p5/)
+  - [Processing Version](CC_055_Roses/)
+  - [JavaScript Version](CC_055_Roses_p5/)
 - Coding Challenge #56: Attraction and Repulsion Forces
-  - [JavaScript Version](CC_56_attraction_repulsion/)
+  - [JavaScript Version](CC_056_attraction_repulsion/)
 - Coding Challenge #57: Mapping Earthquake Data
-  - [Processing Version](CC_57_Earthquake_Viz_Processing/)
-  - [JavaScript Version](CC_57_Earthquake_Viz/)
+  - [Processing Version](CC_057_Earthquake_Viz_Processing/)
+  - [JavaScript Version](CC_057_Earthquake_Viz/)
 - Coding Challenge #58: 3D Earthquake Data Visualization
-  - [Processing Version](CC_58_EarthQuakeViz3D/)
+  - [Processing Version](CC_058_EarthQuakeViz3D/)
 - Coding Challenge #59: Steering Behaviors
-  - [JavaScript Version](CC_59_Steering_Text_Paths/)
+  - [JavaScript Version](CC_059_Steering_Text_Paths/)
 - Coding Challenge #60: Butterfly Generator
-  - [JavaScript Version](CC_60_Butterfly_Wings/)
+  - [JavaScript Version](CC_060_Butterfly_Wings/)
 - Coding Challenge #61: Fractal Spirograph
-  - [Processing Version](CC_61_fractal_spirograph/)
-  - [JavaScript Version](CC_61_fractal_spirograph_p5.js/)
+  - [Processing Version](CC_061_fractal_spirograph/)
+  - [JavaScript Version](CC_061_fractal_spirograph_p5.js/)
 - Coding Challenge #62: Plinko with Matter.js
-  - [JavaScript Version](CC_62_plinko/))
+  - [JavaScript Version](CC_062_plinko/))
 - Coding Challenge #63: Texturing Cloth Simulation
-  - [Processing Version](CC_63_unikitty_flag/)
+  - [Processing Version](CC_063_unikitty_flag/)
 - Coding Challenge #64: Forward Kinematics
-  - [Processing Version](CC_64_1_a_ForwardKinematics/) (A Version)
-  - [Processing Version](CC_64_1_b_ForwardKinematics/) (B Version)
-  - [Processing Version](CC_64_2_InverseKinematics/) (Inverse Kinematics)
-  - [Processing Version](CC_64_3_InverseKinematics_fixed/) (Inverse Kinematics - Fixed Point)
-  - [Processing Version](CC_64_4_InverseKinematics_array/) (Inverse Kinematics - Multiple)
+  - [Processing Version](CC_064_1_a_ForwardKinematics/) (A Version)
+  - [Processing Version](CC_064_1_b_ForwardKinematics/) (B Version)
+  - [Processing Version](CC_064_2_InverseKinematics/) (Inverse Kinematics)
+  - [Processing Version](CC_064_3_InverseKinematics_fixed/) (Inverse Kinematics - Fixed Point)
+  - [Processing Version](CC_064_4_InverseKinematics_array/) (Inverse Kinematics - Multiple)
 - Coding Challenge #65: Binary Search Tree
-  - [JavaScript Version](CC_65_1_binary_tree/)
-  - [JavaScript Version](CC_65_2_binary_tree_viz/) (Visualizing a Binary Tree)
+  - [JavaScript Version](CC_065_1_binary_tree/)
+  - [JavaScript Version](CC_065_2_binary_tree_viz/) (Visualizing a Binary Tree)
 - Coding Challenge #66: JavaScript Countdown Timer
-  - [JavaScript Version](CC_66_timer/)
+  - [JavaScript Version](CC_066_timer/)
 - Coding Challenge #67: Pong!
-  - [Processing Version](CC_67_Pong/)
-  - [Processing Version](CC_67_angle_testing/) (Angle Testing)
+  - [Processing Version](CC_067_Pong/)
+  - [Processing Version](CC_067_angle_testing/) (Angle Testing)
 - Coding Challenge #68: Breadth-First Search
-  - [JavaScript Version](CC_68_BFS_kevin_bacon/)
+  - [JavaScript Version](CC_068_BFS_kevin_bacon/)
 - Coding Challenge #69: Evolutionary Steering Behaviors
-  - [JavaScript Version](CC_69_steering_evolution/)
+  - [JavaScript Version](CC_069_steering_evolution/)
 - Coding Challenge #70: Nearest Neighbors Recommendation Engine
-  - [JavaScript Version](CC_70_1_similarity_score/) (Similarity Score)
-  - [JavaScript Version](CC_70_2_nearest_neighbors/) (Nearest Neighbors)
-  - [JavaScript Version](CC_70_3_movie_recommender/) (Movie Recommender)
+  - [JavaScript Version](CC_070_1_similarity_score/) (Similarity Score)
+  - [JavaScript Version](CC_070_2_nearest_neighbors/) (Nearest Neighbors)
+  - [JavaScript Version](CC_070_3_movie_recommender/) (Movie Recommender)
 - Coding Challenge #71: Minesweeper
-  - [JavaScript Version](CC_71_minesweeper/)
+  - [JavaScript Version](CC_071_minesweeper/)
 - Coding Challenge #72: Perceptron
   - [Processing Version](CC_72_SimplePerceptron/)
 - Coding Challenge #73: Frogger
   - [Processing Version](CC_73_Frogger/)
 - Coding Challenge #74: Clock
-  - [JavaScript Version](CC_74_Clock/)
+  - [JavaScript Version](CC_074_Clock/)
 - Coding Challenge #75: Wikipedia
-  - [JavaScript Version](CC_75_Wikipedia/)
+  - [JavaScript Version](CC_075_Wikipedia/)
 - Coding Challenge #76: 10PRINT
-  - [JavaScript Version](CC_76_10PRINT/)
+  - [JavaScript Version](CC_076_10PRINT/)
 - Coding Challenge #77: Recursion
-  - [JavaScript Version](CC_77_Recursion/)
+  - [JavaScript Version](CC_077_Recursion/)
 - Coding Challenge #78: Simple Particle System
-  - [JavaScript Version](CC_78_Simple_Particle_System/)
+  - [JavaScript Version](CC_078_Simple_Particle_System/)
 - Coding Challenge #79: Number Guessing Chatbot
-  - [JavaScript Version](CC_79_Number_Guessing_Chatbot/)
+  - [JavaScript Version](CC_079_Number_Guessing_Chatbot/)
 - Coding Challenge #80: Voice Chatbot with p5.Speech
-  - [Javascript Version](CC_80_Voice_Chatbot_with_p5.Speech/)
+  - [Javascript Version](CC_080_Voice_Chatbot_with_p5.Speech/)
 - Coding Challenge #81: Circle Morphing
-  - [Javascript Version](CC_81_1_Circle_Morphing_Part_1/) (Part 1)
-  - [Javascript Version](CC_81_2_Circle_Morphing_Part_2/) (Part 2)
+  - [Javascript Version](CC_081_1_Circle_Morphing_Part_1/) (Part 1)
+  - [Javascript Version](CC_081_2_Circle_Morphing_Part_2/) (Part 2)
 - Coding Challenge #82: Image Chrome Extention: The Ex-Kitten-sion
-  - [Javascript Version](CC_82_Image_Chrome_Extension_The_Ex-Kitten-sion)
+  - [Javascript Version](CC_082_Image_Chrome_Extension_The_Ex-Kitten-sion)
 - Coding Challenge #83: Chrome Extension with p5js Sketch
-  - [Javascript Version](CC_83_Chrome_Extension_with_p5js_Sketch)
+  - [Javascript Version](CC_083_Chrome_Extension_with_p5js_Sketch)
 - Coding Challenge #84: Word Definition Extension
-  - [Javascript Version](CC_84_Word_Definition_Extension)
+  - [Javascript Version](CC_084_Word_Definition_Extension)
 - Coding Challenge #85: The Game of Life
-  - [Javascript Version](CC_85_The_Game_of_Life)
-  - [Processing Version](CC_85_The_Game_Of_Life_Processing)
+  - [Javascript Version](CC_085_The_Game_of_Life)
+  - [Processing Version](CC_085_The_Game_Of_Life_Processing)
 - Coding Challenge #86: Bees and Bombs
-  - [Javascript Version](CC_86_beesandbombs)
+  - [Javascript Version](CC_086_beesandbombs)
 - Coding Challenge #87: 3D Knot
-  - [Processing Version](CC_87_3D_Knots)
+  - [Processing Version](CC_087_3D_Knots)
 - Coding Challenge #88: Snowfall
-  - [Javascript Version](CC_88_snowfall)
-  - [Processing Version](CC_88_snowfall_Processing)
+  - [Javascript Version](CC_088_snowfall)
+  - [Processing Version](CC_088_snowfall_Processing)
 - Coding Challenge #89: Langton's ant
-  - [Javascript Version](CC_89_langtonsant_p5.js)
-  - [Processing Version](CC_89_langtonsant)
+  - [Javascript Version](CC_089_langtonsant_p5.js)
+  - [Processing Version](CC_089_langtonsant)
 - Coding Challenge #90: Dithering
-  - [Javascript Version](CC_90_dithering_p5.js)
-  - [Processing Version](CC_90_dithering)
+  - [Javascript Version](CC_090_dithering_p5.js)
+  - [Processing Version](CC_090_dithering)
 - Coding Challenge #91: Snakes & Ladders
-  - [Javascript Version](CC_91_snakesladders_p5.js)
+  - [Javascript Version](CC_091_snakesladders_p5.js)
