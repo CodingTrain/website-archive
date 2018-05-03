@@ -16,6 +16,11 @@ contributions:
       name: "Bob Voorneveld"
       url: "https://www.bobvoorneveld.nl"
     url: "https://github.com/bobvoorneveld/Coding-Challenges/tree/master/CC001-Starfield"
+  - title: "Hyperdrive Engaged"
+    author:
+      name: "JurriaanD"
+      url: "http://projects.jurriaan.be/starfield/"
+    url: "https://github.com/JurriaanD/Starfield"
 
 ---
 
