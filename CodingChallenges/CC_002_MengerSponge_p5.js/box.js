@@ -27,9 +27,9 @@ function Box(x, y, z, r) {
   this.show = function() {
     push();
     translate(this.pos.x, this.pos.y, this.pos.z);
-    stroke(255);
-    noStroke();
-    noFill();
+    //stroke(255);
+    //noStroke();
+    //noFill();
     //fill(255);
     box(this.r);
     pop();

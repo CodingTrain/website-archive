@@ -9,6 +9,7 @@ var sponge = [];
 
 function setup() {
   createCanvas(400, 400, WEBGL);
+  normalMaterial();
 
   // An array of Box objects
   // Star with one
