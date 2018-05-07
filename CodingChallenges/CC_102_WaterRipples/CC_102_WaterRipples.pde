@@ -6,8 +6,8 @@
 // Video: https://youtu.be/BZUdGqeOD0w
 // Algorithm: https://web.archive.org/web/20160418004149/http://freespace.virgin.net/hugo.elias/graphics/x_water.htm
 
-int cols = 200;
-int rows = 200;
+int cols;
+int rows;
 float[][] current;// = new float[cols][rows];
 float[][] previous;// = new float[cols][rows];
 
@@ -25,16 +25,12 @@ void mouseDragged() {
   current[mouseX][mouseY] = 255;
 }
 
-
-
-
-
 void draw() {
   background(0);
+  
   loadPixels();
   for (int i = 1; i < cols-1; i++) {
     for (int j = 1; j < rows-1; j++) {
-
       current[i][j] = (
         previous[i-1][j] + 
         previous[i+1][j] +
