@@ -16,7 +16,7 @@ topics:
     url: "https://www.youtube.com/watch?v=nAz9AA_pQUQ"
   - title: "Langton's ant Coding Challenge"
     time: "2:08:00"
-    url: "/CodingChallenges/89-langtonsant"
+    url: "/CodingChallenges/089-langtonsant"
  
 links:
   - title: "The Coding Train on Amazon"
@@ -46,7 +46,7 @@ videos:
   - title: "My Series on ES6"
     url: "/Tutorials/16-javascript-es6"
   - title: "My Game of Life coding challenge"
-    url: "/CodingChallenges/85-the-game-of-life"
+    url: "/CodingChallenges/085-the-game-of-life"
   - title: "My Tutorial on Pixels in Processing"
     url: "https://www.youtube.com/watch?v=EmtU0eloTlE"
     

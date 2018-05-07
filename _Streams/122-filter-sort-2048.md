@@ -16,13 +16,13 @@ topics:
     url: "/Tutorials/16-javascript-es6/16.10-particle-system-with-js-array-functions"
   - title: "2048 - Part 1"
     time: "1:34:08"
-    url: "/CodingChallenges/94.1-2048"
+    url: "/CodingChallenges/094.1-2048"
   - title: "2048 - Part 2"
     time: "2:27:54"
-    url: "/CodingChallenges/94.2-2048"
+    url: "/CodingChallenges/094.2-2048"
   - title: "2048 - Part 3"
     time: "2:48:23"
-    url: "/CodingChallenges/94.3-2048"
+    url: "/CodingChallenges/094.3-2048"
    
 links:
  - title: "Toy-Neural-Network-JS"

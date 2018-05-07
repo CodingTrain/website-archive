@@ -59,6 +59,9 @@ compress_html: { ignore: { envs: ['development'] } }
 # Search for SASS files inside assets/css.
 sass: { sass_dir: 'assets/css' }
 
+# Use jekyll-redirect-from to allow redirections
+plugins:
+  - jekyll-redirect-from
 
 
 # --- Jekyll Locations ---
@@ -110,7 +113,7 @@ defaults:
       video_type:       "guest tutorial"
       video_type_short: "tutorial"
       can_contribute:   false
-  
+
   # Courses
   - scope:              { path: "", type: "Courses" }
     values:

@@ -3,7 +3,7 @@
 
 
 ### Link to source code to Coding Challenge #43: 
-* [Context-Free Grammar](https://github.com/CodingTrain/Rainbow-Code/tree/master/challenges/CC_43_ContextFreeGrammar)
+* [Context-Free Grammar](https://github.com/CodingTrain/Rainbow-Code/tree/master/challenges/CC_043_ContextFreeGrammar)
 
 ### Questions? Need Support?
 * Join: http://patreon.com/codingtrain
