@@ -35,6 +35,12 @@ contributions:
       url: "https://hmbd.wordpress.com/2017/12/16/interactive-multibody-dynamics-in-processing/"
     url: "https://www.openprocessing.org/sketch/507468"
     source: "https://www.openprocessing.org/sketch/507468"  
+  - title: "Double Pendulum with colored trail based on the velocity of the weights"
+    author:
+      name: "Kobi Tate"
+      url: "https://kobitate.com"
+    url: "https://github.com/TheRealGitCub/CC-Double-Pendulum"
+    source: "https://github.com/TheRealGitCub/CC-Double-Pendulum/blob/master/DoublePendulum.pde"
 
 ---
 
