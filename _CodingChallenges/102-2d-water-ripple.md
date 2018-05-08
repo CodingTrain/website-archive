@@ -18,6 +18,12 @@ videos:
 - title: "Cellular Automata"
   video_id: "DKGodqDs9sA"
 
+contributions:
+  - title: "Splash!"
+    author:
+      name: "Spongman"
+    url: "https://codepen.io/Spongman/project/full/ArxVJQ/"
+    source: "https://codepen.io/Spongman/project/editor/ArxVJQ"
 
 ---
 
