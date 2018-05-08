@@ -11,7 +11,7 @@ int rows;
 float[][] current;// = new float[cols][rows];
 float[][] previous;// = new float[cols][rows];
 
-float dampening = 0.95;
+float dampening = 0.99;
 
 void setup() {
   size(600, 400);
@@ -22,7 +22,7 @@ void setup() {
 }
 
 void mouseDragged() {
-  current[mouseX][mouseY] = 255;
+  previous[mouseX][mouseY] = 500;
 }
 
 void draw() {
@@ -39,7 +39,7 @@ void draw() {
         current[i][j];
       current[i][j] = current[i][j] * dampening;
       int index = i + j * cols;
-      pixels[index] = color(current[i][j]*255);
+      pixels[index] = color(current[i][j]);
     }
   }
   updatePixels();
