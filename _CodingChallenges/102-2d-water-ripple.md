@@ -25,6 +25,11 @@ contributions:
     url: "https://codepen.io/Spongman/project/full/ArxVJQ/"
     source: "https://codepen.io/Spongman/project/editor/ArxVJQ"
 
+  - title: "Javascript 2D Water Ripple"
+    author:
+      name: "David Sarma"
+    url: "https://codepen.io/ds604/pen/VxroVN"
+    source: "https://gist.github.com/ds604/228483d2498cdfdf79ef9df22676b899"
 ---
 
 In this coding challenge, I attempt to simulate 2D water ripples using Processing (Java).
