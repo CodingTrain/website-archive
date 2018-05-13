@@ -80,6 +80,13 @@ contributions:
       url: https://www.openprocessing.org/user/102359
     url: https://www.openprocessing.org/sketch/460769
     source: https://www.openprocessing.org/sketch/460769
+    
+  - title: "Particle Spring Paint"
+    author:
+      name: "jjwkdl"
+      url: https://jjwkdl.github.io/
+    url: https://jjwkdl.github.io/blog-content/javascript/VisualArt/cherry_blossom/index.html
+   source: https://github.com/jjwkdl/blog-content/tree/master/javascript/VisualArt/cherry_blossom
 ---
 
 In this coding challenge, I explore the concept of a simple particle system and attempt to create a smoke effect with the p5.js library.
