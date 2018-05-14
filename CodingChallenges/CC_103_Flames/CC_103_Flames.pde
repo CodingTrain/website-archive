@@ -2,7 +2,7 @@
 // http://codingtra.in
 // http://patreon.com/codingtrain
 
-// 2D Water Ripples
+// Fire Effect
 // Video: https://youtu.be/X0kjv0MozuY
 // Algorithm: https://web.archive.org/web/20160418004150/http://freespace.virgin.net/hugo.elias/models/m_fire.htm
 
