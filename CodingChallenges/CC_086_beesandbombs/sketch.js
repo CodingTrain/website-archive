@@ -8,20 +8,26 @@
 
 let angle = 0;
 let w = 24;
-let ma;
+let maX;
+let maY;
 let maxD;
+let mousePosX;
+let mousePosY;
 
 function setup() {
   createCanvas(400, 400, WEBGL);
-  ma = atan(cos(QUARTER_PI));
+  maX = -atan(cos(QUARTER_PI));
+  maY = QUARTER_PI;
   maxD = dist(0, 0, 200, 200);
+  mousePosX = mouseX;
+  mousePosY = mouseY;
 }
 
 function draw() {
   background(100);
   ortho(-400, 400, 400, -400, 0, 1000);
-  rotateX(-ma);
-  rotateY(-QUARTER_PI)﻿
+  rotateX(maX);
+  rotateY(maY)﻿
 
   for (let z = 0; z < height; z += w) {
     for (let x = 0; x < width; x += w) {
@@ -33,10 +39,19 @@ function draw() {
       translate(x - width / 2, 0, z - height / 2);
       normalMaterial();
       box(w, h, w);
-      //rect(x - width / 2 + w / 2, 0, w - 2, h);
       pop();
     }
   }
 
   angle -= 0.1;
+  mousePosX = mouseX;
+  mousePosY = mouseY;
+}
+function mouseDragged() {
+  let ang = map(mouseX-mousePosX, -width, width, -PI, PI);
+  maY += ang;
+  let ang2 = map(mouseY-mousePosY, -height, height, PI, -PI);
+  maX += ang2;
+  mousePosX = mouseX;
+  mousePosY = mouseY;
 }
