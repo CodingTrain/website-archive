@@ -5,6 +5,14 @@ date: 2018-06-04
 video_id: tIXDik5SGsI
 repository: /CC_105_tf_polynomial_regression
 
+contributions:
+  - title: "My polynomial regression version with n-degree polynomial curve interface."
+    author:
+      name: "Makarand Lahane"
+    url: "https://mklahane.github.io/ML/NPolynomialRegression/"
+    source: "https://github.com/MkLahane/ML/tree/master/NPolynomialRegression"
+---
+
 links:
 - title: "TensorFlow.js"
   url: "https://js.tensorflow.org/"
