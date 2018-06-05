@@ -16,12 +16,17 @@ videos:
   playlist_id: "PLRqwX-V7Uu6YIeVA3dNxbR9PYj4wV31oQ"
   
 contributions:
-- title: "Polynomial Regression in p5.js with sliders for degree and learning rate"
-  author:
-    name: "tobiasvonarx"
-    url: "https://github.com/tobiasvonarx"
-  url: "https://tobiasvonarx.github.io/HTML5-JS/Polynomial%20Regression"
-
+  - title: "Polynomial Regression in p5.js with sliders for degree and learning rate"
+    author:
+      name: "tobiasvonarx"
+      url: "https://github.com/tobiasvonarx"
+    url: "https://tobiasvonarx.github.io/HTML5-JS/Polynomial%20Regression"
+  - title: "Polynomial Regression with varbiable degree and controllable learning rate"
+    author:
+      name: "Semjon Bibow"
+      url: "https://github.com/hablwgq"
+    url: "https://hablwgq.github.io/coding/p5js%20polynomial%20regression/"
+    source: "https://github.com/hablwgq/coding/tree/master/p5js%20polynomial%20regression"
 ---
 
 In this challenge, I expand the [linear example](https://youtu.be/dLp10CFIvxI) into polynomial regression!
