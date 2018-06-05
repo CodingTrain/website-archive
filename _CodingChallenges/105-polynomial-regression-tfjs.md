@@ -19,8 +19,8 @@ contributions:
 - title: "My polynomial regression with n-degree polynomial interface."
   author:
     name: "Makarand Lahane"
-    url: "https://mklahane.github.io/ML/NPolynomialRegression/"
-   source: "https://github.com/MkLahane/ML"
+  url: "https://mklahane.github.io/ML/NPolynomialRegression/"
+  source: "https://github.com/MkLahane/ML"
 - title: "Polynomial Regression with varbiable degree and controllable learning rate"
   author:
     name: "Semjon Bibow"
