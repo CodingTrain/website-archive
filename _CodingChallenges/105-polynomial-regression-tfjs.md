@@ -16,6 +16,12 @@ videos:
   playlist_id: "PLRqwX-V7Uu6YIeVA3dNxbR9PYj4wV31oQ"
   
 contributions:
+- title: "Polynomial Regression in p5.js with sliders for degree and learning rate"
+  author:
+    name: "tobiasvonarx"
+    url: "https://github.com/tobiasvonarx"
+  url: "https://tobiasvonarx.github.io/HTML5-JS/Polynomial%20Regression"
+  source: "https://github.com/tobiasvonarx/HTML5-JS/tree/master/Polynomial%20Regression"
 - title: "My polynomial regression with n-degree polynomial interface."
   author:
     name: "Makarand Lahane"
