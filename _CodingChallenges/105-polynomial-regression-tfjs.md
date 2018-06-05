@@ -16,14 +16,17 @@ videos:
   playlist_id: "PLRqwX-V7Uu6YIeVA3dNxbR9PYj4wV31oQ"
   
 contributions:
- - title: "My polynomial regression with n-degree polynomial interface."
-   author:
+- title: "My polynomial regression with n-degree polynomial interface."
+  author:
     name: "Makarand Lahane"
    url: "https://mklahane.github.io/ML/NPolynomialRegression/"
    source: "https://github.com/MkLahane/ML"
-    
+- title: "Polynomial Regression with varbiable degree and controllable learning rate"
+  author:
+    name: "Semjon Bibow"
+    url: "https://github.com/hablwgq"
+  url: "https://hablwgq.github.io/coding/p5js%20polynomial%20regression/"
+  source: "https://github.com/hablwgq/coding/tree/master/p5js%20polynomial%20regression"
 ---
-
-
 
 In this challenge, I expand the [linear example](https://youtu.be/dLp10CFIvxI) into polynomial regression!
