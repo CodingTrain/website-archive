@@ -42,7 +42,7 @@ function Walker(x, y) {
 
   this.show = function() {
     noStroke();
-    if (this.stuck) {
+    if (this.stuck && typeof this.hu !== 'undefined') {
       fill(this.hu, 255, 100, 200);
     } else {
       fill(360, 0, 255);

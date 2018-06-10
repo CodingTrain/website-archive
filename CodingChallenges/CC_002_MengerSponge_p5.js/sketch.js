@@ -9,6 +9,9 @@ var sponge = [];
 
 function setup() {
   createCanvas(400, 400, WEBGL);
+  // as of p5.js 0.6.0, normal material is no longer the default and
+  // has to be explicitly selected.
+  normalMaterial();
 
   // An array of Box objects
   // Star with one
