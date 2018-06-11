@@ -2,11 +2,8 @@
 // http://codingtra.in
 // http://patreon.com/codingtrain
 
-// XOR
-// https://youtu.be/188B6k_F9jU
-
-// Neural Network Library
-// https://github.com/CodingTrain/Toy-Neural-Network-JS
+// XOR with tf.js
+// https://youtu.be/N3ZnNa01BPM
 
 let nn;
 let model;
