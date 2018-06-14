@@ -1,4 +1,4 @@
-var url = "http://api.nytimes.com/svc/search/v2/articlesearch.json?q=rainbow&api-key=99cfea65a5bb30650b3d31eb1713233e:15:73386102";
+var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=rainbow&api-key=99cfea65a5bb30650b3d31eb1713233e:15:73386102";
 
 function setup() {
   noCanvas();
