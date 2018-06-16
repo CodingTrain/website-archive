@@ -14,7 +14,11 @@ function linkUrl() {
       if(typeof value !== 'string') {
         return new Error(`${propName} of ${componentName} is not a string.`);
       }
-      if(value.match(/https:\/\/(youtube\.com\/watch|youtu\.be\/)/)) {
+      if(value.match(/https?:\/\/(www\.)?(youtube\.com\/watch|youtu\.be\/)/)) {
+        let playlistMatch = value.match(/(&|\?)list=([^&]*)/);
+        if(playlistMatch) {
+          return new Error(`${propName} of ${componentName} references a YouTube url that looks like a playlist. Perhaps use https://www.youtube.com/playlist?list=${playlistMatch[2]} instead`);
+        }
         return new Error(`${propName} of ${componentName} references a YouTube url instead of video_id`);
       }
       if(value.startsWith('http://') || value.startsWith('https://')) {
