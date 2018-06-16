@@ -32,6 +32,8 @@ let directories = {
   _Tutorials: formatDefinitions.video,
 };
 
+let knownVideos = {};
+
 const checkFolder = (videoFormat, previousPath, folder) => describe(folder, () => {
   expect(videoFormat).toBeDefined();
   expect(previousPath).toBeDefined();
@@ -125,6 +127,13 @@ const checkFolder = (videoFormat, previousPath, folder) => describe(folder, () =
     test('has valid YAML', () => {
       yamlContents = contents.split("---")[1];
       decodedYaml = yaml.safeLoad(yamlContents);
+      if(decodedYaml.video_id) {
+        let previous = knownVideos[decodedYaml.video_id];
+        if(previous) {
+          throw new Error(`Duplicate video_id. Original file: ${previous}`)
+        }
+        knownVideos[decodedYaml.video_id] = filePath;
+      }
     });
 
     // Uses PropTypes to validate the structure and types of all of the
