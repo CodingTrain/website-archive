@@ -1,6 +1,25 @@
 const PropTypes = require('prop-types');
 const exact = require('prop-types-exact');
 
+function noYouTubeUrl() {
+  function check(isRequired, props, propName, componentName) {
+    if(props[propName]) {
+      let value = props[propName];
+      if(typeof value !== 'string') {
+        return new Error(`${propName} of ${componentName} is not a string.`);
+      }
+      if(value.matches(/https:\/\/(youtube\.com\/watch|youtu\.be\/)/)) {
+        return new Error(`${propName} of ${componentName} references a YouTube url instead of video_id`);
+      }
+    } else if(isRequired) {
+      return new Error(`${propName} of ${componentName} is required.`);
+    }
+  }
+  let ret = check.bind(null, false);
+  ret.isRequired = check.bind(null, true);
+  return ret;
+}
+
 const link = module.exports.link = exact({
   title: PropTypes.string.isRequired,
   author: PropTypes.oneOfType([
@@ -11,7 +30,7 @@ const link = module.exports.link = exact({
     PropTypes.string,
   ]),
   time: PropTypes.string,
-  url: PropTypes.string,
+  url: noYouTubeUrl,
   video_id: PropTypes.string,
   playlist_id: PropTypes.string,
   source: PropTypes.string,
