@@ -6,11 +6,10 @@ date: 2017-12-11
 video_id: FWSR_7kZuYg
 repository: /CC_085_The_Game_of_Life
 links:
-- title: "Conway's Game of Life on Wikipedia"  
+- title: "Conway's Game of Life on Wikipedia"
   url: "https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
-- title: "Mathematical Games"  
+- title: "Mathematical Games"
   url: "http://www.ibiblio.org/lifepatterns/october1970.html"
-
 
 videos:
 - title: "My Video on The Game of Life"
@@ -19,7 +18,6 @@ videos:
   url: "/Tutorials/9-additional-topics/9.15-2d-arrays-in-javascript"
 - title: "The Modulo Operator with Golan Levin"
   url: "/GuestTutorials/6-golan-levin-modulo-operator"
-
 ---
 
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.

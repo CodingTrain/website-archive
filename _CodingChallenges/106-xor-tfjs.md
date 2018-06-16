@@ -24,8 +24,6 @@ videos:
   video_id: "F4WWukTWoXY"
 - title: "async/await"
   video_id: "XO77Fib9tSI"
-
-
 ---
 
 In this coding challenge, I visualize solving XOR once again, this time with the TensorFlow.js library.

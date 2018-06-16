@@ -27,7 +27,6 @@ videos:
   video_id: "NPoj8lk9Fo4"
 - title: "Learning Processing"
   playlist_id: "PLRqwX-V7Uu6ZYJC7L-r6rX6utt6wwJCyi"
-
 ---
 
 In this second Pi Day coding challenge, I attempt to "visualize" the digits of Pi. [#PiTrain](https://twitter.com/hashtag/PiTrain)

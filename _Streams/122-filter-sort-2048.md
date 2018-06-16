@@ -49,7 +49,6 @@ videos:
     playlist_id: "PLRqwX-V7Uu6aCibgK1PTWWu9by6XFdCfh"
   - title: "for...of video"
     url: "/Tutorials/16-javascript-es6/16.4-for-of-loop"
-
 ---
 
 In this live stream, I continue the topic of higher order functions and cover the array functions `sort()` and `filter()`. I rewrite the particle system coding challenge using higher order functions and attempt again to create a simple version of 2048 (this time in JavaScript!)

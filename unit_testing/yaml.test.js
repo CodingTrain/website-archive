@@ -151,6 +151,18 @@ const checkFolder = (videoFormat, previousPath, folder) => describe(folder, () =
         let value = decodedYaml[k];
         findVideos(filePath, value);
       }
+      if(yamlContents.match(/ \n/)) {
+        throw new Error(`Extra space at the end of line: '${yamlContents.match(/[^\n]* \n/)[0].slice(0, -1)}'`);
+      }
+      if(yamlContents.match(/\n\n\n/)) {
+        throw new Error('Double blank lines in YAML');
+      }
+      if(yamlContents.match(/^\n\n/)) {
+        throw new Error('Blankline at top of YAML');
+      }
+      if(yamlContents.match(/\n\n$/)) {
+        throw new Error('Blankline at bottom of YAML');
+      }
     });
 
     // Uses PropTypes to validate the structure and types of all of the

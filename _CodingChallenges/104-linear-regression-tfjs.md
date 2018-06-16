@@ -20,8 +20,6 @@ videos:
   url: "/Tutorials/16-javascript-es6/16.3-arrow-function"
 - title: "JavaScript Promises"
   playlist_id: "PLRqwX-V7Uu6bKLPQvPRNNE65kBL62mVfx"
-
-
 ---
 
 In this challenge, I use the TensorFlow.js library to create an interactive demonstration of linear regression (with stochastic gradient descent!)

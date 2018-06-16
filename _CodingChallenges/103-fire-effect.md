@@ -17,7 +17,7 @@ videos:
   url: "/CodingChallenges/102-2d-water-ripple"
 - title: "What is Perlin Noise?"
   playlist_id: "PLRqwX-V7Uu6bgPNQAdxQZpJuJCjeOr7VD"
-  
+
 contributions:
 - title: "Fire Effect as a shader using GLSL"
   author:
@@ -26,4 +26,4 @@ contributions:
   url: "https://www.shadertoy.com/view/lsdBD2"
 ---
 
-In this coding challenge, I implement a pixel-based “fire” algorithm using Processing (Java). 
+In this coding challenge, I implement a pixel-based “fire” algorithm using Processing (Java).

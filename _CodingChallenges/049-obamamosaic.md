@@ -12,13 +12,8 @@ links:
 - title: "ITP 'Obamathon' Github Repo"
   url: "https://github.com/ITPNYU/Obamathon/tree/master/examples/P5/TweetsByMonth"
 videos:
-- title: "My Video on Pixel Arrays"  
+- title: "My Video on Pixel Arrays"
   video_id: "https://youtu.be/EmtU0eloTlE"
-  
-
-
-  
 ---
 
 In this coding challenge, I use a collection of Obama Administration's facebook images to create a "photo mosaic" of President Obama with Processing (Java).
-

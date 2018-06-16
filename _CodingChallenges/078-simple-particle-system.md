@@ -16,7 +16,6 @@ videos:
   - title: "Particle Systems playlist"
     url: "https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Z9hI4mSgx2FlE5w8zvjmEy"
 
-
 contributions:
   - title: "Audio and Color Gradient Particle System"
     author:

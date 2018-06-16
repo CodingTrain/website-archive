@@ -14,7 +14,7 @@ topics:
   - title: "reduce()"
     time: "1:09:53"
     url: "/Tutorials/16-javascript-es6/16.7-reduce"
-   
+
 links:
  - title: "Arrays on MDN"
    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"

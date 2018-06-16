@@ -7,9 +7,9 @@ video_id: IIrC5Qcb2G4
 repository: /CC_067_Pong
 live_example: /CC_067_Pong_p5.js
 links:
-- title: "Pong on Wikipedia"  
+- title: "Pong on Wikipedia"
   url: "https://en.wikipedia.org/wiki/Pong"
-- title: "Paddle angles drawing"  
+- title: "Paddle angles drawing"
   url: "https://i1.wp.com/zekechan.net/wp-content/uploads/2015/07/pong-05b.png?resize=600%2C500"
 videos:
 - title: "My Video on Polar Coordinates"

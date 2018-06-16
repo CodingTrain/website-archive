@@ -18,10 +18,9 @@ videos:
   - title: "ESLint video"
     video_id: "clzTwZgMlqE"
   - title: "What is NodeJS ?"
-    url: "/Tutorials/15-twitter-bot/15.1-intro-nodejs"  
+    url: "/Tutorials/15-twitter-bot/15.1-intro-nodejs"
   - title: "STEMcoding celebrates PiDay"
     video_id: "D0-poyEALC0"
-
 ---
 
 In this live stream, I attempt to create a pull request that adds the loadBytes() function to the p5.js library.

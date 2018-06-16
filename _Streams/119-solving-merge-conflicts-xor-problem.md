@@ -11,7 +11,7 @@ topics:
   - title: "XOR Problem"
     time: "52:51"
     url: "/CodingChallenges/092-xor"
- 
+
 links:
   - title: "Toy-Neural-Network-JS"
     url: "https://github.com/CodingTrain/Toy-Neural-Network-JS"

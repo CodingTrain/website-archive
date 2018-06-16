@@ -26,7 +26,6 @@ contributions:
     url: "http://mogensmeissner.tk/"
   url: "http://mogensmeissner.tk/coding/examples/pi/p5/empty-example/index.html"
   source: "https://github.com/MogiMei/ApproximatePi/"
-
 ---
 
 In this coding challenge, I use use a "monte carlo" method to approximate the value of Pi in Processing (Java).

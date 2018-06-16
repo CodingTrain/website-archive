@@ -6,7 +6,7 @@ date: 2017-10-23
 video_id: iFTgphKCP9U
 repository: /CC_080_Voice_Chatbot_with_p5.Speech
 
-links: 
+links:
   - title: "NYU Ability Project"
     url: "http://ability.nyu.edu/"
   - title: "p5.Speech on GitHub"
@@ -19,7 +19,6 @@ videos:
     url: "/Courses/programming-with-text/10-chatbots/10.3-text-to-speech"
   - title: "Speech Recognition with p5.Speech"
     url: "/Courses/programming-with-text/10-chatbots/10.4-speech-recognition"
-
 
 contributions:
   - title: "Stupid Nonsense Spoken Sentences V2"

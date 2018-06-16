@@ -15,7 +15,7 @@ topics:
     url: "https://www.youtube.com/watch?v=r2-P1Fi1g60"
   - title: "Learning with Gradient Descent"
     time: "1:40:25"
- 
+
 links:
   - title: "SFPC's Learning to Teach 2018"
     url: "https://medium.com/@sfpc/learning-to-teach-2018-4dca068b0fb8"

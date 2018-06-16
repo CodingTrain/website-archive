@@ -22,8 +22,6 @@ contributions:
       name: "Bob Voorneveld"
       url: "https://www.bobvoorneveld.nl"
     source: "https://github.com/bobvoorneveld/Coding-Challenges/tree/master/CC002-Menger%20Sponge%20Fractal"
-  
 ---
 
 In this coding challenge, I attempt to code the Menger Sponge (fractals) using Processing.
-

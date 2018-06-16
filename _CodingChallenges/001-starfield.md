@@ -21,8 +21,6 @@ contributions:
       name: "JurriaanD"
       url: "http://projects.jurriaan.be/starfield/"
     url: "https://github.com/JurriaanD/Starfield"
-
 ---
 
 This is the first in a new series of videos.  In this video I attempt to program a "star field" or "warp speed" visualization in Processing.  
-
