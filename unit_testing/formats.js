@@ -1,18 +1,11 @@
 const PropTypes = require('prop-types');
 const exact = require('prop-types-exact');
 const fs = require('fs');
-
-function urlToMarkdownFilename(url) {
-  return `../_${url.slice(1)}.md`;
-}
-
-function urlToDirectoryFilename(url) {
-  return `../_${url.slice(1)}/`;
-}
-
-function markdownFilenameToUrl(filename) {
-  return `/${filename.slice(4, -3)}`;
-}
+const {
+  markdownfilenameToUrl,
+  urlToMarkdownFilename,
+  urlToDirectoryFilename,
+} = require('./helpers');
 
 function linkUrl() {
   function check(isRequired, props, propName, componentName) {

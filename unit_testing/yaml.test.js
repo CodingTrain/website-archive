@@ -18,6 +18,9 @@ const path = require('path');
 const { assertPropTypes } = require('check-prop-types');
 // PropTypes of the documents are descibed in the formats.js file.
 const formatDefinitions = require('./formats.js');
+const {
+  markdownFilenameToUrl,
+} = require('./helpers');
 
 // if verbose set to true script will log almost everything it does.
 let verbose = false;
@@ -206,7 +209,7 @@ test('Youtube links', () => {
   Object.entries(linkedVideos)
     .map(([videoId, src]) => {
       if (videoId in knownVideos) {
-        throw new Error(`${videoId} linked in ${src} should point to ${knownVideos[videoId]}`)
+        throw new Error(`${videoId} linked in ${src} should point to ${markdownFilenameToUrl(knownVideos[videoId])}`)
       }
     });
 });
