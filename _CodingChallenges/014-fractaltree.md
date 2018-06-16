@@ -6,8 +6,8 @@ date: 2016-05-30
 video_id: 0jjeOYMjmDU
 repository: CC_014_FractalTree
 links:
-- title: "Algorithmic Botany"
-  url: "http://algorithmicbotany.org/"
+  - title: "Algorithmic Botany"
+    url: "http://algorithmicbotany.org/"
 
 contributions:
   - title: "Animated Fractral tree on Codepen using P5.JS"

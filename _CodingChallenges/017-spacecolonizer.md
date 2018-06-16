@@ -6,10 +6,10 @@ date: 2016-06-01
 video_id: kKT0v3qhIQY
 repository: /CC_017_SpaceColonizer
 links:
-- title: "Algorithmic Botany"
-  url: "http://algorithmicbotany.org/"
-- title: "Space Colonization Algorithm"
-  url: "http://algorithmicbotany.org/papers/colonization.egwnp2007.html"
+  - title: "Algorithmic Botany"
+    url: "http://algorithmicbotany.org/"
+  - title: "Space Colonization Algorithm"
+    url: "http://algorithmicbotany.org/papers/colonization.egwnp2007.html"
 
 contributions:
   - title: "Sakura Blossoms"

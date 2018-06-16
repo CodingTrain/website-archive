@@ -9,10 +9,10 @@ topics:
     time: "19:18"
 
 links:
- - title: "Processing Foundation"
-   url: "https://processingfoundation.org/"
- - title: "Luisa Pereira's p5.js videos"
-   url: "http://www.luisapereira.net/teaching/materials/processing-foundation/"
+  - title: "Processing Foundation"
+    url: "https://processingfoundation.org/"
+  - title: "Luisa Pereira's p5.js videos"
+    url: "http://www.luisapereira.net/teaching/materials/processing-foundation/"
 
 videos:
   - title: "ESLint video"

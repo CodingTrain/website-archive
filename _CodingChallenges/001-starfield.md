@@ -7,8 +7,8 @@ video_id: 17WoOqgXsRM
 repository: /CC_001_StarField
 live_example: /CC_001_StarField_p5.js
 links:
-- title: "Code inspired by CS Department of Bryn Mawr College"
-  url: "https://cs.brynmawr.edu/gxk2013/examples/transformations/starfield/"
+  - title: "Code inspired by CS Department of Bryn Mawr College"
+    url: "https://cs.brynmawr.edu/gxk2013/examples/transformations/starfield/"
 
 contributions:
   - title: "Swifty Starfield"

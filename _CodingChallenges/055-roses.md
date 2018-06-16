@@ -7,8 +7,8 @@ video_id: f5QBExMNB1I
 repository: /CC_055_Roses_p5
 live_example: false
 links:
-- title: "Rose Mathematics on Wikipedia"
-  url: "https://en.wikipedia.org/wiki/Rose_(mathematics)"
+  - title: "Rose Mathematics on Wikipedia"
+    url: "https://en.wikipedia.org/wiki/Rose_(mathematics)"
 ---
 
 In this coding challenge, I attempt to create rose (rhodonea) curves using trigonometry function and polar coordinates.

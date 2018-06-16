@@ -10,10 +10,10 @@ custom_sections:
 
   - title: "Contact Golan"
     items:
-    - title: "Twitter"
-      url: "https://twitter.com/golan"
-    - title: "Personal website"
-      url: "http://www.flong.com/"
+      - title: "Twitter"
+        url: "https://twitter.com/golan"
+      - title: "Personal website"
+        url: "http://www.flong.com/"
 ---
 
 Golan Levin visits the Coding Train studio for a tutorial about the modulo operator. He explains what modulus means and its applications in creative coding with p5.js and Processing.

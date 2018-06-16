@@ -8,12 +8,12 @@ repository: /CC_093_DoublePendulum
 live_example: /CC_093_DoublePendulum_p5.js
 
 links:
-- title: "Physics Lab Double Pendulum"
-  url: "https://www.myphysicslab.com/pendulum/double-pendulum-en.html"
+  - title: "Physics Lab Double Pendulum"
+    url: "https://www.myphysicslab.com/pendulum/double-pendulum-en.html"
 
 videos:
-- title: "Pendulum Simulation"
-  video_id: "9iaEqGOh5WM"
+  - title: "Pendulum Simulation"
+    video_id: "9iaEqGOh5WM"
 
 contributions:
   - title: "p5.js Double Pendulum with drag+drop and sliders"

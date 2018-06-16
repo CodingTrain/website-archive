@@ -7,12 +7,12 @@ video_id: KWoJgHFYWxY
 repository: /CC_030_Phyllotaxis
 live_example: /CC_030_phyllotaxis_p5.js
 links:
-- title: "Phyllotaxis on Wikipedia"
-  url: "https://en.wikipedia.org/wiki/Phyllotaxis"
-- title: "Algorithmic Botany - Phyllotaxis"
-  url: "http://algorithmicbotany.org/papers/abop/abop-ch4.pdf"
-- title: "Phyllotaxis example"
-  url: "https://bl.ocks.org/mbostock/11463507"
+  - title: "Phyllotaxis on Wikipedia"
+    url: "https://en.wikipedia.org/wiki/Phyllotaxis"
+  - title: "Algorithmic Botany - Phyllotaxis"
+    url: "http://algorithmicbotany.org/papers/abop/abop-ch4.pdf"
+  - title: "Phyllotaxis example"
+    url: "https://bl.ocks.org/mbostock/11463507"
 
 contributions:
   - title: "PhylloTaxis leaf arrangement"

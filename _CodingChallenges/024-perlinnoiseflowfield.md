@@ -6,8 +6,8 @@ date: 2016-06-27
 video_id: BjoM9oKOAKY
 repository: /CC_024_PerlinNoiseFlowField
 links:
-- title: "p5.js noise() reference"
-  url: "https://p5js.org/reference/#/p5/noise"
+  - title: "p5.js noise() reference"
+    url: "https://p5js.org/reference/#/p5/noise"
 
 contributions:
   - title: "Interactive Perlin Noise Flow Field"

@@ -142,18 +142,6 @@ const checkFolder = (videoFormat, previousPath, folder) => describe(folder, () =
 
     test('has valid YAML', () => {
       yamlContents = contents.split("---")[1];
-      decodedYaml = yaml.safeLoad(yamlContents);
-      if(decodedYaml.video_id) {
-        let previous = knownVideos[decodedYaml.video_id];
-        if(previous) {
-          throw new Error(`Duplicate video_id. Original file: ${previous}`)
-        }
-        knownVideos[decodedYaml.video_id] = filePath;
-      }
-      for(let k in decodedYaml) {
-        let value = decodedYaml[k];
-        findVideos(filePath, value);
-      }
       if(yamlContents.match(/ \n/)) {
         throw new Error(`Extra space at the end of line: '${yamlContents.match(/[^\n]* \n/)[0].slice(0, -1)}'`);
       }
@@ -166,16 +154,54 @@ const checkFolder = (videoFormat, previousPath, folder) => describe(folder, () =
       if(yamlContents.match(/\n\n$/)) {
         throw new Error('Blankline at bottom of YAML');
       }
+      // Requires a single space after starting an entry with -
+      let regex = /\n( *)-( {2,})?[^ ][^\n]*\n/;
+      if(yamlContents.match(regex)) {
+        throw new Error(`Incorrect spacing after entry '-'. Use one space: '${yamlContents.match(regex)[0].slice(1, -1)}'`);
+      }
+      // Indentation on consecutive lines, ignoring blank spacers
+      regex = /\n( *)[^ \-\n][^\n]*[^:\n]\n+(\1 [^\n]*)\n/;
+      if(yamlContents.match(regex)) {
+        throw new Error(`Incorrect indentation (Expected ${yamlContents.match(regex)[1].length} spaces): '${yamlContents.match(regex)[2]}'`);
+      }
+      // Indentation on lines after ones starting with - need two extra spaces
+      regex = /\n( *)- [^\n]*\n+(\1( {0,1}| {3,})[^ -][^\n]*)/;
+      if(yamlContents.match(regex)) {
+        throw new Error(`Incorrect indentation (Expected ${yamlContents.match(regex)[1].length + 2} spaces): '${yamlContents.match(regex)[2]}'`);
+      }
+      // Indentation on lines ending in : require two extra spaces
+      regex = /\n( *)[^ \n][^\n]*:\n+(\1( {0,1}| {3,})[^\n ][^\n]*)/;
+      if(yamlContents.match(regex)) {
+        throw new Error(`Incorrect indentation (Expected ${yamlContents.match(regex)[1].length + 2} spaces): '${yamlContents.match(regex)[2]}'`);
+      }
+      decodedYaml = yaml.safeLoad(yamlContents);
+      if(decodedYaml.video_id) {
+        let previous = knownVideos[decodedYaml.video_id];
+        if(previous) {
+          throw new Error(`Duplicate video_id. Original file: ${previous}`)
+        }
+        knownVideos[decodedYaml.video_id] = filePath;
+      }
+      for(let k in decodedYaml) {
+        let value = decodedYaml[k];
+        findVideos(filePath, value);
+      }
     });
 
     // Uses PropTypes to validate the structure and types of all of the
     // parts of the YAML, including if there are keys that don't exist
     // in the definition
     test("has valid YAML layout and types", () => {
+      if(!decodedYaml) {
+        return;
+      }
       assertPropTypes(videoFormat, decodedYaml, "YAML", fileName);
     });
 
     test('title matches internal numbering', () => {
+      if(!decodedYaml) {
+        return;
+      }
       // Get file name with leading zeros stripped
       let fileNumber = fileName.split('-')[0];
       fileNumber = fileNumber.replace(/^0+/, '');
@@ -191,6 +217,9 @@ const checkFolder = (videoFormat, previousPath, folder) => describe(folder, () =
     });
 
     test('has no contributions if it\'s in a multi-part video but not the first part', () => {
+      if(!decodedYaml) {
+        return;
+      }
       let videoStringParts = decodedYaml.video_number.toString().split('.');
       if(videoStringParts.length > 1) {
         if(videoStringParts[videoStringParts.length - 1] !== '1') {

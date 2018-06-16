@@ -16,10 +16,10 @@ topics:
     url: "/Tutorials/16-javascript-es6/16.7-reduce"
 
 links:
- - title: "Arrays on MDN"
-   url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
- - title: "Matter.js"
-   url: "http://brm.io/matter-js/"
+  - title: "Arrays on MDN"
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+  - title: "Matter.js"
+    url: "http://brm.io/matter-js/"
 
 videos:
   - title: "Foundations of Programming in JavaScript"
