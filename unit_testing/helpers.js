@@ -3,7 +3,7 @@ module.exports.urlToMarkdownFilename = function(url) {
 }
 
 module.exports.urlToDirectoryFilename = function(url) {
-  return `../_${url.slice(1)}/`;
+  return `../_${url.slice(1)}/index.md`;
 }
 
 module.exports.markdownFilenameToUrl = function(filename) {
