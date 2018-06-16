@@ -11,13 +11,12 @@ links:
   author: "Benoit Mandlebrot"
 - title: "My playlist on fractals and recursion"  
   url: "https://www.youtube.com/playlist?list=PLRqwX-V7Uu6bXUJvjnMWGU5SmjhI-OXef"
-  
+
 videos:
 - title: "My Video on Fractal Trees - Recursive"
-  video_id: "0jjeOYMjmDU"
+  url: "/CodingChallenges/014-fractaltree"
 
-  
+
 ---
 
 In this coding challenge, I explore the concept of recursion to create fractal patterns in JavaScript HTML5 canvas with the p5.js library.
-

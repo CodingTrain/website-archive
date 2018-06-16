@@ -18,17 +18,16 @@ links:
   url: "http://shiffman.net/a2z/"
 - title: "Visual Studio Code"  
   url: "https://code.visualstudio.com/Download"
-  
+
 
 videos:
 - title: "Diastic Machine"
-  video_id: "u-HUtrpyi1c"
+  url: "/CodingChallenges/037-diastic"
 - title: "FunFunFunction's video on let/var/const"
   video_id: "sjyJBL5fkp8"
 - title: "My Video on Closures"
   video_id: "-jysK0nlz7A"
-  
+
 ---
 
 In this coding challenge, I create an acrostic generator with the Wordnik API and p5.js. This challenge is part of my "Programming with Text" series.
-

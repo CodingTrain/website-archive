@@ -12,13 +12,12 @@ links:
   url: "https://github.com/ITPNYU/Obamathon/tree/master/examples/P5/TweetsByMonth"
 
 videos:
-- title: "My TF-IDF video"  
-  video_id: "RPMYV-eb6lI"
-  
+- title: "My TF-IDF video"
+  url: "/CodingChallenges/040.2-tf-idf"
 
 
-  
+
+
 ---
 
 In this coding challenge, I discuss how to use the newly released White House social media data to make simple data visualization example with p5.js.
-

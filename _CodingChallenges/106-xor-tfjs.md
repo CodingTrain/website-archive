@@ -19,13 +19,13 @@ videos:
 - title: "Coding Challenge #92: XOR Problem"
   url: "/CodingChallenges/092-xor"
 - title: "ES6 Arrow Function"
-  video_id: "mrYMzpbFz18"
+  url: "/Tutorials/16-javascript-es6/16.3-arrow-function"
 - title: "TensorFlow.js: Layers API"
   video_id: "F4WWukTWoXY"
 - title: "async/await"
   video_id: "XO77Fib9tSI"
-  
+
 
 ---
 
-In this coding challenge, I visualize solving XOR once again, this time with the TensorFlow.js library. 
+In this coding challenge, I visualize solving XOR once again, this time with the TensorFlow.js library.

@@ -14,7 +14,7 @@ links:
 
 videos:
   - title: "Instance Mode"
-    video_id: "Su792jEauZg"
+    url: "/Tutorials/9-additional-topics/9.11-instance-mode"
 ---
 
 In this coding challenge, I create a Chrome Extension which adds a p5.js drawing canvas on top of any webpage you visit.

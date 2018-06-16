@@ -21,13 +21,12 @@ links:
   url: "https://en.wikipedia.org/wiki/Euler_angles"
 - title: "Quaternions and spatial rotation on Wikipedia"  
   url: "https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation"
-  
+
 videos:
 - title: "Earthquake Data Visualization"
-  video_id: "ZiYdOwOrGyc"
+  url: "/CodingChallenges/057-mapping-earthquake-data"
   author: "The Coding Train"
-  
+
 ---
 
 In this coding challenge, I follow up on the Earthquake Data Visualization challenge and create a 3D version in Processing(Java) using spherical coordinates. I also discuss some 3D vector math including the cross product.
-

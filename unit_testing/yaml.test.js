@@ -33,6 +33,19 @@ let directories = {
 };
 
 let knownVideos = {};
+let linkedVideos = {};
+
+function findVideos(src, obj) {
+  if(typeof obj === 'string') {
+    return;
+  }
+  for(let k of Object.keys(obj)) {
+    if(k === 'video_id') {
+      linkedVideos[obj[k]] = src;
+    }
+    findVideos(src, obj[k]);
+  }
+}
 
 const checkFolder = (videoFormat, previousPath, folder) => describe(folder, () => {
   expect(videoFormat).toBeDefined();
@@ -134,6 +147,10 @@ const checkFolder = (videoFormat, previousPath, folder) => describe(folder, () =
         }
         knownVideos[decodedYaml.video_id] = filePath;
       }
+      for(let k in decodedYaml) {
+        let value = decodedYaml[k];
+        findVideos(filePath, value);
+      }
     });
 
     // Uses PropTypes to validate the structure and types of all of the
@@ -172,3 +189,12 @@ const checkFolder = (videoFormat, previousPath, folder) => describe(folder, () =
 // Do the checks
 Object.entries(directories)
   .map(([directory, videoFormat]) => checkFolder(videoFormat, "../", directory));
+
+test('Youtube links', () => {
+  Object.entries(linkedVideos)
+    .map(([videoId, src]) => {
+      if (videoId in knownVideos) {
+        throw new Error(`${videoId} linked in ${src} should point to ${knownVideos[videoId]}`)
+      }
+    });
+});

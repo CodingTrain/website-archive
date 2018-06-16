@@ -12,10 +12,10 @@ links:
   url: "http://paulbourke.net/geometry/knots/"
 - title: "Knot Theory on Wikipedia"
   url: "https://en.wikipedia.org/wiki/Knot_theory"
-    
+
 videos:
 - title: "My Coding Challenge on Spherical Geometry"
-  video_id: "RkuBWEkBrZA"
+  url: "/CodingChallenges/025-spheregeometry"
 ---
 
 In this coding challenge, I attempt to make 3D Knots using Processing and Paul Bourke's formulae.

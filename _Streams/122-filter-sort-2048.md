@@ -23,7 +23,7 @@ topics:
   - title: "2048 - Part 3"
     time: "2:48:23"
     url: "/CodingChallenges/094.3-2048"
-   
+
 links:
  - title: "Toy-Neural-Network-JS"
    url: "https://github.com/CodingTrain/Toy-Neural-Network-JS"
@@ -48,7 +48,7 @@ videos:
   - title: "My Neural Networks series"
     playlist_id: "PLRqwX-V7Uu6aCibgK1PTWWu9by6XFdCfh"
   - title: "for...of video"
-    video_id: "Y8sMnRQYr3c"
+    url: "/Tutorials/16-javascript-es6/16.4-for-of-loop"
 
 ---
 

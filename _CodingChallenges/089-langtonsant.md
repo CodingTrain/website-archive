@@ -33,7 +33,7 @@ videos:
 - title: "My Pixels Tutorial in Processing"
   video_id: "EmtU0eloTlE"
 - title: "My Game of Life Coding Challenge"
-  video_id: "FWSR_7kZuYg"
+  url: "/CodingChallenges/085-the-game-of-life"
 ---
 
 In this coding challenge, I implement Langton's Ant in Processing.

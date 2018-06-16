@@ -21,7 +21,7 @@ videos:
 - title: "My Tutorial on Pixels in Processing"
   video_id: "EmtU0eloTlE"
 - title: "My Video on 2D Arrays"
-  video_id: "OTNpiLUSiB4"  
+  url: "/Tutorials/9-additional-topics/9.15-2d-arrays-in-javascript"
 
 contributions:
 - title: "Dither Kitty! Use your own image!"

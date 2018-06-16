@@ -14,7 +14,7 @@ links:
 
 videos:
 - title: "Flappy Bird"
-  video_id: "cXgA1d_E-jY"
+  url: "/CodingChallenges/031-flappybird"
 - title: "How to use your system's microphone in a p5.js sketch"
   video_id: "q2IDNkUws-A"
 ---
