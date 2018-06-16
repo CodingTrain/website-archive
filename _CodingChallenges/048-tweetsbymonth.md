@@ -13,7 +13,7 @@ links:
 
 videos:
 - title: "My TF-IDF video"
-  url: "/CodingChallenges/040.2-tf-idf"
+  url: "/CodingChallenges/040.3-tf-idf"
 
 
 

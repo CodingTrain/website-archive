@@ -27,7 +27,7 @@ links:
     author:
       name: "Numberphile"
       url: http://www.numberphile.com/
-    url: https://youtu.be/NWBToaXK5T0
+    video_id: NWBToaXK5T0
 
 videos:
 - title: "My Pixels Tutorial in Processing"

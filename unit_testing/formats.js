@@ -1,15 +1,39 @@
 const PropTypes = require('prop-types');
 const exact = require('prop-types-exact');
+const fs = require('fs');
 
-function noYouTubeUrl() {
+function urlToMarkdownFilename(url) {
+  return `../_${url.slice(1)}.md`;
+}
+
+function urlToDirectoryFilename(url) {
+  return `../_${url.slice(1)}/`;
+}
+
+function markdownFilenameToUrl(filename) {
+  return `/${filename.slice(4, -3)}`;
+}
+
+function linkUrl() {
   function check(isRequired, props, propName, componentName) {
     if(props[propName]) {
       let value = props[propName];
       if(typeof value !== 'string') {
         return new Error(`${propName} of ${componentName} is not a string.`);
       }
-      if(value.matches(/https:\/\/(youtube\.com\/watch|youtu\.be\/)/)) {
+      if(value.match(/https:\/\/(youtube\.com\/watch|youtu\.be\/)/)) {
         return new Error(`${propName} of ${componentName} references a YouTube url instead of video_id`);
+      }
+      if(value.startsWith('http://') || value.startsWith('https://')) {
+        // TODO: Check external urls?
+      } else if(value.startsWith('/')) {
+        let mdFilename = urlToMarkdownFilename(value);
+        let dirFilename = urlToDirectoryFilename(value);
+        if(!fs.existsSync(mdFilename) && !fs.existsSync(dirFilename)) {
+          return new Error(`${propName} of ${componentName} references ${value} but the expected file ${mdFilename} or directory ${dirFilename} does not exist.`);
+        }
+      } else {
+        return new Error(`${propName} of ${componentName} appears not to be a link: '${value}'`);
       }
     } else if(isRequired) {
       return new Error(`${propName} of ${componentName} is required.`);
@@ -30,7 +54,7 @@ const link = module.exports.link = exact({
     PropTypes.string,
   ]),
   time: PropTypes.string,
-  url: noYouTubeUrl,
+  url: linkUrl(),
   video_id: PropTypes.string,
   playlist_id: PropTypes.string,
   source: PropTypes.string,
