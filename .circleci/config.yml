@@ -28,4 +28,4 @@ jobs:
 
       - run:
           name: Test
-          command: bundle exec htmlproofer ./_site --assume-extension --check-html --disable-external
+          command: bundle exec htmlproofer ./_site --assume-extension --check-html --disable-external --url-ignore "/#.*/"
