@@ -1,78 +1,6 @@
-class Particle{
-  
-  PVector pos = new PVector(random(width), random(height));
-  PVector vel = new PVector(0, 0);
-  PVector acc = new PVector(0, 0);
-  int maxspeed = 4;
-  int h = 0;
-  int scl, cols;
-
-  PVector prevPos = pos.copy();
-  
-  
-  Particle(int _cols, int _scl) {
-    cols = _cols;
-    scl = _scl;
-  }
-
-  void update() {
-    vel.add(acc);
-    vel.limit(maxspeed);
-    pos.add(vel);
-    acc.mult(0);
-  }
-  
-  void follow(PVector[] vectors) {
-    int x = floor((float) pos.x / (float) scl);
-    int y = floor((float)pos.y / (float) scl);
-    int index = x + y * cols;
-    PVector force = vectors[index];
-    applyForce(force);
-  }
-
-  void applyForce(PVector force) {
-    acc.add(force);
-  }
-
-  void show() {
-    stroke(h, 255, 255, 25);
-    h = h + 1;
-    if (h > 255) {
-      h = 0;
-    }
-    strokeWeight(1);
-    line(pos.x, pos.y, prevPos.x, prevPos.y);
-    updatePrev();
-  }
-
-  void updatePrev() {
-    prevPos.x = pos.x;
-    prevPos.y = pos.y;
-  }
-
-  void edges() {
-    if (pos.x > width) {
-      pos.x = 0;
-      updatePrev();
-    }
-    if (pos.x < 0) {
-      pos.x = width-1;
-      updatePrev();
-    }
-    if (pos.y > height) {
-      pos.y = 0;
-      updatePrev();
-    }
-    if (pos.y < 0) {
-      pos.y = height-1;
-      updatePrev();
-    }
-  }
-}
-
 float inc = 0.1;
 int scl = 10;
-int cols, rows;
+int cols, rows, counter;
 
 float zoff = 0;
 int particle_num = 300;
@@ -81,8 +9,9 @@ PVector[] flowfield;
 
 
 void setup(){
-  size(1920,1080);
+  size(800,800);
   colorMode(HSB, 255);
+  //fullScreen();
   background(51);
   
   cols = floor(width / scl);
@@ -118,4 +47,9 @@ void draw(){
     particles[i].edges();
     particles[i].show();
   }
+}
+
+void mouseClicked(){
+  save("Perlin" + counter + ".png");
+  counter ++;
 }
