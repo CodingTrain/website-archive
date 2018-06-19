@@ -45,7 +45,7 @@ links:
 markdown: kramdown
 
 # Exclude code for Node.js and Q_and_A
-exclude: [ 'Node', 'Q_and_A' ]
+exclude: [ 'Node', 'Q_and_A', 'unit_testing', 'node_modules' ]
 
 # Include future videos (used for 'Upcoming Streams' section).
 future: true

@@ -8,7 +8,7 @@ repository: /CC_028_MetaBalls
 live_example: /CC_028_MetaBalls_p5.js
 
 links:
-  - title: "Exploring Meta-balls and Isosurfaces in 2D"  
+  - title: "Exploring Meta-balls and Isosurfaces in 2D"
     url: "https://www.gamedev.net/articles/programming/graphics/exploring-metaballs-and-isosurfaces-in-2d-r2556"
 ---
 
