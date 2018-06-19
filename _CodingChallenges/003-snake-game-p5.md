@@ -15,7 +15,7 @@ contributions:
     author:
       name: "Bob Voorneveld"
       url: https://www.bobvoorneveld.nl
-    source: https://github.com/bobvoorneveld/Coding-Challenges/tree/master/CC003-The%20Snake%20Game"
+    source: "https://github.com/bobvoorneveld/Coding-Challenges/tree/master/CC003-The%20Snake%20Game"
 
   - title: "Snake Game"
     author:

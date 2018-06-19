@@ -13,7 +13,7 @@ links:
   - title: "Lorenz System on Wikipedia"
     url: "https://en.wikipedia.org/wiki/Lorenz_system"
   - title: "Lorenz Attractor"
-    url: http://paulbourke.net/fractals/lorenz/"
+    url: "http://paulbourke.net/fractals/lorenz/"
     author: "Paul Bourke"
   - title: "beginShape() reference"
     url: "https://processing.org/reference/beginShape_.html"

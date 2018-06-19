@@ -8,7 +8,7 @@
     - author[.name] string|Author   The author's name of the linked content.
     - author.url string             The author's URL of the linked content.
     - source string                 Link to the source code of the link's destination.
-  
+
   Parameters:
     title string    The title of this list of links.
     link Link[]     The link objects to display in the list.
@@ -16,8 +16,8 @@
 {% endcomment %}
 
 
-<div class="link-list {{ include.class }}">
-  <h3>{{ include.title }}</h3>
+<div class="link-list {{ include.class | xml_escape }}">
+  <h3>{{ include.title | xml_escape }}</h3>
   <ul>
     {% for link in include.links %}
       <li>
@@ -36,7 +36,7 @@
           {% assign url = link.url %}
         {% endif %}
 
-          
+
         {% comment %} Generate link based on its destination (internal or external). {% endcomment %}
         {% if url contains 'http://' or url contains 'https://' %}
 
@@ -49,16 +49,16 @@
         {% else %}
 
           {% comment %} No link, just show the text. {% endcomment %}
-          <span class="fake-link">{{ link.title }}</span>
+          <span class="fake-link">{{ link.title | xml_escape }}</span>
         {% endif %}
 
 
         {% comment %} Link to the destination's author. {% endcomment %}
         {% if link.author %}
           {% if link.author.url %}
-            <i>by <a href="{{ link.author.url }}" target="blank">{{ link.author.name }}</a></i>
+            <i>by <a href="{{ link.author.url }}" target="blank">{{ link.author.name | xml_escape }}</a></i>
           {% else %}
-            <i>by {{ link.author.name | default: link.author }}</i>
+            <i>by {{ link.author.name | default: link.author | xml_escape }}</i>
           {% endif %}
         {% endif %}
 
