@@ -7,11 +7,11 @@ video_id: RUSvMxxm_Jo
 repository: CC_045_FirebaseSavingDrawing
 
 links:
-  - title: "Firebase"  
+  - title: "Firebase"
     url: "https://firebase.google.com/"
-  - title: "Firebase Documentation - Read and Write"  
+  - title: "Firebase Documentation - Read and Write"
     url: "https://firebase.google.com/docs/database/web/read-and-write"
-  - title: "Aaron Koblin's Sheep Market"  
+  - title: "Aaron Koblin's Sheep Market"
     url: "http://www.aaronkoblin.com/work/thesheepmarket/"
 ---
 

@@ -21,7 +21,6 @@ topics:
     time: "2:58:26"
     url: "/CodingChallenges/080-voice-chatbot"
 
-
 links:
   - title: "Processing Community Day"
     url: "https://day.processing.org/"
