@@ -6,7 +6,7 @@ date: 2017-09-25
 video_id: RPz75gcHj18
 repository: /CC_075_Wikipedia
 
-links: 
+links:
   - title: "Wikipedia API Help"
     url: https://www.mediawiki.org/wiki/API:Main_page
 
@@ -15,7 +15,6 @@ videos:
     url: /Tutorials/10-working-with-data
   - title: "My Videos on Regular Expressions"
     url: /Courses/programming-with-text/2-regular-expressions
-
 
 contributions:
   - title: "Wikipedia Graph-of-Relatedness Revealer"
