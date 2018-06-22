@@ -1,3 +1,10 @@
+// Coding Train
+// Daniel Shiffman
+// Ported to processing by Max
+// http://patreon.com/codingtrain
+// Code for: https://youtu.be/0jjeOYMjmDU
+
+
 float angle = 45;
 float branch_ratio = 0.67;
 
