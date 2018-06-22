@@ -1,3 +1,9 @@
+// Coding Train
+// Ported to processing by Max (https://github.com/TheLastDestroyer)
+// Origional JS by Daniel Shiffman
+// http://patreon.com/codingtrain
+// Code for: https://youtu.be/ksRoh-10lak
+
 // all floats to negate integer devision errors
 float n1 = 0.3;
 float n2 = 0.3;
