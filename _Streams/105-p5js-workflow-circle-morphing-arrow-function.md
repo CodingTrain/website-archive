@@ -41,7 +41,7 @@ links:
     url: "https://github.com/ITPNYU/ICMadness"
   - title: "Circle Morphing on Twitter"
     url: "https://twitter.com/hashtag/CircleMorphing"
-  
+
 videos:
   - title: "Golan Levin's Circle Morphing"
     url: "/GuestTutorials/7-golan-levin-circle-morphing"
@@ -61,4 +61,4 @@ videos:
     url: "/Tutorials/9-additional-topics/9.20-polar-coordinates"
 ---
 
-In this spooooooky (not really) Coding Train Live, I discuss p5.js programming workflows, the ES6 Arrow function, and Golan Levin's Circle Morphing challenge. 
+In this spooooooky (not really) Coding Train Live, I discuss p5.js programming workflows, the ES6 Arrow function, and Golan Levin's Circle Morphing challenge.

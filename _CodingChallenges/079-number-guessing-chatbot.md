@@ -6,7 +6,7 @@ date: 2017-10-13
 video_id: zGe1m_bLOFk
 repository: /CC_079_Number_Guessing_Chatbot
 
-links: 
+links:
   - title: "RiveScript"
     url: "https://www.rivescript.com/"
   - title: "jQuery"
@@ -21,7 +21,6 @@ videos:
     url: "/Courses/programming-with-text"
   - title: "Video on the RiveScript library"
     url: "/Courses/programming-with-text/10-chatbots/10.2-rivescript"
-
 
 contributions:
   - title: "Guess the number"
