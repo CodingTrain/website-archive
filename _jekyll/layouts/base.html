@@ -24,7 +24,7 @@ layout: compress
         {% else %}
 
           {% if page.title %}
-            <h2>{{ page.title }}</h2>
+            <h2>{{ page.title | xml_escape }}</h2>
           {% endif %}
 
           {{ content }}

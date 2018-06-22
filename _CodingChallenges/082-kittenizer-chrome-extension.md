@@ -21,7 +21,6 @@ videos:
   - title: "Regular Expression series"
     playlist_id: "PLRqwX-V7Uu6YEypLuls7iidwHMdCM6o2w"
 
-
 contributions:
   - title: "Chrome Bearstension"
     author:

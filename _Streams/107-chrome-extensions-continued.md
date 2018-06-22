@@ -19,7 +19,7 @@ topics:
     url: "/CodingChallenges/084-word-definition-extension"
   - title: "Cross-browser Extensions"
     time: "2:32:37"
-    url: "Courses/programming-with-text/11-chrome-extensions/11.8-cross-browser-extensions"
+    url: "/Courses/programming-with-text/11-chrome-extensions/11.8-cross-browser-extensions"
   - title: "Conclusion/Q&A"
     time: "2:40:00"
 
@@ -61,7 +61,7 @@ videos:
   - title: "Maze Generator"
     url: "/CodingChallenges/010.1-maze-dfs-p5"
   - title: "Coding Train Trailer video"
-    url: "https://youtu.be/PBsUD40nPkI"
+    video_id: "PBsUD40nPkI"
   - title: "Let and Var video"
     url: "/Tutorials/16-javascript-es6/16.1-let-vs-var"
   - title: "Wordnik tutorial"
