@@ -1,8 +1,8 @@
 // Coding Train
-// Ported to processing by Max (https://github.com/TheLastDestroyer)
-// Origional JS by Daniel Shiffman
-// http://patreon.com/codingtrain
-// Code for this video: https://youtu.be/flQgnCUxHl
+// http://thecodingtrain.com
+
+// Poisson Disc Sampling: https://youtu.be/flQgnCUxHl
+// Processing port by Max: https://github.com/TheLastDestroyer
 
 float r = 4;
 int k = 30;
