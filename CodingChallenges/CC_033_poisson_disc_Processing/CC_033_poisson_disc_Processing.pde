@@ -1,3 +1,9 @@
+// Daniel Shiffman
+// Ported to processing by Max
+// http://codingtra.in
+// http://patreon.com/codingtrain
+// Code for this video: https://youtu.be/flQgnCUxHl
+
 float r = 4;
 int k = 30;
 PVector[] grid;
