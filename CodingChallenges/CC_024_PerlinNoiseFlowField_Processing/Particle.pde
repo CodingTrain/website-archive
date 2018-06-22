@@ -1,3 +1,9 @@
+// Daniel Shiffman
+// Ported to Processing by Max
+// http://codingtra.in
+// http://patreon.com/codingtrain
+// Code for: https://youtu.be/BjoM9oKOAKY
+
 class Particle{
   
   PVector pos = new PVector(random(width), random(height));
@@ -23,8 +29,8 @@ class Particle{
   }
   
   void follow(PVector[] vectors) {
-    int x = floor((float) pos.x / (float) scl);
-    int y = floor((float)pos.y / (float) scl);
+    int x = floor(pos.x / scl);
+    int y = floor(pos.y / scl);
     int index = x + y * cols;
     PVector force = vectors[index];
     applyForce(force);

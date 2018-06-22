@@ -1,3 +1,9 @@
+// Daniel Shiffman
+// Ported to Processing by Max
+// http://codingtra.in
+// http://patreon.com/codingtrain
+// Code for: https://youtu.be/BjoM9oKOAKY
+
 float inc = 0.1;
 int scl = 10;
 int cols, rows, counter;
@@ -10,8 +16,9 @@ PVector[] flowfield;
 
 void setup(){
   size(800,800);
-  colorMode(HSB, 255);
   //fullScreen();
+  
+  colorMode(HSB, 255);
   background(51);
   
   cols = floor(width / scl);
@@ -49,7 +56,7 @@ void draw(){
   }
 }
 
+// Not part of origional coding chalenge
 void mouseClicked(){
-  save("Perlin" + counter + ".png");
-  counter ++;
+  save("Perlin.png");
 }
