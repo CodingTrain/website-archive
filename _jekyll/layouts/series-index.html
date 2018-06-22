@@ -5,7 +5,7 @@ layout: base
 <div class="series-index">
   {% comment %} Extract the path of this series. {% endcomment %}
   {% assign thisSeriesPath = page.path | remove: '/index.md' | append: '/' %}
-  
+
   {% comment %} Only select videos that are in this series. {% endcomment %}
   {% assign videos = site[page.collection] %}
   {% include 1-tools/sort-videos.html videos=videos seriesPage=page %}
@@ -30,7 +30,7 @@ layout: base
       {% endif %}
     {% endunless %}
 
-    {{ page.subtitle }}
+    {{ page.subtitle | xml_escape }}
   </div>
 
   {% comment %} Show the series description. {% endcomment %}
@@ -43,7 +43,7 @@ layout: base
     {% assign seriesIndexPages = videos | where: 'layout', 'series-index'
                                         | where_exp: 'seriesIndex', 'seriesIndex.path != page.path'
                                         | sort: 'series_number' %}
-    
+
     {% comment %} Show the first three videos for every series ... {% endcomment %}
     {% for seriesIndexPage in seriesIndexPages %}
 

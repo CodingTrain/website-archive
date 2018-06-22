@@ -6,7 +6,7 @@ date: 2017-02-13
 video_id: ZiYdOwOrGyc
 repository: /CC_057_Earthquake_Viz
 
-links: 
+links:
   - title: "Mapbox.js"
     url: https://www.mapbox.com/mapbox.js/api/v3.0.1/
   - title: "Web Mercator on Wikipedia"
@@ -19,7 +19,6 @@ videos:
     url: /Tutorials/10-working-with-data
   - title: "Regular Expression playlist"
     url: /Courses/programming-with-text/2-regular-expressions
-
 
 contributions:
   - title: "TOR IP Map"

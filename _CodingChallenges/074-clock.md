@@ -7,13 +7,13 @@ video_id: E4RyStef-gY
 repository: CC_074_Clock
 
 links:
-  - title: "Golan Levin's notes on MAEDA’S 12 O’CLOCKS"  
+  - title: "Golan Levin's notes on MAEDA’S 12 O’CLOCKS"
     url: "http://cmuems.com/2016/60212/lectures/lecture-09-09b-clocks/maedas-clocks/"
-  - title: "Alca's Clock Collection"  
+  - title: "Alca's Clock Collection"
     url: "https://codepen.io/collection/DqRNLQ/"
-  - title: "ICM-2017 Syllabus"  
+  - title: "ICM-2017 Syllabus"
     url: "https://github.com/ITPNYU/ICM-2017"
-    
+
 contributions:
   - title: "Blue Digital Clock"
     author:
@@ -21,7 +21,7 @@ contributions:
       url: "http://jjwkdl.netlify.com"
     url: "https://jjwkdl.github.io/blog-content/javascript/VisualArt/clock/"
     source: "https://github.com/jjwkdl/blog-content/tree/master/javascript/VisualArt/clock"
-   
+
   - title: "JSClock"
     author:
       name: "Charly Poirier"

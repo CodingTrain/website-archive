@@ -7,9 +7,9 @@ video_id: z86cx2A4_3E
 repository: false
 
 links:
-  - title: "Superellipse on Wikipedia"  
+  - title: "Superellipse on Wikipedia"
     url: "https://en.wikipedia.org/wiki/Superellipse"
-  - title: "Space Colonization Algorithm"  
+  - title: "Space Colonization Algorithm"
     url: "http://paulbourke.net/geometry/supershape/"
     author: "Paul Bourke"
 ---

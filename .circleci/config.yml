@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:9
+      - image: starefossen/ruby-node:2-10
 
     steps:
       - checkout
@@ -18,3 +18,14 @@ jobs:
       - run: cd unit_testing && npm test
 
       # TODO: add caching to speed things up.
+      - run:
+          name: Jekyll deps
+          command: bundle install
+
+      - run:
+          name: Build
+          command: bundle exec jekyll build --verbose
+
+      - run:
+          name: Test
+          command: bundle exec htmlproofer ./_site --assume-extension --check-html --disable-external --url-ignore "/#.*/"

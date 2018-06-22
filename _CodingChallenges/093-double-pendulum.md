@@ -7,14 +7,13 @@ video_id: uWzPe_S-RVE
 repository: /CC_093_DoublePendulum
 live_example: /CC_093_DoublePendulum_p5.js
 
-
 links:
-- title: "Physics Lab Double Pendulum"
-  url: "https://www.myphysicslab.com/pendulum/double-pendulum-en.html"
+  - title: "Physics Lab Double Pendulum"
+    url: "https://www.myphysicslab.com/pendulum/double-pendulum-en.html"
 
 videos:
-- title: "Pendulum Simulation"
-  video_id: "9iaEqGOh5WM"
+  - title: "Pendulum Simulation"
+    video_id: "9iaEqGOh5WM"
 
 contributions:
   - title: "p5.js Double Pendulum with drag+drop and sliders"
@@ -28,14 +27,13 @@ contributions:
       name: "Christian Frauscher"
       url: "http://codeblock.at/"
     url: "https://codepen.io/Grilly86/full/yvoVja"
-    source: "https://codepen.io/Grilly86/pen/yvoVja"  
+    source: "https://codepen.io/Grilly86/pen/yvoVja"
   - title: "Double Pendulum with movable base and different integration algorithms"
     author:
       name: "Daniel Heinrich"
       url: "https://hmbd.wordpress.com/2017/12/16/interactive-multibody-dynamics-in-processing/"
     url: "https://www.openprocessing.org/sketch/507468"
-    source: "https://www.openprocessing.org/sketch/507468"  
-
+    source: "https://www.openprocessing.org/sketch/507468"
 ---
 
 In this coding challenge, I create a double pendulum simulation in Processing.
