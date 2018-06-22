@@ -1,3 +1,13 @@
+// Coding Train
+// Daniel Shiffman
+// Ported to processing by Max
+// http://patreon.com/codingtrain
+// Code for: https://youtu.be/E1B4UoSQMFw
+
+// variables: A B
+// axiom: A
+// rules: (A → AB), (B → A)
+
 float angle;
 String axiom = "F";
 String sentence = axiom;
@@ -6,10 +16,11 @@ Rule[] rules;
 
 
 void setup(){
+  size(400,400);
+  
   rules = new Rule[1];
   rules[0] = new Rule('F', "FF+[+F-F-F]-[-F+F+F]");
   
-  size(400,400);
   angle = radians(45);
   background(51);
   println(axiom);
