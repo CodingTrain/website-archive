@@ -1,3 +1,9 @@
+// Daniel Shiffman
+// Ported to processing by Max
+// http://codingtra.in
+// http://patreon.com/codingtrain
+// Code for: https://youtu.be/JXuxYMGe4KI
+
 class Blob{
   PVector pos, vel;
   float r;

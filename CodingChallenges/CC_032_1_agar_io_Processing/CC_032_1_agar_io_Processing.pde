@@ -1,3 +1,9 @@
+// Daniel Shiffman
+// Ported to processing by Max
+// http://codingtra.in
+// http://patreon.com/codingtrain
+// Code for: https://youtu.be/JXuxYMGe4KI
+
 Blob blob;
 
 ArrayList<Blob> blobs;
