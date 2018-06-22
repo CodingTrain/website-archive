@@ -1,3 +1,9 @@
+// Daniel Shiffman
+// Ported to Processing by Max
+// http://codingtra.in
+// http://patreon.com/codingtrain
+// Code for this video: https://youtu.be/9Xy-LMAfglE
+
 PVector[] cities;
 int totalCities = 7;
 

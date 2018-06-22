@@ -1,3 +1,9 @@
+// Daniel Shiffman
+// Ported to Processing by Max 
+// http://codingtra.in
+// http://patreon.com/codingtrain
+// Code for this video: https://youtu.be/goUlyp4rwiU
+
 int[] vals = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
 void setup() {

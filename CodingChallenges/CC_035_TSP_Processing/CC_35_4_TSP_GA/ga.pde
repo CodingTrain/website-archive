@@ -1,3 +1,8 @@
+// Daniel Shiffman
+// Ported to Processing by Max
+// http://codingtra.in
+// http://patreon.com/codingtrain
+// Code for this video: https://www.youtube.com/watch?v=M3KTWnTrU_c
 
 void calculateFitness() {
   float currentRecord = Float.POSITIVE_INFINITY;
