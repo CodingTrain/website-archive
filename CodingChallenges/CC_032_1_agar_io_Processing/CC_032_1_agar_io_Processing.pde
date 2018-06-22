@@ -1,8 +1,9 @@
 // Coding Train
-// Ported to processing by Max (https://github.com/TheLastDestroyer)
-// Origional JS by Daniel Shiffman
+// http://thecodingtrain.com
 // http://patreon.com/codingtrain
+
 // Code for: https://youtu.be/JXuxYMGe4KI
+// Processing port by Max (https://github.com/TheLastDestroyer)
 
 Blob blob;
 
