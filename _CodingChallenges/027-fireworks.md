@@ -6,7 +6,7 @@ date: 2016-07-02
 video_id: CKeyIbT3vXI
 repository: /CC_027_Fireworks_2D_p5
 
-links: 
+links:
   - title: "Pixel Pyros"
     author:
       name: "Seb Lee-Delisle"

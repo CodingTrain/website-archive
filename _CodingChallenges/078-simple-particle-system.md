@@ -14,8 +14,7 @@ videos:
   - title: "Fireworks Coding Challenge"
     url: "/CodingChallenges/027-fireworks"
   - title: "Particle Systems playlist"
-    url: "/Courses/nature-of-code/4-particle-systems"
-
+    url: "https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Z9hI4mSgx2FlE5w8zvjmEy"
 
 contributions:
   - title: "Audio and Color Gradient Particle System"
