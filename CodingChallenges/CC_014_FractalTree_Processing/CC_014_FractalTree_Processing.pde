@@ -1,6 +1,6 @@
 // Coding Train
-// Daniel Shiffman
-// Ported to processing by Max
+// Ported to processing by Max (https://github.com/TheLastDestroyer)
+// Origional JS by Daniel Shiffman
 // http://patreon.com/codingtrain
 // Code for: https://youtu.be/0jjeOYMjmDU
 
