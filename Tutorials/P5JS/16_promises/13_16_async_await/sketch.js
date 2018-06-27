@@ -11,7 +11,7 @@
 // https://youtu.be/BztW_u6HDbs
 
 let wordnikAPI = "https://api.wordnik.com/v4/words.json/randomWord?&api_key=48dd829661f515d5abc0d03197a00582e888cc7da2484d5c7";
-let giphyAPI = "http://api.giphy.com/v1/gifs/search?rating=G&api_key=dc6zaTOxFJmzC&q=";
+let giphyAPI = "https://api.giphy.com/v1/gifs/search?rating=G&api_key=dc6zaTOxFJmzC&q=";
 
 function setup() {
   noCanvas();
