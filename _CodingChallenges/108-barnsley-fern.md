@@ -17,7 +17,6 @@ contributions:
   - title: "Barnsley Fern in the Console"
     author:
       name: "Addo White"
-    url: "https://www.youtube.com/watch?v=3Q5tAWkAEBc"
-    source: "https://github.com/addowhite/Console-Barnsley-Fern"
+    url: "https://github.com/addowhite/Console-Barnsley-Fern"
 ---
 
