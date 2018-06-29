@@ -30,6 +30,15 @@ contributions:
       url: "https://github.com/Vigasaurus/"
     url: "https://vigasaurus.github.io/files/games/Snake/Snake_Game"
     source: "https://github.com/Vigasaurus/vigasaurus.github.io/tree/master/files/games/Snake"
+    
+  - title: "Snake vs Blocks Game"
+    author:
+      name: "Makarand Subhash Lahane"
+      url: "https://github.com/MkLahane/Game-Development"
+    url: "https://mklahane.github.io/Game-Development/NewSnakeGame/"
+    source: "https://github.com/MkLahane/Game-Development"
+    
+    
 
   - title: "ES6 Snake Game"
     author:
