@@ -36,6 +36,11 @@ contributions:
       name: "Bjorn Van Acker"
       url: "https://bjorvack.github.io/code-challenges/"
     url: "https://bjorvack.github.io/code-challenges/challenges/cc-003-snake/"
+    
+  - title: "Snake Game"
+    author:
+      name: "Makarand Subhash Lahane"
+    url: "https://mklahane.github.io/Game-Development/NewSnakeGame/"
 ---
 
 In this coding challenge, I attempt to code a p5.js version of the Snake Game.
