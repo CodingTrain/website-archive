@@ -14,5 +14,10 @@ contributions:
       name: "Bjorn Van Acker"
       url: "https://bjorvack.github.io/code-challenges/"
     url: "https://bjorvack.github.io/code-challenges/challenges/cc-108-barnsley-fern/"
+  - title: "Barnsley Fern in the Console"
+    author:
+      name: "Addo White"
+    video_id: "3Q5tAWkAEBc"
+    source: "https://github.com/addowhite/Console-Barnsley-Fern"
 ---
 
