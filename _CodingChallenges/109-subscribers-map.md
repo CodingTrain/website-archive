@@ -15,7 +15,6 @@ links:
     url: "https://gist.github.com/sindresorhus/1341699"
   - title: "Leaflet"
     url: "https://leafletjs.com/"
-    
 ---
 
 Celebrating the 500,000 subscribers milestone, I create a map visualization of Coding Train subscriber locations around the world!
