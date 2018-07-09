@@ -15,6 +15,10 @@ links:
     url: "https://gist.github.com/sindresorhus/1341699"
   - title: "Leaflet"
     url: "https://leafletjs.com/"
+  - title: "500k Subscriber Map Repo"
+    url: "https://github.com/CodingTrain/500k-Subscriber-Map"
+  - title: "Live Example"
+    url: "https://codingtrain.github.io/500k-Subscriber-Map/"
 ---
 
 Celebrating the 500,000 subscribers milestone, I create a map visualization of Coding Train subscriber locations around the world!
