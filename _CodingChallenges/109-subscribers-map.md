@@ -19,6 +19,14 @@ links:
     url: "https://github.com/CodingTrain/500k-Subscriber-Map"
   - title: "Live Example"
     url: "https://codingtrain.github.io/500k-Subscriber-Map/"
+    
+contributions:
+  - title: "Tax Evasion Map"
+    author:
+      name: "Benjamin Habert"
+      url: "https://twitter.com/benjaminhabert"
+    url: "https://www.rand-on.com/projects/2018_tax_evasion/tax_evasion.html"
+    source: "https://github.com/BenjaminHabert/rand-on/blob/master/_projects/2018_tax_evasion/tax.js"
 ---
 
 Celebrating the 500,000 subscribers milestone, I create a map visualization of Coding Train subscriber locations around the world!
