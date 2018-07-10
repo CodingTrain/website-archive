@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/41-clappy-bird.html
 video_number: 41
 date: 2016-08-20
 video_id: aKiyCeIuwn4
-repository: CC_041_ClappyBird_p5.js
+repository: /CC_041_ClappyBird_p5.js
 
 links:
   - title: "p5.js sound library reference"
