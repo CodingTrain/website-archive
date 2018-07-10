@@ -19,7 +19,7 @@ links:
     url: "https://github.com/CodingTrain/500k-Subscriber-Map"
   - title: "Live Example"
     url: "https://codingtrain.github.io/500k-Subscriber-Map/"
-    
+
 contributions:
   - title: "Tax Evasion Map"
     author:
