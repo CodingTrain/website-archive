@@ -5,8 +5,8 @@
 // Full tutorial playlist:
 // https://www.youtube.com/playlist?list=PLRqwX-V7Uu6bmMRCIoTi72aNWHo7epX4L
 
-// Code from end of ?????
-// https://youtu.be/?????????????
+// Code from end of video 7(7.7)
+// https://youtu.be/Gql-LxoGvXA
 
 // Community version:
 // https://codingtrain.github.io/ColorClassifer-TensorFlow.js
