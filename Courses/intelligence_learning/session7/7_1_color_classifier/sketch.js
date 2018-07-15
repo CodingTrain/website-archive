@@ -13,7 +13,11 @@ function setup() {
   let submit = createButton('submit');
   submit.mousePressed(sendData);
 
-  function sendData() {
-    // send this data to something?
-  }
+  
+  
+}
+
+function sendData() {
+  // send this data to something?
+  // send the data to firebase!
 }
