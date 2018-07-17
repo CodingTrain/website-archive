@@ -1,3 +1,17 @@
+// Daniel Shiffman
+// Intelligence and Learning
+// The Coding Train
+
+// Full tutorial playlist:
+// https://www.youtube.com/playlist?list=PLRqwX-V7Uu6bmMRCIoTi72aNWHo7epX4L
+
+// Code from end of 7.1
+// https://youtu.be/y59-frfKR58
+
+// Community version:
+// https://codingtrain.github.io/ColorClassifer-TensorFlow.js
+// https://github.com/CodingTrain/ColorClassifer-TensorFlow.js
+
 function setup() {
   createCanvas(100, 100);
   let r = floor(random(256));
@@ -13,8 +27,8 @@ function setup() {
   let submit = createButton('submit');
   submit.mousePressed(sendData);
 
-  
-  
+
+
 }
 
 function sendData() {
