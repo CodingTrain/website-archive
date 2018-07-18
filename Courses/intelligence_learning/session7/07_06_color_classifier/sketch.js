@@ -31,5 +31,6 @@ function setup() {
 
   let xs = tf.tensor2d(colors);
   console.log(xs.shape);
+  xs.print();
 
 }
