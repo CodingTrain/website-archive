@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/39-madlibs.html
 video_number: 39
 date: 2016-09-26
 video_id: ziBO-U2_t3k
-repository: CC_039_madlibs
+repository: /CC_039_madlibs
 
 links:
   - title: "Tabletop.js"

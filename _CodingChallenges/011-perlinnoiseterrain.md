@@ -14,6 +14,13 @@ links:
 videos:
   - title: "My Video on Perlin Noise"
     video_id: "8ZEMLCnn8v0"
+contributions:
+  - title: "Three.JS Implementation"
+    author:
+      name: "Matthew Stone"
+      url: "https://mattstone.io/"
+    url: "https://uploads.mattstone.io/terrain"
+    source: "https://github.com/bigmstone/terrain"
 ---
 
 In this coding challenge, I create a 3D procedural terrain using Perlin Noise and the beginShape() function in Processing.

@@ -1,3 +1,10 @@
+// Coding Train
+// http://thecodingtrain.com
+// http://patreon.com/codingtrain
+
+// Code for: https://youtu.be/ksRoh-10lak
+// Processing port by Max (https://github.com/TheLastDestroyer)
+
 // all floats to negate integer devision errors
 float n1 = 0.3;
 float n2 = 0.3;

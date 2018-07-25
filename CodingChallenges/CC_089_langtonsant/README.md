@@ -6,4 +6,12 @@ Video for this challenge on [youtube](https://www.youtube.com/watch?v=G1EgjgMo48
 
 ## Community Variations
 
+- title: Langton's Paint Brush Using Processing
+  author:
+    name: Leighzer
+    url: https://github.com/Leighzer/
+  url: 
+  source: https://github.com/Leighzer/Langtons_Paint_Brush
+---
+
 You can add a community contribution to this coding challenge's [webpage](http://codingtrain.github.io/Rainbow-Code/CodingChallenges/089-langtonsant.html) by following this guide: https://github.com/CodingTrain/Rainbow-Code/wiki/Community-Contributions-Guide
