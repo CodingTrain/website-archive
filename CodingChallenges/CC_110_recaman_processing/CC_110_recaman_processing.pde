@@ -5,13 +5,11 @@
 // Code for https://youtu.be/DhFZfzOvNTU
 // Processing port by Max (https://github.com/TheLastDestroyer)
 
-import java.util.Map;
-
 int current;
 int step;
 float scl;
 float oldscl = 1;
-HashMap<Integer, Boolean> numberline = new HashMap<Integer, Boolean>();
+IntList seen = new IntList();
 ArrayList<Arc> Arcs = new ArrayList<Arc>();
 int largest = 0;
 int buffer = 10;
@@ -21,13 +19,14 @@ void setup(){
   size(1920, 1080);
   //fullScreen();
   background(0);
-  
-  numberline.put(0, true);
+
   current = 0;
+  seen.append(0);
   step = 1;
 }
 
 void draw(){
+  println(current);
   translate(0, height/2);
   scale(scl);
   
@@ -48,10 +47,12 @@ void draw(){
 
 int next(){
   int next = current - step;
-  if (next < 0 || numberline.get(next) != null){
+  if (next < 0 || seen.hasValue(next)){
     next = current + step;
   }
-  numberline.put(next, true);
+  if (!seen.hasValue(next)){
+    seen.append(next);
+  }
   
   if (next > largest + buffer) {
     largest = next;
