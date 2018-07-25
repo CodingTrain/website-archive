@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/38-work-interactor.html
 video_number: 38
 date: 2016-09-20
 video_id: AKuW48WeNMA
-repository: CC_038_word_interactor
+repository: /CC_038_word_interactor
 
 links:
   - title: "MDN's Regular Expressions Reference"

@@ -22,6 +22,11 @@ contributions:
       name: "Bob Voorneveld"
       url: "https://www.bobvoorneveld.nl"
     source: "https://github.com/bobvoorneveld/Coding-Challenges/tree/master/CC002-Menger%20Sponge%20Fractal"
+  - title: "ES6 Merger sponge"
+    author:
+      name: "Bjorn Van Acker"
+      url: "https://bjorvack.github.io/code-challenges/"
+    url: "https://bjorvack.github.io/code-challenges/challenges/cc-002-menger-sponge/"
 ---
 
 In this coding challenge, I attempt to code the Menger Sponge (fractals) using Processing.
