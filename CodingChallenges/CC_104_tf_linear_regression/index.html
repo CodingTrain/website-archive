@@ -1,17 +1,26 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<title>linear regression with tensorflow</title>
-
-	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.11.1"> </script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.dom.js"></script>
-	<script src="sketch.js"></script>
-</head>
-<body>
-</body>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js-linear-regression</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.12.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+    <script src="sketch.js"></script>
+  </head>
+  <body>
+    <div id="main">
+      <header>
+        <a href="https://marshal.cool">< marshal.cool</a>
+        <h1 style="line-height: 0;">js-linear-regression</h1>
+        <h3>interactive linear regression</h3>
+      </header>
+      <p>Click on the canvas to add data points</p>
+    </div>
+    <div id="canvas"></div>
+    <button onclick="printData();">Print Data</button>
+    <button onclick="resetCanvas(true);">Clear</button>
+    <div id="data"></div>
+  </body>
 </html>

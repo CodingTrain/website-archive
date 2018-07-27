@@ -1,78 +1,93 @@
-// Daniel Shiffman
-// http://codingtra.in
-// http://patreon.com/codingtrain
-
-// Linear Regression with TensorFlow.js
-// Video: https://www.youtube.com/watch?v=dLp10CFIvxI
-
-let x_vals = [];
-let y_vals = [];
+let X = [];
+let Y = [];
 
 let m, b;
 
-const learningRate = 0.5;
-const optimizer = tf.train.sgd(learningRate);
+let cleared = false;
+
+const optimizer = tf.train.adam(0.09);
+const loss = (pred, label) => pred.sub(label).square().mean(); // mean squared error
 
 function setup() {
-  createCanvas(400, 400);
-  m = tf.variable(tf.scalar(random(1)));
-  b = tf.variable(tf.scalar(random(1)));
-}
+  canvas = createCanvas(windowWidth, 400);
+  canvas.parent('canvas');
+  canvas.mousePressed(() => {
+    // Normalize x, y to (-1, 1) and add it to data
+    let x = map(mouseX, 0, width, -1, 1);
+    let y = map(mouseY, 0, height, 1, -1);
+    X.push(x);
+    Y.push(y);
+  });
 
-function loss(pred, labels) {
-  return pred.sub(labels).square().mean();
-}
-
-function predict(x) {
-  const xs = tf.tensor1d(x);
-  // y = mx + b;
-  const ys = xs.mul(m).add(b);
-  return ys;
-}
-
-function mousePressed() {
-  let x = map(mouseX, 0, width, 0, 1);
-  let y = map(mouseY, 0, height, 1, 0);
-  x_vals.push(x);
-  y_vals.push(y);
+  resetCanvas();
 }
 
 function draw() {
-
-  tf.tidy(() => {
-    if (x_vals.length > 0) {
-      const ys = tf.tensor1d(y_vals);
-      optimizer.minimize(() => loss(predict(x_vals), ys));
-    }
-  });
-
   background(0);
 
-  stroke(255);
-  strokeWeight(8);
-  for (let i = 0; i < x_vals.length; i++) {
-    let px = map(x_vals[i], 0, 1, 0, width);
-    let py = map(y_vals[i], 0, 1, height, 0);
+  tf.tidy(() => {
+    if (X.length > 0) {
+      const y = tf.tensor1d(Y);
+      optimizer.minimize(() => loss(tf.tensor1d(X).mul(m).add(b), y));
+
+      const lineX = [-1, 1];
+
+      const ys = tf.tensor1d(lineX).mul(m).add(b);
+      let lineY = ys.data().then((y) => {
+
+        // reverse normalization of x, y
+        let x1 = map(lineX[0], -1, 1, 0, width);
+        let x2 = map(lineX[1], -1, 1, 0, width);
+        let y1 = map(y[0], -1, 1, height, 0);
+        let y2 = map(y[1], -1, 1, height, 0);
+
+        stroke(139, 0, 139);
+        strokeWeight(2);
+        line(x1, y1, x2, y2);
+      });
+    } else {
+        if (!cleared) {
+          // Let's make some random data to begin with
+          for (let i = 0; i < 30; i++) {
+            let fakeX = random(-1, 1);
+            X.push(fakeX);
+            Y.push(random(-.8, .5)*fakeX);
+          }
+        }
+      }
+  });
+
+  strokeWeight(8)
+  stroke(250);
+  for (let i = 0; i < X.length; i++) {
+    let px = map(X[i], -1, 1, 0, width);
+    let py = map(Y[i], -1, 1, height, 0);
     point(px, py);
   }
+}
 
+function printData() {
+  let data = document.getElementById('data');
+  data.innerText = null;
+  if (X.length > 0) {
+    // Print x, y pairs
+    for (let i = 0; i < X.length; i++) {
+      data.innerText += `[${X[i]}, ${Y[i]}]\r\n`;
+    }
+    // Show the fitted equation
+    data.innerText += `\r\ny = ${m.dataSync()}x + ${b.dataSync()}`;
+  }
+}
 
-  const lineX = [0, 1];
+function resetCanvas(clear = false) {
+  cleared = clear;
 
-  const ys = tf.tidy(() => predict(lineX));
-  let lineY = ys.dataSync();
-  ys.dispose();
+  X = [];
+  Y = [];
+  m = tf.variable(tf.scalar(random(-1, 1)));
+  b = tf.variable(tf.scalar(random(-1, 1)));
 
-  let x1 = map(lineX[0], 0, 1, 0, width);
-  let x2 = map(lineX[1], 0, 1, 0, width);
-
-  let y1 = map(lineY[0], 0, 1, height, 0);
-  let y2 = map(lineY[1], 0, 1, height, 0);
-
-  strokeWeight(2);
-  line(x1, y1, x2, y2);
-
-
-  console.log(tf.memory().numTensors);
-  //noLoop();
+  // Clear #data
+  let data = document.getElementById('data');
+  data.innerText = null;
 }
