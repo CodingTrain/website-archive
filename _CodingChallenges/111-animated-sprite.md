@@ -13,8 +13,8 @@ links:
 
 videos:
   - title: "Guest Tutorial #6: The Modulo Operator with Golan Levin"
-    video_id: "r5Iy3v1co0A"
+    url: "/GuestTutorials/6-golan-levin-modulo-operator"
 ---
 
-In this coding challenge, I use p5.js to create an animated sprite from a sprite sheet.
+In this coding challenge, I load a sprite sheet and create multiple animated sprites with the p5.js library.
 
