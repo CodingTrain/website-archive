@@ -31,7 +31,7 @@ function setup() {
   }
 
   for (let i = 0; i < 5; i++) {
-    horses[i] = new Sprite(animation, 0, i * 75, random(0.1, 1));
+    horses[i] = new Sprite(animation, 0, i * 75, random(0.1, 0.4));
   }
 }
 
