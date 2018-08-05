@@ -42,6 +42,12 @@ contributions:
       name: "Makarand Subhash Lahane"
       url: "https://mklahane.github.io/Game-Development/"
     url: "https://mklahane.github.io/Game-Development/NewSnakeGame"
+      
+  - title: "Snakey game"
+    author:
+      name: "Mukul Khanna"
+      url: "https://github.com/mukulkhanna"
+    url: "https://codepen.io/mukul18khanna/full/gvYMOe/"
 ---
 
 In this coding challenge, I attempt to code a p5.js version of the Snake Game.
