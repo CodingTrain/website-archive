@@ -21,7 +21,6 @@ videos:
     video_id: "uSzGdfdOoG8"
   - title: "Matrix Multiplication for 3D Rendering"
     video_id: "tzsgS19RRc8"
-  
 ---
 
 In this coding challenge, I use matrix math to project a 3D object on a 2D plane, in Processing(Java).

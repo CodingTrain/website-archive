@@ -23,7 +23,6 @@ videos:
     video_id: "uSzGdfdOoG8"
   - title: "Matrix Multiplication for 3D Rendering"
     video_id: "tzsgS19RRc8"
-  
 ---
 
 In this coding challenge, I visualize a 4D Hypercube(aka "Tesseract") in Processing(Java).
