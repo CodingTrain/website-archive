@@ -21,7 +21,13 @@ contributions:
       name: "Addo White"
     video_id: "3Q5tAWkAEBc"
     source: "https://github.com/addowhite/Console-Barnsley-Fern"
----
+  - title: "Various Fractal Ferns"
+  author:
+    name: "Sujan Dutta"
+    url: "https://github.com/Suji04"
+  url: "https://suji04.github.io/fractal-ferns/"
+  
+  ---
 
 In this coding challenge, I visualize the Barnsley Fern fractal with Processing (Java).
 
