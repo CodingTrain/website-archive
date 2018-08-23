@@ -25,5 +25,5 @@ videos:
     video_id: "tzsgS19RRc8"
 ---
 
-In this coding challenge, I visualize a 4D Hypercube(aka "Tesseract") in Processing(Java).
+In this coding challenge, I visualize a 4D Hypercube (aka "Tesseract") in Processing (Java).
 
