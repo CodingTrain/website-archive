@@ -23,5 +23,4 @@ videos:
     video_id: "tzsgS19RRc8"
 ---
 
-In this coding challenge, I use matrix math to project a 3D object on a 2D plane, in Processing(Java).
-
+In this coding challenge I render a 3D object (cube) in 2D using rotation and projection matrices in Processing (Java).
