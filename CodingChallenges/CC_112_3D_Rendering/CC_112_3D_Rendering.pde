@@ -41,13 +41,13 @@ void draw() {
   float[][] rotationX = {
     { 1, 0, 0},
     { 0, cos(angle), -sin(angle)},
-    { 0, sin(angle), cos(angle), 0}
+    { 0, sin(angle), cos(angle)}
   };
 
   float[][] rotationY = {
-    { cos(angle), 0, -sin(angle)},
+    { cos(angle), 0, sin(angle)},
     { 0, 1, 0},
-    { sin(angle), 0, cos(angle)}
+    { -sin(angle), 0, cos(angle)}
   };
 
   PVector[] projected = new PVector[8];
