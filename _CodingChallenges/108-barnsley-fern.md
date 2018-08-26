@@ -21,6 +21,12 @@ contributions:
       name: "Addo White"
     video_id: "3Q5tAWkAEBc"
     source: "https://github.com/addowhite/Console-Barnsley-Fern"
+  - title: "Animating the Barnsley Fern"
+    author:
+      name: "Niels Vadot"
+      url: "https://nielsvadot.design/"
+    url: "https://codepen.io/ninivert/full/BPMeBG/"
+    source: "https://github.com/ninivert/Barnsley-Fern-Animated"
 ---
 
 In this coding challenge, I visualize the Barnsley Fern fractal with Processing (Java).
