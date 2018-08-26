@@ -23,7 +23,7 @@ videos:
     video_id: "uSzGdfdOoG8"
   - title: "Matrix Multiplication for 3D Rendering"
     video_id: "tzsgS19RRc8"
-    
+
 contributions:
   - title: "Rendering a shit-tonne of dimensions on a 2D canvas"
     author:
@@ -34,4 +34,3 @@ contributions:
 ---
 
 In this coding challenge, I visualize a 4D Hypercube (aka "Tesseract") in Processing (Java).
-
