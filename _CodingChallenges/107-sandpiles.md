@@ -18,6 +18,20 @@ videos:
   - title: "Sandpiles"
     author: "Numberphile"
     video_id: "1MtEUErz7Gg"
+
+contributions:
+  - title: "Sandpiles video 100k iterations"
+    author:
+      name: "Niels Vadot"
+      url: "https://nielsvadot.design/"
+    url: "https://www.youtube.com/watch?v=DEXNqBxSdHw"
+    source: "https://github.com/ninivert/Sandpiles"
+  - title: "Sandpiles JavaScript implementation"
+    author:
+      name: "Niels Vadot"
+      url: "https://nielsvadot.design/"
+    url: "https://ninivert.github.io/Sandpiles/"
+    source: "https://github.com/ninivert/Sandpiles"
 ---
 
 In this coding challenge, inspired by Numberphile I visualize "sandpiles" with Processing (Java). 
