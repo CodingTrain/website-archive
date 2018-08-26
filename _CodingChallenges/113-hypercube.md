@@ -23,6 +23,14 @@ videos:
     video_id: "uSzGdfdOoG8"
   - title: "Matrix Multiplication for 3D Rendering"
     video_id: "tzsgS19RRc8"
+    
+contributions:
+  - title: "Rendering a shit-tonne of dimensions on a 2D canvas"
+    author:
+      name: "Niels Vadot"
+      url: "https://nielsvadot.design/"
+    url: "https://ninivert.github.io/N-Dimension-Cube-Renderer/"
+    source: "https://github.com/ninivert/N-Dimension-Cube-Renderer"
 ---
 
 In this coding challenge, I visualize a 4D Hypercube (aka "Tesseract") in Processing (Java).
