@@ -20,12 +20,6 @@ videos:
     video_id: "1MtEUErz7Gg"
 
 contributions:
-  - title: "Sandpiles video 100k iterations"
-    author:
-      name: "Niels Vadot"
-      url: "https://nielsvadot.design/"
-    url: "https://www.youtube.com/watch?v=DEXNqBxSdHw"
-    source: "https://github.com/ninivert/Sandpiles"
   - title: "Sandpiles JavaScript implementation"
     author:
       name: "Niels Vadot"
