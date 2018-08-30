@@ -12,10 +12,10 @@ links:
     
 contributions: 
   - title: "P5.js Bubblesort Visualizer"
-      author:
-        name: "David"
-        url: "https://github.com/ItsWasteD"
-      url: "https://codepen.io/ItsWasteD/pen/ZMBwOv"
+    author:
+      name: "David"
+      url: "https://github.com/ItsWasteD"
+    url: "https://codepen.io/ItsWasteD/pen/ZMBwOv"
 
 ---
 
