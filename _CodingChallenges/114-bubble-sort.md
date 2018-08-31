@@ -10,7 +10,7 @@ links:
   - title: "Visualizing Algorithms"
     url: "https://bost.ocks.org/mike/algorithms/"
 
-contributions: 
+contributions:
   - title: "P5.js Bubblesort Visualizer"
     author:
       name: "David"
