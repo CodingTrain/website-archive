@@ -19,4 +19,3 @@ contributions:
 ---
 
 In this coding challenge, I implement a "bubble sort" algorithm in Processing(Java) and sort randomly generated lines. [#SortingTrain](https://twitter.com/hashtag/SortingTrain)
-
