@@ -9,7 +9,7 @@ live_example: false
 links:
   - title: "Visualizing Algorithms"
     url: "https://bost.ocks.org/mike/algorithms/"
-    
+
 contributions: 
   - title: "P5.js Bubblesort Visualizer"
     author:
