@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+      <script src="https://unpkg.com/ml5@0.1.1/dist/ml5.min.js" type="text/javascript"></script>
+    <script src="p5.js" type="text/javascript"></script>
+    <script src="p5.dom.js" type="text/javascript"></script>
+    <script src = "facemodel.js" type="text/javascript"></script>
+      <style>
+          #smile,#sad{
+              display: inline-block;
+              position: absolute;
+              top: 65%;
+              left: 50%;
+              transform: translate(-100%, 50%);
+              text-transform: uppercase;
+              font-size: 20px;
+              font-family: Lato;
+              font-weight: 100;
+              border-radius: 100px;
+              padding: 6px 16px;
+              background-color: #ffffff;
+          }
+          #smile{
+              border: 2px solid #27acff;
+              color: #27acff;
+          }
+          #smile:hover{
+              color: #ffffff;
+              background-color: #27acff;
+          }
+          #sad{
+              border: 2px solid #ef1c54;
+              color: #ef1c54;
+              margin-left: 100px;
+          }
+          #sad:hover{
+              background-color: #ef1c54;
+              color: #ffffff;
+          }
+          
+          
+          #train{
+              text-transform: uppercase;
+              font-size: 20px;
+              font-family: Lato;
+              font-weight: 100;
+              border-radius: 10px;
+              padding: 6px 16px;
+              background-color: #ffffff;
+              color: #1bc96b;
+              border: 2px solid #1bc96b;
+              margin-left: 20px;
+              display: inline-block;
+              position: absolute;
+              top: 73%;
+              left: 52%;
+              transform: translate(-100%, 50%);
+          }
+          #train:hover{
+              background-color: #1bc96b;
+              color: #ffffff;
+          }
+          #error{
+              position: absolute;
+              top: 80%;
+              left:44%;
+              
+          }
+          #training{
+              position: absolute;
+              top: 83%;
+              left: 44%;
+              
+          }
+          
+    
+      </style>
+  </head>
+  <body>
+      <h2 id="error"></h2>
+      <h2 id="training"></h2>
+  </body>
+</html>
