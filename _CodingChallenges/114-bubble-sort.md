@@ -21,6 +21,11 @@ contributions:
       name: "Tslytsly"
       url: "https://github.com/tslytsly"
     url: "https://editor.p5js.org/full/BJrWetCvX"
+  - title: "Sorting Algorithms Visualised"
+    author:
+      name: "Tslytsly"
+      url: "https://github.com/tslytsly"
+    url: "https://tslytsly.github.io/SortingAlgorithms/"
 ---
 
 In this coding challenge, I implement a "bubble sort" algorithm in Processing(Java) and sort randomly generated lines. [#SortingTrain](https://twitter.com/hashtag/SortingTrain)
