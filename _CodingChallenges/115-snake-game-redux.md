@@ -16,9 +16,9 @@ links:
 
 videos:
 - title: "Coding Challenge #3: Snake Game"
-  url: "/CodingChallenges/003-snake-game-p5" 
+  url: "/CodingChallenges/003-snake-game-p5"
 - title: "ES6 Classes"
-  video_id: "T-HGdc8L-7w" 
+  video_id: "T-HGdc8L-7w"
 ---
 
 Snake Game!? Again!? Now with the p5.js Web Editor!
