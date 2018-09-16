@@ -4,7 +4,8 @@
 
 ## Ports
 
-#### [Gareth Williams](https://github.com/gaweph) | [Repository](https://gaweph.github.io/p5-live-examples/CodingChallenges/CC_35.4_TSP_GA_TypeScript/)
+#### [Gareth Williams](https://github.com/gaweph) 
+[Repository](https://github.com/Gaweph/p5-live-examples/tree/master/CodingChallenges/CC_35.4_TSP_GA_TypeScript) | [Demo](https://gaweph.github.io/p5-live-examples/CodingChallenges/CC_35.4_TSP_GA_TypeScript/)
 
 Typescript Implementation of TSP GA
 
