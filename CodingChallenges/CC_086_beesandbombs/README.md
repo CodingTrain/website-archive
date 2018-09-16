@@ -8,4 +8,4 @@
 * stellartux's contribution [Source Code](https://github.com/stellartux/CC86) |  [Live Demo](http://stellartux.github.io/CC86)
 * Davenewt's colour-cycling contribution [Demo on Codepen](https://codepen.io/anon/pen/wprwdP?editors=0010)
 
-* Gareth Williams (Gaweph) - Rainbow Colours (static and Flowing) - [Source Code](https://github.com/Gaweph/CodingTrain-RainbowCode-Challenges/tree/master/CC_086_beesandbombs) | [Live Demo](https://gaweph.github.io/CodingTrain-RainbowCode-Challenges/CC_086_beesandbombs/)
+* Gareth Williams (Gaweph) - Rainbow Colours (static and Flowing) - [Source Code](https://github.com/Gaweph/p5-live-examples/tree/master/CodingChallenges/CC_086_beesandbombs) | [Live Demo](https://gaweph.github.io/p5-live-examples/CodingChallenges/CC_086_beesandbombs/)
