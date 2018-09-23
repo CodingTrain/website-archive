@@ -26,6 +26,11 @@ contributions:
       name: "Tslytsly"
       url: "https://github.com/tslytsly"
     url: "https://tslytsly.github.io/SortingAlgorithms/"
+  - title: "Bubble Sort Visualization in p5.js using Generators + Timer"
+    author:
+      name: "FirstProphet"
+      url: "https://github.com/FirstProphet"
+    url: "https://editor.p5js.org/FirstProphet/sketches/H1qLbFSFQ"
 ---
 
 In this coding challenge, I implement a "bubble sort" algorithm in Processing(Java) and sort randomly generated lines. [#SortingTrain](https://twitter.com/hashtag/SortingTrain)
