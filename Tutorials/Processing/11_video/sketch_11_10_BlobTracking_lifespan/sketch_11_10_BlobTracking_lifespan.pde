@@ -145,7 +145,6 @@ void draw() {
       }
       if (matched != null) {
         matched.taken = true;
-        matched.lifespan = maxLife;
         matched.become(cb);
       }
     }
