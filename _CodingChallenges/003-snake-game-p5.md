@@ -42,6 +42,13 @@ contributions:
       name: "Makarand Subhash Lahane"
       url: "https://mklahane.github.io/Game-Development/"
     url: "https://mklahane.github.io/Game-Development/NewSnakeGame"
+    
+  - title: "Snake Game"
+    author:
+      name: "Po Mauguet"
+      url: https://github.com/pom421
+    url: http://pom421.github.io/CodingChallenges/CC_03_Snake_game/
+    source: https://github.com/pom421/pom421.github.io/tree/master/CodingChallenges/CC_03_Snake_game
 ---
 
 In this coding challenge, I attempt to code a p5.js version of the Snake Game.
