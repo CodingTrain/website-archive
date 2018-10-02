@@ -9,6 +9,8 @@ live_example: false
 links:
   - title: "Code in the p5.js web editor"
     url: "https://editor.p5js.org/codingtrain/sketches/BJbj5l3Y7"
+  - title: "Lissajous Curve on Wikipedia"
+    url: https://en.wikipedia.org/wiki/Lissajous_curve
     
 videos:
   - title: "Lissajous Curves with p5.js"
