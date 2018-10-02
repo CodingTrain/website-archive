@@ -5,6 +5,9 @@
 // Coding Challenge #116: Lissajous Curve Table
 // https://youtu.be/--6eyLO78CY
 
+// p5.js version:
+// https://editor.p5js.org/codingtrain/sketches/BJbj5l3Y7
+
 float angle = 0;
 int w = 80;
 int cols;
