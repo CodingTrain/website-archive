@@ -9,6 +9,14 @@ links:
   - title: "Supershapes (Superformula)"
     url: "http://paulbourke.net/geometry/supershape/"
     author: "Paul Bourke"
+    
+contributions:
+  - title: "SuperShape with Sine Wave and Gui to control"
+    author:
+      name: "Carlos Angelo"
+      url: "https://codepen.io/rajatkantinandi/"
+    url: "https://editor.p5js.org/full/HkhLUiU_7"
+    source: "https://editor.p5js.org/carlos.henrique2324@gmail.com/sketches/HkhLUiU_7"
 ---
 
 In this coding challenge, I show you how to make 2D supershapes in p5.js.
