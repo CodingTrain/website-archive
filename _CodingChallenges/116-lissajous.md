@@ -19,7 +19,7 @@ videos:
   - title: "Polar Coordinates"
     video_id: "znOBmOrtz_M"
   - title: "2D Arrays in JavaScript"
-    url: "Tutorials/9-additional-topics/9.15-2d-arrays-in-javascript"
+    url: "/Tutorials/9-additional-topics/9.15-2d-arrays-in-javascript"
 ---
 
 In this Coding Challenge, I visualize a "Lissajous Curve Table" with Processing (Java).
