@@ -55,7 +55,8 @@ layout: base
         {% capture live_example_url %}/{{ page.collection }}{{ page.live_example | default: page.repository }}{% endcapture %}
 
         <div class="code-actions">
-          <a href="{% if page.repository == false %}#{% else %}{{ site.github_download_prefix | append: site.github.repository_url | append: '/tree/' | append: site.github.source.branch | append: '/' | append: page.collection | append: page.repository }}{% endif %}" target="blank" class="{% if page.repository == false %}disabled{% endif %}">Get the Code</a>
+          <a href="{% if page.repository == false %}#{% else %}{{ site.github_url | append: '/tree/master/' | append: page.collection | append: page.repository }}{% endif %}" target="blank" class="{% if page.repository == false %}disabled{% endif %}">View Code</a>
+          <a href="{% if page.repository == false %}#{% else %}{{ site.github_download_prefix | append: site.github.repository_url | append: '/tree/' | append: site.github.source.branch | append: '/' | append: page.collection | append: page.repository }}{% endif %}" target="blank" class="{% if page.repository == false %}disabled{% endif %}">Download Code</a>
           <a href="{% if page.live_example == false %}#{% else %}{{ live_example_url | relative_url }}{% endif %}" target="blank" class="{% if page.live_example == false %}disabled{% endif %}">Live Example</a>
         </div>
 
