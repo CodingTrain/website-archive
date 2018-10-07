@@ -13,6 +13,8 @@ links:
     url: "https://editor.p5js.org/"
   - title: "Hello p5.js Web Editor!"
     url: "https://medium.com/processing-foundation/hello-p5-js-web-editor-b90b902b74cf"
+  - title: "Sketch Algorithms Snake Game Tutorial"
+    url: "https://www.sketchalgorithms.com/games/snake-game"
 
 videos:
   - title: "Coding Challenge #3: Snake Game"
