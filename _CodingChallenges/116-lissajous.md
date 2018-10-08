@@ -6,6 +6,14 @@ video_id: --6eyLO78CY
 repository: /CC_116_Lissajous
 live_example: false
 
+contributions:
+  - title: "3D Lissajous Visualization"
+    author:
+      name: "Cole Spears"
+      url: "https://github.com/cspears1110"
+   url: "https://editor.p5js.org/full/ByNmpl_5m"
+   source: "https://editor.p5js.org/cspears1110/sketches/ByNmpl_5m"
+
 links:
   - title: "Code in the p5.js web editor"
     url: "https://editor.p5js.org/codingtrain/sketches/BJbj5l3Y7"
