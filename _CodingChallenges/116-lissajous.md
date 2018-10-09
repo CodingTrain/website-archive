@@ -22,6 +22,14 @@ videos:
     video_id: "znOBmOrtz_M"
   - title: "2D Arrays in JavaScript"
     url: "/Tutorials/9-additional-topics/9.15-2d-arrays-in-javascript"
+
+contributions:
+  - title: "3D Lissajous Visualization"
+    author:
+      name: "Cole Spears"
+      url: "https://github.com/cspears1110"
+    url: "https://editor.p5js.org/full/ByNmpl_5m"
+    source: "https://editor.p5js.org/cspears1110/sketches/ByNmpl_5m"
 ---
 
 In this Coding Challenge, I visualize a "Lissajous Curve Table" with Processing (Java).
