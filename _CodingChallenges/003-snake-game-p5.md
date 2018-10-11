@@ -36,6 +36,7 @@ contributions:
       name: "Bjorn Van Acker"
       url: "https://bjorvack.github.io/code-challenges/"
     url: "https://bjorvack.github.io/code-challenges/challenges/cc-003-snake/"
+    source: "https://github.com/bjorvack/code-challenges/tree/master/challenges/cc-003-snake"
 
   - title: "Snake vs Blocks Game"
     author:
