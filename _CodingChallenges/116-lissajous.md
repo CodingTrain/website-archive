@@ -30,6 +30,12 @@ contributions:
       url: "https://github.com/cspears1110"
     url: "https://editor.p5js.org/full/ByNmpl_5m"
     source: "https://editor.p5js.org/cspears1110/sketches/ByNmpl_5m"
+  - title: "Lissajous Curve Animation"
+    author:
+      name: "Tobias von Arx"
+      url: "https://github.com/tobiasvonarx"
+    url: "https://tobiasvonarx.github.io/HTML5-JS/Lissajous%20Curve/"
+    source: "https://github.com/tobiasvonarx/HTML5-JS/tree/master/Lissajous%20Curve"
 ---
 
 In this Coding Challenge, I visualize a "Lissajous Curve Table" with Processing (Java).
