@@ -28,4 +28,4 @@ contributions:
     url: "https://tslytsly.github.io/SortingAlgorithms/"
 ---
 
-In this coding challenge, I implement a "bubble sort" algorithm in Processing(Java) and sort randomly generated lines. [#SortingTrain](https://twitter.com/hashtag/SortingTrain)
+In this coding challenge, I implement a "bubble sort" algorithm in Processing (Java) and sort randomly generated lines. [#SortingTrain](https://twitter.com/hashtag/SortingTrain)
