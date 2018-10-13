@@ -36,6 +36,12 @@ contributions:
       url: "https://github.com/tobiasvonarx"
     url: "https://tobiasvonarx.github.io/HTML5-JS/Lissajous%20Curve/"
     source: "https://github.com/tobiasvonarx/HTML5-JS/tree/master/Lissajous%20Curve"
+  - title: "Another Lissajous Curve"
+    author:
+      name: "Tayfun Turgut"
+      url: "https://github.com/TayfunTurgut"
+    url: "https://tayfunturgut.github.io/Lissajous-Table/"
+    source: "https://github.com/TayfunTurgut/Lissajous-Table/tree/master"
 ---
 
 In this Coding Challenge, I visualize a "Lissajous Curve Table" with Processing (Java).
