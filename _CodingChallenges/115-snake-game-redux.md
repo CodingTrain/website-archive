@@ -19,7 +19,7 @@ videos:
     url: "/CodingChallenges/003-snake-game-p5"
   - title: "ES6 Classes"
     video_id: "T-HGdc8L-7w"
-    
+
 contributions:
   - title: "Sketch Algorithms Snake Game Tutorial using vanilla JS"
     author:
@@ -27,6 +27,7 @@ contributions:
       url: "http://subeshb1.com.np"
     url: "https://www.sketchalgorithms.com/games/snake-game"
     source: "https://www.sketchalgorithms.com/games/snake-game#code"
+
 ---
 
 Snake Game!? Again!? Now with the p5.js Web Editor!
