@@ -9,6 +9,8 @@ live_example: false
 links:
   - title: "Code in the p5.js web editor"
     url: "https://editor.p5js.org/codingtrain/sketches/BJbj5l3Y7"
+  - title: "Lissajous Curve on Wikipedia"
+    url: https://en.wikipedia.org/wiki/Lissajous_curve
 
 videos:
   - title: "Lissajous Curves with p5.js"
@@ -20,6 +22,26 @@ videos:
     video_id: "znOBmOrtz_M"
   - title: "2D Arrays in JavaScript"
     url: "/Tutorials/9-additional-topics/9.15-2d-arrays-in-javascript"
+
+contributions:
+  - title: "3D Lissajous Visualization"
+    author:
+      name: "Cole Spears"
+      url: "https://github.com/cspears1110"
+    url: "https://editor.p5js.org/full/ByNmpl_5m"
+    source: "https://editor.p5js.org/cspears1110/sketches/ByNmpl_5m"
+  - title: "Lissajous Curve Animation"
+    author:
+      name: "Tobias von Arx"
+      url: "https://github.com/tobiasvonarx"
+    url: "https://tobiasvonarx.github.io/HTML5-JS/Lissajous%20Curve/"
+    source: "https://github.com/tobiasvonarx/HTML5-JS/tree/master/Lissajous%20Curve"
+  - title: "Another Lissajous Curve"
+    author:
+      name: "Tayfun Turgut"
+      url: "https://github.com/TayfunTurgut"
+    url: "https://tayfunturgut.github.io/Lissajous-Table/"
+    source: "https://github.com/TayfunTurgut/Lissajous-Table/tree/master"
 ---
 
 In this Coding Challenge, I visualize a "Lissajous Curve Table" with Processing (Java).
