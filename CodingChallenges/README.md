@@ -245,7 +245,7 @@ Here is the playlist of all my coding challenges:
   - [Javascript Version](CC_095_Approximating_Pi)
 - Coding Challenge #96: Visualizing the Digits of Pi
   - [Javascript Version](CC_096_Visualizing_the_Digits_of_P)
-- Coding Challenge #97: Visualizing the Digits of Pi
+- Coding Challenge #97: Book of Pi
  - [Processing Version](CC_097_Book_of_Pi_1) (Part 1)
  - [Processing Version](CC_097_Book_of_Pi_2) (Part 2)
 - Coding Challenge #98: QuadTree
