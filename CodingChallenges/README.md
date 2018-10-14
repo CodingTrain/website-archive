@@ -234,3 +234,57 @@ Here is the playlist of all my coding challenges:
   - [Processing Version](CC_090_dithering)
 - Coding Challenge #91: Snakes & Ladders
   - [Javascript Version](CC_091_snakesladders_p5.js)
+- Coding Challenge #92: xor Problem
+  - [Javascript Version](CC_092_xor)
+- Coding Challenge #93: Double Pendulum
+  - [Javascript Version](CC_093_DoublePendulum_p5.js)
+  - [Processing Version](CC_093_DoublePendulum)
+- Coding Challenge #94: 2048
+  - [Javascript Version](CC_094_2048)
+- Coding Challenge #95: Approximating Pi
+  - [Javascript Version](CC_095_Approximating_Pi)
+- Coding Challenge #96: Visualizing the Digits of Pi
+  - [Javascript Version](CC_096_Visualizing_the_Digits_of_P)
+- Coding Challenge #97: Visualizing the Digits of Pi
+ - [Processing Version](CC_097_Book_of_Pi_1) (Part 1)
+ - [Processing Version](CC_097_Book_of_Pi_2) (Part 2)
+- Coding Challenge #98: QuadTree
+ - [Javascript Version](CC_98_QuadTree) (Part 1-2)
+ - [Javascript Version](CC_98_QuadTree_Collisions) (Part 3)
+- Coding Challenge #99: Color Predictor
+ - [Javascript Version](CC_099_ColorPredictor)
+- Coding Challenge #100: NeuroEvolution FlappyBird
+ - [Javascript Version](CC_100_NeuroEvolution_FlappyBird) (Part 1-4)
+ - [Javascript Version](CC_100_NeuroEvolution_FlappyBird_5) (Part 5)
+- Coding Challenge #101: May The 4th
+ - [Processing Version](CC_101_MayThe4th)
+- Coding Challenge #102: Water Ripples
+ - [Processing Version](CC_102_WaterRipples)
+- Coding Challenge #103: Flames
+ - [Processing Version](CC_103_Flames)
+- Coding Challenge #104: Linear regression with Tensorflow.js
+ - [Javascript Version](CC_104_tf_linear_regression)
+- Coding Challenge #105: Polynomial regression with Tensorflow.js
+ - [Javascript Version](CC_105_tf_polynomial_regression)
+- Coding Challenge #106: xor Problem with Tensorflow.js
+ - [Javascript Version](CC_106_tf_xor_tfjs)
+- Coding Challenge #107: Sandpiles
+ - [Processing Version](CC_107_sandpiles)
+- Coding Challenge #108: Barnsley Fern
+ - [Processing Version](CC_108_barnsley_fern)
+- Coding Challenge #109: Subscriber Map
+ - [Javascript Version](CC_109_subscriper_map)
+- Coding Challenge #110: Recaman Sesquence
+ - [Javascript Version](CC_110_recaman)
+ - [Javascript Version](CC_110_recaman_music) (Version with Music)
+ - [Processing Version](CC_110_recaman_processing)
+- Coding Challenge #111: Animated sprite
+ - [Javascript Version](CC_111_animated_sprite)
+- Coding Challenge #112: 3D Rendering
+ - [Processing Version](CC_112_3D_rendering)
+- Coding Challenge #113: Hypercube aka "Tesseract"
+ - [Processing Version](CC_113_Hypercube)
+- Coding Challenge #114: BubbleSort Visualitation
+ - [Processing Version](CC_114_BubbleSortViz)
+- Coding Challenge #116: Lissajous Table
+ - [Processing Version](CC_116_Lissajous)
