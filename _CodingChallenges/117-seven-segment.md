@@ -23,6 +23,12 @@ contributions:
       url: "https://www.suppergerrie2.com"
     url: "https://editor.p5js.org/full/SkqBEHGs7"
     source: "https://editor.p5js.org/suppergerrie2/sketches/SkqBEHGs7"
+  - title: "Interactive Seven-Segment Display"
+    author:
+      name: "bl4ckscor3"
+      url: "https://github.com/bl4ckscor3"
+    url: "https://gfycat.com/EsteemedDamagedLadybird"
+    source: "https://github.com/bl4ckscor3/ProcessingPlayground/tree/master/SevenSegmentDisplay"
 ---
 
 In this coding challenge, I make a Seven-Segment Display with the p5.js library. This video was inspired by [Tom Scott's video on seven-segment displays](https://youtu.be/zp4BMR88260).
