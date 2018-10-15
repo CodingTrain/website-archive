@@ -35,6 +35,12 @@ contributions:
       url: "https://github.com/bl4ckscor3"
     url: "https://gfycat.com/EsteemedDamagedLadybird"
     source: "https://github.com/bl4ckscor3/ProcessingPlayground/tree/master/SevenSegmentDisplay"
+  - title: "Seven-Segment Display clock"
+    author:
+      name: "WillyWarrig"
+      url: ""
+    url: "https://editor.p5js.org/full/S1gC88GoQ"
+    source: "https://editor.p5js.org/WillyWarrig/sketches/S1gC88GoQ"
 ---
 
 In this coding challenge, I make a Seven-Segment Display with the p5.js library. This video was inspired by [Tom Scott's video on seven-segment displays](https://youtu.be/zp4BMR88260).
