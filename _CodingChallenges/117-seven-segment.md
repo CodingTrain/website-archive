@@ -23,6 +23,12 @@ contributions:
       url: "https://www.suppergerrie2.com"
     url: "https://editor.p5js.org/full/SkqBEHGs7"
     source: "https://editor.p5js.org/suppergerrie2/sketches/SkqBEHGs7"
+  - title: "Seven-Segment Display that finds longest possible word"
+    author:
+      name: "Tom Sealey"
+      url: "https://github.com/tslytsly"
+    url: "https://tslytsly.github.io/Seven-Segment-Longest-Word/"
+    source: "https://github.com/tslytsly/Seven-Segment-Longest-Word"
 ---
 
 In this coding challenge, I make a Seven-Segment Display with the p5.js library. This video was inspired by [Tom Scott's video on seven-segment displays](https://youtu.be/zp4BMR88260).
