@@ -23,6 +23,12 @@ contributions:
       url: "https://www.suppergerrie2.com"
     url: "https://editor.p5js.org/full/SkqBEHGs7"
     source: "https://editor.p5js.org/suppergerrie2/sketches/SkqBEHGs7"
+  - title: "Clock 7 Segment Display"
+    author:
+      name: "WillyWarrig"
+      url: ""
+    url: "https://editor.p5js.org/full/S1gC88GoQ"
+    source: "https://editor.p5js.org/WillyWarrig/sketches/S1gC88GoQ"
 ---
 
 In this coding challenge, I make a Seven-Segment Display with the p5.js library. This video was inspired by [Tom Scott's video on seven-segment displays](https://youtu.be/zp4BMR88260).
