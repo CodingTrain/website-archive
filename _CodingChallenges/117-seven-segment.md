@@ -15,7 +15,7 @@ videos:
   - title: "What's The Longest Word You Can Write With Seven-Segment Displays?"
     author: "Tom Scott"
     video_id: "zp4BMR88260"
-    
+
 contributions:
   - title: "Multiple Digits 7 Segment Display"
     author:
