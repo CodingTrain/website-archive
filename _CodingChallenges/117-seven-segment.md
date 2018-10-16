@@ -53,6 +53,12 @@ contributions:
       url: "https://vhdlcodes.com/"
     url: "https://editor.p5js.org/full/HkL3js_t7"
     source: "https://editor.p5js.org/Tonystark4009/sketches/HkL3js_t7"
+  - title: "Processing Seven Segment Display"
+    author:
+      name: "Fernando Aguilar"
+      url: "https://github.com/SwiftyTurtle"
+    url: "https://github.com/fernand0aguilar/art-code-poetry/tree/master/Processing/sketch_7_segment_display"
+    source: "https://github.com/fernand0aguilar/art-code-poetry/blob/master/Processing/sketch_7_segment_display/sketch_7_segment_display.pde"
   - title: "Object-oriented refactoring"
     author:
       name: "Brewal Renault"
