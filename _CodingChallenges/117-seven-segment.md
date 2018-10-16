@@ -35,7 +35,7 @@ contributions:
       url: "https://github.com/bl4ckscor3"
     url: "https://gfycat.com/EsteemedDamagedLadybird"
     source: "https://github.com/bl4ckscor3/ProcessingPlayground/tree/master/SevenSegmentDisplay"
-  - title: "Senven Segment Decoder App"
+  - title: "Seven Segment Decoder App"
     author:
       name: "Prasad Pandit"
       url: "https://vhdlcodes.com/"
