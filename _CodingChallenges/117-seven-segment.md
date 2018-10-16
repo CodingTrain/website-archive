@@ -43,4 +43,4 @@ contributions:
     source: "https://editor.p5js.org/Tonystark4009/sketches/HkL3js_t7"
 ---
 
-In this coding challenge, I make a Seven-Segment Display with p5.js. This video is inspired by Tom Scott's:[What's The Longest Word You Can Write With Seven-Segment Displays?](https://youtu.be/zp4BMR88260).
+In this coding challenge, I make a Seven-Segment Display with p5.js. This video is inspired by Tom Scott's: [What's The Longest Word You Can Write With Seven-Segment Displays?](https://youtu.be/zp4BMR88260).
