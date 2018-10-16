@@ -42,9 +42,9 @@ contributions:
       url: "https://github.com/TayfunTurgut"
     url: "https://tayfunturgut.github.io/Lissajous-Table/"
     source: "https://github.com/TayfunTurgut/Lissajous-Table/tree/master"
-    - title: "Single function Lissajous Table"
+  - title: "Single function Lissajous Table"
     author:
-      name: "Fernando Aguilar"
+      name: "Fernando Ribeiro"
       url: "https://github.com/fernand0aguilar"
     url: "https://raw.githubusercontent.com/fernand0aguilar/art-code-poetry/master/Processing/Lissajous_Curve_Table/lissajous063.png"
     source: "https://github.com/fernand0aguilar/art-code-poetry/tree/master/Processing/Lissajous_Curve_Table"
