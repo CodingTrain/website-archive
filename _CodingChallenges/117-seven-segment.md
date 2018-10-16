@@ -59,6 +59,12 @@ contributions:
       url: "https://github.com/SwiftyTurtle"
     url: "https://github.com/fernand0aguilar/art-code-poetry/tree/master/Processing/sketch_7_segment_display"
     source: "https://github.com/fernand0aguilar/art-code-poetry/blob/master/Processing/sketch_7_segment_display/sketch_7_segment_display.pde"
+  - title: "Object-oriented refactoring"
+    author:
+      name: "Brewal Renault"
+      url: "https://github.com/Brewal"
+    url: "https://editor.p5js.org/full/SJTBuKziQ"
+    source: "https://editor.p5js.org/brewal/sketches/SJTBuKziQ"
 ---
 
 In this coding challenge, I make a Seven-Segment Display with p5.js. This video is inspired by Tom Scott's: [What's The Longest Word You Can Write With Seven-Segment Displays?](https://youtu.be/zp4BMR88260).
