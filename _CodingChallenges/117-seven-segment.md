@@ -36,6 +36,7 @@ contributions:
     url: "https://gfycat.com/EsteemedDamagedLadybird"
     source: "https://github.com/bl4ckscor3/ProcessingPlayground/tree/master/SevenSegmentDisplay"
     - title: "Senven Segment Decoder App"
+  - title: "Seven Segment Decoder App"
     author:
       name: "Prasad Pandit"
       url: "https://vhdlcodes.com/"
@@ -43,4 +44,4 @@ contributions:
     source: "https://editor.p5js.org/Tonystark4009/sketches/HkL3js_t7"
 ---
 
-In this coding challenge, I make a Seven-Segment Display with the p5.js library. This video was inspired by [Tom Scott's video on seven-segment displays](https://youtu.be/zp4BMR88260).
+In this coding challenge, I make a Seven-Segment Display with p5.js. This video is inspired by Tom Scott's: [What's The Longest Word You Can Write With Seven-Segment Displays?](https://youtu.be/zp4BMR88260).
