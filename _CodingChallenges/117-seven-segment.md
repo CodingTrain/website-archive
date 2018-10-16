@@ -41,6 +41,11 @@ contributions:
       url: "https://github.com/WimarSchippers"
     url: "https://editor.p5js.org/full/S1gC88GoQ"
     source: "https://editor.p5js.org/WillyWarrig/sketches/S1gC88GoQ"
+  - title: "Seven-Segment Display Clock"
+      name: "SwiftyTurtle"
+      url: "https://github.com/SwiftyTurtle"
+    url: "https://swiftyturtle.github.io/7SegmentDisplay_Clock/"
+    source: "https://github.com/SwiftyTurtle/7SegmentDisplay_Clock"
   - title: "Seven Segment Decoder App"
     author:
       name: "Prasad Pandit"
