@@ -23,6 +23,14 @@ videos:
     video_id: "uSzGdfdOoG8"
   - title: "Matrix Multiplication for 3D Rendering"
     video_id: "tzsgS19RRc8"
+
+contributions:
+  - title: "Projections"
+    author:
+      name: "Aaron Jenson"
+      url: "https://github.com/aaronjenson"
+    url: "https://aaronjenson.github.io/Projection/"
+    source: "https://github.com/aaronjenson/Projection"
 ---
 
 In this coding challenge, I visualize a 4D Hypercube (aka "Tesseract") in Processing (Java).
