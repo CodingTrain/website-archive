@@ -26,6 +26,11 @@ contributions:
       name: "Tslytsly"
       url: "https://github.com/tslytsly"
     url: "https://tslytsly.github.io/SortingAlgorithms/"
+  - title: "Bubble Sort Visualization in p5.js using Generators + Timer"
+    author:
+      name: "FirstProphet"
+      url: "https://github.com/FirstProphet"
+    url: "https://editor.p5js.org/FirstProphet/sketches/H1qLbFSFQ"
   - title: "Sketch Algorithms Bubble Sort"
     author:
       name: "Subesh Bhandari"
