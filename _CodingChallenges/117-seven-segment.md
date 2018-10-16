@@ -37,4 +37,4 @@ contributions:
     source: "https://github.com/bl4ckscor3/ProcessingPlayground/tree/master/SevenSegmentDisplay"
 ---
 
-In this coding challenge, I make a Seven-Segment Display with the p5.js library. This video was inspired by [Tom Scott's video on seven-segment displays](https://youtu.be/zp4BMR88260).
+In this coding challenge, I make a Seven-Segment Display with p5.js. This video is inspired by Tom Scott's:[What's The Longest Word You Can Write With Seven-Segment Displays?](https://youtu.be/zp4BMR88260).
