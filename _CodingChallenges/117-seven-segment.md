@@ -53,6 +53,12 @@ contributions:
       url: "https://vhdlcodes.com/"
     url: "https://editor.p5js.org/full/HkL3js_t7"
     source: "https://editor.p5js.org/Tonystark4009/sketches/HkL3js_t7"
+  - title: "Processing Seven Segment Display"
+    author:
+      name: "Fernando Aguilar"
+      url: "https://github.com/SwiftyTurtle"
+    url: "https://github.com/fernand0aguilar/art-code-poetry/tree/master/Processing/sketch_7_segment_display"
+    source: "https://github.com/fernand0aguilar/art-code-poetry/blob/master/Processing/sketch_7_segment_display/sketch_7_segment_display.pde"
 ---
 
 In this coding challenge, I make a Seven-Segment Display with p5.js. This video is inspired by Tom Scott's: [What's The Longest Word You Can Write With Seven-Segment Displays?](https://youtu.be/zp4BMR88260).
