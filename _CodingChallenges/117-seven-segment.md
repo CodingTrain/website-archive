@@ -37,6 +37,12 @@ contributions:
     source: "https://github.com/bl4ckscor3/ProcessingPlayground/tree/master/SevenSegmentDisplay"
   - title: "Seven-Segment Display Clock"
     author:
+      name: "WimarSchippers"
+      url: "https://github.com/WimarSchippers"
+    url: "https://editor.p5js.org/full/S1gC88GoQ"
+    source: "https://editor.p5js.org/WillyWarrig/sketches/S1gC88GoQ"
+  - title: "Seven-Segment Display Clock"
+    author:
       name: "SwiftyTurtle"
       url: "https://github.com/SwiftyTurtle"
     url: "https://swiftyturtle.github.io/7SegmentDisplay_Clock/"
