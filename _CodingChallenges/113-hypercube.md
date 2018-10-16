@@ -34,4 +34,3 @@ contributions:
 ---
 
 In this coding challenge, I visualize a 4D Hypercube (aka "Tesseract") in Processing (Java).
-
