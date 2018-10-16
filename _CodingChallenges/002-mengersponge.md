@@ -27,6 +27,7 @@ contributions:
       name: "Bjorn Van Acker"
       url: "https://bjorvack.github.io/code-challenges/"
     url: "https://bjorvack.github.io/code-challenges/challenges/cc-002-menger-sponge/"
+    source: "https://github.com/bjorvack/code-challenges/tree/master/challenges/cc-002-menger-sponge"
 ---
 
 In this coding challenge, I attempt to code the Menger Sponge (fractals) using Processing.
