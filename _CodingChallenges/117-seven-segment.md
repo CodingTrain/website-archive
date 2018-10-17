@@ -65,6 +65,11 @@ contributions:
       url: "https://github.com/Brewal"
     url: "https://editor.p5js.org/full/SJTBuKziQ"
     source: "https://editor.p5js.org/brewal/sketches/SJTBuKziQ"
+  - title: "Cascading Switch Statement SSD"
+    author:
+      name: "The Tasteful Toastie"
+      url: "https://github.com/TheTastefulToastie"
+    url: "http://jsfiddle.net/TheTastefulToastie/qm1089v6"
 ---
 
 In this coding challenge, I make a Seven-Segment Display with p5.js. This video is inspired by Tom Scott's: [What's The Longest Word You Can Write With Seven-Segment Displays?](https://youtu.be/zp4BMR88260).
