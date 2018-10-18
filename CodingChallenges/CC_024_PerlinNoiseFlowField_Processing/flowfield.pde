@@ -34,19 +34,13 @@ public class FlowField {
       }
       yoff += inc;
     }
-    //zoff += 0.004;
+    zoff += 0.004;
   }
   void display() {
-    float xoff = 0;
     for (int y = 0; y < rows; y++) { 
-      float yoff = 0;
       for (int x = 0; x < cols; x++) {
-        float angle = noise(xoff, yoff, zoff) * TWO_PI * 4;
-        
-        PVector v = PVector.fromAngle(angle);
-        v.setMag(1);
         int index = x + y * cols;
-        vectors[index] = v;
+        PVector v = vectors[index];
         
         stroke(0, 0, 0, 40);
         strokeWeight(0.1);
@@ -55,11 +49,7 @@ public class FlowField {
         rotate(v.heading());
         line(0, 0, scl, 0);
         popMatrix();
-        
-        xoff += inc;
       }
-      yoff += inc;
     }
-    //zoff += 0.004;
   }
 }
