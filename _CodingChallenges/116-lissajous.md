@@ -5,6 +5,7 @@ date: 2018-10-02
 video_id: --6eyLO78CY
 repository: /CC_116_Lissajous
 live_example: false
+web_editor: BJbj5l3Y7
 
 links:
   - title: "Code in the p5.js web editor"

@@ -71,6 +71,11 @@ contributions:
       url: "http://doxanthropos.com"
     url: "https://doxanthropos.github.io/sketchbook/2018101701/"
     source: "https://github.com/doxanthropos/sketchbook/tree/master/2018101701"
+  - title: "Cascading Switch Statement SSD"
+    author:
+      name: "The Tasteful Toastie"
+      url: "https://github.com/TheTastefulToastie"
+    url: "http://jsfiddle.net/TheTastefulToastie/qm1089v6"
 ---
 
 In this coding challenge, I make a Seven-Segment Display with p5.js. This video is inspired by Tom Scott's: [What's The Longest Word You Can Write With Seven-Segment Displays?](https://youtu.be/zp4BMR88260).
