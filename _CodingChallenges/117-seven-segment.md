@@ -66,7 +66,7 @@ contributions:
     url: "https://editor.p5js.org/full/SJTBuKziQ"
     source: "https://editor.p5js.org/brewal/sketches/SJTBuKziQ"
   - title: "Seven Segment Display Clock"
-    author: 
+    author:
       name: "Knut Jackowski"
       url: "http://doxanthropos.com"
     url: "https://doxanthropos.github.io/sketchbook/2018101701/"
