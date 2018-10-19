@@ -14,6 +14,13 @@ links:
 videos:
   - title: "My Video on Polar Coordinates"
     url: "/Tutorials/9-additional-topics/9.20-polar-coordinates"
+contributions:
+  - title: "Single Player Edition"
+    author:
+      name: "Nico Finkernagel"
+      url: "https://gruselhaus.com"
+    url: "https://gruselhaus.com/src/pong/"
+    source: "https://github.com/gruselhaus/website/tree/master/docs/src/pong"
 ---
 
 In this challenge, I attempt (emphasis on the word "attempt") to program the classic video game Pong in Processing (Java).

@@ -10,6 +10,14 @@ links:
     url: "https://en.wikipedia.org/wiki/Mandelbrot_set"
   - title: "Mandelbrot Set Explorer"
     url: "https://meiamso.me/old/mandelbrot/mandelbrot.php"
+
+contributions:
+  - title: "Colorful Mandelbrot Visualization"
+    author:
+      name: "Tobias von Arx"
+      url: "https://github.com/tobiasvonarx"
+    url: "https://tobiasvonarx.github.io/HTML5-JS/Mandelbrot%20Fractal/"
+    source: "https://github.com/tobiasvonarx/HTML5-JS/tree/master/Mandelbrot%20Fractal"
 ---
 
 In this coding challenge, I program from scratch the Mandelbrot set with p5.js

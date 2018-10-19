@@ -29,5 +29,5 @@ contributions:
     source: "https://gist.github.com/spulilol/4732968c3073faf8a42d2b7477caf929"
 ---
 
-In this coding challenge, I use matrix math to project a 3D object on a 2D plane, in Processing (Java).
+In this coding challenge I render a 3D object (cube) in 2D using rotation and projection matrices in Processing (Java).
 

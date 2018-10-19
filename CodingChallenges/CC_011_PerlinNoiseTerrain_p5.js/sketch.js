@@ -43,7 +43,7 @@ function draw() {
 
   background(0);
   translate(0, 50);
-  rotateX(-PI/3);
+  rotateX(PI/3);
   fill(200,200,200, 50);
   translate(-w/2, -h/2);
   for (var y = 0; y < rows-1; y++) {

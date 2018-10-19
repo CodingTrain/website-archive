@@ -16,11 +16,23 @@ contributions:
       name: "Bjorn Van Acker"
       url: "https://bjorvack.github.io/code-challenges/"
     url: "https://bjorvack.github.io/code-challenges/challenges/cc-108-barnsley-fern/"
+    source: "https://github.com/bjorvack/code-challenges/tree/master/challenges/cc-108-barnsley-fern"
   - title: "Barnsley Fern in the Console"
     author:
       name: "Addo White"
     video_id: "3Q5tAWkAEBc"
     source: "https://github.com/addowhite/Console-Barnsley-Fern"
+  - title: "Animating the Barnsley Fern"
+    author:
+      name: "Niels Vadot"
+      url: "https://nielsvadot.design/"
+    url: "https://codepen.io/ninivert/full/BPMeBG/"
+    source: "https://github.com/ninivert/Barnsley-Fern-Animated"
+  - title: "Add Rotate"
+    author:
+      name: "Carlos Angelo"
+    url: "https://editor.p5js.org/full/SkBWJXXum"
+    source: "https://editor.p5js.org/carlos.henrique2324@gmail.com/sketches/SkBWJXXum"
 ---
 
 In this coding challenge, I visualize the Barnsley Fern fractal with Processing (Java).
