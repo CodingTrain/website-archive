@@ -10,6 +10,8 @@
 // https://youtu.be/01RTj1MWec0
 // https://youtu.be/BztW_u6HDbs
 
+// Note: In this file, "let" was changed to "const" where it was appropriate to be consistent with ES6. 
+
 const wordnikAPI = "https://api.wordnik.com/v4/words.json/randomWord?&api_key=48dd829661f515d5abc0d03197a00582e888cc7da2484d5c7";
 const giphyAPI = "https://api.giphy.com/v1/gifs/search?rating=G&api_key=dc6zaTOxFJmzC&q=";
 
