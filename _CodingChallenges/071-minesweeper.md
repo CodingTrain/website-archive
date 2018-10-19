@@ -25,8 +25,8 @@ contributions:
     author:
       name: "Po Mauguet"
       url: "https://github.com/pom421/"
-    url: "http://pom421.github.io/CodingChallenges/CC_071_minesweeper/"
-    source: "https://github.com/pom421/pom421.github.io/tree/master/CodingChallenges/CC_071_minesweeper"
+    url: "http://pom421.github.io/CodingChallenges/CC_71_minesweeper/"
+    source: "https://github.com/pom421/pom421.github.io/tree/master/CodingChallenges/CC_71_minesweeper"
 
   - title: "Minesweeper!"
     author:

@@ -31,6 +31,12 @@ contributions:
       url: "https://nielsvadot.design/"
     url: "https://ninivert.github.io/N-Dimension-Cube-Renderer/"
     source: "https://github.com/ninivert/N-Dimension-Cube-Renderer"
+  - title: "Projections"
+    author:
+      name: "Aaron Jenson"
+      url: "https://github.com/aaronjenson"
+    url: "https://aaronjenson.github.io/Projection/"
+    source: "https://github.com/aaronjenson/Projection"
 ---
 
 In this coding challenge, I visualize a 4D Hypercube (aka "Tesseract") in Processing (Java).

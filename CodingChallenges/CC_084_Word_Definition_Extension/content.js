@@ -2,8 +2,6 @@
 // http://codingtra.in
 // http://patreon.com/codingtrain
 
-console.log("Chrome extension go?");
-
 window.addEventListener('mouseup', wordSelected);
 
 function wordSelected() {

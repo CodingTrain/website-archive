@@ -9,7 +9,7 @@
 Extended Beesweeper by kleinesfilmröllchen
 
 #### By: [Gareth Williams](https://github.com/gaweph)
-[Repository](https://github.com/Gaweph/CodingTrain-RainbowCode-Challenges/tree/master/CC_071_minesweeper) | [Demo](https://gaweph.github.io/CodingTrain-RainbowCode-Challenges/CC_071_minesweeper/)
+[Repository](https://github.com/Gaweph/p5-live-examples/tree/master/CodingChallenges/CC_071_minesweeper) | [Demo](https://gaweph.github.io/p5-live-examples/CodingChallenges/CC_071_minesweeper/)
 Ported to typescript and added some color (no real extra functionality im afraid)
 
 #### By: [dondanhill](https://github.com/dondanhill)

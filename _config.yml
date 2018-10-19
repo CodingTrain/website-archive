@@ -7,7 +7,6 @@
 #
 
 
-
 # --- Site Settings ---
 
 # The site's title.
@@ -21,6 +20,10 @@ repository: CodingTrain/website
 
 # Prefix for download links (downloads only the relevant code from GitHub).
 github_download_prefix: https://minhaskamal.github.io/DownGit/#/home?url=
+
+# Prefixes for editor.p5js.org
+web_editor_sketch_prefix: https://editor.p5js.org/codingtrain/sketches/
+web_editor_fulscreen_prefix: https://editor.p5js.org/full/
 
 # Links to other platforms.
 links:
