@@ -10,13 +10,12 @@ topics:
     url: "/Tutorials/18-webgl/18.3-light-and-material"
   - title: "Textures"
     time: "1:01:23"
-    url:  "Tutorials/18-webgl/18.4-textures"
+    url:  "/Tutorials/18-webgl/18.4-textures"
   - title: "Camera"
     time: "1:35:43"
     url: "/Tutorials/18-webgl/18.5-camera"
   - title: "Debugging Open Source projects"
     time: "2:15:34"
-    url: false 
 
 links:
   - title: "Getting started with WebGL in p5"

@@ -30,7 +30,7 @@ layout: base
       {% endif %}
     {% endunless %}
 
-    {{ page.subtitle }}
+    {{ page.subtitle | xml_escape }}
   </div>
 
   {% comment %} Show the series description. {% endcomment %}
@@ -44,16 +44,13 @@ layout: base
                                         | where_exp: 'seriesIndex', 'seriesIndex.path != page.path'
                                         | sort: 'series_number' %}
 
-    {% comment %} Count the number of '/' in this page's path. {% endcomment %}
-    {% comment %} This is used to only show series which are direct children to this series. {% endcomment %}
-    {% assign slashCountInThisPagePath = page.path | split: '/' | size | plus: 1 %}
-
     {% comment %} Show the first three videos for every series ... {% endcomment %}
     {% for seriesIndexPage in seriesIndexPages %}
 
-      {% comment %} ... but only if the series is a direct children to this series. {% endcomment %}
-      {% assign slashCountInIndexPage = seriesIndexPage.path | split: '/' | size %}
-      {% if slashCountInIndexPage == slashCountInThisPagePath %}
+      {% comment %} Only if the series is a direct children to this series. {% endcomment %}
+      {% comment %} ...by comparing the path of the index.md and the path of the series{% endcomment %}
+      {% assign seriesIndexPagePath = seriesIndexPage.path | remove: '/index.md' | split: '/' | pop | join: '/' | append: '/'%}
+      {% if thisSeriesPath == seriesIndexPagePath %}
 
         {% comment %} Display title, description and videos. {% endcomment %}
         <div class="series">
