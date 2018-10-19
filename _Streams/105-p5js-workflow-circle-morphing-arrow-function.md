@@ -13,10 +13,10 @@ topics:
     url: "/Tutorials/1-p5js-basics/1.2-p5js-workflow"
   - title: "Circle Morphing Coding Challenge - Part 1"
     time: "1:55:04"
-    url: "/CodingChallenges/81.1-circle-morphing-part-1"
+    url: "/CodingChallenges/081.1-circle-morphing-part-1"
   - title: "Circle Morphing Coding Challenge - Part 2"
     time: "2:56:27"
-    url: "/CodingChallenges/81.2-circle-morphing-part-2"
+    url: "/CodingChallenges/081.2-circle-morphing-part-2"
 
 links:
   - title: "Processing Community Day"
@@ -41,7 +41,7 @@ links:
     url: "https://github.com/ITPNYU/ICMadness"
   - title: "Circle Morphing on Twitter"
     url: "https://twitter.com/hashtag/CircleMorphing"
-  
+
 videos:
   - title: "Golan Levin's Circle Morphing"
     url: "/GuestTutorials/7-golan-levin-circle-morphing"
@@ -61,4 +61,4 @@ videos:
     url: "/Tutorials/9-additional-topics/9.20-polar-coordinates"
 ---
 
-In this spooooooky (not really) Coding Train Live, I discuss p5.js programming workflows, the ES6 Arrow function, and Golan Levin's Circle Morphing challenge. 
+In this spooooooky (not really) Coding Train Live, I discuss p5.js programming workflows, the ES6 Arrow function, and Golan Levin's Circle Morphing challenge.

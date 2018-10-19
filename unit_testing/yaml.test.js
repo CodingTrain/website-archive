@@ -18,6 +18,9 @@ const path = require('path');
 const { assertPropTypes } = require('check-prop-types');
 // PropTypes of the documents are descibed in the formats.js file.
 const formatDefinitions = require('./formats.js');
+const {
+  markdownFilenameToUrl,
+} = require('./helpers');
 
 // if verbose set to true script will log almost everything it does.
 let verbose = false;
@@ -31,6 +34,21 @@ let directories = {
   _Streams: formatDefinitions.stream,
   _Tutorials: formatDefinitions.video,
 };
+
+let knownVideos = {};
+let linkedVideos = {};
+
+function findVideos(src, obj) {
+  if(typeof obj === 'string') {
+    return;
+  }
+  for(let k of Object.keys(obj)) {
+    if(k === 'video_id') {
+      linkedVideos[obj[k]] = src;
+    }
+    findVideos(src, obj[k]);
+  }
+}
 
 const checkFolder = (videoFormat, previousPath, folder) => describe(folder, () => {
   expect(videoFormat).toBeDefined();
@@ -74,6 +92,8 @@ const checkFolder = (videoFormat, previousPath, folder) => describe(folder, () =
 
   files.forEach((fileName) => describe(fileName, () => {
     let filePath = path.join(currentPath, fileName);
+    let yamlContents;
+    let decodedYaml;
     // First test if script can read file. Does this using fs.readFileSync() as
     // fs.readFile() is asynchronous so test passed when it shouldn't have.
     // Potential errors may include: wrong encoding, wrong privaliges.
@@ -120,35 +140,105 @@ const checkFolder = (videoFormat, previousPath, folder) => describe(folder, () =
       }
     });
 
+    test('has valid YAML', () => {
+      yamlContents = contents.split("---")[1];
+      if(yamlContents.match(/ \n/)) {
+        throw new Error(`Extra space at the end of line: '${yamlContents.match(/[^\n]* \n/)[0].slice(0, -1)}'`);
+      }
+      if(yamlContents.match(/\n\n\n/)) {
+        throw new Error('Double blank lines in YAML');
+      }
+      if(yamlContents.match(/^\n\n/)) {
+        throw new Error('Blankline at top of YAML');
+      }
+      if(yamlContents.match(/\n\n$/)) {
+        throw new Error('Blankline at bottom of YAML');
+      }
+      // Requires a single space after starting an entry with -
+      let regex = /\n( *)-( {2,})?[^ ][^\n]*\n/;
+      if(yamlContents.match(regex)) {
+        throw new Error(`Incorrect spacing after entry '-'. Use one space: '${yamlContents.match(regex)[0].slice(1, -1)}'`);
+      }
+      // Indentation on consecutive lines, ignoring blank spacers
+      regex = /\n( *)[^ \-\n][^\n]*[^:\n]\n+(\1 [^\n]*)\n/;
+      if(yamlContents.match(regex)) {
+        throw new Error(`Incorrect indentation (Expected ${yamlContents.match(regex)[1].length} spaces): '${yamlContents.match(regex)[2]}'`);
+      }
+      // Indentation on lines after ones starting with - need two extra spaces
+      regex = /\n( *)- [^\n]*\n+(\1( {0,1}| {3,})[^ -][^\n]*)/;
+      if(yamlContents.match(regex)) {
+        throw new Error(`Incorrect indentation (Expected ${yamlContents.match(regex)[1].length + 2} spaces): '${yamlContents.match(regex)[2]}'`);
+      }
+      // Indentation on lines ending in : require two extra spaces
+      regex = /\n( *)[^ \n][^\n]*:\n+(\1( {0,1}| {3,})[^\n ][^\n]*)/;
+      if(yamlContents.match(regex)) {
+        throw new Error(`Incorrect indentation (Expected ${yamlContents.match(regex)[1].length + 2} spaces): '${yamlContents.match(regex)[2]}'`);
+      }
+      decodedYaml = yaml.safeLoad(yamlContents);
+      if(decodedYaml.video_id) {
+        let previous = knownVideos[decodedYaml.video_id];
+        if(previous) {
+          throw new Error(`Duplicate video_id. Original file: ${previous}`)
+        }
+        knownVideos[decodedYaml.video_id] = filePath;
+      }
+      for(let k in decodedYaml) {
+        let value = decodedYaml[k];
+        findVideos(filePath, value);
+      }
+    });
+
     // Uses PropTypes to validate the structure and types of all of the
     // parts of the YAML, including if there are keys that don't exist
     // in the definition
     test("has valid YAML layout and types", () => {
-      let yamlContents = contents.split("---")[1];
-      const frontYaml = yaml.safeLoad(yamlContents);
-      assertPropTypes(videoFormat, frontYaml, "YAML", fileName);
+      if(!decodedYaml) {
+        return;
+      }
+      assertPropTypes(videoFormat, decodedYaml, "YAML", fileName);
     });
 
     test('title matches internal numbering', () => {
+      if(!decodedYaml) {
+        return;
+      }
       // Get file name with leading zeros stripped
       let fileNumber = fileName.split('-')[0];
       fileNumber = fileNumber.replace(/^0+/, '');
 
-      let yamlContents = contents.split("---")[1];
-      const frontYaml = yaml.safeLoad(yamlContents);
-
       // Gets internal representation as a string
-      let videoString = frontYaml.video_number.toString();
+      let videoString = decodedYaml.video_number.toString();
       // If we're in a standalone
       if(videoString === fileNumber) return;
       // If the video has parts, check we match the last one only.
       let parts = fileNumber.split('.');
       if(videoString === parts[parts.length - 1]) return;
       throw new Error('Expected file numbering to match internal numbering');
-    })
+    });
+
+    test('has no contributions if it\'s in a multi-part video but not the first part', () => {
+      if(!decodedYaml) {
+        return;
+      }
+      let videoStringParts = decodedYaml.video_number.toString().split('.');
+      if(videoStringParts.length > 1) {
+        if(videoStringParts[videoStringParts.length - 1] !== '1') {
+          expect(decodedYaml.contributions).toBeUndefined();
+        }
+      }
+    });
   }));
 });
 
 // Do the checks
 Object.entries(directories)
   .map(([directory, videoFormat]) => checkFolder(videoFormat, "../", directory));
+
+test('Youtube links', () => {
+  Object.entries(linkedVideos)
+    .map(([videoId, src]) => {
+      if (videoId in knownVideos) {
+        throw new Error(`${videoId} linked in ${src} should point to ${markdownFilenameToUrl(knownVideos[videoId])}`)
+      }
+    });
+});

@@ -1,0 +1,34 @@
+{
+  "name": "coding-train-website",
+  "version": "0.0.1",
+  "description": "Coding Train Website",
+  "main": "none",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^4.18.2",
+    "eslint-config-p5js": "^1.0.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "prettier": "^1.11.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/.bin/eslint CodingChallenges/CC_001_StarField_p5.js/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodingTrain/website.git"
+  },
+  "keywords": [
+    "coding",
+    "train",
+    "tutorials",
+    "beginner"
+  ],
+  "author": "The Coding Train Community",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CodingTrain/website/issues"
+  },
+  "homepage": "https://github.com/CodingTrain/website#readme"
+}

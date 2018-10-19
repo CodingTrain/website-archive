@@ -7,7 +7,6 @@
 #
 
 
-
 # --- Site Settings ---
 
 # The site's title.
@@ -21,6 +20,10 @@ repository: CodingTrain/website
 
 # Prefix for download links (downloads only the relevant code from GitHub).
 github_download_prefix: https://minhaskamal.github.io/DownGit/#/home?url=
+
+# Prefixes for editor.p5js.org
+web_editor_sketch_prefix: https://editor.p5js.org/codingtrain/sketches/
+web_editor_fulscreen_prefix: https://editor.p5js.org/full/
 
 # Links to other platforms.
 links:
@@ -45,7 +48,7 @@ links:
 markdown: kramdown
 
 # Exclude code for Node.js and Q_and_A
-exclude: [ 'Node', 'Q_and_A' ]
+exclude: [ 'Node', 'Q_and_A', 'unit_testing', 'node_modules' ]
 
 # Include future videos (used for 'Upcoming Streams' section).
 future: true
@@ -59,6 +62,9 @@ compress_html: { ignore: { envs: ['development'] } }
 # Search for SASS files inside assets/css.
 sass: { sass_dir: 'assets/css' }
 
+# Use jekyll-redirect-from to allow redirections
+plugins:
+  - jekyll-redirect-from
 
 
 # --- Jekyll Locations ---
@@ -110,7 +116,7 @@ defaults:
       video_type:       "guest tutorial"
       video_type_short: "tutorial"
       can_contribute:   false
-  
+
   # Courses
   - scope:              { path: "", type: "Courses" }
     values:

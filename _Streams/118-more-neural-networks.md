@@ -7,17 +7,17 @@ video_id: e8H588SXu6U
 topics:
   - title: "Gradient Descent video"
     time: "23:57"
-    url: "https://www.youtube.com/watch?v=8H2ODPNxEgA"
+    video_id: "8H2ODPNxEgA"
   - title: "2nd Gradient Descent video"
     time: "1:20:38"
-    url: "https://www.youtube.com/watch?v=qB2nwJxNVxM"
+    video_id: "qB2nwJxNVxM"
   - title: "3rd Gradient Descent video"
     time: "1:46:27"
-    url: "https://www.youtube.com/watch?v=tlqinMNM4xs"
+    video_id: "tlqinMNM4xs"
   - title: "XOR Coding Challenge"
     time: "2:14:50"
-    url: "/CodingChallenges/92-xor"
- 
+    url: "/CodingChallenges/092-xor"
+
 links:
   - title: "Toy-Neural-Network-JS"
     url: "https://github.com/CodingTrain/Toy-Neural-Network-JS"
@@ -46,11 +46,11 @@ videos:
   - title: "3Blue1Brown's Linear Algebra playlist"
     url: "https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab"
   - title: "Gradient Descent by 3Blue1Brown"
-    url: "https://www.youtube.com/watch?v=IHZwWFHWa-w"
+    video_id: "IHZwWFHWa-w"
   - title: "Gradient Descent by Siraj Raval"
-    url: "https://www.youtube.com/watch?v=XdM6ER7zTLk"
+    video_id: "XdM6ER7zTLk"
   - title: "My Video on Gradient Descent"
-    url: "https://www.youtube.com/watch?v=jc2IthslyzM"
+    video_id: "jc2IthslyzM"
 ---
 
 In this live stream, I make another attempt to discuss backpropagation with gradient descent. I also solve XOR with the new toy neural network library.
