@@ -75,7 +75,12 @@ contributions:
     author:
       name: "The Tasteful Toastie"
       url: "https://github.com/TheTastefulToastie"
-    url: "http://jsfiddle.net/TheTastefulToastie/qm1089v6"
+    url: "http://jsfiddle.net/TheTastefulToastie/qm1089v6"  
+  - title: "Digital Clock using 7-segment display"
+    author:
+      name: "Ken Haley"
+    url: "https://editor.p5js.org/Khaley4/full/By3E58MsX"
+    source: "https://editor.p5js.org/Khaley4/sketches/By3E58MsX"
 ---
 
 In this coding challenge, I make a Seven-Segment Display with p5.js. This video is inspired by Tom Scott's: [What's The Longest Word You Can Write With Seven-Segment Displays?](https://youtu.be/zp4BMR88260).
