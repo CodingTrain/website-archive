@@ -9,7 +9,7 @@ topics:
     time: "1:15:30"
   - title: "Coding Challenge: Double Pendulum"
     time: "3:02:59"
-    url: "CodingChallenges/93-double-pendulum"
+    url: "/CodingChallenges/093-double-pendulum"
 
 links:
   - title: "Toy-Neural-Network-JS"
@@ -31,10 +31,9 @@ videos:
   - title: "My Neural Networks series"
     url: "https://www.youtube.com/playlist?list=PLRqwX-V7Uu6aCibgK1PTWWu9by6XFdCfh"
   - title: "My Pendulum Simulation"
-    url: "https://www.youtube.com/watch?v=9iaEqGOh5WM"
+    video_id: "9iaEqGOh5WM"
   - title: "3Blue1Brown Neural Networks playlist"
     url: "https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi"
-
 ---
 
 In this live stream, I use the MNIST dataset to test the neural network library. I also attempt to simulate a double pendulum in Processing.

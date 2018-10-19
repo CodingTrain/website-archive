@@ -9,13 +9,13 @@ topics:
     time: "30:20"
   - title: "Backpropagation Part 1"
     time: "36:22"
-    url: "https://www.youtube.com/watch?v=QJoa0JYaX1I"
+    video_id: "QJoa0JYaX1I"
   - title: "Backpropagation Part 2"
     time: "1:06:56"
-    url: "https://www.youtube.com/watch?v=r2-P1Fi1g60"
+    video_id: "r2-P1Fi1g60"
   - title: "Learning with Gradient Descent"
     time: "1:40:25"
- 
+
 links:
   - title: "SFPC's Learning to Teach 2018"
     url: "https://medium.com/@sfpc/learning-to-teach-2018-4dca068b0fb8"
@@ -38,11 +38,11 @@ videos:
   - title: "3Blue1Brown's Linear Algebra playlist"
     url: "https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab"
   - title: "Gradient Descent by 3Blue1Brown"
-    url: "https://www.youtube.com/watch?v=IHZwWFHWa-w"
+    video_id: "IHZwWFHWa-w"
   - title: "Gradient Descent by Siraj Raval"
-    url: "https://www.youtube.com/watch?v=XdM6ER7zTLk"
+    video_id: "XdM6ER7zTLk"
   - title: "My Video on Gradient Descent"
-    url: "https://www.youtube.com/watch?v=jc2IthslyzM"
+    video_id: "jc2IthslyzM"
 ---
 
 This live stream is a continuation of neural network series. I attempt to discuss backpropagation, but it mostly goes haywire.

@@ -19,7 +19,7 @@ topics:
     url: "/Tutorials/7-object-interaction/7.8-objects-and-images"
   - title: "Coding Callenge: Conway's Game of Life"
     time: "2:21:50"
-    url: "/CodingChallenges/85-the-game-of-life"
+    url: "/CodingChallenges/085-the-game-of-life"
 
 links:
   - title: "ITP Winter Show 2017"
@@ -41,11 +41,11 @@ links:
 
 videos:
   - title: "ITP 2016 Winter Show"
-    url: "https://www.youtube.com/watch?v=Snv_TNrKnIU"
+    video_id: "Snv_TNrKnIU"
   - title: "ITP 2017 Spring Show"
-    url: "https://www.youtube.com/watch?v=Q_SbbqpoMnM"
+    video_id: "Q_SbbqpoMnM"
   - title: "My Video on The Game of Life"
-    url: "https://www.youtube.com/watch?v=tENSCEO-LEc"
+    video_id: "tENSCEO-LEc"
   - title: "2D Arrays in JavaScript"
     url: "/Tutorials/9-additional-topics/9.15-2d-arrays-in-javascript"
   - title: "The Modulo Operator with Golan Levin"

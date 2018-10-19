@@ -1,5 +1,5 @@
 
-var url1 = "http://api.wordnik.com/v4/word.json/";
+var url1 = "https://api.wordnik.com/v4/word.json/";
 var word = "rainbow";
 var url2 = "/relatedWords?useCanonical=false&limitPerRelationshopType=10&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5";
 

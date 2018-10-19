@@ -9,7 +9,7 @@ topics:
     time: "22:55"
   - title: "Snow Coding Challenge"
     time: "36:32"
-    url: "/CodingChallenges/88-snowfall"
+    url: "/CodingChallenges/088-snowfall"
   - title: "TO SKIP THE SOUND GLITCH AROUND THE 1.50.00 MARK"
     time: "1:52:43"
   - title: "Christmas songs!"

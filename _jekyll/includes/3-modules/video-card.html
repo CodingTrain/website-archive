@@ -38,7 +38,7 @@
       </div>
 
       {% comment %} Video title. {% endcomment %}
-      <h3>{{ include.video.title }}</h3>
+      <h3>{{ include.video.title | xml_escape }}</h3>
 
       {% comment %} Release date. {% endcomment %}
       {% if include.video.date > site.time %}
