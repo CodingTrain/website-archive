@@ -18,6 +18,14 @@ videos:
     url: "/Tutorials/9-additional-topics/9.15-2d-arrays-in-javascript"
   - title: "The Modulo Operator with Golan Levin"
     url: "/GuestTutorials/6-golan-levin-modulo-operator"
+
+contributions:
+  - title: "Game of Life: editable grid"
+    author:
+      name: "Knut Jackowski"
+      url: "http://doxanthropos"
+    url: "https://doxanthropos.github.io/sketchbook/2018101901/"
+    source: "https://github.com/doxanthropos/sketchbook/tree/master/2018101901"
 ---
 
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.
