@@ -25,7 +25,7 @@ videos:
     video_id: "tzsgS19RRc8"
 
 contributions:
-  - title: "Rendering a shit-tonne of dimensions on a 2D canvas"
+  - title: "Rendering a #$@&%*! of dimensions on a 2D canvas"
     author:
       name: "Niels Vadot"
       url: "https://nielsvadot.design/"
