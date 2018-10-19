@@ -75,7 +75,7 @@ contributions:
     author:
       name: "The Tasteful Toastie"
       url: "https://github.com/TheTastefulToastie"
-    url: "http://jsfiddle.net/TheTastefulToastie/qm1089v6"  
+    url: "http://jsfiddle.net/TheTastefulToastie/qm1089v6"
   - title: "Digital Clock using 7-segment display"
     author:
       name: "Ken Haley"
