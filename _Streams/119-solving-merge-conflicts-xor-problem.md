@@ -7,11 +7,11 @@ video_id: f9vaiHoq-Fk
 topics:
   - title: "Resolving merge conflicts"
     time: "26:40"
-    url: "https://www.youtube.com/watch?v=JtIX3HJKwfo"
+    video_id: "JtIX3HJKwfo"
   - title: "XOR Problem"
     time: "52:51"
-    url: "/CodingChallenges/92-xor"
- 
+    url: "/CodingChallenges/092-xor"
+
 links:
   - title: "Toy-Neural-Network-JS"
     url: "https://github.com/CodingTrain/Toy-Neural-Network-JS"
@@ -30,7 +30,7 @@ videos:
   - title: "3Blue1Brown Neural Networks playlist"
     url: "https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi"
   - title: "Val Head's Guest Tutorial"
-    url: "https://www.youtube.com/watch?v=VWfXiSUDquw"
+    video_id: "VWfXiSUDquw"
 ---
 
 In this live stream, I go through pull requests on the JavaScript neural network library repo and take another crack at the XOR coding challenge.

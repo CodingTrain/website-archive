@@ -1,6 +1,6 @@
 var weather;
 
-var api = 'http://api.openweathermap.org/data/2.5/weather?q=';
+var api = 'https://api.openweathermap.org/data/2.5/weather?q=';
 var apiKey = '&APPID=001b0f58045147663b1ea518d34d88b4';
 var units = '&units=metric';
 
