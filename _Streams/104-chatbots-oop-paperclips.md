@@ -19,8 +19,7 @@ topics:
     url: "/Courses/programming-with-text/10-chatbots/10.4-speech-recognition"
   - title: "Coding Challenge: Speech to text"
     time: "2:58:26"
-    url: "/CodingChallenges/80-voice-chatbot"
-
+    url: "/CodingChallenges/080-voice-chatbot"
 
 links:
   - title: "Processing Community Day"
@@ -40,17 +39,17 @@ links:
   - title: "Array.prototype.splice() on MDN"
     url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice"
   - title: "Community submitted sketches on Particle System"
-    url: "/CodingChallenges/78-simple-particle-system"
+    url: "/CodingChallenges/078-simple-particle-system"
 
 videos:
   - title: "Programming with Text playlist"
     url: "/Courses/programming-with-text"
   - title: "Video on objects storing their own path"
-    url: "/CodingChallenges/64.1-forward-kinematics"
+    url: "/CodingChallenges/064.1-forward-kinematics"
   - title: "Simple Particle System Coding Challenge"
-    url: "/CodingChallenges/78-simple-particle-system"
+    url: "/CodingChallenges/078-simple-particle-system"
   - title: "Number Guessing Chatbot with RiveScript"
-    url: "/CodingChallenges/79-number-guessing-chatbot"
+    url: "/CodingChallenges/079-number-guessing-chatbot"
   - title: "My HTML playlist"
     url: "/Tutorials/8-html-css-dom"
 ---

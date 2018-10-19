@@ -13,7 +13,7 @@ Ride along with *Daniel Shiffman* on the Coding Train to learn how to use [matte
 
 # Support
 
-https://www.youtube.com/user/shiffman/playlists?sort=dd&view=50&shelf_id=6
+https://www.youtube.com/thecodingtrain/playlists?sort=dd&view=50&shelf_id=6
 Questions? Need Support?
 
 Join: http://patreon.com/codingtrain

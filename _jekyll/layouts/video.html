@@ -34,9 +34,9 @@ layout: base
 
       {% comment %} Previous/Next buttons and 'Watch all' button. {% endcomment %}
       <div class="player-controls">
-        <a href="{{ out_previousVideo.url | relative_url }}" class="jump-control {% if out_previousVideo == null %}disabled{% endif %}">❰</a>
+        <a href="{{ out_previousVideo.url | relative_url | default: '#' }}" class="jump-control {% if out_previousVideo == null %}disabled{% endif %}">❰</a>
         <a href="{{ series.url | default: page.collection | relative_url }}" class="watch-all-videos">Watch all videos</a>
-        <a href="{{ out_nextVideo.url | relative_url }}" class="jump-control {% if out_nextVideo == null %}disabled{% endif %}">❱</a>
+        <a href="{{ out_nextVideo.url | relative_url | default: '#' }}" class="jump-control {% if out_nextVideo == null %}disabled{% endif %}">❱</a>
       </div>
     </div>
 
@@ -45,20 +45,28 @@ layout: base
 
       {% comment %} Show video topics (used for streams). {% endcomment %}
       {% if page.topics %}
-        {% include 3-modules/link-list.html links=page.topics title='Topics' class='topics' %} 
+        {% include 3-modules/link-list.html links=page.topics title='Topics' class='topics' %}
       {% endif %}
 
       {% comment %} Show links for live example and code download. {% endcomment %}
       {% if page.repository %}
 
         {% comment %} Generate URL for live example. {% endcomment %}
-        {% capture live_example_url %}/{{ page.collection }}/{{ page.live_example | default: page.repository }}{% endcapture %}
-        
+        {% capture live_example_url %}/{{ page.collection }}{{ page.live_example | default: page.repository }}{% endcapture %}
+
         <div class="code-actions">
-          <a href="{{ site.github_download_prefix | append: site.github.repository_url | append: '/tree/' | append: site.github.source.branch | append: '/' | append: page.collection | append: page.repository }}" target="blank">Get the Code</a>
-          <a href="{{ live_example_url | relative_url }}" target="blank" class="{% if page.live_example == false %}disabled{% endif %}">Live Example</a>
+          <a href="{% if page.repository == false %}#{% else %}{{ site.github.repository_url | append: '/tree/master/' | append: page.collection | append: page.repository }}{% endif %}" target="blank" class="{% if page.repository == false %}disabled{% endif %}">View Code</a>
+          <a href="{% if page.repository == false %}#{% else %}{{ site.github_download_prefix | append: site.github.repository_url | append: '/tree/' | append: site.github.source.branch | append: '/' | append: page.collection | append: page.repository }}{% endif %}" target="blank" class="{% if page.repository == false %}disabled{% endif %}">Download Code</a>
+          <a href="{% if page.live_example == false %}#{% else %}{{ live_example_url | relative_url }}{% endif %}" target="blank" class="{% if page.live_example == false %}disabled{% endif %}">Live Example</a>
         </div>
-        
+
+      {% endif %}
+
+      {% if page.web_editor %}
+        <div class="code-actions">
+          <a href="{{ site.web_editor_sketch_prefix | append: page.web_editor }}" target="blank">View Code</a>
+          <a href="{{ site.web_editor_fulscreen_prefix | append: page.web_editor }}" target="blank">Live Example</a>
+        </div>
       {% endif %}
     </div>
   </div>
@@ -67,14 +75,27 @@ layout: base
     {% comment %} List of community contributions (only visible if can_contribute is true). {% endcomment %}
     {% if page.can_contribute %}
       <div class="contributions">
+        {% comment %} Converts page.video_number to a string. {% endcomment %}
+        {% capture video_number %}{{ page.video_number }}{% endcapture %}
+
+        {% comment %} Set video which contains the contributions. {% endcomment %}
+        {% comment %} Multi-part videos allow contributions only on the first part. {% endcomment %}
+        {% if video_number contains '.' and page.contributions == null %}
+          {% assign video_number_base = video_number | split: '.' | first %}
+          {% assign firstPartVideoNumber = video_number_base | append: '.1' %}
+          {% assign contributionsVideo = site[page.collection] | where: 'video_number', firstPartVideoNumber | first %}
+        {% else %}
+          {% assign contributionsVideo = page %}
+        {% endif %}
+
         {% comment %} Include the list of community contributions. {% endcomment %}
-        {% include 3-modules/link-list.html links=page.contributions title='Community Contributions' %}
+        {% include 3-modules/link-list.html links=contributionsVideo.contributions title='Community Contributions' %}
 
         {% comment %} Generate a URL to edit this video's file directly on GitHub. {% endcomment %}
-        {% assign addContributionURL = site.github.repository_url | append: '/edit/' | append: site.github.source.branch | append: '/' | append: page.path %}
+        {% assign addContributionURL = site.github.repository_url | append: '/edit/' | append: site.github.source.branch | append: '/' | append: contributionsVideo.path %}
 
         {% comment %} Display a message depending on wether there have been made community contributions already. {% endcomment %}
-        {% if page.contributions %}
+        {% if contributionsVideo.contributions %}
           <p>
             You can also <a href="{{ addContributionURL }}" target="blank">add your own version!</a>
             (<a href="{{ site.github.wiki_url | append: '/Community-Contributions-Guide' }}" target="blank">See how</a>)

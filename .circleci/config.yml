@@ -1,0 +1,31 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: starefossen/ruby-node:2-10
+
+    steps:
+      - checkout
+
+      # todo: find nicer solution than constantly "cd"ing to unit_testing
+      - run: cd unit_testing && npm install
+
+      - run: cd unit_testing && npm test
+
+      # TODO: add caching to speed things up.
+      - run:
+          name: Jekyll deps
+          command: bundle install
+
+      - run:
+          name: Build
+          command: bundle exec jekyll build --verbose
+
+      - run:
+          name: Test
+          command: bundle exec htmlproofer ./_site --assume-extension --check-html --disable-external --url-ignore "/#.*/"

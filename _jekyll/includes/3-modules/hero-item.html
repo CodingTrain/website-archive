@@ -1,0 +1,20 @@
+{% comment %}
+  A small module that is used on the front page to display the support actions.
+
+  Parameters:
+    image   string    HTML-Element to use as the image.
+    title   string    This actions title.
+    content string    The actions content (a more detailed descripton).
+    url     string    The URL used to take the action.
+    cta     string    The title shown in the CTA button.
+{% endcomment %}
+
+
+<div class="hero-item {{ include.class }}">
+  <div class="hero-image">{{ include.image }}</div>
+  <div class="hero-text">
+    {% if include.title %}<span class="hero-title">{{ include.title }}</span>{% endif %}
+    <span class="hero-content">{{ include.content }}</span>
+  </div>
+  <a href="{{ include.url }}" target="_blank">{{ include.cta }}</a>
+</div>

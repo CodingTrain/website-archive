@@ -1,0 +1,34 @@
+.hero-item
+  width: 35rem
+  padding: 1rem
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  align-items: center
+  text-align: center
+
+  > *
+    margin: 2rem
+
+  .hero-image
+    width: 20rem
+    height: 20rem
+    overflow: hidden
+
+    > *
+      width: 100%
+
+  .hero-text
+    > span
+      display: block
+      margin: 1rem
+
+    .hero-title
+      font-weight: bold
+      font-size: 1.1em
+
+  a
+    @extend .cta-button
+    color: #FFF
+    background: $ct-purple
+    width: 80%
