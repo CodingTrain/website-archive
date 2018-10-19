@@ -16,7 +16,7 @@ topics:
     url: "/Tutorials/18-webgl/18.3-light-and-material"
   - title: "Coding Challenge: Bees and Bombs"
     time: "1:51:36"
-    url: "/CodingChallenges/86-beesandbombs"
+    url: "/CodingChallenges/086-beesandbombs"
 
 links:
   - title: "Bees and Bombs on Twitter"
@@ -36,7 +36,7 @@ videos:
   - title: "p5-manager"
     url: "/Tutorials/9-additional-topics/9.21-p5-manager"
   - title: "Simple Harmonic Motion"
-    url: "https://www.youtube.com/watch?v=GvwPwIUSYqE"
+    video_id: "GvwPwIUSYqE"
 ---
 In this live session, I explore the p5.js WEBGL renderer.
 I cover some fundamentals and attempt a viewer-suggested coding challenge to recreate a classic beesandbombs GIF.

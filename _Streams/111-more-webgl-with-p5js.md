@@ -16,10 +16,10 @@ topics:
     url: "/Tutorials/18-webgl/18.7-loading-obj-model"
   - title: "Coding Challenge: 3D knots"
     time: "1:32:48"
-    url: "/CodingChallenges/87-3Dknots" 
+    url: "/CodingChallenges/087-3Dknots"
   - title: "Custom shapes in WebGL with p5.js"
     time: "1:48:53"
-    url: "/Tutorials/18-webgl/18.8-custom-shapes-in-webgl-with-p5js" 
+    url: "/Tutorials/18-webgl/18.8-custom-shapes-in-webgl-with-p5js"
 
 links:
   - title: "Getting started with WebGL in p5"
