@@ -61,6 +61,13 @@ layout: base
         </div>
 
       {% endif %}
+
+      {% if page.web_editor %}
+        <div class="code-actions">
+          <a href="{{ site.web_editor_sketch_prefix | append: page.web_editor }}" target="blank">View Code</a>
+          <a href="{{ site.web_editor_fulscreen_prefix | append: page.web_editor }}" target="blank">Live Example</a>
+        </div>
+      {% endif %}
     </div>
   </div>
 

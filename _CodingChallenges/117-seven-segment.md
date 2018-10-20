@@ -3,7 +3,7 @@ title: "Seven-Segment Display"
 video_number: 117
 date: 2018-10-15
 video_id: MlRlgbrAVOs
-live_example: false
+live_example: /CC_117_SevenSegmentDisplay_p5.js
 
 links:
   - title: "Code"
@@ -35,6 +35,52 @@ contributions:
       url: "https://github.com/bl4ckscor3"
     url: "https://gfycat.com/EsteemedDamagedLadybird"
     source: "https://github.com/bl4ckscor3/ProcessingPlayground/tree/master/SevenSegmentDisplay"
+  - title: "Seven-Segment Display Clock"
+    author:
+      name: "WimarSchippers"
+      url: "https://github.com/WimarSchippers"
+    url: "https://editor.p5js.org/full/S1gC88GoQ"
+    source: "https://editor.p5js.org/WillyWarrig/sketches/S1gC88GoQ"
+  - title: "Seven-Segment Display Clock"
+    author:
+      name: "SwiftyTurtle"
+      url: "https://github.com/SwiftyTurtle"
+    url: "https://swiftyturtle.github.io/7SegmentDisplay_Clock/"
+    source: "https://github.com/SwiftyTurtle/7SegmentDisplay_Clock"
+  - title: "Seven Segment Decoder App"
+    author:
+      name: "Prasad Pandit"
+      url: "https://vhdlcodes.com/"
+    url: "https://editor.p5js.org/full/HkL3js_t7"
+    source: "https://editor.p5js.org/Tonystark4009/sketches/HkL3js_t7"
+  - title: "Processing Seven Segment Display"
+    author:
+      name: "Fernando Aguilar"
+      url: "https://github.com/SwiftyTurtle"
+    url: "https://github.com/fernand0aguilar/art-code-poetry/tree/master/Processing/sketch_7_segment_display"
+    source: "https://github.com/fernand0aguilar/art-code-poetry/blob/master/Processing/sketch_7_segment_display/sketch_7_segment_display.pde"
+  - title: "Object-oriented refactoring"
+    author:
+      name: "Brewal Renault"
+      url: "https://github.com/Brewal"
+    url: "https://editor.p5js.org/full/SJTBuKziQ"
+    source: "https://editor.p5js.org/brewal/sketches/SJTBuKziQ"
+  - title: "Seven Segment Display Clock"
+    author:
+      name: "Knut Jackowski"
+      url: "http://doxanthropos.com"
+    url: "https://doxanthropos.github.io/sketchbook/2018101701/"
+    source: "https://github.com/doxanthropos/sketchbook/tree/master/2018101701"
+  - title: "Cascading Switch Statement SSD"
+    author:
+      name: "The Tasteful Toastie"
+      url: "https://github.com/TheTastefulToastie"
+    url: "http://jsfiddle.net/TheTastefulToastie/qm1089v6"
+  - title: "Digital Clock using 7-segment display"
+    author:
+      name: "Ken Haley"
+    url: "https://editor.p5js.org/Khaley4/full/By3E58MsX"
+    source: "https://editor.p5js.org/Khaley4/sketches/By3E58MsX"
 ---
 
-In this coding challenge, I make a Seven-Segment Display with the p5.js library. This video was inspired by [Tom Scott's video on seven-segment displays](https://youtu.be/zp4BMR88260).
+In this coding challenge, I make a Seven-Segment Display with p5.js. This video is inspired by Tom Scott's: [What's The Longest Word You Can Write With Seven-Segment Displays?](https://youtu.be/zp4BMR88260).
