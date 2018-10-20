@@ -22,3 +22,23 @@ If you are unsure about git and GitHub, and how to make your contribution,
 these [Git and GitHub for Poets tutorials](https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZF9C0YMKuns9sLDzK6zoiV) might help.
 
 Happy Coding!
+
+## Website Development
+
+Here are some instructions for running the site locally.
+
+1. Install [Jekyll](https://jekyllrb.com/docs/installation/). (Note ruby is required for Jekyll to run.)
+2. Clone this repo:
+```
+git clone https://github.com/CodingTrain/website
+3. Navigate to the directory and install bundle.
+```
+cd website
+bundle install
+```
+4. Run jekyll
+```
+bundle exec jekyll serve
+```
+5. Navigate to `localhost:`
+
