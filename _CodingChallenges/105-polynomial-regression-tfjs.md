@@ -30,9 +30,9 @@ contributions:
   - title: "Polynomial Regression with varbiable degree and controllable learning rate"
     author:
       name: "Semjon Bibow"
-      url: "https://github.com/hablwgq"
-    url: "https://hablwgq.github.io/coding/p5js%20polynomial%20regression/"
-    source: "https://github.com/hablwgq/coding/tree/master/p5js%20polynomial%20regression"
+      url: "https://github.com/sbibow"
+    url: "https://sbibow.github.io/coding/p5js%20polynomial%20regression/"
+    source: "https://github.com/sbibow/coding/tree/master/p5js%20polynomial%20regression"
 ---
 
 In this challenge, I expand the [linear example](https://youtu.be/dLp10CFIvxI) into polynomial regression!

@@ -81,6 +81,12 @@ contributions:
       name: "Ken Haley"
     url: "https://editor.p5js.org/Khaley4/full/By3E58MsX"
     source: "https://editor.p5js.org/Khaley4/sketches/By3E58MsX"
+  - title: "7 Segments Matter"
+    author:
+      name: "Sebastien Raynaud"
+      url: "https://twitter.com/Chopokopx"
+    url: "https://editor.p5js.org/full/SJ6Nii_o7"
+    source: "https://editor.p5js.org/SebastienR/sketches/SJ6Nii_o7"
 ---
 
 In this coding challenge, I make a Seven-Segment Display with p5.js. This video is inspired by Tom Scott's: [What's The Longest Word You Can Write With Seven-Segment Displays?](https://youtu.be/zp4BMR88260).
