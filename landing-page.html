@@ -55,16 +55,14 @@ permalink: /
   <div class="support">
     {% capture patreonLogo %}{% include 4-vector-graphics/patreon.svg %}{% endcapture %}
     {% include 3-modules/hero-item.html image=patreonLogo title='Consider supporting?' content='Join the Coding Train
-    community with a <a href="https://youtube.com/thecodingtrain/join">YouTube membership</a> or <a href="site.links.patreon">Patreon
-      subscription!</a>'
-    url=site.links.patreon cta='Become a Patron' class='patreon' %}
+    community with a <a href="https://youtube.com/thecodingtrain/join">YouTube membership</a> or <a href="https://patreon.com/codingtrain">Patreon
+      subscription!</a>' url=site.links.patreon cta='Become a Patron' class='patreon' %}
 
     {% capture merchStoreImage %}<img alt='The Coding Train Merchandise Store' src="{{ '/assets/images/merch-store.png' | relative_url }}" />{%
     endcapture %}
     {% include 3-modules/hero-item.html image=merchStoreImage title='Coding Train Store'
     content='Visit Design by Humans for a variety of Coding Train merchandise.' url=site.links.merch cta='Get some
-    merch'
-    class='merch-store' %}
+    merch' class='merch-store' %}
 
     {% capture amazonStoreImage %}<img alt='The Coding Train Amazon Store' src="{{ '/assets/images/amazon-store.png' | relative_url }}" />{%
     endcapture %}
