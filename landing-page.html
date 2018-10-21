@@ -12,17 +12,17 @@ permalink: /
 
 {% comment %} Use the latest coding challenge if a stream hasn't been scheduled yet. {% endcomment %}
 {% if nextStream == null %}
-{% assign offset = 1 %}
-{% assign nextStream = out_sortedVideos | first %}
+  {% assign offset = 1 %}
+  {% assign nextStream = out_sortedVideos | first %}
 {% else %}
-{% assign offset = 0 %}
+  {% assign offset = 0 %}
 {% endif %}
 
 {% assign featuredVideos = '' | split: '' %}
 
 {% comment %} Add latest coding challenges to featured videos array. {% endcomment %}
 {% for challenge in out_sortedVideos limit:2 offset:offset %}
-{% assign featuredVideos = featuredVideos | push: challenge %}
+  {% assign featuredVideos = featuredVideos | push: challenge %}
 {% endfor %}
 
 {% comment %} Get lastest stream and add it to the featured videos array. {% endcomment %}
@@ -37,7 +37,7 @@ permalink: /
         coding tutorials and challenges.</p>
       <div class="ctas">
         <a href="{{ site.links.youtube }}?sub_confirmation=1" target="_blank" class="youtube">Subscribe on YouTube</a>
-        <a href="{{ site.links.patreon }}" target="_blank" class="patreon">Become a Patron</a>
+        <a href="{{ site.links.youtube }}join" target="_blank" class="patreon">Become a Member</a>
       </div>
     </div>
 
@@ -55,7 +55,8 @@ permalink: /
   <div class="support">
     {% capture patreonLogo %}{% include 4-vector-graphics/patreon.svg %}{% endcapture %}
     {% include 3-modules/hero-item.html image=patreonLogo title='Consider supporting?' content='Join the Coding Train
-    community with a YouTube membership or Patreon subscription!'
+    community with a <a href="https://youtube.com/thecodingtrain/join">YouTube membership</a> or <a href="site.links.patreon">Patreon
+      subscription!</a>'
     url=site.links.patreon cta='Become a Patron' class='patreon' %}
 
     {% capture merchStoreImage %}<img alt='The Coding Train Merchandise Store' src="{{ '/assets/images/merch-store.png' | relative_url }}" />{%
