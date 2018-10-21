@@ -49,6 +49,12 @@ contributions:
       url: "https://github.com/fernand0aguilar"
     url: "https://raw.githubusercontent.com/fernand0aguilar/art-code-poetry/master/Processing/Lissajous_Curve_Table/lissajous063.png"
     source: "https://github.com/fernand0aguilar/art-code-poetry/tree/master/Processing/Lissajous_Curve_Table"
+  - title: "Interactive Lissajous"
+    author:
+      name: "Luis Pato"
+      url: "https://github.com/boguz"
+    url: "https://codepen.io/lpato/full/KGebJa/"
+    source: "https://codepen.io/lpato/full/KGebJa/"
 ---
 
 In this Coding Challenge, I visualize a "Lissajous Curve Table" with Processing (Java).
