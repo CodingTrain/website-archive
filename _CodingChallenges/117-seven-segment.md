@@ -87,6 +87,12 @@ contributions:
       url: "https://twitter.com/Chopokopx"
     url: "https://editor.p5js.org/full/SJ6Nii_o7"
     source: "https://editor.p5js.org/SebastienR/sketches/SJ6Nii_o7"
+  - title: "7-Segment Display"
+    author:
+      name: "Jacob Foster"
+      url: "https://alca.tv"
+    url: "https://codepen.io/Alca/full/aRqozv/"
+    source: "https://codepen.io/Alca/pen/aRqozv"
 ---
 
 In this coding challenge, I make a Seven-Segment Display with p5.js. This video is inspired by Tom Scott's: [What's The Longest Word You Can Write With Seven-Segment Displays?](https://youtu.be/zp4BMR88260).
