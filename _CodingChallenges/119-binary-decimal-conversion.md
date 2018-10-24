@@ -14,6 +14,14 @@ links:
 videos:
   - title: "Seven-Segment Display"
     url: "/CodingChallenges/117-seven-segment"
+
+contributions:
+  - title: "ASCII to Binary Conversion"
+    author:
+      name: "Knut Jackowski"
+      url: "http://doxanthropos.com"
+    url: "https://doxanthropos.github.io/sketchbook/2018102301/"
+    source: "https://github.com/doxanthropos/sketchbook/tree/master/2018102301"
 ---
 
 In this coding challenge, I discuss binary numbers and make an interactive binary to decimal number converter.
