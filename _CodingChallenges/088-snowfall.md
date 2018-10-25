@@ -10,6 +10,14 @@ links:
     url: "https://codepen.io/Alca/pen/ppEgxb"
   - title: "p5.js reference"
     url: "https://p5js.org/reference/"
+
+contributions:
+  - title: "Snowman that grows from the falling snowflakes"
+    author: 
+      name: "omareq"
+      url: https://github.com/omareq
+    url: https://omareq.github.io/snowman
+    source: https://github.com/omareq/omareq.github.io/tree/master/snowman
 ---
 
 In this special holiday season coding challenge, I attempt to create a snowfall simulation using p5.js, sprite sheets and Perlin noise wind.

@@ -7,6 +7,11 @@ video_id: G1EgjgMo48U
 repository: /CC_089_langtonsant
 
 contributions:
+  - title: "Langton's Paint Brush Using Processing"
+    author:
+      name: "Leighzer"
+      url: https://github.com/Leighzer/
+    source: https://github.com/Leighzer/Langtons_Paint_Brush
   - title: "In P5.js with several ants and dynamic changes"
     author:
       name: "DasK"

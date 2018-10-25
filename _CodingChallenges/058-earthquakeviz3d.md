@@ -26,6 +26,11 @@ videos:
   - title: "Earthquake Data Visualization"
     url: "/CodingChallenges/057-mapping-earthquake-data"
     author: "The Coding Train"
+
+contributions:
+  - title: "Tadimon's aligned texture"
+    author: "Tadimon"
+    source: https://github.com/tadimon/Rainbow-Code/tree/master/challenges/CC_058_EarthQuakeViz3D
 ---
 
 In this coding challenge, I follow up on the Earthquake Data Visualization challenge and create a 3D version in Processing(Java) using spherical coordinates. I also discuss some 3D vector math including the cross product.

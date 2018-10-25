@@ -38,6 +38,8 @@ code_variations:
     live_example: true
   - name: "Processing"
     folder: "Processing"
+  - name: "JavaScript"
+    folder: "JavaScript"
 
 # Links to other platforms.
 links:

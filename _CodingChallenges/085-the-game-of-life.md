@@ -20,6 +20,10 @@ videos:
     url: "/GuestTutorials/6-golan-levin-modulo-operator"
 
 contributions:
+  - title: "Game of Life"
+    author: "Alexandru Nastase"
+    url: https://alexandrunst.github.io/Game-of-Life/
+    source: https://github.com/AlexandruNst/Game-of-Life
   - title: "Game of Life: editable grid"
     author:
       name: "Knut Jackowski"

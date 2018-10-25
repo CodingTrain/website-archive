@@ -9,6 +9,8 @@ repository: /CC_078_Simple_Particle_System
 links:
   - title: "Particle System on Wikipedia"
     url: "https://en.wikipedia.org/wiki/Particle_system"
+  - title: "#ParticleTrain on Twitter"
+    url: https://twitter.com/hashtag/particletrain
 
 videos:
   - title: "Fireworks Coding Challenge"

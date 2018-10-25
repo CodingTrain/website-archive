@@ -11,6 +11,27 @@ links:
     url: https://en.wikipedia.org/wiki/Snake_(video_game)
 
 contributions:
+  - title: "P5.JS Snake Game"
+    author:
+      name: "strikemike2k"
+      url: https://github.com/strikemike2k
+    url: https://strikemike2k.github.io/snake/
+    source: https://github.com/strikemike2k/snake
+
+  - title: "Snake in JavaScript"
+    author:
+      name: "bjorvack"
+      url: https://github.com/bjorvack
+    url: https://bjorvack.github.io/code-challenges/challenges/cc-003-snake/
+    source: https://github.com/bjorvack/code-challenges/tree/master/challenges/cc-003-snake
+
+  - title: "Snake Game 🐍"
+    author:
+      name: "elena-in-code"
+      url: https://github.com/elena-in-code
+    url: https://elena-in-code.github.io/Snake-Game/
+    source: https://github.com/elena-in-code/Snake-Game
+
   - title: "Swifty Snake Game"
     author:
       name: "Bob Voorneveld"
