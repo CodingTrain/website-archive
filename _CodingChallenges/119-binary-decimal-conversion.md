@@ -27,6 +27,12 @@ contributions:
       name: "Shivanshu Kant Prasad"
     url: "https://shivanshukantprasad.github.io/BinaryGame/"
     source: "https://github.com/ShivanshuKantPrasad/BinaryGame"
+  - title: "Binary to Decimal Particles"
+    author:
+      name: "Gonzalo Piérola Azanza"
+    url: "https://editor.p5js.org/Guamedo/full/SklfTMn2s7"
+    source: "https://github.com/Guamedo/P5/tree/master/Bin2Dec"
+    
 ---
 
 In this coding challenge, I discuss binary numbers and make an interactive binary to decimal number converter.
