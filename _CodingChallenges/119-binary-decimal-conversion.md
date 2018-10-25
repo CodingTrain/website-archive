@@ -21,7 +21,7 @@ contributions:
       name: "Knut Jackowski"
       url: "http://doxanthropos.com"
     url: "https://doxanthropos.github.io/sketchbook/2018102301/"
-    source: "https://github.com/doxanthropos/sketchbook/tree/master/2018102301"    
+    source: "https://github.com/doxanthropos/sketchbook/tree/master/2018102301"
   - title: "Binary Game"
     author:
       name: "Shivanshu Kant Prasad"
