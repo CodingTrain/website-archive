@@ -4,8 +4,7 @@ redirect_from: CodingChallenges/58-earthquakeviz3d.html
 video_number: 58
 date: 2017-02-20
 video_id: dbs4IYGfAXc
-repository: /CC_058_EarthQuakeViz3D
-live_example: false
+repository: CC_058_EarthQuakeViz3D
 links:
   - title: "Spherical Coordinates System on Wikipedia"
     url: "https://en.wikipedia.org/wiki/Spherical_coordinate_system"

@@ -4,8 +4,7 @@ redirect_from: CodingChallenges/67-pong.html
 video_number: 67
 date: 2017-03-27
 video_id: IIrC5Qcb2G4
-repository: /CC_067_Pong
-live_example: /CC_067_Pong_p5.js
+repository: CC_067_Pong
 links:
   - title: "Pong on Wikipedia"
     url: "https://en.wikipedia.org/wiki/Pong"

@@ -4,7 +4,8 @@ redirect_from: CodingChallenges/37-diastic.html
 video_number: 37
 date: 2016-09-12
 video_id: u-HUtrpyi1c
-repository: /CC_037_diastic
+repository: CC_037_diastic
+
 links:
   - title: "Jackson Mac Low on Wikipedia"
     url: "https://en.wikipedia.org/wiki/Jackson_Mac_Low"

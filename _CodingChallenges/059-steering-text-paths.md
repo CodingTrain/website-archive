@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/59-steering-text-paths.html
 video_number: 59
 date: 2017-02-21
 video_id: 4hA7G3gup-4
-repository: /CC_059_Steering_Text_Paths
+repository: CC_059_Steering_Text_Paths
 
 links:
   - title: "Nature of Code Steering Behaviors Playlist"
@@ -27,7 +27,7 @@ contributions:
     url: http://mcmanuellp.github.io/p5js/steering_text/
     source: https://github.com/MCManuelLP/mcmanuellp.github.io/tree/master/p5js/steering_text
   - title: "'STOP BULLYING' in lithuanian"
-    author: "MKrupauska" 
+    author: "MKrupauska"
     url: https://mkrupauskas.github.io/Steering-Text-Paths/
     source: https://github.com/MKrupauskas/SteeringTextPaths
   - title: "Make the vehicles visible as polygons"

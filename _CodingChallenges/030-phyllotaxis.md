@@ -4,8 +4,8 @@ redirect_from: CodingChallenges/30-phyllotaxis.html
 video_number: 30
 date: 2016-08-03
 video_id: KWoJgHFYWxY
-repository: /CC_030_Phyllotaxis
-live_example: /CC_030_phyllotaxis_p5.js
+repository: CC_030_Phyllotaxis
+
 links:
   - title: "Phyllotaxis on Wikipedia"
     url: "https://en.wikipedia.org/wiki/Phyllotaxis"

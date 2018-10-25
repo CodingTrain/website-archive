@@ -3,8 +3,7 @@ title: "The Barnsley Fern"
 video_number: 108
 date: 2018-06-21
 video_id: JFugGF1URNo
-repository: /CC_108_barnsley_fern
-live_example: false
+repository: CC_108_barnsley_fern
 
 links:
   - title: "Barnsley fern on Wikipedia"
@@ -36,4 +35,3 @@ contributions:
 ---
 
 In this coding challenge, I visualize the Barnsley Fern fractal with Processing (Java).
-

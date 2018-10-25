@@ -4,8 +4,8 @@ redirect_from: CodingChallenges/09-solarsystemgenerator3d-texture.html
 video_number: 9
 date: 2016-05-02
 video_id: FGAwi7wpU8c
-repository: /CC_009_SolarSystemGenerator3D_texture
-live_example: false
+repository: CC_009_SolarSystemGenerator3D_texture
+
 links:
   - title: "PeasyCam library"
     url: "http://mrfeinberg.com/peasycam/"

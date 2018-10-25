@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/57-mapping-earthquake-data.html
 video_number: 57
 date: 2017-02-13
 video_id: ZiYdOwOrGyc
-repository: /CC_057_Earthquake_Viz
+repository: CC_057_Earthquake_Viz
 
 links:
   - title: "Mapbox.js"

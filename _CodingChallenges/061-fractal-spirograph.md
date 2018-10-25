@@ -4,8 +4,7 @@ redirect_from: CodingChallenges/61-fractal-spirograph.html
 video_number: 61
 date: 2017-02-28
 video_id: 0dwJ-bkJwDI
-repository: /CC_061_fractal_spirograph
-live_example: /CC_061_fractal_spirograph_p5.js
+repository: CC_061_fractal_spirograph
 links:
   - title: "C.J.Chen's blog on Fractal Spirograph"
     url: "http://benice-equation.blogspot.ca/2012/01/fractal-spirograph.html"

@@ -3,8 +3,7 @@ title: "Fire Effect"
 video_number: 103
 date: 2018-05-14
 video_id: X0kjv0MozuY
-repository: /CC_103_Flames
-live_example: false
+repository: CC_103_Flames
 
 links:
   - title: "Fire Simulation"

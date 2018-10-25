@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/71-minesweeper.html
 video_number: 71
 date: 2017-05-18
 video_id: LFU5ZlrR21E
-repository: /CC_071_minesweeper
+repository: CC_071_minesweeper
 links:
   - title: "Minesweeper on Wikipedia"
     url: "https://en.wikipedia.org/wiki/Minesweeper_(video_game)"

@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/45-firebasesavingdrawing.html
 video_number: 45
 date: 2016-12-11
 video_id: RUSvMxxm_Jo
-repository: /CC_045_FirebaseSavingDrawing
+repository: CC_045_FirebaseSavingDrawing
 
 links:
   - title: "Firebase"

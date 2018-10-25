@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/60-butterfly-wings.html
 video_number: 60
 date: 2017-02-27
 video_id: O_0fRV4MTZo
-repository: /CC_060_Butterfly_Wings
+repository: CC_060_Butterfly_Wings
 links:
   - title: "Moth Generator"
     url: "https://twitter.com/mothgenerator"

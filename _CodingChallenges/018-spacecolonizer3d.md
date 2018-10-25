@@ -4,8 +4,8 @@ redirect_from: CodingChallenges/18-spacecolonizer3d.html
 video_number: 18
 date: 2016-06-02
 video_id: JcopTKXt8L8
-repository: /CC_018_SpaceColonizer3D
-live_example: false
+repository: CC_018_SpaceColonizer3D
+
 links:
   - title: "Algorithmic Botany"
     url: "http://algorithmicbotany.org/"

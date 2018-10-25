@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/88-snowfall.html
 video_number: 88
 date: 2017-12-25
 video_id: cl-mHFCGzYk
-repository: /CC_088_snowfall
+repository: CC_088_snowfall
 links:
   - title: "Alca's Snowflakes Codepen"
     url: "https://codepen.io/Alca/pen/ppEgxb"
@@ -13,7 +13,7 @@ links:
 
 contributions:
   - title: "Snowman that grows from the falling snowflakes"
-    author: 
+    author:
       name: "omareq"
       url: https://github.com/omareq
     url: https://omareq.github.io/snowman

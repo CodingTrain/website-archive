@@ -4,8 +4,7 @@ redirect_from: CodingChallenges/87-3Dknots.html
 video_number: 87
 date: 2017-12-20
 video_id: r6YMKr1X0VA
-repository: /CC_087_3D_Knots
-live_example: false
+repository: CC_087_3D_Knots
 
 links:
   - title: "Paul Bourke's reference on 3D knots"

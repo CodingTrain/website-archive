@@ -3,8 +3,7 @@ title: "Lissajous Curve Table"
 video_number: 116
 date: 2018-10-02
 video_id: --6eyLO78CY
-repository: /CC_116_Lissajous
-live_example: false
+repository: CC_116_Lissajous
 web_editor: BJbj5l3Y7
 
 links:

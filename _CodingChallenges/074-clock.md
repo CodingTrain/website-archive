@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/74-clock.html
 video_number: 74
 date: 2017-09-20
 video_id: E4RyStef-gY
-repository: /CC_074_Clock
+repository: CC_074_Clock
 
 links:
   - title: "Golan Levin's notes on MAEDA’S 12 O’CLOCKS"

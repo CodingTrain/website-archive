@@ -4,8 +4,8 @@ redirect_from: CodingChallenges/24-perlinnoiseflowfield.html
 video_number: 24
 date: 2016-06-27
 video_id: BjoM9oKOAKY
-repository: /CC_024_PerlinNoiseFlowField
-live_example: /CC_024_PerlinNoiseFlowField
+repository: CC_024_PerlinNoiseFlowField
+
 links:
   - title: "Processing code"
     url: "https://github.com/CodingTrain/website/tree/master/CodingChallenges/CC_024_PerlinNoiseFlowField_Processing"
