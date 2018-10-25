@@ -21,7 +21,12 @@ contributions:
       name: "Knut Jackowski"
       url: "http://doxanthropos.com"
     url: "https://doxanthropos.github.io/sketchbook/2018102301/"
-    source: "https://github.com/doxanthropos/sketchbook/tree/master/2018102301"
+    source: "https://github.com/doxanthropos/sketchbook/tree/master/2018102301"    
+  - title: "Binary Game"
+    author:
+      name: "Shivanshu Kant Prasad"
+    url: "https://shivanshukantprasad.github.io/BinaryGame/"
+    source: "https://github.com/ShivanshuKantPrasad/BinaryGame"
 ---
 
 In this coding challenge, I discuss binary numbers and make an interactive binary to decimal number converter.
