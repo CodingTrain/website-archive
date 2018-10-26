@@ -4,7 +4,7 @@ Contributions to this repository encouraged! We're all learning so mistakes and 
 
 Here are the type of contributions we are looking for:
  - bug-fixes
- - making the code easier to read
+ - making the code easier to read (including code comments!)
  - adding a link to your creative version of a challenge or tutorial - [guide](https://github.com/CodingTrain/website/wiki/Community-Contributions-Guide)
  - website design improvements
  - adding any missing content - [guide](https://github.com/CodingTrain/website/wiki/Content-Contribution-Guide)
@@ -22,3 +22,4 @@ If you are unsure about git and GitHub, and how to make your contribution,
 these [Git and GitHub for Poets tutorials](https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZF9C0YMKuns9sLDzK6zoiV) might help.
 
 Happy Coding!
+

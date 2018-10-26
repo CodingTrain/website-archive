@@ -31,6 +31,12 @@ contributions:
       url: "https://github.com/aaronjenson"
     url: "https://aaronjenson.github.io/Projection/"
     source: "https://github.com/aaronjenson/Projection"
+  - title: "Tesseract"
+    author:
+      name: "Fernando Ribeiro"
+      url: "https://fraguilar.com"
+    url: "https://www.instagram.com/p/BmM2E5DHl3x"
+    source: "https://github.com/fernand0aguilar/Tesseract-4D"
 ---
 
 In this coding challenge, I visualize a 4D Hypercube (aka "Tesseract") in Processing (Java).
