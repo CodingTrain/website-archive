@@ -32,6 +32,11 @@ contributions:
       name: "Gonzalo Pierola Azanza"
     url: "https://editor.p5js.org/Guamedo/full/SklfTMn2s7"
     source: "https://github.com/Guamedo/P5/tree/master/Bin2Dec"
+  - title: "Binary Rainbow"
+  author:
+    name: "Tim Mallard"
+  url: "https://editor.p5js.org/Mallard/full/ryF3vf0sQ"
+  source: "https://editor.p5js.org/Mallard/sketches/ryF3vf0sQ"
 ---
 
 In this coding challenge, I discuss binary numbers and make an interactive binary to decimal number converter.
