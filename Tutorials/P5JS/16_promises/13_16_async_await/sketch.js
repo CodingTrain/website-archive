@@ -35,7 +35,7 @@ function setup() {
 }
 
 async function wordGIF(num) {
-  const response1 = await fetch(wordnikAPI + '&minLength=' + num + '&maxLength=' + num);
+  const response1 = await fetch(`${wordnikAPI}&minLength=${num}&maxLength=${num}`);
   const json1 = await response1.json();
   const response2 = await fetch(giphyAPI + json1.word);
   const json2 = await response2.json();
