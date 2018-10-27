@@ -77,10 +77,7 @@ function sliderChanged() {
     span.style('background-color', `rgb(${v.x},${v.y},${v.z})`);
     span.html(nearest);
   }
-
-
 }
-
 
 function processData(data) {
   let vectors = {};
