@@ -4,8 +4,8 @@ redirect_from: CodingChallenges/17-spacecolonizer.html
 video_number: 17
 date: 2016-06-01
 video_id: kKT0v3qhIQY
-repository: /CC_017_SpaceColonizer
-live_example: /CC_017_SpaceColonizer_p5
+repository: CC_017_SpaceColonizer
+
 links:
   - title: "Algorithmic Botany"
     url: "http://algorithmicbotany.org/"

@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/85-the-game-of-life.html
 video_number: 85
 date: 2017-12-11
 video_id: FWSR_7kZuYg
-repository: /CC_085_The_Game_of_Life
+repository: CC_085_The_Game_of_Life
 links:
   - title: "Conway's Game of Life on Wikipedia"
     url: "https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
@@ -20,6 +20,10 @@ videos:
     url: "/GuestTutorials/6-golan-levin-modulo-operator"
 
 contributions:
+  - title: "Game of Life"
+    author: "Alexandru Nastase"
+    url: https://alexandrunst.github.io/Game-of-Life/
+    source: https://github.com/AlexandruNst/Game-of-Life
   - title: "Game of Life: editable grid"
     author:
       name: "Knut Jackowski"

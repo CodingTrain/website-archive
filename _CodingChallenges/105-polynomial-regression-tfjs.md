@@ -3,7 +3,7 @@ title: "Polynomial Regression with TensorFlow.js"
 video_number: 105
 date: 2018-06-04
 video_id: tIXDik5SGsI
-repository: /CC_105_tf_polynomial_regression
+repository: CC_105_tf_polynomial_regression
 
 links:
   - title: "TensorFlow.js"

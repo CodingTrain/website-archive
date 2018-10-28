@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/48-tweetsbymonth.html
 video_number: 48
 date: 2017-01-06
 video_id: UrznYJltZrU
-repository: /CC_048_TweetsByMonth
+repository: CC_048_TweetsByMonth
 links:
   - title: "The White House Social Media Data"
     url: "https://obamawhitehouse.archives.gov/blog/2017/01/05/new-lenses-first-social-media-presidency"

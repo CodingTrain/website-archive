@@ -3,7 +3,7 @@ title: "Visualizing 500,000 Subscribers"
 video_number: 109
 date: 2018-07-09
 video_id: Ae73YY_GAU8
-repository: /CC_109_subscriber_map
+repository: CC_109_subscriber_map
 
 links:
   - title: "Mappa.js Simple Map"
@@ -30,4 +30,3 @@ contributions:
 ---
 
 Celebrating the 500,000 subscribers milestone, I create a map visualization of Coding Train subscriber locations around the world!
-

@@ -4,8 +4,8 @@ redirect_from: CodingChallenges/11-perlinnoiseterrain.html
 video_number: 11
 date: 2016-05-04
 video_id: IKB1hWWedMk
-repository: /CC_011_PerlinNoiseTerrain
-live_example: /CC_011_PerlinNoiseTerrain_p5.js
+repository: CC_011_PerlinNoiseTerrain
+
 links:
   - title: "beginShape() reference"
     url: "https://processing.org/reference/beginShape_.html"
