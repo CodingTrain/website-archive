@@ -7,7 +7,7 @@ permalink: /
 {% include 1-tools/sort-videos.html videos=site.Streams future=true reverse=true %}
 {% assign nextStream = out_sortedVideos | where_exp: 'stream', 'stream.date >= site.time' | first %}
 
-{% comment %} Get latest coding challenges. {% endcomment %}G
+{% comment %} Get latest coding challenges. {% endcomment %}
 {% include 1-tools/sort-videos.html videos=site.CodingChallenges reverse=true %}
 
 {% comment %} Use the latest coding challenge if a stream hasn't been scheduled yet. {% endcomment %}
