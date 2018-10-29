@@ -7,7 +7,7 @@ permalink: /
 {% include 1-tools/sort-videos.html videos=site.Streams future=true reverse=true %}
 {% assign nextStream = out_sortedVideos | where_exp: 'stream', 'stream.date >= site.time' | first %}
 
-{% comment %} Get latest coding challenges. {% endcomment %}
+{% comment %} Get latest coding challenges. {% endcomment %}G
 {% include 1-tools/sort-videos.html videos=site.CodingChallenges reverse=true %}
 
 {% comment %} Use the latest coding challenge if a stream hasn't been scheduled yet. {% endcomment %}
@@ -60,13 +60,12 @@ permalink: /
     {% capture merchStoreImage %}<img alt='The Coding Train Merchandise Store' src="{{ '/assets/images/merch-store.png' | relative_url }}" />{%
     endcapture %}
     {% include 3-modules/hero-item.html image=merchStoreImage title='Coding Train Store'
-    content='Visit Design by Humans for a variety of Coding Train merchandise.' url=site.links.merch cta='Get some
-    merch' class='merch-store' %}
+    content='Visit Design by Humans for a variety of Coding Train merchandise.' url=site.links.merch cta='Shop for Merchandise' class='merch-store' %}
 
     {% capture amazonStoreImage %}<img alt='The Coding Train Amazon Store' src="{{ '/assets/images/amazon-store.png' | relative_url }}" />{%
     endcapture %}
     {% include 3-modules/hero-item.html image=amazonStoreImage title="Love to read?" content='Find
-    books and other products featured on The Coding Train!' url=site.links.amazon cta='Start reading'
+    books and other products featured on The Coding Train!' url=site.links.amazon cta='Shop for Books and more'
     class='amazon-store' %}
   </div>
 </div>
