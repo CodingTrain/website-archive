@@ -2,6 +2,7 @@
 title: "Logo Interpreter"
 video_number: 121
 date: 2018-10-30
+repository: CC_121_Logo
 video_id: i-k04yzfMpw
 
 links:
