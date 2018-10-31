@@ -18,6 +18,14 @@ videos:
     video_id: "o9sgjuh-CBM"
   - title: "Angles and Angular Motion"
     video_id: "qMq-zd6hguc"
+    
+contributions:
+  - title: "Classic Logo Interpreter"
+    author:
+      name: "Anurag Hazra"
+      url: "https://anuraghazra.github.io"
+    url: "https://anuraghazra.github.io/classicLogo"
+    source: "https://github.com/anuraghazra/classicLogo"
 ---
 
 In this coding challenge, I discuss turtle graphics and make a Logo Interpreter in JavaScript.
