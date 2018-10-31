@@ -18,7 +18,7 @@ videos:
     video_id: "o9sgjuh-CBM"
   - title: "Angles and Angular Motion"
     video_id: "qMq-zd6hguc"
-    
+
 contributions:
   - title: "Classic Logo Interpreter"
     author:
