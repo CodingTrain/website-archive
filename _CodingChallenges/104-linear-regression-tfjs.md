@@ -21,14 +21,12 @@ videos:
   - title: "JavaScript Promises"
     playlist_id: "PLRqwX-V7Uu6bKLPQvPRNNE65kBL62mVfx"
  
- contributions:
+contributions:
   - title: "React.js and SVG implementation of linear regression with Tensorflow.js"
     author:
       name: "Pietro Ghezzi"
-      url: https://github.com/gpietro
-    source: https://github.com/gpietro/reactflow-linear-regression
-    
- 
+    url: "https://github.com/gpietro/reactflow-linear-regression"
+    source: "https://github.com/gpietro/reactflow-linear-regression"
 ---
 
 In this challenge, I use the TensorFlow.js library to create an interactive demonstration of linear regression (with stochastic gradient descent!)
