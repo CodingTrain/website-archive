@@ -11,7 +11,6 @@ class Turtle {
   }
   init() {
     this.cs();
-    this.rt(0);
     this.pd();
   }
   // Move turtle forward
@@ -52,7 +51,6 @@ class Turtle {
   home() {
     pop();
     push();
-    this.rt(0);
   }
   // Translate turtle to x and y
   setxy(x, y) {
