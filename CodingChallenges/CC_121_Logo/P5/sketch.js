@@ -9,7 +9,7 @@ let turtle;
 
 function setup() {
   const canvasSize = 300;
-  const middle = canvasSize / 4;
+  const middle = canvasSize / 2;
   angleMode(DEGREES);
   createCanvas(canvasSize, canvasSize).parent('sketch-holder');
 
@@ -24,8 +24,7 @@ function goTurtle(code) {
   push();
 
   code = preprocess(code);
-  turtle.cs();
-  turtle.home();
+  turtle.init();
 
   let tokens = code.split(' ');
   let index = 0;

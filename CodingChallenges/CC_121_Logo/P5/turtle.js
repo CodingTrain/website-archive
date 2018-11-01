@@ -7,11 +7,12 @@
 
 class Turtle {
   constructor(x, y) {
-    this.x = x;
-    this.y = y;
-    this.pen = true;
-
-    this.home();
+    this.setxy(x, y);
+  }
+  init() {
+    this.cs();
+    this.rt(0);
+    this.pd();
   }
   // Move turtle forward
   fd(amount) {
@@ -21,7 +22,7 @@ class Turtle {
       strokeWeight(2);
       line(0, 0, amount, 0);
     }
-    translate(amount, 0);
+    this.setxy(amount, 0);
   }
   // Move turtle backward
   bd(amount) {
@@ -44,15 +45,16 @@ class Turtle {
     this.pen = true;
   }
   // Clear the screen
-  cs(){
+  cs() {
     background(0);
   }
   // Go back to the middle
   home() {
-    this.setxy(this.x, this.y);
+    pop();
+    push();
     this.rt(0);
   }
-  // Set the X and Y of the turtle
+  // Translate turtle to x and y
   setxy(x, y) {
     translate(x, y);
   }
