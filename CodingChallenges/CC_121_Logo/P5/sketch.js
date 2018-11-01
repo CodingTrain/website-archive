@@ -5,36 +5,65 @@
 // Coding Challenge 121: Logo
 // https://youtu.be/i-k04yzfMpw
 
-let editor;
 let turtle;
 
 function setup() {
-  createCanvas(200, 200);
+  const canvasSize = 300;
+  const middle = canvasSize / 4;
   angleMode(DEGREES);
-  background(0);
-  turtle = new Turtle(100, 100, 0);
-  editor = select('#code');
-  editor.input(goTurtle);
-  goTurtle();
+  createCanvas(canvasSize, canvasSize).parent('sketch-holder');
+
+  let editor = select('#code');
+  editor.input(() => goTurtle(editor.value()));
+
+  turtle = new Turtle(middle, middle);
+  goTurtle(editor.value());
 }
 
-function goTurtle() {
-  background(0);
+function goTurtle(code) {
   push();
-  turtle.reset();
-  let code = editor.value();
+
+  code = preprocess(code);
+  turtle.cs();
+  turtle.home();
+
   let tokens = code.split(' ');
   let index = 0;
   while (index < tokens.length) {
     let token = tokens[index];
-    if (commands[token]) {
-      if (token.charAt(0) === 'p') {
-        commands[token]();
-      } else {
-        commands[token](tokens[++index]);
+    if (turtle[token]) {
+      switch (token) {
+        case 'cs':
+        case 'home':
+        case 'pu':
+        case 'pd':
+          turtle[token]();
+          break;
+        case 'setxy':
+          turtle[token](tokens[++index], tokens[++index]);
+          break;
+        default:
+          turtle[token](tokens[++index]);
+          break;
       }
     }
     index++;
   }
   pop();
+}
+
+function preprocess(code) {
+  // Preprocess from right to left because of nested repeats
+  const repeatStart = code.lastIndexOf('repeat');
+  if (repeatStart !== -1) {
+    const repeatEnd = code.indexOf(']', repeatStart);
+    if (repeatEnd !== -1) {
+      const repeatLine = code.slice(repeatStart, repeatEnd + 1);
+      const repeatTimes = parseInt(repeatLine.split(' ')[1]);
+      const repeatedString = (repeatLine.slice(repeatLine.indexOf('[') + 1, -1) + ' ').repeat(repeatTimes);
+      code = code.slice(0, repeatStart) + repeatedString + code.slice(repeatEnd + 1);
+      return preprocess(code);
+    }
+  }
+  return code;
 }
