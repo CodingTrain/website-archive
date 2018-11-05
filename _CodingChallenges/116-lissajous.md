@@ -54,6 +54,13 @@ contributions:
       url: "https://github.com/boguz"
     url: "https://codepen.io/lpato/full/KGebJa/"
     source: "https://codepen.io/lpato/full/KGebJa/"
+  - title: "ES6"
+    author:
+      name: "Arturs Jansons"
+      url: "https://github.com/iegik"
+    url: "https://codepen.io/iegik/full/MzwWqO/"
+    source: "https://codepen.io/iegik/pen/MzwWqO/"
+    
 ---
 
 In this Coding Challenge, I visualize a "Lissajous Curve Table" with Processing (Java).
