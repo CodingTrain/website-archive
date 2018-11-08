@@ -26,6 +26,12 @@ contributions:
       url: "https://anuraghazra.github.io"
     url: "https://anuraghazra.github.io/classicLogo"
     source: "https://github.com/anuraghazra/classicLogo"
+  - title: "3D Logo Experiment"
+    author:
+      name: "Dave Briccetti"
+      url: "https://davebsoft.com"
+    url: "https://davebsoft.com/software/logo-3d/"
+    source: "https://github.com/dcbriccetti/web-games/tree/master/p5.js/logo-3d"
 ---
 
 In this coding challenge, I discuss turtle graphics and make a Logo Interpreter in JavaScript.
