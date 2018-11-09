@@ -36,7 +36,7 @@ contributions:
       url: "https://fraguilar.com"
     url: "https://www.instagram.com/p/BmM2E5DHl3x"
     source: "https://github.com/fernand0aguilar/Tesseract-4D"
-   - title: "multiDimensional projection"
+  - title: "multiDimensional projection"
     author:
       name: "David FAIVRE-MAÇON"
     url: "https://codepen.io/Dayd/pen/gBEexq"
