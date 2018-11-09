@@ -4,8 +4,7 @@ redirect_from: CodingChallenges/96-visualizing-pi.html
 video_number: 96
 date: 2018-03-19
 video_id: WEd_UIKG-uc
-repository: /CC_096_Visualizing_the_Digits_of_Pi
-live_example: false
+repository: CC_096_Visualizing_the_Digits_of_Pi
 
 links:
   - title: "Washington Post Article"

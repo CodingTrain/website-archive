@@ -23,7 +23,23 @@ github_download_prefix: https://minhaskamal.github.io/DownGit/#/home?url=
 
 # Prefixes for editor.p5js.org
 web_editor_sketch_prefix: https://editor.p5js.org/codingtrain/sketches/
-web_editor_fulscreen_prefix: https://editor.p5js.org/full/
+web_editor_fullscreen_prefix: https://editor.p5js.org/full/
+
+# Suffixes for auto-detecting the video's code that's available for download/preview.
+#
+# name          string  Name of the code variation.
+# folder        string  Name of the folder relative to the video's repository.
+# live_example  boolean Wether this variation should be used as the live example.
+#                       The first match is used. If the video has the `web_editor`
+#                       property, a link to the P5 Web Editor will be used instead.
+code_variations:
+  - name: "P5.JS"
+    folder: "P5"
+    live_example: true
+  - name: "Processing"
+    folder: "Processing"
+  - name: "JavaScript"
+    folder: "JavaScript"
 
 # Links to other platforms.
 links:

@@ -1,6 +1,6 @@
 ### Node.JS ###
 .DS_Store
-config.js
+/config.js
 node_modules
 .env
 

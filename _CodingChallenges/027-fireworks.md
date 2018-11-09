@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/27-fireworks.html
 video_number: 27
 date: 2016-07-02
 video_id: CKeyIbT3vXI
-repository: /CC_027_Fireworks_2D_p5
+repository: CC_027_FireWorks
 
 links:
   - title: "Pixel Pyros"

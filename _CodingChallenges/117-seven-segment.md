@@ -3,7 +3,7 @@ title: "Seven-Segment Display"
 video_number: 117
 date: 2018-10-15
 video_id: MlRlgbrAVOs
-live_example: /CC_117_SevenSegmentDisplay_p5.js
+repository: CC_117_SevenSegmentDisplay
 
 links:
   - title: "Code"

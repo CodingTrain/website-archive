@@ -4,8 +4,7 @@ redirect_from: CodingChallenges/02-mengersponge.html
 video_number: 2
 date: 2016-04-18
 video_id: LG8ZK-rRkXo
-repository: /CC_002_MengerSponge
-live_example: /CC_002_MengerSponge_p5.js
+repository: CC_002_MengerSponge
 
 links:
   - title: "Menger Sponge on Wikipedia"

@@ -3,8 +3,7 @@ title: "May the 4th Scrolling Text"
 video_number: 101
 date: 2018-05-04
 video_id: fUkF-YLLXeg
-repository: /CC_101_MayThe4th
-live_example: false
+repository: CC_101_MayThe4th
 
 contributions:
   - title: "p5.js StarWars Crawl"

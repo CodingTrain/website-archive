@@ -4,7 +4,8 @@ redirect_from: CodingChallenges/15-fractaltreearray.html
 video_number: 15
 date: 2016-05-30
 video_id: fcdNSZ9IzJM
-repository: /CC_015_FractalTreeArray
+repository: CC_015_FractalTreeArray
+
 links:
   - title: "Algorithmic Botany"
     url: "http://algorithmicbotany.org/"

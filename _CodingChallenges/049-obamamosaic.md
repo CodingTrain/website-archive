@@ -4,8 +4,7 @@ redirect_from: CodingChallenges/49-obamamosaic.html
 video_number: 49
 date: 2017-01-06
 video_id: nnlAH1zDBDE
-repository: /CC_049_ObamaMosaic
-live_example: false
+repository: CC_049_ObamaMosaic
 links:
   - title: "The White House Social Media Data"
     url: "https://obamawhitehouse.archives.gov/blog/2017/01/05/new-lenses-first-social-media-presidency"
