@@ -60,7 +60,7 @@ contributions:
       url: "https://github.com/iegik"
     url: "https://codepen.io/iegik/full/MzwWqO/"
     source: "https://codepen.io/iegik/pen/MzwWqO/"
-    
+
 ---
 
 In this Coding Challenge, I visualize a "Lissajous Curve Table" with Processing (Java).
