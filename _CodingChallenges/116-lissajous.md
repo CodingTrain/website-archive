@@ -54,6 +54,7 @@ contributions:
       url: "https://github.com/boguz"
     url: "https://codepen.io/lpato/full/KGebJa/"
     source: "https://codepen.io/lpato/full/KGebJa/"
+    
   - title: "ES6"
     author:
       name: "Arturs Jansons"
