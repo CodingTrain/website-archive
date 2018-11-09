@@ -9,8 +9,8 @@ let mobilenet;
 let classifier;
 let video;
 let label = 'loading model';
-let ukeButton;
-let whistleButton;
+let happyButton;
+let sadButton;
 let trainButton;
 
 
