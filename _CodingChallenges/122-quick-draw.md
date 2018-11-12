@@ -1,0 +1,23 @@
+---
+title: "Quick, Draw!"
+video_number: 122
+date: 2018-11-14
+repository: CC_122_QuickDraw
+video_id: yLuk0twx8Hc
+
+links:
+  - title: "Quick, Draw! The Data"
+    url: "https://quickdraw.withgoogle.com/data"
+  - title: "sketch-rnn"
+    url: "https://magenta.tensorflow.org/sketch-rnn-demo"
+
+videos:
+  - title: "Doodle Classifier"
+    video_id: "pqY_Tn2SIVA"
+  - title: "What is JSON?"
+    url: "/Tutorials/10-working-with-data/10.2-what-is-json-part-1"
+  - title: "Building an API with Node"
+    video_id: "P-Upi9TMrBk"
+---
+
+In this coding challenge, I take a closer look at the Quick, Draw! dataset and create a simple node API to "replay" drawings of rainbows and cats using p5.js.
