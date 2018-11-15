@@ -18,6 +18,12 @@ contributions:
       url: "https://github.com/tobiasvonarx"
     url: "https://tobiasvonarx.github.io/HTML5-JS/Mandelbrot%20Fractal/"
     source: "https://github.com/tobiasvonarx/HTML5-JS/tree/master/Mandelbrot%20Fractal"
+  - title: "Mandelbrot Set in OpenGL, smooth histogram colored"
+    author:
+      name: "dedowsdi"
+      url: "https://github.com/dedowsdi"
+    url: "https://twitter.com/dedowsdi/status/1063024950808764417"
+    source: "https://github.com/dedowsdi/journey/tree/master/gl4/challenge/mandelbrot_set"
 ---
 
 In this coding challenge, I program from scratch the Mandelbrot set with p5.js
