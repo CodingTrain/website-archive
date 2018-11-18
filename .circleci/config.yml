@@ -32,11 +32,13 @@ jobs:
       - restore_cache:
           key: circlev2-{{ checksum "Gemfile.lock" }}
 
-      - run: bundle check || bundle install 
+      - run: bundle check --path=~/.bundle || bundle install --path=~/.bundle
       
       # Store bundle cache
       - save_cache:
           key: circlev2-{{ checksum "Gemfile.lock" }}
+          path: ~/.bundle
+
 
       # - save_cache:
       #     paths:
