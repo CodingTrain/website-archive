@@ -23,8 +23,8 @@ jobs:
 
       #Bundler Dependencies
       - run: 
-        - name: Jekyll deps
-        - command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
+          name: Jekyll deps
+          command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
       
       # Store bundle cache
       - save_cache:
