@@ -17,18 +17,6 @@ jobs:
 
       - run: cd unit_testing && npm test
 
-      # # TODO: add caching to speed things up.
-      # - restore_cache:
-      #     keys:
-      #       # when lock file changes, use increasingly general patterns to restore cache
-      #       - v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-      #       - v1-gem-cache-{{ arch }}-{{ .Branch }}-
-      #       - v1-gem-cache-{{ arch }}-
-
-      # - run:
-      #     name: Jekyll deps
-      #     command: bundle install && bundle clean
-
       - restore_cache:
           key: circlev2-{{ checksum "Gemfile.lock" }}
 
