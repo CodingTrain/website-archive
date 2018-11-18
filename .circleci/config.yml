@@ -37,7 +37,7 @@ jobs:
       # Store bundle cache
       - save_cache:
           key: circlev2-{{ checksum "Gemfile.lock" }}
-          pathss: 
+          paths: 
             - ~/.bundle
 
 
