@@ -32,9 +32,9 @@ jobs:
           name: Restoring npm cache
           keys:
             # when lock file changes, use increasingly general patterns to restore cache
-            - node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
-            - node-v1-{{ .Branch }}-
-            - node-v1-
+            - npm-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - npm-v1-{{ .Branch }}-
+            - npm-v1-
 
       # todo: find nicer solution than constantly "cd"ing to unit_testing
       - run: cd unit_testing && npm install
@@ -44,7 +44,7 @@ jobs:
           name: Saving npm cache
           paths:
             -  unit_testing/node_modules  # location depends on npm version
-          key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          key: npm-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
 
       - run: cd unit_testing && npm test
 
