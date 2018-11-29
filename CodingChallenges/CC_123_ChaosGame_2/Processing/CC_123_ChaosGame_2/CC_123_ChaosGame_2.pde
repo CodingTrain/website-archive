@@ -30,7 +30,7 @@ void reset() {
   background(0);
   stroke(255);
   strokeWeight(8);
-  for (int i = 0; i < points.size(); i++) {
+  for (PVector p : points) {
     PVector p = (PVector)points.get(i);
     point(p.x, p.y);
   }    
