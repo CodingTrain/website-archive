@@ -5,7 +5,7 @@
 // Part 2: https://youtu.be/A0NHGTggoOQ
 // https://thecodingtrain.com/CodingChallenges/123.2-chaos-game
 
-ArrayList points;
+PVector[] points;
 PVector current;
 float percent = 0.5;
 PVector previous;
