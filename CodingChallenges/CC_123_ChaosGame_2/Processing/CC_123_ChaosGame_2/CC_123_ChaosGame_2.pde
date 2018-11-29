@@ -45,7 +45,7 @@ void draw() {
   for (int i = 0; i < 1000; i++) {
     strokeWeight(1);
     stroke(255);
-    PVector next = (PVector)points.get(floor(random(points.size())));
+    PVector next = points[floor(random(points.size()))];
     if (next != previous) {
       current.x = lerp(current.x, next.x, percent);
       current.y = lerp(current.y, next.y, percent);
