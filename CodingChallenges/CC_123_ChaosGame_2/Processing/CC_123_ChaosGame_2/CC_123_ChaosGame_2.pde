@@ -5,7 +5,7 @@
 // Part 2: https://youtu.be/A0NHGTggoOQ
 // https://thecodingtrain.com/CodingChallenges/123.2-chaos-game
 
-ArrayList<PVector> points = new ArrayList<PVector>();
+ArrayList points;
 PVector current;
 float percent = 0.5;
 PVector previous;
@@ -13,6 +13,7 @@ PVector previous;
 void setup() {
   fullScreen();
   int n = 5;
+  points = new ArrayList();
 
   for (int i = 0; i < n; i++) {
     // let v = createVector(random(width), random(height));
@@ -30,9 +31,11 @@ void reset() {
   background(0);
   stroke(255);
   strokeWeight(8);
-  for (PVector p: points) {
+  for (int i = 0; i < points.size(); i++) {
+    PVector p = (PVector)points.get(i);
     point(p.x, p.y);
-  }
+  }    
+
 }
 
 void draw() {
@@ -44,7 +47,7 @@ void draw() {
   for (int i = 0; i < 1000; i++) {
     strokeWeight(1);
     stroke(255);
-    PVector next = points.get(floor(random(points.size())));
+    PVector next = (PVector)points.get(floor(random(points.size())));
     if (next != previous) {
       current.x = lerp(current.x, next.x, percent);
       current.y = lerp(current.y, next.y, percent);
