@@ -13,7 +13,7 @@ PVector previous;
 void setup() {
   fullScreen();
   int n = 5;
-  points = new ArrayList();
+  points = new PVector[n];
 
   for (int i = 0; i < n; i++) {
     float angle = i * TWO_PI / n;
