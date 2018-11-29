@@ -16,7 +16,6 @@ void setup() {
   points = new ArrayList();
 
   for (int i = 0; i < n; i++) {
-    // let v = createVector(random(width), random(height));
     float angle = i * TWO_PI / n;
     PVector v = PVector.fromAngle(angle);
     v.mult(width / 2);
