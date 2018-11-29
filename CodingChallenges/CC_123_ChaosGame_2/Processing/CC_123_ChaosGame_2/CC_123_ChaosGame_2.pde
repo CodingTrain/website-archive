@@ -20,7 +20,7 @@ void setup() {
     PVector v = PVector.fromAngle(angle);
     v.mult(width / 2);
     v.add(width / 2, height / 2);
-    points.add(v);
+    points[i] = v;
   }
   reset();
 }
