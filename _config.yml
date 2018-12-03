@@ -40,6 +40,8 @@ code_variations:
     folder: "Processing"
   - name: "JavaScript"
     folder: "JavaScript"
+  - name: "Node.js"
+    folder: "Node"
 
 # Links to other platforms.
 links:
