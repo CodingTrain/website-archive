@@ -1,3 +1,11 @@
+// The Coding Train
+// Coding Challenge 122.1
+// Quick Draw
+// https://youtu.be/yLuk0twx8Hc
+// https://thecodingtrain.com/CodingChallenges/122.1-quick-draw
+// Part 2: https://youtu.be/EcRK6oFddPQ
+// https://thecodingtrain.com/CodingChallenges/122.2-quick-draw
+
 let strokeIndex = 0;
 let index = 0;
 let cat;
