@@ -23,7 +23,6 @@ contributions:
       name: "Spongman"
     url: "https://codepen.io/Spongman/project/full/ArxVJQ/"
     source: "https://codepen.io/Spongman/project/editor/ArxVJQ"
-
   - title: "Javascript 2D Water Ripple"
     author:
       name: "David Sarma"
@@ -37,7 +36,7 @@ contributions:
   - title: "Ripple in Processing with added functions and sound"
     author:
       name: "Jelle Teijema"
-      url: "jjteijema.nl"
+      url: "https://jjteijema.nl"
     url: "https://media.giphy.com/media/5eFEP2B6ytv0aGQDup/giphy.gif"
     source: "https://github.com/JTeijema/QuickFLow"
 ---
