@@ -3,7 +3,7 @@ title: "Flocking Simulation"
 video_number: 124
 date: 2018-12-10
 repository: CC_124_Flocking_Boids
-video_id: mhjuuHl6qHM 
+video_id: mhjuuHl6qHM
 
 links:
   - title: "Craig Reynolds' Reference"
