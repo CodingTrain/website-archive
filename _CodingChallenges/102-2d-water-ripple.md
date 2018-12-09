@@ -29,11 +29,20 @@ contributions:
       name: "David Sarma"
     url: "https://codepen.io/ds604/pen/VxroVN"
     source: "https://gist.github.com/ds604/228483d2498cdfdf79ef9df22676b899"
+
   - title: "C++ 2D Water Ripple with SDL and OpenMP"
     author:
       name: "Marc Benzahra"
     url: "https://media.giphy.com/media/5wG3oCLNct1h0wE5ML/giphy.gif"
     source: "https://github.com/1475963/be-water-my-friend"
+    
+  - title: "Ripple in Processing, with added parameters and sound"
+    author:
+      name: "Jelle Teijema"
+      url: "jjteijema.nl"
+    url: "https://media.giphy.com/media/5eFEP2B6ytv0aGQDup/giphy.gif"
+    source: "https://github.com/JTeijema/QuickFLow"
+
 ---
 
 In this coding challenge, I attempt to simulate 2D water ripples using Processing (Java).
