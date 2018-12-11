@@ -17,6 +17,10 @@ links:
 videos:
   - title: "Craig Reynolds - Original 1986 Boids simulation"
     video_id: "86iQiV3-3IA"
+  - title: "Vectors - The Nature of Code"
+    video_id: "mWJkvxQXIa8"
+  - title: "Combining Steering Behaviors: Flocking - The Nature of Code"
+    video_id: "IoKfQrlQ7rA"
 ---
 
-In this coding challenge, I make a flocking simulation based on Craig Reynolds work on generic simulated flocking creatures called "boids".
+In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
