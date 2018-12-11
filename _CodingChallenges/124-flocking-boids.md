@@ -21,6 +21,13 @@ videos:
     video_id: "mWJkvxQXIa8"
   - title: "Combining Steering Behaviors: Flocking - The Nature of Code"
     video_id: "IoKfQrlQ7rA"
+
+contributions:
+  - title: "QuadTree Optimization"
+    author:
+      name: "TheTastefulToastie"
+      url: "https://github.com/TheTastefulToastie"
+    url: "https://editor.p5js.org/TheTastefulToastie/sketches/BJNaRITyE"
 ---
 
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
