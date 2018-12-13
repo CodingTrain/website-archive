@@ -28,6 +28,11 @@ contributions:
       name: "TheTastefulToastie"
       url: "https://github.com/TheTastefulToastie"
     url: "https://editor.p5js.org/TheTastefulToastie/sketches/BJNaRITyE"
+  - title: "3D Boids with QuadTree"
+    author:
+      name: "Sebastien Raynaud"
+      url: "https://twitter.com/Chopokopx"
+    url: "https://editor.p5js.org/SebastienR/sketches/ryDc4qaJE"
 ---
 
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
