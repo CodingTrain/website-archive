@@ -28,6 +28,12 @@ contributions:
       name: "TheTastefulToastie"
       url: "https://github.com/TheTastefulToastie"
     url: "https://editor.p5js.org/TheTastefulToastie/sketches/BJNaRITyE"
+  - title: "Colorful Regular polygons flocking"
+    author:
+      name: "Juan Carlos Ponce Campuzano"
+      url: "https://jcponce.github.io/"
+    url: "https://editor.p5js.org/jcponce/full/BkCDZSR1V"
+    source: "https://github.com/jcponce/jcponce.github.io/tree/master/sketches/flock"
   - title: "3D Boids with QuadTree"
     author:
       name: "Sebastien Raynaud"
