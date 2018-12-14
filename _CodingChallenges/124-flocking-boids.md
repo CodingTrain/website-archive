@@ -39,6 +39,12 @@ contributions:
       name: "Sebastien Raynaud"
       url: "https://twitter.com/Chopokopx"
     url: "https://editor.p5js.org/SebastienR/sketches/ryDc4qaJE"
+  - title: "Evolution Aquarium"
+    author:
+      name: "Anurag Hazra"
+      url: "https://anuraghazra.github.io/"
+    url: "https://anuraghazra.github.io/EvolutionAquerium/"
+    source: "https://github.com/anuraghazra/EvolutionAquerium"
 ---
 
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
