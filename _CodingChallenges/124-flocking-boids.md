@@ -46,7 +46,7 @@ contributions:
     url: "https://anuraghazra.github.io/EvolutionAquerium/"
     source: "https://github.com/anuraghazra/EvolutionAquerium"
   - title: "Scenic Flocking Variations"
-    author: 
+    author:
       name: "Nathan Vos"
       url: "https://v0s.nl"
     url: "https://editor.p5js.org/n-athan/full/SJV0l4EgE"
