@@ -45,6 +45,11 @@ contributions:
       url: "https://anuraghazra.github.io/"
     url: "https://anuraghazra.github.io/EvolutionAquerium/"
     source: "https://github.com/anuraghazra/EvolutionAquerium"
+  - title: "Scenic Flocking Variations"
+    author:
+      name: "Nathan Vos"
+      url: "https://v0s.nl"
+    url: "https://editor.p5js.org/n-athan/full/SJV0l4EgE"
   - title: "Fish tank"
     author:
       name: "Robin Andersson"
