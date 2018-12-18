@@ -55,6 +55,12 @@ contributions:
       name: "Robin Andersson"
     url: "https://editor.p5js.org/RobinAndersson/sketches/r1-91uVxV"
     source: "https://editor.p5js.org/RobinAndersson/sketches/r1-91uVxV"
+  - title: "Flocking Boids"
+    author: oxrock
+    name: "oxrock"
+    url: "http://www.oxrockstudio.com/"
+    url: "https://oxrock.itch.io/flocking-boids"
+    source: "https://github.com/oxrock/BOIDS"
 ---
 
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
