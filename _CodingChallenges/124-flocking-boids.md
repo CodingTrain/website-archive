@@ -57,7 +57,7 @@ contributions:
     source: "https://editor.p5js.org/RobinAndersson/sketches/r1-91uVxV"
   - title: "Flocking Boids"
     author: oxrock
-    name: "oxrock"
+      name: "oxrock"
     url: "http://www.oxrockstudio.com/"
     url: "https://oxrock.itch.io/flocking-boids"
     source: "https://github.com/oxrock/BOIDS"
