@@ -58,7 +58,7 @@ contributions:
   - title: "Flocking Boids"
     author:
       name: "oxrock"
-    url: "http://www.oxrockstudio.com/"
+      url: "http://www.oxrockstudio.com/"
     url: "https://oxrock.itch.io/flocking-boids"
     source: "https://github.com/oxrock/BOIDS"
 ---
