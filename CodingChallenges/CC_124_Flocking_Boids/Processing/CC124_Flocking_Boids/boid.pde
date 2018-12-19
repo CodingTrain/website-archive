@@ -5,16 +5,21 @@
 // https://editor.p5js.org/codingtrain/sketches/ry4XZ8OkN
 
 class Boid {
-  constructor() {
-    this.position = createVector(random(width), random(height));
-    this.velocity = p5.Vector.random2D();
+  PVector position;
+  PVector velocity;
+  PVector acceleration;
+  int maxForce;
+  int maxSpeed;
+  Boid() {
+    this.position = new PVector(random(width), random(height));
+    this.velocity = PVector.random2D();
     this.velocity.setMag(random(2, 4));
-    this.acceleration = createVector();
+    this.acceleration = new PVector();
     this.maxForce = 1;
     this.maxSpeed = 4;
   }
 
-  edges() {
+  void edges() {
     if (this.position.x > width) {
       this.position.x = 0;
     } else if (this.position.x < 0) {
@@ -27,12 +32,12 @@ class Boid {
     }
   }
 
-  align(boids) {
-    let perceptionRadius = 50;
-    let steering = createVector();
-    let total = 0;
-    for (let other of boids) {
-      let d = dist(this.position.x, this.position.y, other.position.x, other.position.y);
+  PVector align(Boid[] boids) {
+    int perceptionRadius = 50;
+    PVector steering = new PVector();
+    int total = 0;
+    for (Boid other: boids) {
+      float d = dist(this.position.x, this.position.y, other.position.x, other.position.y);
       if (other != this && d < perceptionRadius) {
         steering.add(other.velocity);
         total++;
@@ -47,14 +52,14 @@ class Boid {
     return steering;
   }
 
-  separation(boids) {
-    let perceptionRadius = 50;
-    let steering = createVector();
-    let total = 0;
-    for (let other of boids) {
-      let d = dist(this.position.x, this.position.y, other.position.x, other.position.y);
+  PVector separation(Boid[] boids) {
+    int perceptionRadius = 50;
+    PVector steering = new PVector();
+    int total = 0;
+    for (Boid other: boids) {
+      float d = dist(this.position.x, this.position.y, other.position.x, other.position.y);
       if (other != this && d < perceptionRadius) {
-        let diff = p5.Vector.sub(this.position, other.position);
+        PVector diff = PVector.sub(this.position, other.position);
         diff.div(d * d);
         steering.add(diff);
         total++;
@@ -69,12 +74,12 @@ class Boid {
     return steering;
   }
 
-  cohesion(boids) {
-    let perceptionRadius = 100;
-    let steering = createVector();
-    let total = 0;
-    for (let other of boids) {
-      let d = dist(this.position.x, this.position.y, other.position.x, other.position.y);
+  PVector cohesion(Boid[] boids) {
+    int perceptionRadius = 100;
+    PVector steering = new PVector();
+    int total = 0;
+    for (Boid other: boids) {
+      float d = dist(this.position.x, this.position.y, other.position.x, other.position.y);
       if (other != this && d < perceptionRadius) {
         steering.add(other.position);
         total++;
@@ -90,28 +95,28 @@ class Boid {
     return steering;
   }
 
-  flock(boids) {
-    let alignment = this.align(boids);
-    let cohesion = this.cohesion(boids);
-    let separation = this.separation(boids);
+  void flock(Boid[] boids) {
+    PVector alignment = this.align(boids);
+    PVector cohesion = this.cohesion(boids);
+    PVector separation = this.separation(boids);
 
-    alignment.mult(alignSlider.value());
-    cohesion.mult(cohesionSlider.value());
-    separation.mult(separationSlider.value());
+    alignment.mult(alignValue);
+    cohesion.mult(cohesionValue);
+    separation.mult(seperationValue);
 
     this.acceleration.add(alignment);
     this.acceleration.add(cohesion);
     this.acceleration.add(separation);
   }
 
-  update() {
+  void update() {
     this.position.add(this.velocity);
     this.velocity.add(this.acceleration);
     this.velocity.limit(this.maxSpeed);
     this.acceleration.mult(0);
   }
 
-  show() {
+  void show() {
     strokeWeight(8);
     stroke(255);
     point(this.position.x, this.position.y);

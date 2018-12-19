@@ -2,8 +2,9 @@
 // Daniel Shiffman
 // https://thecodingtrain.com
 
+// https://thecodingtrain.com/CodingChallenges/124-flocking-boids.html
+// https://youtu.be/mhjuuHl6qHM
 // https://editor.p5js.org/codingtrain/sketches/ry4XZ8OkN
-// [YouTube link]
 
 const flock = [];
 

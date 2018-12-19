@@ -18,6 +18,12 @@ contributions:
       url: "https://codeblock.at/"
     url: "https://codepen.io/Grilly86/full/mzGEmR"
     source: "https://codepen.io/Grilly86/pen/mzGEmR"
+  - title: "Mandelbrot and Julia Sets in WEBGL"
+    author:
+      name: "William Magalhães"
+      url: "https://wb-magalhaes.firebaseapp.com"
+    url: "https://wb-magalhaes.firebaseapp.com/projects/mandelbrot"
+    source: "https://github.com/wbmagalhaes/web-stuff/tree/master/mandelbrot"
 ---
 
 In this coding challenge, I program from the Julia Set fractal in Processing (Java).
