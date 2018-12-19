@@ -62,7 +62,7 @@ contributions:
     url: "https://oxrock.itch.io/flocking-boids"
     source: "https://github.com/oxrock/BOIDS"
   - title: "3D Flocking, 25.600 particles with custom webgl FBO engine."
-      author: "Ethan Hermsey"
+    author:
       name: "Ethan Hermsey"
       url: "http://basis64.nl/"
     url: "http://www.basis64.nl/flocking3D"
