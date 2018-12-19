@@ -61,6 +61,12 @@ contributions:
       url: "http://www.oxrockstudio.com/"
     url: "https://oxrock.itch.io/flocking-boids"
     source: "https://github.com/oxrock/BOIDS"
+  - title: "3D Flocking, 25.600 particles with custom webgl FBO engine."
+      author: "Ethan Hermsey"
+      name: "Ethan Hermsey"
+      url: "http://basis64.nl/"
+    url: "http://www.basis64.nl/flocking3D"
+    source: "https://github.com/EthanHermsey/flocking3d"
 ---
 
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
