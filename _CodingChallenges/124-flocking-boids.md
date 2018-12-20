@@ -45,6 +45,28 @@ contributions:
       url: "https://anuraghazra.github.io/"
     url: "https://anuraghazra.github.io/EvolutionAquerium/"
     source: "https://github.com/anuraghazra/EvolutionAquerium"
+  - title: "Scenic Flocking Variations"
+    author:
+      name: "Nathan Vos"
+      url: "https://v0s.nl"
+    url: "https://editor.p5js.org/n-athan/full/SJV0l4EgE"
+  - title: "Fish tank"
+    author:
+      name: "Robin Andersson"
+    url: "https://editor.p5js.org/RobinAndersson/sketches/r1-91uVxV"
+    source: "https://editor.p5js.org/RobinAndersson/sketches/r1-91uVxV"
+  - title: "Flocking Boids"
+    author:
+      name: "oxrock"
+      url: "http://www.oxrockstudio.com/"
+    url: "https://oxrock.itch.io/flocking-boids"
+    source: "https://github.com/oxrock/BOIDS"
+  - title: "3D Flocking, 25.600 particles with custom webgl FBO engine."
+    author:
+      name: "Ethan Hermsey"
+      url: "http://basis64.nl/"
+    url: "http://www.basis64.nl/flocking3D"
+    source: "https://github.com/EthanHermsey/flocking3d"
 ---
 
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
