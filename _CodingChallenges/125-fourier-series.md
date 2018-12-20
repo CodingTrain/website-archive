@@ -25,7 +25,7 @@ videos:
     url: "/Tutorials/9-additional-topics/9.20-polar-coordinates"
   - title: "Fractal Spirograph"
     url: "/CodingChallenges/061-fractal-spirograph"
-  contributions:
+contributions:
   - title: "Square & Sawtooth wave w/ sliders"
     author:
       name: "lautibonet"
