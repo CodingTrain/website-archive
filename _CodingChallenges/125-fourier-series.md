@@ -25,6 +25,13 @@ videos:
     url: "/Tutorials/9-additional-topics/9.20-polar-coordinates"
   - title: "Fractal Spirograph"
     url: "/CodingChallenges/061-fractal-spirograph"
+  
+  contributions:
+  - title: "Square & Sawtooth wave w/ sliders"
+    author:
+      name: "lautibonet"
+      url: "https://github.com/lautibonet"
+    url: "https://editor.p5js.org/lautibonet/sketches/Bkee9AfxE"
 ---
 
 In this coding challenge, I visualize a Fourier series for a square wave in JavaScript with p5.js.
