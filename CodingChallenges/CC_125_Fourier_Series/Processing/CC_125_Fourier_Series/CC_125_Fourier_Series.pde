@@ -5,13 +5,13 @@
 // https://editor.p5js.org/codingtrain/sketches/SJ02W1OgV
 
 float time = 0;
-ArrayList<Float> wave;
+FloatList wave;
 
 int n = 5;
 
 void setup() {
   size(600, 400);
-  wave = new ArrayList<Float>();
+  wave = new FloatList();
 }
 
 void draw() {
@@ -39,8 +39,8 @@ void draw() {
     line(prevx, prevy, x, y);
     //ellipse(x, y, 8);
   }
-  wave.add(0, y);
 
+  wave.insert(0, y);
 
   translate(200, 0);
   line(x - 200, y, 0, wave.get(0));
