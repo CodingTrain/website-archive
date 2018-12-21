@@ -31,6 +31,12 @@ contributions:
       name: "lautibonet"
       url: "https://github.com/lautibonet"
     url: "https://editor.p5js.org/lautibonet/sketches/Bkee9AfxE"
+  - title: "Now with sound!"
+    author:
+      name: "stellartux"
+      url: "https://github.com/stellartux"
+    url: "https://stellartux.github.io/CC125/"
+    source: "https://github.com/stellartux/CC125"
 ---
 
 In this coding challenge, I visualize a Fourier series for a square wave in JavaScript with p5.js.
