@@ -5,6 +5,7 @@ date: 2018-12-21
 repository: CC_126_Toothpicks
 video_id: -OL_sw2MiYw#
 web_editor: SJMl3u5xN
+repository: CC_126_Toothpicks
 
 links:
   - title: "The On-Line Encyclopedia of Integer Sequences"
