@@ -53,11 +53,6 @@ function draw() {
 
   time += 0.05;
 
-  if (time > TWO_PI) {
-    path = [];
-    time = 0;
-  }
-
   if (wave.length > 250) {
     wave.pop();
   }
