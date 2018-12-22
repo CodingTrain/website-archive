@@ -1,4 +1,4 @@
-// Javascript transcription: Chuck England
+// JavaScript transcription: Chuck England
 // Daniel Shiffman
 // http://youtube.com/thecodingtrain
 // http://codingtra.in
