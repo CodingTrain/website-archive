@@ -25,9 +25,10 @@ class Curve {
         strokeWeight(1);
         noFill();
         beginShape();
-        this.path.forEach(v => {
+        for (let i = 0; i < this.path.length; i++) {
+            const v = this.path[i];
             vertex(v.x, v.y);
-        });
+        }
         endShape();
 
         strokeWeight(8);
