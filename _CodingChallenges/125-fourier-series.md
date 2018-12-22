@@ -31,6 +31,18 @@ contributions:
       name: "lautibonet"
       url: "https://github.com/lautibonet"
     url: "https://editor.p5js.org/lautibonet/sketches/Bkee9AfxE"
+  - title: "Now with sound!"
+    author:
+      name: "stellartux"
+      url: "https://github.com/stellartux"
+    url: "https://stellartux.github.io/CC125/"
+    source: "https://github.com/stellartux/CC125"
+  - title: "Rainbow Fourier series: Sawtooth"
+    author:
+      name: "Juan Carlos Ponce Campuzano"
+      url: "https://jcponce.github.io/"
+    url: "https://editor.p5js.org/jcponce/full/S1Vw8eYlN"
+    source: "https://editor.p5js.org/jcponce/sketches/S1Vw8eYlN"
 ---
 
 In this coding challenge, I visualize a Fourier series for a square wave in JavaScript with p5.js.

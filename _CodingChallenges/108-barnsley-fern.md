@@ -38,6 +38,11 @@ contributions:
       url: "https://fraguilar.com"
     url: "https://www.instagram.com/p/Bmlttbvnm1U/"
     source: "https://github.com/fernand0aguilar/art-code-poetry/blob/master/Processing/Barnsley_Fern_ando/Barnsley_Fern_ando.pde"
+  - title: "C++/GLUT Barnsley Fern"
+    author:
+      name: "Jace McPherson"
+    url: "https://github.com/JaceyPenny/barnsley-fractal-cpp-glut"
+    source: "https://github.com/JaceyPenny/barnsley-fractal-cpp-glut"
 ---
 
 In this coding challenge, I visualize the Barnsley Fern fractal with Processing (Java).
