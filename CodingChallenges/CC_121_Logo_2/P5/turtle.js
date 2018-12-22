@@ -2,7 +2,7 @@
 // Daniel Shiffman
 // https://thecodingtrain.com/CodingChallenges/121.2-logo-interpreter.html
 // https://youtu.be/i-k04yzfMpw
-// https: //editor.p5js.org/codingtrain/sketches/BJqG8zhlN
+// https://editor.p5js.org/codingtrain/sketches/BJqG8zhlN
 
 const commandLookUp = {
   "fd": function (amt) {
