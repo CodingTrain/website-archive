@@ -4,11 +4,13 @@ redirect_from: CodingChallenges/78-simple-particle-system.html
 video_number: 78
 date: 2017-10-11
 video_id: UcdigVaIYAk
-repository: /CC_078_Simple_Particle_System
+repository: CC_078_Simple_Particle_System
 
 links:
   - title: "Particle System on Wikipedia"
     url: "https://en.wikipedia.org/wiki/Particle_system"
+  - title: "#ParticleTrain on Twitter"
+    url: https://twitter.com/hashtag/particletrain
 
 videos:
   - title: "Fireworks Coding Challenge"

@@ -4,8 +4,8 @@ redirect_from: CodingChallenges/12-lorenzattractor.html
 video_number: 12
 date: 2016-05-06
 video_id: f0lkz2gSsIk
-repository: /CC_012_LorenzAttractor
-live_example: /CC_012_LorenzAttractor_p5.js
+repository: CC_012_LorenzAttractor
+
 links:
   - title: "PeasyCam library"
     url: "http://mrfeinberg.com/peasycam/"

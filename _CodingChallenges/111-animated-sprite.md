@@ -3,7 +3,7 @@ title: "Animated Sprites"
 video_number: 111
 date: 2018-07-30
 video_id: 3noMeuufLZY
-repository: /CC_111_animated_sprite
+repository: CC_111_animated_sprite
 
 links:
   - title: "Horse Sprite Sheet"
@@ -17,4 +17,3 @@ videos:
 ---
 
 In this coding challenge, I load a sprite sheet and create multiple animated sprites with the p5.js library.
-

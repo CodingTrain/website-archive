@@ -3,8 +3,7 @@ title: "Sandpiles"
 video_number: 107
 date: 2018-06-18
 video_id: "diGjw5tghYU"
-repository: /CC_107_sandpiles
-live_example: false
+repository: CC_107_sandpiles
 
 links:
   - title: "Sandpile on Wikipedia"
@@ -26,6 +25,12 @@ contributions:
       url: "https://nielsvadot.design/"
     url: "https://ninivert.github.io/Sandpiles/"
     source: "https://github.com/ninivert/Sandpiles"
+  - title: "Different Colorscheme Sandpiles"
+    author:
+      name: "Fernando Ribeiro"
+      url: "https://fraguilar.com"
+    url: "https://github.com/fernand0aguilar/art-code-poetry/blob/master/Processing/Sandpiles/"
+    source: "https://github.com/fernand0aguilar/art-code-poetry/blob/master/Processing/Sandpiles/Sandpiles.pde"
 ---
 
 In this coding challenge, inspired by Numberphile I visualize "sandpiles" with Processing (Java). 

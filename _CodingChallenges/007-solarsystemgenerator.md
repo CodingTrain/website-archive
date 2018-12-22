@@ -4,8 +4,7 @@ redirect_from: CodingChallenges/07-solarsystemgenerator.html
 video_number: 7
 date: 2016-04-28
 video_id: l8SiJ-RmeHU
-repository: /CC_007_SolarSystemGenerator
-live_example: /CC_007_SolarSystemGenerator_p5.js
+repository: CC_007_SolarSystemGenerator
 
 videos:
   - title: "My Video about Gravitational Attraction"
