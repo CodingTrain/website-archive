@@ -42,6 +42,7 @@ class Toothpick {
     for (Toothpick other : others) {
       if (other != this && other.intersects(ax, ay)) {
         available = false;
+        break;
       }
     }
     if (available) {
@@ -56,6 +57,7 @@ class Toothpick {
     for (Toothpick other : others) {
       if (other != this && other.intersects(bx, by)) {
         available = false;
+        break;
       }
     }
     if (available) {
