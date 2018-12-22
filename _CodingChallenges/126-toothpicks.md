@@ -16,6 +16,12 @@ videos:
   - title: "Terrific Toothpick Patterns"
     author: "Numberphile"
     video_id: "_UtCli1SgjI"
+
+contributions:
+  - title: "Gullwing Toothpick Sequence"
+    author:
+      name: "Veta314"
+    url: "https://editor.p5js.org/Veta314/sketches/Skm8IvjxV"
 ---
 
 In this coding challenge, I implement Omar Pol's fractal toothpick sequence.
