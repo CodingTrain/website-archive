@@ -1,7 +1,7 @@
 // Daniel Shiffman
 // http://youtube.com/thecodingtrain
 // http://codingtra.in
-// Javascript transcription: Chuck England
+// JavaScript transcription: Chuck England
 
 // Coding Challenge #113: 4D Hypercube
 // https://youtu.be/XE3YDVdQSPo
