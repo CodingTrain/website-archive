@@ -1,0 +1,25 @@
+{% comment %}
+  This code searches for all available versions of the repository passed in.
+
+  Parameters:
+    repositoryBasePath  string  Base path to the repository (without the suffixes).
+
+  Returns:
+    out_codeVariations  site.code_variations[]  Array of found code variations.
+{% endcomment %}
+
+
+{% assign out_codeVariations = '' | split: '' %}
+
+{% comment %} For every possible code variation ... {% endcomment %}
+{% for int_variation in site.code_variations %}
+
+  {% comment %} ... get the exact repository path and count the files inside. {% endcomment %}
+  {% assign int_repositoryPath = include.repositoryBasePath | append: '/' | append: int_variation.folder %}
+  {% assign int_fileCount = site.static_files | where_exp: 'file', 'file.path contains int_repositoryPath' | size %}
+
+  {% comment %} If there are files inside, mark this variation as availabe by adding it to the array. {% endcomment %}
+  {% if int_fileCount > 0 %}
+    {% assign out_codeVariations = out_codeVariations | push: int_variation %}
+  {% endif %}
+{% endfor %}

@@ -4,8 +4,7 @@ redirect_from: CodingChallenges/90-floyd-steinberg-dithering.html
 video_number: 90
 date: 2018-01-16
 video_id: 0L2n8Tg2FwI
-repository: /CC_090_dithering
-live_example: /CC_090_dithering_p5.js
+repository: CC_090_dithering
 links:
   - title: "Stippling"
     url: "http://roberthodgin.com/portfolio/stippling/"

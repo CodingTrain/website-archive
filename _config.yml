@@ -7,7 +7,6 @@
 #
 
 
-
 # --- Site Settings ---
 
 # The site's title.
@@ -22,6 +21,28 @@ repository: CodingTrain/website
 # Prefix for download links (downloads only the relevant code from GitHub).
 github_download_prefix: https://minhaskamal.github.io/DownGit/#/home?url=
 
+# Prefixes for editor.p5js.org
+web_editor_sketch_prefix: https://editor.p5js.org/codingtrain/sketches/
+web_editor_fullscreen_prefix: https://editor.p5js.org/full/
+
+# Suffixes for auto-detecting the video's code that's available for download/preview.
+#
+# name          string  Name of the code variation.
+# folder        string  Name of the folder relative to the video's repository.
+# live_example  boolean Wether this variation should be used as the live example.
+#                       The first match is used. If the video has the `web_editor`
+#                       property, a link to the P5 Web Editor will be used instead.
+code_variations:
+  - name: "P5.JS"
+    folder: "P5"
+    live_example: true
+  - name: "Processing"
+    folder: "Processing"
+  - name: "JavaScript"
+    folder: "JavaScript"
+  - name: "Node.js"
+    folder: "Node"
+
 # Links to other platforms.
 links:
 
@@ -32,7 +53,7 @@ links:
   patreon: https://patreon.com/codingtrain
 
   # Link to the merch store.
-  merch: http://codingtrain.storenvy.com/
+  merch: https://www.designbyhumans.com/shop/codingtrain/
 
   # Link to the Amazon store.
   amazon: https://www.amazon.com/shop/thecodingtrain
@@ -45,7 +66,7 @@ links:
 markdown: kramdown
 
 # Exclude code for Node.js and Q_and_A
-exclude: [ 'Node', 'Q_and_A', 'unit_testing', 'node_modules' ]
+exclude: [ 'Node', 'Q_and_A', 'unit_testing', 'node_modules', 'vendor/bundle/', 'vendor/cache/', 'vendor/gems/', 'vendor/ruby/']
 
 # Include future videos (used for 'Upcoming Streams' section).
 future: true

@@ -4,9 +4,14 @@ redirect_from: CodingChallenges/89-langtonsant.html
 video_number: 89
 date: 2018-01-07
 video_id: G1EgjgMo48U
-repository: /CC_089_langtonsant
+repository: CC_089_langtonsant
 
 contributions:
+  - title: "Langton's Paint Brush Using Processing"
+    author:
+      name: "Leighzer"
+      url: https://github.com/Leighzer/
+    source: https://github.com/Leighzer/Langtons_Paint_Brush
   - title: "In P5.js with several ants and dynamic changes"
     author:
       name: "DasK"
