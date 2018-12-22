@@ -16,7 +16,7 @@
     > div
       flex-basis: calc(50% - 2em)
       margin: 2em 0
-      
+
       @media (max-width: $tablet-big)
         flex-basis: auto
         margin: 1em 0
@@ -45,7 +45,7 @@
           @extend .cta-button
           background: $ct-purple
           color: #FFF
-        
+
           &.watch-all-videos
             flex-grow: 2
             margin: auto 0.5em
@@ -67,19 +67,57 @@
         justify-content: space-between
         margin-top: 2em
 
-        a
+        a,
+        .download-button
           @extend .cta-button
           flex: 1
           background: $ct-purple
           color: #FFF
-
-          &:first-child
-            margin-right: 0.5em
+          margin-right: 0.5em
 
           &.disabled
             background: lighten($ct-purple, 15%)
             cursor: not-allowed
             pointer-events: none
+
+        .download-button
+          position: relative
+          z-index: 1000
+
+          ul
+            position: absolute
+            margin: 20px 0 0 -20px
+            padding: 0
+            width: 100%
+            visibility: hidden
+            opacity: 0
+            border-radius: 0 0 3px 3px
+            overflow: hidden
+            transition: all 100ms
+
+            li
+              border-top: 1px solid lighten($ct-purple, 20%)
+
+              a
+                display: inline-block
+                padding: 15px 20px
+                width: 100%
+                text-decoration: none
+                color: #FFF
+                background: lighten($ct-purple, 10%)
+                transition: all 100ms
+
+                &:hover
+                  background: lighten($ct-purple, 15%)
+
+          &:hover,
+          &:focus
+            border-bottom-left-radius: 0
+            border-bottom-right-radius: 0
+
+            ul
+              visibility: visible
+              opacity: 1
 
   .player-and-topics
     align-items: center

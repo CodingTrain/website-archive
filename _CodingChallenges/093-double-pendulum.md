@@ -4,8 +4,7 @@ redirect_from: CodingChallenges/93-double-pendulum.html
 video_number: 93
 date: 2018-02-13
 video_id: uWzPe_S-RVE
-repository: /CC_093_DoublePendulum
-live_example: /CC_093_DoublePendulum_p5.js
+repository: CC_093_DoublePendulum
 
 links:
   - title: "Physics Lab Double Pendulum"

@@ -4,8 +4,7 @@ redirect_from: CodingChallenges/82-kittenizer-chrome-extension.html
 video_number: 82
 date: 2017-11-16
 video_id: 8zMMOdI5SOk
-repository: /CC_082_Image_Chrome_Extension_The_Ex-Kitten-sion
-live_example: false
+repository: CC_082_Image_Chrome_Extension_The_Ex-Kitten-sion
 
 links:
   - title: "Programming from A to Z"

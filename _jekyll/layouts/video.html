@@ -49,16 +49,82 @@ layout: base
       {% endif %}
 
       {% comment %} Show links for live example and code download. {% endcomment %}
-      {% if page.repository %}
-
-        {% comment %} Generate URL for live example. {% endcomment %}
-        {% capture live_example_url %}/{{ page.collection }}{{ page.live_example | default: page.repository }}{% endcapture %}
-
+      {% if page.repository != null or page.web_editor != null %}
         <div class="code-actions">
-          <a href="{% if page.repository == false %}#{% else %}{{ site.github_download_prefix | append: site.github.repository_url | append: '/tree/' | append: site.github.source.branch | append: '/' | append: page.collection | append: page.repository }}{% endif %}" target="blank" class="{% if page.repository == false %}disabled{% endif %}">Get the Code</a>
-          <a href="{% if page.live_example == false %}#{% else %}{{ live_example_url | relative_url }}{% endif %}" target="blank" class="{% if page.live_example == false %}disabled{% endif %}">Live Example</a>
-        </div>
 
+          {% comment %} Detect code variations. {% endcomment %}
+          {% comment %} If repository is (probably) an external link. {% endcomment %}
+          {% if page.repository contains '://' %}
+            {% assign repositoryURL = page.repository %}
+
+          {% comment %} If repository is a path to a folder in the repository. {% endcomment %}
+          {% elsif page.repository != null %}
+            {% comment %} Ask for code variations {% endcomment %}
+            {% assign repositoryBasePath = '/' | append: page.collection | append: '/' | append: page.repository %}
+            {% assign repositoryBaseURL = site.github.repository_url | append: '/tree/' | append: site.github.source.branch | append: repositoryBasePath %}
+
+            {% include 1-tools/code-variations.html repositoryBasePath=repositoryBasePath %}
+            {% assign codeVariations = out_codeVariations %}
+            {% assign numberOfVariations = codeVariations | size %}
+
+            {% comment %} If there's only one variation (and no web_editor), build it's URL. {% endcomment %}
+            {% if numberOfVariations == 1 and page.web_editor == null %}
+              {% assign variation = codeVariations | first %}
+              {% assign repositoryURL = repositoryBaseURL | append: '/' | append: variation.folder %}
+              {% assign downloadURL = site.github_download_prefix | append: repositoryURL %}
+
+            {% comment %} If there are multiple variations (or one variation and the web_editor), render the dropdown. {% endcomment %}
+            {% elsif numberOfVariations != 0 %}
+              {% include 3-modules/code-variation-dropdown.html title="View Code" baseURL=repositoryBaseURL variations=codeVariations web_editor=page.web_editor %}
+
+                {% assign downloadBaseURL = site.github_download_prefix | append: repositoryBaseURL %}
+                {% include 3-modules/code-variation-dropdown.html title="Download Code" baseURL=downloadBaseURL variations=codeVariations %}
+            {% endif %}
+
+          {% comment %} If there's no repository and the web_editor is set. {% endcomment %}
+          {% elsif page.web_editor != null %}
+            {% assign repositoryURL = site.web_editor_sketch_prefix | append: page.web_editor %}
+          {% endif %}
+
+          {% comment %} Render the single "VIEW" and "DOWNLOAD" buttons. {% endcomment %}
+          {% if repositoryURL != null %}
+            <a href="{{ repositoryURL }}" target="_blank">View Code</a>
+          {% endif %}
+          {% if downloadURL != null %}
+            <a href="{{ downloadURL }}" target="_blank">Download Code</a>
+          {% endif %}
+
+
+          {% comment %} Detect live example URL. {% endcomment %}
+          {% comment %} If live_example is set. {% endcomment %}
+          {% if page.live_example %}
+            {% comment %} If live_example is (probably) an external URL. {% endcomment %}
+            {% if page.live_example contains '://' %}
+              {% assign liveExampleURL = page.live_example %}
+
+            {% comment %} If live_example is an internal URL. {% endcomment %}
+            {% else %}
+              {% assign liveExampleURL = '/' | append: page.collection | append: '/' | append: page.live_example | relative_url %}
+            {% endif %}
+
+          {% comment %} If web_editor is set, use it. {% endcomment %}
+          {% elsif page.web_editor != null %}
+            {% assign liveExampleURL = site.web_editor_fullscreen_prefix | append: page.web_editor %}
+
+          {% comment %} Find a code variation that can be used as a live_example. {% endcomment %}
+          {% else %}
+            {% assign variation = codeVariations | where: "live_example","true" | first %}
+            {% if variation != null %}
+              {% assign liveExampleURL = repositoryBasePath | append: '/' | append: variation.folder | relative_url %}
+            {% endif %}
+          {% endif %}
+
+          {% comment %} Render "LIVE" button. {% endcomment %}
+          {% if liveExampleURL != null %}
+            <a href="{{ liveExampleURL }}" target="_blank">See It Live</a>
+          {% endif %}
+
+        </div>
       {% endif %}
     </div>
   </div>
