@@ -4,8 +4,7 @@ redirect_from: CodingChallenges/02-mengersponge.html
 video_number: 2
 date: 2016-04-18
 video_id: LG8ZK-rRkXo
-repository: /CC_002_MengerSponge
-live_example: /CC_002_MengerSponge_p5.js
+repository: CC_002_MengerSponge
 
 links:
   - title: "Menger Sponge on Wikipedia"
@@ -27,6 +26,7 @@ contributions:
       name: "Bjorn Van Acker"
       url: "https://bjorvack.github.io/code-challenges/"
     url: "https://bjorvack.github.io/code-challenges/challenges/cc-002-menger-sponge/"
+    source: "https://github.com/bjorvack/code-challenges/tree/master/challenges/cc-002-menger-sponge"
 ---
 
 In this coding challenge, I attempt to code the Menger Sponge (fractals) using Processing.

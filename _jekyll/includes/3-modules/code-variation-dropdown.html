@@ -1,0 +1,23 @@
+{% comment %}
+  A dropdown for selecting a code variation for a video.
+
+  Parameters:
+    title       string                  The dropdown's title (shown in the "button").
+    baseURL     string                  The URL used before the variation folder name.
+    variations  site.code_variations[]  The code variations that should be selectable.
+    web_editor  string                  P5.JS Web Editor ID that will be selectable if given.
+{% endcomment %}
+
+
+<div class="download-button">
+  <span class="title">{{ include.title }}</span>
+  <ul>
+    {% for variation in include.variations %}
+      {% assign variationURL = include.baseURL | append: '/' | append: variation.folder %}
+      <li><a href="{{ variationURL }}" target="_blank">{{ variation.name }}</a></li>
+    {% endfor %}
+    {% if include.web_editor %}
+      <li><a href="{{ site.web_editor_sketch_prefix | append: page.web_editor }}" target="_blank">Web Editor</a></li>
+    {% endif %}
+  </ul>
+</div>

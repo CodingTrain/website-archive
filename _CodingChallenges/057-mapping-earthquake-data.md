@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/57-mapping-earthquake-data.html
 video_number: 57
 date: 2017-02-13
 video_id: ZiYdOwOrGyc
-repository: /CC_057_Earthquake_Viz
+repository: CC_057_Earthquake_Viz
 
 links:
   - title: "Mapbox.js"
@@ -27,6 +27,9 @@ contributions:
       url: https://github.com/Lugsole
     url: https://lugsole.github.io/TOR_MAP/
     source: https://github.com/Lugsole/TOR_MAP
+  - title: "3D Globe in P5.JS"
+    author: "Dollee"
+    source: https://github.com/dolleebhatia/p5.js-EarthquakeDataVisualization-3D
 ---
 
 In this coding challenge, I visualize earthquake data from the [USGS](http://earthquake.usgs.gov/data/) by mapping the latitude, longitude and the magnitude of earthquakes with p5.js.

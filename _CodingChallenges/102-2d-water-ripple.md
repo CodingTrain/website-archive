@@ -3,8 +3,7 @@ title: "2D Water Ripple"
 video_number: 102
 date: 2018-05-07
 video_id: BZUdGqeOD0w
-repository: /CC_102_WaterRipples
-live_example: false
+repository: CC_102_WaterRipples
 
 links:
   - title: "2D Water"

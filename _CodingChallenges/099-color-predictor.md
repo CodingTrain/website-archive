@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/99-color-predictor.html
 video_number: 99
 date: 2018-04-10
 video_id: KtPpoMThKUs
-repository: /CC_099_ColorPredictor
+repository: CC_099_ColorPredictor
 
 links:
   - title: "TensorFlow.js"

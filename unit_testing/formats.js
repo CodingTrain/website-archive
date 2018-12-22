@@ -80,6 +80,10 @@ const videoBase = module.exports.videoBase = exact({
     PropTypes.string,
     PropTypes.oneOf([false]),
   ]),
+  web_editor: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.oneOf([false]),
+  ]),
   can_contribute: PropTypes.bool,
   topics: PropTypes.arrayOf(PropTypes.shape(link)),
   links: PropTypes.arrayOf(PropTypes.shape(link)),
