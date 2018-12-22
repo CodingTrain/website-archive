@@ -64,7 +64,7 @@ contributions:
       name: "Makarand Subhash Lahane"
       url: "https://mklahane.github.io/Game-Development/"
     url: "https://mklahane.github.io/Game-Development/NewSnakeGame"
-    
+
   - title: "Snake Game"
     author:
       name: "Po Mauguet"
