@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/06-mitosis-p5.html
 video_number: 6
 date: 2016-04-27
 video_id: jxGS3fKPKJA
-repository: CC_006_Mitosis_p5.js
+repository: CC_006_Mitosis
 ---
 
 In this viewer submitted coding challenge, I program a cellular mitosis simulation in p5.js.

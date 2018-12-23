@@ -40,6 +40,11 @@ contributions:
       name: "The_Coder"
       url: "https://github.com/Craiky"
     url: "https://craiky.github.io/Bubblesort/"
+  - title: "The p5 version of this challenge"
+    author:
+      name: "Mogens Meißner"
+      url: "http://mogensmeissner.tk"
+    source: "https://github.com/MogiMei/VisualizeBubbleSort/blob/master/sketch.js"
 ---
 
 In this coding challenge, I implement a "bubble sort" algorithm in Processing (Java) and sort randomly generated lines. [#SortingTrain](https://twitter.com/hashtag/SortingTrain)

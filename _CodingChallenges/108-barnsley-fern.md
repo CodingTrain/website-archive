@@ -43,6 +43,11 @@ contributions:
       name: "Jace McPherson"
     url: "https://github.com/JaceyPenny/barnsley-fractal-cpp-glut"
     source: "https://github.com/JaceyPenny/barnsley-fractal-cpp-glut"
+  - title: "Various Fractal Ferns"
+    author:
+      name: "Sujan Dutta"
+      url: "https://github.com/Suji04"
+    url: "https://suji04.github.io/fractal-ferns/"
 ---
 
 In this coding challenge, I visualize the Barnsley Fern fractal with Processing (Java).
