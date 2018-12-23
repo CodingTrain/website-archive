@@ -4,7 +4,7 @@ const fs = require('fs');
 const {
   markdownfilenameToUrl,
   urlToMarkdownFilename,
-  urlToDirectoryFilename,
+  urlToDirectoryIndexFilename,
 } = require('./helpers');
 
 function linkUrl() {
@@ -25,7 +25,7 @@ function linkUrl() {
         // TODO: Check external urls?
       } else if(value.startsWith('/')) {
         let mdFilename = urlToMarkdownFilename(value);
-        let dirFilename = urlToDirectoryFilename(value);
+        let dirFilename = urlToDirectoryIndexFilename(value);
         if(!fs.existsSync(mdFilename) && !fs.existsSync(dirFilename)) {
           return new Error(`${propName} of ${componentName} references ${value} but the expected file ${mdFilename} or directory ${dirFilename} does not exist.`);
         }

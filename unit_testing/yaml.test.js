@@ -21,6 +21,8 @@ const { assertPropTypes } = require('check-prop-types');
 const formatDefinitions = require('./formats.js');
 const {
   markdownFilenameToUrl,
+  resolveLocalUrl,
+  urlToRepositoryDirectoryFilename,
   describeIf,
   itIf,
 } = require('./helpers');
@@ -86,6 +88,7 @@ const checkFolder = (videoFormat, name, { directories, files }) => describe(name
           web_editor,
           repository,
         } = file.content;
+        const resolvedRepository = repository ? resolveLocalUrl(repository, path.dirname(markdownFilenameToUrl(file.path))) : repository ;
 
         if (video_id) {
           knownVideos[video_id] = knownVideos[video_id] || [];
@@ -93,14 +96,14 @@ const checkFolder = (videoFormat, name, { directories, files }) => describe(name
         }
 
         if (repository) {
-          const repoToEditor = repositoryToWebEditorMapping[repository] = repositoryToWebEditorMapping[repository] || {};
+          const repoToEditor = repositoryToWebEditorMapping[resolvedRepository] = repositoryToWebEditorMapping[resolvedRepository] || {};
           const editorSources = repoToEditor[web_editor] = repoToEditor[web_editor] || [];
           editorSources.push(file);
         }
 
         if (web_editor) {
           const editorToRepo = webEditorToRepositoryMapping[web_editor] = webEditorToRepositoryMapping[web_editor] || {};
-          const repoSources = editorToRepo[repository] = editorToRepo[repository] || [];
+          const repoSources = editorToRepo[resolvedRepository] = editorToRepo[resolvedRepository] || [];
           repoSources.push(file);
         }
         // Unload for the first pass, will be reloaded when required
@@ -167,11 +170,12 @@ const checkFolder = (videoFormat, name, { directories, files }) => describe(name
           web_editor,
         } = file.content;
         if (repository && !web_editor) {
-          const webEditors = repositoryToWebEditorMapping[repository];
+          let resolvedRepository = resolveLocalUrl(repository, path.dirname(markdownFilenameToUrl(file.path)));
+          const webEditors = repositoryToWebEditorMapping[resolvedRepository];
           const webEditorList = Object.keys(webEditors);
           if (webEditorList.length === 2) {
             const correct = webEditorList[0] === 'undefined' ? webEditorList[1] : webEditorList[0];
-            throw new Error(`should have web_editor = ${correct}\n - The relationship of ${repository} <-> ${correct} is defined in ${webEditors[correct].map(f => f.path).join(', ')}`);
+            throw new Error(`should have web_editor = ${correct}\n - The relationship of ${resolvedRepository} <-> ${correct} is defined in ${webEditors[correct].map(f => f.path).join(', ')}`);
           }
         }
       });
@@ -215,6 +219,24 @@ describe('Repositories', () => {
           }
           throw new Error(string);
         }
+      });
+    }
+  });
+
+  describe('FS checks', () => {
+    for (const repository of Object.keys(repositoryToWebEditorMapping)) {
+      describe(repository, () => {
+        const files = [];
+        for (const sourceList of Object.values(repositoryToWebEditorMapping[repository])) {
+          files.push(...sourceList);
+        }
+        console.log(`This repository was found in the following files: ${files.map(f => f.path).join(', ')}`)
+        it('should exist', async () => {
+          const stat = fs.statSync(urlToRepositoryDirectoryFilename(repository));
+          if (!stat.isDirectory) {
+            throw new Error('Repository is not a directory');
+          }
+        });
       });
     }
   });
