@@ -14,6 +14,7 @@ everything needed to create this script.
 const yaml = require('js-yaml'); // js-yaml helps us read yaml of files
 const fs = require('fs'); // fs is file system package
 const path = require('path');
+const fetch = require('node-fetch');
 // Use check-prop-types to turn PropTypes messages into errors
 const { assertPropTypes } = require('check-prop-types');
 // PropTypes of the documents are descibed in the formats.js file.
@@ -37,6 +38,12 @@ let directories = {
 
 let knownVideos = {};
 let linkedVideos = {};
+
+// For both of the below, it is an error for the second level object to have more than 1 key.
+// This is a map of repository -> webEditor -> files with that specific combination
+let repositoryToWebEditorMapping = {};
+// This is a map of webEditor -> repository -> files with that specific combination
+let webEditorToRepositoryMapping = {};
 
 function findVideos(src, obj) {
   if(typeof obj === 'string') {
@@ -227,6 +234,31 @@ const checkFolder = (videoFormat, previousPath, folder) => describe(folder, () =
         }
       }
     });
+
+    test('Has a valid web_editor', async function() {
+      const {
+        web_editor,
+        repository,
+      } = decodedYaml;
+
+      if (repository) {
+        const repoToEditor = repositoryToWebEditorMapping[repository] = repositoryToWebEditorMapping[repository] || [];
+        const editorSources = repoToEditor[web_editor] = repoToEditor[web_editor] || [];
+        editorSources.push(filePath);
+      }
+
+      if (!web_editor) {
+        return;
+      }
+      const resp = await fetch(`https://editor.p5js.org/api/projects/${web_editor}`);
+      const web_editor_version = await resp.json();
+      // Check that all web editor versions are on the right user
+      expect(web_editor_version.user.id).toBe('5b8578c76d67b5757e541f74');
+
+      const editorToRepo = webEditorToRepositoryMapping[web_editor] = webEditorToRepositoryMapping[web_editor] || [];
+      const repoSources = editorToRepo[repository] = editorToRepo[repository] || [];
+      repoSources.push(filePath);
+    });
   }));
 });
 
@@ -241,4 +273,36 @@ test('Youtube links', () => {
         throw new Error(`${videoId} linked in ${src} should point to ${markdownFilenameToUrl(knownVideos[videoId])}`)
       }
     });
+});
+
+test('Repository to web editor mappings', () => {
+  for (const [repository, web_editors] of Object.entries(repositoryToWebEditorMapping)) {
+    if (Object.keys(web_editors).length == 2 && web_editors.undefined) {
+      let [web_editor_id] = Object.keys(web_editors).filter(x => x !== 'undefined');
+      let string = `Repo ${repository} should have the web_editor ${web_editor_id} set in the following files: ${web_editors.undefined.join(', ')}`;
+      throw new Error(string);
+    } else if (Object.keys(web_editors).length > 1) {
+      let string = `Repo ${repository} is matched with multiple web editors:`;
+      for (const [web_editor, sources] of Object.entries(web_editors)) {
+        string += `\n ${web_editor} from: ${sources.map(x => `\n  ${x}`).join(',')}`
+      }
+      throw new Error(string);
+    }
+  }
+});
+
+test('Web editor to repository mappings', () => {
+  for (const [web_editor, repositories] of Object.entries(webEditorToRepositoryMapping)) {
+    if (Object.keys(repositories).length == 2 && repositories.undefined) {
+      let [repository] = Object.keys(repositories).filter(x => x !== 'undefined');
+      let string = `Web Editor ${web_editor} should have the repository ${repository} set in the following files: ${repositories.undefined.join(', ')}`;
+      throw new Error(string);
+    } else if (Object.keys(repositories).length > 1) {
+      let string = `Web Editor ${web_editor} is matched with multiple repos:`;
+      for (const [repository, sources] of Object.entries(repositories)) {
+        string += `\n ${repository} from: ${sources.map(x => `\n  ${x}`).join(',')}`
+      }
+      throw new Error(string);
+    }
+  }
 });
