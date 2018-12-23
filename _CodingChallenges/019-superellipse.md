@@ -4,6 +4,7 @@ redirect_from: CodingChallenges/19-superellipse.html
 video_number: 19
 date: 2016-06-03
 video_id: z86cx2A4_3E
+repository: CC_019_Superellipse
 
 links:
   - title: "Superellipse on Wikipedia"
