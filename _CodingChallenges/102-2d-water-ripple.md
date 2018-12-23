@@ -23,7 +23,6 @@ contributions:
       name: "Spongman"
     url: "https://codepen.io/Spongman/project/full/ArxVJQ/"
     source: "https://codepen.io/Spongman/project/editor/ArxVJQ"
-
   - title: "Javascript 2D Water Ripple"
     author:
       name: "David Sarma"
@@ -34,6 +33,12 @@ contributions:
       name: "Marc Benzahra"
     url: "https://media.giphy.com/media/5wG3oCLNct1h0wE5ML/giphy.gif"
     source: "https://github.com/1475963/be-water-my-friend"
+  - title: "Ripple in Processing with added functions and sound"
+    author:
+      name: "Jelle Teijema"
+      url: "http://jjteijema.nl"
+    url: "https://media.giphy.com/media/5eFEP2B6ytv0aGQDup/giphy.gif"
+    source: "https://github.com/JTeijema/QuickFLow"
 ---
 
 In this coding challenge, I attempt to simulate 2D water ripples using Processing (Java).
