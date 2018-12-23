@@ -2,6 +2,7 @@
 // Daniel Shiffman
 // https://thecodingtrain.com/CodingChallenges/019-superellipse.html
 // https://youtu.be/z86cx2A4_3E
+// https://editor.p5js.org/codingtrain/sketches/Hk-1AMTgN
 
 let slider;
 
