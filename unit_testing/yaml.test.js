@@ -21,7 +21,12 @@ const { assertPropTypes } = require('check-prop-types');
 const formatDefinitions = require('./formats.js');
 const {
   markdownFilenameToUrl,
+  describeIf,
+  itIf,
 } = require('./helpers');
+const {
+  getAllFiles
+} = require('./files');
 
 // if verbose set to true script will log almost everything it does.
 let verbose = false;
@@ -45,264 +50,210 @@ let repositoryToWebEditorMapping = {};
 // This is a map of webEditor -> repository -> files with that specific combination
 let webEditorToRepositoryMapping = {};
 
-function findVideos(src, obj) {
-  if(typeof obj === 'string') {
-    return;
+const checkFolder = (videoFormat, name, { directories, files }) => describe(name, () => {
+  for (const [ folderName, subDirectory ] of Object.entries(directories)) {
+    checkFolder(videoFormat, folderName, subDirectory);
   }
-  for(let k of Object.keys(obj)) {
-    if(k === 'video_id') {
-      linkedVideos[obj[k]] = src;
-    }
-    findVideos(src, obj[k]);
-  }
-}
 
-const checkFolder = (videoFormat, previousPath, folder) => describe(folder, () => {
-  expect(videoFormat).toBeDefined();
-  expect(previousPath).toBeDefined();
-  expect(folder).toBeDefined();
-  // Assuming _CodingChallanges directory readable, go on to run a bunch of tests
-  // on each file in the directory to check that all files are valid.
-  // TODO: only run this if first test readable.
-  let currentPath = path.join(previousPath, folder);
-  let directories = [];
-  let files = [];
-  fs.readdirSync(currentPath).forEach(fileName => {
-    let fullPath = path.join(currentPath, fileName);
-    if(fs.lstatSync(fullPath).isDirectory()) {
-      directories.push(fileName);
-    } else {
-      files.push(fileName);
-    }
+  it('index.md is valid', () => {
+    expect(files['index.md']).not.toBeUndefined();
+    assertPropTypes(formatDefinitions.series, files['index.md'].content, "YAML", 'index.md');
   });
 
-  directories.forEach(dir => checkFolder(videoFormat, currentPath, dir));
-
-  expect(files).toContain('index.md');
-  let indexPosition = files.indexOf('index.md');
-  files.splice(indexPosition, 1);
-
-
-  test('index.md is valid', () => {
-    let filePath = path.join(currentPath, 'index.md');
-    let contents = fs.readFileSync(filePath, 'utf8');
-    let yamlContents = contents.split("---")[1];
-    const frontYaml = yaml.safeLoad(yamlContents);
-    assertPropTypes(formatDefinitions.series, frontYaml, "YAML", 'index.md');
-  });
-
-  test('files are uniquely numbered', () => {
-    let numbers = files.map(fileName => fileName.split('-')[0]);
+  it('files are uniquely numbered', () => {
+    let numbers = Object.keys(files).map(fileName => fileName.split('-')[0]);
     let numberSet = new Set(numbers);
     expect(numbers).toHaveLength(numberSet.size);
   });
 
-  files.forEach((fileName) => describe(fileName, () => {
-    let filePath = path.join(currentPath, fileName);
-    let yamlContents;
-    let decodedYaml;
-    // First test if script can read file. Does this using fs.readFileSync() as
-    // fs.readFile() is asynchronous so test passed when it shouldn't have.
-    // Potential errors may include: wrong encoding, wrong privaliges.
-    // TODO: create an example where this test fails, but directory path is
-    // correct to check it works
-    let contents = fs.readFileSync(filePath, 'utf8');
-    if (verbose) {
-      console.log("Successfully read contents of " + filePath + ":")
-      console.log(contents);
+  for (const [fileName, file] of Object.entries(files)) {
+    if (fileName === 'index.md') {
+      // We handled that already.
+      continue;
     }
 
-    // Then check if file has oppening and closing "---"s. The "---"s contain the
-    // YAML. Test does this by splitting the string by "---"s then getting the
-    // number of "---"s by subtracting one from the number of resulting sections
-    // (empty sections are returned even if a "---" is right at beggining of
-    // string). If this doesn't make sense even after reading the code, I
-    // reccomend looking at the MDN page on string splitting:
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
-    test("has oppening and closing '---'s", () => {
-      expect(contents.split("---").length-1).toBe(2);
-      if (verbose) {
-        console.log("YAML from " + filePath + " has oppening and closing '---'s");
-      }
-    });
+    describe(fileName, () => {
+      try {
+        file.load();
+      } catch(e) {};
 
-    // Checks YAML section is at beggining. Not sure if causes error if this is
-    // not the case. Does this by splitting contents by "---"s, then checking that
-    // the first section (which will be everything before the first "---") has a
-    // length of 0 (Nothing before first "---").
-    test("has YAML section at beggining", () => {
-      expect(contents.split("---")[0].length).toBe(0);
-      if (verbose) {
-        console.log("YAML from " + filePath + " is at beggining.");
-      }
-    });
+      const valid = file.isValid();
 
-    // Checks YAML section is not empty. Does this by splitting contents by
-    // "---"s, then checking that the second section (which will be everything
-    // in the YAML section) has a length greater than 0 (is not empty).
-    test("does not have an empty YAML section", () => {
-      expect(contents.split("---")[1].length>0).toBe(true);
-      if (verbose) {
-        console.log("YAML from " + filePath + " has non zero length.");
-      }
-    });
+      // Set up global state needed for all tests, these get run before any tests.
+      if (valid) {
+        const {
+          video_id,
+          web_editor,
+          repository,
+        } = file.content;
 
-    test('has valid YAML', () => {
-      yamlContents = contents.split("---")[1];
-      if(yamlContents.match(/ \n/)) {
-        throw new Error(`Extra space at the end of line: '${yamlContents.match(/[^\n]* \n/)[0].slice(0, -1)}'`);
-      }
-      if(yamlContents.match(/\n\n\n/)) {
-        throw new Error('Double blank lines in YAML');
-      }
-      if(yamlContents.match(/^\n\n/)) {
-        throw new Error('Blankline at top of YAML');
-      }
-      if(yamlContents.match(/\n\n$/)) {
-        throw new Error('Blankline at bottom of YAML');
-      }
-      // Requires a single space after starting an entry with -
-      let regex = /\n( *)-( {2,})?[^ ][^\n]*\n/;
-      if(yamlContents.match(regex)) {
-        throw new Error(`Incorrect spacing after entry '-'. Use one space: '${yamlContents.match(regex)[0].slice(1, -1)}'`);
-      }
-      // Indentation on consecutive lines, ignoring blank spacers
-      regex = /\n( *)[^ \-\n][^\n]*[^:\n]\n+(\1 [^\n]*)\n/;
-      if(yamlContents.match(regex)) {
-        throw new Error(`Incorrect indentation (Expected ${yamlContents.match(regex)[1].length} spaces): '${yamlContents.match(regex)[2]}'`);
-      }
-      // Indentation on lines after ones starting with - need two extra spaces
-      regex = /\n( *)- [^\n]*\n+(\1( {0,1}| {3,})[^ -][^\n]*)/;
-      if(yamlContents.match(regex)) {
-        throw new Error(`Incorrect indentation (Expected ${yamlContents.match(regex)[1].length + 2} spaces): '${yamlContents.match(regex)[2]}'`);
-      }
-      // Indentation on lines ending in : require two extra spaces
-      regex = /\n( *)[^ \n][^\n]*:\n+(\1( {0,1}| {3,})[^\n ][^\n]*)/;
-      if(yamlContents.match(regex)) {
-        throw new Error(`Incorrect indentation (Expected ${yamlContents.match(regex)[1].length + 2} spaces): '${yamlContents.match(regex)[2]}'`);
-      }
-      decodedYaml = yaml.safeLoad(yamlContents);
-      if(decodedYaml.video_id) {
-        let previous = knownVideos[decodedYaml.video_id];
-        if(previous) {
-          throw new Error(`Duplicate video_id. Original file: ${previous}`)
+        if (video_id) {
+          knownVideos[video_id] = knownVideos[video_id] || [];
+          knownVideos[video_id].push(file);
         }
-        knownVideos[decodedYaml.video_id] = filePath;
-      }
-      for(let k in decodedYaml) {
-        let value = decodedYaml[k];
-        findVideos(filePath, value);
-      }
-    });
 
-    // Uses PropTypes to validate the structure and types of all of the
-    // parts of the YAML, including if there are keys that don't exist
-    // in the definition
-    test("has valid YAML layout and types", () => {
-      if(!decodedYaml) {
-        return;
-      }
-      assertPropTypes(videoFormat, decodedYaml, "YAML", fileName);
-    });
-
-    test('title matches internal numbering', () => {
-      if(!decodedYaml) {
-        return;
-      }
-      // Get file name with leading zeros stripped
-      let fileNumber = fileName.split('-')[0];
-      fileNumber = fileNumber.replace(/^0+/, '');
-
-      // Gets internal representation as a string
-      let videoString = decodedYaml.video_number.toString();
-      // If we're in a standalone
-      if(videoString === fileNumber) return;
-      // If the video has parts, check we match the last one only.
-      let parts = fileNumber.split('.');
-      if(videoString === parts[parts.length - 1]) return;
-      throw new Error('Expected file numbering to match internal numbering');
-    });
-
-    test('has no contributions if it\'s in a multi-part video but not the first part', () => {
-      if(!decodedYaml) {
-        return;
-      }
-      let videoStringParts = decodedYaml.video_number.toString().split('.');
-      if(videoStringParts.length > 1) {
-        if(videoStringParts[videoStringParts.length - 1] !== '1') {
-          expect(decodedYaml.contributions).toBeUndefined();
+        if (repository) {
+          const repoToEditor = repositoryToWebEditorMapping[repository] = repositoryToWebEditorMapping[repository] || {};
+          const editorSources = repoToEditor[web_editor] = repoToEditor[web_editor] || [];
+          editorSources.push(file);
         }
+
+        if (web_editor) {
+          const editorToRepo = webEditorToRepositoryMapping[web_editor] = webEditorToRepositoryMapping[web_editor] || {};
+          const repoSources = editorToRepo[repository] = editorToRepo[repository] || [];
+          repoSources.push(file);
+        }
+        // Unload for the first pass, will be reloaded when required
+        file.unload();
       }
+
+      afterAll(() => file.unload());
+
+      it('is formatted correctly', () => {
+        file.load();
+      });
+
+      itIf(valid)('has valid YAML layout and types', () => {
+        assertPropTypes(videoFormat, file.content, "YAML", fileName);
+      });
+
+
+      itIf(valid)('title matches internal numbering', () => {
+        // Get file name with leading zeros stripped
+        let fileNumber = fileName.split('-')[0];
+        fileNumber = fileNumber.replace(/^0+/, '');
+
+        // Gets internal representation as a string
+        let videoString = file.content.video_number.toString();
+        // If we're in a standalone
+        if (videoString === fileNumber) return;
+        // If the video has parts, check we match the last one only.
+        let parts = fileNumber.split('.');
+        if (videoString === parts[parts.length - 1]) return;
+        throw new Error('Expected file numbering to match internal numbering');
+      });
+
+      itIf(valid && file.content.video_id)('Has a unique video_id', () => {
+        const fileList = knownVideos[file.content.video_id];
+        if (fileList.length !== 1) {
+          throw new Error(`video_id is shared with: ${fileList.filter(f => f !== file).map(f => f.path).join(', ')}`)
+        }
+      });
+
+      describeIf(valid)('YouTube links', () => {
+        function findVideos(obj) {
+          if (typeof obj === 'string') {
+            return;
+          }
+          for (let [ k, videoId ] of Object.entries(obj)) {
+            if (k === 'video_id') {
+              it(`linked video ID: ${videoId} is not a local link`, () => {
+                if (videoId in knownVideos) {
+                  throw new Error(`Video ${videoId} linked in ${file.path} should point to ${markdownFilenameToUrl(knownVideos[videoId].path)}`)
+                }
+              })
+            }
+            findVideos(obj[k]);
+          }
+        }
+        const { video_id, ...remainingEntries } = file.content;
+        findVideos(remainingEntries);
+      });
+
+      itIf(valid)('has a valid repository to web_editor mapping', () => {
+        // This only checks that for an unset web_editor that should be set
+        const {
+          repository,
+          web_editor,
+        } = file.content;
+        if (repository && !web_editor) {
+          const webEditors = repositoryToWebEditorMapping[repository];
+          const webEditorList = Object.keys(webEditors);
+          if (webEditorList.length === 2) {
+            const correct = webEditorList[0] === 'undefined' ? webEditorList[1] : webEditorList[0];
+            throw new Error(`should have web_editor = ${correct}\n - The relationship of ${repository} <-> ${correct} is defined in ${webEditors[correct].map(f => f.path).join(', ')}`);
+          }
+        }
+      });
+
+      itIf(valid)('has a valid web_editor to repository mapping', () => {
+        // This only checks that for an unset repository that should be set
+        const {
+          repository,
+          web_editor,
+        } = file.content;
+        if (web_editor && !repository) {
+          const repositories = webEditorToRepositoryMapping[web_editor];
+          const repositoryList = Object.keys(repositories);
+          if (repositoryList.length === 2) {
+            const correct = repositoryList[0] === 'undefined' ? repositoryList[1] : repositoryList[0];
+            throw new Error(`should have repository = ${correct}\n - The relationship of ${correct} <-> ${web_editor} is defined in ${repositories[correct].map(f => f.path).join(', ')}`);
+          }
+        }
+      });
     });
-
-    test('Has a valid web_editor', async function() {
-      const {
-        web_editor,
-        repository,
-      } = decodedYaml;
-
-      if (repository) {
-        const repoToEditor = repositoryToWebEditorMapping[repository] = repositoryToWebEditorMapping[repository] || [];
-        const editorSources = repoToEditor[web_editor] = repoToEditor[web_editor] || [];
-        editorSources.push(filePath);
-      }
-
-      if (!web_editor) {
-        return;
-      }
-      const resp = await fetch(`https://editor.p5js.org/api/projects/${web_editor}`);
-      const web_editor_version = await resp.json();
-      // Check that all web editor versions are on the right user
-      expect(web_editor_version.user.id).toBe('5b8578c76d67b5757e541f74');
-
-      const editorToRepo = webEditorToRepositoryMapping[web_editor] = webEditorToRepositoryMapping[web_editor] || [];
-      const repoSources = editorToRepo[repository] = editorToRepo[repository] || [];
-      repoSources.push(filePath);
-    });
-  }));
-});
-
-// Do the checks
-Object.entries(directories)
-  .map(([directory, videoFormat]) => checkFolder(videoFormat, "../", directory));
-
-test('Youtube links', () => {
-  Object.entries(linkedVideos)
-    .map(([videoId, src]) => {
-      if (videoId in knownVideos) {
-        throw new Error(`${videoId} linked in ${src} should point to ${markdownFilenameToUrl(knownVideos[videoId])}`)
-      }
-    });
-});
-
-test('Repository to web editor mappings', () => {
-  for (const [repository, web_editors] of Object.entries(repositoryToWebEditorMapping)) {
-    if (Object.keys(web_editors).length == 2 && web_editors.undefined) {
-      let [web_editor_id] = Object.keys(web_editors).filter(x => x !== 'undefined');
-      let string = `Repo ${repository} should have the web_editor ${web_editor_id} set in the following files: ${web_editors.undefined.join(', ')}`;
-      throw new Error(string);
-    } else if (Object.keys(web_editors).length > 1) {
-      let string = `Repo ${repository} is matched with multiple web editors:`;
-      for (const [web_editor, sources] of Object.entries(web_editors)) {
-        string += `\n ${web_editor} from: ${sources.map(x => `\n  ${x}`).join(',')}`
-      }
-      throw new Error(string);
-    }
   }
 });
 
-test('Web editor to repository mappings', () => {
-  for (const [web_editor, repositories] of Object.entries(webEditorToRepositoryMapping)) {
-    if (Object.keys(repositories).length == 2 && repositories.undefined) {
-      let [repository] = Object.keys(repositories).filter(x => x !== 'undefined');
-      let string = `Web Editor ${web_editor} should have the repository ${repository} set in the following files: ${repositories.undefined.join(', ')}`;
-      throw new Error(string);
-    } else if (Object.keys(repositories).length > 1) {
-      let string = `Web Editor ${web_editor} is matched with multiple repos:`;
-      for (const [repository, sources] of Object.entries(repositories)) {
-        string += `\n ${repository} from: ${sources.map(x => `\n  ${x}`).join(',')}`
+const files = getAllFiles();
+for (const [name, directory] of Object.entries(files)) {
+  checkFolder(directories[directory], name, directory);
+}
+
+describe('Repositories', () => {
+  describe('Web Editor mappings', () => {
+    for (const [repository, web_editors] of Object.entries(repositoryToWebEditorMapping)) {
+      const nonBlankKeys = Object.keys(web_editors).filter(x => x !== 'undefined');
+      if (nonBlankKeys.length === 0) {
+        continue;
       }
-      throw new Error(string);
+      it(`${repository} is mapped uniquely`, () => {
+        if (nonBlankKeys.length > 1) {
+          let string = `Repo ${repository} is matched with multiple web editors:`;
+          for (const [web_editor, sources] of Object.entries(web_editors)) {
+            string += `\n ${web_editor} from: ${sources.map(x => x.path).map(x => `\n  ${x}`).join(',')}`
+          }
+          throw new Error(string);
+        }
+      });
     }
-  }
+  });
+});
+
+describe('Web Editors', () => {
+  describe('Repository mappings', () => {
+    for (const [web_editor, repositories] of Object.entries(webEditorToRepositoryMapping)) {
+      const nonBlankKeys = Object.keys(repositories).filter(x => x !== 'undefined');
+      if (nonBlankKeys.length === 0) {
+        continue;
+      }
+      it(`${web_editor} is mapped uniquely`, () => {
+        if (nonBlankKeys.length > 1) {
+          let string = `Web Editor ${web_editor} is matched with multiple repos:`;
+          for (const [repository, sources] of Object.entries(repositories)) {
+            string += `\n ${repository} from: ${sources.map(x => x.path).map(x => `\n  ${x}`).join(',')}`
+          }
+          throw new Error(string);
+        }
+      });
+    }
+  });
+
+  describe('Metadata', () => {
+    for (const web_editor of Object.keys(webEditorToRepositoryMapping)) {
+      describe(web_editor, () => {
+        let webEditorData;
+
+        beforeAll(async () => {
+          const resp = await fetch(`https://editor.p5js.org/api/projects/${web_editor}`);
+          webEditorData = await resp.json();
+        });
+
+        it('has the right user', () => {
+          // Check that all web editor versions are on the right user
+          expect(webEditorData.user.id).toBe('5b8578c76d67b5757e541f74');
+        })
+      });
+    }
+  })
 });
