@@ -13,7 +13,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "./node_modules/.bin/eslint CodingChallenges/CC_001_StarField_p5.js/*.js"
+    "lint": "./node_modules/.bin/eslint CodingChallenges/CC_001_StarField_p5.js/*.js",
+    "test-html": "bundle exec htmlproofer ./_site --assume-extension --check-html --disable-external --url-ignore '/#.*/'"
   },
   "repository": {
     "type": "git",
