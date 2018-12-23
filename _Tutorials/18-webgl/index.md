@@ -1,6 +1,6 @@
 ---
-title: WebGl in p5.js 
-subtitle: Rendering 3D Objects using the p5.js library 
+title: WebGl in p5.js
+subtitle: Rendering 3D Objects using the p5.js library
 series_number: 18
 layout: series-index
 ---
