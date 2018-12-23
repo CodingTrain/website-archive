@@ -36,8 +36,8 @@ contributions:
   - title: "Ripple in Processing with added functions and sound"
     author:
       name: "Jelle Teijema"
-      url: "https://jjteijema.nl"
-    url: "http://media.giphy.com/media/5eFEP2B6ytv0aGQDup/giphy.gif"
+      url: "http://jjteijema.nl"
+    url: "https://media.giphy.com/media/5eFEP2B6ytv0aGQDup/giphy.gif"
     source: "https://github.com/JTeijema/QuickFLow"
 ---
 
