@@ -230,7 +230,7 @@ describe('Repositories', () => {
         for (const sourceList of Object.values(repositoryToWebEditorMapping[repository])) {
           files.push(...sourceList);
         }
-        console.log(`This repository was found in the following files: ${files.map(f => f.path).join(', ')}`)
+        //console.log(`This repository was found in the following files: ${files.map(f => f.path).join(', ')}`)
         it('should exist', async () => {
           const stat = fs.statSync(urlToRepositoryDirectoryFilename(repository));
           if (!stat.isDirectory) {
