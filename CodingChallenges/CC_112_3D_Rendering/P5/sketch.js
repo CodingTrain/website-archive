@@ -52,24 +52,23 @@ function draw() {
 
     let projected = [];
 
-    let index = 0;
-    points.forEach(v => {
-        let rotated = matmul(rotationY, v);
+    for (let i = 0; i < points.length; i++) {
+        let rotated = matmul(rotationY, points[i]);
         rotated = matmul(rotationX, rotated);
         rotated = matmul(rotationZ, rotated);
         let projected2d = matmul(projection, rotated);
         projected2d.mult(200);
-        projected[index] = projected2d;
+        projected[i] = projected2d;
         //point(projected2d.x, projected2d.y);
-        index++;
-    });
+    }
 
-    projected.forEach(v => {
+    for (let i = 0; i < projected.length; i++) {
         stroke(255);
         strokeWeight(16);
         noFill();
+        const v = projected[i];
         point(v.x, v.y);
-    });
+    }
 
     // Connecting
     for (let i = 0; i < 4; i++) {
