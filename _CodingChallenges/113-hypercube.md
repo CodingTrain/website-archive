@@ -24,6 +24,12 @@ videos:
     video_id: "tzsgS19RRc8"
 
 contributions:
+  - title: "Rendering a #$@&%*! of dimensions on a 2D canvas"
+    author:
+      name: "Niels Vadot"
+      url: "https://nielsvadot.design/"
+    url: "https://ninivert.github.io/N-Dimension-Cube-Renderer/"
+    source: "https://github.com/ninivert/N-Dimension-Cube-Renderer"
   - title: "Projections"
     author:
       name: "Aaron Jenson"
