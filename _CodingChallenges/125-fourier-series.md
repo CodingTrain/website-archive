@@ -43,6 +43,11 @@ contributions:
       url: "https://jcponce.github.io/"
     url: "https://editor.p5js.org/jcponce/full/S1Vw8eYlN"
     source: "https://editor.p5js.org/jcponce/sketches/S1Vw8eYlN"
+  - title: "Fourier Transform Processing Class"
+    author:
+      name: "Philippe Carvajal"
+      url: "https://github.com/PhilCarPi"
+    url: "https://github.com/PhilCarPi/FourierTransform.git"
 ---
 
 In this coding challenge, I visualize a Fourier series for a square wave in JavaScript with p5.js.
