@@ -2,7 +2,7 @@
 // Daniel Shiffman
 // https://thecodingtrain.com/CodingChallenges/127-brownian-snowflake.html
 // https://youtu.be/XUA8UREROYE
-// (insert p5 web editor link here)
+// https://editor.p5js.org/codingtrain/sketches/SJcAeCpgE
 
 class Particle {
 

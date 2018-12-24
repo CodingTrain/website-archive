@@ -2,24 +2,22 @@
 // Daniel Shiffman
 // https://thecodingtrain.com/CodingChallenges/127-brownian-snowflake.html
 // https://youtu.be/XUA8UREROYE
-// (insert p5 web editor link here)
+// https://editor.p5js.org/codingtrain/sketches/SJcAeCpgE
 
-Particle current;
-ArrayList<Particle> snowflake;
+let current;
+let snowflake = [];
 
-void setup() {
-  // size(600, 600);
-  fullScreen();
+function setup() {
+  createCanvas(600, 600);
   current = new Particle(width/2, 0);
-  snowflake = new ArrayList<Particle>();
 }
 
-void draw() {
+function draw() {
   translate(width/2, height/2);
   rotate(PI/6);
   background(0);
 
-  int count = 0;
+  let count = 0;
   while (!current.finished() && !current.intersects(snowflake)) {
     current.update();
     count++;
@@ -29,25 +27,25 @@ void draw() {
   // This is an exit condition not implemented in the video
   if (count == 0) {
     noLoop();
-    println("snowflake completed");
+    console.log('snowflake completed');
   }
 
-  snowflake.add(current);
+  snowflake.push(current);
   current = new Particle(width/2, 0);
 
-  for (int i = 0; i < 6; i++) {
+  for (let i = 0; i < 6; i++) {
     rotate(PI/3);
     current.show();
-    for (Particle p : snowflake) {
+    for (let p of snowflake) {
       p.show();
     }
 
-    pushMatrix();
+    push();
     scale(1, -1);
     current.show();
-    for (Particle p : snowflake) {
+    for (let p of snowflake) {
       p.show();
     }
-    popMatrix();
+    pop();
   }
 }
