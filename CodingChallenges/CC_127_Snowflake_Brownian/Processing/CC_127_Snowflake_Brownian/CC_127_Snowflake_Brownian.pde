@@ -32,8 +32,7 @@ void draw() {
     println("snowflake completed");
   }
 
-
-  snowflake.add(current);
+snowflake.add(current);
   current = new Particle(width/2, 0);
 
   for (int i = 0; i < 6; i++) {
