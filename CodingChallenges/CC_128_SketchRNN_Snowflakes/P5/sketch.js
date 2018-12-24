@@ -2,8 +2,7 @@
 // Daniel Shiffman
 // https://thecodingtrain.com/CodingChallenges/128-sketchrnn-snowflakes.html
 // https://youtu.be/pdaNttb7Mr8
-// (insert p5 web editor link here)
-
+// https://editor.p5js.org/codingtrain/sketches/B1NHS00xE
 
 let model;
 let strokePath = null;
