@@ -16,7 +16,7 @@ links:
 
 videos:
   - title: "Coding Challenge: Diffusion-Limited Aggregation"
-    video_id: "/CodingChallenges/034-dla"
+    url: "/CodingChallenges/034-dla"
 ---
 
 In this holiday themed coding challenge, I make a Brownian Tree Snowflake in Processing(Java). This video was recorded as part of a fundraiser for the [Processing Foundation](https://processingfoundation.org/support/).
