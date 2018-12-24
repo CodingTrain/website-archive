@@ -1,3 +1,9 @@
+// Coding Challenge 127: Brownian Motion Snowflake
+// Daniel Shiffman
+// https://thecodingtrain.com/CodingChallenges/127-brownian-snowflake.html
+// https://youtu.be/XUA8UREROYE
+// (insert p5 web editor link here)
+
 class Particle {
 
   PVector pos;
