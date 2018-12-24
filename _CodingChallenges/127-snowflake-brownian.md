@@ -18,7 +18,7 @@ links:
 videos:
   - title: "Coding Challenge: Diffusion-Limited Aggregation"
     url: "/CodingChallenges/034-dla"
-    
+
 contributions:
   - title: "Optimized Brownian Snowflake in Processing"
     author:
