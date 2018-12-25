@@ -4,6 +4,7 @@ video_number: 128
 date: 2018-12-25
 repository: CC_128_SketchRNN_Snowflakes
 video_id: pdaNttb7Mr8
+web_editor: "B1NHS00xE"
 
 links:
   - title: "Support the Processing Foundation"
