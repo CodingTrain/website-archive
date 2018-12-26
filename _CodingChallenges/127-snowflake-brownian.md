@@ -25,6 +25,11 @@ contributions:
       name: "TC5550"
       url: "https://aaserver.net"
     url: "https://codepen.io/TC5550/pen/EGXvJN"
+  - title: "Optimized Brownian Snowflake in Processing"
+    author:
+      name: "BoltMan"
+    url: "https://thumbs.gfycat.com/SaneBelovedHerring-size_restricted.gif"
+    source: "https://github.com/BoltManGuy/Brownian-Snowflake-Optimized"
 ---
 
 In this holiday themed coding challenge, I make a Brownian Tree Snowflake in Processing(Java). This video was recorded as part of a fundraiser for the [Processing Foundation](https://processingfoundation.org/support/).
