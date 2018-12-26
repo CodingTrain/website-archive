@@ -20,6 +20,11 @@ videos:
     url: "/CodingChallenges/034-dla"
 
 contributions:
+  - title: "Snowflake generator in javascript"
+    author:
+      name: "TC5550"
+      url: "https://aaserver.net"
+    url: "https://codepen.io/TC5550/pen/EGXvJN"
   - title: "Optimized Brownian Snowflake in Processing"
     author:
       name: "BoltMan"
