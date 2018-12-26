@@ -152,7 +152,7 @@ const checkFolder = (videoFormat, name, { directories, files }) => describe(name
             if (k === 'video_id') {
               it(`linked video ID: ${videoId} is not a local link`, () => {
                 if (videoId in knownVideos) {
-                  throw new Error(`Video ${videoId} linked in ${file.path} should point to ${markdownFilenameToUrl(knownVideos[videoId].path)}`)
+                  throw new Error(`Video ${videoId} linked in ${file.path} should point to ${markdownFilenameToUrl(knownVideos[videoId][0].path)}`)
                 }
               })
             }
