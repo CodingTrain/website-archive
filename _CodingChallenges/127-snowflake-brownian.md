@@ -30,6 +30,12 @@ contributions:
       name: "BoltMan"
     url: "https://thumbs.gfycat.com/SaneBelovedHerring-size_restricted.gif"
     source: "https://github.com/BoltManGuy/Brownian-Snowflake-Optimized"
+  - title: "ES6 Snowflake"
+    author:
+      name: "bigmstone"
+      url: "https://mattstone.io"
+    url: "https://uploads.mattstone.io/snowflake/"
+    source: "https://github.com/bigmstone/snowflake"
 ---
 
 In this holiday themed coding challenge, I make a Brownian Tree Snowflake in Processing(Java). This video was recorded as part of a fundraiser for the [Processing Foundation](https://processingfoundation.org/support/).
