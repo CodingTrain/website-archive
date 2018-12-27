@@ -15,6 +15,13 @@ links:
 videos:
   - title: "Vectors"
     video_id: "mWJkvxQXIa8"
+
+contributions:
+  - title: "Koch Snowflake with recursion"
+    author:
+      name: "TC5550"
+      url: "https://aaserver.net"
+    url: "https://codepen.io/TC5550/pen/LMjGVV"
 ---
 
 Snowflake Challenge #3! In this video, I draw the Koch Fractal Curve in Processing (Java).
