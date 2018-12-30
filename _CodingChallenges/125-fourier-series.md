@@ -48,6 +48,11 @@ contributions:
       name: "Philippe Carvajal"
       url: "https://github.com/PhilCarPi"
     url: "https://github.com/PhilCarPi/FourierTransform.git"
+  - title: "Custom Fourier Series w/ color wheel, circle slider & presets"
+    author:
+      name: "Nasir Khalid"
+      url: "https://github.com/NasirKhalid24"
+    url: "https://github.com/NasirKhalid24/Custom-Fourier-Series-Visualizer"
 ---
 
 In this coding challenge, I visualize a Fourier series for a square wave in JavaScript with p5.js.
