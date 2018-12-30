@@ -52,7 +52,8 @@ contributions:
     author:
       name: "Nasir Khalid"
       url: "https://github.com/NasirKhalid24"
-    url: "https://github.com/NasirKhalid24/Custom-Fourier-Series-Visualizer"
+    url: "https://nasirkhalid24.github.io/Custom-Fourier-Series-Visualizer/"
+    source: "https://github.com/NasirKhalid24/Custom-Fourier-Series-Visualizer"
 ---
 
 In this coding challenge, I visualize a Fourier series for a square wave in JavaScript with p5.js.
