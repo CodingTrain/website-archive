@@ -29,6 +29,7 @@ function draw() {
   if (strokePath != null) {
     let newX = x + strokePath.dx * 0.2;
     let newY = y + strokePath.dy * 0.2;
+    if(pen === "end") console.log("pen is end");
     if (pen == "down") {
       stroke(255);
       strokeWeight(2);
