@@ -38,4 +38,4 @@ contributions:
     source: "https://github.com/bigmstone/snowflake"
 ---
 
-In this holiday themed coding challenge, I make a Brownian Tree Snowflake in Processing(Java). This video was recorded as part of a fundraiser for the [Processing Foundation](https://processingfoundation.org/support/).
+In this holiday coding challenge, I create a "Brownian Tree Snowflake" in Processing (Java). This video was recorded as part of a fundraiser for the [Processing Foundation](https://processingfoundation.org/support/).
