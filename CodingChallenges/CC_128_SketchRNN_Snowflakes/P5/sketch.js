@@ -44,6 +44,7 @@ function draw() {
       model.generate(gotSketch);
     } else {
       console.log("drawing complete");
+      pen = "down";
       model.reset();
       model.generate(gotSketch);
       x = random(-width / 2, width / 2);
