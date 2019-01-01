@@ -54,6 +54,12 @@ contributions:
       url: "https://github.com/NasirKhalid24"
     url: "https://nasirkhalid24.github.io/Custom-Fourier-Series-Visualizer/"
     source: "https://github.com/NasirKhalid24/Custom-Fourier-Series-Visualizer"
+ - title: "Square Wave Forrier Transform Animation"
+  author:
+    name: "James Arthur"
+    url: "https://github.com/jamesa9283"
+  url: "https://editor.p5js.org/jamesa9283/sketches/rkDQZ6d-N"
+  source: "https://github.com/jamesa9283/Forier-Animation/blob/master/SquareWave"
 ---
 
 In this coding challenge, I visualize a Fourier series for a square wave in JavaScript with p5.js.
