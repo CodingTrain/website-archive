@@ -145,7 +145,8 @@ void draw() {
       }
       if (matched != null) {
         matched.taken = true;
-        matched.lifespan = maxLife;
+        // Resetting the lifespan here is no longer necessary since setting `lifespan = maxLife;` in the become() method in Blob.pde
+        // matched.lifespan = maxLife;
         matched.become(cb);
       }
     }
