@@ -36,6 +36,12 @@ contributions:
       url: "https://mattstone.io"
     url: "https://uploads.mattstone.io/snowflake/"
     source: "https://github.com/bigmstone/snowflake"
+ - title: "Brownian Crystal Snowflake"
+   author:
+     name: "PyBlend"
+     url: "https://codepen.io/PyBlend/"
+   url: "https://codepen.io/PyBlend/full/XoVBzN"
+   source: "https://codepen.io/PyBlend/pen/XoVBzN"
 ---
 
 In this holiday coding challenge, I create a "Brownian Tree Snowflake" in Processing (Java). This video was recorded as part of a fundraiser for the [Processing Foundation](https://processingfoundation.org/support/).
