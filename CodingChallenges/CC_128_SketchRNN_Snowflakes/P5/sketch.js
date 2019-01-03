@@ -42,7 +42,10 @@ function draw() {
       model.generate(gotSketch);
     } else {
       console.log("drawing complete");
-      setupNewSketch();
+      setupNewSketch(); // in the video we would just reset the x and y positions.
+                        // we forgot to reset the pen to "down" so we would skip
+                        // the first stroke of the next step. We now call this new
+                        // function that would reset x and y and set pen to "down"
       model.reset();
       model.generate(gotSketch);
     }
