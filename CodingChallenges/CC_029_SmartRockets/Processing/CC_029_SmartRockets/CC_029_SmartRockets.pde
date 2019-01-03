@@ -36,16 +36,25 @@ void setup() {
 
 void draw() {
   background(5);
-  
+
   // draw the target
   stroke(255);
-  fill(255, 105, 180);
+  fill(128);
   ellipse(target.x, target.y, 20, 20);
+  fill(100);
+  noStroke();
+  strokeWeight(2);
+  ellipse(target.x+2, target.y-2, 10, 10);
 
   // draw the barrier
   fill(255, 0, 0);
-  noStroke();
+  stroke(128);
+  rectMode(CORNER);
   rect(barrierx, barriery, barrierw, barrierh);
+  strokeWeight(1);
+  stroke(55, 0, 0);
+  line(barrierx, barriery-10, target.x-10, target.y+10);
+  line(barrierx + barrierw, barriery-10, target.x+10, target.y+10);
 
   population.run();
 

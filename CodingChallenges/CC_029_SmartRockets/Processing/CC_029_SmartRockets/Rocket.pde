@@ -85,13 +85,16 @@ class Rocket {
     translate(pos.x, pos.y);
     rotate(vel.heading());
 
+    // draw rocket body
     rectMode(CENTER);
     rect(0, 0, 25, 5);
 
+    // draw nose cone
     fill(165, 42, 42);
     ellipse(12, 0, 10, 5);
 
     if (!hitTarget && !crashed) {
+      // draw thrust flame
       fill(255, 140 + random(0, 115), random(0, 128));
       beginShape();
       vertex(-14, -3);
