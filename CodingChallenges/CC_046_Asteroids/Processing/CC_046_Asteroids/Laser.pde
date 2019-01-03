@@ -26,7 +26,7 @@ class Laser {
     popMatrix();
   }
 
-  Boolean hits(Asteroid asteroid) {
+  boolean hits(Asteroid asteroid) {
     float d = dist(pos.x, pos.y, asteroid.pos.x, asteroid.pos.y);
     if (d < asteroid.r) {
       return true;
@@ -35,7 +35,7 @@ class Laser {
     }
   }
 
-  Boolean offscreen() {
+  boolean offscreen() {
     if (pos.x > width || pos.x < 0) {
       return true;
     }

@@ -10,7 +10,7 @@ class Ship {
   float heading;
   float rotation;
   PVector vel;
-  Boolean isBoosting;
+  boolean isBoosting;
 
   Ship() {
     pos = new PVector(width / 2, height / 2);
@@ -21,7 +21,7 @@ class Ship {
     isBoosting = false;
   }
 
-  void boosting(Boolean b) {
+  void boosting(boolean b) {
     isBoosting = b;
   }
 
@@ -39,7 +39,7 @@ class Ship {
     vel.add(force);
   }
 
-  Boolean hits(Asteroid asteroid) {
+  boolean hits(Asteroid asteroid) {
     float d = dist(pos.x, pos.y, asteroid.pos.x, asteroid.pos.y);
     if (d < r + asteroid.r) {
       return true;

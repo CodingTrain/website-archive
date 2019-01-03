@@ -8,8 +8,8 @@ class Asteroid {
   PVector pos;
   float r;
   PVector vel = PVector.random2D();
-  float total = floor(random(5, 15));
-  List<Float> offset = new ArrayList<Float>();
+  int total = floor(random(5, 15));
+  Float[] offset;
 
   Asteroid() {
     this(new PVector(random(width), random(height)), random(15, 50));
@@ -18,8 +18,9 @@ class Asteroid {
   Asteroid(PVector pos_, float r_) {
     pos = pos_.copy();
     r = r_ * 0.5;
+    offset = new Float[total];
     for (int i = 0; i < total; i++) {
-      offset.add(random(-r * 0.5, r * 0.5));
+      offset[i] = random(-r * 0.5, r * 0.5);
     }
   }
 
@@ -36,7 +37,7 @@ class Asteroid {
     beginShape();
     for (int i = 0; i < total; i++) {
       float angle = map(i, 0, total, 0, TWO_PI);
-      float r1 = r + offset.get(i);
+      float r1 = r + offset[i];
       float x = r1 * cos(angle);
       float y = r1 * sin(angle);
       vertex(x, y);
