@@ -37,4 +37,3 @@ contributions:
     source: "https://github.com/jamiejamiebobamie/Conway-sGameofLife"
 ---
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.
-
