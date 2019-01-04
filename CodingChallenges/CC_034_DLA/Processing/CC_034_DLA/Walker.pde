@@ -58,7 +58,7 @@ class Walker {
     }
     ellipse(pos.x, pos.y, r * 2, r * 2);
   }
-};
+}
 
 PVector randomPoint() {
   int i = floor(random(4));
