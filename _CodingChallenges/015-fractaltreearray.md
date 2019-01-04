@@ -9,6 +9,13 @@ repository: CC_015_FractalTreeArray
 links:
   - title: "Algorithmic Botany"
     url: "http://algorithmicbotany.org/"
+
+contributions:
+  - title: "My version of object oriented fractals creating a forest randomly"
+    author:
+      name: "Alex Norman"
+    url: "https://www.youtube.com/watch?v=2HItvAEO29c"
+    source: "https://github.com/norman521/fractalTrees"
 ---
 
 In this coding challenge, I continue the topic of algorithmic botany with another way of generating a tree. With this method, every part of the tree will be an object, so that we can apply forces and attributes to each element
