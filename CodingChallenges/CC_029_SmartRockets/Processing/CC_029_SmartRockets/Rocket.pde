@@ -61,7 +61,7 @@ class Rocket {
       crashed = true;
     }
 
-    applyForce(dna.genes.get(age));
+    applyForce(dna.genes[age]);
 
     if (!hitTarget && !crashed) {
       vel.add(acc);

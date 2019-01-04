@@ -9,41 +9,41 @@ import java.util.*;
 int lifespan = 400;
 
 class DNA {
-  List<PVector> genes;
+  PVector[] genes;
 
   DNA() {
-    genes = new ArrayList<PVector>();
+    genes = new PVector[lifespan];
 
     for (int i = 0; i < lifespan; i++) {
       PVector gene = PVector.random2D();
       gene.setMag(maxforce);        
-      genes.add(gene);
+      genes[i] = gene;
     }
   }
 
-  DNA(List<PVector> genes_) {
-    genes = new ArrayList<PVector>(genes_);
+  DNA(PVector[] genes_) {
+    genes = Arrays.copyOf(genes_, genes_.length);
   }
 
   DNA crossover(DNA partner) {
-    List<PVector> newgenes = new ArrayList<PVector>();
-    int mid = (int) random(genes.size());
-    for (int i = 0; i < genes.size(); i++) {
+    PVector[] newgenes = new PVector[genes.length];
+    int mid = (int) random(genes.length);
+    for (int i = 0; i < genes.length; i++) {
       if (i > mid) {
-        newgenes.add(genes.get(i));
+        newgenes[i] = genes[i];
       } else {
-        newgenes.add(partner.genes.get(i));
+        newgenes[i] = partner.genes[i];
       }
     }
     return new DNA(newgenes);
   }
 
   void mutation() {
-    for (int i = 0; i < genes.size(); i++) {
+    for (int i = 0; i < genes.length; i++) {
       if (random(i) < 0.01) {
         PVector gene = PVector.random2D();
         gene.setMag(maxforce);        
-        genes.add(gene);
+        genes[i] = gene;
       }
     }
   }
