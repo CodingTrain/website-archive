@@ -30,10 +30,11 @@ contributions:
       url: "http://doxanthropos"
     url: "https://doxanthropos.github.io/sketchbook/2018101901/"
     source: "https://github.com/doxanthropos/sketchbook/tree/master/2018101901"
-   - title: "Colorful Game of Life"
-     author: "Jamie McCrory"
-      url: "https://conways-colorful-game-of-life.herokuapp.com/"
+  - title: "Colorful Game of Life"
+    author:
+      name: "Jamie McCrory"
+    url: "https://conways-colorful-game-of-life.herokuapp.com/"
     source: "https://github.com/jamiejamiebobamie/Conway-sGameofLife"
 ---
-
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.
+
