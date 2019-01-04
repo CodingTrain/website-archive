@@ -8,12 +8,12 @@ import java.util.*;
 
 List<Walker> tree = new ArrayList<Walker>();
 List<Walker> walkers = new ArrayList<Walker>();
-//final float r = 4;
-final int maxWalkers = 50;
-final int iterations = 1000;
+//float r = 4;
+int maxWalkers = 50;
+int iterations = 1000;
 float radius = 12;
 float hue = 0;
-final float shrink = 0.995;
+float shrink = 0.995;
 
 void setup() {
   size(600, 600);
