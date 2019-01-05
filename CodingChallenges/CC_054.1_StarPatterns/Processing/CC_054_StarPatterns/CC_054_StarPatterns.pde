@@ -9,7 +9,6 @@
 // Repo with more tiling patterns and features
 // https://github.com/CodingTrain/StarPatterns
 
-// var poly;
 List<Polygon> polys = new ArrayList<Polygon>();
 
 float angle = 75;
