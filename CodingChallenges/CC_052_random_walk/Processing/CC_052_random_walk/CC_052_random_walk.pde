@@ -22,17 +22,17 @@ void draw() {
   int r = floor(random(4));
 
   switch (r) {
-    case 0:
-      x = x + 1;
-      break;
-    case 1:
-      x = x - 1;
-      break;
-    case 2:
-      y = y + 1;
-      break;
-    case 3:
-      y = y - 1;
-      break;
+  case 0:
+    x = x + 1;
+    break;
+  case 1:
+    x = x - 1;
+    break;
+  case 2:
+    y = y + 1;
+    break;
+  case 3:
+    y = y - 1;
+    break;
   }
 }
