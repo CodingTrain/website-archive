@@ -52,14 +52,13 @@ void setup() {
       date = df.parse(tweet.getString("timestamp"));
     } 
     catch (ParseException e) {
-      println("error parsing date: "+ e);
+      println("error parsing date: " + e);
       continue;
     }
     //// Determine month and year
     int month = date.getMonth();
     int year = date.getYear() + 1900;
     String key = String.format("%d/%02d", year, month);
-    //println(key);
 
     // Increase the count by 1 for each tweet
     Count count = counts.get(key);
@@ -130,7 +129,7 @@ void setup() {
     fill(255);
     text(biggestWord, i * w, height - h - 5);
   }
-  
+
   fill(0, 255, 255);
   textSize(36);
   textAlign(CENTER);
