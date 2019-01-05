@@ -33,6 +33,12 @@ contributions:
   - title: "Make the vehicles visible as polygons"
     author: "Josef Kuchar"
     source: https://github.com/JosefKuchar/p5-projects/tree/master/CC_059_Steering_Text_Paths_Polygons
+  - title: "ParticleShift"
+    author:
+      name: "Anurag Hazra"
+      url: "https://anuraghazra.github.io/"
+    url: "https://anuraghazra.github.io/CanvasFun/particleShift/"
+    source: "https://github.com/anuraghazra/CanvasFun/tree/master/particleShift"
 ---
 
 In this coding challenge, I look at extracting font path points from text in p5.js with p5.Font.textToPoints().  I render the text as particles with steering behaviors that react to the mouse.
