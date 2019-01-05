@@ -1,10 +1,12 @@
 // Obamathon
 // https://github.com/ITPNYU/Obamathon
 // YouTube video tutorial: https://youtu.be/UrznYJltZrU
+// Javascript transcription: Chuck England
 
 import java.util.*;
 import java.text.*;
 
+// Class to hold the monthly totals and word counts.
 class Count { 
   int total;
   Map<String, Integer> words;
@@ -38,9 +40,9 @@ Set<String> ignore = new HashSet<String>(Arrays.asList("the", "to", "we", "of", 
 void setup() {
   potus = loadJSONObject("flotus.json");
 
-  size(600, 400);
+  size(800, 600);
   JSONArray tweets = potus.getJSONArray("tweets");
-  DateFormat df = new SimpleDateFormat("yyyy-MM-DD hh:mm:ss z");
+  DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss z");
   // Look at every tweet
   for (int i = 0; i < tweets.size(); i++) {
     JSONObject tweet = tweets.getJSONObject(i);
@@ -54,10 +56,10 @@ void setup() {
       continue;
     }
     //// Determine month and year
-    int month = date.getMonth() + 1;
+    int month = date.getMonth();
     int year = date.getYear() + 1900;
-    String key = String.format("%02d/%4d", month, year);
-    println(key);
+    String key = String.format("%d/%02d", year, month);
+    //println(key);
 
     // Increase the count by 1 for each tweet
     Count count = counts.get(key);
@@ -73,7 +75,7 @@ void setup() {
     // Split up the words
     // The regex could be improved to deal with apostrophes and other
     // non word data.
-    String[] words = txt.split("\\s+");
+    String[] words = txt.split("\\W+");
 
     // Count each time a word appears
     for (int j = 0; j < words.length; j++) {
@@ -84,54 +86,53 @@ void setup() {
     }
   }
   background(0);
-  for (Map.Entry<String, Count> entry : counts.entrySet()) {
-    Count count = entry.getValue();
-    println(entry.getKey() + ": ");
-    for (Map.Entry<String, Integer> wordEntry : count.words.entrySet()) {
-      println("  " + wordEntry.getKey() + ": " + wordEntry.getValue().toString());
-    }
-  }
 
   // Reverse the order
-  //var months = Object.keys(counts);
-  //months.reverse();
+  List<String> months = new ArrayList<String>(counts.keySet());
+  Collections.sort(months);
+  println(months);
 
   // Normalize all the data by finding the maximum number
-  //var maxtweets = 0;
-  //for (var i = 0; i < months.length; i++) {
-  //  var month = months[i];
-  //  var num = counts[month].total;
-  //  if (num > maxtweets) {
-  //    maxtweets = num;
-  //  }
-  //}
-  //var w = width / months.length;
+  int maxtweets = 0;
+  for (int i = 0; i < months.size(); i++) {
+    String month = months.get(i);
+    int num = counts.get(month).total;
+    if (num > maxtweets) {
+      maxtweets = num;
+    }
+  }
+  float w = width / months.size();
 
-  //// Graph the data
-  //for (var i = 0; i < months.length; i++) {
-  //  var month = months[i];
-  //  var num = counts[month].total;
-  //  // Height of bar is number of tweets
-  //  var h = map(num, 0, maxtweets, 0, 300);
-  //  fill(200);
-  //  rect(i * w, height - h, w - 1, h);
+  // Graph the data
+  for (int i = 0; i < months.size(); i++) {
+    String month = months.get(i);
+    int num = counts.get(month).total;
+    // Height of bar is number of tweets
+    float h = map(num, 0, maxtweets, 0, 300);
+    fill(200);
+    rect(i * w, height - h, w - 1, h);
 
-  //  // Find the word with the largest counts
-  //  // This could be improved.
-  //  var wordCounts = counts[month].words;
-  //  var words = Object.keys(wordCounts);
-  //  var biggest = 0;
-  //  var biggestWord = '';
-  //  for (var j = 0; j < words.length; j++) {
-  //    var word = words[j];
-  //    if (wordCounts[word] > biggest && !ignore[word] && word.length > 3) {
-  //      biggest = wordCounts[word];
-  //      biggestWord = word;
-  //    }
-  //  }
-  //  // Draw the word
-  //  fill(255);
-  //  text(biggestWord, i * w, height - h - 5);
-
-  //}
+    // Find the word with the largest counts
+    // This could be improved.
+    Map<String, Integer> wordCounts = counts.get(month).words;
+    List<String> words = new ArrayList<String>(wordCounts.keySet());
+    int biggest = 0;
+    String biggestWord = "";
+    for (int j = 0; j < words.size(); j++) {
+      String word = words.get(j);
+      if (wordCounts.get(word) > biggest && !ignore.contains(word) && word.length() > 3) {
+        biggest = wordCounts.get(word);
+        biggestWord = word;
+      }
+    }
+    // Draw the word
+    noStroke();
+    fill(255);
+    text(biggestWord, i * w, height - h - 5);
+  }
+  
+  fill(0, 255, 255);
+  textSize(36);
+  textAlign(CENTER);
+  text("Obamathon Word Count by Date Example", width / 2, 40);
 }
