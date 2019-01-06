@@ -88,9 +88,8 @@ void setup() {
   background(0);
 
   // Reverse the order
-  List<String> months = new ArrayList<String>(counts.keySet());
-  Collections.sort(months);
-  println(months);
+  StringList months = new StringList(counts.keySet());
+  months.sort();
 
   // Normalize all the data by finding the maximum number
   int maxtweets = 0;
