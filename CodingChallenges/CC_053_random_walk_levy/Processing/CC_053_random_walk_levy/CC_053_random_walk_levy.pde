@@ -14,7 +14,7 @@ void setup() {
   background(51);
   pos = new PVector(200, 200);
   prev = pos.copy();
-  println(pos);
+  println(pos.x, pos.y);
 }
 
 void draw() {
