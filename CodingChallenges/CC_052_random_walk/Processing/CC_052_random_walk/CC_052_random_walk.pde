@@ -19,7 +19,7 @@ void draw() {
   strokeWeight(2);
   point(x, y);
 
-  int r = floor(random(4));
+  int r = int(random(4));
 
   switch (r) {
   case 0:
