@@ -9,19 +9,17 @@ import java.text.*;
 // Class to hold the monthly totals and word counts.
 class Count { 
   int total;
-  Map<String, Integer> words;
+  IntDict words;
   Count() { 
     total = 1;
-    words = new HashMap<String, Integer>();
+    words = new IntDict();
   }
 
   void add(String word) {
     int wordCount = 1;
-    Integer value = words.get(word);
-    if (value != null) {
-      wordCount = value + 1;
-    }
-    words.put(word, wordCount);
+    int value = words.get(word, 0);
+    wordCount = value + 1;
+    words.add(word, wordCount);
   }
 }
 
@@ -113,12 +111,12 @@ void setup() {
 
     // Find the word with the largest counts
     // This could be improved.
-    Map<String, Integer> wordCounts = counts.get(month).words;
-    List<String> words = new ArrayList<String>(wordCounts.keySet());
+    IntDict wordCounts = counts.get(month).words;
+    String[] words = wordCounts.keyArray();
     int biggest = 0;
     String biggestWord = "";
-    for (int j = 0; j < words.size(); j++) {
-      String word = words.get(j);
+    for (int j = 0; j < words.length; j++) {
+      String word = words[j];
       if (wordCounts.get(word) > biggest && !ignore.contains(word) && word.length() > 3) {
         biggest = wordCounts.get(word);
         biggestWord = word;
