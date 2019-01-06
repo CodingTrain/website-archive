@@ -43,7 +43,7 @@ class Spot {
     if (wall) {
       fill(0);
       noStroke();
-      ellipse((float)i * w + w / 2.0, (float)j * h + h / 2.0, w / 2.0, h / 2.0);
+      ellipse(i * w + w / 2.0, j * h + h / 2.0, w / 2.0, h / 2.0);
     }
   }
   
