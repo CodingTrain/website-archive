@@ -40,7 +40,7 @@ void setup() {
   println("A*");
 
   // Grid cell size
-  w = width / (float)cols;
+  w = float(width) / cols;
   h = height / (float)rows;
 
   for (int i = 0; i < cols; i++) {
