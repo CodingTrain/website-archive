@@ -53,10 +53,13 @@ void setup() {
       println("error parsing date: " + e);
       continue;
     }
-    //// Determine month and year
-    int month = date.getMonth();
-    int year = date.getYear() + 1900;
+    // Determine month and year
+    Calendar cal = Calendar.getInstance();
+    cal.setTime(date);
+    int month = cal.get(Calendar.MONTH);
+    int year = cal.get(Calendar.YEAR);
     String key = String.format("%d/%02d", year, month);
+    println(key);
 
     // Increase the count by 1 for each tweet
     Count count = counts.get(key);
