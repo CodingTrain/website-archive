@@ -41,7 +41,7 @@ void setup() {
 
   // Grid cell size
   w = float(width) / cols;
-  h = height / (float)rows;
+  h = float(height) / rows;
 
   for (int i = 0; i < cols; i++) {
     for (int j = 0; j < rows; j++) {
