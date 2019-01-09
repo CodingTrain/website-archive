@@ -78,8 +78,8 @@
           opacity: 0
           transform: translateX(-3rem)
 
-          @for $i from 1 through 4
-            &:nth-child(#{abs($i - 5)})
+          @for $i from 1 through 5
+            &:nth-child(#{abs($i - 6)})
               transition:
                 property: all
                 duration: 150ms
@@ -121,6 +121,6 @@
           opacity: 1
           transform: translateX(0rem)
 
-        @for $i from 1 through 4
+        @for $i from 1 through 5
           &:nth-child(#{$i})
             transition-delay: ($i - 1) * 75ms

@@ -8,12 +8,11 @@ let model;
 let strokePath = null;
 
 let x, y;
-let pen = "down";
+let pen;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  x = random(-width / 2, width / 2);
-  y = random(-height / 2, height / 2);
+  setupNewSketch();
   model = ml5.SketchRNN("snowflake", modelReady);
   background(0);
 }
@@ -43,10 +42,12 @@ function draw() {
       model.generate(gotSketch);
     } else {
       console.log("drawing complete");
+      // In the video forgot to reset the pen to "down"
+      // along with the x,y position so here is a new
+      // function that takes care of both!
+      setupNewSketch(); 
       model.reset();
       model.generate(gotSketch);
-      x = random(-width / 2, width / 2);
-      y = random(-height / 2, height / 2);
     }
   }
 }
@@ -58,4 +59,10 @@ function gotSketch(error, s) {
     strokePath = s;
     //console.log(strokePath);
   }
+}
+
+function setupNewSketch() {
+  pen = "down";
+  x = random(-width / 2, width / 2);
+  y = random(-height / 2, height / 2);
 }
