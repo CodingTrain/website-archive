@@ -75,19 +75,20 @@ void draw() {
   }
 
   for (int i = vehicles.size() - 1; i >= 0; i--) {
-    vehicles.get(i).boundaries();
-    vehicles.get(i).behaviors(food, poison);
-    vehicles.get(i).update();
-    vehicles.get(i).display();
+    Vehicle v = vehicles.get(i);
+    v.boundaries();
+    v.behaviors(food, poison);
+    v.update();
+    v.display();
 
-    Vehicle newVehicle = vehicles.get(i).clone();
+    Vehicle newVehicle = v.clone();
     if (newVehicle != null) {
       vehicles.add(newVehicle);
     }
 
-    if (vehicles.get(i).dead()) {
-      float x = vehicles.get(i).position.x;
-      float y = vehicles.get(i).position.y;
+    if (v.dead()) {
+      float x = v.position.x;
+      float y = v.position.y;
       food.add(new PVector(x, y));
       vehicles.remove(i);
     }
