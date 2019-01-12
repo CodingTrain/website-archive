@@ -87,9 +87,7 @@ void draw() {
     }
 
     if (v.dead()) {
-      float x = v.position.x;
-      float y = v.position.y;
-      food.add(new PVector(x, y));
+      food.add(v.position.copy());
       vehicles.remove(i);
     }
   }
