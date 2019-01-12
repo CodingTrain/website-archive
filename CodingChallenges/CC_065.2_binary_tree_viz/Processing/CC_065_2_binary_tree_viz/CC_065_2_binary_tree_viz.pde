@@ -14,7 +14,7 @@ void setup() {
   background(51);
   tree = new Tree();
   for (int i = 0; i < 100; i++) {
-    tree.addValue(floor(random(0, 100)));
+    tree.addValue(int(random(0, 100)));
   }
   println(tree);
   tree.traverse();
