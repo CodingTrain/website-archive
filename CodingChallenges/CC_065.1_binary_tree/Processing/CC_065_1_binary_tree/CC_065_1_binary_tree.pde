@@ -22,6 +22,6 @@ void setup() {
   if (result == null) {
     println("not found");
   } else {
-    println(result);
+    println(result.value);
   }
 }
