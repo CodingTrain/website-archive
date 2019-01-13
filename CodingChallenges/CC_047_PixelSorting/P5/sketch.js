@@ -12,11 +12,11 @@ let sorted;
 let index = 0;
 
 function preload() {
-    img = loadImage("data/sunflower400.jpg");
+    img = loadImage("data/sunflower100.jpg");
 }
 
 function setup() {
-    createCanvas(800, 400);
+    createCanvas(200, 100);
 
     sorted = createImage(img.width, img.height);
     sorted = img.get();
@@ -64,9 +64,8 @@ function draw() {
 
     background(0);
     image(img, 0, 0);
-    image(sorted, 400, 0);
+    image(sorted, 100, 0);
 
     noStroke();
     fill(255);
-    text("Note: This code runs very slowly in Javascript. (" + (index * 100 / sorted.pixels.length).toFixed(2) + "%)", 20, 20);
 }
