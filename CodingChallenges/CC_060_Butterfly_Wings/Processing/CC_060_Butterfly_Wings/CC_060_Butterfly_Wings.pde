@@ -1,7 +1,7 @@
 // Daniel Shiffman
 // http://codingtra.in
 // Butterfly Wings
-// Video: [coming soon]
+// Video: https://youtu.be/O_0fRV4MTZo
 // Processing transcription: Chuck England
 
 float yoff = 0;
