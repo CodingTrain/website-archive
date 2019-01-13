@@ -15,7 +15,6 @@ void setup() {
   for (int i = 0; i < 10; i++) {
     tree.addValue(floor(random(0, 100)));
   }
-  println(tree);
   tree.traverse();
 
   Node result = tree.search(10);
