@@ -23,5 +23,5 @@ contributions:
   - title: "Where Should I Stand?"
     author:
       name: "Jamie McCrory"
-      url: "https://where-should-i-stand.herokuapp.com"
+    url: "https://where-should-i-stand.herokuapp.com"
     source: "https://github.com/jamiejamiebobamie/whereStand"
