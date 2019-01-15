@@ -5,9 +5,9 @@
 class Tile {
 
   constructor(x, y, wh, index, next) {
-    this.x = x
-    this.y = y
-    this.wh = wh
+    this.x = x;
+    this.y = y;
+    this.wh = wh;
     // index and next
     // TODO: (next is probably redundant?)
     this.index = index;
@@ -58,5 +58,4 @@ class Tile {
       line(myCenter[0], myCenter[1], nextCenter[0], nextCenter[1]);
     }
   }
-
 }
