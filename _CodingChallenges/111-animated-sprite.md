@@ -17,3 +17,11 @@ videos:
 ---
 
 In this coding challenge, I load a sprite sheet and create multiple animated sprites with the p5.js library.
+
+
+contributions:
+  - title: "Where Should I Stand?"
+    author:
+      name: "Jamie McCrory"
+    url: "https://where-should-i-stand.herokuapp.com"
+    source: "https://github.com/jamiejamiebobamie/whereStand"

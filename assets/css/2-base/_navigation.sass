@@ -43,6 +43,7 @@
     background: linear-gradient(rgba(0,0,0,0.2), transparent)
 
     @media (max-width: $mobile)
+      width: 0%
       height: auto
       top: 10rem
       position: fixed
@@ -114,6 +115,9 @@
     ~ .navigation
       @media (max-width: $mobile)
         background: rgba(#FFF, 0.5)
+
+      nav
+        width: 100%
 
       nav .links a
         @media (max-width: $mobile)

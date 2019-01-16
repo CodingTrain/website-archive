@@ -21,7 +21,7 @@ function draw() {
   background(100);
   ortho(-400, 400, 400, -400, 0, 1000);
   rotateX(-ma);
-  rotateY(-QUARTER_PI)﻿
+  rotateY(-QUARTER_PI);
 
   for (let z = 0; z < height; z += w) {
     for (let x = 0; x < width; x += w) {

@@ -9,6 +9,14 @@ repository: CC_016_LSystem
 links:
   - title: "Algorithmic Botany"
     url: "http://algorithmicbotany.org/"
+
+contributions:
+  - title: "L-SystemCreator"
+    author:
+      name: "Anurag Hazra"
+      url: "https://anuraghazra.github.io/"
+    url: "https://anuraghazra.github.io/LSystemCreator/"
+    source: "https://github.com/anuraghazra/LSystemCreator"
 ---
 
 In this third installment of my series on algorithmic botany, I discuss L-systems and how they can be used to generate tree and other fractal patterns in p5.js.
