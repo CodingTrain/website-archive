@@ -55,10 +55,9 @@ contributions:
       name: "Robin Andersson"
     url: "https://editor.p5js.org/RobinAndersson/sketches/r1-91uVxV"
     source: "https://editor.p5js.org/RobinAndersson/sketches/r1-91uVxV"
----
   - title: "Flocking - 1000triangles"
-      author:
+    author:
       name: "Seo junekyo"
-      url: "www.1000triangle.com"
-
+    url: "www.1000triangle.com"
+---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
