@@ -67,6 +67,9 @@ contributions:
       url: "http://basis64.nl/"
     url: "http://www.basis64.nl/flocking3D"
     source: "https://github.com/EthanHermsey/flocking3d"
+  - title: "Flocking - 1000triangles"
+    author:
+      name: "Seo junekyo"
+    url: "http://1000triangle.com"
 ---
-
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
