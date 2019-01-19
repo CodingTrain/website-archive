@@ -11,7 +11,12 @@
   display: flex
   flex-direction: column
   justify-content: space-between
-
+  transition: all 250ms
+  
+  &:hover 
+    @media (hover: hover) 
+      transform: translateY(-5px)
+  
   > a
     text-decoration: none
     color: $text-color

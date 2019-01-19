@@ -25,6 +25,12 @@ contributions:
       url: "https://fraguilar.com"
     url: "https://drive.google.com/open?id=1WZ93H-kIilYQVIeLTpv2Hpn4gk36xaTS"
     source: "https://github.com/fernand0aguilar/p5plus1/tree/master/3.Projects/06.RainbowFlowField"
+  - title: "Floisefield"
+    author:
+      name: "Afferore"
+      url: "https://github.com/Afferore43"
+    url: "https://afferore43.github.io/flowfield/"
+    source: "https://github.com/Afferore43/flowfield"
 ---
 
 In this coding challenge, I use Perlin noise to create a two-dimensional flow field with the p5.js library

@@ -1,3 +1,9 @@
+// Logo Part 2
+// Daniel Shiffman
+// https://thecodingtrain.com/CodingChallenges/121.2-logo-interpreter.html
+// https://youtu.be/i-k04yzfMpw
+// https://editor.p5js.org/codingtrain/sketches/BJqG8zhlN
+
 class Parser {
   constructor(text) {
     this.text = text;

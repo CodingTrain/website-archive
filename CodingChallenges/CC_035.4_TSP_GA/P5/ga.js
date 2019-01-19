@@ -25,7 +25,7 @@ function normalizeFitness() {
     sum += fitness[i];
   }
   for (var i = 0; i < fitness.length; i++) {
-    fitness[i] = fitness[i] / sum;;
+    fitness[i] = fitness[i] / sum;
   }
 }
 

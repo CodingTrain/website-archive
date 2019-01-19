@@ -4,6 +4,7 @@ video_number: 119
 date: 2018-10-23
 video_id: meGcdIoTYgw
 web_editor: HJn1hOPjX
+repository: CC_119_Binary_to_Decimal_Conversion
 
 links:
   - title: "Code"
