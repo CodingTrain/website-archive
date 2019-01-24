@@ -31,4 +31,4 @@ videos:
     video_id: "qS4H6PEcCCA"
 ---
 
-In this coding challenge, I use a Discrete Fourier Transform algorithm to visualize a drawing using epicycles.
+In this coding challenge, I implement the Discrete Fourier Transform algorithm in JavaScript and render a drawing using epicycles derived from the transform.
