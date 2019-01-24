@@ -2,7 +2,6 @@
 title: "Drawing with Fourier Transform and Epicycles"
 video_number: 130
 date: 2019-01-25
-repository: CC_130_Fourier_Transform_Drawing
 video_id: MY4luNgGfms
 
 links:
