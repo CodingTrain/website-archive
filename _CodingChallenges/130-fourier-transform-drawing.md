@@ -36,6 +36,11 @@ contributions:
       name: "I L M Narayana"
     url: "https://wwl5q1434k.codesandbox.io/"
     source: "https://github.com/ilmnarayana/Epicycles"
+  - title: "Rainbow Epicycles: Unicorn train driver"
+    author:
+      name: "Juan Carlos Ponce Campuzano"
+    url: "https://editor.p5js.org/jcponce/full/r1S3-nY-4"
+    source: "https://editor.p5js.org/jcponce/sketches/r1S3-nY-4"
 ---
 
 In this coding challenge, I implement the Discrete Fourier Transform algorithm in JavaScript and render a drawing using epicycles derived from the transform.
