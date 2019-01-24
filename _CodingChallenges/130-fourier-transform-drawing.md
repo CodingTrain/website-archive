@@ -29,7 +29,7 @@ videos:
   - title: "Epicycles, complex Fourier series and Homer Simpson's orbit"
     author: "Mathologer"
     video_id: "qS4H6PEcCCA"
-    
+
 contributions:
   - title: "Epicycles redrawing a user drawn loop"
     author:
