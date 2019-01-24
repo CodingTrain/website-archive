@@ -29,6 +29,13 @@ videos:
   - title: "Epicycles, complex Fourier series and Homer Simpson's orbit"
     author: "Mathologer"
     video_id: "qS4H6PEcCCA"
+
+contributions:
+  - title: "Epicycles redrawing a user drawn loop"
+    author:
+      name: "I L M Narayana"
+    url: "https://wwl5q1434k.codesandbox.io/"
+    source: "https://github.com/ilmnarayana/Epicycles"
 ---
 
 In this coding challenge, I implement the Discrete Fourier Transform algorithm in JavaScript and render a drawing using epicycles derived from the transform.
