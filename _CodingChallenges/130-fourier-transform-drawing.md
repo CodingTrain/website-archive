@@ -1,8 +1,10 @@
 ---
 title: "Drawing with Fourier Transform and Epicycles"
 video_number: 130
-date: 2019-01-25
+date: 2019-01-24
+repository: CC_130_Fourier_Transform_1
 video_id: MY4luNgGfms
+web_editor: ldBlISrsQ
 
 links:
   - title: "Coding Train Logo"
