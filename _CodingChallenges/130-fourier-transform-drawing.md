@@ -36,9 +36,10 @@ contributions:
       name: "I L M Narayana"
     url: "https://wwl5q1434k.codesandbox.io/"
     source: "https://github.com/ilmnarayana/Epicycles"
-  - title: "Rainbow Epicycles: Unicorn train driver"
+  - title: "Rainbow orbits: Unicorn train driver"
     author:
       name: "Juan Carlos Ponce Campuzano"
+      url: "https://jcponce.github.io/"
     url: "https://editor.p5js.org/jcponce/full/r1S3-nY-4"
     source: "https://editor.p5js.org/jcponce/sketches/r1S3-nY-4"
 ---
