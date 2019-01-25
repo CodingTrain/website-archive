@@ -17,13 +17,13 @@ contributions:
   - title: "Single Player Edition"
     author:
       name: "Nico Finkernagel"
-      url: "https://www.gruselhaus.com"
+      url: "https://gruselhaus.com"
     url: "https://old.gruselhaus.com/docs/src/pong/"
     source: "https://github.com/gruselhaus/old-gruselsite/tree/master/docs/src/pong"
   - title: "Play against an AI based on Shiffman's Neural Network Class."
     author:
       name: "Nico Finkernagel"
-      url: "https://www.gruselhaus.com"
+      url: "https://gruselhaus.com"
     url: "https://old.gruselhaus.com/docs/src/pong_nn/"
     source: "https://github.com/gruselhaus/old-gruselsite/tree/master/docs/src/pong_nn"
 ---
