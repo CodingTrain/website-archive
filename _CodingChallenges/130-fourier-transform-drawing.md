@@ -8,7 +8,7 @@ web_editor: ldBlISrsQ
 
 parts:
   - title: "Bonus Drawing with Fourier Transform"
-    url: "130.2-fourier-transform-drawing"
+    url: "/CodingChallenges/130.2-fourier-transform-drawing"
 
 links:
   - title: "Coding Train Logo"
