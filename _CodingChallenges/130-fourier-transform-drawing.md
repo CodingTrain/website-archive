@@ -6,6 +6,10 @@ repository: CC_130_Fourier_Transform_1
 video_id: MY4luNgGfms
 web_editor: ldBlISrsQ
 
+parts:
+  - title: "Bonus Drawing with Fourier Transform"
+    url: "130.2-fourier-transform-drawing"
+
 links:
   - title: "Coding Train Logo"
     author: "Tom Février"
