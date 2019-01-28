@@ -33,6 +33,12 @@ contributions:
       url: "https://github.com/sbibow"
     url: "https://sbibow.github.io/coding/p5js%20polynomial%20regression/"
     source: "https://github.com/sbibow/coding/tree/master/p5js%20polynomial%20regression"
+  - title: "Polynomial-Regression-with-TensorFlow.js"
+    author:
+      name: "Bohdan Drahan"
+      url: "https://github.com/bohdandrahan"
+    url: "https://bohdandrahan.github.io/Polynomial-Regression-with-TensorFlow.js/index.html"
+    source: "https://github.com/bohdandrahan/Polynomial-Regression-with-TensorFlow.js"
 ---
 
 In this challenge, I expand the [linear example](https://youtu.be/dLp10CFIvxI) into polynomial regression!
