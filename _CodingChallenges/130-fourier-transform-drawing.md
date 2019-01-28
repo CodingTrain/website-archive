@@ -6,6 +6,10 @@ repository: CC_130_Fourier_Transform_1
 video_id: MY4luNgGfms
 web_editor: ldBlISrsQ
 
+parts:
+  - title: "Bonus Drawing with Fourier Transform"
+    url: "/CodingChallenges/130.2-fourier-transform-drawing"
+
 links:
   - title: "Coding Train Logo"
     author: "Tom Février"
@@ -29,6 +33,19 @@ videos:
   - title: "Epicycles, complex Fourier series and Homer Simpson's orbit"
     author: "Mathologer"
     video_id: "qS4H6PEcCCA"
+
+contributions:
+  - title: "Epicycles redrawing a user drawn loop"
+    author:
+      name: "I L M Narayana"
+    url: "https://wwl5q1434k.codesandbox.io/"
+    source: "https://github.com/ilmnarayana/Epicycles"
+  - title: "Rainbow orbits: Unicorn train driver"
+    author:
+      name: "Juan Carlos Ponce Campuzano"
+      url: "https://jcponce.github.io/"
+    url: "https://editor.p5js.org/jcponce/full/r1S3-nY-4"
+    source: "https://editor.p5js.org/jcponce/sketches/r1S3-nY-4"
 ---
 
 In this coding challenge, I implement the Discrete Fourier Transform algorithm in JavaScript and render a drawing using epicycles derived from the transform.
