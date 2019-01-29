@@ -11,6 +11,14 @@ links:
 videos:
   - title: "My Videos on Vectors"
     video_id: "mWJkvxQXIa8"
+    
+contributions:
+  - title: "3D levy flight walk"
+    author:
+      name: "David Snyder"
+      url: "https://www.openprocessing.org/user/151106"
+    url: "https://www.openprocessing.org/sketch/660259"
+    source: "https://github.com/GypsyDangerous/Finished-Projects"
 ---
 
 In this coding challenge, I continue the discussion on Random Walkers.  I implement a random walker using vectors in p5.js, which allows me to vary the distance of each step size. I also implement a "Lévy Flight", named after french mathematician Paul Lévy.
