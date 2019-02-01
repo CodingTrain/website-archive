@@ -1,8 +1,8 @@
-// Coding Challenge 130: Drawing with Fourier Transform and Epicycles
+// Coding Challenge 130.1: Drawing with Fourier Transform and Epicycles
 // Daniel Shiffman
 // https://thecodingtrain.com/CodingChallenges/130-fourier-transform-drawing.html
 // https://youtu.be/MY4luNgGfms
-// https://editor.p5js.org/codingtrain/sketches/ldBlISrsQ
+// https://editor.p5js.org/codingtrain/sketches/jawHqwfda
 
 function dft(x) {
   const X = [];

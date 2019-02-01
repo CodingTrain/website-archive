@@ -1,13 +1,13 @@
-// Coding Challenge 130.1: Drawing with Fourier Transform and Epicycles
+// Coding Challenge 130.3: Drawing with Fourier Transform and Epicycles
 // Daniel Shiffman
-// https://thecodingtrain.com/CodingChallenges/130-fourier-transform-drawing.html
-// https://youtu.be/MY4luNgGfms
-// https://editor.p5js.org/codingtrain/sketches/jawHqwfda
+// https://thecodingtrain.com/CodingChallenges/130.1-fourier-transform-drawing.html
+// https://thecodingtrain.com/CodingChallenges/130.2-fourier-transform-drawing.html
+// https://thecodingtrain.com/CodingChallenges/130.3-fourier-transform-drawing.html
+// https://youtu.be/7_vKzcgpfvU
+// https://editor.p5js.org/codingtrain/sketches/ldBlISrsQ
 
 let x = [];
-let y = [];
 let fourierX;
-let fourierY;
 let time = 0;
 let path = [];
 
@@ -15,17 +15,14 @@ function setup() {
   createCanvas(800, 600);
   const skip = 8;
   for (let i = 0; i < drawing.length; i += skip) {
-    x.push(drawing[i].x);
-    y.push(drawing[i].y);
+    const c = new Complex(drawing[i].x, drawing[i].y);
+    x.push(c);
   }
   fourierX = dft(x);
-  fourierY = dft(y);
-
   fourierX.sort((a, b) => b.amp - a.amp);
-  fourierY.sort((a, b) => b.amp - a.amp);
 }
 
-function epiCycles(x, y, rotation, fourier) {
+function epicycles(x, y, rotation, fourier) {
   for (let i = 0; i < fourier.length; i++) {
     let prevx = x;
     let prevy = y;
@@ -47,12 +44,8 @@ function epiCycles(x, y, rotation, fourier) {
 function draw() {
   background(0);
 
-  let vx = epiCycles(width / 2 + 100, 100, 0, fourierX);
-  let vy = epiCycles(100, height / 2 + 100, HALF_PI, fourierY);
-  let v = createVector(vx.x, vy.y);
+  let v = epicycles(width / 2, height / 2, 0, fourierX);
   path.unshift(v);
-  line(vx.x, vx.y, v.x, v.y);
-  line(vy.x, vy.y, v.x, v.y);
 
   beginShape();
   noFill();
@@ -61,15 +54,12 @@ function draw() {
   }
   endShape();
 
-  const dt = TWO_PI / fourierY.length;
+  const dt = TWO_PI / fourierX.length;
   time += dt;
 
   if (time > TWO_PI) {
     time = 0;
     path = [];
   }
-
-  // if (wave.length > 250) {
-  //   wave.pop();
-  // }
 }
+
