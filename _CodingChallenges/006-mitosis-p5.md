@@ -11,7 +11,7 @@ contributions:
     author:
       name: "Morel Takougang"
       url: "https://github.com/MorelT98"
-    url: "https://github.com/MorelT98/coding-challenges/blob/master/006_mitosis.py"
+    source: "https://github.com/MorelT98/coding-challenges/blob/master/006_mitosis.py"
 ---
 
 In this viewer submitted coding challenge, I program a cellular mitosis simulation in p5.js.
