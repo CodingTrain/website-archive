@@ -7,7 +7,7 @@ video_id: jxGS3fKPKJA
 repository: CC_006_Mitosis
 
 contributions:
-  - title: "006_mitosis"
+  - title: "Python Edition"
     author:
       name: "Morel Takougang"
       url: "https://github.com/MorelT98"
