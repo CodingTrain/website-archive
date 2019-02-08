@@ -11,7 +11,7 @@ links:
     url: "https://knowyourmeme.com/memes/bouncing-dvd-logo"
   - title: "Bouncing DVD Logo explained"
     url: "http://prgreen.github.io/blog/2013/09/30/the-bouncing-dvd-logo-explained/"
-  - title: "p5.js reference"
+  - title: "p5.js rect reference"
     url: "https://p5js.org/reference/#/p5/rect"
 
 videos:
