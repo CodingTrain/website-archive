@@ -18,6 +18,14 @@ videos:
   - title: "How I Learned to Code My Own Game"
     author: "Mike Boyd"
     video_id: "s12npdDmGUc"
+    
+contributions:
+  - title: "Bouncing DVD Logo in 3D"
+    author:
+      name: "Bruno Ruchiga"
+      url: "http://brunoruchiga.com"
+    url: "https://editor.p5js.org/brunoruchiga/full/bmAOI_p9F"
+    source: "https://editor.p5js.org/brunoruchiga/sketches/bmAOI_p9F"
 ---
 
 In this coding challenge, I simulate the "Bouncing DVD Logo" meme in JavaScript with p5.js.
