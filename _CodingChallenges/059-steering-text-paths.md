@@ -39,6 +39,10 @@ contributions:
       url: "https://anuraghazra.github.io/"
     url: "https://anuraghazra.github.io/CanvasFun/particleShift/"
     source: "https://github.com/anuraghazra/CanvasFun/tree/master/particleShift"
+  - title: "PD-controlled dots"
+    author: "kappekoff"
+    url: https://kappekoff.github.io/PD-controlled-dots-text/
+    source: https://github.com/kappekoff/PD-controlled-dots-text
 ---
 
 In this coding challenge, I look at extracting font path points from text in p5.js with p5.Font.textToPoints().  I render the text as particles with steering behaviors that react to the mouse.
