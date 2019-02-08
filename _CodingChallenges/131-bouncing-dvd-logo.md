@@ -20,4 +20,4 @@ videos:
     video_id: "s12npdDmGUc"
 ---
 
-In this coding challenge, I simulate the "Bouncing DVD Logo" in JavaScript with p5.js.
+In this coding challenge, I simulate the "Bouncing DVD Logo" meme in JavaScript with p5.js.
