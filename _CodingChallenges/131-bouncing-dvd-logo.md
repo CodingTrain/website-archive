@@ -18,7 +18,7 @@ videos:
   - title: "How I Learned to Code My Own Game"
     author: "Mike Boyd"
     video_id: "s12npdDmGUc"
-    
+
 contributions:
   - title: "Bouncing DVD Logo in 3D"
     author:
