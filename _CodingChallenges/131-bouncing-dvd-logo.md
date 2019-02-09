@@ -26,6 +26,12 @@ contributions:
       url: "http://brunoruchiga.com"
     url: "https://editor.p5js.org/brunoruchiga/full/bmAOI_p9F"
     source: "https://editor.p5js.org/brunoruchiga/sketches/bmAOI_p9F"
+  - title: "VerletDVDLogo"
+    author:
+      name: "Anurag Hazra"
+      url: "https://anuraghazra.github.io/"
+    url: "https://anuraghazra.github.io/CanvasFun/VerletDVDLogo/"
+    source: "https://github.com/anuraghazra/CanvasFun/tree/master/VerletDVDLogo"
 ---
 
 In this coding challenge, I simulate the "Bouncing DVD Logo" meme in JavaScript with p5.js.
