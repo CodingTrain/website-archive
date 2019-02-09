@@ -81,6 +81,13 @@ contributions:
       url: https://www.openprocessing.org/user/102359
     url: https://www.openprocessing.org/sketch/460769
     source: https://www.openprocessing.org/sketch/460769
+  
+  - title: "Realistic ParticleSystem"
+    author:
+      name: "Anurag Hazra"
+      url: http://anuraghazra.github.io
+    url: https://anuraghazra.github.io/CanvasFun/particleSystem/
+    source: https://github.com/anuraghazra/CanvasFun/tree/master/particleSystem
 ---
 
 In this coding challenge, I explore the concept of a simple particle system and attempt to create a smoke effect with the p5.js library.
