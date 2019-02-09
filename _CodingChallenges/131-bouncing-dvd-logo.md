@@ -32,6 +32,12 @@ contributions:
       url: "https://anuraghazra.github.io/"
     url: "https://anuraghazra.github.io/CanvasFun/VerletDVDLogo/"
     source: "https://github.com/anuraghazra/CanvasFun/tree/master/VerletDVDLogo"
+  - title: "Bouncing 90s Screensaver"
+    author:
+      name: "TheTastefulToastie"
+      url: "https://github.com/TheTastefulToastie"
+    url: "https://editor.p5js.org/TheTastefulToastie/full/qoyBmT91N"
+    source: "https://editor.p5js.org/TheTastefulToastie/sketches/qoyBmT91N"
 ---
 
 In this coding challenge, I simulate the "Bouncing DVD Logo" meme in JavaScript with p5.js.
