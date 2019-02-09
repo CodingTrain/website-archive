@@ -201,7 +201,7 @@ const checkFolder = (videoFormat, name, { directories, files }) => describe(name
 
 const files = getAllFiles();
 for (const [name, directory] of Object.entries(files)) {
-  checkFolder(directories[directory], name, directory);
+  checkFolder(directories[name], name, directory);
 }
 
 describe('Repositories', () => {
