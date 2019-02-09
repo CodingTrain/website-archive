@@ -26,6 +26,12 @@ contributions:
       url: "http://brunoruchiga.com"
     url: "https://editor.p5js.org/brunoruchiga/full/bmAOI_p9F"
     source: "https://editor.p5js.org/brunoruchiga/sketches/bmAOI_p9F"
+  - title: "Bouncing 90s Screensaver"
+    author:
+      name: "TheTastefulToastie"
+      url: "https://github.com/TheTastefulToastie"
+    url: "https://editor.p5js.org/TheTastefulToastie/full/qoyBmT91N"
+    source: "https://editor.p5js.org/TheTastefulToastie/sketches/qoyBmT91N"
 ---
 
 In this coding challenge, I simulate the "Bouncing DVD Logo" meme in JavaScript with p5.js.
