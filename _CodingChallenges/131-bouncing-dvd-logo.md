@@ -38,6 +38,12 @@ contributions:
       url: "https://github.com/TheTastefulToastie"
     url: "https://editor.p5js.org/TheTastefulToastie/full/qoyBmT91N"
     source: "https://editor.p5js.org/TheTastefulToastie/sketches/qoyBmT91N"
+  - title: "Bouncing 📀, with corner detection and more"
+    author:
+      name: "Samarth Jajoo"
+      url: "https://sam.jajoo.fun"
+    url: "https://dvd.4ty2.fun"
+    source: "https://dvd.4ty2.fun/__repl"
 ---
 
 In this coding challenge, I simulate the "Bouncing DVD Logo" meme in JavaScript with p5.js.
