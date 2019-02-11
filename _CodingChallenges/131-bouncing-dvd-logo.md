@@ -44,6 +44,12 @@ contributions:
       url: "https://sam.jajoo.fun"
     url: "https://dvd.4ty2.fun"
     source: "https://dvd.4ty2.fun/__repl"
+  - title: "Changable speed, track and hit-the-corner-detection"
+    author:
+      name: "TemporaryPride"
+      url: "https://github.com/TemporaryPride"
+    url: "https://editor.p5js.org/TemporaryPride/full/c-KnrXAEh"
+    source: "https://editor.p5js.org/TemporaryPride/sketches/c-KnrXAEh"
 ---
 
 In this coding challenge, I simulate the "Bouncing DVD Logo" meme in JavaScript with p5.js.
