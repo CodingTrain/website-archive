@@ -6,7 +6,7 @@ repository: CC_132_FluidSimulation
 video_id: alhpH6ECFvQ
 
 links:
-  - title: "GitHub Thread"
+  - title: "GitHub Issue"
     url: "https://github.com/CodingTrain/Rainbow-Topics/issues/178"
   - title: "Real-Time Fluid Dynamics for Games"
     author: "Jos Stam"
@@ -30,4 +30,4 @@ videos:
     video_id: "Qf4dIN99e2w"
 ---
 
-In this coding challenge, I make a turbulent Fluid Simulation in Processing (Java).
+In this video, I attempt to follow Mike Ash's guide to Fluid Simulation and port Josh Stam's "Real-Time Fluid Dynamics for Games" algorithm and code in Processing (Java).
