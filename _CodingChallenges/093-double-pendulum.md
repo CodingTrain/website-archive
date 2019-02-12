@@ -5,6 +5,7 @@ video_number: 93
 date: 2018-02-13
 video_id: uWzPe_S-RVE
 repository: CC_093_DoublePendulum
+web_editor: jaH7XdzMK
 
 links:
   - title: "Physics Lab Double Pendulum"
