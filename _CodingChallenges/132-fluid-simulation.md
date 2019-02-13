@@ -28,8 +28,8 @@ videos:
     video_id: "_UoTTq651dE"
   - title: "Perlin Noise"
     video_id: "Qf4dIN99e2w"
-    
- contributions:
+
+contributions:
   - title: "Flow around circle: incompressible, nonviscous fluid"
     author:
       name: "Juan Carlos Ponce Campuzano"
