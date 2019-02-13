@@ -30,4 +30,4 @@ videos:
     video_id: "Qf4dIN99e2w"
 ---
 
-In this video, I attempt to follow Mike Ash's guide to Fluid Simulation and port Josh Stam's "Real-Time Fluid Dynamics for Games" algorithm and code in Processing (Java).
+In this video, I attempt to follow Mike Ash's guide to Fluid Simulation and port Jos Stam's "Real-Time Fluid Dynamics for Games" algorithm and code in Processing (Java).
