@@ -20,7 +20,7 @@ videos:
   - title: "Mandelbrot Set"
     url: "/CodingChallenges/021-mandelbrot-p5"
   - title: "Polar Coordinates"
-    url: "/Tutorials/9.20-polar-coordinates"
+    url: "/Tutorials/9-additional-topics/9.20-polar-coordinates"
   - title: "The Modulo Operator"
     author: "Golan Levin"
     url: "/GuestTutorials/6-golan-levin-modulo-operator"
