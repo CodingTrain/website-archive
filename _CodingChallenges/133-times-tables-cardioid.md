@@ -2,7 +2,7 @@
 title: "Times Tables Cardioid Visualization"
 video_number: 133
 date: 2019-02-14
-repository: CC_133_TimesTablesCardioid
+repository: CC_133_Times_Tables_Cardioid
 video_id: bl3nc_a1nvs
 web_editor: gwcGb_NPm
 
