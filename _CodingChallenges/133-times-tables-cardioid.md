@@ -24,14 +24,21 @@ videos:
   - title: "The Modulo Operator"
     author: "Golan Levin"
     url: "/GuestTutorials/6-golan-levin-modulo-operator"
-
+    
 contributions:
-  - title: "Grid of times tables"
+  - title: "Times Tables with different shapes"
     author:
-      name: "David Snyder"
-      url: "https://github.com/GypsyDangerous"
-    video_id: "QXAegvBHA8E"
-    source: "https://github.com/GypsyDangerous/Times-Tables"
+      name: "Damiano Zanardo"
+      url: "https://github.com/Damix48/"
+    url: "https://damix48.github.io/web_js/09_generic_times_table/"
+    source: "https://github.com/Damix48/web_js/tree/master/09_generic_times_table"
+  - title: "Times Tables and the mouse"
+    author:
+      name: "Damiano Zanardo"
+      url: "https://github.com/Damix48/"
+    url: "https://damix48.github.io/web_js/07_times_table/"
+    source: "https://github.com/Damix48/web_js/tree/master/07_times_table"
+    
 ---
 
 In this video, I visualize the "mathematical heart" Cardioid using times tables calculations.
