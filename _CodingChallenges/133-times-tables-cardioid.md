@@ -50,6 +50,13 @@ contributions:
       url: "https://nielsvadot.design/"
     url: "https://nielsvadot.design/projects/modular-multiplication-table/"
     source: "https://codepen.io/ninivert/pen/WXjMjZ"
+  - title: "Time Table Visualization (gradient effect)"
+  author:
+    name: "Bryan Vespignani"
+    url: "https://github.com/Palma99"
+  url: "http://palma99webpage.altervista.org/card/index.html"
+  source: "https://github.com/Palma99/Cardioid"
+  
 ---
 
 In this video, I visualize the "mathematical heart" Cardioid using times tables calculations.
