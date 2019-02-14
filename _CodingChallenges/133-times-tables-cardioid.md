@@ -44,6 +44,12 @@ contributions:
       url: "https://github.com/Damix48/"
     url: "https://damix48.github.io/web_js/07_times_table/"
     source: "https://github.com/Damix48/web_js/tree/master/07_times_table"
+  - title: "Modular Multiplication"
+    author:
+      name: "Niels Vadot"
+      url: "https://nielsvadot.design/"
+    url: "https://nielsvadot.design/projects/modular-multiplication-table/"
+    source: "https://codepen.io/ninivert/pen/WXjMjZ"
 ---
 
 In this video, I visualize the "mathematical heart" Cardioid using times tables calculations.
