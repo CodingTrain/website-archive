@@ -24,7 +24,7 @@ videos:
   - title: "The Modulo Operator"
     author: "Golan Levin"
     url: "/GuestTutorials/6-golan-levin-modulo-operator"
-    
+
 contributions:
   - title: "Times Tables with different shapes"
     author:
@@ -38,7 +38,6 @@ contributions:
       url: "https://github.com/Damix48/"
     url: "https://damix48.github.io/web_js/07_times_table/"
     source: "https://github.com/Damix48/web_js/tree/master/07_times_table"
-    
 ---
 
 In this video, I visualize the "mathematical heart" Cardioid using times tables calculations.
