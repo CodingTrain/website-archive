@@ -24,6 +24,14 @@ videos:
   - title: "The Modulo Operator"
     author: "Golan Levin"
     url: "/GuestTutorials/6-golan-levin-modulo-operator"
+
+contributions:
+  - title: "Grid of times tables"
+    author:
+      name: "David Snyder"
+      url: "https://github.com/GypsyDangerous"
+    video_id: "QXAegvBHA8E"
+    source: "https://github.com/GypsyDangerous/Times-Tables"
 ---
 
 In this video, I visualize the "mathematical heart" Cardioid using times tables calculations.
