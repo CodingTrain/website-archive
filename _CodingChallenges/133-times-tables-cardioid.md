@@ -56,6 +56,11 @@ contributions:
       url: "https://github.com/Palma99"
     url: "http://palma99webpage.altervista.org/card/index.html"
     source: "https://github.com/Palma99/Cardioid"
+  - title: "A 3D visualization of timestable"
+    author:
+      name: "Jacob Møller"
+    url: "https://editor.p5js.org/SirPaws/full/D6CrKp8bK"
+    source: "https://editor.p5js.org/SirPaws/sketches/D6CrKp8bK"
 ---
 
 In this video, I visualize the "mathematical heart" Cardioid using times tables calculations.
