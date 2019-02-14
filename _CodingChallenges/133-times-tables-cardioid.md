@@ -33,5 +33,4 @@ contributions:
     video_id: "QXAegvBHA8E"
     source: "https://github.com/GypsyDangerous/Times-Tables"
 ---
-
 In this video, I visualize the "mathematical heart" Cardioid using times tables calculations.
