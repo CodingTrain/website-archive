@@ -4,8 +4,8 @@
 // http://patreon.com/codingtrain
 // Code for this video: https://www.youtube.com/watch?v=MY4luNgGfms
 
-Wave[] fourierX;
-Wave[] fourierY;
+Phasor[] fourierX;
+Phasor[] fourierY;
 ArrayList<PVector> path = new ArrayList<PVector>();
 float[] trainX;
 float[] trainY;
@@ -13,24 +13,20 @@ float dt;
 float time = 0;
 int skip = 5;
 
+
 void setup() {
   size(1000, 800);
   loadTrain();
   fourierX = dft(trainX);
   fourierY = dft(trainY);
+  
+  Sort(fourierX);
+  Sort(fourierY);
+  
   dt = TWO_PI / fourierX.length;
 }
 
-void loadTrain() {
-  JSONArray train = loadJSONObject("train.json").getJSONArray("drawing");
-  trainX = new float[train.size()/skip];
-  trainY = new float[train.size()/skip];
 
-  for (int i = 0; i < train.size()/skip; i+= 1) {
-    trainX[i] = train.getJSONObject(i*skip).getFloat("x");
-    trainY[i] = train.getJSONObject(i*skip).getFloat("y");
-  }
-}
 void draw() {
   float[] vx = new float[2];
   float[] vy = new float[2];
@@ -57,29 +53,42 @@ void draw() {
   endShape();
 }
 
-float[] epiCycles(float x, float y, Wave[] waves, float rotation){
+
+void loadTrain() {
+  JSONArray train = loadJSONObject("train.json").getJSONArray("drawing");
+  trainX = new float[train.size()/skip];
+  trainY = new float[train.size()/skip];
+
+  for (int i = 0; i < train.size()/skip; i+= 1) {
+    trainX[i] = train.getJSONObject(i*skip).getFloat("x");
+    trainY[i] = train.getJSONObject(i*skip).getFloat("y");
+  }
+}
+
+
+float[] epiCycles(float x, float y, Phasor[] Phasors, float rotation){
   float oldx;
   float oldy;
   float[] point = new float[2];
-  for (int i = 0; i < waves.length; i++) {
+  for (int i = 0; i < Phasors.length; i++) {
     oldx = x;
     oldy = y;
     
-    Wave wave = waves[i];
-    PVector vec = wave.state(time, rotation);
+    Phasor Phasor = Phasors[i];
+    PVector vec = Phasor.state(time, rotation);
     
     x += vec.x;
     y += vec.y;
-    
 
     noFill();
     stroke(52);
-    circle(oldx, oldy, wave.amplitude * 2);
+    circle(oldx, oldy, Phasor.amplitude * 2);
 
     fill(255);
     stroke(255);
     line(oldx, oldy, x, y);
   }
+  
   circle(x,y,5);
   point[0] = x;
   point[1] = y;

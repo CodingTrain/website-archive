@@ -1,6 +1,6 @@
-Wave[] dft (float[] x) {
+Phasor[] dft (float[] x) {
   int N = x.length;
-  Wave[] X = new Wave[N];
+  Phasor[] X = new Phasor[N];
   for (int k = 0; k < N; k++) {
     float re = 0;
     float im = 0;
@@ -15,7 +15,7 @@ Wave[] dft (float[] x) {
     float freq = k;
     float amp = sqrt(re * re + im * im);
     float phase = atan2(im, re);
-    X[k] = new Wave(amp, freq, phase);
+    X[k] = new Phasor(amp, freq, phase);
 }
   
   return X;
