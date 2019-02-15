@@ -64,6 +64,7 @@ contributions:
   - title: "Colorful Cardioid visualization Timetable"
     author:
       name: "Riaz Laskar"
+      url: "https://github.com/riazXrazor"
     url: "https://riazxrazor-graphics.herokuapp.com/cardioid.html"
     source: "https://codepen.io/riazxrazor/pen/qgMGze"
 ---
