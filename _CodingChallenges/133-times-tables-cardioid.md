@@ -61,6 +61,11 @@ contributions:
       name: "Jacob Møller"
     url: "https://editor.p5js.org/SirPaws/full/D6CrKp8bK"
     source: "https://editor.p5js.org/SirPaws/sketches/D6CrKp8bK"
+  - title: "Colorful Cardioid visualization Timetable"
+    author:
+      name: "Riaz Laskar"
+    url: "https://riazxrazor-graphics.herokuapp.com/cardioid.html"
+    source: "https://codepen.io/riazxrazor/pen/qgMGze"
 ---
 
 In this video, I visualize the "mathematical heart" Cardioid using times tables calculations.
