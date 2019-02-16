@@ -50,6 +50,12 @@ contributions:
       url: "https://github.com/TemporaryPride"
     url: "https://editor.p5js.org/TemporaryPride/full/c-KnrXAEh"
     source: "https://editor.p5js.org/TemporaryPride/sketches/c-KnrXAEh"
+     - title: "bouncing dvd logo with corner hit prediction and sound "
+    author:"Luca Turretti"
+      name: "Luca Turretti"
+      url: "https://github.com/Turrett"
+    url: "https://editor.p5js.org/Turrett/full/zquA0CCkx"
+    source: "https://editor.p5js.org/Turrett/sketches/zquA0CCkx"
 ---
 
 In this coding challenge, I simulate the "Bouncing DVD Logo" meme in JavaScript with p5.js.
