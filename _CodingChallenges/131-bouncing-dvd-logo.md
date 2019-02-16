@@ -51,7 +51,7 @@ contributions:
     url: "https://editor.p5js.org/TemporaryPride/full/c-KnrXAEh"
     source: "https://editor.p5js.org/TemporaryPride/sketches/c-KnrXAEh"
   - title: "bouncing dvd logo with corner hit prediction and sound "
-    author:"Luca Turretti"
+    author:
       name: "Luca Turretti"
       url: "https://github.com/Turrett"
     url: "https://editor.p5js.org/Turrett/full/zquA0CCkx"
