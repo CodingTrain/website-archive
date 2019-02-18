@@ -34,7 +34,7 @@ contributions:
     author:
       name: "Riaz Laskar"
       url: "https://github.com/riazXrazor"
-    url: "https://riazxrazor-graphics.herokuapp.com/cardioid.html"
+    url: "https://riazxrazor-graphics.herokuapp.com/heart-curve.html"
     source: "https://codepen.io/riazxrazor/pen/yZRjQe"
 ---
 
