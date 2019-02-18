@@ -21,8 +21,7 @@ videos:
 contributions:
   - title: "Changing Cassini Oval to Heart"
     author: Simon Oliehoek
-    name: "Simon"
-    url: ""
+      name: "Simon"
     url: "https://i.imgur.com/mXMyw9X.gifv"
     source: "https://github.com/Serpelic/Processing_Projects/tree/master/Changing_heart"
 ---
