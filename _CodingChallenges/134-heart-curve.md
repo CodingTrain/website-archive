@@ -29,6 +29,3 @@ contributions:
 ---
 
 Using a parametric equation from Wolfram Mathworld (and polar to cartesian coordinate transformation), I draw a heart curve in Processing (Java).
-
-
-
