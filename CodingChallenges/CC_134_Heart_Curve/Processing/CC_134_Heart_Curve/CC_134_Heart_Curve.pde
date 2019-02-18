@@ -28,7 +28,7 @@ void draw() {
 
   float r = height/40;
   float x =  r * 16 * pow(sin(a), 3);
-  float y = -r * (13 * cos(a) - 5 * cos(2*a) - 2 * cos(3 * a)- cos(4 * a));
+  float y = -r * (13 * cos(a) - 5 * cos(2 * a) - 2 * cos(3 * a)- cos(4 * a));
   heart.add(new PVector(x, y));
   
   // So that it stops
