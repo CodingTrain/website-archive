@@ -14,7 +14,7 @@ videos:
   - title: "Polar Coordinates"
     url: "/Tutorials/9-additional-topics/9.20-polar-coordinates"
   - title: "Drawing with Fourier Transform and Epicycles"
-    url: "/CodingChallenges/130.1-fourier-transform-drawing.md"
+    url: "/CodingChallenges/130.1-fourier-transform-drawing"
 ---
 
 In this coding challenge, I trace a mathematical heart with cartesian to polar coordinates in Processing(Java).
