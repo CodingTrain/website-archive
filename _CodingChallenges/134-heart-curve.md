@@ -10,6 +10,14 @@ links:
   - title: "Heart Curve Formulas"
     url: "http://mathworld.wolfram.com/HeartCurve.html"
 
+contributions:
+  - title: "Rainbow Heart"
+    author:
+      name: "Riaz Laskar"
+      url: "https://github.com/riazXrazor"
+    url: "https://riazxrazor-graphics.herokuapp.com/cardioid.html"
+    source: "https://codepen.io/riazxrazor/pen/yZRjQe"
+
 videos:
   - title: "Times Tables Cardioid:"
     url: "/CodingChallenges/133-times-tables-cardioid"
