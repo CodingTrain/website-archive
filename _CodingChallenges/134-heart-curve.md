@@ -17,4 +17,4 @@ videos:
     url: "/CodingChallenges/130.1-fourier-transform-drawing"
 ---
 
-In this coding challenge, I trace a mathematical heart with cartesian to polar coordinates in Processing(Java).
+Using a parametric equation from Wolfram Mathworld (and polar to cartesian coordinate transformation), I draw a heart curve in Processing (Java).
