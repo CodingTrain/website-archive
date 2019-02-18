@@ -28,14 +28,6 @@ videos:
     video_id: "_UoTTq651dE"
   - title: "Perlin Noise"
     video_id: "Qf4dIN99e2w"
-
-contributions:
-  - title: "Flow around circle: incompressible, nonviscous fluid"
-    author:
-      name: "Juan Carlos Ponce Campuzano"
-      url: "https://jcponce.github.io/"
-    url: "https://jcponce.github.io/complex/flowaroundcircle/"
-    source: "https://github.com/jcponce/complex/tree/gh-pages/flowaroundcircle"
 ---
 
 In this video, I attempt to follow Mike Ash's guide to Fluid Simulation and port Josh Stam's "Real-Time Fluid Dynamics for Games" algorithm and code in Processing (Java).
