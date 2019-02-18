@@ -10,14 +10,6 @@ links:
   - title: "Heart Curve Formulas"
     url: "http://mathworld.wolfram.com/HeartCurve.html"
 
-contributions:
-  - title: "Rainbow Heart"
-    author:
-      name: "Riaz Laskar"
-      url: "https://github.com/riazXrazor"
-    url: "https://riazxrazor-graphics.herokuapp.com/cardioid.html"
-    source: "https://codepen.io/riazxrazor/pen/yZRjQe"
-
 videos:
   - title: "Times Tables Cardioid:"
     url: "/CodingChallenges/133-times-tables-cardioid"
@@ -38,6 +30,12 @@ contributions:
       name: "Simon Oliehoek"
     url: "https://i.imgur.com/mXMyw9X.gifv"
     source: "https://github.com/Serpelic/Processing_Projects/tree/master/Changing_heart"
+  - title: "Rainbow Heart"
+    author:
+      name: "Riaz Laskar"
+      url: "https://github.com/riazXrazor"
+    url: "https://riazxrazor-graphics.herokuapp.com/cardioid.html"
+    source: "https://codepen.io/riazxrazor/pen/yZRjQe"
 ---
 
 Using a parametric equation from Wolfram Mathworld (and polar to cartesian coordinate transformation), I draw a heart curve in Processing (Java).
