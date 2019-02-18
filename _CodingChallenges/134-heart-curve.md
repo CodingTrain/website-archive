@@ -19,6 +19,12 @@ videos:
     url: "/CodingChallenges/130.1-fourier-transform-drawing"
 
 contributions:
+  - title: "LoveHearts"
+    author:
+      name: "Anurag Hazra"
+      url: "https://anuraghazra.github.io"
+    url: "https://anuraghazra.github.io/CanvasFun/LoveHearts/"
+    source: "https://github.com/anuraghazra/CanvasFun/tree/master/LoveHearts"
   - title: "Changing Cassini Oval to Heart"
     author:
       name: "Simon Oliehoek"
