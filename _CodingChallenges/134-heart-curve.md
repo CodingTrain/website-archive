@@ -3,6 +3,8 @@ title: "Heart Curve"
 video_number: 134
 date: 2019-02-18
 video_id: oUBAi9xQ2X4
+repository: CC_134_Heart_Curve
+web_editor: egvieHyt0
 
 links:
   - title: "Heart Curve Formulas"
