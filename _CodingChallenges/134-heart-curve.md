@@ -18,7 +18,6 @@ videos:
   - title: "Drawing with Fourier Transform and Epicycles"
     url: "/CodingChallenges/130.1-fourier-transform-drawing"
     
-    
 contributions:
   - title: "Changing Cassini Oval to Heart"
     author: Simon Oliehoek
