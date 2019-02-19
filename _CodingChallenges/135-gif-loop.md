@@ -3,6 +3,7 @@ title: "Making a GIF Loop in Processing"
 video_number: 135
 date: 2019-02-19
 video_id: nBKwCCtWlUg
+repo: CC_135_GIF_Loop
 
 links:
   - title: "Daily Art"
@@ -21,4 +22,4 @@ links:
     url: "https://ezgif.com/"
 ---
 
-In this tutorial, I show you how to make a perfect looping sketch  with Processing(Java) which can be transformed into a GIF
+In this tutorial, I demonstrate how to render a sketch into a perfect, looping GIF with Processing (Java).
