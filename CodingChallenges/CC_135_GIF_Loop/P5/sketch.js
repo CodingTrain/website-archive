@@ -22,7 +22,7 @@ function draw() {
   if (record) {
     save("output/gif-" + nf(counter, 3) + ".png");
     if (counter == totalFrames - 1) {
-      exit();
+      noLoop();
     }
   }
   counter++;
