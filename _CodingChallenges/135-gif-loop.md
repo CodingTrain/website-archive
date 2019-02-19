@@ -3,7 +3,7 @@ title: "Making a GIF Loop in Processing"
 video_number: 135
 date: 2019-02-19
 video_id: nBKwCCtWlUg
-repo: CC_135_GIF_Loop
+repository: CC_135_GIF_Loop
 
 links:
   - title: "Daily Art"
