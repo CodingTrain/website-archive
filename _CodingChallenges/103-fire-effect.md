@@ -23,6 +23,11 @@ contributions:
       name: "stellartux"
       url: "https://github.com/stellartux"
     url: "https://www.shadertoy.com/view/lsdBD2"
----
 
+  - title: "Fire Effect DOOM style"
+    author:
+      name: "lsmanoel"
+      url: "https://github.com/lsmanoel/DoomFireEffect_ProcessingVersion"
+    url: "https://github.com/lsmanoel/DoomFireEffect_ProcessingVersion"
+---
 In this coding challenge, I implement a pixel-based “fire” algorithm using Processing (Java).
