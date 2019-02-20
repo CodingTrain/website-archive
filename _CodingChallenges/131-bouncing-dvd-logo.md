@@ -50,6 +50,12 @@ contributions:
       url: "https://github.com/TemporaryPride"
     url: "https://editor.p5js.org/TemporaryPride/full/c-KnrXAEh"
     source: "https://editor.p5js.org/TemporaryPride/sketches/c-KnrXAEh"
+ - title: "Bouncing Video on How to Create a Bouncing DVD Logo!"
+    author: "Orville Chomer"
+      name: "getOrvillized"
+      url: "https://codepen.io/orvilleChomer/pen/GzxJRM"
+    url: "https://codepen.io/orvilleChomer/pen/GzxJRM"
+    source: "https://codepen.io/orvilleChomer/pen/GzxJRM"
 ---
 
 In this coding challenge, I simulate the "Bouncing DVD Logo" meme in JavaScript with p5.js.
