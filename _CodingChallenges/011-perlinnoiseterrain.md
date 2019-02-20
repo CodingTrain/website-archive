@@ -21,6 +21,12 @@ contributions:
       url: "https://mattstone.io/"
     url: "https://uploads.mattstone.io/terrain"
     source: "https://github.com/bigmstone/terrain"
+  - title: "Retro flythrough 3D terrain"
+    author:
+      name: "Owen McAteer"
+      url: "https://owenmcateer.github.io/Motus-Art/"
+    url: "https://owenmcateer.github.io/Motus-Art/projects/week_07.html"
+    source: "https://github.com/owenmcateer/Motus-Art/blob/master/src/week_07/main.js"
 ---
 
 In this coding challenge, I create a 3D procedural terrain using Perlin Noise and the beginShape() function in Processing.

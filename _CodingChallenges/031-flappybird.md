@@ -22,6 +22,12 @@ contributions:
       url: https://github.com/bhamshu
     url: https://bhamshu.github.io/flappy-shiffman/index.html
     source: https://github.com/bhamshu/flappy-shiffman
+  - title: "Flappy Bird"
+    author:
+      name: "mdbrim"
+      url: "https://github.com/mdbrim"
+    url: "https://mdbrim.github.io/flappy/index.html"
+    source: "https://github.com/mdbrim/flappy"
 ---
 
 In this coding challenge, I attempt to program in JavaScript (using the p5.js framework) a clone of the game Flappy Bird.
