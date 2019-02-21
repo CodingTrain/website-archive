@@ -70,9 +70,9 @@ contributions:
   - title: "Interactive cardioid clock"
     author:
       name: "Aske B. V."
-      url: "https://github.com/Muskar"
-    url: "https://muskar.github.io/p5jsfun/"
-    source: "https://github.com/Muskar/p5jsfun"
+      url: "https://github.com/askebv"
+    url: "https://askebv.github.io/p5jsfun/"
+    source: "https://github.com/askebv/p5jsfun"
 ---
 
 In this video, I visualize the "mathematical heart" Cardioid using times tables calculations.
