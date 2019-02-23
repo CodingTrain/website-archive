@@ -9,6 +9,8 @@ web_editor: gwcGb_NPm
 links:
   - title: "Cardioid on Wikipedia"
     url: "https://en.wikipedia.org/wiki/Cardioid"
+  - title: "Rainbow Topics suggestion from Eduardddd"
+    url: "https://github.com/CodingTrain/Rainbow-Topics/issues/1036"
 
 videos:
   - title: "Times Tables, Mandelbrot and the Heart of Mathematics"
