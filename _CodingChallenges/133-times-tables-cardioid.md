@@ -9,6 +9,8 @@ web_editor: gwcGb_NPm
 links:
   - title: "Cardioid on Wikipedia"
     url: "https://en.wikipedia.org/wiki/Cardioid"
+  - title: "Rainbow Topics suggestion from Eduardddd"
+    url: "https://github.com/CodingTrain/Rainbow-Topics/issues/1036"
 
 videos:
   - title: "Times Tables, Mandelbrot and the Heart of Mathematics"
@@ -70,9 +72,9 @@ contributions:
   - title: "Interactive cardioid clock"
     author:
       name: "Aske B. V."
-      url: "https://github.com/Muskar"
-    url: "https://muskar.github.io/p5jsfun/"
-    source: "https://github.com/Muskar/p5jsfun"
+      url: "https://github.com/askebv"
+    url: "https://askebv.github.io/p5jsfun/"
+    source: "https://github.com/askebv/p5jsfun"
 ---
 
 In this video, I visualize the "mathematical heart" Cardioid using times tables calculations.
