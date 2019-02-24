@@ -75,7 +75,7 @@ contributions:
       url: "https://github.com/askebv"
     url: "https://askebv.github.io/p5jsfun/"
     source: "https://github.com/askebv/p5jsfun"
-  - title: "Interactive cardioid clock"
+  - title: "Caustic reflections in a cup of coffee"
     author:
       name: "Timothy Diguiet"
       url: "https://github.com/QTimort"
