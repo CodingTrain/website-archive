@@ -10,9 +10,6 @@ links:
     url: "https://twitter.com/i/status/1096403588069425152"
   - title: "Étienne Jacob's Blog Post"
     url: "https://necessarydisorder.wordpress.com/2017/11/15/drawing-from-noise-and-then-making-animated-loopy-gifs-from-there/"
-  - title: "Interactivity & Computation"
-    author: "Golan Levin"
-    url: "http://cmuems.com/2016/60212/"
 
 videos:
   - title: "Heart Curve"
@@ -27,4 +24,4 @@ videos:
     playlist_id: "PLRqwX-V7Uu6bgPNQAdxQZpJuJCjeOr7VD"
 ---
 
-In this coding challenge, I use 2D Perlin Noise to add randomness to a perfect animation loop.
+In this challenge, I follow the path of a circle in 2D Perlin noise space in order to use noise values that loop.
