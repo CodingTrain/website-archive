@@ -75,6 +75,12 @@ contributions:
       url: "https://github.com/askebv"
     url: "https://askebv.github.io/p5jsfun/"
     source: "https://github.com/askebv/p5jsfun"
+  - title: "Interactive cardioid clock"
+    author:
+      name: "Timothy Diguiet"
+      url: "https://github.com/QTimort"
+    url: "http://htmlpreview.github.io/?https://github.com/QTimort/coffee-cup-light-rays/blob/master/dist/index.html"
+    source: "https://github.com/QTimort/coffee-cup-caustic-reflections"
 ---
 
 In this video, I visualize the "mathematical heart" Cardioid using times tables calculations.
