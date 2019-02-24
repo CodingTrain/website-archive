@@ -4,7 +4,7 @@ Hello and welcome to the GitHub repo for The Coding Train website! This houses a
 * [The Coding Train on YouTube](https://www.youtube.com/thecodingtrain/)
 * [Patreon](http://patreon.com/codingtrain "Coding Train - Patreon")
 * [For topic suggestions](https://github.com/CodingTrain/Rainbow-Topics/)  
-* [Coding questions](http://forum.processing.org)
+* [Coding questions](https://discourse.processing.org)
 
 # Live Streams
 
