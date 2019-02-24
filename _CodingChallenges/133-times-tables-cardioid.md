@@ -78,7 +78,7 @@ contributions:
   - title: "Interactive cardioid clock"
     author:
       name: "Timothy Diguiet"
-      url: "https://github.com/QTimort/coffee-cup-caustic-reflections"
+      url: "https://github.com/QTimort"
     url: "http://htmlpreview.github.io/?https://github.com/QTimort/coffee-cup-light-rays/blob/master/dist/index.html"
     source: "https://github.com/QTimort/coffee-cup-caustic-reflections"
 ---
