@@ -10,17 +10,60 @@ jobs:
       - image: starefossen/ruby-node:2-10
 
     steps:
+      # Restoring source code cache
+      - restore_cache:
+          name: Restoring source code cache
+          keys:
+            - source-v1-{{ .Branch }}-{{ .Revision }}
+            - source-v1-{{ .Branch }}-
+            - source-v1-
+
       - checkout
+
+      #Saving source code cache
+      - save_cache:
+          name: Saving source code cache
+          key: source-v1-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - ".git"
+
+      #Restoring npm cache
+      - restore_cache:
+          name: Restoring npm cache
+          keys:
+            # when lock file changes, use increasingly general patterns to restore cache
+            - npm-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - npm-v1-{{ .Branch }}-
+            - npm-v1-
 
       # todo: find nicer solution than constantly "cd"ing to unit_testing
       - run: cd unit_testing && npm install
 
+      #Saving npm cache
+      - save_cache:
+          name: Saving npm cache
+          paths:
+            -  unit_testing/node_modules  # location depends on npm version
+          key: npm-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+
       - run: cd unit_testing && npm test
 
-      # TODO: add caching to speed things up.
-      - run:
+      # Restoring bundler cache
+      - restore_cache:
+          name: Restoring bundler cache
+          key: circlev2-{{ checksum "Gemfile.lock" }}
+
+      #Bundler Dependencies
+      - run: 
           name: Jekyll deps
-          command: bundle install
+          command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
+      
+      # Saving bundler cache
+      - save_cache:
+          name: Saving bundler cache
+          key: circlev2-{{ checksum "Gemfile.lock" }}
+          paths: 
+            - vendor/bundle 
 
       - run:
           name: Build

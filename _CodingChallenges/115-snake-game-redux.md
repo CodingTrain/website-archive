@@ -4,6 +4,7 @@ video_number: 115
 date: 2018-09-12
 video_id: OMoVcohRgZA
 web_editor: HkDVpSvDm
+repository: CC_115_Snake_Game_Redux
 
 links:
   - title: "Code"
@@ -28,6 +29,12 @@ contributions:
       url: "http://subeshb1.com.np"
     url: "https://www.sketchalgorithms.com/games/snake-game"
     source: "https://www.sketchalgorithms.com/games/snake-game#code"
+  - title: "Rainbow Snake Game"
+    author:
+      name: "Bohdan Drahan"
+      url: "https://github.com/bohdandrahan"
+    url: "https://bohdandrahan.github.io/Snake-game/snake/index.html"
+    source: "https://github.com/bohdandrahan/Snake-game"
 ---
 
 Snake Game!? Again!? Now with the p5.js Web Editor!

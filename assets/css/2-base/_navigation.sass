@@ -43,6 +43,7 @@
     background: linear-gradient(rgba(0,0,0,0.2), transparent)
 
     @media (max-width: $mobile)
+      width: 0%
       height: auto
       top: 10rem
       position: fixed
@@ -78,8 +79,8 @@
           opacity: 0
           transform: translateX(-3rem)
 
-          @for $i from 1 through 4
-            &:nth-child(#{abs($i - 5)})
+          @for $i from 1 through 5
+            &:nth-child(#{abs($i - 6)})
               transition:
                 property: all
                 duration: 150ms
@@ -115,12 +116,15 @@
       @media (max-width: $mobile)
         background: rgba(#FFF, 0.5)
 
+      nav
+        width: 100%
+
       nav .links a
         @media (max-width: $mobile)
           visibility: visible
           opacity: 1
           transform: translateX(0rem)
 
-        @for $i from 1 through 4
+        @for $i from 1 through 5
           &:nth-child(#{$i})
             transition-delay: ($i - 1) * 75ms

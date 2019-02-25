@@ -54,6 +54,18 @@ contributions:
       url: "https://github.com/boguz"
     url: "https://codepen.io/lpato/full/KGebJa/"
     source: "https://codepen.io/lpato/full/KGebJa/"
+  - title: "ES6"
+    author:
+      name: "Arturs Jansons"
+      url: "https://github.com/iegik"
+    url: "https://codepen.io/iegik/full/MzwWqO/"
+    source: "https://codepen.io/iegik/pen/MzwWqO/"
+  - title: "Rose Based Lissajous In OpenGL"
+    author:
+      name: "dwdowsdi"
+      url: "https://github.com/dedowsdi"
+    url: "https://twitter.com/dedowsdi/status/1061174911962570752"
+    source: "https://github.com/dedowsdi/journey/tree/master/gl4/challenge/lissajous"
 ---
 
 In this Coding Challenge, I visualize a "Lissajous Curve Table" with Processing (Java).
