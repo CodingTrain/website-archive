@@ -23,6 +23,14 @@ videos:
     url: "/CodingChallenges/130.1-fourier-transform-drawing"
   - title: "Perlin Noise"
     playlist_id: "PLRqwX-V7Uu6bgPNQAdxQZpJuJCjeOr7VD"
+
+contributions:
+  - title: "Rainbow Perlin noise loop in 3D"
+    author:
+      name: "Carlos Ponce"
+      url: "https://jcponce.github.io"
+    url: "https://www.dynamicmath.xyz/calculus/3d-curves/rainbownoise/"
+    source: "https://github.com/jcponce/calculus/tree/gh-pages/3d-curves/rainbownoise"
 ---
 
 In this challenge, I follow the path of a circle in 2D Perlin noise space in order to use noise values that loop.
