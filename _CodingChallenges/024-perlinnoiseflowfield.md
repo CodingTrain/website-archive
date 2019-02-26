@@ -5,6 +5,7 @@ video_number: 24
 date: 2016-06-27
 video_id: BjoM9oKOAKY
 repository: CC_024_PerlinNoiseFlowField
+web_editor: vDcIAbfg7
 
 links:
   - title: "Processing code"
