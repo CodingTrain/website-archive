@@ -3,23 +3,23 @@
 // https://thecodingtrain.com/CodingChallenges/136.2-perlin-noise-gif-loops.html
 // https://youtu.be/c6K-wJQ77yQ
 
-int totalFrames = 480;
-int counter = 0;
-boolean record = false;
+const totalFrames = 480;
+let counter = 0;
+let record = false;
 
-Particle[] particles = new Particle[100];
+let particles = new Array(100);
 
-void setup() {
-  size(600, 600);
-  for (int i = 0; i < particles.length; i++) {
+function setup() {
+  createCanvas(600, 600);
+  for (let i = 0; i < particles.length; i++) {
     particles[i] = new Particle();
   }
-  
-  
+
+
 }
 
-void draw() {
-  float percent = 0;
+function draw() {
+  let percent = 0;
   if (record) {
     percent = float(counter) / totalFrames;
   } else {
@@ -27,19 +27,19 @@ void draw() {
   }
   render(percent);
   if (record) {
-    saveFrame("output/gif-"+nf(counter, 3)+".png");
-    if (counter == totalFrames-1) {
+    saveFrame("output/gif-" + nf(counter, 3) + ".png");
+    if (counter == totalFrames - 1) {
       exit();
     }
   }
   counter++;
 }
 
-void render(float percent) {
+function render(percent) {
   background(0);
-  float a = percent * TWO_PI;
-  for (Particle p : particles) {
-    p.render(a); 
+  let a = percent * TWO_PI;
+  for (let p of particles) {
+    p.render(a);
   }
-  
+
 }
