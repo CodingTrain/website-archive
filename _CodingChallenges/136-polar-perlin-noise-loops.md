@@ -31,6 +31,12 @@ contributions:
       url: "https://jcponce.github.io"
     url: "https://www.dynamicmath.xyz/calculus/3d-curves/rainbownoise/"
     source: "https://github.com/jcponce/calculus/tree/gh-pages/3d-curves/rainbownoise"
+  - title: "Bezier Curve Polar Noise"
+    author:
+      name: "Jeremy Behreandt"
+      url: "https://behreandt.bitbucket.io"
+    url: "https://editor.p5js.org/jeremy.behreandt/present/V-fpg19KG"
+    source: "https://editor.p5js.org/jeremy.behreandt/sketches/V-fpg19KG"
 ---
 
 In this challenge, I follow the path of a circle in 2D Perlin noise space in order to use noise values that loop.
