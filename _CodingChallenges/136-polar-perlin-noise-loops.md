@@ -23,7 +23,7 @@ videos:
     url: "/CodingChallenges/130.1-fourier-transform-drawing"
   - title: "Perlin Noise"
     playlist_id: "PLRqwX-V7Uu6bgPNQAdxQZpJuJCjeOr7VD"
- 
+
 contributions:
   - title: "Rainbow Perlin noise loop in 3D"
     author:
