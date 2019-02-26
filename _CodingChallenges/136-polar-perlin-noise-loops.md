@@ -34,7 +34,7 @@ contributions:
   - title: "Bezier Curve Polar Noise"
     author:
       name: "Jeremy Behreandt"
-      url: "behreandt.bitbucket.io"
+      url: "https://behreandt.bitbucket.io"
     url: "https://editor.p5js.org/jeremy.behreandt/present/V-fpg19KG"
     source: "https://editor.p5js.org/jeremy.behreandt/sketches/V-fpg19KG"
 ---
