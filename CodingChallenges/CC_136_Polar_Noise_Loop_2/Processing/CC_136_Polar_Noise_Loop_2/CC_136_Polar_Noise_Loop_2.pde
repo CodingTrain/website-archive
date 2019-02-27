@@ -1,7 +1,7 @@
-// GIF Loop
+// Perlin Noise GIF Loops
 // Daniel Shiffman
-// https://thecodingtrain.com/CodingChallenges/135-gif-loop.html
-// https://youtu.be/nBKwCCtWlUg
+// https://thecodingtrain.com/CodingChallenges/136.2-perlin-noise-gif-loops.html
+// https://youtu.be/c6K-wJQ77yQ
 
 int totalFrames = 480;
 int counter = 0;
