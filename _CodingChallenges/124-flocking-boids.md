@@ -75,7 +75,7 @@ contributions:
     author:
       name: "Paul Keller"
       url: "https://github.com/scorixear/"
-    url: "https://youtu.be/9B_12AXKfR4"
+    url: "https://www.youtube.com/watch?v=9B_12AXKfR4"
     source: "https://github.com/scorixear/FlockingSimulation"
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
