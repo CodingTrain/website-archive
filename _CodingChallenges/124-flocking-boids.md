@@ -71,5 +71,9 @@ contributions:
     author:
       name: "Seo junekyo"
     url: "http://1000triangle.com"
+  - title: "Flocking in JavaFX"
+    author:
+      name: "Paul Keller"
+    source: "https://github.com/scorixear/FlockingSimulation"
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
