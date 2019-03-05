@@ -3,6 +3,7 @@ title: "4D OpenSimplex Noise Loop"
 video_number: 137
 date: 2019-03-05
 video_id: 3_0Ax95jIrk
+repository: CC_137_4D_Noise_Loop
 
 links:
   - title: "OpenSimplexNoise.java"
@@ -20,5 +21,4 @@ videos:
     url: "/CodingChallenges/136.1-polar-perlin-noise-loops"
 ---
 
-Another Noise Loop video!? OF COURSE!
-In this coding challenge, I create a looping GIF with the OpenSimplex Noise algorithm in Processing(Java).
+It's groundhog day on the coding train as I demonstrate another noise loop GIF technique, this time with 4D Open Simple Noise in Processing (Java).
