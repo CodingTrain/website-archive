@@ -6,6 +6,12 @@ video_id: nBKwCCtWlUg
 repository: CC_135_GIF_Loop
 web_editor: Hk6RTHBCl
 
+contributions:
+  - title: "3DSuperShapeGifLoop"
+    author:
+      name: "Jos Gielen"
+    url: "https://github.com/JosGielen/hello-world/blob/master/3DSuperShapeGifLoop.gif"
+
 links:
   - title: "Daily Art"
     author: "Saskia Freeke"
