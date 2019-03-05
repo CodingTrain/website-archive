@@ -37,8 +37,8 @@ void draw() {
 
 void render(float percent) {
   float angle = map(percent, 0, 1, 0, TWO_PI);
-  float uoff = cos(angle) + 1;
-  float voff = sin(angle) + 1;
+  float uoff = map(sin(angle), -1, 1, 0, 2);
+  float voff = map(sin(angle), -1, 1, 0, 2);
 
   float xoff = 0;
   loadPixels();
