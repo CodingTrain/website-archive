@@ -25,6 +25,12 @@ contributions:
       url: "http://mogensmeissner.tk/"
     url: "http://mogensmeissner.tk/coding/examples/pi/p5/empty-example/index.html"
     source: "https://github.com/MogiMei/ApproximatePi/"
+    - title: "Smiley Version"
+    author:
+      name: "Kiril Blagoev"
+      url: "https://github.com/tihawk/"
+    url: "https://codepen.io/tihawk/full/XGNyEL"
+    source: "https://github.com/tihawk/browser-visualisations/tree/master/public/simple-sampling"
 ---
 
 In this coding challenge, I use use a "monte carlo" method to approximate the value of Pi in Processing (Java).
