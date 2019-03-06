@@ -25,7 +25,7 @@ contributions:
       url: "http://mogensmeissner.tk/"
     url: "http://mogensmeissner.tk/coding/examples/pi/p5/empty-example/index.html"
     source: "https://github.com/MogiMei/ApproximatePi/"
-    - title: "Smiley Version"
+  - title: "Smiley Version"
     author:
       name: "Kiril Blagoev"
       url: "https://github.com/tihawk/"
