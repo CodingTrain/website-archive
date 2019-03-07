@@ -77,5 +77,11 @@ contributions:
       url: "https://github.com/scorixear/"
     url: "https://goo.gl/5tpEFU"
     source: "https://github.com/scorixear/FlockingSimulation"
+  - title: "Flocking in 3D using the Vicsek Model"
+    author:
+      name: "Kiril Blagoev"
+      url: "https://github.com/tihawk/"
+    url: "https://codepen.io/tihawk/full/vPXebG"
+    source: "https://github.com/tihawk/browser-visualisations/tree/master/public/vicsek"
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
