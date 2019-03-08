@@ -24,6 +24,12 @@ contributions:
       url: "https://wb-magalhaes.firebaseapp.com"
     url: "https://wb-magalhaes.firebaseapp.com/projects/mandelbrot"
     source: "https://github.com/wbmagalhaes/web-stuff/tree/master/mandelbrot"
+  - title: "Mandelbrot-Julia sets relationship explorer"
+    author:
+      name: "Carlos Ponce"
+      url: "https://jcponce.github.io"
+    url: "https://jcponce.github.io/complex/mandelbrotjulia/"
+    source: "https://github.com/jcponce/complex/tree/gh-pages/mandelbrotjulia"
 ---
 
 In this coding challenge, I program from the Julia Set fractal in Processing (Java).
