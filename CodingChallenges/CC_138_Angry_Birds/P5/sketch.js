@@ -1,11 +1,9 @@
-const {
-  Engine,
-  World,
-  Bodies,
-  Mouse,
-  MouseConstraint,
-  Constraint
-} = Matter;
+// Angry Birds
+// Daniel Shiffman
+// https://thecodingtrain.com/CodingChallenges/138-angry-birds.html
+// https://youtu.be/TDQzoe9nslY
+
+const { Engine, World, Bodies, Mouse, MouseConstraint, Constraint } = Matter;
 
 let ground;
 const boxes = [];
@@ -16,14 +14,16 @@ let slingshot;
 
 let dotImg;
 let boxImg;
+let bkgImg;
 
 function preload() {
   dotImg = loadImage('images/dot.png');
   boxImg = loadImage('images/equals.png');
+  bkgImg = loadImage('images/skyBackground.png');
 }
 
 function setup() {
-  const canvas = createCanvas(600, 400);
+  const canvas = createCanvas(711, 400);
   engine = Engine.create();
   world = engine.world;
   ground = new Ground(width / 2, height - 10, width, 20);
@@ -38,10 +38,9 @@ function setup() {
   const options = {
     mouse: mouse,
   }
-  
+
   // A fix for HiDPI displays
   mouse.pixelRatio = pixelDensity();
-
   mConstraint = MouseConstraint.create(engine, options);
   World.add(world, mConstraint);
 }
@@ -59,11 +58,10 @@ function mouseReleased() {
   setTimeout(() => {
     slingshot.fly();
   }, 100);
-
 }
 
 function draw() {
-  background(0);
+  background(bkgImg);
   Matter.Engine.update(engine);
   ground.show();
   for (let box of boxes) {

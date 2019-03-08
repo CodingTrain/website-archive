@@ -1,4 +1,11 @@
+// Angry Birds
+// Daniel Shiffman
+// https://thecodingtrain.com/CodingChallenges/138-angry-birds.html
+// https://youtu.be/TDQzoe9nslY
+// https://editor.p5js.org/codingtrain/sketches/LbNt1nyxE
+
 class Box {
+  
   constructor(x, y, w, h) {
     const options = {
       restitution: 0.5
@@ -7,7 +14,6 @@ class Box {
     Matter.World.add(world, this.body);
     this.w = w;
     this.h = h;
-    
   }
   
   show() {
@@ -20,11 +26,7 @@ class Box {
     rectMode(CENTER);
     imageMode(CENTER);
     image(boxImg, 0, 0, this.w, this.h);
-    pop();
-    
+    pop(); 
   }
   
-  
-
-
 }
