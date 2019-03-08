@@ -4,6 +4,7 @@ video_number: 138
 date: 2019-03-08
 video_id: TDQzoe9nslY
 web_editor: LbNt1nyxE
+repository: CC_138_Angry_Birds
 
 links:
   - title: "Angry Birds"
@@ -19,4 +20,5 @@ videos:
   - title: "Phaser Game Development with Catt Small"
     video_id: "T9kOFSFvgKc"
 ---
-In this coding challenge, I recreate the famous game Angry Birds with the Matter.js physics library and p5.js.
+
+An attempt to implement the basic mechanics of Angry Birds in JavaScript using p5.js and the matter.js physics engine.
