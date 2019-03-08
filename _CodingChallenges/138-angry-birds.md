@@ -18,6 +18,5 @@ videos:
     video_id: "MfxBfRD0FVU"
   - title: "Phaser Game Development with Catt Small"
     video_id: "T9kOFSFvgKc"
-    
 ---
-In this coding challenge, I recreate the famous game Angry Birds with the Matter.js physics library and p5.js 
+In this coding challenge, I recreate the famous game Angry Birds with the Matter.js physics library and p5.js.
