@@ -1,6 +1,5 @@
 // Daniel Shiffman
 // http://codingtra.in
-// http://patreon.com/codingtrain
 
 // Visualizing the Digits of Pi
 // https://youtu.be/WEd_UIKG-uc
