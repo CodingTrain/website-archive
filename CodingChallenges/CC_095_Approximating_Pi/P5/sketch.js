@@ -52,7 +52,7 @@ function draw() {
     if (diff < recordDiff) {
       recordDiff = diff;
       recordPI = pi;
-      resultP.elt.innerText = `Approximated Value: ${recordPI}`;
+      resultP.html(`Approximated Value: ${recordPI}`);
     }
   }
 }
