@@ -18,6 +18,12 @@ contributions:
       url: "https://thecodingtrain.com"
     url: "https://github.com/CodingTrain/Pi-Day-2019"
     source: "https://github.com/CodingTrain/Pi-Day-2019"
+      - title: "click at owen risk"
+    author:
+      name: "Nugget"
+      url: "https://thecodingtrain.com"
+    url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    source: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 
 links:
   - title: "Playing Pool with Pi"
