@@ -12,6 +12,12 @@ contributions:
       url: "https://github.com/Mateiadrielrafael"
     url: "https://pi-collisions.herokuapp.com/"
     source: "https://github.com/Mateiadrielrafael/Pool_Pi/blob/master/pool_pi3/js/main.ts"
+  - title: "Processing versions with BigDecimal"
+    author:
+      name: "Daniel Shiffman"
+      url: "https://thecodingtrain.com"
+    url: "https://github.com/CodingTrain/Pi-Day-2019"
+    source: "https://github.com/CodingTrain/Pi-Day-2019"
 
 links:
   - title: "Playing Pool with Pi"
