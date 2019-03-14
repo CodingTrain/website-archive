@@ -12,6 +12,11 @@ contributions:
       url: "https://github.com/Mateiadrielrafael"
     url: "https://pi-collisions.herokuapp.com/"
     source: "https://github.com/Mateiadrielrafael/Pool_Pi/blob/master/pool_pi3/js/main.ts"
+  - title: "Animation without using PI"
+    author:
+      name: "tht_jxny"
+    url: https://editor.p5js.org/tht-jxny/full/RG9tqIJqN
+    source: https://editor.p5js.org/tht-jxny/sketches/RG9tqIJqN
 
 links:
   - title: "Playing Pool with Pi"
@@ -34,4 +39,4 @@ videos:
     video_id: "yii2P7WVfNE"
 ---
 
-Happy Pi Day! In this video, I attempt to compute the digits of Pi using the "collisions" method, thanks to 3Blue1Brown for the idea!
+Happy Pi Day! In this video I attempt to compute the digits of Pi using the "collisions" method, thanks to 3Blue1Brown for the idea!
