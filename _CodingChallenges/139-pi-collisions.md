@@ -24,6 +24,14 @@ videos:
     video_id: "abv4Fz7oNr0"
   - title: "Patron/Member Live Stream"
     video_id: "yii2P7WVfNE"
+    
+contributions:
+    -title: "Fast p5 implementation"
+    author:
+      name: "Matei Adriel"
+      url: "https://github.com/Mateiadrielrafael"
+    url: "https://pi-collisions.herokuapp.com/"
+    source: "https://github.com/Mateiadrielrafael/Pool_Pi/blob/master/pool_pi3/js/main.ts"
 ---
 
 Happy Pi Day! In this video I attempt to compute the digits of Pi using the "collisions" method, thanks to 3Blue1Brown for the idea!
