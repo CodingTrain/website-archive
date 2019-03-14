@@ -12,6 +12,8 @@ links:
     url: "https://en.wikipedia.org/wiki/Elastic_collision"
   - title: "Euler Method"
     url: "https://en.wikipedia.org/wiki/Euler_method"
+  - title: "Additional Code Examples"
+    url: "https://github.com/CodingTrain/Pi-Day-2019"
 
 videos:
   - title: "The most unexpected answer to a counting puzzle by 3Blue1Brown"
