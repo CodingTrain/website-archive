@@ -34,4 +34,4 @@ videos:
     video_id: "yii2P7WVfNE"
 ---
 
-Happy Pi Day! In this video I attempt to compute the digits of Pi using the "collisions" method, thanks to 3Blue1Brown for the idea!
+Happy Pi Day! In this video, I attempt to compute the digits of Pi using the "collisions" method, thanks to 3Blue1Brown for the idea!
