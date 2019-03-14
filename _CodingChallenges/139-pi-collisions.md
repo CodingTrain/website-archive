@@ -5,6 +5,14 @@ date: 2019-03-14
 video_id: PoW8g67XNxA
 web_editor: 4FuKfd-LJ
 
+contributions:
+  - title: "Fast p5 implementation"
+    author:
+      name: "Matei Adriel"
+      url: "https://github.com/Mateiadrielrafael"
+    url: "https://pi-collisions.herokuapp.com/"
+    source: "https://github.com/Mateiadrielrafael/Pool_Pi/blob/master/pool_pi3/js/main.ts"
+
 links:
   - title: "Playing Pool with Pi"
     url: "https://www.maths.tcd.ie/~lebed/Galperin.%20Playing%20pool%20with%20pi.pdf"
