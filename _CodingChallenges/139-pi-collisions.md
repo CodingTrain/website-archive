@@ -1,5 +1,5 @@
 ---
-title: "ACalculating Digits of Pi with Collisions"
+title: "Calculating Digits of Pi with Collisions"
 video_number: 139
 date: 2019-03-14
 video_id: PoW8g67XNxA
