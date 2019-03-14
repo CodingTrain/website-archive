@@ -6,7 +6,7 @@ video_id: PoW8g67XNxA
 web_editor: 4FuKfd-LJ
 
 contributions:
-    -title: "Fast p5 implementation"
+  - title: "Fast p5 implementation"
     author:
       name: "Matei Adriel"
       url: "https://github.com/Mateiadrielrafael"
