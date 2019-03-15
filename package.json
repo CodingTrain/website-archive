@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "Coding Train Website",
   "main": "none",
-  "dependencies": {},
+  "dependencies": {
+    "replace-in-file": "^3.4.4"
+  },
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-p5js": "^1.0.1",
