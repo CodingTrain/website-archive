@@ -24,6 +24,12 @@ contributions:
       name: "tht_jxny"
     url: "https://editor.p5js.org/tht-jxny/full/RG9tqIJqN"
     source: "https://editor.p5js.org/tht-jxny/sketches/RG9tqIJqN"
+  - title: "Pi Day Collisions Visualizing Optics"
+    author:
+      name: "Anurag Hazra"
+      url: "https://github.com/anuraghazra"
+    url: "https://anuraghazra.github.io/CanvasFun/PiDayCollisions/"
+    source: "https://github.com/anuraghazra/CanvasFun/tree/master/PiDayCollisions"
 
 links:
   - title: "Playing Pool with Pi"
