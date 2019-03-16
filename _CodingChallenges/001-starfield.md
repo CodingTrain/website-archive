@@ -26,6 +26,12 @@ contributions:
       url: "https://bjorvack.github.io/code-challenges/"
     url: "https://bjorvack.github.io/code-challenges/challenges/cc-001-starfield/"
     source: "https://github.com/bjorvack/code-challenges/tree/master/challenges/cc-001-starfield"
+  - title: "3D Starfield"
+    author:
+      name: "Timothy Diguiet"
+      url: "https://github.com/QTimort"
+    url: "http://htmlpreview.github.io/?https://github.com/QTimort/3d-starfield/blob/master/dist/index.html"
+    source: "https://github.com/QTimort/3d-starfield"
 ---
 
 This is the first in a new series of videos.  In this video I attempt to program a "star field" or "warp speed" visualization in Processing.  
