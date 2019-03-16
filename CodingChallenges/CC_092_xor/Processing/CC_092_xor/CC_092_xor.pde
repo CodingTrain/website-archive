@@ -4,7 +4,6 @@ NeuralNetwork brain;
 trainingdata[] data = {
   new trainingdata(0, 1, 1), new trainingdata(1, 0, 1), new trainingdata(0, 0, 0), new trainingdata(1, 1, 0) 
 };
-Landscape land;
 float theta;
 void setup()
 {
@@ -41,15 +40,6 @@ void draw()
     }
   }
 }
-
-void mouseClicked()
-{
-  Matrix test = Matrix.Random(2, 3); 
-  String[][] tester = Matrix.stringify(test);
-  Print(tester, "tester");
-  saveStrings("test.txt", tester[0]);
-}
-
 
 void Print(Matrix a, String name)
 {
