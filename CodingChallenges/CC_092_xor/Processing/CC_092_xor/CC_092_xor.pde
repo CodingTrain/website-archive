@@ -1,8 +1,6 @@
 
 
 NeuralNetwork brain;
-float[] in = {0, 1};
-float[] goal = {1};
 trainingdata[] data = {
   new trainingdata(0, 1, 1), new trainingdata(1, 0, 1), new trainingdata(0, 0, 0), new trainingdata(1, 1, 0) 
 };
@@ -12,7 +10,6 @@ void setup()
 {
   size(400, 400);
   brain = new NeuralNetwork(2, 4, 1);
-  land = new Landscape(20, 300, 300);
 }
 
 void draw()
@@ -26,27 +23,6 @@ void draw()
       brain.train(data[k].inputs, data[k].target);
     }
   }
-
-  //// Ok, visualize the solution space
-  //background(175);
-  //pushMatrix();
-  //translate(width/2, height/2+20, -160);
-  //rotateX(PI/3);
-  //rotateZ(theta);
-
-  //// Put a little BOX on screen
-  //pushMatrix();
-  //stroke(50);
-  //noFill();
-  //translate(-10, -10, 0);
-  //box(280);
-
-  //// Draw the landscape
-  //popMatrix();
-  //land.calculate(brain);
-  //land.render(); 
-  //theta += 0.0025;
-  //popMatrix();
 
   float res = 10;
   float cols = width/res;
