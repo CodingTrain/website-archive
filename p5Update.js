@@ -73,19 +73,13 @@ const options = [
   p5_dom_min_js
 ];
 
-const asyncForEach = async (array, callback) => {
-  for (let index = 0; index < array.length; index++) {
-    await callback(array[index], index, array);
-  }
-};
-
-(() => {
-  asyncForEach(options, async option => {
+(async () => {
+  for (const option of options) {
     try {
       const changes = await replace(option);
       console.log(`${option.name}: `, changes.join(", "));
     } catch (error) {
       console.error("Error occurred:", error);
     }
-  });
+  }
 })();
