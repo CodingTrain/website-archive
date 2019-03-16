@@ -1,79 +1,44 @@
+// Daniel Shiffman
+// http://codingtra.in
+
+// XOR
+// https://youtu.be/188B6k_F9jU
+
+// Neural Network Library
+// https://github.com/CodingTrain/Toy-Neural-Network-JS
 
 
-NeuralNetwork brain;
+NeuralNetwork Brain;
 trainingdata[] data = {
   new trainingdata(0, 1, 1), new trainingdata(1, 0, 1), new trainingdata(0, 0, 0), new trainingdata(1, 1, 0) 
 };
 float theta;
-void setup()
-{
+void setup() {
   size(400, 400);
-  brain = new NeuralNetwork(2, 4, 1);
+  Brain = new NeuralNetwork(2, 4, 1);
 }
 
-void draw()
-{
+void draw() {
   background(51);
-  for (int i = 0; i < 10; i++)
-  {
-    for (int j = 0; j < data.length; j++)
-    {
+  for (int i = 0; i < 10; i++) {
+    for (int j = 0; j < data.length; j++) {
       int k = int(random(data.length));
-      brain.train(data[k].inputs, data[k].target);
+      Brain.train(data[k].inputs, data[k].target);
     }
   }
 
   float res = 10;
   float cols = width/res;
   float rows = height/res;
-  for (float x = 0; x < cols; x++)
-  {
-    for (float y = 0; y < rows; y++)
-    {
+  for (float x = 0; x < cols; x++) {
+    for (float y = 0; y < rows; y++) {
       float x1 = x/cols;
       float y1 = y/rows;
       float[] inputs = {x1, y1};
-      float[] c = brain.feedforward(inputs);
+      float[] c = Brain.feedforward(inputs);
       noStroke();
       fill(c[0]*255);
       rect(x*res, y*res, res, res);
     }
   }
-}
-
-void Print(Matrix a, String name)
-{
-  println(name);
-  println("size", a.values.length, a.values[0].length);
-  for (int i = 0; i < a.rows; i++)
-  {
-    for (int j = 0; j < a.cols; j++)
-    {
-      println(a.values[i][j]);//
-    }
-  }
-  println("");
-}
-
-void Print(float[] a, String name)
-{
-  println(name);
-  println("size", a.length);
-  for (int i = 1; i < a.length; i++)
-  {
-    println(a[i-1]);
-  }
-  println("");
-}
-
-void Print(String[][] a, String name)
-{
-  println(name);
-  println("size", a.length, a[0].length);
-  for (int i = 0; i < a.length; i++)
-  {
-    for (int j = 0; j < a[0].length; j++)
-      println(a[i][j]);
-  }
-  println("");
 }

@@ -1,142 +1,128 @@
-float sigmoid(float x)
-{
+// Daniel Shiffman
+// http://codingtra.in
+
+// XOR
+// https://youtu.be/188B6k_F9jU
+
+// Neural Network Library
+// https://github.com/CodingTrain/Toy-Neural-Network-JS
+
+float sigmoid(float x) {
   return 1 / (1+(float)Math.exp(-x));
 }
 
-float dsigmoid(float y)
-{
+float dsigmoid(float y) {
   return y * (1-y);
 }
 
-float tanh(float x)
-{
+float tanh(float x) {
   float y = (float) Math.tanh(x);
   return y;
 }
 
-float dtanh(float x) 
-{
+float dtanh(float x) {
   float y = 1 / (pow((float) Math.cosh(x), 2));
   return y;
 }
 
-class NeuralNetwork
-{
+class NeuralNetwork {
   int 
     inputNodes, 
     hiddenNodes, 
     outputNodes;
 
-  float LearningRate = .1;
+  float learningRate = 0.1;
 
   Matrix 
-    IHWeights, 
-    HOWeights, 
-    Hbias, 
-    Obias, 
+    ihWeights, 
+    hoWeights, 
+    hbias, 
+    oBias, 
     input, 
     hidden, 
     output;
 
-  NeuralNetwork(NeuralNetwork copy)
-  {
+  NeuralNetwork(NeuralNetwork copy) {
     inputNodes = copy.inputNodes;
     hiddenNodes = copy.hiddenNodes;
     outputNodes = copy.outputNodes;
 
-    IHWeights = copy.IHWeights;
-    HOWeights = copy.HOWeights;
-    Hbias = copy.Hbias;
-    Obias = copy.Obias;
+    ihWeights = copy.ihWeights;
+    hoWeights = copy.hoWeights;
+    hbias = copy.hbias;
+    oBias = copy.oBias;
   }
 
-  NeuralNetwork(int input, int hidden, int output)
-  {
+  NeuralNetwork(int input, int hidden, int output) {
     inputNodes = input;
     hiddenNodes = hidden;
     outputNodes = output;
 
-    IHWeights = Matrix.Random(hiddenNodes, inputNodes);
-    HOWeights = Matrix.Random(outputNodes, hiddenNodes);
-    Hbias = Matrix.Random(hiddenNodes, 1);
-    Obias = Matrix.Random(outputNodes, 1);
+    ihWeights = Matrix.Random(hiddenNodes, inputNodes);
+    hoWeights = Matrix.Random(outputNodes, hiddenNodes);
+    hbias = Matrix.Random(hiddenNodes, 1);
+    oBias = Matrix.Random(outputNodes, 1);
   }
 
-  NeuralNetwork(int input, int hidden, int output, float lr)
-  {
+  NeuralNetwork(int input, int hidden, int output, float lr) {
     this(input, hidden, output);
     setLearingrate(lr);
   }
 
-  NeuralNetwork(Table t)
-  {
+  NeuralNetwork(Table t) {
   }
 
-  void Save()
-  {
+  void Save() {
   }
 
-  NeuralNetwork copy()
-  {
+  NeuralNetwork copy() {
     return new NeuralNetwork(this);
   }
 
 
-  float mut(float val, float rate)
-  {
-    if ((float)Math.random() < rate)
-    {
+  float mut(float val, float rate) {
+    if ((float)Math.random() < rate) {
       return val+randomGaussian()*.1;
-    } else
-    {
+    } else {
       return val;
     }
   }
 
-  void mutate(float rate)
-  {
-    for (int i = 0; i < output.rows; i++)
-    {
-      for (int j = 0; j < output.cols; j++)
-      {
+  void mutate(float rate) {
+    for (int i = 0; i < output.rows; i++) {
+      for (int j = 0; j < output.cols; j++) {
         float val = output.values[i][j];
         output.values[i][j] = mut(val, rate);
       }
     }
   }
 
-  void setLearingrate(float rate)
-  {
-    LearningRate = rate;
+  void setLearingrate(float rate) {
+    learningRate = rate;
   }
 
-  float[] feedforward(float[] inputArray)
-  {
-    input = Matrix.FromArray(inputArray);
+  float[] feedforward(float[] inputArray) {
+    input = Matrix.fromArray(inputArray);
 
     //generating hidden inputs
-    hidden = Matrix.Product(IHWeights, input);
-    hidden.add(Hbias);
+    hidden = Matrix.Product(ihWeights, input);
+    hidden.add(hbias);
 
     //activation function for hidden nodes!
-    for (int i = 0; i < hidden.rows; i++)
-    {
-      for (int j = 0; j < hidden.cols; j++)
-      {
+    for (int i = 0; i < hidden.rows; i++) {
+      for (int j = 0; j < hidden.cols; j++) {
         float val = hidden.values[i][j];
         hidden.values[i][j] = sigmoid(val);
       }
     }
 
     //generating hidden output
-    output = Matrix.Product(HOWeights, hidden);
-    output.add(Obias);
+    output = Matrix.Product(hoWeights, hidden);
+    output.add(oBias);
 
     //activation function for ouput nodes!
-    for (int i = 0; i < output.rows; i++)
-    {
-      for (int j = 0; j < output.cols; j++)
-      {
+    for (int i = 0; i < output.rows; i++) {
+      for (int j = 0; j < output.cols; j++) {
         float val = output.values[i][j];
         output.values[i][j] = sigmoid(val);
       }
@@ -146,62 +132,51 @@ class NeuralNetwork
     return output.toArray();
   }
 
-  void train(float[] inputArray, float[] targetArray)
-  {
+  void train(float[] inputArray, float[] targetArray) {
     feedforward(inputArray);
 
-    Matrix targets = Matrix.FromArray(targetArray);
+    Matrix targets = Matrix.fromArray(targetArray);
     Matrix outputErrors = Matrix.subtract(targets, output);
 
     //java version of matrix map function
     Matrix gradient = output.copy();
-    for (int i = 0; i < gradient.rows; i++)
-    {
-      for (int j = 0; j < gradient.cols; j++)
-      {
+    for (int i = 0; i < gradient.rows; i++) {
+      for (int j = 0; j < gradient.cols; j++) {
         float val = gradient.values[i][j];
         gradient.values[i][j] = dsigmoid(val);
       }
     }
 
-
-
     gradient.multiply(outputErrors);  //elementWise
-    gradient.multiply(LearningRate);  //Scalar
+    gradient.multiply(learningRate);  //Scalar
 
     Matrix hiddenT = Matrix.transpose(hidden);
-    Matrix DHOWeights = Matrix.Product(gradient, hiddenT);
+    Matrix DhoWeights = Matrix.Product(gradient, hiddenT);
 
-    HOWeights.add(DHOWeights);
+    hoWeights.add(DhoWeights);
 
-    Obias.add(gradient);
+    oBias.add(gradient);
 
-    Matrix HOWeightsT = Matrix.transpose(HOWeights);
-    Matrix hiddenErrors = Matrix.Product(HOWeightsT, outputErrors);
+    Matrix hoWeightsT = Matrix.transpose(hoWeights);
+    Matrix hiddenErrors = Matrix.Product(hoWeightsT, outputErrors);
 
     //java version of matrix map function
     Matrix hiddenGradient = hidden.copy();
-    for (int i = 0; i < hiddenGradient.rows; i++)
-    {
-      for (int j = 0; j < hiddenGradient.cols; j++)
-      {
+    for (int i = 0; i < hiddenGradient.rows; i++) {
+      for (int j = 0; j < hiddenGradient.cols; j++) {
         float val = hiddenGradient.values[i][j];
         hiddenGradient.values[i][j] = dsigmoid(val);
       }
     }
 
     hiddenGradient.multiply(hiddenErrors);
-    hiddenGradient.multiply(LearningRate);
+    hiddenGradient.multiply(learningRate);
 
     Matrix inputT = Matrix.transpose(input);
-    Matrix DIHWeights = Matrix.Product(hiddenGradient, inputT);
+    Matrix DihWeights = Matrix.Product(hiddenGradient, inputT);
 
-    IHWeights.add(DIHWeights);
+    ihWeights.add(DihWeights);
 
-    Hbias.add(hiddenGradient);
-
-    //Print(outputs, "outputs");
-    //Print(targets, "targets");
-    //Print(error, "error");
+    hbias.add(hiddenGradient);
   }
 }

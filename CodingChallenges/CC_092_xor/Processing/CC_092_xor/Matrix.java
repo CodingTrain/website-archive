@@ -1,89 +1,78 @@
-public class Matrix
-{
+// Daniel Shiffman
+// http://codingtra.in
+
+// XOR
+// https://youtu.be/188B6k_F9jU
+
+// Neural Network Library
+// https://github.com/CodingTrain/Toy-Neural-Network-JS
+
+public class Matrix {
   int rows, cols;
   float[][] values;
 
-  Matrix(int rows, int cols)
-  {
+  Matrix(int rows, int cols) {
     this.rows = rows;
     this.cols = cols;
     values = new float[this.rows][this.cols];
   }
 
-  Matrix()
-  {
+  Matrix() {
     rows = 1;
     cols = 1;
     values = new float[rows][cols];
   }
 
-  Matrix copy()
-  {
+  Matrix copy() {
     Matrix result = new Matrix(rows, cols);
     result.values = values.clone();
     return result;
   }
 
-  static String[][] stringify(Matrix a)
-  {
+  static String[][] stringify(Matrix a) {
     String[][] result = new String[a.rows][a.cols];
-    for (int i = 0; i < a.rows; i++)
-    {
-      for (int j = 0; j < a.cols; j++)
-      {
+    for (int i = 0; i < a.rows; i++) {
+      for (int j = 0; j < a.cols; j++) {
         result[i][j] = i+" " + j+" " + a.values[i][j]+" ";
       }
     }
     return result;
   }
 
-  void multiply(float n)
-  {
-    for (int i = 0; i < rows; i++)
-    {
-      for (int j = 0; j < cols; j++)
-      {
+  void multiply(float n) {
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
         values[i][j] *= n;
       }
     }
   }
 
-  void add(float n)
-  {
-    for (int i = 0; i < rows; i++)
-    {
-      for (int j = 0; j < cols; j++)
-      {
+  void add(float n) {
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
         values[i][j] += n;
       }
     }
   }
 
-  static Matrix Random(int rows, int cols)
-  {
+  static Matrix Random(int rows, int cols) {
     Matrix result = new Matrix(rows, cols);
     result.randomize();
     return result;
   }
 
-  void randomize()
-  {
-    for (int i = 0; i < rows; i++)
-    {
-      for (int j = 0; j < cols; j++)
-      {
+  void randomize() {
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
         values[i][j] = (float) Math.random() * 2 - 1;
       }
     }
   }
 
-  static Matrix subtract(Matrix a, Matrix b)
-  {
+  static Matrix subtract(Matrix a, Matrix b) {
     Matrix result = new Matrix(a.rows, a.cols);
-    for (int i = 0; i < a.rows; i++)
-    {
-      for (int j = 0; j < a.cols; j++)
-      {
+    for (int i = 0; i < a.rows; i++) {
+      for (int j = 0; j < a.cols; j++) {
         result.values[i][j] = a.values[i][j] - b.values[i][j];
       }
     }
@@ -91,79 +80,60 @@ public class Matrix
     return result;
   }
 
-  static Matrix FromArray(float[] arr)
-  {
+  static Matrix fromArray(float[] arr) {
     Matrix result = new Matrix(arr.length, 1);
 
-    for (int i = 0; i < result.rows; i++)
-    {
+    for (int i = 0; i < result.rows; i++) {
       result.values[i][0] = arr[i];
     }
     return result;
   }
 
-  float[] toArray()
-  {
+  float[] toArray() {
     float[] arr = new float[rows+cols];
-    for (int i = 0; i < rows; i++)
-    {
-      for (int j = 0; j < cols; j++)
-      {
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
         arr[i] = values[i][j];
       }
     }
     return arr;
   }
 
-  void add(Matrix other)
-  {
-    for (int i = 0; i < rows; i++)
-    {
-      for (int j = 0; j < cols; j++)
-      {
+  void add(Matrix other) {
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
         values[i][j] += other.values[i][j];
       }
     }
   }
 
-  void multiply(Matrix other)
-  {
-    for (int i = 0; i < rows; i++)
-    {
-      for (int j = 0; j < cols; j++)
-      {
+  void multiply(Matrix other) {
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
         values[i][j] *= other.values[i][j];
       }
     }
   }
 
-  static Matrix transpose(Matrix a)
-  {
+  static Matrix transpose(Matrix a) {
     Matrix result = new Matrix(a.cols, a.rows);
-    for (int i = 0; i < a.rows; i++)
-    {
-      for (int j = 0; j < a.cols; j++)
-      {
+    for (int i = 0; i < a.rows; i++) {
+      for (int j = 0; j < a.cols; j++) {
         result.values[j][i] = a.values[i][j];
       }
     }
     return result;
   }
 
-  static Matrix Product(Matrix first, Matrix second)
-  {
-    if (first.cols != second.rows)
-    {
+  static Matrix Product(Matrix first, Matrix second) {
+    if (first.cols != second.rows) {
       return null;
-    } else
-    {
+    } else {
       Matrix a = first;
       Matrix b = second;
       Matrix result = new Matrix(a.rows, b.cols);
-      for (int i = 0; i < result.rows; i++)
-      {
-        for (int j = 0; j < result.cols; j++)
-        {
+      for (int i = 0; i < result.rows; i++) {
+        for (int j = 0; j < result.cols; j++) {
           float sum = 0;
           for (int k = 0; k < a.cols; k++)
           {
