@@ -35,6 +35,12 @@ contributions:
       url: "https://github.com/MeaningOf42"
     url: "https://meaningof42.github.io/pointless-site/css_dithering/index.html"
     source: "https://github.com/MeaningOf42/pointless-site/tree/master/css_dithering"
+  - title: "Exploring Dithering"
+    author:
+      name: "Fi Graham"
+      url: "https://github.com/figraham"
+    url: "https://github.com/figraham/exploringdithering"
+    source: "https://github.com/figraham/exploringdithering"
 ---
 
 In this coding challenge, I attempt to implement the Floyd-Steinberg Dithering algorithm and create a "image stippling" effect on an image (kitten, of course) using Processing.
