@@ -17,6 +17,13 @@ videos:
   - title: "Pi and the Mandelbrot Set"
     author: "Numberphile"
     video_id: "d0vY0CKYhPY"
+
+contributions:
+  - title: "My interactive version of Leibniz formula for Pi"
+    author:
+      name: "Saahil Khatkhate"
+    url: "https://saahil-khatkhate.github.io/Interactive-Leibniz-Pi-Visualization/"
+    source: "https://github.com/saahil-khatkhate/Interactive-Leibniz-Pi-Visualization"
 ---
 
 In this coding challenge, I use the Leibniz formula (aka infinite series) to approximate the digits of Pi and graph the convergence.
