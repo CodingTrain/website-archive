@@ -24,6 +24,11 @@ contributions:
       name: "Saahil Khatkhate"
     url: "https://saahil-khatkhate.github.io/Interactive-Leibniz-Pi-Visualization/"
     source: "https://github.com/saahil-khatkhate/Interactive-Leibniz-Pi-Visualization"
+  - title: "Leibniz - Display average of last 2 iterations, an extension of Shiffman's p5 code."
+    author:
+      name: "George Campbell"
+    url: "https://pi-leibniz.now.sh/src/"
+    source: "https://github.com/GCDeveloper/CodingChallenge-leibniz-pi/tree/master/src"
 ---
 
 In this coding challenge, I use the Leibniz formula (aka infinite series) to approximate the digits of Pi and graph the convergence.
