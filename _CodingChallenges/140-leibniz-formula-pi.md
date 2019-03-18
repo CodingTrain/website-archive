@@ -19,4 +19,4 @@ videos:
     video_id: "d0vY0CKYhPY"
 ---
 
-In this coding challenge, I use the Leibniz Formula to approximate the digits of Pi.
+In this coding challenge, I use the Leibniz formula (aka infinite series) to approximate the digits of Pi and graph the convergence.
