@@ -1,6 +1,5 @@
 // Daniel Shiffman
 // http://codingtra.in
-// http://patreon.com/codingtrain
 
 // XOR
 // https://youtu.be/188B6k_F9jU
