@@ -31,7 +31,7 @@ contributions:
     source: "https://github.com/GCDeveloper/CodingChallenge-leibniz-pi/tree/master/src"
   - title: "LeibnizPIViz"
     author:
-      name: "Anurag Hazra",
+      name: "Anurag Hazra"
       url: "https://github.com/anuraghazra"
     url: "https://anuraghazra.github.io/CanvasFun/LeibnizPIViz/"
     source: "https://github.com/anuraghazra/CanvasFun/tree/master/LeibnizPIViz"
