@@ -29,6 +29,12 @@ contributions:
       name: "George Campbell"
     url: "https://pi-leibniz.now.sh/src/"
     source: "https://github.com/GCDeveloper/CodingChallenge-leibniz-pi/tree/master/src"
+  - title: "LeibnizPIViz"
+    author:
+      name: "Anurag Hazra"
+      url: "https://github.com/anuraghazra"
+    url: "https://anuraghazra.github.io/CanvasFun/LeibnizPIViz/"
+    source: "https://github.com/anuraghazra/CanvasFun/tree/master/LeibnizPIViz"
 ---
 
 In this coding challenge, I use the Leibniz formula (aka infinite series) to approximate the digits of Pi and graph the convergence.
