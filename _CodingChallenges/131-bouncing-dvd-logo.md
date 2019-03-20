@@ -61,7 +61,7 @@ contributions:
       name: "Orville Chomer"
     url: "https://codepen.io/orvilleChomer/pen/GzxJRM"
     source: "https://codepen.io/orvilleChomer/pen/GzxJRM"
-   - title: "Spinning bouncing DVD logo"
+  - title: "Spinning bouncing DVD logo"
     author:
       name: "kappekoff"
     url: "https://kappekoff.github.io/Spinning-DVD-logo/"
