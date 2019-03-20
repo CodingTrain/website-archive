@@ -35,6 +35,12 @@ contributions:
       url: "https://github.com/anuraghazra"
     url: "https://anuraghazra.github.io/CanvasFun/LeibnizPIViz/"
     source: "https://github.com/anuraghazra/CanvasFun/tree/master/LeibnizPIViz"
+  - title: "Leibniz - Circle Display"
+    author:
+      name: "Esprit Orgue"
+      url: "https://github.com/EspritOrgue"
+    url: "https://editor.p5js.org/EspritOrgue/present/T6TFIIjZ-"
+    source: "https://editor.p5js.org/EspritOrgue/sketches/T6TFIIjZ-"
 ---
 
 In this coding challenge, I use the Leibniz formula (aka infinite series) to approximate the digits of Pi and graph the convergence.
