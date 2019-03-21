@@ -61,6 +61,11 @@ contributions:
       name: "Orville Chomer"
     url: "https://codepen.io/orvilleChomer/pen/GzxJRM"
     source: "https://codepen.io/orvilleChomer/pen/GzxJRM"
+  - title: "Spinning bouncing DVD logo"
+    author:
+      name: "kappekoff"
+    url: "https://kappekoff.github.io/Spinning-DVD-logo/"
+    source: "https://github.com/kappekoff/Spinning-DVD-logo"
 ---
 
 In this coding challenge, I simulate the "Bouncing DVD Logo" meme in JavaScript with p5.js.

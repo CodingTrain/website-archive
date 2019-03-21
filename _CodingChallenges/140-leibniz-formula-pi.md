@@ -17,6 +17,30 @@ videos:
   - title: "Pi and the Mandelbrot Set"
     author: "Numberphile"
     video_id: "d0vY0CKYhPY"
+
+contributions:
+  - title: "My interactive version of Leibniz formula for Pi"
+    author:
+      name: "Saahil Khatkhate"
+    url: "https://saahil-khatkhate.github.io/Interactive-Leibniz-Pi-Visualization/"
+    source: "https://github.com/saahil-khatkhate/Interactive-Leibniz-Pi-Visualization"
+  - title: "Leibniz - Display average of last 2 iterations, an extension of Shiffman's p5 code."
+    author:
+      name: "George Campbell"
+    url: "https://pi-leibniz.now.sh/src/"
+    source: "https://github.com/GCDeveloper/CodingChallenge-leibniz-pi/tree/master/src"
+  - title: "LeibnizPIViz"
+    author:
+      name: "Anurag Hazra"
+      url: "https://github.com/anuraghazra"
+    url: "https://anuraghazra.github.io/CanvasFun/LeibnizPIViz/"
+    source: "https://github.com/anuraghazra/CanvasFun/tree/master/LeibnizPIViz"
+  - title: "Leibniz - Circle Display"
+    author:
+      name: "Esprit Orgue"
+      url: "https://github.com/EspritOrgue"
+    url: "https://editor.p5js.org/EspritOrgue/present/T6TFIIjZ-"
+    source: "https://editor.p5js.org/EspritOrgue/sketches/T6TFIIjZ-"
 ---
 
 In this coding challenge, I use the Leibniz formula (aka infinite series) to approximate the digits of Pi and graph the convergence.
