@@ -6,7 +6,7 @@
 
 float pi = 4;
 int iterations = 0;
-ArrayList<Float> history = new ArrayList<Float>();
+FloatList history = new FloatList();
 
 float minY = 2;
 float maxY = 4;
@@ -23,7 +23,7 @@ void draw() {
   } else {
     pi += (4 / den);
   }
-  history.add(pi);
+  history.append(pi);
 
   float piY = map(PI, minY, maxY, height, 0);
   line(0, piY, width, piY);
