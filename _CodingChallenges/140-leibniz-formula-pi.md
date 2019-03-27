@@ -42,6 +42,12 @@ contributions:
       url: "https://github.com/EspritOrgue"
     url: "https://editor.p5js.org/EspritOrgue/present/T6TFIIjZ-"
     source: "https://editor.p5js.org/EspritOrgue/sketches/T6TFIIjZ-"
+  - title: "Using Web Workers to process digits asynchronously"
+    author:
+      name: "Yanick Rochon"
+      url: "https://github.com/yanickrochon"
+    url: "https://editor.p5js.org/yanick.rochon@gmail.com/present/pw2vbYLJa"
+    source: "https://editor.p5js.org/yanick.rochon@gmail.com/sketches/pw2vbYLJa"
 ---
 
 In this coding challenge, I use the Leibniz formula (aka infinite series) to approximate the digits of Pi and graph the convergence.
