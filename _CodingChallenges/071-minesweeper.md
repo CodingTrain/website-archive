@@ -62,7 +62,7 @@ contributions:
   - title: "Beesweeper"
     author:
       name: "SphaeriCactus"
-      url: "sphaericactus.itch.io"
+      url: "https://sphaericactus.itch.io"
     url: "https://sphaericactus.itch.io/beesweeper"
     source: "https://github.com/SphaeriCactus/Khan-Academy/tree/gh-pages/Beesweeper"
 ---
