@@ -17,6 +17,13 @@ contributions:
       url: "https://anuraghazra.github.io/"
     url: "https://anuraghazra.github.io/LSystemCreator/"
     source: "https://github.com/anuraghazra/LSystemCreator"
+  
+  - title: "Trees as Stochastic L-Systems"
+    author:
+      name: "Ameya Daigavane"
+      url: "https://github.com/ameya98"
+    url: "https://ameya98.github.io/WebPPL/generative_art/"
+    source: "https://github.com/ameya98/WebPPL/tree/master/generative_art"
 ---
 
 In this third installment of my series on algorithmic botany, I discuss L-systems and how they can be used to generate tree and other fractal patterns in p5.js.
