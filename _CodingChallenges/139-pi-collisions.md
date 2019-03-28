@@ -30,7 +30,12 @@ contributions:
       url: "https://github.com/anuraghazra"
     url: "https://anuraghazra.github.io/CanvasFun/PiDayCollisions/"
     source: "https://github.com/anuraghazra/CanvasFun/tree/master/PiDayCollisions"
-
+  - title: "The Number of colliosions in The Magic of PI"
+    author:
+      name: "Ahmad Ali From Mind & World"
+      url: "https://www.facebook.com/mind.world3/"
+    url: "https://aa947.github.io/Collosion_law/"
+    source: "https://github.com/aa947/Collosion_law"
 links:
   - title: "Playing Pool with Pi"
     url: "https://www.maths.tcd.ie/~lebed/Galperin.%20Playing%20pool%20with%20pi.pdf"
