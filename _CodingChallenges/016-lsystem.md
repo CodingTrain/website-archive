@@ -17,7 +17,6 @@ contributions:
       url: "https://anuraghazra.github.io/"
     url: "https://anuraghazra.github.io/LSystemCreator/"
     source: "https://github.com/anuraghazra/LSystemCreator"
-  
   - title: "Trees as Stochastic L-Systems"
     author:
       name: "Ameya Daigavane"
