@@ -1,3 +1,12 @@
+// Daniel Shiffman
+// The Coding Train
+// Traveling Salesperson with Genetic Algorithm
+
+// https://thecodingtrain.com/CodingChallenges/035.5-tsp.html
+// https://youtu.be/hnxn6DtLYcY
+
+// https://editor.p5js.org/codingtrain/sketches/EGjTrkkf9
+
 var cities = [];
 var totalCities = 12;
 
