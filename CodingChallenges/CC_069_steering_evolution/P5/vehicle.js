@@ -9,7 +9,6 @@
 
 // https://editor.p5js.org/codingtrain/sketches/xgQNXkxx1
 
-
 var mr = 0.01;
 
 function Vehicle(x, y, dna) {
