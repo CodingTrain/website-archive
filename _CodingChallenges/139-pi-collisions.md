@@ -36,6 +36,12 @@ contributions:
       url: "https://www.facebook.com/mind.world3/"
     url: "https://aa947.github.io/Collosion_law/"
     source: "https://github.com/aa947/Collosion_law"
+  - title: "Simulate w/o Squares Overlapping"
+    author:
+      name: "Josef Wittmann"
+      url: "https://github.com/Josef37"
+    url: "https://editor.p5js.org/Josef37/sketches/RGDv9lHkK"
+    source: "https://github.com/Josef37/Coding-Train-Pi-Day-Collisions"
 links:
   - title: "Playing Pool with Pi"
     url: "https://www.maths.tcd.ie/~lebed/Galperin.%20Playing%20pool%20with%20pi.pdf"
