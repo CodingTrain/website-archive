@@ -4,6 +4,7 @@ video_number: 106
 date: 2018-06-11
 video_id: N3ZnNa01BPM
 repository: CC_106_xor_tfjs
+web_editor: ueNMC_Wh6
 
 links:
   - title: "TensorFlow.js"
@@ -26,4 +27,4 @@ videos:
     video_id: "XO77Fib9tSI"
 ---
 
-In this coding challenge, I visualize solving XOR once again, this time with the TensorFlow.js library.
+In this coding challenge, I visualize the outputs of a neural network solving XOR using TensorFlow.js.
