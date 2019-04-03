@@ -22,26 +22,26 @@ class Cubie {
     float r = len / 2;
 
     // z-fixed
-    fill(colors[BCK]);
+    fill(Color.BACK.getValue());
     vertex(-r, -r, -r);
     vertex(r, -r, -r);
     vertex(r, r, -r);
     vertex(-r, r, -r);
 
-    fill(colors[FRT]);
+    fill(Color.FRONT.getValue());
     vertex(-r, -r, r);
     vertex(r, -r, r);
     vertex(r, r, r);
     vertex(-r, r, r);
 
     // y-fixed
-    fill(colors[DWN]);
+    fill(Color.DOWN.getValue());
     vertex(-r, -r, -r);
     vertex(r, -r, -r);
     vertex(r, -r, r);
     vertex(-r, -r, r);
 
-    fill(colors[UPP]);
+    fill(Color.UP.getValue());
     vertex(-r, r, -r);
     vertex(r, r, -r);
     vertex(r, r, r);
@@ -49,13 +49,13 @@ class Cubie {
 
 
     // x-fixed
-    fill(colors[LFT]);
+    fill(Color.LEFT.getValue());
     vertex(-r, -r, -r);
     vertex(-r, r, -r);
     vertex(-r, r, r);
     vertex(-r, -r, r);
 
-    fill(colors[RGT]);
+    fill(Color.RIGHT.getValue());
     vertex(r, -r, -r);
     vertex(r, r, -r);
     vertex(r, r, r);

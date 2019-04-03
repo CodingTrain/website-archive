@@ -1,3 +1,5 @@
+import peasy.*;
+
 
 // Rubiks Cube 1
 // Daniel Shiffman
@@ -8,19 +10,20 @@ import peasy.*;
 
 PeasyCam cam;
 
-// UP, DOWN, RIGHT, LEFT, FRONT, BACK
-final int UPP = 0;
-final int DWN = 1;
-final int RGT = 2;
-final int LFT = 3;
-final int FRT = 4;
-final int BCK = 5;
-
-color[] colors = {
-  #FFFFFF, #FFFF00, 
-  #FFA500, #FF0000, 
-  #00FF00, #0000FF
-};
+enum Color{
+  UP(#FFFFFF), DOWN(#FFFF00),
+  RIGHT(#FFA500), LEFT(#FF0000), 
+  FRONT(#00FF00), BACK(#0000FF);
+  private color value;
+  
+  public color getValue(){
+    return this.value;
+  }
+  
+  private Color(color value){
+    this.value = value;
+  }
+}
 
 int dim = 3;
 Cubie[][][] cube = new Cubie[dim][dim][dim];
