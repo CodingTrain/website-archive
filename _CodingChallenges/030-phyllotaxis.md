@@ -21,6 +21,13 @@ contributions:
       url: "https://github.com/Fraasi"
     url: "https://fraasi.github.io/Phyllotaxis-leaf-arrangement/PhylloTaxis.html"
     source: "https://github.com/Fraasi/Phyllotaxis-leaf-arrangement"
+    
+  - title: "Image Spiralizer"
+    author:
+    name: "Colin T."
+    url: "https://github.com/colinpt"
+    url: "https://spiralizer.netlify.com/"
+    source: "https://github.com/colinpt/portfolio"
 ---
 
 In this coding challenge, I continue one of my favorite subjects: Algorithmic botany! This video covers the subject of Phyllotaxis, what it is and how it can be used to generate sunflower-like patterns inspired by nature.
