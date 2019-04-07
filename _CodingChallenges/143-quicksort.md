@@ -4,6 +4,7 @@ video_number: 143
 date: 2019-04-04
 video_id: eqo2LxRADhU
 web_editor: vic6Qzo-j
+repository: CC_143_QuickSort
 
 contributions:
   - title: "Overly engineered QuickSort and BubbleSort visualization built year ago"
