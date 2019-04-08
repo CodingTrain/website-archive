@@ -28,7 +28,7 @@ videos:
 contributions:
   - title: "MandelBrot Set with higher order"
     author:
-      name: "xxnavixx"
+      name: "Sahil Jindal"
     url: "https://github.com/sahiljindalthebest/MandelBrot-Set/blob/master/Mandelbrot%20with%20higher%20power.pde"
     source: "https://github.com/sahiljindalthebest/MandelBrot-Set"
 ---
