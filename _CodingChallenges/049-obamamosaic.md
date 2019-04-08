@@ -13,6 +13,13 @@ links:
 videos:
   - title: "My Video on Pixel Arrays"
     video_id: "https://youtu.be/EmtU0eloTlE"
+contributions:
+  - title: "P5.js version using random pictures from Lorem Picsum"
+    author:
+      name: "Joonas Jokinen"
+      url: "http://users.metropolia.fi/~joonahj/"
+    url: "https://editor.p5js.org/jnsjknn/full/gKQv1Z_4E"
+    source: "https://github.com/jnsjknn/Mosaic-maker"
 ---
 
 In this coding challenge, I use a collection of Obama Administration's facebook images to create a "photo mosaic" of President Obama with Processing (Java).

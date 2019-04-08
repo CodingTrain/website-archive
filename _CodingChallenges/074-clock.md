@@ -5,6 +5,7 @@ video_number: 74
 date: 2017-09-20
 video_id: E4RyStef-gY
 repository: CC_074_Clock
+web_editor: 2lvHFWPbW
 
 links:
   - title: "Golan Levin's notes on MAEDA’S 12 O’CLOCKS"
@@ -96,12 +97,18 @@ contributions:
       url: "http://jjwkdl.netlify.com"
     url: "https://jjwkdl.github.io/blog-content/javascript/VisualArt/clock/"
     source: "https://github.com/jjwkdl/blog-content/tree/master/javascript/VisualArt/clock"
-
   - title: "JSClock"
     author:
       name: "Charly Poirier"
       url: "https://github.com/charlypoirier/"
+    url: "https://github.com/charlypoirier/JSClock"
     source: "https://github.com/charlypoirier/JSClock"
+  - title: "Spinning hands of time"
+    author:
+      name: "Owen McAteer"
+      url: "https://github.com/owenmcateer/Motus-Art"
+    url: "https://owenmcateer.github.io/Motus-Art/projects/week_09.html"
+    source: "https://github.com/owenmcateer/Motus-Art/blob/master/src/week_09/main.js"
 ---
 
 In this coding challenge, I attempt to program a clock in HTML5 canvas with the p5.js library.
