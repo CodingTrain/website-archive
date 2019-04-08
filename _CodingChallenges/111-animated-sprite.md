@@ -14,10 +14,6 @@ links:
 videos:
   - title: "Guest Tutorial #6: The Modulo Operator with Golan Levin"
     url: "/GuestTutorials/6-golan-levin-modulo-operator"
----
-
-In this coding challenge, I load a sprite sheet and create multiple animated sprites with the p5.js library.
-
 
 contributions:
   - title: "Where Should I Stand?"
@@ -25,3 +21,5 @@ contributions:
       name: "Jamie McCrory"
     url: "https://where-should-i-stand.herokuapp.com"
     source: "https://github.com/jamiejamiebobamie/whereStand"
+---
+In this coding challenge, I load a sprite sheet and create multiple animated sprites with the p5.js library.

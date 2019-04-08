@@ -1,5 +1,5 @@
 ---
-title: "Brownian Tree Snowflake"
+title: "SketchRNN Snowflakes with ml5.js"
 video_number: 128
 date: 2018-12-25
 repository: CC_128_SketchRNN_Snowflakes

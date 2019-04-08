@@ -59,6 +59,12 @@ contributions:
       url: "https://github.com/Vigasaurus/"
     url: "https://vigasaurus.github.io/files/games/Minesweeper/minesweeper"
     source: "https://github.com/Vigasaurus/vigasaurus.github.io/tree/master/files/games/Minesweeper"
+  - title: "Beesweeper"
+    author:
+      name: "SphaeriCactus"
+      url: "https://sphaericactus.itch.io"
+    url: "https://sphaericactus.itch.io/beesweeper"
+    source: "https://github.com/SphaeriCactus/Khan-Academy/tree/gh-pages/Beesweeper"
 ---
 
 In this challenge, I attempt to code the classic game Minesweeper in JavaScript with the p5.js library. This video builds on some previous tutorials related to the Prototypes and multi-dimensional arrays in JavaScript.
