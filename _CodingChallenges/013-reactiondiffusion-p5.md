@@ -17,4 +17,4 @@ contributions:
     url: "https://github.com/Deedone/Small-projects/tree/master/Reaction-diffusion"
 ---
 
-In this coding challenge, I use the p5.js library to make a visual representation of the Reaction Diffusion Algorithm.
+In this coding challenge, I visualize a Reaction Diffusion simulation using the Gray Scott model in JavaScript (with the p5.js library).
