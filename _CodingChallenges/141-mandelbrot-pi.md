@@ -28,8 +28,8 @@ videos:
 contributions:
   - title: "MandelBrot Set with higher order"
     author:
-      name: "xxnavixx"
-    url: "https://github.com/sahiljindalthebest/MandelBrot-Set/blob/master/Mandelbrot%20with%20higher%20power.pde"
+      name: "Sahil Jindal"
+    url: "https://github.com/sahiljindalthebest/MandelBrot-Set"
     source: "https://github.com/sahiljindalthebest/MandelBrot-Set"
 ---
 Happy belated Pi Day once more! Here I attempt to approximate Pi using a special location in the Mandelbrot set. The programming environment is Processing (Java).
