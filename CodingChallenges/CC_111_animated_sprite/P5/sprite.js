@@ -1,6 +1,6 @@
 // Daniel Shiffman
 // http://youtube.com/thecodingtrain
-// http://codingtra.in
+// https://thecodingtrain.com/CodingChallenges/111-animated-sprite.html
 
 // Horse Spritesheet from
 // https://opengameart.org/content/2d-platformer-art-assets-from-horse-of-spring
