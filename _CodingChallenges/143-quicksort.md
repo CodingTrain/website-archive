@@ -13,6 +13,12 @@ contributions:
       url: "https://github.com/aladaris"
     url: "https://github.com/aladaris/Processing-toy-programming"
     source: "https://github.com/aladaris/Processing-toy-programming/tree/master/sketch_sorttingAlgorithms"
+  - title: "General Sorting Visualization done in C++ with OpenGL and SFML"
+    author:
+      name: "vypxl"
+      url: "https://github.com/vypxl"
+    url: "https://github.com/vypxl/sortviz"
+    source: "https://github.com/vypxl/sortviz"
 
 links:
   - title: "Quicksort on Wikipedia"
