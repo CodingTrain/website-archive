@@ -42,6 +42,12 @@ contributions:
       url: "https://github.com/Josef37"
     url: "https://editor.p5js.org/Josef37/sketches/RGDv9lHkK"
     source: "https://github.com/Josef37/Coding-Train-Pi-Day-Collisions"
+  - title: "p5Visuel implementation"
+    author:
+      name: "André Boileau"
+      url: "http://profmath.uqam.ca/~boileau/index.php"
+    url: "http://profmath.uqam.ca/~boileau/Nouvelles/Fichiers/surprenantPI/piVIAcollisions.html"
+    source: "http://profmath.uqam.ca/~boileau/p5VisuelWEB/p5Visuel/edition.html?prog=http://profmath.uqam.ca/~boileau/Nouvelles/Fichiers/surprenantPI/piVIAcollisions.p5V"
 links:
   - title: "Playing Pool with Pi"
     url: "https://www.maths.tcd.ie/~lebed/Galperin.%20Playing%20pool%20with%20pi.pdf"
