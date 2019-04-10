@@ -66,6 +66,12 @@ contributions:
       url: "https://github.com/dedowsdi"
     url: "https://twitter.com/dedowsdi/status/1061174911962570752"
     source: "https://github.com/dedowsdi/journey/tree/master/gl4/challenge/lissajous"
+  - title: "Lissajous Curve"
+    author:
+      name: "Guilherme Santos"
+      url: "https://github.com/gui-santos"
+    url: "https://codepen.io/gui_gsantos/full/KYNQmx"
+    source: "https://codepen.io/gui_gsantos/pen/KYNQmx"
 ---
 
 In this Coding Challenge, I visualize a "Lissajous Curve Table" with Processing (Java).
