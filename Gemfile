@@ -20,5 +20,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # HTML Checking
 gem 'html-proofer'
 
-#create `.env`and add the following entry to avoid a warning message when using the jekyll cli: "JEKYLL_GITHUB_TOKEN=<personal access token>"
+# Create `.env`and add the following entry to avoid a warning message when using the jekyll cli: "JEKYLL_GITHUB_TOKEN=<personal access token>"
 gem "dotenv"
