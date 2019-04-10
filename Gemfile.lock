@@ -19,6 +19,7 @@ GEM
     concurrent-ruby (1.0.5)
     dnsruby (1.61.2)
       addressable (~> 2.5)
+    dotenv (2.7.2)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -254,9 +255,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   github-pages
   html-proofer
   tzinfo-data
 
 BUNDLED WITH
-   1.16.6
+   1.17.3
