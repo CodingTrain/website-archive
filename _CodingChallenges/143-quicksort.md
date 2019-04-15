@@ -4,21 +4,6 @@ video_number: 143
 date: 2019-04-04
 video_id: eqo2LxRADhU
 web_editor: vic6Qzo-j
-repository: CC_143_QuickSort
-
-contributions:
-  - title: "Overly engineered QuickSort and BubbleSort visualization built year ago"
-    author:
-      name: "Fernando González López - Peñalver"
-      url: "https://github.com/aladaris"
-    url: "https://github.com/aladaris/Processing-toy-programming"
-    source: "https://github.com/aladaris/Processing-toy-programming/tree/master/sketch_sorttingAlgorithms"
-  - title: "General Sorting Visualization done in C++ with OpenGL and SFML"
-    author:
-      name: "vypxl"
-      url: "https://github.com/vypxl"
-    url: "https://github.com/vypxl/sortviz"
-    source: "https://github.com/vypxl/sortviz"
 
 links:
   - title: "Quicksort on Wikipedia"
