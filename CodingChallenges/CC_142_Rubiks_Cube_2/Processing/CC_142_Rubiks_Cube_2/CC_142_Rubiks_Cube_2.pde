@@ -11,9 +11,11 @@ PeasyCam cam;
 int dim = 3;
 Cubie[] cube = new Cubie[dim*dim*dim];
 
-String[] allMoves = {"f", "b", "u", "d", "l", "r"};
+String[] allMoves = {"F", "B", "U", "D", "L", "R"};
 String sequence = "";
+String reversed = "";
 int counter = 0;
+boolean shuffled = false;
 
 boolean started = false;
 
@@ -31,71 +33,58 @@ void setup() {
       }
     }
   }
-  //cube[0].c = color(255, 0, 0);
-  //cube[2].c = color(0, 0, 255);
 
   for (int i = 0; i < 200; i++) {
     int r = int(random(allMoves.length));
     if (random(1) < 0.5) {
-      sequence += allMoves[r];
+      sequence += allMoves[r] + " ";
     } else {
-      sequence += allMoves[r].toUpperCase();
+      sequence += allMoves[r] + "\' ";
     }
   }
 
-  for (int i = sequence.length()-1; i >= 0; i--) {
-    String nextMove = flipCase(sequence.charAt(i));
-    sequence += nextMove;
+  for (int i = sequence.split(" ").length-1; i >= 0; i--) {
+    String nextMove = flipCase(sequence.split(" ")[i]);
+    reversed += nextMove + " ";
   }
 }
 
-String flipCase(char c) {
-  String s = "" + c;
-  if (s.equals(s.toLowerCase())) {
-    return s.toUpperCase();
+String flipCase(String c) {
+  if (c.contains("\'")) {
+    return c.charAt(0) + "";
   } else {
-    return s.toLowerCase();
+    return c + "\'";
   }
 }
 
 
-
-
-void turnZ(int index, int dir) {
+void turn(int index, int dir, char axis) {
   for (int i = 0; i < cube.length; i++) {
     Cubie qb = cube[i];
-    if (qb.z == index) {
-      PMatrix2D matrix = new PMatrix2D();
-      matrix.rotate(dir*HALF_PI);
-      matrix.translate(qb.x, qb.y);
-      qb.update(round(matrix.m02), round(matrix.m12), round(qb.z));
-      qb.turnFacesZ(dir);
-    }
-  }
-}
-
-void turnY(int index, int dir) {
-  for (int i = 0; i < cube.length; i++) {
-    Cubie qb = cube[i];
-    if (qb.y == index) {
-      PMatrix2D matrix = new PMatrix2D();
-      matrix.rotate(dir*HALF_PI);
-      matrix.translate(qb.x, qb.z);
-      qb.update(round(matrix.m02), qb.y, round(matrix.m12));
-      qb.turnFacesY(dir);
-    }
-  }
-}
-
-void turnX(int index, int dir) {
-  for (int i = 0; i < cube.length; i++) {
-    Cubie qb = cube[i];
-    if (qb.x == index) {
-      PMatrix2D matrix = new PMatrix2D();
-      matrix.rotate(dir*HALF_PI);
-      matrix.translate(qb.y, qb.z);
-      qb.update(qb.x, round(matrix.m02), round(matrix.m12));
-      qb.turnFacesX(dir);
+    if (axis == 'z') {
+      if (qb.z == index) {
+        PMatrix2D matrix = new PMatrix2D();
+        matrix.rotate(dir*HALF_PI);
+        matrix.translate(qb.x, qb.y);
+        qb.update(round(matrix.m02), round(matrix.m12), round(qb.z));
+        qb.turnFaces(dir, 'z');
+      }
+    } else if (axis == 'y') {
+      if (qb.y == index) {
+        PMatrix2D matrix = new PMatrix2D();
+        matrix.rotate(dir*HALF_PI);
+        matrix.translate(qb.x, qb.z);
+        qb.update(round(matrix.m02), qb.y, round(matrix.m12));
+        qb.turnFaces(dir, 'y');
+      }
+    } else if (axis == 'x') {
+      if (qb.x == index) {
+        PMatrix2D matrix = new PMatrix2D();
+        matrix.rotate(dir*HALF_PI);
+        matrix.translate(qb.y, qb.z);
+        qb.update(qb.x, round(matrix.m02), round(matrix.m12));
+        qb.turnFaces(dir, 'x');
+      }
     }
   }
 }
@@ -108,9 +97,16 @@ void draw() {
 
   if (started) {
     if (frameCount % 1 == 0) {
-      if (counter < sequence.length()) {
-        char move = sequence.charAt(counter);
-        applyMove(move);
+      if (counter < sequence.split(" ").length) {
+        String move = sequence.split(" ")[counter];
+        moves(move);
+        counter++;
+      } else {
+        shuffled = true;
+      }
+      if (shuffled && (counter - sequence.split(" ").length) < reversed.split(" ").length) {
+        String move = reversed.split(" ")[counter - sequence.split(" ").length];
+        moves(move);
         counter++;
       }
     }

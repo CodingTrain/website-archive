@@ -7,46 +7,87 @@ void keyPressed() {
   if (key == ' ') {
     started = true; 
   }
-  // applyMove(key); 
+  applyMove(key); 
+}
+
+void moves(String m) {
+  switch (m) {
+    case "R":
+    applyMove('r');
+    break;
+    case "R\'":
+    applyMove('R');
+    break;
+    case "L":
+    applyMove('l');
+    break;
+    case "L\'":
+    applyMove('L');
+    break;
+    case "U":
+    applyMove('u');
+    break;
+    case "U\'":
+    applyMove('U');
+    break;
+    case "D":
+    applyMove('d');
+    break;
+    case "D\'":
+    applyMove('D');
+    break;
+    case "F":
+    applyMove('f');
+    break;
+    case "F\'":
+    applyMove('F');
+    break;
+    case "B":
+    applyMove('b');
+    break;
+    case "B\'":
+    applyMove('B');
+    break;
+  }
 }
 
 void applyMove(char move) {
   switch (move) {
-  case 'f': 
-    turnZ(1, 1);
+  case 'f': //                   Move F - Front CW
+    turn(1, 1, 'z');
     break;
-  case 'F': 
-    turnZ(1, -1);
+  case 'F': //                   Move F' - Front CCW
+    turn(1, -1, 'z');
     break;  
-  case 'b': 
-    turnZ(-1, 1);
+  case 'B': //                   Move B' - Back CCW
+    turn(-1, 1, 'z');
     break;
-  case 'B': 
-    turnZ(-1, -1);
+  case 'b': //                   Move B - Back CW
+    turn(-1, -1, 'z');
     break;
-  case 'u': 
-    turnY(1, 1);
+  case 'D': //                   Move D' - Down CCW
+    turn(1, 1, 'y');
     break;
-  case 'U': 
-    turnY(1, -1);
+  case 'd': //                   Move D - Down CW
+    turn(1, -1, 'y');
     break;
-  case 'd': 
-    turnY(-1, 1);
+  case 'u': //                   Move U - Up CW
+    turn(-1, 1, 'y');
     break;
-  case 'D': 
-    turnY(-1, -1);
+  case 'U': //                   Move U' - Up CCW
+    turn(-1, -1, 'y');
     break;
-  case 'l': 
-    turnX(-1, 1);
+  case 'L': //                   Move L' - Left CCW
+    turn(-1, 1, 'x');
     break;
-  case 'L': 
-    turnX(-1, -1);
+  case 'l': //                   Move L - Left CW
+    turn(-1, -1, 'x');
     break;
-  case 'r': 
-    turnX(1, 1);
+  case 'r': //                   Move R - Right CW
+    turn(1, 1, 'x');
     break;
-  case 'R': 
-    turnX(1, -1);
+  case 'R': //                   Move R' - Right CCW
+    turn(1, -1, 'x');
     break;
   }
 }
