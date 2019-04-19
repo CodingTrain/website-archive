@@ -15,6 +15,7 @@ class Matrix{
     values = new float[rows][cols];
   }
 
+  //function to make a deep copy of a matrix
   Matrix copy(){
     Matrix result = new Matrix(rows, cols);
     for (int i = 0; i < rows; i++) {
@@ -34,7 +35,8 @@ class Matrix{
     }
     return result;
   }
-
+  
+  //function for scalar multiplication
   void multiply(float n){
     for (int i = 0; i < rows; i++){
       for (int j = 0; j < cols; j++){
@@ -42,7 +44,8 @@ class Matrix{
       }
     }
   }
-
+  
+  //function for scalar addition
   void add(float n){
     for (int i = 0; i < rows; i++){
       for (int j = 0; j < cols; j++){
@@ -51,12 +54,14 @@ class Matrix{
     }
   }
 
+  //creates a matrix, randomizes it and returns it
   static Matrix random(int rows, int cols){
     Matrix result = new Matrix(rows, cols);
     result.randomize();
     return result;
   }
 
+  //set all the values of a matrix to a random value between -1 and 1
   void randomize(){
     for (int i = 0; i < rows; i++){
       for (int j = 0; j < cols; j++){
@@ -64,7 +69,8 @@ class Matrix{
       }
     }
   }
-
+  
+  //function for subtracting one matrix from another and returning the result
   static Matrix subtract(Matrix a, Matrix b){
     Matrix result = new Matrix(a.rows, a.cols);
     for (int i = 0; i < a.rows; i++){
@@ -72,10 +78,10 @@ class Matrix{
         result.values[i][j] = a.values[i][j] - b.values[i][j];
       }
     }
-
     return result;
   }
 
+  //creates a 1 dimensional matrix (vector) from a one dimensional array
   static Matrix FromArray(float[] arr){
     Matrix result = new Matrix(arr.length, 1);
     for (int i = 0; i < result.rows; i++){
@@ -84,6 +90,7 @@ class Matrix{
     return result;
   }
 
+  //puts all the values of a matrix into a one dimensional array and returns it
   float[] toArray(){
     float[] arr = new float[rows+cols];
     for (int i = 0; i < rows; i++){
@@ -94,6 +101,7 @@ class Matrix{
     return arr;
   }
 
+  //function for adding this matrix to another
   void add(Matrix other){
     for (int i = 0; i < rows; i++){
       for (int j = 0; j < cols; j++){
@@ -101,7 +109,8 @@ class Matrix{
       }
     }
   }
-
+  
+  //function for the hadamard product between two matrices
   void multiply(Matrix other){
     for (int i = 0; i < rows; i++){
       for (int j = 0; j < cols; j++){
@@ -110,6 +119,7 @@ class Matrix{
     }
   }
 
+  //returns the transposed version of a matrix
   static Matrix transpose(Matrix a){
     Matrix result = new Matrix(a.cols, a.rows);
     for (int i = 0; i < a.rows; i++){
@@ -120,6 +130,7 @@ class Matrix{
     return result;
   }
 
+  //function for the dot product between two matrices
   static Matrix Product(Matrix first, Matrix second){
     if (first.cols != second.rows){
       return null;
