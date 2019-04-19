@@ -24,7 +24,10 @@ class Move {
   }
 
   void reverse() {
-    dir *= -1;
+    if (dir != 2)
+    {
+      dir *= -1;
+    }
   }
 
   void start() {
@@ -40,16 +43,31 @@ class Move {
   void update() {
     if (animating) {
       angle += dir * speed;
-      if (abs(angle) > HALF_PI) {
-        angle = 0;
-        animating = false;
-        finished = true;
-        if (abs(z) > 0) {
-          turnZ(z, dir);
-        } else if (abs(x) > 0) {
-          turnX(x, dir);
-        } else if (abs(y) > 0) {
-          turnY(y, dir);
+      if (dir == 2) {
+        if (abs(angle) > PI) {
+          angle = 0;
+          animating = false;
+          finished = true;
+          if (abs(z) > 0) {
+            turn(z, dir, 'z');
+          } else if (abs(x) > 0) {
+            turn(x, dir, 'x');
+          } else if (abs(y) > 0) {
+            turn(y, dir, 'y');
+          }
+        }
+      } else {
+        if (abs(angle) > HALF_PI) {
+          angle = 0;
+          animating = false;
+          finished = true;
+          if (abs(z) > 0) {
+            turn(z, dir, 'z');
+          } else if (abs(x) > 0) {
+            turn(x, dir, 'x');
+          } else if (abs(y) > 0) {
+            turn(y, dir, 'y');
+          }
         }
       }
     }

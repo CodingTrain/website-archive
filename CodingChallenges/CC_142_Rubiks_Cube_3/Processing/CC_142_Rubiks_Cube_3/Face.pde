@@ -13,29 +13,24 @@ class Face {
   }
 
 
-  void turnZ(float angle) {
+  void turn(float angle, char axis) {
     PVector v2 = new PVector();
-    v2.x = round(normal.x * cos(angle) - normal.y * sin(angle));
-    v2.y = round(normal.x * sin(angle) + normal.y * cos(angle));
-    v2.z = round(normal.z);
+    if (axis == 'z') {
+      v2.x = round(normal.x * cos(angle) - normal.y * sin(angle));
+      v2.y = round(normal.x * sin(angle) + normal.y * cos(angle));
+      v2.z = round(normal.z);
+    } else if (axis == 'x') {
+      v2.y = round(normal.y * cos(angle) - normal.z * sin(angle));
+      v2.z = round(normal.y * sin(angle) + normal.z * cos(angle));
+      v2.x = round(normal.x);
+    } else if (axis == 'y') {
+      v2.x = round(normal.x * cos(angle) - normal.z * sin(angle));
+      v2.z = round(normal.x * sin(angle) + normal.z * cos(angle));
+      v2.y = round(normal.y);
+    }
     normal = v2;
   }
 
-  void turnY(float angle) {
-    PVector v2 = new PVector();
-    v2.x = round(normal.x * cos(angle) - normal.z * sin(angle));
-    v2.z = round(normal.x * sin(angle) + normal.z * cos(angle));
-    v2.y = round(normal.y);
-    normal = v2;
-  }
-
-  void turnX(float angle) {
-    PVector v2 = new PVector();
-    v2.y = round(normal.y * cos(angle) - normal.z * sin(angle));
-    v2.z = round(normal.y * sin(angle) + normal.z * cos(angle));
-    v2.x = round(normal.x);
-    normal = v2;
-  }
 
   void show() {
     pushMatrix();
@@ -43,11 +38,7 @@ class Face {
     noStroke();
     rectMode(CENTER);
     translate(0.5*normal.x, 0.5*normal.y, 0.5*normal.z);
-    if (abs(normal.x) > 0) {
-      rotateY(HALF_PI);
-    } else if (abs(normal.y) > 0) {
-      rotateX(HALF_PI);
-    }
+    rotate(HALF_PI, normal.y, normal.x, normal.z);
     square(0, 0, 1);
     popMatrix();
   }

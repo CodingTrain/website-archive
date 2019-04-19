@@ -18,29 +18,28 @@ class Cubie {
     this.z = z;
     c = color(255);
 
-    faces[0] = new Face(new PVector(0, 0, -1), color(0, 0, 255));
-    faces[1] = new Face(new PVector(0, 0, 1), color(0, 255, 0));
-    faces[2] = new Face(new PVector(0, 1, 0), color(255, 255, 255));
-    faces[3] = new Face(new PVector(0, -1, 0), color(255, 255, 0));
-    faces[4] = new Face(new PVector(1, 0, 0), color(255, 150, 0));
-    faces[5] = new Face(new PVector(-1, 0, 0), color(255, 0, 0));
+    faces[0] = new Face(new PVector(0, 0, -1), color(0, 0, 255)); //blue
+    faces[1] = new Face(new PVector(0, 0, 1), color(0, 128, 0)); //green
+    faces[2] = new Face(new PVector(0, 1, 0), color(255, 255, 255)); //white
+    faces[3] = new Face(new PVector(0, -1, 0), color(255, 255, 0)); //yellow
+    faces[4] = new Face(new PVector(1, 0, 0), color(255, 165, 0)); //orange
+    faces[5] = new Face(new PVector(-1, 0, 0), color(255, 0, 0)); //red
   }
   
-  void turnFacesZ(int dir) {
-    for (Face f : faces) {
-      f.turnZ(dir*HALF_PI); 
-    }
-  }
-
-  void turnFacesY(int dir) {
-    for (Face f : faces) {
-      f.turnY(dir*HALF_PI); 
-    }
-  }
-
-    void turnFacesX(int dir) {
-    for (Face f : faces) {
-      f.turnX(dir*HALF_PI); 
+  void turnFaces(int dir, char axis) {
+    float angle = dir * HALF_PI;
+    if (axis == 'z') {
+      for (Face f : faces) {
+        f.turn(angle, 'z'); 
+      }
+    } else if (axis == 'y') {
+      for (Face f : faces) {
+        f.turn(angle, 'y'); 
+      }
+    } else if (axis == 'x') {
+      for (Face f : faces) {
+        f.turn(angle, 'x'); 
+      }
     }
   }
   
