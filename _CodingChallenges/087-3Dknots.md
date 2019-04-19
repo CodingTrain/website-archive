@@ -15,6 +15,14 @@ links:
 videos:
   - title: "My Coding Challenge on Spherical Geometry"
     url: "/CodingChallenges/025-spheregeometry"
+    
+contributions:
+  - title: "Knot in a knot in a knot in p5.js"
+    author:
+      name: "Julia M"
+    url: "https://editor.p5js.org/julia.maiolo@gmail.com/present/NSYwYgi0t"
+    source: "https://editor.p5js.org/julia.maiolo@gmail.com/sketches/NSYwYgi0t"
 ---
+
 
 In this coding challenge, I attempt to make 3D Knots using Processing and Paul Bourke's formulae.
