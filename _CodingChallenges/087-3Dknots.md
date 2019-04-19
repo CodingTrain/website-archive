@@ -15,7 +15,7 @@ links:
 videos:
   - title: "My Coding Challenge on Spherical Geometry"
     url: "/CodingChallenges/025-spheregeometry"
-    
+
 contributions:
   - title: "Knot in a knot in a knot in p5.js"
     author:
