@@ -18,8 +18,8 @@ float dtanh(float x) {
 }
 
 class NeuralNetwork{
-  int inputNodes, 
-  int hiddenNodes, 
+  int inputNodes;
+  int hiddenNodes; 
   int outputNodes;
 
   float LearningRate = .1;
