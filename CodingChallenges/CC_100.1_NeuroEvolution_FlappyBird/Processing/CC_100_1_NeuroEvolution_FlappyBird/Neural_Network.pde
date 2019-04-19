@@ -1,3 +1,4 @@
+//activation functions and their derivatives
 float sigmoid(float x){
   return 1 / (1+(float)Math.exp(-x));
 }
@@ -17,22 +18,21 @@ float dtanh(float x) {
 }
 
 class NeuralNetwork{
-  int 
-    inputNodes, 
-    hiddenNodes, 
-    outputNodes;
+  int inputNodes, 
+  int hiddenNodes, 
+  int outputNodes;
 
   float LearningRate = .1;
 
-  Matrix 
-    IHWeights, 
-    HOWeights, 
-    Hbias, 
-    Obias, 
-    input, 
-    hidden, 
-    output;
+  Matrix IHWeights; 
+  Matrix HOWeights; 
+  Matrix Hbias; 
+  Matrix Obias; 
+  Matrix input;
+  Matrix hidden; 
+  Matrix output;
 
+  //constructor function for copying a network
   NeuralNetwork(NeuralNetwork copy){
     inputNodes = copy.inputNodes;
     hiddenNodes = copy.hiddenNodes;
@@ -55,6 +55,7 @@ class NeuralNetwork{
     Obias = Matrix.random(outputNodes, 1);
   }
 
+  //constructor function for setting the learning rate
   NeuralNetwork(int input, int hidden, int output, float lr){
     this(input, hidden, output);
     setLearingRate(lr);
@@ -64,7 +65,7 @@ class NeuralNetwork{
     return new NeuralNetwork(this);
   }
 
-
+  //helper function for mutating the weights and biases
   float mut(float val, float rate){
     if (random(1) > rate){
       return val + randomGaussian() * .1;
@@ -73,6 +74,7 @@ class NeuralNetwork{
     }
   }
 
+  //function to mutate the weights and biases of the network
   void mutate(float rate){
     for (int i = 0; i < IHWeights.rows; i++){
       for (int j = 0; j < IHWeights.cols; j++){
@@ -107,6 +109,7 @@ class NeuralNetwork{
     LearningRate = rate;
   }
 
+  
   float[] feedForward(float[] inputArray){
     input = Matrix.FromArray(inputArray);
 
