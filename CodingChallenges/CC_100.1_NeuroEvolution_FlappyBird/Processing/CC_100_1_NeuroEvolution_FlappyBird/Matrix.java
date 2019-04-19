@@ -8,6 +8,7 @@ class Matrix{
     values = new float[this.rows][this.cols];
   }
 
+  //default construnctor function
   Matrix(){
     rows = 1;
     cols = 1;
