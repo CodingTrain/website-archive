@@ -27,7 +27,6 @@ void calculateFitness(){
   for (bird b : saved){
     sum += b.score;
   }
-
   for (bird b : saved){
     b.fitness = b.score/sum;
   }
