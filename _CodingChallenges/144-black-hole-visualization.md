@@ -6,6 +6,8 @@ video_id: R4QMvp3SS3g
 web_editor: 2zZqSkxtj
 
 links:
+  - title: "Code with Relativistic Corrections"
+    url: https://editor.p5js.org/codingtrain/sketches/4DvaeH0Ur
   - title: "Simulating a Black Hole!"
     url: "https://www.asc.ohio-state.edu/orban.14/stemcoding/blackhole.html"
   - title: "How to draw a Black Hole"
@@ -24,4 +26,4 @@ videos:
     video_id: "RkpulcVKLRw"
 ---
 
-In this coding challenge, I make a crude 2D Visualization of light beams approaching a black hole.
+Inspiring by the recent image of the Powehi m87 black hole from the Event Horizon Telescope, I attempt to visualize the behavior or light (photons) following the  path of spacetime around the black hole.
