@@ -25,6 +25,14 @@ videos:
   - title: "Slingshot with Gravity!"
     author: "STEM Coding"
     video_id: "RkpulcVKLRw"
+
+contributions:
+  - title: "FlockingBlackHole"
+    author:
+      name: "Anurag Hazra"
+      url: https://github.com/anuraghazra
+    url: https://anuraghazra.github.io/FlockingBlackHole/
+    source: https://github.com/anuraghazra/FlockingBlackHole
 ---
 
 Inspired by the recent image of the Powehi m87 black hole from the Event Horizon Telescope, I attempt to visualize the behavior or light (photons) following the  path of spacetime around the black hole.
