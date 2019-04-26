@@ -1,3 +1,16 @@
+// Daniel Shiffman
+// https://thecodingtrain.com/
+// Live stream: https://youtu.be/tWyp2OWWcws
+// Edited explanation video coming soon
+
+// Thanks to Veritasium
+// https://youtu.be/zUyH3XhpLTo
+// and Chris Orban / STEM Coding
+// https://www.asc.ohio-state.edu/orban.14/stemcoding/blackhole.html
+
+// Accounting for relativity:
+// https://editor.p5js.org/codingtrain/sketches/4DvaeH0Ur
+
 class Blackhole {
   constructor(x, y, m) {
     this.pos = createVector(x, y);
