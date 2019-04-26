@@ -28,9 +28,9 @@ videos:
 
 contributions:
   - title: "Photon orbits around a spinning black hole."
-  author: bongo0
-    name: "bongo0"
-    url: "https://github.com/bongo0"
+    author: bongo0
+      name: "bongo0"
+      url: "https://github.com/bongo0"
   url: "https://bongo0.github.io/Kerr-orbits/"
   source: "https://github.com/bongo0/Kerr-orbits"
 ---
