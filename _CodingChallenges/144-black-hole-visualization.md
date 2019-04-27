@@ -33,6 +33,13 @@ contributions:
       url: https://github.com/anuraghazra
     url: https://anuraghazra.github.io/FlockingBlackHole/
     source: https://github.com/anuraghazra/FlockingBlackHole
+    
+    - title: "3D Black Hole in Processing"
+    author:
+      name: "Jase Daggett"
+      url: https://github.com/MrMusAddict
+    url: https://i.imgur.com/6zYK9IG.gifv
+    source: https://github.com/MrMusAddict/Black-Hole-3D
 ---
 
 Inspired by the recent image of the Powehi m87 black hole from the Event Horizon Telescope, I attempt to visualize the behavior or light (photons) following the  path of spacetime around the black hole.
