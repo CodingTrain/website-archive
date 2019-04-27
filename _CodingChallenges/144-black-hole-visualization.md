@@ -28,11 +28,11 @@ videos:
 
 contributions:
   - title: "Photon orbits around a spinning black hole."
-    author: bongo0
+    author:
       name: "bongo0"
       url: "https://github.com/bongo0"
-  url: "https://bongo0.github.io/Kerr-orbits/"
-  source: "https://github.com/bongo0/Kerr-orbits"
+    url: "https://bongo0.github.io/Kerr-orbits/"
+    source: "https://github.com/bongo0/Kerr-orbits"
 ---
 
 Inspired by the recent image of the Powehi m87 black hole from the Event Horizon Telescope, I attempt to visualize the behavior or light (photons) following the  path of spacetime around the black hole.
