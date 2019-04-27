@@ -1,7 +1,7 @@
 // Daniel Shiffman
 // https://thecodingtrain.com/
-// Live stream: https://youtu.be/tWyp2OWWcws
-// Edited explanation video coming soon
+// https://youtu.be/Iaz9TqYWUmA
+// https://editor.p5js.org/codingtrain/sketches/2zZqSkxtj
 
 // Thanks to Veritasium
 // https://youtu.be/zUyH3XhpLTo
