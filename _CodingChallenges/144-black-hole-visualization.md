@@ -39,8 +39,7 @@ contributions:
       url: https://github.com/anuraghazra
     url: https://anuraghazra.github.io/FlockingBlackHole/
     source: https://github.com/anuraghazra/FlockingBlackHole
-    
-    - title: "3D Black Hole in Processing"
+  - title: "3D Black Hole in Processing"
     author:
       name: "Jase Daggett"
       url: https://github.com/MrMusAddict
