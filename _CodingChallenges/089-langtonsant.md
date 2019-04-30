@@ -12,6 +12,12 @@ contributions:
       name: "Leighzer"
       url: https://github.com/Leighzer/
     source: https://github.com/Leighzer/Langtons_Paint_Brush
+    - title: "Interactive Langton's Ant"
+  author:
+    name: "Dom"
+    url: "https://github.com/DomKiki"
+  url: "https://editor.p5js.org/DomKiki/sketches/XGefxlwK4"
+  source: "https://github.com/DomKiki/Langton-Ant"
   - title: "In P5.js with several ants and dynamic changes"
     author:
       name: "DasK"
