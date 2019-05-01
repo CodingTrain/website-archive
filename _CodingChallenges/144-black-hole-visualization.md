@@ -39,6 +39,12 @@ contributions:
       url: https://github.com/anuraghazra
     url: https://anuraghazra.github.io/FlockingBlackHole/
     source: https://github.com/anuraghazra/FlockingBlackHole
+  - title: "Light Trajectories Around a Black Hole"
+    author:
+      name: "Louis Eddershaw"
+      url: "https://github.com/Eddershaw"
+    url: "https://editor.p5js.org/Eddershaw/full/dPJZX05Yq"
+    source: "https://editor.p5js.org/Eddershaw/sketches/dPJZX05Yq"
   - title: "3D Black Hole in Processing"
     author:
       name: "Jase Daggett"
