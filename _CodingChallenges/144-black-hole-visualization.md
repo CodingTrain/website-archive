@@ -51,6 +51,12 @@ contributions:
       url: https://github.com/MrMusAddict
     url: https://i.imgur.com/6zYK9IG.gifv
     source: https://github.com/MrMusAddict/Black-Hole-3D
+  - title: "Celestial Gravitation Simulator"
+    author:
+      name: "Nathan Lewis"
+      url: "https://github.com/n6a1t4e"
+    url: "https://imgur.com/a/zXOvBcC"
+    source: "https://github.com/n6a1t4e/Celestial-Gravitation-Simulator"
 ---
 
 Inspired by the recent image of the Powehi m87 black hole from the Event Horizon Telescope, I attempt to visualize the behavior or light (photons) following the  path of spacetime around the black hole.
