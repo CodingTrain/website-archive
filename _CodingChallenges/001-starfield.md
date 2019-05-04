@@ -26,11 +26,11 @@ contributions:
       url: "https://bjorvack.github.io/code-challenges/"
     url: "https://bjorvack.github.io/code-challenges/challenges/cc-001-starfield/"
     source: "https://github.com/bjorvack/code-challenges/tree/master/challenges/cc-001-starfield"
-  - title: "001_starfield"
+  - title: "Python Edition"
     author:
       name: "Morel Takougang"
-      url: "https://github.com/MorelT98/coding-challenges/blob/master/001_starfield"
-    source: "https://github.com/MorelT98/coding-challenges"
+      url: "https://github.com/MorelT98"
+    source: "https://github.com/MorelT98/coding-challenges/blob/master/001_starfield"
   - title: "3D Starfield"
     author:
       name: "Timothy Diguiet"
