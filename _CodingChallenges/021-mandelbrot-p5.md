@@ -24,6 +24,11 @@ contributions:
       url: "https://github.com/dedowsdi"
     url: "https://twitter.com/dedowsdi/status/1063024950808764417"
     source: "https://github.com/dedowsdi/journey/tree/master/gl4/challenge/mandelbrot_set"
+  - title: "Live rendered interactive mandelbrot explorer"
+    author:
+      name: "Luc de Wit"
+      url: "https://underscoretech.000webhostapp.com/"
+    url: "https://underscoretech.000webhostapp.com/fractal/empty-example/index.html"
+    source: "https://underscoretech.000webhostapp.com/fractal/empty-example/index.html"
 ---
-
 In this coding challenge, I program from scratch the Mandelbrot set with p5.js
