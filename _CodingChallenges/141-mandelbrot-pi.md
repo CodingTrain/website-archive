@@ -24,6 +24,12 @@ videos:
   - title: "Pi and the Mandelbrot Set"
     author: "Numberphile"
     video_id: "d0vY0CKYhPY"
----
 
+contributions:
+  - title: "MandelBrot Set with higher order"
+    author:
+      name: "Sahil Jindal"
+    url: "https://github.com/sahiljindalthebest/MandelBrot-Set"
+    source: "https://github.com/sahiljindalthebest/MandelBrot-Set"
+---
 Happy belated Pi Day once more! Here I attempt to approximate Pi using a special location in the Mandelbrot set. The programming environment is Processing (Java).
