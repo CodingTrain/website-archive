@@ -66,7 +66,7 @@ contributions:
   - title: "Python Edition"
     author:
       name: "Morel Takougang"
-      url: url: "https://github.com/MorelT98"
+      url: "https://github.com/MorelT98"
     source: "https://github.com/MorelT98/coding-challenges/blob/master/003_snake.py"
 ---
 
