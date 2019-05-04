@@ -7,13 +7,11 @@ video_id: KkyIDI6rQJI
 repository: CC_004_PurpleRain
 
 contributions:
-  - title: "4_purple_rain"
+  - title: "Python Edition"
     author:
       name: "Morel Takougang"
-      url: "https://github.com/MorelT98/coding-challenges/blob/master/004_purple_rain.py"
-    url: "https://github.com/MorelT98/coding-challenges"
+      url: "https://github.com/MorelT98"
+    source: "https://github.com/MorelT98/coding-challenges/blob/master/004_purple_rain.py"
 ---
-
-
 
 In this viewer submitted coding challenge, I attempt to code a Purple Rain Simulator in Processing.
