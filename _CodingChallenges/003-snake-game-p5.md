@@ -63,7 +63,7 @@ contributions:
       url: https://github.com/pom421
     url: http://pom421.github.io/CodingChallenges/CC_03_Snake_game/
     source: https://github.com/pom421/pom421.github.io/tree/master/CodingChallenges/CC_03_Snake_game
-  - title: "Python Edition""
+  - title: "Python Edition"
     author:
       name: "Morel Takougang"
       url: url: "https://github.com/MorelT98"
