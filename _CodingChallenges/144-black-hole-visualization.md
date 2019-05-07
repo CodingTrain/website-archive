@@ -57,6 +57,12 @@ contributions:
       url: "https://github.com/n6a1t4e"
     url: "https://imgur.com/a/zXOvBcC"
     source: "https://github.com/n6a1t4e/Celestial-Gravitation-Simulator"
+  - title: "3D Black Hole in p5js"
+    author:
+      name: "Carlos Ponce"
+      url: "https://jcponce.github.io/"
+    url: "https://jcponce.github.io/sketches/blackhole/"
+    source: "https://github.com/jcponce/jcponce.github.io/tree/master/sketches/blackhole"
 ---
 
 Inspired by the recent image of the Powehi m87 black hole from the Event Horizon Telescope, I attempt to visualize the behavior or light (photons) following the  path of spacetime around the black hole.
