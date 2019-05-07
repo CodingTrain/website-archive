@@ -24,11 +24,6 @@ class Fluid {
 
         this.Vx0 = new Array(N*N).fill(0);
         this.Vy0 = new Array(N*N).fill(0);
-
-        console.log(this.Vy)
-
-
-        // this.canvas = canvas;
     }
 
     // step method

@@ -7,7 +7,6 @@ function setup() {
 }
 
 function draw() {
-    // image(canvas, 0, 0);
     stroke(51);
     strokeWeight(2);
 
