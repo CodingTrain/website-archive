@@ -1,5 +1,3 @@
-/// <reference path="./p5.global-mode.d.ts" />
-
 /*
     Function of diffuse
     - b : int

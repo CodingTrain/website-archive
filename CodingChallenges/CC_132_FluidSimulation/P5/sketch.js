@@ -1,5 +1,3 @@
-/// <reference path="./p5.global-mode.d.ts" />
-
 let fluid;
 
 function setup() {

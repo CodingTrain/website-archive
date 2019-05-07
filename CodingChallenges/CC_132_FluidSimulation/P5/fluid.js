@@ -1,5 +1,3 @@
-/// <reference path="./p5.global-mode.d.ts" />
-
 let N = 256;
 let iter = 16;
 let SCALE = 4;
