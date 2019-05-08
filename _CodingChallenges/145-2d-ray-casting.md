@@ -15,7 +15,17 @@ links:
     url: "https://github.com/bmoren/p5.collide2D"
   - title: "Line-line Intersection"
     url: "https://en.wikipedia.org/wiki/Line%E2%80%93line_intersection"
-
+contributions:
+  - title: "Colorful raycasting"
+    author:
+      name: "Jip Fr"
+      url: "http://jipfr.nl"
+    url: "https://jipfr.nl/ray/"
+  - title: "Raycasting 2D visualisation"
+    author:
+      name: "Vedang Javdekar"
+    url: "https://codepen.io/vedangasdarkninja/pen/wZZmay"
+    source: "https://github.com/vedangasDARKNINJA/Raycasting2D"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"
