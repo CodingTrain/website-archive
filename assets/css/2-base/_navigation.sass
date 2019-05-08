@@ -51,6 +51,7 @@
 
     .links
       @extend .wrapper
+      list-style-type: none
       height: 100%
       display: flex
       justify-content: center
@@ -63,13 +64,16 @@
         padding-left: 2rem
 
       a
+        display: block
+        list-style-type: none
         margin: 0em 1em
         color: #FFF
         @include text-style('title')
         text-decoration: none
-        &:hover, &:focus
+        &:hover,
           text-shadow: 0px 0px 5px #BBB
-
+        &:focus,
+          outline: rgba(20,20,166,0.01) auto 4px
         @media (max-width: $mobile)
           visibility: hidden
           margin: 0.5em 0
