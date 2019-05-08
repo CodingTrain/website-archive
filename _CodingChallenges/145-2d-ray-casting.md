@@ -26,3 +26,10 @@ videos:
 ---
 
 In this video, I implement a basic ray casting engine with line segment "surfaces" and vector "rays." The result simulates a light source casting shadows in a 2D canvas.
+
+contributions:
+  - title: "Raycasting 2D visualisation"
+    author: Vedang Javdekar
+      name: "Vedang Javdekar"
+      url: "https://codepen.io/vedangasdarkninja/pen/wZZmay"
+    source: "https://github.com/vedangasDARKNINJA/Raycasting2D"
