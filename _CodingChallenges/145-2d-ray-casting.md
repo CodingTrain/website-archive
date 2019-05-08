@@ -21,7 +21,11 @@ contributions:
       name: "Jip Fr"
       url: "http://jipfr.nl"
     url: "https://jipfr.nl/ray/"
-
+  - title: "Raycasting 2D visualisation"
+    author:
+      name: "Vedang Javdekar"
+    url: "https://codepen.io/vedangasdarkninja/pen/wZZmay"
+    source: "https://github.com/vedangasDARKNINJA/Raycasting2D"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"
