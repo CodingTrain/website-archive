@@ -31,6 +31,12 @@ contributions:
       name: "Dan Juliette"
     url: "https://djuliette.github.io/Autonomous.html"
     source: "https://editor.p5js.org/djuliette/sketches/zcBRXpL4Y"
+  - title: "Example with Addable/Removable Boundaries"
+    author:
+      name: "Simon Tiger Houben"
+      url: "https://simontiger.com/"
+    url: "https://editor.p5js.org/simontiger/present/ugHX4yKQC"
+    source: "https://editor.p5js.org/simontiger/sketches/ugHX4yKQC"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"
