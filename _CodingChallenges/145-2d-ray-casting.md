@@ -21,7 +21,11 @@ contributions:
       name: "Jip Fr"
       url: "http://jipfr.nl"
     url: "https://jipfr.nl/ray/"
-
+  - title: "Raycasting 2D visualisation"
+    author:
+      name: "Vedang Javdekar"
+    url: "https://codepen.io/vedangasdarkninja/pen/wZZmay"
+    source: "https://github.com/vedangasDARKNINJA/Raycasting2D"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"
@@ -32,10 +36,3 @@ videos:
 ---
 
 In this video, I implement a basic ray casting engine with line segment "surfaces" and vector "rays." The result simulates a light source casting shadows in a 2D canvas.
-
-contributions:
-  - title: "Raycasting 2D visualisation"
-    author: Vedang Javdekar
-      name: "Vedang Javdekar"
-      url: "https://codepen.io/vedangasdarkninja/pen/wZZmay"
-    source: "https://github.com/vedangasDARKNINJA/Raycasting2D"
