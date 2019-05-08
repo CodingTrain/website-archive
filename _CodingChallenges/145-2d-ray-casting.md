@@ -6,14 +6,6 @@ video_id: TOEi6T2mtHo
 web_editor: Nqsq3DFv-
 repository: CC_145_Ray_Casting
 
-🔗 SIGHT & LIGHT by Nicky Case: https://ncase.me/sight-and-light/
-🔗 2d Visibility from Red Blob Games: https://www.redblobgames.com/articles/visibility/
-🔗 p5.collide2D: https://github.com/bmoren/p5.collide2D
-🔗 Line–line intersection on Wikipedia: https://en.wikipedia.org/wiki/Line%E2%80%93line_intersection
-
-🎥 Coding Adventure: Ray Marching by Sebastian Lague: https://youtu.be/Cp5WWtMoeKg
-🎥 Matrix Math: https://youtu.be/uSzGdfdOoG8
-
 links:
   - title: "SIGHT & LIGHT by Nicky Case"
     url: https://ncase.me/sight-and-light/
@@ -31,6 +23,6 @@ videos:
   - title: "Matrix Math"
     author: "Coding Train"
     video_id: "uSzGdfdOoG8"
-
 ---
 
+In this video, I implement a basic ray casting engine with line segment "surfaces" and vector "rays." The result simulates a light source casting shadows in a 2D canvas.
