@@ -31,6 +31,11 @@ contributions:
       name: "Dan Juliette"
     url: "https://djuliette.github.io/Autonomous.html"
     source: "https://editor.p5js.org/djuliette/sketches/zcBRXpL4Y"
+  - title: "Reduced Fisheye Ray Casting"
+    author:
+      name: "Nicholas Simon-Brecke"
+    url: "https://editor.p5js.org/nicholassb753@gmail.com/present/kwblsMmLZ"
+    source: "https://editor.p5js.org/nicholassb753@gmail.com/sketches/kwblsMmLZ"
   - title: "Example with Addable/Removable Boundaries"
     author:
       name: "Simon Tiger Houben"
