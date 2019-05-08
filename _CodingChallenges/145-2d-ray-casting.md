@@ -23,6 +23,14 @@ videos:
   - title: "Matrix Math"
     author: "Coding Train"
     video_id: "uSzGdfdOoG8"
+    
+
+contributions:
+  - title: "Ray Casting - Object's sensors"
+    author:
+      name: "Dan Juliette"
+    url: "https://djuliette.github.io/Autonomous.html"
+    source: "https://editor.p5js.org/djuliette/sketches/zcBRXpL4Y"
 ---
 
 In this video, I implement a basic ray casting engine with line segment "surfaces" and vector "rays." The result simulates a light source casting shadows in a 2D canvas.
