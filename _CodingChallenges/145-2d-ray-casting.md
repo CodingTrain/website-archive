@@ -31,6 +31,12 @@ contributions:
       name: "Dan Juliette"
     url: "https://djuliette.github.io/Autonomous.html"
     source: "https://editor.p5js.org/djuliette/sketches/zcBRXpL4Y"
+  - title: "Ray Casting - Object's sensors"
+    author:
+      name: "David Snyder"
+      url: "https://www.youtube.com/channel/UCxhrLoZU0t2WGSN80c_LE-Q"
+    video_id: "G6lWsoFpJg4"
+    source: "https://github.com/GypsyDangerous/raycasting-dark-room"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"
