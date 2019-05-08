@@ -36,6 +36,6 @@ function draw() {
   particle.show();
   particle.look(walls);
 
-  xoff += 0.001;
-  yoff += 0.001;
+  xoff += 0.01;
+  yoff += 0.01;
 }
