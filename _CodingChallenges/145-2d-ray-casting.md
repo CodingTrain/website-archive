@@ -36,6 +36,22 @@ contributions:
       name: "John 'JohnyDL' Lewis"
     url: "https://editor.p5js.org/JohnyDL/present/dCnLlChlO"
     source: "https://editor.p5js.org/JohnyDL/sketches/dCnLlChlO"
+  - title: "Reflections [Processing]"
+    author:
+      name: "WiserOrb"
+    url: "https://github.com/WiseroOrb/Reflections/"
+    source: "https://github.com/WiseroOrb/Reflections/"
+  - title: "Reduced Fisheye Ray Casting"
+    author:
+      name: "Nicholas Simon-Brecke"
+    url: "https://editor.p5js.org/nicholassb753@gmail.com/present/kwblsMmLZ"
+    source: "https://editor.p5js.org/nicholassb753@gmail.com/sketches/kwblsMmLZ"
+  - title: "Example with Addable/Removable Boundaries"
+    author:
+      name: "Simon Tiger Houben"
+      url: "https://simontiger.com/"
+    url: "https://editor.p5js.org/simontiger/present/ugHX4yKQC"
+    source: "https://editor.p5js.org/simontiger/sketches/ugHX4yKQC"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"
