@@ -35,8 +35,8 @@ contributions:
     author:
       name: "Simon Tiger Houben"
       url: "https://simontiger.com/"
-    url: "https://editor.p5js.org/codingtrain/present/nf42TaECk"
-    source: "https://editor.p5js.org/codingtrain/sketches/nf42TaECk"
+    url: "https://editor.p5js.org/simontiger/present/ugHX4yKQC"
+    source: "https://editor.p5js.org/simontiger/sketches/ugHX4yKQC"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"
