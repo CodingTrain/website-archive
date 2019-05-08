@@ -19,6 +19,12 @@ contributions:
       url: "https://github.com/vypxl"
     url: "https://github.com/vypxl/sortviz"
     source: "https://github.com/vypxl/sortviz"
+  - title: "Quicksort Visualization"
+    author:
+      name: "bohdandrahan"
+      url: "https://github.com/bohdandrahan"
+    url: "https://bohdandrahan.github.io/Sorting-Visual/"
+    source: "https://github.com/bohdandrahan/Sorting-Visual"
 
 links:
   - title: "Quicksort on Wikipedia"

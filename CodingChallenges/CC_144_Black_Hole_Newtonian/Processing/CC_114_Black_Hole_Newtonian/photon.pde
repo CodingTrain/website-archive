@@ -12,37 +12,38 @@
 // https://editor.p5js.org/codingtrain/sketches/4DvaeH0Ur
 
 class Photon {
-
-  constructor(x, y) {
-    this.pos = createVector(x, y);
-    this.vel = createVector(-c, 0);
-    this.history = [];
+  PVector pos, vel;
+  ArrayList<PVector> history;
+  boolean stopped;
+  float theta;
+  Photon(float x, float y) {
+    this.pos = new PVector(x, y);
+    this.vel = new PVector(-c, 0);
+    this.history = new ArrayList<PVector>();
     this.stopped = false;
     this.theta = 0;
   }
 
-  stop() {
+  void stop() {
     this.stopped = true;
   }
 
-  update() {
+  void update() {
     if (!this.stopped) {
       //if (frameCount % 5 == 0) {
-      this.history.push(this.pos.copy());
+      this.history.add(this.pos.copy());
       //}
-      const deltaV = this.vel.copy();
+      PVector deltaV = this.vel.copy();
       deltaV.mult(dt);
       this.pos.add(deltaV);
     }
 
-    if (this.history.length > 500) {
-      this.history.splice(0, 1);
+    if (this.history.size() > 500) {
+      this.history.remove(0);
     }
-
-
   }
 
-  show() {
+  void show() {
     strokeWeight(4);
     stroke(255, 0, 0);
     point(this.pos.x, this.pos.y);
@@ -50,13 +51,10 @@ class Photon {
     strokeWeight(2);
     noFill();
     beginShape();
-    for (let v of this.history) {
+    for (PVector v : this.history) {
       vertex(v.x, v.y);
     }
 
     endShape();
-
   }
-
-
 }
