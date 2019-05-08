@@ -52,6 +52,12 @@ contributions:
       url: "https://simontiger.com/"
     url: "https://editor.p5js.org/simontiger/present/ugHX4yKQC"
     source: "https://editor.p5js.org/simontiger/sketches/ugHX4yKQC"
+  - title: "Ray Casting 2D in Processing"
+    author:
+      name: "David Snyder"
+      url: "https://www.youtube.com/channel/UCxhrLoZU0t2WGSN80c_LE-Q"
+    video_id: "G6lWsoFpJg4"
+    source: "https://github.com/GypsyDangerous/raycasting-dark-room"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"
