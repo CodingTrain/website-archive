@@ -34,7 +34,7 @@ contributions:
   - title: "Ray Casting - Lighting rooms with paper walls"
     author:
       name: "John 'JohnyDL' Lewis"
-    url: "https://editor.p5js.org/JohnyDL/full/dCnLlChlO"
+    url: "https://editor.p5js.org/JohnyDL/present/dCnLlChlO"
     source: "https://editor.p5js.org/JohnyDL/sketches/dCnLlChlO"
 videos:
   - title: "Coding Adventure: Ray Marching"
