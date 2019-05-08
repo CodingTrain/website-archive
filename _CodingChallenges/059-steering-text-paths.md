@@ -44,6 +44,9 @@ contributions:
     author: "kappekoff"
     url: https://kappekoff.github.io/PD-controlled-dots-text/
     source: https://github.com/kappekoff/PD-controlled-dots-text
+  - title: "Clojurescript implementation with transitions"
+    author: "jwkoelewijn"
+    source: https://github.com/jwkoelewijn/textpoints
 ---
 
 In this coding challenge, I look at extracting font path points from text in p5.js with p5.Font.textToPoints().  I render the text as particles with steering behaviors that react to the mouse.
