@@ -31,6 +31,11 @@ contributions:
       name: "Dan Juliette"
     url: "https://djuliette.github.io/Autonomous.html"
     source: "https://editor.p5js.org/djuliette/sketches/zcBRXpL4Y"
+  - title: "Ray Casting - Lighting rooms with paper walls"
+    author:
+      name: "John 'JohnyDL' Lewis"
+    url: "https://editor.p5js.org/JohnyDL/full/dCnLlChlO"
+    source: "https://editor.p5js.org/JohnyDL/sketches/dCnLlChlO"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"
