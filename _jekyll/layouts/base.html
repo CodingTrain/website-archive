@@ -1,17 +1,17 @@
 ---
 layout: compress
 ---
-
+<!doctype html>
 <html lang="en">
   <head>
     {% include 2-base/head.html %}
   </head>
   <body>
-    {% include 2-base/navigation.html %}
-
+    {% include 2-base/header.html %}
+    
     <div class="mobilenav-backdrop">
-      {% include 2-base/header.html %}
-      <div class="wrapper" style="{{ page.style }}">
+      
+      <main class="wrapper" style="{{ page.style }}">
 
         {% comment %} Show 'no content' error message for videos without a video id. {% endcomment %}
         {% if page.layout == 'video' and page.video_id == null %}
@@ -30,10 +30,10 @@ layout: compress
           {{ content }}
 
         {% endif %}
-      </div>
+      </main>
 
-      {% include 2-base/footer.html %}
+      
     </div>
-
+    {% include 2-base/footer.html %}
   </body>
 </html>
