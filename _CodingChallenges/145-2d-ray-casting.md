@@ -16,12 +16,6 @@ links:
   - title: "Line-line Intersection"
     url: "https://en.wikipedia.org/wiki/Line%E2%80%93line_intersection"
 contributions:
-- title: "Colorful SVG Ray Casters"
-    author:
-      name: "Neoman Nouiouat"
-      url: "https://github.com/nem0-97"
-    url: "https://nem0-97.github.io/RayCasting/index.html"
-    source:"https://github.com/nem0-97/RayCasting"
   - title: "Colorful raycasting"
     author:
       name: "Jip Fr"
@@ -69,6 +63,12 @@ contributions:
       name: "Jos Gielen"
     url: "https://github.com/JosGielen/Coding_Train_VB.net/blob/master/CC145%202D%20Raycasting/Example/MazeRaytracing.jpg"
     source: "https://github.com/JosGielen/Coding_Train_VB.net"
+  - title: "Colorful SVG Ray Casters"
+    author:
+      name: "Neoman Nouiouat"
+      url: "https://github.com/nem0-97"
+    url: "https://nem0-97.github.io/RayCasting/index.html"
+    source:"https://github.com/nem0-97/RayCasting"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"
