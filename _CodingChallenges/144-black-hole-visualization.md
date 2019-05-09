@@ -63,6 +63,11 @@ contributions:
       url: "https://jcponce.github.io/"
     url: "https://jcponce.github.io/sketches/blackhole/"
     source: "https://github.com/jcponce/jcponce.github.io/tree/master/sketches/blackhole"
+  - title: "Relativistic Black Hole Sim with Highlited shadow (made in VB.net)"
+    author:
+      name: "Jos Gielen"
+    url: "https://github.com/JosGielen/Coding_Train_VB.net/blob/master/CC144%20Black%20Hole%20Visualization/Example/RedShadow.jpg"
+    source: "https://github.com/JosGielen/Coding_Train_VB.net"
 ---
 
 Inspired by the recent image of the Powehi m87 black hole from the Event Horizon Telescope, I attempt to visualize the behavior or light (photons) following the  path of spacetime around the black hole.
