@@ -16,6 +16,12 @@ links:
   - title: "Line-line Intersection"
     url: "https://en.wikipedia.org/wiki/Line%E2%80%93line_intersection"
 contributions:
+- title: "Colorful SVG Ray Casters"
+    author:
+      name: "Neoman Nouiouat"
+      url: "https://github.com/nem0-97"
+    url: "https://nem0-97.github.io/RayCasting/index.html"
+    source:"https://github.com/nem0-97/RayCasting"
   - title: "Colorful raycasting"
     author:
       name: "Jip Fr"
