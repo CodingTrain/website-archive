@@ -58,6 +58,11 @@ contributions:
       url: "https://www.youtube.com/channel/UCxhrLoZU0t2WGSN80c_LE-Q"
     video_id: "G6lWsoFpJg4"
     source: "https://github.com/GypsyDangerous/raycasting-dark-room"
+  - title: "Raycasting Maze explorer (made in vb.net)"
+    author:
+      name: "Jos Gielen"
+    url: "https://github.com/JosGielen/Coding_Train_VB.net/blob/master/CC145%202D%20Raycasting/Example/MazeRaytracing.jpg"
+    source: "https://github.com/JosGielen/Coding_Train_VB.net"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"
