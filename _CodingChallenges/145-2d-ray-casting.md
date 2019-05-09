@@ -68,7 +68,7 @@ contributions:
       name: "Neoman Nouiouat"
       url: "https://github.com/nem0-97"
     url: "https://nem0-97.github.io/RayCasting/index.html"
-    source:"https://github.com/nem0-97/RayCasting"
+    source: "https://github.com/nem0-97/RayCasting"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"
