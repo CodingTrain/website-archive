@@ -31,6 +31,44 @@ contributions:
       name: "Dan Juliette"
     url: "https://djuliette.github.io/Autonomous.html"
     source: "https://editor.p5js.org/djuliette/sketches/zcBRXpL4Y"
+  - title: "Ray Casting - Lighting rooms with paper walls"
+    author:
+      name: "John 'JohnyDL' Lewis"
+    url: "https://editor.p5js.org/JohnyDL/present/dCnLlChlO"
+    source: "https://editor.p5js.org/JohnyDL/sketches/dCnLlChlO"
+  - title: "Reflections [Processing]"
+    author:
+      name: "WiserOrb"
+    url: "https://github.com/WiseroOrb/Reflections/"
+    source: "https://github.com/WiseroOrb/Reflections/"
+  - title: "Reduced Fisheye Ray Casting"
+    author:
+      name: "Nicholas Simon-Brecke"
+    url: "https://editor.p5js.org/nicholassb753@gmail.com/present/kwblsMmLZ"
+    source: "https://editor.p5js.org/nicholassb753@gmail.com/sketches/kwblsMmLZ"
+  - title: "Example with Addable/Removable Boundaries"
+    author:
+      name: "Simon Tiger Houben"
+      url: "https://simontiger.com/"
+    url: "https://editor.p5js.org/simontiger/present/ugHX4yKQC"
+    source: "https://editor.p5js.org/simontiger/sketches/ugHX4yKQC"
+  - title: "Ray Casting 2D in Processing"
+    author:
+      name: "David Snyder"
+      url: "https://www.youtube.com/channel/UCxhrLoZU0t2WGSN80c_LE-Q"
+    video_id: "G6lWsoFpJg4"
+    source: "https://github.com/GypsyDangerous/raycasting-dark-room"
+  - title: "Raycasting Maze explorer (made in vb.net)"
+    author:
+      name: "Jos Gielen"
+    url: "https://github.com/JosGielen/Coding_Train_VB.net/blob/master/CC145%202D%20Raycasting/Example/MazeRaytracing.jpg"
+    source: "https://github.com/JosGielen/Coding_Train_VB.net"
+  - title: "Colorful SVG Ray Casters"
+    author:
+      name: "Neoman Nouiouat"
+      url: "https://github.com/nem0-97"
+    url: "https://nem0-97.github.io/RayCasting/index.html"
+    source: "https://github.com/nem0-97/RayCasting"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"
