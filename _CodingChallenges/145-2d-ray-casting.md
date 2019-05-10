@@ -75,7 +75,7 @@ contributions:
       url: "https://github.com/quillaja"
     url: "http://www.quillaja.net/raymaze/sketch.html"
     source: "https://github.com/quillaja/raymaze"
-     - title: "drawing walls"
+  - title: "drawing walls"
     author:
       name: "Hauman Kevin"
       url: "https://github.com/kevhauma"
