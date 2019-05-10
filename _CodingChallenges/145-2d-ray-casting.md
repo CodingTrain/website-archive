@@ -84,7 +84,7 @@ videos:
     video_id: "uSzGdfdOoG8"
   - title: "Coding Challenge: Rendering Ray Casting"
     author: "Coding Train"
-    video_id: "vYgIKn7iDH8"
+    video_id: "/CodingChallenges/146-rendering-ray-casting"
 ---
 
 In this video, I implement a basic ray casting engine with line segment "surfaces" and vector "rays." The result simulates a light source casting shadows in a 2D canvas.
