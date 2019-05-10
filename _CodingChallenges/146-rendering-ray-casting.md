@@ -23,6 +23,11 @@ contributions:
       name: SolarLiner
       url: https://solarliner.me
     url: https://editor.p5js.org/SolarLiner/sketches/J1Y97pKuR
+  - title: Rendering Ray Casting with Textures
+    author:
+      name: Mumflr
+    url: https://raycasting--mumflrfumperdin.repl.co/
+    source: https://repl.it/@MumflrFumperdin/Raycasting
 ---
 
 Building off of the previous coding challenge (2D Ray Casting) I attempt to make my own version the original Wolfenstein 3D Raycasting engine and visualize the "field of view" of the moving particle.
