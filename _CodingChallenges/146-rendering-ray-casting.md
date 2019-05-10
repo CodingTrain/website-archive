@@ -16,6 +16,13 @@ videos:
   - title: "Coding Challenge: 2D Ray Casting"
     author: "Coding Train"
     video_id: "/CodingChallenges/145-2d-ray-casting"
+
+contributions:
+  - title: Rendering ray casting with geometrical correction
+    author:
+      name: SolarLiner
+      url: https://solarliner.me
+    url: https://editor.p5js.org/SolarLiner/sketches/J1Y97pKuR
 ---
 
 Building off of the previous coding challenge (2D Ray Casting) I attempt to make my own version the original Wolfenstein 3D Raycasting engine and visualize the "field of view" of the moving particle.
