@@ -23,6 +23,12 @@ contributions:
       name: SolarLiner
       url: https://solarliner.me
     url: https://editor.p5js.org/SolarLiner/sketches/J1Y97pKuR
+  - title: "Wolfenstein 3D style raycasting with randomly generated mazes (p5.js)"
+    author:
+      name: "Ben (quillaja)"
+      url: "https://github.com/quillaja"
+    url: "http://www.quillaja.net/raymaze/sketch.html"
+    source: "https://github.com/quillaja/raymaze"
   - title: Rendering Ray Casting with Textures
     author:
       name: Mumflr
