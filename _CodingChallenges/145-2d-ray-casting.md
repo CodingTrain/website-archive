@@ -69,6 +69,17 @@ contributions:
       url: "https://github.com/nem0-97"
     url: "https://nem0-97.github.io/RayCasting/index.html"
     source: "https://github.com/nem0-97/RayCasting"
+  - title: "Wolfenstein 3D style raycasting with randomly generated mazes (p5.js)"
+    author:
+      name: "Ben (quillaja)"
+      url: "https://github.com/quillaja"
+    url: "http://www.quillaja.net/raymaze/sketch.html"
+    source: "https://github.com/quillaja/raymaze"
+  - title: "drawing walls"
+    author:
+      name: "Hauman Kevin"
+      url: "https://github.com/kevhauma"
+    url: "https://editor.p5js.org/kevhauma/sketches/D8iNuZdhF"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"
