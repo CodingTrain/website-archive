@@ -29,6 +29,11 @@ contributions:
       url: "https://github.com/quillaja"
     url: "http://www.quillaja.net/raymaze/sketch.html"
     source: "https://github.com/quillaja/raymaze"
+  - title: Rendering Ray Casting with Textures
+    author:
+      name: Mumflr
+    url: https://raycasting--mumflrfumperdin.repl.co/
+    source: https://repl.it/@MumflrFumperdin/Raycasting
 ---
 
 Building off of the previous coding challenge (2D Ray Casting) I attempt to make my own version the original Wolfenstein 3D Raycasting engine and visualize the "field of view" of the moving particle.
