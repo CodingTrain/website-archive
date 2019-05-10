@@ -168,6 +168,12 @@ layout: base
       </div>
     {% endif %}
 
+    {% comment %} Community suggested references. {% endcomment %}
+    {% if page.community_references %}
+      {% capture referenceTitle %}Community suggested references for this {{ page.video_type }}{% endcapture %}
+      {% include 3-modules/link-list.html links=page.community_references title=referenceTitle %}
+    {% endif %}
+
     {% comment %} List of related parts. {% endcomment %}
     {% if page.parts %}
       {% capture partsTitle %}Other parts of this {{ page.video_type }}{% endcapture %}
