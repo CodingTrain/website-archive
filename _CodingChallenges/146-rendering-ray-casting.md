@@ -34,7 +34,7 @@ contributions:
       name: Mumflr
     url: https://raycasting--mumflrfumperdin.repl.co/
     source: https://repl.it/@MumflrFumperdin/Raycasting
-    - title: Rendering a Vector Image with Raycasts
+  - title: Rendering a Vector Image with Raycasts
     author:
       name: GreenNectar
     url: https://github.com/GreenNectar/ProcessingProjects/raw/master/2DRayCastRenderer.zip
