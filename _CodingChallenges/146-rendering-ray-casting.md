@@ -48,10 +48,10 @@ contributions:
 
 community_references:
   - title: "Code-It-Yourself! First Person Shooter (Quick and Simple C++)"
-    author: 
+    author:
       name: "Fi Graham"
       url: "http://createdby.fi"
-    url:  "https://www.youtube.com/watch?v=xW8skO7MFYw"
+    video_id:  "xW8skO7MFYw"
 ---
 
 Building off of the previous coding challenge (2D Ray Casting) I attempt to make my own version the original Wolfenstein 3D Raycasting engine and visualize the "field of view" of the moving particle.
