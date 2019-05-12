@@ -35,24 +35,24 @@ const results = [];
     //p5.js
     if (subdirectories.includes('P5')) {
       result.p5 = true;
-      line += '<ul><li> - [x] </li></ul> |'
+      line += '<ul><li> - [x] </li></ul> |';
     } else {
-      line += '<ul><li> - [ ] </li></ul> |'
+      line += '<ul><li> - [ ] </li></ul> |';
     };
 
     //Web Editor
     if (result.web_editor) {
-      line += '<ul><li> - [x] </li></ul> |'
+      line += '<ul><li> - [x] </li></ul> |';
     } else {
-      line += '<ul><li> - [ ] </li></ul> |'
+      line += '<ul><li> - [ ] </li></ul> |';
     }
 
     //Processing
     if (subdirectories.includes('Processing')) {
       result.processing = true
-      line += '<ul><li> - [x] </li></ul> |'
+      line += '<ul><li> - [x] </li></ul> |';
     } else {
-      line += '<ul><li> - [ ] </li></ul> |'
+      line += '<ul><li> - [ ] </li></ul> |';
     };
 
     //Other
@@ -61,9 +61,9 @@ const results = [];
       if (subdirectories.includes(elt)) result.other = true;
     });
     if (result.other) {
-      line += '<ul><li> - [x] </li></ul> |'
+      line += '<ul><li> - [x] </li></ul> |';
     } else {
-      line += '<ul><li> - [ ] </li></ul> |'
+      line += '<ul><li> - [ ] </li></ul> |';
     }
 
     line += '\n'
