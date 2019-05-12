@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 const fs = require('fs');
 const yaml = require('yaml-front-matter');
 
@@ -70,5 +68,8 @@ const results = [];
     result_table += line;
   }
 
+  if (fs.existsSync('CodingChallenge_Variations.md')) {
+    fs.unlinkSync('CodingChallenge_Variations.md');
+  }
   fs.writeFileSync('CodingChallenge_Variations.md', result_table, 'UTF8');
 })();
