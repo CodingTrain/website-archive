@@ -39,6 +39,12 @@ contributions:
       name: GreenNectar
     url: https://github.com/GreenNectar/ProcessingProjects/raw/master/2DRayCastRenderer.zip
     source: https://github.com/GreenNectar/ProcessingProjects/blob/master/2DRayCastRenderer.zip
+  - title: "Ai cars driving with 3D first person view rendering"
+    author:
+      name: "David Snyder"
+      url: "https://www.youtube.com/channel/UCxhrLoZU0t2WGSN80c_LE-Q"
+    video_id: "uFCKbnIcGOs"
+    source: "https://github.com/GypsyDangerous/AI_car_FOV"
 ---
 
 Building off of the previous coding challenge (2D Ray Casting) I attempt to make my own version the original Wolfenstein 3D Raycasting engine and visualize the "field of view" of the moving particle.
