@@ -80,6 +80,12 @@ contributions:
       name: "Hauman Kevin"
       url: "https://github.com/kevhauma"
     url: "https://editor.p5js.org/kevhauma/sketches/D8iNuZdhF"
+  - title: "Ray Casting Maze"
+    author:
+      name: "Sébastien Raynaud"
+      url: "https://twitter.com/Chopokopx"
+    url: "https://editor.p5js.org/SebastienR/full/2rGNT5FNS"
+    source: "https://editor.p5js.org/SebastienR/sketches/2rGNT5FNS"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"
