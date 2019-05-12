@@ -34,7 +34,8 @@ const results = [];
 
     //p5.js
     if (subdirectories.includes('P5')) {
-      result.p5 = true, line += '<ul><li> - [x] </li></ul> |'
+      result.p5 = true;
+      line += '<ul><li> - [x] </li></ul> |'
     } else {
       line += '<ul><li> - [ ] </li></ul> |'
     };
