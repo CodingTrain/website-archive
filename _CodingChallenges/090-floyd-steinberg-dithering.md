@@ -5,6 +5,8 @@ video_number: 90
 date: 2018-01-16
 video_id: 0L2n8Tg2FwI
 repository: CC_090_dithering
+web_editor: -YkMaf9Ea
+
 links:
   - title: "Stippling"
     url: "http://roberthodgin.com/portfolio/stippling/"

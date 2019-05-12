@@ -102,7 +102,7 @@
 | 70.1 | Nearest Neighbors Recommendation Engine - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 70.2 | Nearest Neighbors Recommendation Engine - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 70.3 | Nearest Neighbors Recommendation Engine - Part 3 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 71 | Minesweeper | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 71 | Minesweeper | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 72.1 | Frogger - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 72.2 | Frogger - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 72.3 | Frogger - Part 3 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
@@ -110,22 +110,22 @@
 | 73 | Acrostic | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 74 | Clock | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 75 | Wikipedia API | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 76 | 10PRINT in p5.js | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 76 | 10PRINT in p5.js | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 77 | Recursion | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 78 | Simple Particle System | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 79 | Number Guessing Chatbot | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 80 | Voice Chatbot with p5.Speech | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 81.1 | Circle Morphing - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 81.2 | Circle Morphing - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 81.1 | Circle Morphing - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 81.2 | Circle Morphing - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 82 | Image Chrome Extension - The Ex-Kitten-sion! | <ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |
 | 83 | Chrome Extension with p5.js Sketch - Doodle Chrome Extension | <ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |
 | 84 | Word Definition Extension | <ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |
-| 85 | The Game of Life | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 85 | The Game of Life | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 86 | Cube Wave by Bees and Bombs | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 87 | 3D Knots | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 88 | Snowfall | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 89 | Langton's Ant | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 90 | Floyd-Steinberg Dithering | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 89 | Langton's Ant | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 90 | Floyd-Steinberg Dithering | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 91.1 | Snakes & Ladders - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 91.2 | Snakes & Ladders - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 91.3 | Snakes & Ladders - Part 3 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
@@ -153,18 +153,18 @@
 | 104 | Linear Regression with TensorFlow.js | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 105 | Polynomial Regression with TensorFlow.js | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 106 | XOR Problem with TensorFlow.js | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 107 | Sandpiles | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 108 | The Barnsley Fern | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 107 | Sandpiles | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 108 | The Barnsley Fern | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 109 | Visualizing 500,000 Subscribers | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 110.1 | Recamán's Sequence - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 110.2 | Recamán's Sequence - Part 2 (Audio) | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 111 | Animated Sprites | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 111 | Animated Sprites | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 112 | 3D Rendering with Rotation and Projection | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 113 | 4D Hypercube (aka 'Tesseract') | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 114 | Bubble Sort Visualization | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 114 | Bubble Sort Visualization | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 115 | Snake Game Redux | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 116 | Lissajous Curve Table | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 117 | Seven-Segment Display | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 117 | Seven-Segment Display | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 118.1 | Mastodon Fractal Tree Bot - Part 1 | <ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |
 | 118.2 | Mastodon Fractal Tree Bot - Part 2 | <ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |
 | 119 | Binary to Decimal Conversion | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
@@ -191,7 +191,7 @@
 | 134.2 | Heart Curve | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 135 | Making a GIF Loop in Processing | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 136.1 | Polar Perlin Noise Loops | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 136.2 | Perlin Noise GIF Loops | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 136.2 | Perlin Noise GIF Loops | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 137 | 4D OpenSimplex Noise Loop | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 138 | Angry Birds with Matter.js | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 139 | Calculating Digits of Pi with Collisions | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
