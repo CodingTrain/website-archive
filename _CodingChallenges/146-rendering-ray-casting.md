@@ -45,6 +45,13 @@ contributions:
       url: "https://www.youtube.com/channel/UCxhrLoZU0t2WGSN80c_LE-Q"
     video_id: "uFCKbnIcGOs"
     source: "https://github.com/GypsyDangerous/AI_car_FOV"
+
+community_references:
+  - title: "Code-It-Yourself! First Person Shooter (Quick and Simple C++)"
+    author:
+      name: "Fi Graham"
+      url: "http://createdby.fi"
+    video_id:  "xW8skO7MFYw"
 ---
 
 Building off of the previous coding challenge (2D Ray Casting) I attempt to make my own version the original Wolfenstein 3D Raycasting engine and visualize the "field of view" of the moving particle.
