@@ -49,7 +49,7 @@ const results = [];
 
     //Processing
     if (subdirectories.includes('Processing')) {
-      result.processing = true
+      result.processing = true;
       line += '<ul><li> - [x] </li></ul> |';
     } else {
       line += '<ul><li> - [ ] </li></ul> |';
