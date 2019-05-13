@@ -111,7 +111,7 @@
 | 74 | Clock | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 75 | Wikipedia API | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 76 | 10PRINT in p5.js | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 77 | Recursion | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 77 | Recursion | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 78 | Simple Particle System | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 79 | Number Guessing Chatbot | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 80 | Voice Chatbot with p5.Speech | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
@@ -155,12 +155,12 @@
 | 106 | XOR Problem with TensorFlow.js | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 107 | Sandpiles | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 108 | The Barnsley Fern | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 109 | Visualizing 500,000 Subscribers | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 110.1 | Recamán's Sequence - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 110.2 | Recamán's Sequence - Part 2 (Audio) | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 109 | Visualizing 500,000 Subscribers | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 110.1 | Recamán's Sequence - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 110.2 | Recamán's Sequence - Part 2 (Audio) | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 111 | Animated Sprites | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 112 | 3D Rendering with Rotation and Projection | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 113 | 4D Hypercube (aka 'Tesseract') | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 112 | 3D Rendering with Rotation and Projection | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 113 | 4D Hypercube (aka 'Tesseract') | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 114 | Bubble Sort Visualization | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 115 | Snake Game Redux | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 116 | Lissajous Curve Table | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
