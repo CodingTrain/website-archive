@@ -55,7 +55,7 @@ contributions:
   - title: "Ray Casting 2D in Processing"
     author:
       name: "David Snyder"
-      url: "https://www.youtube.com/channel/UCxhrLoZU0t2WGSN80c_LE-Q"
+      url: "http://gypsydangerous.xyz/"
     video_id: "G6lWsoFpJg4"
     source: "https://github.com/GypsyDangerous/raycasting-dark-room"
   - title: "Raycasting Maze explorer (made in vb.net)"
