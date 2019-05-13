@@ -5,6 +5,7 @@ video_number: 87
 date: 2017-12-20
 video_id: r6YMKr1X0VA
 repository: CC_087_3D_Knots
+web_editor: fa1rAWng9
 
 links:
   - title: "Paul Bourke's reference on 3D knots"
@@ -23,6 +24,5 @@ contributions:
     url: "https://editor.p5js.org/julia.maiolo@gmail.com/present/NSYwYgi0t"
     source: "https://editor.p5js.org/julia.maiolo@gmail.com/sketches/NSYwYgi0t"
 ---
-
 
 In this coding challenge, I attempt to make 3D Knots using Processing and Paul Bourke's formulae.
