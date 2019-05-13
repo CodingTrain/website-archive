@@ -42,7 +42,7 @@ contributions:
   - title: "Ai cars driving with 3D first person view rendering"
     author:
       name: "David Snyder"
-      url: "https://www.youtube.com/channel/UCxhrLoZU0t2WGSN80c_LE-Q"
+      url: "http://gypsydangerous.xyz/"
     video_id: "uFCKbnIcGOs"
     source: "https://github.com/GypsyDangerous/AI_car_FOV"
 
