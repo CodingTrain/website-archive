@@ -57,9 +57,11 @@
   .featured-videos
     text-align: center
 
-    .video-card:nth-child(2)
-      @media (max-width: $tablet-big) and (min-width: $tablet-small)
-        display: none
+    .video-list
+      .videos
+        li:nth-child(2)
+          @media (max-width: $tablet-big) and (min-width: $tablet-small)
+            display: none
 
     .more-videos
       @extend .cta-button
