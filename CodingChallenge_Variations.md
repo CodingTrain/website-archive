@@ -88,28 +88,28 @@
 | 64.2 | Inverse Kinematics | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 64.3 | Inverse Kinematics - Fixed Point | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 64.4 | Inverse Kinematics - Multiple | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 65.1 | Binary Search Tree | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 65.2 | Visualizing a Binary Tree | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 66 | JavaScript Countdown Timer | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 67 | Pong! | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 68.1 | Breadth-First Search Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 68.2 | Breadth-First Search Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 65.1 | Binary Search Tree | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 65.2 | Visualizing a Binary Tree | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 66 | JavaScript Countdown Timer | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 67 | Pong! | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 68.1 | Breadth-First Search Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 68.2 | Breadth-First Search Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 69.1 | Evolutionary Steering Behaviors - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 69.2 | Evolutionary Steering Behaviors - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 69.3 | Evolutionary Steering Behaviors - Part 3 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 69.4 | Evolutionary Steering Behaviors - Part 4 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 69.5 | Evolutionary Steering Behaviors - Part 5 (Bonus) | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 70.1 | Nearest Neighbors Recommendation Engine - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 70.2 | Nearest Neighbors Recommendation Engine - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 70.3 | Nearest Neighbors Recommendation Engine - Part 3 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 70.1 | Nearest Neighbors Recommendation Engine - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 70.2 | Nearest Neighbors Recommendation Engine - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 70.3 | Nearest Neighbors Recommendation Engine - Part 3 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 71 | Minesweeper | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 72.1 | Frogger - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 72.2 | Frogger - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 72.3 | Frogger - Part 3 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 72.4 | Frogger Refactoring | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 73 | Acrostic | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 72.1 | Frogger - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 72.2 | Frogger - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 72.3 | Frogger - Part 3 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 72.4 | Frogger Refactoring | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 73 | Acrostic | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 74 | Clock | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 75 | Wikipedia API | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 75 | Wikipedia API | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 76 | 10PRINT in p5.js | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 77 | Recursion | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 78 | Simple Particle System | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
@@ -121,32 +121,32 @@
 | 83 | Chrome Extension with p5.js Sketch - Doodle Chrome Extension | <ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |
 | 84 | Word Definition Extension | <ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |
 | 85 | The Game of Life | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 86 | Cube Wave by Bees and Bombs | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 87 | 3D Knots | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 86 | Cube Wave by Bees and Bombs | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 87 | 3D Knots | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 88 | Snowfall | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 89 | Langton's Ant | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 90 | Floyd-Steinberg Dithering | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 91.1 | Snakes & Ladders - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 91.2 | Snakes & Ladders - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 91.3 | Snakes & Ladders - Part 3 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 92 | XOR Problem | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 91.1 | Snakes & Ladders - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 91.2 | Snakes & Ladders - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 91.3 | Snakes & Ladders - Part 3 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 92 | XOR Problem | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 93 | Double Pendulum | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 94.1 | 2048 - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 94.2 | 2048 - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 94.3 | 2048 - Part 3 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 94.4 | 2048 - Part 4 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 94.1 | 2048 - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 94.2 | 2048 - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 94.3 | 2048 - Part 3 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 94.4 | 2048 - Part 4 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 95 | Approximating the Value of Pi | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 96 | Visualizing the Digits of Pi | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 97.1 | The Book of Pi - Part 1 | <ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 98.1 | Quadtree - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 98.2 | Quadtree - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 98.3 | Quadtree Collisions - Part 3 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 99 | Neural Network Color Predictor | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 100.1 | Neuroevolution Flappy Bird - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 100.2 | Neuroevolution Flappy Bird - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 100.3 | Neuroevolution Flappy Bird - Part 3 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 100.4 | Neuroevolution Flappy Bird - Part 4 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 100.5 | Neuroevolution Flappy Bird - Part 5 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 98.1 | Quadtree - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 98.2 | Quadtree - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 98.3 | Quadtree Collisions - Part 3 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 99 | Neural Network Color Predictor | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 100.1 | Neuroevolution Flappy Bird - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 100.2 | Neuroevolution Flappy Bird - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 100.3 | Neuroevolution Flappy Bird - Part 3 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 100.4 | Neuroevolution Flappy Bird - Part 4 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 100.5 | Neuroevolution Flappy Bird - Part 5 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 101 | May the 4th Scrolling Text | <ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 102 | 2D Water Ripple | <ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 103 | Fire Effect | <ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
