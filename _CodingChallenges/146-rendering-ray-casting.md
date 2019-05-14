@@ -51,6 +51,12 @@ contributions:
       url: ""
     url: "https://editor.p5js.org/shapeShifterScroll/sketches/j1Llvfiev"
     source: "https://github.com/ddddtttt6666/p5js/tree/master/ray_casting_3d"
+  - title: "ray casting in python (also grid based)"
+    author:
+      name: "D.T.6"
+      url: ""
+    url: "https://github.com/ddddtttt6666/python/raw/master/ray%20casting/main.rar"
+    source: "https://github.com/ddddtttt6666/python/tree/master/ray%20casting"
 
 community_references:
   - title: "Code-It-Yourself! First Person Shooter (Quick and Simple C++)"
