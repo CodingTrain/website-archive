@@ -1,93 +1,93 @@
 | Number | Name | p5.js | Web Editor | Processing | Other |
 | --- | --- | --- | --- | --- | --- | 
-| 1 | Starfield in Processing | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 2 | Menger Sponge Fractal | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 3 | The Snake Game | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 4 | Purple Rain in Processing | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 5 | Space Invaders in JavaScript with p5.js | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 6 | Mitosis Simulation with p5.js | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 7 | Solar System in Processing - Part 1 (2D) | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 1 | Starfield in Processing | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 2 | Menger Sponge Fractal | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 3 | The Snake Game | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 4 | Purple Rain in Processing | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 5 | Space Invaders in JavaScript with p5.js | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 6 | Mitosis Simulation with p5.js | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 7 | Solar System in Processing - Part 1 (2D) | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 8 | Solar System in Processing - Part 2 (3D) | <ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 9 | Solar System in Processing - Part 3 (3D textures) | <ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 10.1 | Maze Generator with p5.js - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 10.2 | Maze Generator with p5.js - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 10.3 | Maze Generator with p5.js - Part 3 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 10.4 | Maze Generator with p5.js - Part 4 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 10.1 | Maze Generator with p5.js - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 10.2 | Maze Generator with p5.js - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 10.3 | Maze Generator with p5.js - Part 3 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 10.4 | Maze Generator with p5.js - Part 4 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 11 | 3D Terrain Generation with Perlin Noise in Processing | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 12 | The Lorenz Attractor in Processing | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 13 | Reaction Diffusion Algorithm in p5.js | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 14 | Fractal Trees - Recursive | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 15 | Fractal Trees - Object Oriented | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 16 | Fractal Trees - L-System | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 17 | Fractal Trees - Space Colonization | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 12 | The Lorenz Attractor in Processing | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 13 | Reaction Diffusion Algorithm in p5.js | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 14 | Fractal Trees - Recursive | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 15 | Fractal Trees - Object Oriented | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 16 | Fractal Trees - L-System | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 17 | Fractal Trees - Space Colonization | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 18 | 3D Fractal Trees | <ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 19 | Superellipse | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 20 | 3D Cloth with toxiclibs | <ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 21 | Mandelbrot Set with p5.js | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 21 | Mandelbrot Set with p5.js | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 22 | Julia Set in Processing | <ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 23 | 2D Supershapes | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 23 | 2D Supershapes | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 24 | Perlin Noise Flow Field | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 25 | Spherical Geometry | <ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 26 | 3D Supershapes | <ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 27 | Fireworks | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 28 | Metaballs | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 29 | Smart Rockets in p5.js | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 30 | Phyllotaxis | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 31 | Flappy Bird | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 32.1 | Agar.io - Part 1 (Basic Game Mechanics) | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 28 | Metaballs | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 29 | Smart Rockets in p5.js | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 30 | Phyllotaxis | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 31 | Flappy Bird | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 32.1 | Agar.io - Part 1 (Basic Game Mechanics) | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 32.2 | Agar.io - Part 2 (Networking with Socket.IO and Node.js) | <ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |
-| 33 | Poisson-disc Sampling | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 33 | Poisson-disc Sampling | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 34 | Diffusion-Limited Aggregation | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 35.1 | Traveling Salesperson | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 35.2 | Lexicographic Order | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 35.3 | Traveling Salesperson with Lexicographic Order | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 35.1 | Traveling Salesperson | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 35.2 | Lexicographic Order | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 35.3 | Traveling Salesperson with Lexicographic Order | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 35.4 | Traveling Salesperson with Genetic Algorithm | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 35.5 | TSP with Genetic Algorithm and Crossover | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 36 | Blobby! | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 37 | Diastic Machine | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 38 | Word Interactor | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 39 | Mad Libs Generator | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 40.1 | Word Counter in JavaScript | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 40.2 | Word Counter in Processing | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 40.3 | TF-IDF | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 41 | Clappy Bird | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 42.1 | Markov Chains - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 42.2 | Markov Chains - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 43 | Context-Free Grammar | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 44.1 | AFINN-111 Sentiment Analysis - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 44.2 | AFINN-111 Sentiment Analysis - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 37 | Diastic Machine | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 38 | Word Interactor | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 39 | Mad Libs Generator | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 40.1 | Word Counter in JavaScript | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 40.2 | Word Counter in Processing | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 40.3 | TF-IDF | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 41 | Clappy Bird | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 42.1 | Markov Chains - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 42.2 | Markov Chains - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 43 | Context-Free Grammar | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 44.1 | AFINN-111 Sentiment Analysis - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 44.2 | AFINN-111 Sentiment Analysis - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 45 | Saving p5.js Drawings to Firebase | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 46.1 | Asteroids - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 46.2 | Asteroids - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 47 | Pixel Sorting in Processing | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 48 | White House Social Media Data Visualization | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 48 | White House Social Media Data Visualization | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 49 | Photo Mosaic with White House Social Media Images | <ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 50.1 | Animated Circle Packing - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 50.2 | Animated Circle Packing - Part 2 (Kitten Addendum) | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 51.1 | A* Pathfinding Algorithm - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 51.2 | A* Pathfinding Algorithm - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 51.3 | A* Pathfinding Algorithm - Part 3 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 51.1 | A* Pathfinding Algorithm - Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 51.2 | A* Pathfinding Algorithm - Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 51.3 | A* Pathfinding Algorithm - Part 3 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 52 | Random Walker | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 53 | Random Walker with Vectors and Lévy Flight | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 54.1 | Islamic Star Patterns | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 54.2 | Star Patterns Update: Law of Sines | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 54.1 | Islamic Star Patterns | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 54.2 | Star Patterns Update: Law of Sines | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 55 | Mathematical Rose Patterns | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 56 | Attraction and Repulsion Forces | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 57 | Mapping Earthquake Data | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 57 | Mapping Earthquake Data | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 58 | 3D Earthquake Data Visualization | <ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 59 | Steering Behaviors | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 60 | Butterfly Generator | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 61 | Fractal Spirograph | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 62.1 | Plinko with Matter.js Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 62.2 | Plinko with Matter.js Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 62.3 | Plinko with Matter.js Part 3 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 62.4 | Plinko with Matter.js Part 4 | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 62.1 | Plinko with Matter.js Part 1 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 62.2 | Plinko with Matter.js Part 2 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 62.3 | Plinko with Matter.js Part 3 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 62.4 | Plinko with Matter.js Part 4 | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 63.1 | Texturing Cloth Simulation Part 1 | <ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 63.2 | Texturing Cloth Simulation Part 2 | <ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 64.1 | Forward Kinematics | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 64.2 | Inverse Kinematics | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 64.3 | Inverse Kinematics - Fixed Point | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
-| 64.4 | Inverse Kinematics - Multiple | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 64.1 | Forward Kinematics | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 64.2 | Inverse Kinematics | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 64.3 | Inverse Kinematics - Fixed Point | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
+| 64.4 | Inverse Kinematics - Multiple | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 65.1 | Binary Search Tree | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 65.2 | Visualizing a Binary Tree | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |
 | 66 | JavaScript Countdown Timer | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |

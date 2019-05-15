@@ -7,7 +7,7 @@ function Box(x, y, z, r) {
   this.pos = createVector(x, y, z);
   this.r = r;
 
-  this.generate = function() {
+  this.generate = function () {
     var boxes = [];
     for (var x = -1; x < 2; x++) {
       for (var y = -1; y < 2; y++) {
@@ -24,7 +24,7 @@ function Box(x, y, z, r) {
     return boxes;
   }
 
-  this.show = function() {
+  this.show = function () {
     push();
     translate(this.pos.x, this.pos.y, this.pos.z);
     //stroke(255);
