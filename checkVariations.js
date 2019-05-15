@@ -30,6 +30,7 @@ const results = [];
 
     let line = `| ${result.id} | ${result.title} | `;
 
+    console.log(`Updating Challenge ${result.id}: ${result.title}`);
     //p5.js
     if (subdirectories.includes('P5')) {
       result.p5 = true;

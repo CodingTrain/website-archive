@@ -5,6 +5,8 @@ video_number: 21
 date: 2016-06-13
 video_id: 6z7GQewK-Ks
 repository: CC_021_Mandelbrot
+web_editor: KsV1wWLqd
+
 links:
   - title: "Wikipedia on Mandelbrot Set"
     url: "https://en.wikipedia.org/wiki/Mandelbrot_set"
