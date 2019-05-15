@@ -20,9 +20,9 @@ const results = [];
   }
 
   let result_table =
-    '| Number | Name | p5.js | Web Editor | Processing | Other |\n';
+    '| Number | Name | p5.js | Web Editor | Processing | Other | Folder |\n';
   result_table +=
-    '| --- | --- | --- | --- | --- | --- | \n';
+    '| --- | --- | --- | --- | --- | --- | --- | \n';
 
   for (const result of results) {
     if (!result.repo) continue;
@@ -65,7 +65,7 @@ const results = [];
       line += '<ul><li> - [ ] </li></ul> |';
     }
 
-    line += '\n'
+    line += `${result.repo} \n`
     result_table += line;
   }
 
