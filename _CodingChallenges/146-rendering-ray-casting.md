@@ -58,7 +58,7 @@ contributions:
     url: "https://github.com/ddddtttt6666/python/raw/master/ray%20casting/main.rar"
     source: "https://github.com/ddddtttt6666/python/tree/master/ray%20casting"
   - title: "2D Klein Bottle Universe"
-    author: 
+    author:
       name: "Jesse Cranney"
       url: ""
     url: "https://editor.p5js.org/jac1616/present/n5YdcAHDl"
