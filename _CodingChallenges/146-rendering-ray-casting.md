@@ -57,6 +57,12 @@ contributions:
       url: ""
     url: "https://github.com/ddddtttt6666/python/raw/master/ray%20casting/main.rar"
     source: "https://github.com/ddddtttt6666/python/tree/master/ray%20casting"
+  - title: "2D Klein Bottle Universe"
+    author:
+      name: "Jesse Cranney"
+      url: ""
+    url: "https://editor.p5js.org/jac1616/present/n5YdcAHDl"
+    source: "https://editor.p5js.org/jac1616/sketches/n5YdcAHDl"
 
 community_references:
   - title: "Code-It-Yourself! First Person Shooter (Quick and Simple C++)"
