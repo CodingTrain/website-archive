@@ -185,7 +185,7 @@
 | 130.2 | Fourier Transform User Drawing | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |CC_130_Fourier_Transform_2 
 | 130.3 | Fourier Transform Drawing with Complex Number Input | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |CC_130_Fourier_Transform_3 
 | 131 | Bouncing DVD Logo | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |CC_131_BouncingDVDLogo 
-| 132 | Fluid Simulation | <ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |CC_132_FluidSimulation 
+| 132 | Fluid Simulation | <ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |CC_132_FluidSimulation 
 | 133 | Times Tables Cardioid Visualization | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |CC_133_Times_Tables_Cardioid 
 | 134.1 | Heart Curve | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |CC_134_Heart_Curve_1 
 | 134.2 | Heart Curve | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |CC_134_Heart_Curve_2 
@@ -202,5 +202,5 @@
 | 142.3 | Rubik's Cube Part 3 | <ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |CC_142_Rubiks_Cube_3 
 | 143 | Quicksort | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |CC_143_QuickSort 
 | 144 | 2D Black Hole Visualization | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |CC_144_Black_Hole_Newtonian 
-| 145 | Ray Casting 2D | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |CC_145_Ray_Casting 
+| 145 | Ray Casting 2D | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |CC_145_Ray_Casting 
 | 146 | Rendering Ray Casting | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |CC_146_Rendering_Ray_Casting 
