@@ -11,7 +11,7 @@ function Snake() {
   this.total = 0;
   this.tail = [];
 
-  this.eat = function(pos) {
+  this.eat = function (pos) {
     var d = dist(this.x, this.y, pos.x, pos.y);
     if (d < 1) {
       this.total++;
@@ -21,12 +21,12 @@ function Snake() {
     }
   }
 
-  this.dir = function(x, y) {
+  this.dir = function (x, y) {
     this.xspeed = x;
     this.yspeed = y;
   }
 
-  this.death = function() {
+  this.death = function () {
     for (var i = 0; i < this.tail.length; i++) {
       var pos = this.tail[i];
       var d = dist(this.x, this.y, pos.x, pos.y);
@@ -38,7 +38,7 @@ function Snake() {
     }
   }
 
-  this.update = function() {
+  this.update = function () {
     for (var i = 0; i < this.tail.length - 1; i++) {
       this.tail[i] = this.tail[i + 1];
     }
@@ -53,7 +53,7 @@ function Snake() {
     this.y = constrain(this.y, 0, height - scl);
   }
 
-  this.show = function() {
+  this.show = function () {
     fill(255);
     for (var i = 0; i < this.tail.length; i++) {
       rect(this.tail[i].x, this.tail[i].y, scl, scl);

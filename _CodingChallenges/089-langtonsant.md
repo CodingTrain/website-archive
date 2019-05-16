@@ -5,6 +5,7 @@ video_number: 89
 date: 2018-01-07
 video_id: G1EgjgMo48U
 repository: CC_089_langtonsant
+web_editor: svbAzt8sb
 
 contributions:
   - title: "Langton's Paint Brush Using Processing"

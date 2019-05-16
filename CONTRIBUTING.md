@@ -8,6 +8,7 @@ Here are the type of contributions we are looking for:
  - adding a link to your creative version of a challenge or tutorial - [guide](https://github.com/CodingTrain/website/wiki/Community-Contributions-Guide)
  - website design improvements
  - adding any missing content - [guide](https://github.com/CodingTrain/website/wiki/Content-Contribution-Guide)
+ - porting coding challenges to other languages (eg. Processing -> JavaScript/p5.js) - [overview](https://github.com/CodingTrain/website/blob/master/CodingChallenge_Variations.md)
 
 The code in the repository should match the code written in the YouTube tutorials, so that fellow passengers can use this code as a base for their own implementations.
 

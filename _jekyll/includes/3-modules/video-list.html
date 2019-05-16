@@ -36,14 +36,16 @@
 {% endif %}
 
 <div class="video-list {{ include.class }}">
-  <div class="videos">
+  <ul class="videos">
 
     {% comment %} Include a video card for every video and apply limit (if given). {% endcomment %}
     {% for video in int_sortedVideos limit:include.limit %}
+      <li>
       {% include 3-modules/video-card.html video=video %}
+      </li>
     {% endfor %}
 
-  </div>
+  </ul>
 
   {% comment %} Display the 'watch all videos' button if a limit was given. {% endcomment %}
   {% if include.limit %}

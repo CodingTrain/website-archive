@@ -19,7 +19,7 @@ function Plinko(x, y, r) {
   World.add(world, this.body);
 }
 
-Plinko.prototype.show = function() {
+Plinko.prototype.show = function () {
   noStroke();
   fill(127);
   var pos = this.body.position;
