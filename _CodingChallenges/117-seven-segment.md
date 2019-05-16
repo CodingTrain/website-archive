@@ -4,6 +4,7 @@ video_number: 117
 date: 2018-10-15
 video_id: MlRlgbrAVOs
 repository: CC_117_SevenSegmentDisplay
+web_editor: O25p3JYxT
 
 links:
   - title: "Code"

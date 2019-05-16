@@ -5,6 +5,8 @@ video_number: 90
 date: 2018-01-16
 video_id: 0L2n8Tg2FwI
 repository: CC_090_dithering
+web_editor: -YkMaf9Ea
+
 links:
   - title: "Stippling"
     url: "http://roberthodgin.com/portfolio/stippling/"
@@ -41,6 +43,13 @@ contributions:
       url: "https://github.com/figraham"
     url: "https://github.com/figraham/exploringdithering"
     source: "https://github.com/figraham/exploringdithering"
+
+community_references:
+  - title: "DHALF.txt"
+    author:
+      name: "Fi Graham"
+      url: "http://createdby.fi"
+    url:  "https://github.com/SixLabors/ImageSharp/blob/master/src/ImageSharp/Processing/Processors/Dithering/DHALF.TXT"
 ---
 
 In this coding challenge, I attempt to implement the Floyd-Steinberg Dithering algorithm and create a "image stippling" effect on an image (kitten, of course) using Processing.

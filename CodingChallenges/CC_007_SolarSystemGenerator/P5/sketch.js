@@ -9,7 +9,7 @@ function setup() {
 
 function draw() {
     background(51);
-    translate(width/2, height/2);
+    translate(width / 2, height / 2);
     sun.show();
     sun.orbit();
 }
