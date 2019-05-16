@@ -66,7 +66,6 @@ contributions:
   - title: "ray marching 3d-like visualisation modulo-verse"
     author:
       name: "D.T.6"
-      url: ""
     url: "https://editor.p5js.org/full/ZV-OjWFtK"
     source: "https://github.com/ddddtttt6666/p5js/blob/master/ray_marching_3d_wolf_infinite/sketch.js"
 
