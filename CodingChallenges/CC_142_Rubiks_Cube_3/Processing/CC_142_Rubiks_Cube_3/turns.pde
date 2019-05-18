@@ -4,7 +4,11 @@
 // https://youtu.be/8U2gsbNe1Uo
 
 
-void turn(int index, int dir, char axis) {
+float roundToHalf(float d) {
+  return round(d * 2) / 2.0;
+}
+
+void turn(float index, int dir, char axis) {
   for (int i = 0; i < cube.length; i++) {
     Cubie qb = cube[i];
     if (axis == 'z') {
@@ -12,7 +16,7 @@ void turn(int index, int dir, char axis) {
         PMatrix2D matrix = new PMatrix2D();
         matrix.rotate(dir*HALF_PI);
         matrix.translate(qb.x, qb.y);
-        qb.update(round(matrix.m02), round(matrix.m12), round(qb.z));
+        qb.update(roundToHalf(matrix.m02), roundToHalf(matrix.m12), qb.z);
         qb.turnFaces(dir, 'z');
       }
     } else if (axis == 'y') {
@@ -20,7 +24,7 @@ void turn(int index, int dir, char axis) {
         PMatrix2D matrix = new PMatrix2D();
         matrix.rotate(dir*HALF_PI);
         matrix.translate(qb.x, qb.z);
-        qb.update(round(matrix.m02), qb.y, round(matrix.m12));
+        qb.update(roundToHalf(matrix.m02), qb.y, roundToHalf(matrix.m12));
         qb.turnFaces(dir, 'y');
       }
     } else if (axis == 'x') {
@@ -28,7 +32,7 @@ void turn(int index, int dir, char axis) {
         PMatrix2D matrix = new PMatrix2D();
         matrix.rotate(dir*HALF_PI);
         matrix.translate(qb.y, qb.z);
-        qb.update(qb.x, round(matrix.m02), round(matrix.m12));
+        qb.update(qb.x, roundToHalf(matrix.m02), roundToHalf(matrix.m12));
         qb.turnFaces(dir, 'x');
       }
     }

@@ -7,106 +7,30 @@ import peasy.*;
 
 PeasyCam cam;
 
-float speed = 0.05;
+float speed = 1;
 int dim = 3;
-String seq;
-String prev;
+int scrambleLength = dim * 8;
+float axis = dim % 2 == 0 ? floor(dim / 2) - 0.5 : floor(dim / 2);
+boolean sequenceStarted;
 Cubie[] cube = new Cubie[dim*dim*dim];
-
-Move makeAMove(String m) {
-  Move move = null;
-  switch (m) {
-    case "R2":
-      return move = new Move(1, 0, 0, 2);
-    case "L2":
-      return move = new Move(-1, 0, 0, 2);
-    case "D2":
-      return move = new Move(0, 1, 0, 2);
-    case "U2":
-      return move = new Move(0, -1, 0, 2);
-    case "F2":
-      return move = new Move(0, 0, 1, 2);
-    case "B2":
-      return move = new Move(0, 0, -1, 2);
-    case "R":
-      return move = new Move(1, 0, 0, 1);
-    case "R\'":
-      return move = new Move(1, 0, 0, -1);
-    case "L\'":
-      return move = new Move(-1, 0, 0, 1);
-    case "L":
-      return move = new Move(-1, 0, 0, -1);
-    case "F":
-      return move = new Move(0, 0, 1, 1);
-    case "F\'":
-      return move = new Move(0, 0, 1, -1);
-    case "B\'":
-      return move = new Move(0, 0, -1, 1);
-    case "B":
-      return move = new Move(0, 0, -1, -1);
-    case "D\'":
-      return move = new Move(0, 1, 0, 1);
-    case "D":
-      return move = new Move(0, 1, 0, -1);
-    case "U":
-      return move = new Move(0, -1, 0, 1);
-    case "U\'":
-      return move = new Move(0, -1, 0, -1);
-  }
-  return move;
-}
-
-//Move[] allMoves = new Move[] {
-//  new Move(0, 1, 0, 1), 
-//  new Move(0, 1, 0, -1), 
-//  new Move(0, -1, 0, 1), 
-//  new Move(0, -1, 0, -1), 
-//  new Move(1, 0, 0, 1), 
-//  new Move(1, 0, 0, -1), 
-//  new Move(-1, 0, 0, 1), 
-//  new Move(-1, 0, 0, -1), 
-//  new Move(0, 0, 1, 1), 
-//  new Move(0, 0, 1, -1), 
-//  new Move(0, 0, -1, 1), 
-//  new Move(0, 0, -1, -1) 
-//};
-
-String backwards(String prev) {
-  return prev.split("")[0] + "\'";
-}
-String twice(String prev) {
-  return prev.split("")[0] + "2";
-}
-String single(String prev) {
-  return prev.split("")[0] + "";
-}
-
-String[] allMoves = new String[] {
-  "R", "R\'", "R2",
-  "L", "L\'", "L2",
-  "U", "U\'", "U2",
-  "D", "D\'", "D2",
-  "F", "F\'", "F2",
-  "B", "B\'", "B2"
-};
-
 ArrayList<Move> sequence = new ArrayList<Move>();
+ArrayList<Move> allMovesSeq = new ArrayList<Move>();
 int counter = 0;
-
 boolean started = false;
-
 Move currentMove;
+PImage logo;
 
 void setup() {
   size(600, 600, P3D);
+  logo = loadImage("train.png");
   //fullScreen(P3D);
-  cam = new PeasyCam(this, 400);
+  sequenceStarted = false;
+  cam = new PeasyCam(this, 100 * (dim + 1));
+
   int index = 0;
-  prev = "";
-  seq = "";
-  for (int x = -1; x <= 1; x++) {
-    for (int y = -1; y <= 1; y++) {
-      for (int z = -1; z <= 1; z++) {
+  for (float x = -axis; x <= axis; x++) {
+    for (float y = -axis; y <= axis; y++) {
+      for (float z = -axis; z <= axis; z++) {
         PMatrix3D matrix = new PMatrix3D();
         matrix.translate(x, y, z);
         cube[index] = new Cubie(matrix, x, y, z);
@@ -115,23 +39,27 @@ void setup() {
     }
   }
 
-  for (int i = 0; i < 20; i++) {
-    int r = int(random(allMoves.length));
-    String move = allMoves[r];
-    while (move.contentEquals(single(prev)) || move.contentEquals(backwards(prev)) || move.contentEquals(twice(prev))) {
-      r = int(random(allMoves.length));
-      move = allMoves[r];
+  for (float i = -axis; i <= axis; i++)
+  {
+    if (i != 0) {
+      allMovesSeq.add(new Move(i, 0, 0, 2));
+      allMovesSeq.add(new Move(i, 0, 0, 1));
+      allMovesSeq.add(new Move(i, 0, 0, -1));
+      allMovesSeq.add(new Move(0, i, 0, 2));
+      allMovesSeq.add(new Move(0, i, 0, 1));
+      allMovesSeq.add(new Move(0, i, 0, -1));
+      allMovesSeq.add(new Move(0, 0, i, 2));
+      allMovesSeq.add(new Move(0, 0, i, 1));
+      allMovesSeq.add(new Move(0, 0, i, -1));
     }
-    seq += move + " ";
-    prev = move;
-    //int r = int(random(allMoves.length));
-    Move m = makeAMove(move);
-    //println(m.x + " " + m.y + " " + m.z + " " + m.dir);
-    sequence.add(m);
   }
-  println(seq);
 
-  currentMove = sequence.get(counter);
+  for (int i = 0; i <= scrambleLength; i++) {
+    Move move = allMovesSeq.get((int)random(allMovesSeq.size()));
+    sequence.add(move);
+  }
+
+  currentMove = new Move(0, 0, 0, 0);
 
   for (int i = sequence.size()-1; i >= 0; i--) {
     Move nextMove = sequence.get(i).copy();
@@ -139,7 +67,8 @@ void setup() {
     sequence.add(nextMove);
   }
 
-  //currentMove.start();
+  removeInternalColors();
+  //cube[10].faces[2] = new Face(new PVector(0, 1, 0), color(255, 255, 255), logo); //only for 3x3
 }
 
 void draw() {
@@ -158,24 +87,29 @@ void draw() {
 
 
   currentMove.update();
-  if (currentMove.finished()) {
-    if (counter < sequence.size()-1) {
-      counter++;
-      currentMove = sequence.get(counter);
-      currentMove.start();
+  if (sequenceStarted) {
+    if (currentMove.finished()) {
+      if (counter < sequence.size()-1) {
+        counter++;
+        currentMove = sequence.get(counter);
+        currentMove.start();
+      }
     }
   }
-
-
   scale(50);
+  rotateCube(currentMove);
+  //image(logo, 0, 0, 1, 1);
+}
+
+void rotateCube(Move move) {
   for (int i = 0; i < cube.length; i++) {
     push();
-    if (abs(cube[i].z) > 0 && cube[i].z == currentMove.z) {
-      rotateZ(currentMove.angle);
-    } else if (abs(cube[i].x) > 0 && cube[i].x == currentMove.x) {
-      rotateX(currentMove.angle);
-    } else if (abs(cube[i].y) > 0 && cube[i].y ==currentMove.y) {
-      rotateY(-currentMove.angle);
+    if (abs(cube[i].z) > 0 && cube[i].z == move.z) {
+      rotateZ(move.angle);
+    } else if (abs(cube[i].x) > 0 && cube[i].x == move.x) {
+      rotateX(move.angle);
+    } else if (abs(cube[i].y) > 0 && cube[i].y == move.y) {
+      rotateY(-move.angle);
     }   
     cube[i].show();
     pop();

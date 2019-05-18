@@ -5,14 +5,14 @@
 
 class Move {
   float angle = 0;
-  int x = 0;
-  int y = 0;
-  int z = 0;
+  float x = 0;
+  float y = 0;
+  float z = 0;
   int dir;
   boolean animating = false;
   boolean finished = false;
 
-  Move(int x, int y, int z, int dir) {
+  Move(float x, float y, float z, int dir) {
     this.x = x;
     this.y = y;
     this.z = z;
@@ -42,8 +42,8 @@ class Move {
 
   void update() {
     if (animating) {
-      angle += dir * speed;
       if (dir == 2) {
+        angle += dir * speed * 0.5;
         if (abs(angle) > PI) {
           angle = 0;
           animating = false;
@@ -57,6 +57,7 @@ class Move {
           }
         }
       } else {
+        angle += dir * speed;
         if (abs(angle) > HALF_PI) {
           angle = 0;
           animating = false;
