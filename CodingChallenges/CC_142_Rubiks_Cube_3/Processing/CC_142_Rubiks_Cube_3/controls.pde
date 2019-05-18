@@ -5,127 +5,177 @@
 
 void keyPressed() {
   if (key == ' ') {
+    currentMove = sequence.get(counter);
     currentMove.start();
     counter = 0;
-    //startedMoving = true;
+    sequenceStarted = true;
   }
-  applyMove(key); 
+  applyMove(key);
 }
 
-void moves(String m) {
+Move makeAMove(String m) {
+  Move move = null;
   switch (m) {
-    case "F2":
-    applyMove('1');
-    break;
-    case "B2":
-    applyMove('2');
-    break;
-    case "R2":
-    applyMove('3');
-    break;
-    case "L2":
-    applyMove('4');
-    break;
-    case "D2":
-    applyMove('5');
-    break;
-    case "U2":
-    applyMove('6');
-    break;
-    case "R":
-    applyMove('r');
-    break;
-    case "R\'":
-    applyMove('R');
-    break;
-    case "L":
-    applyMove('l');
-    break;
-    case "L\'":
-    applyMove('L');
-    break;
-    case "U":
-    applyMove('u');
-    break;
-    case "U\'":
-    applyMove('U');
-    break;
-    case "D":
-    applyMove('d');
-    break;
-    case "D\'":
-    applyMove('D');
-    break;
-    case "F":
-    applyMove('f');
-    break;
-    case "F\'":
-    applyMove('F');
-    break;
-    case "B":
-    applyMove('b');
-    break;
-    case "B\'":
-    applyMove('B');
-    break;
+  case "R2":
+    return move = new Move(axis, 0, 0, 2);
+  case "L2":
+    return move = new Move(-axis, 0, 0, 2);
+  case "D2":
+    return move = new Move(0, axis, 0, 2);
+  case "U2":
+    return move = new Move(0, -axis, 0, 2);
+  case "F2":
+    return move = new Move(0, 0, axis, 2);
+  case "B2":
+    return move = new Move(0, 0, -axis, 2);
+  case "R":
+    return move = new Move(axis, 0, 0, 1);
+  case "R\'":
+    return move = new Move(axis, 0, 0, -1);
+  case "L\'":
+    return move = new Move(-axis, 0, 0, 1);
+  case "L":
+    return move = new Move(-axis, 0, 0, -1);
+  case "F":
+    return move = new Move(0, 0, axis, 1);
+  case "F\'":
+    return move = new Move(0, 0, axis, -1);
+  case "B\'":
+    return move = new Move(0, 0, -axis, 1);
+  case "B":
+    return move = new Move(0, 0, -axis, -1);
+  case "D\'":
+    return move = new Move(0, axis, 0, 1);
+  case "D":
+    return move = new Move(0, axis, 0, -1);
+  case "U":
+    return move = new Move(0, -axis, 0, 1);
+  case "U\'":
+    return move = new Move(0, -axis, 0, -1);
+  }
+  return move;
+}
+
+void removeInternalColors() {
+  int limit = dim*dim;
+
+  for (int i = 0; i < limit; i++) {
+    cube[i].faces[4] = new Face(new PVector(1, 0, 0), color(0));
+  }
+  for (int j = 1; j < dim - 1; j++) {
+    for (int i = limit * j; i < limit * (j + 1); i++) {
+      cube[i].faces[4] = new Face(new PVector(1, 0, 0), color(0));
+      cube[i].faces[5] = new Face(new PVector(-1, 0, 0), color(0));
+    }
+  }
+  for (int i = (limit * dim) - limit; i < limit * dim; i++) {
+    cube[i].faces[5] = new Face(new PVector(-1, 0, 0), color(0));
+  }
+  for (int i = dim; i <= limit * dim; i += dim) {
+    cube[i - 1].faces[0] = new Face(new PVector(0, 0, -1), color(0));
+  }
+  for (int j = 1; j < dim - 1; j++) {
+    for (int i = dim - j; i <= limit * dim; i += dim) {
+      cube[i - 1].faces[0] = new Face(new PVector(0, 0, -1), color(0));
+      cube[i - 1].faces[1] = new Face(new PVector(0, 0, 1), color(0));
+    }
+  }
+  for (int i = 1; i <= limit * dim; i += dim) {
+    cube[i - 1].faces[1] = new Face(new PVector(0, 0, 1), color(0));
+  }
+  for (int i = dim; i <= limit * dim; i += limit) {
+    for (int j = dim; j > 0; j--) {
+      cube[i - j].faces[2] = new Face(new PVector(0, 1, 0), color(0));
+    }
+  }
+  for (int k = 0; k < dim - 2; k++) {
+    for (int i = dim * 2 + dim * k; i <= limit * dim; i += limit) {
+      for (int j = dim; j > 0; j--) {
+        cube[i - j].faces[2] = new Face(new PVector(0, 1, 0), color(0));
+        cube[i - j].faces[3] = new Face(new PVector(0, -1, 0), color(0));
+      }
+    }
+  }
+  for (int i = limit; i <= limit * dim; i += limit) {
+    for (int j = dim; j > 0; j--) {
+      cube[i - j].faces[3] = new Face(new PVector(0, -1, 0), color(0));
+    }
   }
 }
 
 void applyMove(char move) {
   switch (move) {
-    case '1': //                   Move F2 - Front Twice
-    turn(1, 2, 'z');
+  case '1': //                   Move F2 - Front Twice
+    currentMove = makeAMove("F2");
+    currentMove.start();
     break;
-   case '2': //                   Move B2 - Back Twice
-    turn(-1, 2, 'z');
+  case '2': //                   Move B2 - Back Twice
+    currentMove = makeAMove("B2");
+    currentMove.start();
     break;
-    case '3': //                   Move R2 - Right Twice
-    turn(1, 2, 'x');
+  case '3': //                   Move R2 - Right Twice
+    currentMove = makeAMove("R2");
+    currentMove.start();
     break;
-    case '4': //                   Move L2 - Left Twice
-    turn(-1, 2, 'x');
+  case '4': //                   Move L2 - Left Twice
+    currentMove = makeAMove("L2");
+    currentMove.start();
     break;
-    case '5': //                   Move D2 - Down Twice
-    turn(1, 2, 'y');
+  case '5': //                   Move D2 - Down Twice
+    currentMove = makeAMove("D2");
+    currentMove.start();
     break;
-    case '6': //                   Move U2 - Up Twice
-    turn(-1, 2, 'y');
+  case '6': //                   Move U2 - Up Twice
+    currentMove = makeAMove("U2");
+    currentMove.start();
     break;
   case 'f': //                   Move F - Front CW
-    turn(1, 1, 'z');
+    currentMove = makeAMove("F");
+    currentMove.start();
     break;
   case 'F': //                   Move F' - Front CCW
-    turn(1, -1, 'z');
+    currentMove = makeAMove("F\'");
+    currentMove.start();
     break;  
   case 'B': //                   Move B' - Back CCW
-    turn(-1, 1, 'z');
+    currentMove = makeAMove("B\'");
+    currentMove.start();
     break;
   case 'b': //                   Move B - Back CW
-    turn(-1, -1, 'z');
+    currentMove = makeAMove("B");
+    currentMove.start();
     break;
   case 'D': //                   Move D' - Down CCW
-    turn(1, 1, 'y');
+    currentMove = makeAMove("D\'");
+    currentMove.start();
     break;
   case 'd': //                   Move D - Down CW
-    turn(1, -1, 'y');
+    currentMove = makeAMove("D");
+    currentMove.start();
     break;
   case 'u': //                   Move U - Up CW
-    turn(-1, 1, 'y');
+    currentMove = makeAMove("U");
+    currentMove.start();
     break;
   case 'U': //                   Move U' - Up CCW
-    turn(-1, -1, 'y');
+    currentMove = makeAMove("U\'");
+    currentMove.start();
     break;
   case 'L': //                   Move L' - Left CCW
-    turn(-1, 1, 'x');
+    currentMove = makeAMove("L\'");
+    currentMove.start();
     break;
   case 'l': //                   Move L - Left CW
-    turn(-1, -1, 'x');
+    currentMove = makeAMove("L");
+    currentMove.start();
     break;
   case 'r': //                   Move R - Right CW
-    turn(1, 1, 'x');
+    currentMove = makeAMove("R");
+    currentMove.start();
     break;
   case 'R': //                   Move R' - Right CCW
-    turn(1, -1, 'x');
+    currentMove = makeAMove("R\'");
+    currentMove.start();
     break;
   }
 }

@@ -5,18 +5,16 @@
 
 class Cubie {
   PMatrix3D matrix;
-  int x = 0;
-  int y = 0;
-  int z = 0;
-  color c;
+  float x = 0;
+  float y = 0;
+  float z = 0;
   Face[] faces = new Face[6];
 
-  Cubie(PMatrix3D m, int x, int y, int z) {
+  Cubie(PMatrix3D m, float x, float y, float z) {
     this.matrix = m;
     this.x = x;
     this.y = y;
     this.z = z;
-    c = color(255);
 
     faces[0] = new Face(new PVector(0, 0, -1), color(0, 0, 255)); //blue
     faces[1] = new Face(new PVector(0, 0, 1), color(0, 128, 0)); //green
@@ -25,27 +23,27 @@ class Cubie {
     faces[4] = new Face(new PVector(1, 0, 0), color(255, 165, 0)); //orange
     faces[5] = new Face(new PVector(-1, 0, 0), color(255, 0, 0)); //red
   }
-  
+
   void turnFaces(int dir, char axis) {
     float angle = dir * HALF_PI;
     if (axis == 'z') {
       for (Face f : faces) {
-        f.turn(angle, 'z'); 
+        f.turn(angle, 'z');
       }
     } else if (axis == 'y') {
       for (Face f : faces) {
-        f.turn(angle, 'y'); 
+        f.turn(angle, 'y');
       }
     } else if (axis == 'x') {
       for (Face f : faces) {
-        f.turn(angle, 'x'); 
+        f.turn(angle, 'x');
       }
     }
   }
-  
-  
-  
-  void update(int x, int y, int z) {
+
+
+
+  void update(float x, float y, float z) {
     matrix.reset(); 
     matrix.translate(x, y, z);
     this.x = x;
@@ -54,7 +52,6 @@ class Cubie {
   }
 
   void show() {
-    //fill(c);
     noFill();
     stroke(0);
     strokeWeight(0.1);
