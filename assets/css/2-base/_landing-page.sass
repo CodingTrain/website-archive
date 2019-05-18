@@ -57,9 +57,11 @@
   .featured-videos
     text-align: center
 
-    .video-card:nth-child(2)
-      @media (max-width: $tablet-big) and (min-width: $tablet-small)
-        display: none
+    .video-list
+      .videos
+        li:nth-child(2)
+          @media (max-width: $tablet-big) and (min-width: $tablet-small)
+            display: none
 
     .more-videos
       @extend .cta-button
@@ -77,7 +79,7 @@
     background: $ct-blue !important
 
   .merch-store a
-    background: #d9437f
+    background: #D53072
 
   .amazon-store a
-    background: #f5720f
+    background: #BF5708

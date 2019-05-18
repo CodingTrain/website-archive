@@ -5,6 +5,8 @@ video_number: 1
 date: 2016-04-13
 video_id: 17WoOqgXsRM
 repository: CC_001_StarField
+web_editor: 1wLHIck3T
+
 links:
   - title: "Code inspired by CS Department of Bryn Mawr College"
     url: "https://cs.brynmawr.edu/gxk2013/examples/transformations/starfield/"
@@ -26,6 +28,11 @@ contributions:
       url: "https://bjorvack.github.io/code-challenges/"
     url: "https://bjorvack.github.io/code-challenges/challenges/cc-001-starfield/"
     source: "https://github.com/bjorvack/code-challenges/tree/master/challenges/cc-001-starfield"
+  - title: "Python Edition"
+    author:
+      name: "Morel Takougang"
+      url: "https://github.com/MorelT98"
+    source: "https://github.com/MorelT98/coding-challenges/blob/master/001_starfield"
   - title: "3D Starfield"
     author:
       name: "Timothy Diguiet"

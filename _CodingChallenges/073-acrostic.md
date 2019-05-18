@@ -5,6 +5,7 @@ video_number: 73
 date: 2017-09-11
 video_id: jwoK5WKVXGw
 repository: CC_073_Acrostic
+web_editor: V-j4evWlM
 
 links:
   - title: "ECMAScript on Wikipedia"

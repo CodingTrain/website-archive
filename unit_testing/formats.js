@@ -91,6 +91,7 @@ const videoBase = module.exports.videoBase = exact({
   books: PropTypes.arrayOf(PropTypes.shape(link)),
   tools: PropTypes.arrayOf(PropTypes.shape(link)),
   parts: PropTypes.arrayOf(PropTypes.shape(link)),
+  community_references: PropTypes.arrayOf(PropTypes.shape(link)),
   contributions: PropTypes.arrayOf(PropTypes.shape(contribution)),
   custom_sections: PropTypes.arrayOf(PropTypes.shape(customSection)),
 });
