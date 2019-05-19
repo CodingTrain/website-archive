@@ -15,6 +15,11 @@ contributions:
       name: "XoMute"
       url: "https://github.com/XoMute"
     url: "https://github.com/XoMute/Python/tree/master/Attraction%20and%20Repulsion%20Forces"
+        - title: "Mesmerizing screensaver using particle attraction and coloring"
+    author:
+      name: "HugoPeeters"
+      url: "https://github.com/hugopeeters"
+    url: "https://github.com/hugopeeters/processing/tree/master/attraction"
 ---
 
 In this challenge, I create a particle system and add "attractors" simulating attraction and repulsion forces.
