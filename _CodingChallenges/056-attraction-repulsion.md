@@ -15,7 +15,7 @@ contributions:
       name: "XoMute"
       url: "https://github.com/XoMute"
     url: "https://github.com/XoMute/Python/tree/master/Attraction%20and%20Repulsion%20Forces"
-        - title: "Mesmerizing screensaver using particle attraction and coloring"
+  - title: "Mesmerizing screensaver using particle attraction and coloring"
     author:
       name: "HugoPeeters"
       url: "https://github.com/hugopeeters"
