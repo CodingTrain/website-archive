@@ -28,7 +28,6 @@ contributions:
     author:
       name: "theCCB"
       url: "https://github.com/theCCB"
-      url: "https://www.youtube.com/channel/UCQ0kj89I9Bsoop-YNwjUreg"
     source: "https://github.com/theCCB/MandelbrotSetVisualized"
 ---
 
