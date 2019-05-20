@@ -5,6 +5,8 @@ video_number: 13
 date: 2016-05-26
 video_id: BV9ny785UNc
 repository: CC_013_ReactionDiffusion
+web_editor: govdEW5aE
+
 links:
   - title: "Karl Sims' Reaction Diffusion Tutorial"
     url: "http://karlsims.com/rd.html"
@@ -17,4 +19,4 @@ contributions:
     url: "https://github.com/Deedone/Small-projects/tree/master/Reaction-diffusion"
 ---
 
-In this coding challenge, I use the p5.js library to make a visual representation of the Reaction Diffusion Algorithm.
+In this coding challenge, I visualize a Reaction Diffusion simulation using the Gray Scott model in JavaScript (with the p5.js library).

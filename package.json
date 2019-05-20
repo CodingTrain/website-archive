@@ -9,8 +9,9 @@
     "eslint-config-p5js": "^1.0.1",
     "eslint-config-prettier": "^2.10.0",
     "eslint-plugin-prettier": "^2.7.0",
-    "prettier": "^1.16.4",
-    "replace-in-file": "^3.4.4"
+    "prettier": "^1.17.0",
+    "replace-in-file": "^3.4.4",
+    "yaml-front-matter": "^4.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -1,0 +1,8 @@
+---
+title: Nested Loops
+video_number: 2
+date: 2015-09-11
+video_id: 1c1_TMdf8b8
+---
+
+This video looks at loops nested in loops. What does it mean to have a for loop in the draw() loop?  How do you draw a grid of shapes with two loops?

@@ -13,6 +13,7 @@
     title string    The title of this list of links.
     link Link[]     The link objects to display in the list.
     class string    A CSS class that should be applied to the list's container.
+    suggestion boolean If `true` the link is a suggestion
 {% endcomment %}
 
 
@@ -54,11 +55,17 @@
 
 
         {% comment %} Link to the destination's author. {% endcomment %}
+        {% if include.suggestion %}
+          {% assign by_phrasing = "suggested by" %}
+        {% else %}
+          {% assign by_phrasing = "by" %}
+        {% endif %}
+
         {% if link.author %}
           {% if link.author.url %}
-            <i>by <a href="{{ link.author.url }}" target="blank">{{ link.author.name | xml_escape }}</a></i>
+            <i> {{ by_phrasing }} <a href="{{ link.author.url }}" target="blank">{{ link.author.name | xml_escape }}</a></i>
           {% else %}
-            <i>by {{ link.author.name | default: link.author | xml_escape }}</i>
+            <i> {{ by_phrasing }} {{ link.author.name | default: link.author | xml_escape }}</i>
           {% endif %}
         {% endif %}
 

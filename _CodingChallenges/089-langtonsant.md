@@ -5,6 +5,7 @@ video_number: 89
 date: 2018-01-07
 video_id: G1EgjgMo48U
 repository: CC_089_langtonsant
+web_editor: svbAzt8sb
 
 contributions:
   - title: "Langton's Paint Brush Using Processing"
@@ -24,6 +25,12 @@ contributions:
       url: "https://github.com/omareq"
     url: "https://omareq.github.io/langtons-ant/"
     source: "https://github.com/omareq/omareq.github.io/tree/master/langtons-ant"
+  - title: "Interactive Langton's Ant"
+    author:
+      name: "Dom"
+      url: "https://github.com/DomKiki"
+    url: "https://editor.p5js.org/DomKiki/sketches/XGefxlwK4"
+    source: "https://github.com/DomKiki/Langton-Ant"
 
 links:
   - title: "Langton's Ant on Wikipedia"

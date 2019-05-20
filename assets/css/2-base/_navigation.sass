@@ -40,7 +40,7 @@
     height: 5rem
     font-size: 16px
     overflow: hidden
-    background: linear-gradient(rgba(0,0,0,0.2), transparent)
+    background: rgba(9,20,154,0.55)
 
     @media (max-width: $mobile)
       width: 0%
@@ -51,6 +51,7 @@
 
     .links
       @extend .wrapper
+      list-style-type: none
       height: 100%
       display: flex
       justify-content: center
@@ -63,11 +64,17 @@
         padding-left: 2rem
 
       a
+        display: block
+        list-style-type: none
         margin: 0em 1em
-        text-shadow: 0px 0px 5px #BBB
+        padding: 0 2px
         color: #FFF
         @include text-style('title')
         text-decoration: none
+        &:hover,
+          text-shadow: 0px 0px 5px #BBB
+        &:focus,
+          outline: #00008b auto 2px
 
         @media (max-width: $mobile)
           visibility: hidden

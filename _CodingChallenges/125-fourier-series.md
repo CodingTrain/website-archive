@@ -60,6 +60,12 @@ contributions:
       url: "https://github.com/jamesa9283"
     url: "https://editor.p5js.org/jamesa9283/sketches/rkDQZ6d-N"
     source: "https://github.com/jamesa9283/Forier-Animation/blob/master/SquareWave"
+  - title: "Playable Fouries Series Audiovisualisation"
+    author:
+      name: "Sander Vermeer"
+      url: "https://github.com/mohragk"
+    url: "https://editor.p5js.org/mohragk/full/BkMiw4KxV"
+    source: "https://editor.p5js.org/mohragk/sketches/BkMiw4KxV"
 ---
 
 In this coding challenge, I visualize a Fourier series for a square wave in JavaScript with p5.js.
