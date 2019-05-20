@@ -26,6 +26,11 @@ contributions:
       url: "https://github.com/dedowsdi"
     url: "https://twitter.com/dedowsdi/status/1063024950808764417"
     source: "https://github.com/dedowsdi/journey/tree/master/gl4/challenge/mandelbrot_set"
+  - title: "Mandelbrot Set in Processing with Navigation"
+    author:
+      name: "theCCB"
+      url: "https://github.com/theCCB"
+    source: "https://github.com/theCCB/MandelbrotSetVisualized"
   - title: "Live rendered interactive mandelbrot explorer"
     author:
       name: "Luc de Wit"
