@@ -234,7 +234,7 @@ describe('Repositories', () => {
         it('should exist', async () => {
 
           //If repository contains 'github.com' let the test pass
-          if (repository.match(/.*github\.com.*/)) return;
+          if (repository.match(/.*github\.com\/CodingTrain\/.*/)) return;
           
           const stat = fs.statSync(urlToRepositoryDirectoryFilename(repository));
           if (!stat.isDirectory) {
