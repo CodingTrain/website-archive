@@ -3,37 +3,107 @@ layout: compress
 ---
 <!doctype html>
 <html lang="en">
-  <head>
-    {% include 2-base/head.html %}
-  </head>
-  <body>
-    {% include 2-base/header.html %}
-    
-    <div class="mobilenav-backdrop">
-      
-      <main class="wrapper" style="{{ page.style }}">
 
-        {% comment %} Show 'no content' error message for videos without a video id. {% endcomment %}
-        {% if page.layout == 'video' and page.video_id == null %}
+<head>
+  {% include 2-base/head.html %}
+</head>
 
-          <div class="no-content" style="text-align: center">
-            <h2>Sorry, but this videos hasn't been processed yet</h2>
-            <a href="{{ '/' | relative_url }}">Check out other videos</a>
-          </div>
+<body>
+  {% include 2-base/header.html %}
 
-        {% else %}
+  <div class="mobilenav-backdrop" id="mobilenav-backdrop">
 
-          {% if page.title %}
-            <h2>{{ page.title | xml_escape }}</h2>
-          {% endif %}
+    <main class="wrapper" style="{{ page.style }}">
 
-          {{ content }}
+      {% comment %} Show 'no content' error message for videos without a video id. {% endcomment %}
+      {% if page.layout == 'video' and page.video_id == null %}
 
-        {% endif %}
-      </main>
+      <div class="no-content" style="text-align: center">
+        <h2>Sorry, but this videos hasn't been processed yet</h2>
+        <a href="{{ '/' | relative_url }}">Check out other videos</a>
+      </div>
 
-      
-    </div>
-    {% include 2-base/footer.html %}
-  </body>
+      {% else %}
+
+      {% if page.title %}
+      <h2>{{ page.title | xml_escape }}</h2>
+      {% endif %}
+
+      {{ content }}
+
+      {% endif %}
+    </main>
+
+
+  </div>
+  {% include 2-base/footer.html %}
+</body>
+<script>
+  var NavApp = {};
+  NavApp.App = (function () {
+    var navButton = $('#menu-button');
+    var navMenu = $('#global-nav');
+    var navLinks = navMenu.find('a');
+    var navContainer = $('#nav-container');
+    var mbBackdrop = $('#mobilenav-backdrop');
+    var ESCAPE_CODE = 27;
+
+    function initApp() {
+      navButton.on('click', toggleMobileNav);
+      navMenu.on('keydown', handleKeydown);
+    }
+
+    function handleKeydown() {
+      if (event.keyCode === ESCAPE_CODE) {
+        navContainer.removeClass('active');
+        mbBackdrop.removeClass('active');
+        navButton.removeClass('active');
+        disableNavLinks();
+        navButton.focus();
+      }
+    }
+
+    function toggleMobileNav() {
+      if (mbBackdrop.hasClass('active')) {
+        disableNavLinks();
+      } else {
+        enableNavLinks();
+      }
+    }
+
+    function enableNavLinks() {
+      navButton.attr('aria-label', 'Menu expanded');
+      navContainer.addClass('active');
+      mbBackdrop.addClass('active');
+      navButton.addClass('active');
+
+      navMenu.removeAttr('aria-hidden');
+      navLinks.removeAttr('tabIndex');
+      setTimeout(function () {
+        navLinks.eq(0).focus();
+        //      navLinks.eq(0).css('outline', 'rgb(0, 0, 139) auto 2px'); // for consistency.
+      }, 50);
+    }
+
+    function disableNavLinks() {
+      navButton.attr('aria-label', 'Menu collapsed');
+      navContainer.removeClass('active');
+      mbBackdrop.removeClass('active');
+      navButton.removeClass('active');
+
+      navMenu.attr('aria-hidden', 'true');
+      navLinks.attr('tabIndex', '-1');
+    }
+    return {
+      init: function () {
+        initApp();
+      }
+    }
+  })();
+
+  $(document).ready(function ($) {
+    new NavApp.App.init();
+  });
+</script>
+
 </html>

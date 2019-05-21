@@ -1,19 +1,17 @@
-<input type="checkbox" id="nav-toggle">
-<label for="nav-toggle" class="mobilenav-toggle">
+<button id="menu-button" class="mobilenav-toggle" tabindex="0" aria-haspopup="true" aria-controls="global-nav"">
   <span></span>
   <span></span>
   <span></span>
-</label>
-
-<div class="navigation">
-  <nav>
+</button>
+<div class=" navigation" id="nav-container">
+  <nav id="global-nav" aria-label="Main navigation">
     <ul class="links">
-        <li><a href="{{ '/' | relative_url }}">Home</a></li>
-        <li><a href="{{ '/CodingChallenges' | relative_url }}">Coding Challenges</a></li>
-        <li><a href="{{ '/Tutorials' | relative_url }}">Tutorials</a></li>
-        <li><a href="{{ '/Streams' | relative_url }}">Streams</a></li>
-        <li><a href="{{ '/Courses' | relative_url }}">Courses</a></li>
-        <li><a href="{{ site.github.repository_url }}" target="_blank">Github</a></li>
+      <li><a href="{{ '/' | relative_url }}" id="home">Home</a></li>
+      <li><a href="{{ '/CodingChallenges' | relative_url }}">Coding Challenges</a></li>
+      <li><a href="{{ '/Tutorials' | relative_url }}">Tutorials</a></li>
+      <li><a href="{{ '/Streams' | relative_url }}">Streams</a></li>
+      <li><a href="{{ '/Courses' | relative_url }}">Courses</a></li>
+      <li><a href="{{ site.github.repository_url }}" target="_blank">Github</a></li>
     </ul>
   </nav>
-</div>
+  </div>

@@ -1,5 +1,6 @@
-.mobilenav-toggle
+#menu-button
   display: none
+  box-shadow: none
   justify-content: space-around
   align-items: center
   flex-direction: column
@@ -16,15 +17,19 @@
 
   @media (max-width: $mobile)
     display: flex
+    cursor: pointer
 
   span
-    width: 80%
+    width: 36px
     height: 0.15em
     display: inline-block
     background: #FFF
     border-radius: .075em
     transition: all 375ms $timing-function
-
+  &:hover,
+  &:focus
+    transform: none
+    box-shadow: none
 .navigation
   position: absolute
   top: 0
@@ -75,17 +80,20 @@
           text-shadow: 0px 0px 5px #BBB
         &:focus,
           outline: #00008b auto 2px
+          text-shadow: 0px 0px 5px #BBB
 
         @media (max-width: $mobile)
           visibility: hidden
           margin: 0.5em 0
           text-shadow: none
           background: $ct-blue
+          border: 2px solid $ct-blue
           padding: 0.7em 1em
           border-radius: $standard-border-radius
           opacity: 0
           transform: translateX(-3rem)
-
+          &:focus
+            border-color: #00008b
           @for $i from 1 through 5
             &:nth-child(#{abs($i - 6)})
               transition:
@@ -99,39 +107,34 @@
 .mobilenav-backdrop
   transition: filter 375ms $timing-function
 
-#nav-toggle
-  display: none
+#menu-button
+  ~ .mobilenav-backdrop.active
+    @media (max-width: $mobile)
+      filter: blur(10px)
+      pointer-events: none
 
-  &:checked
-    ~ .navigation
+  ~ .mobilenav-toggle.active span:nth-child(2)
+    transform: translateX(20%)
+
+  ~ .navigation.active
+    @media (max-width: $mobile)
+      background: rgba(#FFF, 0.5)
+      position: fixed
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+    nav
+      width: 100%
+
+    nav .links li
       @media (max-width: $mobile)
-        position: fixed
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
-
-    ~ .mobilenav-backdrop
-      @media (max-width: $mobile)
-        filter: blur(10px)
-        pointer-events: none
-
-    ~ .mobilenav-toggle span:nth-child(2)
-      transform: translateX(20%)
-
-    ~ .navigation
-      @media (max-width: $mobile)
-        background: rgba(#FFF, 0.5)
-
-      nav
-        width: 100%
-
-      nav .links a
-        @media (max-width: $mobile)
+        a
           visibility: visible
           opacity: 1
           transform: translateX(0rem)
 
-        @for $i from 1 through 5
-          &:nth-child(#{$i})
+      @for $i from 1 through 5
+        &:nth-child(#{$i})
+          a
             transition-delay: ($i - 1) * 75ms
