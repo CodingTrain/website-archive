@@ -55,7 +55,7 @@ contributions:
   - title: "Ray Casting 2D in Processing"
     author:
       name: "David Snyder"
-      url: "https://www.youtube.com/channel/UCxhrLoZU0t2WGSN80c_LE-Q"
+      url: "http://gypsydangerous.xyz/"
     video_id: "G6lWsoFpJg4"
     source: "https://github.com/GypsyDangerous/raycasting-dark-room"
   - title: "Raycasting Maze explorer (made in vb.net)"
@@ -86,6 +86,12 @@ contributions:
       url: "https://twitter.com/Chopokopx"
     url: "https://editor.p5js.org/SebastienR/full/2rGNT5FNS"
     source: "https://editor.p5js.org/SebastienR/sketches/2rGNT5FNS"
+  - title: "Example with Optimization"
+    author:
+      name: "Simon Tiger Houben"
+      url: "https://simontiger.com/"
+    url: https://editor.p5js.org/simontiger/present/F6TCHAZs_
+    source: https://editor.p5js.org/simontiger/sketches/F6TCHAZs_
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"

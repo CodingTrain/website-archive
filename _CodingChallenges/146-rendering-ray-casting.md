@@ -42,9 +42,15 @@ contributions:
   - title: "Ai cars driving with 3D first person view rendering"
     author:
       name: "David Snyder"
-      url: "https://www.youtube.com/channel/UCxhrLoZU0t2WGSN80c_LE-Q"
+      url: "http://gypsydangerous.xyz/"
     video_id: "uFCKbnIcGOs"
     source: "https://github.com/GypsyDangerous/AI_car_FOV"
+  - title: "tile based ray casting (fixed fish eye and added minimap)"
+    author:
+      name: "D.T.6"
+      url: ""
+    url: "https://editor.p5js.org/shapeShifterScroll/sketches/j1Llvfiev"
+    source: "https://github.com/ddddtttt6666/p5js/tree/master/ray_casting_3d"
 
 community_references:
   - title: "Code-It-Yourself! First Person Shooter (Quick and Simple C++)"
