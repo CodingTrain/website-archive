@@ -5,6 +5,7 @@ video_number: 39
 date: 2016-09-26
 video_id: ziBO-U2_t3k
 repository: CC_039_madlibs
+web_editor: 8gVGg0VR3
 
 links:
   - title: "Tabletop.js"

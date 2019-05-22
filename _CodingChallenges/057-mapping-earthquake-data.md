@@ -5,6 +5,7 @@ video_number: 57
 date: 2017-02-13
 video_id: ZiYdOwOrGyc
 repository: CC_057_Earthquake_Viz
+web_editor: i0icLNOuf
 
 links:
   - title: "Mapbox.js"

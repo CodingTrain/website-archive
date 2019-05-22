@@ -51,6 +51,23 @@ contributions:
       url: ""
     url: "https://editor.p5js.org/shapeShifterScroll/sketches/j1Llvfiev"
     source: "https://github.com/ddddtttt6666/p5js/tree/master/ray_casting_3d"
+  - title: "ray casting in python (also grid based)"
+    author:
+      name: "D.T.6"
+      url: ""
+    url: "https://github.com/ddddtttt6666/python/raw/master/ray%20casting/main.rar"
+    source: "https://github.com/ddddtttt6666/python/tree/master/ray%20casting"
+  - title: "2D Klein Bottle Universe"
+    author:
+      name: "Jesse Cranney"
+      url: ""
+    url: "https://editor.p5js.org/jac1616/present/n5YdcAHDl"
+    source: "https://editor.p5js.org/jac1616/sketches/n5YdcAHDl"
+  - title: "ray marching 3d-like visualisation modulo-verse"
+    author:
+      name: "D.T.6"
+    url: "https://editor.p5js.org/full/ZV-OjWFtK"
+    source: "https://github.com/ddddtttt6666/p5js/blob/master/ray_marching_3d_wolf_infinite/sketch.js"
 
 community_references:
   - title: "Code-It-Yourself! First Person Shooter (Quick and Simple C++)"

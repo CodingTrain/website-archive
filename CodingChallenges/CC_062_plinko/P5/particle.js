@@ -21,13 +21,13 @@ function Particle(x, y, r) {
   World.add(world, this.body);
 }
 
-Particle.prototype.isOffScreen = function() {
+Particle.prototype.isOffScreen = function () {
   var x = this.body.position.x;
   var y = this.body.position.y;
   return (x < -50 || x > width + 50 || y > height);
 }
 
-Particle.prototype.show = function() {
+Particle.prototype.show = function () {
   fill(this.hue, 255, 255);
   noStroke();
   var pos = this.body.position;

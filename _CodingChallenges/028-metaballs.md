@@ -5,6 +5,7 @@ video_number: 28
 date: 2016-07-15
 video_id: ccYLb7cLB1I
 repository: CC_028_MetaBalls
+web_editor: ISPozOLXW
 
 links:
   - title: "Exploring Meta-balls and Isosurfaces in 2D"

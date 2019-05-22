@@ -14,7 +14,7 @@ function Cell(pos, r, c) {
   this.r = r || 60;
   this.c = c || color(random(100, 255), 0, random(100, 255), 100);
 
-  this.clicked = function(x, y) {
+  this.clicked = function (x, y) {
     var d = dist(this.pos.x, this.pos.y, x, y);
     if (d < this.r) {
       return true;
@@ -23,18 +23,18 @@ function Cell(pos, r, c) {
     }
   }
 
-  this.mitosis = function() {
+  this.mitosis = function () {
     //this.pos.x += random(-this.r, this.r);
-    var cell = new Cell(this.pos, this.r*0.8, this.c);
+    var cell = new Cell(this.pos, this.r * 0.8, this.c);
     return cell;
   }
 
-  this.move = function() {
+  this.move = function () {
     var vel = p5.Vector.random2D();
     this.pos.add(vel);
   }
 
-  this.show = function() {
+  this.show = function () {
     noStroke();
     fill(this.c);
     ellipse(this.pos.x, this.pos.y, this.r, this.r)
