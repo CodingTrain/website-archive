@@ -10,6 +10,7 @@ NavApp.App = (function () {
     function initApp() {
         navButton.on('click', toggleMobileNav);
         navMenu.on('keydown', handleKeydown);
+        navButton.attr('aria-label', 'Open navigation menu');
     }
 
     function handleKeydown() {
@@ -31,7 +32,7 @@ NavApp.App = (function () {
     }
 
     function enableNavLinks() {
-        navButton.attr('aria-label', 'Menu expanded');
+        navButton.attr('aria-label', 'Close navigation menu');
         navContainer.addClass('active');
         mbBackdrop.addClass('active');
         navButton.addClass('active');
@@ -40,12 +41,11 @@ NavApp.App = (function () {
         navLinks.removeAttr('tabIndex');
         setTimeout(function () {
             navLinks.eq(0).focus();
-            //      navLinks.eq(0).css('outline', 'rgb(0, 0, 139) auto 2px'); // for consistency.
-        }, 50);
+        }, 200);
     }
 
     function disableNavLinks() {
-        navButton.attr('aria-label', 'Menu collapsed');
+        navButton.attr('aria-label', 'Open navigation menu');
         navContainer.removeClass('active');
         mbBackdrop.removeClass('active');
         navButton.removeClass('active');
