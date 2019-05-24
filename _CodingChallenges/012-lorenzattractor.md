@@ -5,6 +5,7 @@ video_number: 12
 date: 2016-05-06
 video_id: f0lkz2gSsIk
 repository: CC_012_LorenzAttractor
+web_editor: pwr_7FUUq
 
 links:
   - title: "PeasyCam library"
