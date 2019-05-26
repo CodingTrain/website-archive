@@ -74,12 +74,15 @@
         margin: 0em 1em
         padding: 0 2px
         color: #FFF
+        border: 1px solid transparent
+        border-radius: 2px
         @include text-style('title')
         text-decoration: none
         &:hover,
           text-shadow: 0px 0px 5px #BBB
         &:focus,
-          outline: #00008b auto 2px
+          outline: none
+          border-color: $white
           text-shadow: 0px 0px 5px #BBB
 
         @media (max-width: $mobile)

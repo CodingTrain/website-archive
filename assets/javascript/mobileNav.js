@@ -1,57 +1,70 @@
 var NavApp = {};
 NavApp.App = (function () {
-    var navButton = $('#menu-button');
-    var navMenu = $('#global-nav');
-    var navLinks = navMenu.find('a');
-    var navContainer = $('#nav-container');
-    var mbBackdrop = $('#mobilenav-backdrop');
+    var navButton = document.getElementById('menu-button');
+    var navMenu = document.getElementById('global-nav');
+    var navLinks = Array.from(document.querySelectorAll('#global-nav a'));
+    var navContainer = document.getElementById('nav-container');
+    var mbBackdrop = document.getElementById('mobilenav-backdrop');
     var ESCAPE_CODE = 27;
 
     function initApp() {
-        navButton.on('click', toggleMobileNav);
-        navMenu.on('keydown', handleKeydown);
-        navButton.attr('aria-label', 'Open navigation menu');
+        navButton.addEventListener('click', toggleMobileNav);
+        navMenu.addEventListener('keydown', handleKeydown);
+        navButton.setAttribute('aria-label', 'Open navigation menu');
     }
 
     function handleKeydown() {
         if (event.keyCode === ESCAPE_CODE) {
-            navContainer.removeClass('active');
-            mbBackdrop.removeClass('active');
-            navButton.removeClass('active');
+            navContainer.classList.remove('active');
+            mbBackdrop.classList.remove('active');
+            navButton.classList.remove('active');
             disableNavLinks();
             navButton.focus();
         }
     }
 
     function toggleMobileNav() {
-        if (mbBackdrop.hasClass('active')) {
+        if (mbBackdrop.classList.contains('active')) {
             disableNavLinks();
         } else {
             enableNavLinks();
         }
     }
 
-    function enableNavLinks() {
-        navButton.attr('aria-label', 'Close navigation menu');
-        navContainer.addClass('active');
-        mbBackdrop.addClass('active');
-        navButton.addClass('active');
+    function toggleActiveClass(el) {
+        if (el.classList.contains('active')) {
+            el.classList.remove('active');
+        } else {
+            el.classList.add('active');
+        }
+    }
 
-        navMenu.removeAttr('aria-hidden');
-        navLinks.removeAttr('tabIndex');
+    function enableNavLinks() {
+        navButton.setAttribute('aria-label', 'Close navigation menu');
+        navContainer.classList.add('active');
+        mbBackdrop.classList.add('active');
+        navButton.classList.add('active');
+
+        navMenu.removeAttribute('aria-hidden');
+        navLinks.forEach(function (el) {
+            el.removeAttribute('tabIndex');
+        });
         setTimeout(function () {
-            navLinks.eq(0).focus();
+            navLinks[0].focus();
         }, 200);
     }
 
     function disableNavLinks() {
-        navButton.attr('aria-label', 'Open navigation menu');
-        navContainer.removeClass('active');
-        mbBackdrop.removeClass('active');
-        navButton.removeClass('active');
+        navButton.setAttribute('aria-label', 'Open navigation menu');
+        navContainer.classList.remove('active');
+        mbBackdrop.classList.remove('active');
+        navButton.classList.remove('active');
 
-        navMenu.attr('aria-hidden', 'true');
-        navLinks.attr('tabIndex', '-1');
+        navMenu.setAttribute('aria-hidden', 'true');
+        navLinks.forEach(function (el) {
+            el.setAttribute('tabIndex', '-1');
+        });
+
     }
     return {
         init: function () {
@@ -60,6 +73,6 @@ NavApp.App = (function () {
     }
 })();
 
-$(document).ready(function ($) {
+document.addEventListener("DOMContentLoaded", function () {
     new NavApp.App.init();
 });
