@@ -51,20 +51,72 @@ function timecodeToSeconds(timecode) {
   return seconds;
 }
 
+document.addEventListener('DOMContentLoaded', function (event) {
+  var NavApp = {};
+  NavApp.App = (function () {
+    var navButton = document.getElementById('menu-button');
+    var navMenu = document.getElementById('global-nav');
+    var navLinks = Array.from(document.querySelectorAll('#global-nav a'));
+    var navContainer = document.getElementById('nav-container');
+    var mbBackdrop = document.getElementById('mobilenav-backdrop');
+    var ESCAPE_CODE = 27;
 
-// When the window has finished loading ...
-window.addEventListener('load', () => {
+    function initApp() {
+      navButton.addEventListener('click', toggleMobileNav);
+      navMenu.addEventListener('keydown', handleKeydown);
+      navButton.setAttribute('aria-label', 'Open navigation menu');
+    }
 
-  // ... attach and onClick listener to the navigation (background) to close the mobile navigation drawer.
-  document.querySelector('.navigation')
-    .addEventListener('click', e => document.querySelector('#nav-toggle').checked = false);
+    function handleKeydown(event) {
+      if (event.keyCode === ESCAPE_CODE) {
+        navContainer.classList.remove('active');
+        mbBackdrop.classList.remove('active');
+        navButton.classList.remove('active');
+        disableNavLinks();
+        navButton.focus();
+      }
+    }
 
-  // ... attach an onClick listener to the navigation child elements to prevent event propagation.
-  // (childrens' onClick event doesn't trigger parent's onClick event)
-  document.querySelectorAll('.navigation nav .links a')
-    .forEach(
-      node => node.addEventListener(
-        'click', e => e.stopPropagation()
-      )
-    );
+    function toggleMobileNav() {
+      if (mbBackdrop.classList.contains('active')) {
+        disableNavLinks();
+      } else {
+        enableNavLinks();
+      }
+    }
+
+    function enableNavLinks() {
+      navButton.setAttribute('aria-label', 'Close navigation menu');
+      navContainer.classList.add('active');
+      mbBackdrop.classList.add('active');
+      navButton.classList.add('active');
+
+      navMenu.removeAttribute('aria-hidden');
+      navLinks.forEach(function (el) {
+        el.removeAttribute('tabIndex');
+      });
+      setTimeout(function () {
+        navLinks[0].focus();
+      }, 200);
+    }
+
+    function disableNavLinks() {
+      navButton.setAttribute('aria-label', 'Open navigation menu');
+      navContainer.classList.remove('active');
+      mbBackdrop.classList.remove('active');
+      navButton.classList.remove('active');
+
+      navMenu.setAttribute('aria-hidden', 'true');
+      navLinks.forEach(function (el) {
+        el.setAttribute('tabIndex', '-1');
+      });
+
+    }
+    return {
+      init: function () {
+        initApp();
+      }
+    }
+  })();
+  new NavApp.App.init();
 });
