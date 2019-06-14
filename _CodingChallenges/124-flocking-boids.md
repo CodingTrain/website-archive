@@ -83,5 +83,11 @@ contributions:
       url: "https://github.com/tihawk/"
     url: "https://codepen.io/tihawk/full/vPXebG"
     source: "https://github.com/tihawk/browser-visualisations/tree/master/public/vicsek"
+  - title: "Flocking in python using pygame"
+    author:
+      name: "Nate Plamondon"
+      url: "https://github.com/meznak/"
+    url: "https://github.com/meznak/"
+    source: "https://github.com/meznak/boids_py"
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
