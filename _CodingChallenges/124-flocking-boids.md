@@ -83,7 +83,7 @@ contributions:
       url: "https://github.com/tihawk/"
     url: "https://codepen.io/tihawk/full/vPXebG"
     source: "https://github.com/tihawk/browser-visualisations/tree/master/public/vicsek"
-  - title "Flocking in python using pygame"
+  - title: "Flocking in python using pygame"
     author:
       name: "Nate Plamondon"
       url: "https://github.com/meznak"
