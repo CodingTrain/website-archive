@@ -10,8 +10,6 @@ links:
     url: https://ml5js.org/reference/api-soundClassifier/
   - title: "p5.collide2D"
     url: "https://github.com/bmoren/p5.collide2D"
-  - title: "p5.collide2D"
-    url: "https://github.com/bmoren/p5.collide2D"
   - title: "jsDelivr"
     url: "https://www.jsdelivr.com/"
 
