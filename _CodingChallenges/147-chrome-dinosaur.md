@@ -4,6 +4,7 @@ video_number: 147
 date: 2019-06-18
 video_id: l0HoJHc-63Q
 web_editor: v3thq2uhk
+repository: CC_147_Chrome_Dinosaur_Game
 
 links:
   - title: "ml5 soundClassifier"
