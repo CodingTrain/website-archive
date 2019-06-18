@@ -5,6 +5,8 @@ video_number: 71
 date: 2017-05-18
 video_id: LFU5ZlrR21E
 repository: CC_071_minesweeper
+web_editor: -mz-ePoqd
+
 links:
   - title: "Minesweeper on Wikipedia"
     url: "https://en.wikipedia.org/wiki/Minesweeper_(video_game)"

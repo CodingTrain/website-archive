@@ -4,6 +4,7 @@ video_number: 109
 date: 2018-07-09
 video_id: Ae73YY_GAU8
 repository: CC_109_subscriber_map
+web_editor: fItzQP-RD
 
 links:
   - title: "Mappa.js Simple Map"

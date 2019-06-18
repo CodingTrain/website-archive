@@ -66,7 +66,7 @@ class NeuralNetwork{
 
 
   float mut(float val, float rate){
-    if (random(1) > rate){
+    if (random(1) < rate){
       return val + randomGaussian() * .1;
     } else{
       return val;
