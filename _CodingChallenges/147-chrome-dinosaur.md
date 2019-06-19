@@ -18,8 +18,12 @@ videos:
   - title: "ml5.js Sound Classification"
     author: "The Coding Train"
     video_id: "cO4UP2dX944"
-
 contributions:
+  - title: "This Dot Jumper"
+    author:
+      name: "Swiftpotato"
+    url: "https://editor.p5js.org/swiftpotato/full/Ca6Q58Gq2"
+    source: "https://editor.p5js.org/swiftpotato/sketches/Ca6Q58Gq2"
   - title: "Some rough ideas on doing this in 3D"
     author:
       name: "Dave Briccetti"
