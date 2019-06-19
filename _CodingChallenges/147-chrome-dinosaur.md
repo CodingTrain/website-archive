@@ -18,6 +18,14 @@ videos:
   - title: "ml5.js Sound Classification"
     author: "The Coding Train"
     video_id: "cO4UP2dX944"
+
+contributions:
+  - title: "Some rough ideas on doing this in 3D"
+    author:
+      name: "Dave Briccetti"
+      url: "https://davebsoft.com"
+    url: "https://editor.p5js.org/dcbriccetti/sketches/fAimx4Ahp"
+    source: "https://editor.p5js.org/dcbriccetti/sketches/fAimx4Ahp"
 ---
 
 In this challenge, I attempt to make my own version of Google's Dinosaur Game (T-Rex run!) with a unique twist -- controlling the dinosaur (unicorn, in this case) with a machine learning Speech Commands model! 
