@@ -72,3 +72,43 @@ jobs:
       - run:
           name: Test
           command: bundle exec htmlproofer ./_site --assume-extension --check-html --disable-external --url-ignore "/#.*/"
+
+  gist:
+    docker:
+      # specify the version you desire here
+      - image: starefossen/ruby-node:2-10
+
+    steps:
+      # Restoring source code cache
+      # Check for current Coding Challenge Variations and upload to Gist.
+      - run: 
+          name: "node checkVariations.js"
+
+version: 2.1
+
+jobs: # conditional steps may also be defined in `commands:`
+  job_with_optional_custom_checkout:
+    parameters:
+      custom_checkout:
+        type: string
+        default: ""
+    machine: true
+    steps:
+      - when:
+          condition: <<parameters.custom_checkout>>
+          steps:
+            - run: echo "my custom checkout"
+      - unless:
+          condition: <<parameters.custom_checkout>>
+          steps:
+            - checkout
+workflows:
+  build-gist:
+    jobs:
+      - build
+      - gist:
+        # requires:
+        # - build
+        # filters:
+        #   branches:
+        #     only: master
