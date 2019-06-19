@@ -23,7 +23,6 @@ contributions:
   - title: "This Dot Jumper"
     author:
       name: "Swiftpotato"
-      url: ""
     url: "https://editor.p5js.org/swiftpotato/full/Ca6Q58Gq2"
     source: "https://editor.p5js.org/swiftpotato/sketches/Ca6Q58Gq2"
 ---
