@@ -107,9 +107,9 @@ workflows:
   build-gist:
     jobs:
       - build
-      - gist #:
-        # requires:
-        #   - build
-        # filters:
-        #   branches:
-        #     only: master
+      - gist:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master

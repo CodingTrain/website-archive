@@ -72,13 +72,15 @@ const client = new GitHub({
     result_table += line;
   }
 
-  if (fs.existsSync('CodingChallenge_Variations.md')) {
-    fs.unlinkSync('CodingChallenge_Variations.md');
-  }
-  fs.writeFileSync('CodingChallenge_Variations.md', result_table, 'UTF8');
+  //Obsolete since the result has moved to GitHub Gists
+  // if (fs.existsSync('CodingChallenge_Variations.md')) {
+  //   fs.unlinkSync('CodingChallenge_Variations.md');
+  // }
+  // fs.writeFileSync('CodingChallenge_Variations.md', result_table, 'UTF8');
 
   //Upload content to GitHub Gist
-  client.patch('/gists/368d87bf4e3558f01292e8c00afda224', {
+  console.log('\x1b[32m', `Uploading result to GitHub Gist. Gist ID: ${process.env.GIST_ID}`);
+  client.patch(`/gists/${process.env.GIST_ID}`, {
     files: {
       'CodingChallenge_Variations.md': {
         content: result_table
