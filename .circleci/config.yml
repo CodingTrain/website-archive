@@ -77,20 +77,18 @@ jobs:
     docker:
       # specify the version you desire here
       - image: starefossen/ruby-node:2-10
-
     steps:
-      # Restoring source code cache
-      # Check for current Coding Challenge Variations and upload to Gist.
+      - checkout
       - run:
           name: "node checkVariations.js"
-
 workflows:
+  version: 2
   build-gist:
     jobs:
       - build
       - gist #:
         # requires:
-        # - build
+        #   - build
         # filters:
         #   branches:
         #     only: master
