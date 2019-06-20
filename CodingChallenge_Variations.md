@@ -204,3 +204,4 @@
 | 144 | 2D Black Hole Visualization | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |CC_144_Black_Hole_Newtonian 
 | 145 | Ray Casting 2D | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |CC_145_Ray_Casting 
 | 146 | Rendering Ray Casting | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |CC_146_Rendering_Ray_Casting 
+| 147 | Chrome Dinosaur Game | <ul><li> - [x] </li></ul> |<ul><li> - [x] </li></ul> |<ul><li> - [ ] </li></ul> |<ul><li> - [ ] </li></ul> |CC_147_Chrome_Dinosaur_Game 
