@@ -79,6 +79,26 @@ jobs:
       - image: starefossen/ruby-node:2-10
     steps:
       - checkout
+
+      #Restoring npm cache
+      - restore_cache:
+          name: Restoring npm cache
+          keys:
+            # when lock file changes, use increasingly general patterns to restore cache
+            - npm-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - npm-v1-{{ .Branch }}-
+            - npm-v1-
+
+      # todo: find nicer solution than constantly "cd"ing to unit_testing
+      - run: npm install
+
+      #Saving npm cache
+      - save_cache:
+          name: Saving npm cache
+          paths:
+            - unit_testing/node_modules # location depends on npm version
+          key: npm-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+
       - run:
           name: "Uploading Coding Challenges Variations to GitHub Gists"
           command: "node checkVariations.js"
