@@ -80,7 +80,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "node checkVariations.js"
+          name: "Uploading Coding Challenges Variations to GitHub Gists"
+          command: "node checkVariations.js"
 workflows:
   version: 2
   build-gist:
