@@ -43,7 +43,7 @@ jobs:
       - save_cache:
           name: Saving npm cache
           paths:
-            -  unit_testing/node_modules  # location depends on npm version
+            - unit_testing/node_modules # location depends on npm version
           key: npm-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
 
       - run: cd unit_testing && npm test
@@ -54,16 +54,16 @@ jobs:
           key: circlev2-{{ checksum "Gemfile.lock" }}
 
       #Bundler Dependencies
-      - run: 
+      - run:
           name: Jekyll deps
           command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
-      
+
       # Saving bundler cache
       - save_cache:
           name: Saving bundler cache
           key: circlev2-{{ checksum "Gemfile.lock" }}
-          paths: 
-            - vendor/bundle 
+          paths:
+            - vendor/bundle
 
       - run:
           name: Build
@@ -72,3 +72,25 @@ jobs:
       - run:
           name: Test
           command: bundle exec htmlproofer ./_site --assume-extension --check-html --disable-external --url-ignore "/#.*/"
+
+  gist:
+    docker:
+      # specify the version you desire here
+      - image: starefossen/ruby-node:2-10
+
+    steps:
+      # Restoring source code cache
+      # Check for current Coding Challenge Variations and upload to Gist.
+      - run:
+          name: "node checkVariations.js"
+
+workflows:
+  build-gist:
+    jobs:
+      - build
+      - gist #:
+        # requires:
+        # - build
+        # filters:
+        #   branches:
+        #     only: master

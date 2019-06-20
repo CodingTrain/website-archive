@@ -1,8 +1,11 @@
 const fs = require('fs');
 const yaml = require('yaml-front-matter');
-
+const GitHub = require('octocat');
 const results = [];
-
+require('dotenv').config();
+const client = new GitHub({
+  token: process.env.OCTOCAT_KEY
+});
 (() => {
   const yaml_files = fs.readdirSync('_CodingChallenges');
   for (const yaml_file of yaml_files) {
@@ -73,4 +76,13 @@ const results = [];
     fs.unlinkSync('CodingChallenge_Variations.md');
   }
   fs.writeFileSync('CodingChallenge_Variations.md', result_table, 'UTF8');
+
+  //Upload content to GitHub Gist
+  client.patch('/gists/368d87bf4e3558f01292e8c00afda224', {
+    files: {
+      'CodingChallenge_Variations.md': {
+        content: result_table
+      }
+    }
+  });
 })();

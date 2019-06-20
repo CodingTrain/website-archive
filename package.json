@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "description": "Coding Train Website",
   "main": "none",
-  "dependencies": {},
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "octocat": "^1.2.1"
+  },
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-p5js": "^1.0.1",
