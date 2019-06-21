@@ -5,10 +5,12 @@
   "main": "none",
   "dependencies": {},
   "devDependencies": {
+    "dotenv": "^8.0.0",
     "eslint": "^4.19.1",
     "eslint-config-p5js": "^1.0.1",
     "eslint-config-prettier": "^2.10.0",
     "eslint-plugin-prettier": "^2.7.0",
+    "octocat": "^1.2.1",
     "prettier": "^1.18.2",
     "replace-in-file": "^3.4.4",
     "yaml-front-matter": "^4.0.0"
