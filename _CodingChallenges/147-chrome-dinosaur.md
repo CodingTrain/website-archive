@@ -35,6 +35,12 @@ contributions:
       url: "https://davebsoft.com"
     url: "https://editor.p5js.org/dcbriccetti/sketches/fAimx4Ahp"
     source: "https://editor.p5js.org/dcbriccetti/sketches/fAimx4Ahp"
+  - title: "Improved Spawning of Trains"
+    author:
+      name: "Simon Tiger Houben"
+      url: "https://simontiger.com"
+    url: "https://editor.p5js.org/simontiger/full/p7tPK1IVf"
+    source: "https://editor.p5js.org/simontiger/sketches/p7tPK1IVf"
 ---
 
 In this challenge, I attempt to make my own version of Google's Dinosaur Game (T-Rex run!) with a unique twist -- controlling the dinosaur (unicorn, in this case) with a machine learning Speech Commands model! 
