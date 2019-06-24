@@ -36,6 +36,12 @@ contributions:
       url: "https://jcponce.github.io/"
     url: "https://jcponce.github.io/complex/flowaroundcircle/"
     source: "https://github.com/jcponce/complex/tree/gh-pages/flowaroundcircle"
+  - title: "Bugged attempt to do Fluid Simulation in p5.js"
+    author:
+      name: "bohdandrahan"
+      url: "https://github.com/bohdandrahan/"
+    url: "https://bohdandrahan.github.io/Fluid-simulation/"
+    source: "https://github.com/bohdandrahan/Fluid-simulation"
 ---
 
 In this video, I attempt to follow Mike Ash's guide to Fluid Simulation and port Jos Stam's "Real-Time Fluid Dynamics for Games" algorithm and code in Processing (Java).
