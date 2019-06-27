@@ -41,7 +41,7 @@ contributions:
       url: "https://simontiger.com"
     url: "https://editor.p5js.org/simontiger/full/p7tPK1IVf"
     source: "https://editor.p5js.org/simontiger/sketches/p7tPK1IVf"
-     - title: "Genetic Algorithm to automate dinosaur game"
+  - title: "Genetic Algorithm to automate dinosaur game"
     author:
       name: "Shekhar Tyagi"
       url: "https://notshekhar.github.io"
