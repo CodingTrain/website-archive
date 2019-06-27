@@ -6,6 +6,14 @@ date: 2016-09-02
 video_id: rX5p-QRP6R4
 repository: CC_036_Blobby
 web_editor: L_ME8qKmQ
+
+contributions:
+  - title: "Animated blob with circular noise coords (no cut)"
+    author:
+      name: "Christian Frauscher"
+      url: "http://codeblock.at/"
+    url: "https://codepen.io/Grilly86/full/bwAoKq"
+    source: "https://codepen.io/Grilly86/pen/bwAoKq"
 ---
 
 In this coding challenge, I simulate a blob-like shape with wobbly edges using `beginShape()`, `endShape()`, polar coordinates, and perlin noise.
