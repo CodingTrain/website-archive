@@ -68,6 +68,12 @@ contributions:
       name: "D.T.6"
     url: "https://editor.p5js.org/full/ZV-OjWFtK"
     source: "https://github.com/ddddtttt6666/p5js/blob/master/ray_marching_3d_wolf_infinite/sketch.js"
+  - title: "ray casting game with maze generation (also see CC10)"
+    author:
+      name: "Christian Frauscher"
+      url: "https://codeblock.at/"
+    url: "https://codepen.io/Grilly86/project/full/ApNRVn"
+    source: "https://codepen.io/Grilly86/project/editor/ApNRVn"
 
 community_references:
   - title: "Code-It-Yourself! First Person Shooter (Quick and Simple C++)"
