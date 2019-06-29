@@ -101,8 +101,8 @@ contributions:
     author:
       name: "Charly Poirier"
       url: "https://github.com/charlypoirier/"
-    url: "https://github.com/charlypoirier/JSClock"
-    source: "https://github.com/charlypoirier/JSClock"
+    url: "https://charlypoirier.github.io/javascript-clock/"
+    source: "https://github.com/charlypoirier/javascript-clock"
   - title: "Spinning hands of time"
     author:
       name: "Owen McAteer"

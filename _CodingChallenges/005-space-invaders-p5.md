@@ -13,6 +13,12 @@ contributions:
       name: "Morel Takougang"
       url: "https://github.com/MorelT98"
     source: "https://github.com/MorelT98/coding-challenges/blob/master/005_space_invaders.py"
+  - title: "Alien Shooter"
+    author:
+      name: "Rino Vetha Moses"
+      url: "https://github.com/rinovethamoses97"
+    url: "https://rinovethamoses97.github.io/Space-Invaders-Game/public/index.html"
+    source: "https://github.com/rinovethamoses97/Space-Invaders-Game"
 ---
 
 In this viewer submitted coding challenge, I take on the task of coding a Space Invaders game to play in browser in JavaScript/HTML and the p5.js library.
