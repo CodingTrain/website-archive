@@ -19,7 +19,6 @@ contributions:
       url: "https://github.com/rinovethamoses97"
     url:"https://rinovethamoses97.github.io/Space-Invaders-Game/public/index.html"
     source: "https://github.com/rinovethamoses97/Space-Invaders-Game"
-    
 ---
 
 In this viewer submitted coding challenge, I take on the task of coding a Space Invaders game to play in browser in JavaScript/HTML and the p5.js library.
