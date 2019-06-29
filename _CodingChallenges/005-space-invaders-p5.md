@@ -17,7 +17,7 @@ contributions:
     author:
       name: "Rino Vetha Moses"
       url: "https://github.com/rinovethamoses97"
-    url:"https://rinovethamoses97.github.io/Space-Invaders-Game/public/index.html"
+    url: "https://rinovethamoses97.github.io/Space-Invaders-Game/public/index.html"
     source: "https://github.com/rinovethamoses97/Space-Invaders-Game"
 ---
 
