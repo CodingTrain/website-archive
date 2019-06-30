@@ -1,17 +1,19 @@
 const fs = require('fs');
 const yaml = require('yaml-front-matter');
 const GitHub = require('octocat');
-const results = [];
+const challenges = [];
 require('dotenv').config();
 const client = new GitHub({
   token: process.env.OCTOCAT_KEY
 });
-(() => {
+(async () => {
+  let current_data = await client.get(`/gists/${process.env.GIST_ID}`);
+  current_data = current_data.body.files['CodingChallenge_Variations.md'].content
   const yaml_files = fs.readdirSync('_CodingChallenges');
   for (const yaml_file of yaml_files) {
     const content = fs.readFileSync(`./_CodingChallenges/${yaml_file}`, 'UTF8');
     const parsed_content = yaml.loadFront(content);
-    results.push({
+    challenges.push({
       id: parsed_content.video_number,
       title: parsed_content.title,
       repo: parsed_content.repository || null,
@@ -22,28 +24,25 @@ const client = new GitHub({
     });
   }
 
-  let result_table =
-    '| Number | Name | p5.js | Web Editor | Processing | Other | Folder |\n';
-  result_table +=
-    '| --- | --- | --- | --- | --- | --- | --- | \n';
+  let result_table = '| Number | Name | p5.js | Web Editor | Processing | Other | Folder |\n| --- | --- | --- | --- | --- | --- | --- | \n';
 
-  for (const result of results) {
-    if (!result.repo) continue;
-    const subdirectories = fs.readdirSync(`./CodingChallenges/${result.repo}`);
+  for (const challenge of challenges) {
+    if (!challenge.repo) continue;
+    const subdirectories = fs.readdirSync(`./CodingChallenges/${challenge.repo}`);
 
-    let line = `| ${result.id} | ${result.title} | `;
+    let line = `| ${challenge.id} | ${challenge.title} | `;
 
-    console.log(`Updating Challenge ${result.id}: ${result.title}`);
+    console.log(`Processing Challenge ${challenge.id}: ${challenge.title}`);
     //p5.js
     if (subdirectories.includes('P5')) {
-      result.p5 = true;
+      challenge.p5 = true;
       line += '<ul><li> - [x] </li></ul> |';
     } else {
       line += '<ul><li> - [ ] </li></ul> |';
     };
 
     //Web Editor
-    if (result.web_editor) {
+    if (challenge.web_editor) {
       line += '<ul><li> - [x] </li></ul> |';
     } else {
       line += '<ul><li> - [ ] </li></ul> |';
@@ -51,7 +50,7 @@ const client = new GitHub({
 
     //Processing
     if (subdirectories.includes('Processing')) {
-      result.processing = true;
+      challenge.processing = true;
       line += '<ul><li> - [x] </li></ul> |';
     } else {
       line += '<ul><li> - [ ] </li></ul> |';
@@ -60,16 +59,21 @@ const client = new GitHub({
     //Other
     const others = ['Node', 'JavaScript'];
     others.forEach(elt => {
-      if (subdirectories.includes(elt)) result.other = true;
+      if (subdirectories.includes(elt)) challenge.other = true;
     });
-    if (result.other) {
+    if (challenge.other) {
       line += '<ul><li> - [x] </li></ul> |';
     } else {
       line += '<ul><li> - [ ] </li></ul> |';
     }
 
-    line += `${result.repo} \n`
+    line += `${challenge.repo} \n`
     result_table += line;
+  }
+
+  if (current_data === result_table) {
+    console.log('\x1b[35m', 'Aborting. The data has not changed.');
+    process.exit(0);
   }
 
   //Obsolete since the result has moved to GitHub Gists
