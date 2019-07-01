@@ -6,6 +6,13 @@ date: 2017-01-27
 video_id: l__fEY1xanY
 repository: CC_052_random_walk
 web_editor: N-qqe1ExZ
+
+contributions:
+  - title: "Not so random walk (Visualizing Pi)"
+    author:
+      name: "Miká Kruschel"
+    url: "https://editor.p5js.org/mikakruschel/full/QchVIhVlH"
+    source: "https://editor.p5js.org/mikakruschel/sketches/QchVIhVlH"
 ---
 
 In this coding challenge, I simulate a "random walk" with the p5.js library. This video is part of the course Nature of Code at ITP, Tisch, NYU.
