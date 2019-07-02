@@ -47,6 +47,13 @@ contributions:
       url: "https://notshekhar.github.io"
     url: "https://notshekhar.github.io/genetic_algorithm_to_automate_dinosaur_game/"
     source: "https://github.com/notshekhar/genetic_algorithm_to_automate_dinosaur_game"
+  - title: "Chrome Dino Game"
+    author:
+      name: "Rino Vetha Moses"
+      url: "https://github.com/rinovethamoses97"
+    url: "https://rinovethamoses97.github.io/Chrome-Dino-Game/public/"
+    source: "https://github.com/rinovethamoses97/Chrome-Dino-Game"
+     
 ---
 
 In this challenge, I attempt to make my own version of Google's Dinosaur Game (T-Rex run!) with a unique twist -- controlling the dinosaur (unicorn, in this case) with a machine learning Speech Commands model! 
