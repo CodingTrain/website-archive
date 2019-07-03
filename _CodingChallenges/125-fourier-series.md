@@ -66,6 +66,12 @@ contributions:
       url: "https://github.com/mohragk"
     url: "https://editor.p5js.org/mohragk/full/BkMiw4KxV"
     source: "https://editor.p5js.org/mohragk/sketches/BkMiw4KxV"
+  - title: "Amplitude, Frequency, Phase"
+    author:
+      name: "Abdul Haliq"
+      url: "https://github.com/AHaliq"
+    url: "https://editor.p5js.org/AHaliq/full/1CZOJ2oDT"
+    source: "https://gist.github.com/AHaliq/6151cc5a3da6718724a8942e221f1a2e"
 ---
 
 In this coding challenge, I visualize a Fourier series for a square wave in JavaScript with p5.js.
