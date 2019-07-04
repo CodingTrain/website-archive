@@ -92,7 +92,7 @@ contributions:
       url: "https://simontiger.com/"
     url: https://editor.p5js.org/simontiger/present/F6TCHAZs_
     source: https://editor.p5js.org/simontiger/sketches/F6TCHAZs_
-    - title: "Minor optimisation ray.js to better suit math being done"
+  - title: "Minor optimisation ray.js to better suit math being done"
     author:
       name: "Damien Porter"
       url: "mailto:damo67@gmail.com"
