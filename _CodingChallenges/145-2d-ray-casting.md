@@ -92,6 +92,12 @@ contributions:
       url: "https://simontiger.com/"
     url: https://editor.p5js.org/simontiger/present/F6TCHAZs_
     source: https://editor.p5js.org/simontiger/sketches/F6TCHAZs_
+  - title: "Minor optimisation ray.js to better suit math being done"
+    author:
+      name: "Damien Porter"
+      url: "mailto:damo67@gmail.com"
+    url: "https://github.com/Damo676767/Random-Pieces-of-Code/blob/master/ray.js"
+    source: "https://github.com/Damo676767/Random-Pieces-of-Code/blob/master/ray.js"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"
