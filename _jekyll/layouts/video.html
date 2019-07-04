@@ -120,7 +120,7 @@ layout: base
           {% endif %}
 
           {% comment %} Render "LIVE" button. {% endcomment %}
-          {% if liveExampleURL != null %}
+          {% if liveExampleURL != null and page.live_example != false %}
             <a href="{{ liveExampleURL }}" target="_blank">See It Live</a>
           {% endif %}
 
