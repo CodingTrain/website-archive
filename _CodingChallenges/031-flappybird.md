@@ -29,6 +29,11 @@ contributions:
       url: "https://github.com/mdbrim"
     url: "https://mdbrim.github.io/flappy/index.html"
     source: "https://github.com/mdbrim/flappy"
+  - title: "Jumpy Banana"
+    author:
+      name: "Shriram"
+      url: "https://shrirambo.github.io/p5Gallery/Resources/Jumpy%20Banana/index.html"
+    source: "https://github.com/ShriRambo/p5Gallery/tree/master/Resources/Jumpy%20Banana"
 ---
 
 In this coding challenge, I attempt to program in JavaScript (using the p5.js framework) a clone of the game Flappy Bird.
