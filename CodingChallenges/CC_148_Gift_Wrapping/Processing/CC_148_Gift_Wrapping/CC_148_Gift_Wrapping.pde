@@ -14,6 +14,17 @@ int index;
 int nextIndex = -1;
 PVector nextVertex;
 
+PVector leftMost(ArrayList<PVector> _points) {
+  PVector winner = _points.get(0);
+  for (int i =  1; i < _points.size(); i++) {
+    PVector p = _points.get(i);
+    if (p.x < winner.x) {
+      winner = p;
+    }
+  }
+  return winner;
+}
+
 void setup() {
   size(500, 500);
   int buffer = 20;
@@ -22,9 +33,12 @@ void setup() {
     points.add(new PVector(random(buffer, width - buffer), random(buffer, height - buffer)));
   }
 
-  Collections.sort(points, VEC_CMP);
+  // Advanced way to sort the points array.
+  //Collections.sort(points, VEC_CMP);
+  //leftMost = points.get(0);
 
-  leftMost = points.get(0);
+  leftMost = leftMost(points);
+
   currentVertex = leftMost;
   hull.add(currentVertex);
   nextVertex = points.get(1);
