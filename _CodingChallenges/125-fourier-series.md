@@ -72,6 +72,12 @@ contributions:
       url: "https://github.com/AHaliq"
     url: "https://editor.p5js.org/AHaliq/full/1CZOJ2oDT"
     source: "https://gist.github.com/AHaliq/6151cc5a3da6718724a8942e221f1a2e"
+  - title: "Basic wave visualization using Fourier Series in python with pygame"
+    author:
+      name: "Nate Plamondon"
+      url: "https://github.com/meznak"
+    video_id: "d173h4fVxD8"
+    source: "https://github.com/meznak/fourier-vis"
 ---
 
 In this coding challenge, I visualize a Fourier series for a square wave in JavaScript with p5.js.
