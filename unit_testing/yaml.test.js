@@ -132,7 +132,7 @@ const checkFolder = (videoFormat, name, { directories, files }) => describe(name
         if (videoString === fileNumber) return;
         // If the video has parts, check we match the last one only.
         let parts = fileNumber.split('.');
-        if (videoString === parts[parts.length - 1]) return;
+        if (videoString === parts[parts.length - 1] || file.content.ignore_filename) return;
         throw new Error('Expected file numbering to match internal numbering');
       });
 

@@ -94,6 +94,7 @@ const videoBase = module.exports.videoBase = exact({
   community_references: PropTypes.arrayOf(PropTypes.shape(link)),
   contributions: PropTypes.arrayOf(PropTypes.shape(contribution)),
   custom_sections: PropTypes.arrayOf(PropTypes.shape(customSection)),
+  ignore_filename: PropTypes.bool
 });
 
 const video = module.exports.video = exact({
