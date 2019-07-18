@@ -40,6 +40,6 @@ contributions:
       name: "AfroDisco"
       url: "https://github.com/AfroDisco"
     url: "https://editor.p5js.org/undefined/present/nSWqjnOJU"
-    source: "https://editor.p5js.org/undefined/sketches/nSWqjnOJU" 
+    source: "https://editor.p5js.org/undefined/sketches/nSWqjnOJU"
 ---
 In this coding challenge, I implement the "Gift Wrapping algorithm" (aka Jarvis march) for calculating a convex hull in JavaScript. This is a foundational topic in computational geometry!
