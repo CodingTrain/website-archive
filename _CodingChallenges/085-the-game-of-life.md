@@ -37,5 +37,10 @@ contributions:
       name: "Jamie McCrory"
     url: "https://conways-colorful-game-of-life.herokuapp.com/"
     source: "https://github.com/jamiejamiebobamie/Conway-sGameofLife"
+  - title: "The Greg of Life"
+    author:
+      name: "Greg Kreisman"
+    url: "https://editor.p5js.org/greggelong/present/VGD6wwYTv"
+    source: "https://editor.p5js.org/greggelong/sketches/VGD6wwYTv"
 ---
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.
