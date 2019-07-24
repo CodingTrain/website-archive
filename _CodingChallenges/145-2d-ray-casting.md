@@ -98,7 +98,7 @@ contributions:
       url: "mailto:damo67@gmail.com"
     url: "https://github.com/Damo676767/Random-Pieces-of-Code/blob/master/ray.js"
     source: "https://github.com/Damo676767/Random-Pieces-of-Code/blob/master/ray.js"
-  - title: "FLASHY the flashligt game"
+  - title: "FLASHY the flashlight game"
     author:
       name: "Nick 'Milchreis' Müller"
       url: "https://github.com/milchreis"
