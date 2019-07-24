@@ -28,6 +28,10 @@ contributions:
     author: "Diptanu Roy"
     url: "https://infernal9999.github.io/Tic-Tac-Toe/"
     source: "https://github.com/infernal9999/Tic-Tac-Toe"
+  - title: "Re-sizable Tic-Tac-Toe PvsP (click)"
+    author: "Manikanta Narayana"
+    url: "https://editor.p5js.org/ilmnarayana/full/o-pkHOuVq"
+    source: "https://editor.p5js.org/ilmnarayana/sketches/o-pkHOuVq"
 ---
 This is be a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
 
