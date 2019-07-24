@@ -18,12 +18,16 @@ contributions:
     source: "https://github.com/sayan01/Tic-Tac-Toe"
   - title: "Tic-Tac-Toe"
     author: "David Snyder"
-    url: "https://editor.p5js.org/davidgraygs4@gmail.com/full/A0IzNW_l0"
-    source: "https://editor.p5js.org/davidgraygs4@gmail.com/sketches/A0IzNW_l0"
+    url: "https://editor.p5js.org/davidgraygs4@gmail.com/sketches/A0IzNW_l0"
+    source: "https://editor.p5js.org/davidgraygs4@gmail.com/full/A0IzNW_l0"
   - title: "Tic-Tac-Toe Animated!"
     author: "The Tasteful Toastie"
-    url: "https://editor.p5js.org/TheTastefulToastie/full/EZWUlidf1"
-    source: "https://editor.p5js.org/TheTastefulToastie/sketches/EZWUlidf1"
+    url: "https://editor.p5js.org/TheTastefulToastie/sketches/EZWUlidf1"
+    source: "https://editor.p5js.org/TheTastefulToastie/full/EZWUlidf1"
+    - title: "Tic-Tac-Toe PVP (click)"
+    author: "Diptanu Roy"
+    url: "https://infernal9999.github.io/Tic-Tac-Toe/"
+    source: "https://github.com/infernal9999/Tic-Tac-Toe"
 ---
 This is be a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
 
