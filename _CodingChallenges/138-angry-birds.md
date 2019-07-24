@@ -28,6 +28,5 @@ contributions:
     url: "https://angrybird.withkoji.com/"
     source: "https://withkoji.com/~Dizolivemint/p5-and-matter-js-coding-train-angry-birds-tutorial"
 ---
----
 
 An attempt to implement the basic mechanics of Angry Birds in JavaScript using p5.js and the matter.js physics engine.
