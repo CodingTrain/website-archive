@@ -12,7 +12,7 @@
     "eslint-plugin-prettier": "^2.7.0",
     "octocat": "^1.2.1",
     "prettier": "^1.18.2",
-    "replace-in-file": "^3.4.4",
+    "replace-in-file": "^4.1.1",
     "yaml-front-matter": "^4.0.0"
   },
   "scripts": {
