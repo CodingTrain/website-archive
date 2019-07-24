@@ -28,6 +28,10 @@ contributions:
     author: "Diptanu Roy"
     url: "https://infernal9999.github.io/Tic-Tac-Toe/"
     source: "https://github.com/infernal9999/Tic-Tac-Toe"
+  - title: "Tic-Tac-Toe Human Play"
+    author: "Gabriel"
+    url: "https://editor.p5js.org/Gabriel_DEV/full/xG3eTLZhY"
+    source: "https://editor.p5js.org/Gabriel_DEV/sketches/xG3eTLZhY"
 ---
 This is be a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
 
