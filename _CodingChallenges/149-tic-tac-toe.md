@@ -20,6 +20,6 @@ contributions:
     author: "David Snyder"
     url: "https://editor.p5js.org/davidgraygs4@gmail.com/sketches/A0IzNW_l0"
     source: "https://editor.p5js.org/davidgraygs4@gmail.com/full/A0IzNW_l0"--
-
-This is be a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
 ---
+This is be a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
+
