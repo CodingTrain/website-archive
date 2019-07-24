@@ -35,6 +35,12 @@ contributions:
       url: "https://github.com/bohdandrahan"
     url: "https://bohdandrahan.github.io/Snake-game/snake/index.html"
     source: "https://github.com/bohdandrahan/Snake-game"
+  - title: "Snake3D"
+    author:
+      name: "Nick 'Milchreis' Müller"
+      url: "https://github.com/milchreis"
+    url: "https://milchreis.github.io/Snake3D/"
+    source: "https://github.com/Milchreis/Snake3D"
 ---
 
 Snake Game!? Again!? Now with the p5.js Web Editor!
