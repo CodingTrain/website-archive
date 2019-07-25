@@ -39,7 +39,7 @@ contributions:
   - title: "Tic-Tac-Toe Challenge Complete!"
     author: "James Lang"
     url: "https://editor.p5js.org/James-Lang/full/swRhflZpi"
-    source: "https://editor.p5js.org/James-Lang/sketches/swRhflZpi"    
+    source: "https://editor.p5js.org/James-Lang/sketches/swRhflZpi"
 ---
 This is be a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
 
