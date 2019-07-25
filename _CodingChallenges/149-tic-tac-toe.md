@@ -36,7 +36,7 @@ contributions:
     author: "Manikanta Narayana"
     url: "https://editor.p5js.org/ilmnarayana/full/o-pkHOuVq"
     source: "https://editor.p5js.org/ilmnarayana/sketches/o-pkHOuVq"
-   - title: "Tic-Tac-Toe with invincible AI"
+  - title: "Tic-Tac-Toe with invincible AI"
     author: "Timur Dzhalalov"
     url: "https://editor.p5js.org/eightlaysome/full/iqXHSVn-6"
     source: "https://github.com/eightlay/world_tree_games"
