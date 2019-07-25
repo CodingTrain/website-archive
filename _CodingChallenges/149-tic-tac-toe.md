@@ -17,7 +17,7 @@ contributions:
     url: "https://sayan01.github.io/Tic-Tac-Toe/javascript/"
     source: "https://github.com/sayan01/Tic-Tac-Toe"
   - title: "Tic-Tac-Toe"
-    author: 
+    author:
       name: "David Snyder"
       url: "https://github.com/GypsyDangerous"
     url: "https://editor.p5js.org/davidgraygs4@gmail.com/full/A0IzNW_l0"
