@@ -40,6 +40,10 @@ contributions:
     author: "Manikanta Narayana"
     url: "https://editor.p5js.org/ilmnarayana/full/o-pkHOuVq"
     source: "https://editor.p5js.org/ilmnarayana/sketches/o-pkHOuVq"
+  - title: "2 player Tic-Tac-Toe (slightly advanced)"
+    author: "Brogamer5000"
+    url: "https://editor.p5js.org/Brogamer5000/full/JB8-AddMS"
+    source: "https://editor.p5js.org/Brogamer5000/sketches/JB8-AddMS"
 ---
 This is be a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
 
