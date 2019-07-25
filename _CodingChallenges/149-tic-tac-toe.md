@@ -56,5 +56,9 @@ contributions:
     author: "Brogamer5000"
     url: "https://editor.p5js.org/Brogamer5000/full/JB8-AddMS"
     source: "https://editor.p5js.org/Brogamer5000/sketches/JB8-AddMS"
+  - title: "Tic Tac Toe 2 players (simple)"
+    author: "David Dostal"
+    url: "https://editor.p5js.org/daviddostal/full/F9mv0IRaJ"
+    source: "https://editor.p5js.org/daviddostal/sketches/F9mv0IRaJ"
 ---
 This is be a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
