@@ -28,6 +28,10 @@ contributions:
     author: "Diptanu Roy"
     url: "https://infernal9999.github.io/Tic-Tac-Toe/"
     source: "https://github.com/infernal9999/Tic-Tac-Toe"
+  - title: "Tic-Tac-Toe Human Play"
+    author: "Gabriel"
+    url: "https://editor.p5js.org/Gabriel_DEV/full/xG3eTLZhY"
+    source: "https://editor.p5js.org/Gabriel_DEV/sketches/xG3eTLZhY"
   - title: "Customizable Tic-Tac-Toe"
     author: "mmftl"
     url: "https://editor.p5js.org/mmftl/sketches/a3mP-qjEM"
@@ -36,6 +40,14 @@ contributions:
     author: "Manikanta Narayana"
     url: "https://editor.p5js.org/ilmnarayana/full/o-pkHOuVq"
     source: "https://editor.p5js.org/ilmnarayana/sketches/o-pkHOuVq"
+  - title: "Color Tic-Tac-Toe PvsP (click)"
+    author: "Arthur Cavalcanti"
+    url: "https://editor.p5js.org/arthurrc/sketches/1ItYNEQGl"
+    source: "https://editor.p5js.org/arthurrc/sketches/1ItYNEQGl"
+  - title: "2 player Tic-Tac-Toe (slightly advanced)"
+    author: "Brogamer5000"
+    url: "https://editor.p5js.org/Brogamer5000/full/JB8-AddMS"
+    source: "https://editor.p5js.org/Brogamer5000/sketches/JB8-AddMS"
 ---
 This is be a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
 
