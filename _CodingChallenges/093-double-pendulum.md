@@ -46,7 +46,5 @@ contributions:
       url: "https://blog.ansonbiggs.com/"
     url: "https://gitlab.com/MisterBiggs/double_pendulum/blob/master/animation.webm"
     source: "https://gitlab.com/MisterBiggs/double_pendulum/blob/master/double_pendulum.pyde"
-
 ---
-
 In this coding challenge, I create a double pendulum simulation in Processing.
