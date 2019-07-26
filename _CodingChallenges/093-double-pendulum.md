@@ -40,6 +40,13 @@ contributions:
       url: "https://owenmcateer.github.io/Motus-Art/"
     url: "https://owenmcateer.github.io/Motus-Art/projects/week_02.html"
     source: "https://github.com/owenmcateer/Motus-Art/blob/master/src/week_02/main.js"
+  - title: "Processing.py Double Pendulum"
+    author:
+      name: "Anson Biggs"
+      url: "https://blog.ansonbiggs.com/"
+    url: "https://gitlab.com/MisterBiggs/double_pendulum/blob/master/animation.webm"
+    source: "https://gitlab.com/MisterBiggs/double_pendulum/blob/master/double_pendulum.pyde"
+
 ---
 
 In this coding challenge, I create a double pendulum simulation in Processing.
