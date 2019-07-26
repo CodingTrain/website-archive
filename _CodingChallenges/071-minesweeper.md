@@ -72,6 +72,11 @@ contributions:
       name: "alok"
     url: "https://aloksbd.github.io/Game-Sprint/1-minesweeper/index.html"
     source: "https://github.com/aloksbd/Game-Sprint/tree/master/1-minesweeper"
+  - title: "HexSweeper - Hexagon-based Minesweeper game"
+    author:
+      name: "Zykatious"
+    url: "https://editor.p5js.org/Zykatious/sketches/vaRBSL6d8"
+    source: "https://editor.p5js.org/Zykatious/sketches/vaRBSL6d8"
 ---
 
 In this challenge, I attempt to code the classic game Minesweeper in JavaScript with the p5.js library. This video builds on some previous tutorials related to the Prototypes and multi-dimensional arrays in JavaScript.
