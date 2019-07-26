@@ -62,5 +62,9 @@ contributions:
     author: "David Dostal"
     url: "https://editor.p5js.org/daviddostal/full/F9mv0IRaJ"
     source: "https://editor.p5js.org/daviddostal/sketches/F9mv0IRaJ"
+  - title: "Tic Tac Toe (Dynamic grid Size using classes)"
+    author: "Ahmed kabapy"
+    url: "https://editor.p5js.org/kabapy/sketches/sof5IFfwC"
+    source: "https://editor.p5js.org/kabapy/sketches/sof5IFfwC"
 ---
 This is be a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
