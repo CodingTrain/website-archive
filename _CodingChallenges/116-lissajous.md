@@ -72,6 +72,12 @@ contributions:
       url: "https://github.com/gui-santos"
     url: "https://codepen.io/gui_gsantos/full/KYNQmx"
     source: "https://codepen.io/gui_gsantos/pen/KYNQmx"
+  - title: "Refactored Lissajous Curve"
+    author:
+      name: "Hari Krishnan"
+      url: "https://github.com/Hari3"
+    url: "https://editor.p5js.org/HariKrishnan/full/uGdTrs9uB"
+    source: "https://editor.p5js.org/HariKrishnan/sketches/uGdTrs9uB"
 ---
 
 In this Coding Challenge, I visualize a "Lissajous Curve Table" with Processing (Java).
