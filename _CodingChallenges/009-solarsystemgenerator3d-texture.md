@@ -18,6 +18,14 @@ parts:
     url: "/CodingChallenges/007-solarsystemgenerator"
   - title: "Solar System in Processing - Part 2 (3D)"
     url: "/CodingChallenges/008-solarsystemgenerator3d"
+
+contributions:
+  - title: "Aleix Ferre"
+    author:
+      name: "CatalaHD"
+      url: https://github.com/CatalaHD
+    url: https://github.com/CatalaHD/SolarSystemProcessing
+    source: https://github.com/CatalaHD/SolarSystemProcessing/blob/master/Planet.pde
 ---
 
 In part 3 of this coding challenge, using Processing, I add texture to the 3D objects created in [part 2](https://youtu.be/dncudkelNxw).  The PShape class and createShape() functions are covered.
