@@ -20,7 +20,7 @@ parts:
     url: "/CodingChallenges/008-solarsystemgenerator3d"
 
 contributions:
-  - title: "Aleix Ferre"
+  - title: "Added SkyBox"
     author:
       name: "CatalaHD"
       url: https://github.com/CatalaHD
