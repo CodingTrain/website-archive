@@ -51,7 +51,6 @@ contributions:
       name: "Deepak Thakur"
       url: "https://github.com/dtj2011/Double-Pendulum"
     url: "https://codepen.io/dtj2011/full/XvXaWW"
-    source: "https://github.com/dtj2011/Double-Pendulum"
-    
+    source: "https://github.com/dtj2011/Double-Pendulum"    
 ---
 In this coding challenge, I create a double pendulum simulation in Processing.
