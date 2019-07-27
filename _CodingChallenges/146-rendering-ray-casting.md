@@ -74,6 +74,11 @@ contributions:
       url: "https://codeblock.at/"
     url: "https://codepen.io/Grilly86/project/full/ApNRVn"
     source: "https://codepen.io/Grilly86/project/editor/ApNRVn"
+  - title: "raycasting with structure"
+    author:
+      name: "Sini"
+    url: "https://github.com/AlbertoSinigaglia/Canvas/blob/master/rayCastingWithStructure.html"
+    source: "https://github.com/AlbertoSinigaglia/Canvas/blob/master/rayCastingWithStructure.html"
 
 community_references:
   - title: "Code-It-Yourself! First Person Shooter (Quick and Simple C++)"
