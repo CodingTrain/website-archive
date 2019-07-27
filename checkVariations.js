@@ -1,17 +1,17 @@
-const fs = require('fs');
-const yaml = require('yaml-front-matter');
-const GitHub = require('octocat');
+const fs = require("fs");
+const yaml = require("yaml-front-matter");
+const GitHub = require("octocat");
 const challenges = [];
-require('dotenv').config();
+require("dotenv").config();
 const client = new GitHub({
   token: process.env.OCTOCAT_KEY
 });
 (async () => {
   let current_data = await client.get(`/gists/${process.env.GIST_ID}`);
-  current_data = current_data.body.files['CodingChallenge_Variations.md'].content
-  const yaml_files = fs.readdirSync('_CodingChallenges');
+  current_data = current_data.body.files["CodingChallenge_Variations.md"].content;
+  const yaml_files = fs.readdirSync("_CodingChallenges");
   for (const yaml_file of yaml_files) {
-    const content = fs.readFileSync(`./_CodingChallenges/${yaml_file}`, 'UTF8');
+    const content = fs.readFileSync(`./_CodingChallenges/${yaml_file}`, "UTF8");
     const parsed_content = yaml.loadFront(content);
     challenges.push({
       id: parsed_content.video_number,
@@ -20,11 +20,13 @@ const client = new GitHub({
       p5: false,
       processing: false,
       web_editor: parsed_content.web_editor || false,
-      other: false
+      other: false,
+      contributions: parsed_content.contributions || []
     });
   }
 
-  let result_table = '| Number | Name | p5.js | Web Editor | Processing | Other | Folder |\n| --- | --- | --- | --- | --- | --- | --- | \n';
+  let result_table =
+    "| Number | Name | p5.js | Web Editor | Processing | Other | Number of Contributions |\n| --- | --- | --- | --- | --- | --- | --- | \n";
 
   for (const challenge of challenges) {
     if (!challenge.repo) continue;
@@ -34,45 +36,45 @@ const client = new GitHub({
 
     console.log(`Processing Challenge ${challenge.id}: ${challenge.title}`);
     //p5.js
-    if (subdirectories.includes('P5')) {
+    if (subdirectories.includes("P5")) {
       challenge.p5 = true;
-      line += '<ul><li> - [x] </li></ul> |';
+      line += "<ul><li> - [x] </li></ul> |";
     } else {
-      line += '<ul><li> - [ ] </li></ul> |';
-    };
+      line += "<ul><li> - [ ] </li></ul> |";
+    }
 
     //Web Editor
     if (challenge.web_editor) {
-      line += '<ul><li> - [x] </li></ul> |';
+      line += "<ul><li> - [x] </li></ul> |";
     } else {
-      line += '<ul><li> - [ ] </li></ul> |';
+      line += "<ul><li> - [ ] </li></ul> |";
     }
 
     //Processing
-    if (subdirectories.includes('Processing')) {
+    if (subdirectories.includes("Processing")) {
       challenge.processing = true;
-      line += '<ul><li> - [x] </li></ul> |';
+      line += "<ul><li> - [x] </li></ul> |";
     } else {
-      line += '<ul><li> - [ ] </li></ul> |';
-    };
+      line += "<ul><li> - [ ] </li></ul> |";
+    }
 
     //Other
-    const others = ['Node', 'JavaScript'];
+    const others = ["Node", "JavaScript"];
     others.forEach(elt => {
       if (subdirectories.includes(elt)) challenge.other = true;
     });
     if (challenge.other) {
-      line += '<ul><li> - [x] </li></ul> |';
+      line += "<ul><li> - [x] </li></ul> |";
     } else {
-      line += '<ul><li> - [ ] </li></ul> |';
+      line += "<ul><li> - [ ] </li></ul> |";
     }
 
-    line += `${challenge.repo} \n`
+    line += `${challenge.contributions.length} \n`;
     result_table += line;
   }
 
   if (current_data === result_table) {
-    console.log('\x1b[35m', 'Aborting. The data has not changed.');
+    console.log("\x1b[35m", "Aborting. The data has not changed.");
     process.exit(0);
   }
 
@@ -83,10 +85,10 @@ const client = new GitHub({
   // fs.writeFileSync('CodingChallenge_Variations.md', result_table, 'UTF8');
 
   //Upload content to GitHub Gist
-  console.log('\x1b[32m', `Uploading result to GitHub Gist. Gist ID: ${process.env.GIST_ID}`);
+  console.log("\x1b[32m", `Uploading result to GitHub Gist. Gist ID: ${process.env.GIST_ID}`);
   client.patch(`/gists/${process.env.GIST_ID}`, {
     files: {
-      'CodingChallenge_Variations.md': {
+      "CodingChallenge_Variations.md": {
         content: result_table
       }
     }
