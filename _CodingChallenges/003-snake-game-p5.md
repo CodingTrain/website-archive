@@ -69,6 +69,11 @@ contributions:
       name: "Morel Takougang"
       url: "https://github.com/MorelT98"
     source: "https://github.com/MorelT98/coding-challenges/blob/master/003_snake.py"
+  - title: "Two player Snake"
+    author:
+      name: "Michael Delfino"
+      url: "https://codepen.io/mrmichael"
+    url: "https://codepen.io/mrdelfino/pen/GrvzwL"
 ---
 
 In this coding challenge, I attempt to code a p5.js version of the Snake Game.
