@@ -46,11 +46,11 @@ contributions:
       url: "https://blog.ansonbiggs.com/"
     url: "https://gitlab.com/MisterBiggs/double_pendulum/blob/master/animation.webm"
     source: "https://gitlab.com/MisterBiggs/double_pendulum/blob/master/double_pendulum.pyde"
-   - title: "Double Pendulum Pure Javascript with option to edit gravity and angles and color traces"
+  - title: "Double Pendulum Pure Javascript with option to edit gravity and angles and color traces"
     author:
       name: "Deepak Thakur"
       url: "https://github.com/dtj2011/Double-Pendulum"
     url: "https://codepen.io/dtj2011/full/XvXaWW"
-    source: "https://github.com/dtj2011/Double-Pendulum"    
+    source: "https://github.com/dtj2011/Double-Pendulum"
 ---
 In this coding challenge, I create a double pendulum simulation in Processing.
