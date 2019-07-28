@@ -20,6 +20,14 @@ links:
     url: "https://processing.org/reference/beginShape_.html"
   - title: "What is a differential equation?"
     url: "https://www.myphysicslab.com/explain/what-is-a-diff-eq-en.html"
+
+contributions:
+  - title: "Lorenz attractor with particles"
+    author:
+      name: "Juan Carlos Ponce Campuzano"
+      url: "https://jcponce.github.io/"
+    url: "https://jcponce.github.io/calculus/velfields/Lorenz/"
+    source: "https://github.com/jcponce/calculus/tree/gh-pages/velfields/Lorenz"
 ---
 
 In this coding challenge, I show you how to visualization the Lorenz Attractor in Processing (Java).
