@@ -110,37 +110,37 @@ defaults:
   - scope:              { path: "", type: "Streams" }
     values:
       layout:           "video"
-      video_type:       "stream"
+      video_type:       "Stream"
       can_contribute:   false
 
   # Coding Challenges
   - scope:              { path: "", type: "CodingChallenges" }
     values:
       layout:           "video"
-      video_type:       "coding challenge"
-      video_type_short: "challenge"
+      video_type:       "Coding Challenge"
+      video_type_short: "Challenge"
       can_contribute:   true
 
   # Tutorials
   - scope:              { path: "", type: "Tutorials" }
     values:
       layout:           "video"
-      video_type:       "tutorial"
+      video_type:       "Tutorial"
       can_contribute:   false
 
   # Guest Tutorials
   - scope:              { path: "", type: "GuestTutorials" }
     values:
       layout:           "video"
-      video_type:       "guest tutorial"
-      video_type_short: "tutorial"
+      video_type:       "Guest Tutorial"
+      video_type_short: "Tutorial"
       can_contribute:   false
 
   # Courses
   - scope:              { path: "", type: "Courses" }
     values:
       layout:           "video"
-      video_type:       "session"
+      video_type:       "Session"
       can_contribute:   false
 
   - scope:              { path: "", type: "Guides" }
