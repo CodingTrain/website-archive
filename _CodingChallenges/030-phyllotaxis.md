@@ -28,6 +28,12 @@ contributions:
       url: "https://github.com/colinpt"
     url: "https://spiralizer.netlify.com/"
     source: "https://github.com/colinpt/portfolio"
+  - title: "Rainbow Phyllotaxis on the sphere"
+    author:
+      name: "Juan Carlos Ponce Campuzano"
+      url: "https://jcponce.github.io"
+    url: "https://jcponce.github.io/sketches/sunflowerSphere/"
+    source: "https://github.com/jcponce/jcponce.github.io/tree/master/sketches/sunflowerSphere"
 ---
 
 In this coding challenge, I continue one of my favorite subjects: Algorithmic botany! This video covers the subject of Phyllotaxis, what it is and how it can be used to generate sunflower-like patterns inspired by nature.
