@@ -1,8 +1,18 @@
+---
+title: "Community Contribution Guide"
+---
+
 ## Here's a video tutorial if you prefer that sort of thing!
 
 [![How to add your contribution](http://i3.ytimg.com/vi/fkIr0inoQ7Y/hqdefault.jpg)](https://youtu.be/fkIr0inoQ7Y)
 
 [How to add your contribution to The Coding Train website](https://youtu.be/fkIr0inoQ7Y)
+
+&nbsp;
+
+---
+
+&nbsp;
 
 If you want to add your own version of a coding challenge/tutorial/etc. to this repository, simply add a reference to your repository and/or working example to the corresponding collection file.
 
@@ -20,7 +30,7 @@ Great! You decided to share your work with the world. To get started, locate the
 
 To show your work to as many people as possible, don't add your contributions to the streams-collection (even though this is technically possible) as they may navigate to the actual coding challenge/tutorial/etc. directly when searching for content.
 
-If nobody has added the file you were looking for, feel free to add it yourself. Take a look at the [Content Contribution Guide](Content-Contribution-Guide) to learn how.
+If nobody has added the file you were looking for, feel free to add it yourself. Take a look at the [Content Contribution Guide](content-contribution-guide) to learn how.
 
 > **Tip: Easier Navigation**  
 > Use the video numbers given in the title (such as "Tutorial #1.2") to navigate through subfolders.
@@ -60,7 +70,7 @@ As you can see, someone already made a contribution to this challenge. You can a
   source: "The link to your repository or website containing your version's code"
 ```
 
-Lets say you're contribution can't be run in the browser and you have a youtube video showing what it does. Youtube video direct links won't be accepted by the system, so you have to add the video id found in the end of the url as the video_id. For example
+Lets say you're contribution can't be run in the browser and you have a youtube video showing what it does. Youtube video direct links won't be accepted by the system, so you have to add the video id found in the end of the url as the `video_id`. For example:
 
 ``` yaml
 - title: "Your version's title (choose a nice one!)"

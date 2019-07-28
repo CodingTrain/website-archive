@@ -1,3 +1,7 @@
+---
+title: "Content Contribution Guide"
+---
+
 You want to help with integrating new content into the repository? Great to hear that! Now let's see how you can help:
 
 A new CodingTrain video has been released and you want to add it to the website so everyone else can find it there? OK, just follow these steps:
@@ -94,7 +98,7 @@ If you don't specify a `live_example`, the value of `repository` will be used au
 
 If the code was written with the P5 Web Editor, don't specify `repository` or `live_example`. Use the `web_editor` property instead. The link to a running version will then be generated automatically.
 
-If it should be possible to add community versions of this video using the `contributions` property (see the [Community Contributions Guide](Community-Contributions-Guide)), set `can_contribute: true` which is the default for coding challenges so you don't need to explicitly speicfy it here. This is mainly useful for tutorials where it only makes sense for some videos to allow contributions. Streams should never have this option set.
+If it should be possible to add community versions of this video using the `contributions` property (see the [Community Contribution Guide](community-contribution-guide)), set `can_contribute: true` which is the default for coding challenges so you don't need to explicitly speicfy it here. This is mainly useful for tutorials where it only makes sense for some videos to allow contributions. Streams should never have this option set.
 
 
 ## Wait, there's more!
@@ -139,6 +143,7 @@ custom_sections:
 
 You can add as many custom sections with as many links as you want. Just a side note: The links under `items` are fully featured link objects so you can use the same properties as listed above!
 
+&nbsp;
 
 ***
 
@@ -147,7 +152,7 @@ You can add as many custom sections with as many links as you want. Just a side 
 If you want to link to another page from within a markdown file, you have to use the following snippet:
 
 ``` markdown
-[link title here]({{ site.baseurl }}{% link _Collection/series/video-file.md %})
+{% raw %}[link title here]({{ site.baseurl }}{% link _Collection/series/video-file.md %}){% endraw %}
 ```
 
 Otherwise, links won't be resolved correctly because when using GitHub Pages, the website is hosted from within a subdirectory (for this site, it's `/Rainbow-Code`).

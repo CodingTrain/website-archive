@@ -1,3 +1,7 @@
+---
+title: "Core Contribution Guide"
+---
+
 This short guide will help you set up a local copy of the entire Coding Train
 website so you can help us making it even better.
 
