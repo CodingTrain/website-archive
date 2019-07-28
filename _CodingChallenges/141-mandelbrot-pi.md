@@ -31,5 +31,10 @@ contributions:
       name: "Sahil Jindal"
     url: "https://github.com/sahiljindalthebest/MandelBrot-Set"
     source: "https://github.com/sahiljindalthebest/MandelBrot-Set"
+    - title: "MandelBrot Set Explorer"
+    author:
+      name: "Juan Carlos Ponce Campuzano"
+    url: "https://jcponce.github.io/complex/mandelbrotexplorer/"
+    source: "https://github.com/jcponce/complex/tree/gh-pages/mandelbrotexplorer"
 ---
 Happy belated Pi Day once more! Here I attempt to approximate Pi using a special location in the Mandelbrot set. The programming environment is Processing (Java).
