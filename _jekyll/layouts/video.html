@@ -156,13 +156,13 @@ layout: base
         {% if contributionsVideo.contributions %}
           <p>
             You can also <a href="{{ addContributionURL }}" target="blank">add your own version!</a>
-            (<a href="{{ site.github.wiki_url | append: '/Community-Contributions-Guide' }}" target="blank">See how</a>)
+            (<a href="{% link _Guides/community-contribution-guide.md %}">See how</a>)
           </p>
         {% else %}
           <p>
-            It seems like there haven't been made any variations based on this {{ page.video_type }} by the community yet.
+            It seems like there haven't been made any variations based on this {{ page.video_type | downcase }} by the community yet.
             Be the first and <a href="{{ addContributionURL }}" target="blank">add your own</a>!
-            If you don't know how, take a look at <a href="{{ site.github.wiki_url | append: '/Community-Contributions-Guide' }}" target="blank">this guide</a>.
+            If you don't know how, take a look at <a href="{% link _Guides/community-contribution-guide.md %}">this guide</a>.
           </p>
         {% endif %}
       </div>
@@ -176,13 +176,13 @@ layout: base
 
     {% comment %} List of related parts. {% endcomment %}
     {% if page.parts %}
-      {% capture partsTitle %}Other parts of this {{ page.video_type }}{% endcapture %}
+      {% capture partsTitle %}Other parts of this {{ page.video_type | downcase }}{% endcapture %}
       {% include 3-modules/link-list.html links=page.parts title=partsTitle %}
     {% endif %}
 
     {% comment %} List of discussed links. {% endcomment %}
     {% if page.links %}
-      {% capture linksTitle %}Links discussed in this {{ page.video_type }}{% endcapture %}
+      {% capture linksTitle %}Links discussed in this {{ page.video_type | downcase }}{% endcapture %}
       {% include 3-modules/link-list.html links=page.links title=linksTitle %}
     {% endif %}
 
@@ -193,13 +193,13 @@ layout: base
 
     {% comment %} Links of discussed videos. {% endcomment %}
     {% if page.videos %}
-      {% capture videosTitle %}Videos discussed in this {{ page.video_type }}{% endcapture %}
+      {% capture videosTitle %}Videos discussed in this {{ page.video_type | downcase }}{% endcapture %}
       {% include 3-modules/link-list.html links=page.videos title=videosTitle %}
     {% endif %}
 
     {% comment %} Links of discussed tools. {% endcomment %}
     {% if page.tools %}
-      {% capture toolsTitle %}Tools discussed in this {{ page.video_type }}{% endcapture %}
+      {% capture toolsTitle %}Tools discussed in this {{ page.video_type | downcase }}{% endcapture %}
       {% include 3-modules/link-list.html links=page.tools title=toolsTitle %}
     {% endif %}
 
