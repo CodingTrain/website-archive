@@ -15,17 +15,38 @@ a later point. GitHub has an excellent
 project. Carry on after you have successfully forked the repository and
 cloned your fork locally.
 
-
-## Install Jekyll
+## Environment Setup
 
 This website is build on top of Jekyll, which is a static site generator. To
-build the website you need to install it on your system. In order to do so,
-head over to the [Jekyll Docs](https://jekyllrb.com/docs/) and follow the
+build the website you need to be able to run Jekyll on your system.
+In order to do so you can choose between using Docker or a native installation.
+
+### Using Docker
+
+To make your life _a lot_ easier you can use Docker to run Jekyll. Everything is already
+configured and ready to go. Just make sure you have Docker and `docker-compose` installed on your system.
+After that, simply run
+
+```
+$ docker-compose up
+```
+
+Docker will then run a container with all dependencies installed.
+Head over to `http://localhost:4000` to see the built site.
+You can leave the container running in the background and it will keep watching
+your changes and rebuilding certain parts if necessary.
+
+
+### Using Native Jekyll Installation
+
+#### Install Jekyll
+
+In order to install Jekyll, head over to the [Jekyll Docs](https://jekyllrb.com/docs/) and follow the
 instructions there. Once you've installed Jekyll you can try to build the
 site.
 
 
-## Install Gems
+#### Install Gems
 
 Jekyll's build on top of Ruby and has some dependencies that need to be
 installed as well in order to work properly. You can think of it similar to
@@ -45,7 +66,7 @@ listed in a file called `Gemfile` which you can find at the root of the
 project. 
 
 
-## Build The Site
+#### Build The Site
 
 After you've installed everything, you should be able to build the site. Just
 run this command:
