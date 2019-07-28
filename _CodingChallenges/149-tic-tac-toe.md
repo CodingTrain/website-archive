@@ -16,7 +16,7 @@ contributions:
     author: "Sayan Ghosh"
     url: "https://sayan01.github.io/Tic-Tac-Toe/javascript/"
     source: "https://github.com/sayan01/Tic-Tac-Toe"
-  - title: "Tic-Tac-Toe"
+  - title: "Resizable Tic-Tac-Toe"
     author:
       name: "David Snyder"
       url: "https://github.com/GypsyDangerous"
