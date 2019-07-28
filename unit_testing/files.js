@@ -71,14 +71,9 @@ const checkYAMLFormat = format => {
   if(errors.length > 0) {
     const stringified = JSON.stringify(errors, undefined, 4).replace(/\\n/gm, "\n")
     throw new Error(stringified);
-
-
-
-    //throw new Error(`Extra space at the end of line: '${format.match(/[^\n]* \n/)[0].slice(0, -1)}'`);
   }
   let regex;
 
-  return;
   // Indentation on consecutive lines, ignoring blank spacers
   regex = /\n( *)[^ \-\n][^\n]*[^:\n]\n+(\1 [^\n]*)\n/;
   if(format.match(regex)) {
