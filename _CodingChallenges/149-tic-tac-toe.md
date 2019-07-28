@@ -74,5 +74,9 @@ contributions:
     author: "Ahmet Ataşoğlu"
     url: "https://editor.p5js.org/atasoglu/sketches/ih2JEeRj5"
     source: "https://editor.p5js.org/atasoglu/full/ih2JEeRj5"
+  - title: "TicTacToe Interactive"
+    author: "Linus Stlder"
+    url: "https://editor.p5js.org/IMPorbis/full/rH9vPGABt"
+    source: "https://editor.p5js.org/IMPorbis/sketches/rH9vPGABt"
 ---
 This is be a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
