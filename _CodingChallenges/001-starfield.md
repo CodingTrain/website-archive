@@ -12,7 +12,7 @@ links:
     url: "https://cs.brynmawr.edu/gxk2013/examples/transformations/starfield/"
 
 contributions:
-  - title: "Swifty Starfield" 
+  - title: "Swifty Starfield"
     author:
       name: "Bob Voorneveld"
       url: "https://www.bobvoorneveld.nl"
