@@ -43,6 +43,12 @@ contributions:
       url: "https://github.com/figraham"
     url: "https://github.com/figraham/exploringdithering"
     source: "https://github.com/figraham/exploringdithering"
+  - title: "Live Video Dithering"
+    author:
+      name: "David Snyder"
+      url: "https://github.com/GypsyDangerous"
+    url: "https://editor.p5js.org/davidgraygs4@gmail.com/full/96wsqZdh6"
+    source: "https://editor.p5js.org/davidgraygs4@gmail.com/sketches/96wsqZdh6"
 
 community_references:
   - title: "DHALF.txt"
