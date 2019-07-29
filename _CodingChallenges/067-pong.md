@@ -26,6 +26,11 @@ contributions:
       name: "Nico Finkernagel"
       url: "https://www.gruselhaus.com"
     url: "https://cdn.gruselhaus.com/static/p5/pong_nn/"
+  - title: "Pong"
+    author:
+      name: "alok"
+    url: "https://aloksbd.github.io/Game-Sprint/2-pong/index.html"
+    source: "https://github.com/aloksbd/Game-Sprint/tree/master/2-pong"
 ---
 
 In this challenge, I attempt (emphasis on the word "attempt") to program the classic video game Pong in Processing (Java).
