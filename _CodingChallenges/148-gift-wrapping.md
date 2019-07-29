@@ -41,5 +41,11 @@ contributions:
       url: "https://github.com/AfroDisco"
     url: "https://editor.p5js.org/undefined/present/nSWqjnOJU"
     source: "https://editor.p5js.org/undefined/sketches/nSWqjnOJU"
+  - title: "Graham Scan Algorithm"
+    author:
+      name: "Manikanta Narayana"
+      url: "https://github.com/ilmnarayana"
+    url: "https://editor.p5js.org/ilmnarayana/full/w2cC9kqA_"
+    source: "https://editor.p5js.org/ilmnarayana/sketches/w2cC9kqA_"
 ---
 In this coding challenge, I implement the "Gift Wrapping algorithm" (aka Jarvis march) for calculating a convex hull in JavaScript. This is a foundational topic in computational geometry!
