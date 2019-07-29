@@ -82,5 +82,9 @@ contributions:
     author: "Digicrest"
     url: "https://digicrest.github.io/149-tic-tac-toe/"
     source: "https://github.com/Digicrest/149-tic-tac-toe"
+  - title: "3D Tic Tac Toe"
+    author: "Jean-Loup"
+    url: "https://editor.p5js.org/JeanLoup/full/3AOnKAWfF"
+    source: "https://editor.p5js.org/JeanLoup/sketches/3AOnKAWfF"
 ---
 This is be a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
