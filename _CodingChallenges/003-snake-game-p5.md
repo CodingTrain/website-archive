@@ -74,6 +74,11 @@ contributions:
       name: "Michael Delfino"
       url: "https://codepen.io/mrmichael"
     url: "https://codepen.io/mrdelfino/pen/GrvzwL"
+  - title: "Pong"
+    author:
+      name: "alok"
+    url: "https://aloksbd.github.io/Game-Sprint/3-snake/index.html"
+    source: "https://github.com/aloksbd/Game-Sprint/tree/master/3-snake"
 ---
 
 In this coding challenge, I attempt to code a p5.js version of the Snake Game.
