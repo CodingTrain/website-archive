@@ -16,7 +16,7 @@ contributions:
     author: "Sayan Ghosh"
     url: "https://sayan01.github.io/Tic-Tac-Toe/javascript/"
     source: "https://github.com/sayan01/Tic-Tac-Toe"
-  - title: "Tic-Tac-Toe"
+  - title: "Resizable Tic-Tac-Toe"
     author:
       name: "David Snyder"
       url: "https://github.com/GypsyDangerous"
@@ -70,5 +70,17 @@ contributions:
     author: "Thom Kastelein"
     url: "https://www.openprocessing.org/sketch/740544"
     source: "https://www.openprocessing.org/sketch/740544"
+  - title: "SuperBasic TicTacToe (HumanVsHuman)"
+    author: "Ahmet Ataşoğlu"
+    url: "https://editor.p5js.org/atasoglu/sketches/ih2JEeRj5"
+    source: "https://editor.p5js.org/atasoglu/full/ih2JEeRj5"
+  - title: "TicTacToe Interactive"
+    author: "Linus Stlder"
+    url: "https://editor.p5js.org/IMPorbis/full/rH9vPGABt"
+    source: "https://editor.p5js.org/IMPorbis/sketches/rH9vPGABt"
+  - title: "Learning Vue"
+    author: "Digicrest"
+    url: "https://digicrest.github.io/149-tic-tac-toe/"
+    source: "https://github.com/Digicrest/149-tic-tac-toe"
 ---
 This is be a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.

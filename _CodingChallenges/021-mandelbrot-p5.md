@@ -37,5 +37,10 @@ contributions:
       url: "https://underscoretech.000webhostapp.com/"
     url: "https://underscoretech.000webhostapp.com/fractal/empty-example/index.html"
     source: "https://underscoretech.000webhostapp.com/fractal/empty-example/index.html"
+  - title: "Mandelbrot Set Explorer"
+    author:
+      name: "Juan Carlos Ponce Campuzano"
+    url: "https://jcponce.github.io/complex/mandelbrotexplorer/"
+    source: "https://github.com/jcponce/complex/tree/gh-pages/mandelbrotexplorer"
 ---
 In this coding challenge, I program from scratch the Mandelbrot set with p5.js
