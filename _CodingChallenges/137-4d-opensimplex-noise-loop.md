@@ -19,6 +19,14 @@ videos:
     video_id: "Lv9gyZZJPE0"
   - title: "Polar Perlin Noise Loops"
     url: "/CodingChallenges/136.1-polar-perlin-noise-loops"
+
+contributions:
+  - title: "Flocking simplex-noise knot creatures"
+    author:
+      name: "Juan Carlos Ponce Campuzano"
+      url: "https://jcponce.github.io/"
+    url: "https://jcponce.github.io/sketches/flockknots/"
+    source: "https://github.com/jcponce/jcponce.github.io/tree/master/sketches/flockknots"
 ---
 
 It's groundhog day on the coding train as I demonstrate another noise loop GIF technique, this time with 4D Open Simple Noise in Processing (Java).
