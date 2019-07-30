@@ -47,7 +47,7 @@ contributions:
       url: "https://github.com/ilmnarayana"
     url: "https://editor.p5js.org/ilmnarayana/full/w2cC9kqA_"
     source: "https://editor.p5js.org/ilmnarayana/sketches/w2cC9kqA_"
-    - title: "Multiple Convex Hull Generation Algorithms"
+  - title: "Multiple Convex Hull Generation Algorithms"
     author:
       name: "Omar Essilfie-Quaye"
       url: "https://github.com/omareq"
