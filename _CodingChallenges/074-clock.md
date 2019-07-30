@@ -16,6 +16,10 @@ links:
     url: "https://github.com/ITPNYU/ICM-2017"
 
 contributions:
+  - title: "Simple Analog Clock with Minute and Hour Smoothing"
+    author: "Abhijeet S. Mankani"
+    url: https://editor.p5js.org/abhijeetmankani/full/WKtYu4-Cd
+    source: https://editor.p5js.org/abhijeetmankani/sketches/WKtYu4-Cd
   - title: "Digital 7 Segment Clock"
     author: "andreanidouglas"
     url: https://clock-p5-cmtedouglas.c9users.io/index.html
