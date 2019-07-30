@@ -47,5 +47,11 @@ contributions:
       url: "https://github.com/ilmnarayana"
     url: "https://editor.p5js.org/ilmnarayana/full/w2cC9kqA_"
     source: "https://editor.p5js.org/ilmnarayana/sketches/w2cC9kqA_"
+    - title: "Multiple Convex Hull Generation Algorithms"
+    author:
+      name: "Omar Essilfie-Quaye"
+      url: "https://github.com/omareq"
+    url: "https://omareq.github.io/convex-hull/"
+    source: "https://github.com/omareq/omareq.github.io/tree/master/convex-hull"
 ---
 In this coding challenge, I implement the "Gift Wrapping algorithm" (aka Jarvis march) for calculating a convex hull in JavaScript. This is a foundational topic in computational geometry!
