@@ -86,5 +86,9 @@ contributions:
     author: "Jean-Loup"
     url: "https://editor.p5js.org/JeanLoup/full/3AOnKAWfF"
     source: "https://editor.p5js.org/JeanLoup/sketches/3AOnKAWfF"
+  - title: "3 in a row extended tic tac toe"
+    author: "Maciej Dabkowski"
+    url: "https://gumkoman.github.io/3-in-a-row-extended-tic-tac-toe/"
+    source: "https://github.com/Gumkoman/3-in-a-row-extended-tic-tac-toe"
 ---
 This is be a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
