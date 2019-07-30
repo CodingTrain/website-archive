@@ -104,6 +104,11 @@ contributions:
       url: "https://github.com/milchreis"
     url: "https://milchreis.github.io/Flashy/"
     source: "https://github.com/Milchreis/Flashy"
+  - title: "Super Optimized 2D Raycasting"
+    author:
+      name: "M M"
+    url: "https://editor.p5js.org/mmftl/present/6QIxezFS3"
+    source: "https://editor.p5js.org/mmftl/sketches/6QIxezFS3"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"
