@@ -89,7 +89,7 @@ contributions:
       url: http://anuraghazra.github.io
     url: https://anuraghazra.github.io/CanvasFun/particleSystem/
     source: https://github.com/anuraghazra/CanvasFun/tree/master/particleSystem
-    
+
   - title: "Color Smoke"
     author:
       name: "Yalçıncan Ulus"
