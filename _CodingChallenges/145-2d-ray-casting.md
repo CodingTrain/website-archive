@@ -109,6 +109,12 @@ contributions:
       name: "M M"
     url: "https://editor.p5js.org/mmftl/present/6QIxezFS3"
     source: "https://editor.p5js.org/mmftl/sketches/6QIxezFS3"
+  - title: "Ray, The Self Driving Robot"
+    author:
+      name: "Matheus Souza"
+      url: "https://github.com/matheuslrsouza"
+    url: "https://matheuslrsouza.github.io/particle-filter-js/"
+    source: "https://github.com/matheuslrsouza/particle-filter-js"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"
