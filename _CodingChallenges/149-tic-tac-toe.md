@@ -94,5 +94,9 @@ contributions:
     author: "Udit Sharma"
     url: "https://editor.p5js.org/Udit_sharma/full/JCP2GzDRp"
     source: "https://github.com/narutoobito/tick-tak-toe"
+  - title: "Just some shapes"
+    author: "The Suspect"
+    url: "https://editor.p5js.org/The_Suspect/full/pIXzX8FAZ"
+    source: "https://editor.p5js.org/The_Suspect/sketches/pIXzX8FAZ"
 ---
 This is be a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
