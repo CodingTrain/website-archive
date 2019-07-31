@@ -90,5 +90,9 @@ contributions:
     author: "Maciej Dabkowski"
     url: "https://gumkoman.github.io/3-in-a-row-extended-tic-tac-toe/"
     source: "https://github.com/Gumkoman/3-in-a-row-extended-tic-tac-toe"
+ - title: "tic tac toe "
+    author: "Udit Sharma"
+    url: "https://editor.p5js.org/Udit_sharma/full/JCP2GzDRp"
+    source: "https://github.com/narutoobito/tick-tak-toe"
 ---
 This is be a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
