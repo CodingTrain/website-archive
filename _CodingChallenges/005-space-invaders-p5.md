@@ -24,6 +24,11 @@ contributions:
       name: "alok"
     url: "https://github.com/aloksbd/Game-Sprint/tree/gh-pages/4-spaceinvaders"
     source: "https://aloksbd.github.io/Game-Sprint/4-spaceinvaders/index.html"
+  - title: "InvShmup"
+    author:
+      name: "MINOGER"
+    url: "https://editor.p5js.org/minoger/full/ul4KYn9JP"
+    source: "https://editor.p5js.org/minoger/sketches/ul4KYn9JP"
 ---
 
 In this viewer submitted coding challenge, I take on the task of coding a Space Invaders game to play in browser in JavaScript/HTML and the p5.js library.
