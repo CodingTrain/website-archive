@@ -98,5 +98,9 @@ contributions:
     author: "The Suspect"
     url: "https://editor.p5js.org/The_Suspect/full/pIXzX8FAZ"
     source: "https://editor.p5js.org/The_Suspect/sketches/pIXzX8FAZ"
+  - title: "TicTacToe with options"
+    author: "Claudiu C"
+    url: "https://editor.p5js.org/ClaudiuC/full/yaHlzPc9x"
+    source: "https://editor.p5js.org/ClaudiuC/sketches/yaHlzPc9x"
 ---
 This is be a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
