@@ -28,7 +28,7 @@ contributions:
     source: "https://editor.p5js.org/TheTastefulToastie/full/EZWUlidf1"
   - title: "Tic-Tac-Toe PVP (click)"
     author: "Diptanu Roy"
-    url: "https://infernal9999.github.io/Tic-Tac-Toe/"    
+    url: "https://infernal9999.github.io/Tic-Tac-Toe/"
     source: "https://github.com/infernal9999/Tic-Tac-Toe"
   - title: "Tic-Tac-Toe Human Play"
     author: "Gabriel"
