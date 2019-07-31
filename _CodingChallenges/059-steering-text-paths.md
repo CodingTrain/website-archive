@@ -47,11 +47,11 @@ contributions:
   - title: "Clojurescript implementation with transitions"
     author: "jwkoelewijn"
     source: https://github.com/jwkoelewijn/textpoints
-  - title: "Fallingnumbers Flee From Mouse"
+  - title: "Falling Numbers Flee From Mouse"
     author:
-      name: "Jackuss"
+      name: "Jack Reinieren"
       url: "https://www.jackuss.nl"
-    url: "http://coding.jackuss.nl/FleeingNumbers/index.html"
-    source: "https://github.com/jackuss1981/FleeingNumbers"
+      url: "http://coding.jackuss.nl/FleeingNumbers/index.html"
+      source: "https://github.com/jackuss1981/FleeingNumbers"
 ---
 In this coding challenge, I look at extracting font path points from text in p5.js with p5.Font.textToPoints().  I render the text as particles with steering behaviors that react to the mouse.
