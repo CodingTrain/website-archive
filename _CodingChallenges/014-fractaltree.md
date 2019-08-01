@@ -18,6 +18,13 @@ contributions:
       url: "https://codepen.io/rajatkantinandi/"
     url: "https://codepen.io/rajatkantinandi/full/qVbObB/"
     source: "https://codepen.io/rajatkantinandi/pen/qVbObB"
+
+  - title: "Pink Fractal Forest"
+    author:
+      name: "Tushar Sharma"
+      url: "https://github.com/imtusharsharma"
+    url: "https://editor.p5js.org/imtusharsharma/full/FcyznC4KW"
+    source: "https://editor.p5js.org/imtusharsharma/sketches/FcyznC4KW"
 ---
 
 In this coding challenge, I'm going to show you how to create a Fractal Tree with a recursive algorithm in p5.js.
