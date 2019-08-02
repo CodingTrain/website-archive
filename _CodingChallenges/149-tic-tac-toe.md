@@ -102,5 +102,9 @@ contributions:
     author: "Claudiu C"
     url: "https://editor.p5js.org/ClaudiuC/full/yaHlzPc9x"
     source: "https://editor.p5js.org/ClaudiuC/sketches/yaHlzPc9x"
+  - title: "TicTacToe with Machine Learning (Python)"
+    author: "Rohan Jaisimha"
+    url: "https://gitlab.com/RohanJaisimha/M-E-N-A-C-E-/"
+    source: "https://gitlab.com/RohanJaisimha/M-E-N-A-C-E-/"
 ---
 This is be a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
