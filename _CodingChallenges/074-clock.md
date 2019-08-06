@@ -117,6 +117,12 @@ contributions:
       url: "https://github.com/owenmcateer/Motus-Art"
     url: "https://owenmcateer.github.io/Motus-Art/projects/week_09.html"
     source: "https://github.com/owenmcateer/Motus-Art/blob/master/src/week_09/main.js"
+  - title: "Modern Radio Clock"
+    author:
+      name: "Martin Marguerat"
+      url: "https://marramstudios.com"
+    url: "https://editor.p5js.org/martin@multiarts.ch/full/Hk3o7UQ07"
+    source: "https://editor.p5js.org/martin@multiarts.ch/sketches/Hk3o7UQ07"
 ---
 
 In this coding challenge, I attempt to program a clock in HTML5 canvas with the p5.js library.
