@@ -106,7 +106,7 @@ contributions:
     author: "Rohan Jaisimha"
     url: "https://gitlab.com/RohanJaisimha/M-E-N-A-C-E-/"
     source: "https://gitlab.com/RohanJaisimha/M-E-N-A-C-E-/"
-  - title: "Tic-Tac-Toe PvsAI Min-Max with alpha-beta pruning"
+  - title: "Tic-Tac-Toe PvsAI Minimax with alpha-beta pruning"
     author: "Manikanta Narayana"
     url: "https://editor.p5js.org/ilmnarayana/full/_-JTT51Qt"
     source: "https://editor.p5js.org/ilmnarayana/sketches/_-JTT51Qt"
