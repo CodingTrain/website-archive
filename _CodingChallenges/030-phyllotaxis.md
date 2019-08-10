@@ -40,6 +40,12 @@ contributions:
       url: "https://codepen.io/leimapapa"
     url: "https://codepen.io/leimapapa/full/yZKyoq"
     source: "https://codepen.io/leimapapa/pen/yZKyoq"
+  - title: "Interactive (periodic) Phyllotaxis Generator"
+    author:
+      name: "Jonas Skywalker"
+      url: "https://jonas-skywalker.github.io"
+    url: "https://jonas-skywalker.github.io/phyllotaxis-contribution/"
+    source: "https://github.com/jonas-skywalker/phyllotaxis-contribution/"
 ---
 
 In this coding challenge, I continue one of my favorite subjects: Algorithmic botany! This video covers the subject of Phyllotaxis, what it is and how it can be used to generate sunflower-like patterns inspired by nature.
