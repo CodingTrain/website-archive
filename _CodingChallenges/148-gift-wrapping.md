@@ -59,5 +59,11 @@ contributions:
       url: "https://github.com/KeesJohannes"
     url: "https://editor.p5js.org/KeesKolber/present/bzvB_7qKf"
     source: "https://editor.p5js.org/KeesKolber/sketches/bzvB_7qKf"
+  - title: "Improvised (very not optimal) version of the convex hull problem to see what I could come up with."
+    author:
+      name: "Guillaume Leduc"
+      url: "https://github.com/Guy-Yome"
+    url: "https://editor.p5js.org/Guy_Yome/sketches/-73RZAaRJ"
+    source: "https://editor.p5js.org/Guy_Yome/sketches/-73RZAaRJ"
 ---
 In this coding challenge, I implement the "Gift Wrapping algorithm" (aka Jarvis march) for calculating a convex hull in JavaScript. This is a foundational topic in computational geometry!
