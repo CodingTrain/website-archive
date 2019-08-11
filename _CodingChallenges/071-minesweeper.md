@@ -77,6 +77,11 @@ contributions:
       name: "Zykatious"
     url: "https://editor.p5js.org/Zykatious/sketches/vaRBSL6d8"
     source: "https://editor.p5js.org/Zykatious/sketches/vaRBSL6d8"
+  - title: "Trollsweeper - no mines only harmless trolls"
+    author:
+      name: "Claes Gill"
+    url: "http://www.claesgill.com/trollsweeper"
+    source: "https://github.com/claesgill/trollsweeper/"
 ---
 
 In this challenge, I attempt to code the classic game Minesweeper in JavaScript with the p5.js library. This video builds on some previous tutorials related to the Prototypes and multi-dimensional arrays in JavaScript.
