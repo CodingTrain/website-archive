@@ -63,7 +63,7 @@ contributions:
     author:
       name: "Yaron Dames"
       url: "https://github.com/yarondms"
-    url: " https://yarondms.github.io/Dino/"
+    url: "https://yarondms.github.io/Dino/"
     source: "https://github.com/yarondms/Dino"
 ---
 
