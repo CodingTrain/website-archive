@@ -59,6 +59,12 @@ contributions:
       url: "https://codepen.io/leimapapa/"
     url: "https://codepen.io/leimapapa/full/zVoJWz"
     source: "https://codepen.io/leimapapa/pen/zVoJWz?editors=0110"
+  - title: "advanced collision detection algorithms and other cool features"
+    author:
+      name: "Yaron Dames"
+      url: "https://github.com/yarondms"
+    url: " https://yarondms.github.io/Dino/"
+    source: "https://github.com/yarondms/Dino"  
 ---
 
 In this challenge, I attempt to make my own version of Google's Dinosaur Game (T-Rex run!) with a unique twist -- controlling the dinosaur (unicorn, in this case) with a machine learning Speech Commands model! 
