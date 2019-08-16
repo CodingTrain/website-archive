@@ -20,7 +20,7 @@ contributions:
       name: "HugoPeeters"
       url: "https://github.com/hugopeeters"
     url: "https://github.com/hugopeeters/processing/tree/master/attraction"
-     - title: "Gravity Simulation in p5js"
+  - title: "Gravity Simulation in p5js"
     author:
       name: "matiasvlevi"
       url: "https://github.com/matiasvlevi"
