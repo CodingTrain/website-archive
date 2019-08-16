@@ -20,6 +20,11 @@ contributions:
       name: "HugoPeeters"
       url: "https://github.com/hugopeeters"
     url: "https://github.com/hugopeeters/processing/tree/master/attraction"
+     - title: "Gravity Simulation in p5js"
+    author:
+      name: "matiasvlevi"
+      url: "https://github.com/matiasvlevi"
+    url: "https://github.com/matiasvlevi/Gravity-Simulation"
 ---
 
 In this challenge, I create a particle system and add "attractors" simulating attraction and repulsion forces.
