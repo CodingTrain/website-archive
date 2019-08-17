@@ -46,6 +46,12 @@ contributions:
       url: "https://jonas-skywalker.github.io"
     url: "https://jonas-skywalker.github.io/phyllotaxis-contribution/"
     source: "https://github.com/jonas-skywalker/phyllotaxis-contribution/"
+  - title: "Interactive C++ Cinder Version"
+    author:
+      name: "Ayman"
+      url: "https://github.com/aymanmh"
+    url: "https://raw.githubusercontent.com/aymanmh/cinder/master/Phyllotaxis/vc2013/sample.png"
+    source: "https://github.com/aymanmh/cinder/tree/master/Phyllotaxis"
 ---
 
 In this coding challenge, I continue one of my favorite subjects: Algorithmic botany! This video covers the subject of Phyllotaxis, what it is and how it can be used to generate sunflower-like patterns inspired by nature.
