@@ -110,5 +110,11 @@ contributions:
     author: "Manikanta Narayana"
     url: "https://editor.p5js.org/ilmnarayana/full/_-JTT51Qt"
     source: "https://editor.p5js.org/ilmnarayana/sketches/_-JTT51Qt"
+  - title: "Ultimate Tic Tac Toe!"
+    author:
+      name: "Amrit Amar"
+      url: "https://amritamar.github.io"
+    url: "https://editor.p5js.org/AmritAmar/full/x2dtFTAsH"
+    source: "https://editor.p5js.org/AmritAmar/sketches/x2dtFTAsH"
 ---
 This is be a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
