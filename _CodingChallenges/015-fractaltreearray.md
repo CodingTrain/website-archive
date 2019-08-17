@@ -21,7 +21,6 @@ contributions:
     author:
       name: "Ayman"
     url: "https://raw.githubusercontent.com/aymanmh/cinder/master/FractalTree/FractalTree.png"
-    source: "https://github.com/aymanmh/cinder/tree/master/FractalTree"    
+    source: "https://github.com/aymanmh/cinder/tree/master/FractalTree"
 ---
-
 In this coding challenge, I continue the topic of algorithmic botany with another way of generating a tree. With this method, every part of the tree will be an object, so that we can apply forces and attributes to each element
