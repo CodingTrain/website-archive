@@ -113,7 +113,7 @@ contributions:
   - title: "Ultimate Tic Tac Toe!"
     author:
       name: "Amrit Amar"
-      url: "amritamar.github.io"
+      url: "https://amritamar.github.io"
     url: "https://editor.p5js.org/AmritAmar/full/x2dtFTAsH"
     source: "https://editor.p5js.org/AmritAmar/sketches/x2dtFTAsH"
 ---
