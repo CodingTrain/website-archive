@@ -78,6 +78,12 @@ contributions:
       url: "https://github.com/Hari3"
     url: "https://editor.p5js.org/HariKrishnan/full/uGdTrs9uB"
     source: "https://editor.p5js.org/HariKrishnan/sketches/uGdTrs9uB"
+  - title: "C++ Cinder (Cairo) Version"
+    author:
+      name: "Ayman"
+      url: "https://github.com/aymanmh"
+    source: "https://github.com/aymanmh/cinder/blob/master/LissajousCurveTable"
+    video_id: "g4TTVgyhGQo"
 ---
 
 In this Coding Challenge, I visualize a "Lissajous Curve Table" with Processing (Java).
