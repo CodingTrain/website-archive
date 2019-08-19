@@ -35,6 +35,10 @@ contributions:
     author: "Carlsen66"
     url: "https://carlsen66.github.io/CC_067_Pong%20AI/"
     source: "https://github.com/carlsen66/carlsen66.github.io/tree/master/CC_067_Pong%20AI"
+  - title: "A Classic Pong Game, Single Player Edition With Tiles"
+    author: "Aryan Chharia"
+    url: "https://editor.p5js.org/aryan.chharia@gmail.com/full/lP_zBPh_l"
+    source: "https://editor.p5js.org/aryan.chharia@gmail.com/sketches/lP_zBPh_l"
 ---
 
 In this challenge, I attempt (emphasis on the word "attempt") to program the classic video game Pong in Processing (Java).
