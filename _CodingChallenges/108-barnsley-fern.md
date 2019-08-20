@@ -49,6 +49,11 @@ contributions:
       name: "Sujan Dutta"
       url: "https://github.com/Suji04"
     url: "https://suji04.github.io/fractal-ferns/"
+    - title: "Barney's Fern Rainbow"
+    author: Rodrigo Carvalho de Oliveira
+      name: "Barney's Fern Rainbow"
+      url: "https://https://editor.p5js.org/drigo2212/full/_Di168OeV  
+    source: "https://https://editor.p5js.org/drigo2212/sketches/_Di168OeV
 ---
 
 In this coding challenge, I visualize the Barnsley Fern fractal with Processing (Java).
