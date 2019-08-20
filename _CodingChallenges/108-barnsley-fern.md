@@ -50,8 +50,8 @@ contributions:
       url: "https://github.com/Suji04"
     url: "https://suji04.github.io/fractal-ferns/"
   - title: "Barney's Fern Rainbow"
-    author:  
-        name: "Rodrigo Oliveira"
+    author:
+      name: "Rodrigo Oliveira"
       url: "https://https://editor.p5js.org/drigo2212/full/_Di168OeV"
       source: "https://https://editor.p5js.org/drigo2212/sketches/_Di168OeV"
       ---
