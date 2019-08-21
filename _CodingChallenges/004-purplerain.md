@@ -17,5 +17,9 @@ contributions:
     author: "Carlsen66"
     url: "https://carlsen66.github.io/CC_004_PurpleRain_JC.js/"
     source: "https://github.com/carlsen66/carlsen66.github.io/tree/master/CC_004_PurpleRain_JC.js"
+  - title: "Rain with wind and an umbrella"
+    author: "Misa Sivonen"
+    url: "https://github.com/MSivonen/Rain/tree/master"
+    source: "https://github.com/MSivonen"
 ---
 In this viewer submitted coding challenge, I attempt to code a Purple Rain Simulator in Processing.
