@@ -41,5 +41,29 @@ contributions:
       url: "https://github.com/AfroDisco"
     url: "https://editor.p5js.org/undefined/present/nSWqjnOJU"
     source: "https://editor.p5js.org/undefined/sketches/nSWqjnOJU"
+  - title: "Graham Scan Algorithm"
+    author:
+      name: "Manikanta Narayana"
+      url: "https://github.com/ilmnarayana"
+    url: "https://editor.p5js.org/ilmnarayana/full/w2cC9kqA_"
+    source: "https://editor.p5js.org/ilmnarayana/sketches/w2cC9kqA_"
+  - title: "Multiple Convex Hull Generation Algorithms"
+    author:
+      name: "Omar Essilfie-Quaye"
+      url: "https://github.com/omareq"
+    url: "https://omareq.github.io/convex-hull/"
+    source: "https://github.com/omareq/omareq.github.io/tree/master/convex-hull"
+  - title: "Graham's scan algorithm using a generator function"
+    author:
+      name: "Kees Kolber"
+      url: "https://github.com/KeesJohannes"
+    url: "https://editor.p5js.org/KeesKolber/present/bzvB_7qKf"
+    source: "https://editor.p5js.org/KeesKolber/sketches/bzvB_7qKf"
+  - title: "Improvised (very not optimal) version of the convex hull problem to see what I could come up with."
+    author:
+      name: "Guillaume Leduc"
+      url: "https://github.com/Guy-Yome"
+    url: "https://editor.p5js.org/Guy_Yome/sketches/-73RZAaRJ"
+    source: "https://editor.p5js.org/Guy_Yome/sketches/-73RZAaRJ"
 ---
 In this coding challenge, I implement the "Gift Wrapping algorithm" (aka Jarvis march) for calculating a convex hull in JavaScript. This is a foundational topic in computational geometry!

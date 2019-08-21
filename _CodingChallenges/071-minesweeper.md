@@ -67,6 +67,21 @@ contributions:
       url: "https://sphaericactus.itch.io"
     url: "https://sphaericactus.itch.io/beesweeper"
     source: "https://github.com/SphaeriCactus/Khan-Academy/tree/gh-pages/Beesweeper"
+  - title: "Minesweeper - trying data oriented (Is it?)"
+    author:
+      name: "alok"
+    url: "https://aloksbd.github.io/Game-Sprint/1-minesweeper/index.html"
+    source: "https://github.com/aloksbd/Game-Sprint/tree/master/1-minesweeper"
+  - title: "HexSweeper - Hexagon-based Minesweeper game"
+    author:
+      name: "Zykatious"
+    url: "https://editor.p5js.org/Zykatious/sketches/vaRBSL6d8"
+    source: "https://editor.p5js.org/Zykatious/sketches/vaRBSL6d8"
+  - title: "Trollsweeper - no mines only harmless trolls"
+    author:
+      name: "Claes Gill"
+    url: "http://www.claesgill.com/trollsweeper"
+    source: "https://github.com/claesgill/trollsweeper/"
 ---
 
 In this challenge, I attempt to code the classic game Minesweeper in JavaScript with the p5.js library. This video builds on some previous tutorials related to the Prototypes and multi-dimensional arrays in JavaScript.

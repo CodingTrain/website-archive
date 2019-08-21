@@ -13,6 +13,10 @@ contributions:
       name: "Miká Kruschel"
     url: "https://editor.p5js.org/mikakruschel/full/QchVIhVlH"
     source: "https://editor.p5js.org/mikakruschel/sketches/QchVIhVlH"
+  - title: "Random Walker with Colours"
+    author: "Oon Han"
+    url: "https://editor.p5js.org/hanxyn888@gmail.com/full/uSlG5StqX"
+    source: "https://editor.p5js.org/hanxyn888@gmail.com/sketches/uSlG5StqX"
 ---
 
 In this coding challenge, I simulate a "random walk" with the p5.js library. This video is part of the course Nature of Code at ITP, Tisch, NYU.

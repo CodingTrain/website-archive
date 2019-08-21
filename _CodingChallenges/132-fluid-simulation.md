@@ -42,6 +42,11 @@ contributions:
       url: "https://github.com/bohdandrahan/"
     url: "https://bohdandrahan.github.io/Fluid-simulation/"
     source: "https://github.com/bohdandrahan/Fluid-simulation"
+  - title: "FluidParty"
+    author:
+      name: "Simon Thalén"
+      url: "https://github.com/SuperSimon81"
+    url: "https://github.com/SuperSimon81/FluidParty/tree/master"
 ---
 
 In this video, I attempt to follow Mike Ash's guide to Fluid Simulation and port Jos Stam's "Real-Time Fluid Dynamics for Games" algorithm and code in Processing (Java).

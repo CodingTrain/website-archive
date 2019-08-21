@@ -40,6 +40,23 @@ contributions:
       url: "https://owenmcateer.github.io/Motus-Art/"
     url: "https://owenmcateer.github.io/Motus-Art/projects/week_02.html"
     source: "https://github.com/owenmcateer/Motus-Art/blob/master/src/week_02/main.js"
+  - title: "Processing.py Double Pendulum"
+    author:
+      name: "Anson Biggs"
+      url: "https://blog.ansonbiggs.com/"
+    url: "https://gitlab.com/MisterBiggs/double_pendulum/blob/master/animation.webm"
+    source: "https://gitlab.com/MisterBiggs/double_pendulum/blob/master/double_pendulum.pyde"
+  - title: "Double Pendulum Pure Javascript with option to edit gravity and angles and color traces"
+    author:
+      name: "Deepak Thakur"
+      url: "https://github.com/dtj2011/Double-Pendulum"
+    url: "https://codepen.io/dtj2011/full/XvXaWW"
+    source: "https://github.com/dtj2011/Double-Pendulum"
+  - title: "Double Pendulum in C++ Cinder Framework"
+    author:
+      name: "Ayman"
+      url: "https://github.com/aymanmh/cinder/tree/master/DoublePendulum"
+    url: "https://github.com/aymanmh/cinder/tree/master/DoublePendulum"
+    source: "https://github.com/aymanmh/cinder/tree/master/DoublePendulum"
 ---
-
 In this coding challenge, I create a double pendulum simulation in Processing.

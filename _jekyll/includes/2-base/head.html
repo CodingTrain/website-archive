@@ -22,7 +22,28 @@ the tracking result.
 </script>
 {% endif %}
 
-<title>{{ site.title }}</title>
+{% case page.layout %}
+
+{% when 'video' %}
+  {% include 1-tools/series-for-video.html video=page %}
+  {% assign series = out_series %}
+  {% include 1-tools/series-for-video.html video=series %}
+  {% assign course = out_series %}
+  <title>{{ page.title }} - {{ course.title | default: series.title }} {{ page.video_type }} #{% if series.series_number %}{{ series.series_number }}.{% endif %}{{ page.video_number }} · {{ site.title }}</title>
+
+
+{% when 'series-index' %}
+  {% include 1-tools/series-for-video.html video=page %}
+  <title>{{ page.title }} {% if page.series_number %}- {{ out_series.title }} {{ page.video_type }} #{{ page.series_number }} {% endif %}· {{ site.title }}</title>
+
+{% else %}
+  {% if page.title %}
+    <title>{{ page.title }} · {{ site.title }}</title>
+  {% else %}
+    <title>{{ site.title }}</title>
+  {% endif %}
+
+{% endcase %}
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">

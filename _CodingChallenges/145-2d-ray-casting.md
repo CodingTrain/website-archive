@@ -98,6 +98,23 @@ contributions:
       url: "mailto:damo67@gmail.com"
     url: "https://github.com/Damo676767/Random-Pieces-of-Code/blob/master/ray.js"
     source: "https://github.com/Damo676767/Random-Pieces-of-Code/blob/master/ray.js"
+  - title: "FLASHY the flashlight game"
+    author:
+      name: "Nick 'Milchreis' Müller"
+      url: "https://github.com/milchreis"
+    url: "https://milchreis.github.io/Flashy/"
+    source: "https://github.com/Milchreis/Flashy"
+  - title: "Super Optimized 2D Raycasting"
+    author:
+      name: "M M"
+    url: "https://editor.p5js.org/mmftl/present/6QIxezFS3"
+    source: "https://editor.p5js.org/mmftl/sketches/6QIxezFS3"
+  - title: "Ray, The Self Driving Robot"
+    author:
+      name: "Matheus Souza"
+      url: "https://github.com/matheuslrsouza"
+    url: "https://matheuslrsouza.github.io/particle-filter-js/"
+    source: "https://github.com/matheuslrsouza/particle-filter-js"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"
