@@ -21,7 +21,5 @@ contributions:
     author: "Misa Sivonen"
     url: "https://github.com/MSivonen/Rain/tree/master"
     source: "https://github.com/MSivonen"
-    
-    
 ---
 In this viewer submitted coding challenge, I attempt to code a Purple Rain Simulator in Processing.
