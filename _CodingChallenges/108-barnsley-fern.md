@@ -56,7 +56,7 @@ contributions:
     source: "https://https://editor.p5js.org/drigo2212/sketches/_Di168OeV"
   - title: "Barney's Fern Rainbow"
     author:
-      name: "Rodrigo de Oliveira"
+      name: "Rodrigo Oliveira"
     url: "https://https://editor.p5js.org/drigo2212/full/_Di168OeV"
     source: "https://https://editor.p5js.org/drigo2212/sketches/_Di168OeV"
 ---
