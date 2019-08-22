@@ -49,7 +49,7 @@ contributions:
       name: "Sujan Dutta"
       url: "https://github.com/Suji04"
     url: "https://suji04.github.io/fractal-ferns/"
-  - title: "Barney's Fern Rainbow"
+  - title: "Barnsley's Fern Rainbow"
     author:
       name: "Rodrigo de Oliveira"
     url: "https://https://editor.p5js.org/drigo2212/full/_Di168OeV"
