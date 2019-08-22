@@ -44,6 +44,11 @@ contributions:
       name: "Alexandropoulos Dimitrios"
       url: "https://sites.google.com/view/myp5jsprojects"
     url: "https://www.openprocessing.org/sketch/681167"
+  - title: "Rotating starfield"
+    author:
+      name: "Misa Sivonen"
+      url: "https://github.com/MSivonen"
+    url: "https://github.com/MSivonen/Starfield"
 ---
 
 This is the first in a new series of videos.  In this video I attempt to program a "star field" or "warp speed" visualization in Processing.  
