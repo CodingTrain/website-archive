@@ -54,5 +54,10 @@ contributions:
       name: "Rodrigo de Oliveira"
     url: "https://https://editor.p5js.org/drigo2212/full/_Di168OeV"
     source: "https://https://editor.p5js.org/drigo2212/sketches/_Di168OeV"
+  - title: "Barnsley's Fern Rainbow"
+    author:
+      name: "Rodrigo de Oliveira"
+    url: "https://https://editor.p5js.org/drigo2212/full/_Di168OeV"
+    source: "https://https://editor.p5js.org/drigo2212/sketches/_Di168OeV"
 ---
 In this coding challenge, I visualize the Barnsley Fern fractal with Processing (Java).
