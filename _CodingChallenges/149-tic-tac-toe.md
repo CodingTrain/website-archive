@@ -116,5 +116,9 @@ contributions:
       url: "https://amritamar.github.io"
     url: "https://editor.p5js.org/AmritAmar/full/x2dtFTAsH"
     source: "https://editor.p5js.org/AmritAmar/sketches/x2dtFTAsH"
+    - title: "TicTacToe with AI"
+    author: "Priyanshu Das"
+    url: "https://tictactoe.askpriyanshu.now.sh"
+    source: "https://github.com/ParadoxPD/TicTacToe"
 ---
 This is be a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
