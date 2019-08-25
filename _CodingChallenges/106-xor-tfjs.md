@@ -25,6 +25,14 @@ videos:
     video_id: "F4WWukTWoXY"
   - title: "async/await"
     video_id: "XO77Fib9tSI"
+
+contributions:
+  - title: "XOR in python with keras"
+    author:
+      name: "David Snyder"
+      url: "https://github.com/GypsyDangerous"
+    url: "https://github.com/GypsyDangerous/Xor-problem-in-Keras/blob/master/outputs/xor.gif"
+    source: "https://github.com/GypsyDangerous/Xor-problem-in-Keras"
 ---
 
 In this coding challenge, I visualize the outputs of a neural network solving XOR using TensorFlow.js.
