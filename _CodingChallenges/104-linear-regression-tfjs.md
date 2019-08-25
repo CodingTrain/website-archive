@@ -21,7 +21,7 @@ videos:
     url: "/Tutorials/16-javascript-es6/16.3-arrow-function"
   - title: "JavaScript Promises"
     playlist_id: "PLRqwX-V7Uu6bKLPQvPRNNE65kBL62mVfx"
-    
+
 contributions:
   - title: "Linear Regression Simulator"
     author:
@@ -30,5 +30,4 @@ contributions:
     url: "https://github.com/sushantPatrikar/Linear-Regression-Simulator/blob/master/README.md"
     source: "https://github.com/sushantPatrikar/Linear-Regression-Simulator"
 ---
-
 In this challenge, I use the TensorFlow.js library to create an interactive demonstration of linear regression (with stochastic gradient descent!)
