@@ -25,7 +25,7 @@ videos:
     video_id: "F4WWukTWoXY"
   - title: "async/await"
     video_id: "XO77Fib9tSI"
-    
+
 contributions:
   - title: "XOR in python with keras"
     author:
