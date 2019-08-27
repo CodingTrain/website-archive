@@ -18,27 +18,23 @@ contributions:
       url: "https://codepen.io/rajatkantinandi/"
     url: "https://codepen.io/rajatkantinandi/full/qVbObB/"
     source: "https://codepen.io/rajatkantinandi/pen/qVbObB"
-
   - title: "Pink Fractal Forest"
     author:
       name: "Tushar Sharma"
       url: "https://github.com/imtusharsharma"
     url: "https://editor.p5js.org/imtusharsharma/full/FcyznC4KW"
     source: "https://editor.p5js.org/imtusharsharma/sketches/FcyznC4KW"
-
   - title: "Fractal Forest"
     author:
       name: "Misa Sivonen"
       url: "https://github.com/MSivonen/"
     url: "https://photos.app.goo.gl/Azm6MLuqQtdZ38xz8"
     source: "https://github.com/MSivonen/Branching_tree/blob/master/tree.pde"
-    
-    - title: "Dynamically customizable implementation in java"
+  - title: "Dynamically customizable implementation in java"
     author:
       name: "Balazs Rippl"
       url: "https://github.com/RipplB/"
     url: "https://github.com/RipplB/Recursive-fractal-tree"
     source: "https://github.com/RipplB/Recursive-fractal-tree"
 ---
-
 In this coding challenge, I'm going to show you how to create a Fractal Tree with a recursive algorithm in p5.js.
