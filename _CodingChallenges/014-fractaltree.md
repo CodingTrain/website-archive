@@ -32,6 +32,13 @@ contributions:
       url: "https://github.com/MSivonen/"
     url: "https://photos.app.goo.gl/Azm6MLuqQtdZ38xz8"
     source: "https://github.com/MSivonen/Branching_tree/blob/master/tree.pde"
+    
+    - title: "Dynamically customizable implementation in java"
+    author:
+      name: "Balazs Rippl"
+      url: "https://github.com/RipplB/"
+    url: "https://github.com/RipplB/Recursive-fractal-tree"
+    source: "https://github.com/RipplB/Recursive-fractal-tree"
 ---
 
 In this coding challenge, I'm going to show you how to create a Fractal Tree with a recursive algorithm in p5.js.
