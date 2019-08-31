@@ -52,8 +52,9 @@ contributions:
   - title: "Interactive Viewing Angle Starfield"
     author:
       name: "Amin Ahmad Ahmadi"
-      url: "https://editor.p5js.org/AminCodingChallenge/full/aoIBBYSgYn"
-    url: "https://editor.p5js.org/AminCodingChallenge/sketches/aoIBBYSgY"
+      url: "https://twitter.com/AminAhmadAhmadi"
+    url: "https://editor.p5js.org/AminCodingChallenge/present/aoIBBYSgY"
+    source: "https://editor.p5js.org/AminCodingChallenge/sketches/aoIBBYSgY"
 ---
 
 This is the first in a new series of videos.  In this video I attempt to program a "star field" or "warp speed" visualization in Processing.  
