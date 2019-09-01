@@ -115,6 +115,12 @@ contributions:
       url: "https://github.com/matheuslrsouza"
     url: "https://matheuslrsouza.github.io/particle-filter-js/"
     source: "https://github.com/matheuslrsouza/particle-filter-js"
+  - title: "2D cave Exploration"
+    author:
+      name: "David Snyder"
+      url: "https://github.com/GypsyDangerous"
+    url: "https://editor.p5js.org/davidgraygs4@gmail.com/full/oUXmojdXi"
+    source: "https://editor.p5js.org/davidgraygs4@gmail.com/sketches/oUXmojdXi"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"
