@@ -21,5 +21,11 @@ contributions:
     author: "Misa Sivonen"
     url: "https://github.com/MSivonen/Rain/tree/master"
     source: "https://github.com/MSivonen"
+  - title: "Rainy Night"
+    author:
+      name: "Amin Ahmad Ahmadi"
+      url: "https://twitter.com/aminahmadahmadi/"
+    url: "https://editor.p5js.org/AminCodingChallenge/full/hxRaq59Xt"
+    source: "https://editor.p5js.org/AminCodingChallenge/sketches/hxRaq59Xt"
 ---
 In this viewer submitted coding challenge, I attempt to code a Purple Rain Simulator in Processing.
