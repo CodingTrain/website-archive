@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/17-spacecolonizer.html
 video_number: 17
 date: 2016-06-01
 video_id: kKT0v3qhIQY
-repository: CC_017_SpaceColonizer
+repository: CC_0017_SpaceColonizer
 web_editor: r9pxis9g-
 
 links:

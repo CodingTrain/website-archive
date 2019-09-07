@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/95-approximating-pi.html
 video_number: 95
 date: 2018-03-14
 video_id: 5cNnf_7e92Q
-repository: CC_095_Approximating_Pi
+repository: CC_0095_Approximating_Pi
 web_editor: bv_LWXvU5
 
 links:

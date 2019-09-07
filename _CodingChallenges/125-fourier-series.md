@@ -2,7 +2,7 @@
 title: "Fourier Series"
 video_number: 125
 date: 2018-12-19
-repository: CC_125_Fourier_Series
+repository: CC_0125_Fourier_Series
 video_id: Mm2eYfj0SgA
 web_editor: SJ02W1OgV
 

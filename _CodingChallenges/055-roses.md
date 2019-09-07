@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/55-roses.html
 video_number: 55
 date: 2017-02-08
 video_id: f5QBExMNB1I
-repository: CC_055_Roses
+repository: CC_0055_Roses
 web_editor: 3kanFIcHd
 
 links:

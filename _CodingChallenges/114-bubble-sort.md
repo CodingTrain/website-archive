@@ -3,7 +3,7 @@ title: "Bubble Sort Visualization"
 video_number: 114
 date: 2018-08-22
 video_id: 67k3I2GxTH8
-repository: CC_114_BubbleSortViz
+repository: CC_0114_BubbleSortViz
 web_editor: 3HVrL9m36
 
 links:

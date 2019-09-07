@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/05-space-invaders-p5.html
 video_number: 5
 date: 2016-04-26
 video_id: biN3v3ef-Y0
-repository: CC_005_Space_invaders
+repository: CC_0005_Space_invaders
 web_editor: Azip-ZzXI
 
 contributions:

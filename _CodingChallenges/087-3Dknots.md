@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/87-3Dknots.html
 video_number: 87
 date: 2017-12-20
 video_id: r6YMKr1X0VA
-repository: CC_087_3D_Knots
+repository: CC_0087_3D_Knots
 web_editor: fa1rAWng9
 
 links:

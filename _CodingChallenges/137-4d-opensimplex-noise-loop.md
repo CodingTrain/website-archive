@@ -3,7 +3,7 @@ title: "4D OpenSimplex Noise Loop"
 video_number: 137
 date: 2019-03-05
 video_id: 3_0Ax95jIrk
-repository: CC_137_4D_Noise_Loop
+repository: CC_0137_4D_Noise_Loop
 web_editor: MPqnctIGg
 
 links:

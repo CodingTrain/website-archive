@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/01-starfield.html
 video_number: 1
 date: 2016-04-13
 video_id: 17WoOqgXsRM
-repository: CC_001_StarField
+repository: CC_0001_StarField
 web_editor: 1wLHIck3T
 
 links:

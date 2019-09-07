@@ -3,7 +3,7 @@ title: "Linear Regression with TensorFlow.js"
 video_number: 104
 date: 2018-05-29
 video_id: dLp10CFIvxI
-repository: CC_104_tf_linear_regression
+repository: CC_0104_tf_linear_regression
 web_editor: UtOWCSYYF
 
 links:

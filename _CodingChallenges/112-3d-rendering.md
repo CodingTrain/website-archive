@@ -3,7 +3,7 @@ title: "3D Rendering with Rotation and Projection"
 video_number: 112
 date: 2018-08-20
 video_id: p4Iz0XJY-Qk
-repository: CC_112_3D_Rendering
+repository: CC_0112_3D_Rendering
 web_editor: r8l8XXD2A
 
 links:

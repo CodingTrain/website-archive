@@ -2,7 +2,7 @@
 title: "Flocking Simulation"
 video_number: 124
 date: 2018-12-10
-repository: CC_124_Flocking_Boids
+repository: CC_0124_Flocking_Boids
 video_id: mhjuuHl6qHM
 web_editor: ry4XZ8OkN
 

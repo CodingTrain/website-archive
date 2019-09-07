@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/11-perlinnoiseterrain.html
 video_number: 11
 date: 2016-05-04
 video_id: IKB1hWWedMk
-repository: CC_011_PerlinNoiseTerrain
+repository: CC_0011_PerlinNoiseTerrain
 web_editor: OPYPc4ueq
 
 links:

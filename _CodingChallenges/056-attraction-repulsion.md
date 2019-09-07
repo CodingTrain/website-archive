@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/56-attraction-repulsion.html
 video_number: 56
 date: 2017-02-09
 video_id: OAcXnzRNiCY
-repository: CC_056_attraction_repulsion
+repository: CC_0056_attraction_repulsion
 web_editor: 6WL2O4vq0
 videos:
   - title: "My Video on Vectors"
