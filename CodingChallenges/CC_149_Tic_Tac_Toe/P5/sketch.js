@@ -79,7 +79,6 @@ function draw() {
   background(255);
   let w = width / 3;
   let h = height / 3;
-  stroke(0)
   strokeWeight(4);
 
   line(w, 0, w, height);
@@ -87,25 +86,21 @@ function draw() {
   line(0, h, width, h);
   line(0, h * 2, width, h * 2);
 
-  for (let i = 0; i < 3; i++) {
-    for (let j = 0; j < 3; j++) {
+  for (let j = 0; j < 3; j++) {
+    for (let i = 0; i < 3; i++) {
       let x = w * i + w / 2;
       let y = h * j + h / 2;
       let spot = board[i][j];
-      let r = w / 2
+      textSize(32);
       if (spot == players[1]) {
         noFill();
-	stroke(255,0,0);
-        ellipse(x, y, r);
+        ellipse(x, y, w / 2);
       } else if (spot == players[0]) {
-	stroke(0,255,0)
-        line(x - r/2, y - r/2, x + r/2, y + r/2);
-        line(x + r/2, y - r/2, x - r/2, y + r/2);
-      } else {
-        stroke(0,0,255);
-	textSize(64);
-	text(spot, x, y);
+        let xr = w / 4;
+        line(x - xr, y - xr, x + xr, y + xr);
+        line(x + xr, y - xr, x - xr, y + xr);
       }
+
     }
   }
 
