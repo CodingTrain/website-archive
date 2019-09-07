@@ -3,7 +3,7 @@ title: "Calculating Digits of Pi with Mandelbrot Set"
 video_number: 141
 date: 2019-03-21
 video_id: pn2vlselv_g
-repository: CC_0141_Mandelbrot_Pi
+repository: CC_141_Mandelbrot_Pi
 
 links:
   - title: "The World of Pi"

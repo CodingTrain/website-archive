@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/85-the-game-of-life.html
 video_number: 85
 date: 2017-12-11
 video_id: FWSR_7kZuYg
-repository: CC_0085_The_Game_of_Life
+repository: CC_085_The_Game_of_Life
 web_editor: UtSMCB1zv
 
 links:

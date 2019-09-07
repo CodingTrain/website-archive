@@ -4,7 +4,7 @@ video_number: 148
 date: 2019-07-10
 video_id: YNyULRrydVI
 web_editor: IVE9CxBOF
-repository: CC_0148_Gift_Wrapping
+repository: CC_148_Gift_Wrapping
 
 links:
   - title: "Gift Wrapping Algorithm"

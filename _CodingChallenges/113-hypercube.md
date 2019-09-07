@@ -3,7 +3,7 @@ title: "4D Hypercube (aka 'Tesseract')"
 video_number: 113
 date: 2018-08-21
 video_id: XE3YDVdQSPo
-repository: CC_0113_Hypercube
+repository: CC_113_Hypercube
 web_editor: n0y8ntgWi
 
 links:

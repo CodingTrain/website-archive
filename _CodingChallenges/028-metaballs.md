@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/28-metaballs.html
 video_number: 28
 date: 2016-07-15
 video_id: ccYLb7cLB1I
-repository: CC_0028_MetaBalls
+repository: CC_028_MetaBalls
 web_editor: ISPozOLXW
 
 links:

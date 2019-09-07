@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/03-snake-game-p5.html
 video_number: 3
 date: 2016-04-20
 video_id: AaGK-fj-BAM
-repository: CC_0003_Snake_game
+repository: CC_003_Snake_game
 web_editor: avh_VGx69
 
 links:

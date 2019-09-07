@@ -2,7 +2,7 @@
 title: "Fluid Simulation"
 video_number: 132
 date: 2019-02-12
-repository: CC_0132_FluidSimulation
+repository: CC_132_FluidSimulation
 video_id: alhpH6ECFvQ
 
 links:

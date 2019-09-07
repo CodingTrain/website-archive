@@ -4,12 +4,12 @@ redirect_from: CodingChallenges/24-perlinnoiseflowfield.html
 video_number: 24
 date: 2016-06-27
 video_id: BjoM9oKOAKY
-repository: CC_0024_PerlinNoiseFlowField
+repository: CC_024_PerlinNoiseFlowField
 web_editor: vDcIAbfg7
 
 links:
   - title: "Processing code"
-    url: "https://github.com/CodingTrain/website/tree/master/CodingChallenges/CC_0024_PerlinNoiseFlowField_Processing"
+    url: "https://github.com/CodingTrain/website/tree/master/CodingChallenges/CC_024_PerlinNoiseFlowField_Processing"
   - title: "p5.js noise() reference"
     url: "https://p5js.org/reference/#/p5/noise"
 

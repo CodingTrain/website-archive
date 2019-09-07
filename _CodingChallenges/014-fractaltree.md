@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/14-fractaltree.html
 video_number: 14
 date: 2016-05-30
 video_id: 0jjeOYMjmDU
-repository: CC_0014_FractalTree
+repository: CC_014_FractalTree
 web_editor: xTjmYXU3q
 
 links:

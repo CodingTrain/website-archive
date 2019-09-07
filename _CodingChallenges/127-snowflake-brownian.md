@@ -2,7 +2,7 @@
 title: "Brownian Tree Snowflake"
 video_number: 127
 date: 2018-12-24
-repository: CC_0127_Snowflake_Brownian
+repository: CC_127_Snowflake_Brownian
 video_id: XUA8UREROYE
 web_editor: SJcAeCpgE
 

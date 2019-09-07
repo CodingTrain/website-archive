@@ -3,7 +3,7 @@ title: "Animated Sprites"
 video_number: 111
 date: 2018-07-30
 video_id: 3noMeuufLZY
-repository: CC_0111_animated_sprite
+repository: CC_111_animated_sprite
 web_editor: vhnFx1mml
 
 links:

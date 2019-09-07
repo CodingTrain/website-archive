@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/02-mengersponge.html
 video_number: 2
 date: 2016-04-18
 video_id: LG8ZK-rRkXo
-repository: CC_0002_MengerSponge
+repository: CC_002_MengerSponge
 web_editor: 5kcBUriAy
 
 links:

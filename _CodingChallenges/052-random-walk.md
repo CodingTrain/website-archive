@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/52-random-walk.html
 video_number: 52
 date: 2017-01-27
 video_id: l__fEY1xanY
-repository: CC_0052_random_walk
+repository: CC_052_random_walk
 web_editor: N-qqe1ExZ
 
 contributions:

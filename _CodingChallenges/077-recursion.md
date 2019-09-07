@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/77-recursion.html
 video_number: 77
 date: 2017-10-05
 video_id: jPsZwrV9ld0
-repository: CC_0077_Recursion
+repository: CC_077_Recursion
 web_editor: pseBrWaMm
 
 links:

@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/08-solarsystemgenerator3d.html
 video_number: 8
 date: 2016-05-02
 video_id: dncudkelNxw
-repository: CC_0008_SolarSystemGenerator3D
+repository: CC_008_SolarSystemGenerator3D
 
 links:
   - title: "PeasyCam library"

@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/07-solarsystemgenerator.html
 video_number: 7
 date: 2016-04-28
 video_id: l8SiJ-RmeHU
-repository: CC_0007_SolarSystemGenerator
+repository: CC_007_SolarSystemGenerator
 web_editor: IMJv_QwXy
 
 videos:

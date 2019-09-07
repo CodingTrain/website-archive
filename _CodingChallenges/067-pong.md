@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/67-pong.html
 video_number: 67
 date: 2017-03-27
 video_id: IIrC5Qcb2G4
-repository: CC_0067_Pong
+repository: CC_067_Pong
 web_editor: CKCwTIm3S
 
 links:
@@ -33,8 +33,8 @@ contributions:
     source: "https://github.com/aloksbd/Game-Sprint/tree/master/2-pong"
   - title: "Pong with AI"
     author: "Carlsen66"
-    url: "https://carlsen66.github.io/CC_0067_Pong%20AI/"
-    source: "https://github.com/carlsen66/carlsen66.github.io/tree/master/CC_0067_Pong%20AI"
+    url: "https://carlsen66.github.io/CC_067_Pong%20AI/"
+    source: "https://github.com/carlsen66/carlsen66.github.io/tree/master/CC_067_Pong%20AI"
   - title: "A Classic Pong Game, Single Player Edition With Tiles"
     author: "Aryan Chharia"
     url: "https://editor.p5js.org/aryan.chharia@gmail.com/full/lP_zBPh_l"

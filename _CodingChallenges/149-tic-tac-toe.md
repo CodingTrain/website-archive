@@ -4,7 +4,7 @@ video_number: 149
 date: 2019-07-23
 video_id: GTWrWM1UsnA
 web_editor: 5JngATm3c
-repository: CC_0149_Tic_Tac_Toe
+repository: CC_149_Tic_Tac_Toe
 
 videos:
   - title: "How to add your contribution to The Coding Train website "

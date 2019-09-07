@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/86-beesandbombs.html
 video_number: 86
 date: 2017-12-28
 video_id: H81Tdrmz2LA
-repository: CC_0086_beesandbombs
+repository: CC_086_beesandbombs
 web_editor: lCDER-xsu
 
 links:
@@ -30,8 +30,8 @@ contributions:
     url: https://codepen.io/anon/pen/wprwdP?editors=0010
   - title: "Rainbow Colours (static and flowing)"
     author: "Gareth Williams (Gaweph)"
-    url: https://gaweph.github.io/p5-live-examples/CodingChallenges/CC_0086_beesandbombs/
-    source: https://github.com/Gaweph/p5-live-examples/tree/master/CodingChallenges/CC_0086_beesandbombs
+    url: https://gaweph.github.io/p5-live-examples/CodingChallenges/CC_086_beesandbombs/
+    source: https://github.com/Gaweph/p5-live-examples/tree/master/CodingChallenges/CC_086_beesandbombs
 ---
 
 In this coding challenge, I attempt recreate a 3D @beesandbombs GIF with p5.js and the WebGL renderer.

@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/58-earthquakeviz3d.html
 video_number: 58
 date: 2017-02-20
 video_id: dbs4IYGfAXc
-repository: CC_0058_EarthQuakeViz3D
+repository: CC_058_EarthQuakeViz3D
 links:
   - title: "Spherical Coordinates System on Wikipedia"
     url: "https://en.wikipedia.org/wiki/Spherical_coordinate_system"
@@ -29,7 +29,7 @@ videos:
 contributions:
   - title: "Tadimon's aligned texture"
     author: "Tadimon"
-    source: https://github.com/tadimon/Rainbow-Code/tree/master/challenges/CC_0058_EarthQuakeViz3D
+    source: https://github.com/tadimon/Rainbow-Code/tree/master/challenges/CC_058_EarthQuakeViz3D
 ---
 
 In this coding challenge, I follow up on the Earthquake Data Visualization challenge and create a 3D version in Processing(Java) using spherical coordinates. I also discuss some 3D vector math including the cross product.

@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/66-timer.html
 video_number: 66
 date: 2017-03-25
 video_id: MLtAMg9_Svw
-repository: CC_0066_timer
+repository: CC_066_timer
 web_editor: ZKSNy0USh
 
 links:

@@ -4,7 +4,7 @@ video_number: 146
 date: 2019-05-10
 video_id: vYgIKn7iDH8
 web_editor: yEzlR0_zq
-repository: CC_0146_Rendering_Ray_Casting
+repository: CC_146_Rendering_Ray_Casting
 
 links:
   - title: "Gustavo Pezzi's Raycast 3D"

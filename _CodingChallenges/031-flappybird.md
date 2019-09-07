@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/31-flappybird.html
 video_number: 31
 date: 2016-08-10
 video_id: cXgA1d_E-jY
-repository: CC_0031_FlappyBird
+repository: CC_031_FlappyBird
 web_editor: FtBc2BhHM
 
 links:

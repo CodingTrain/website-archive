@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/75-wikipedia-api.html
 video_number: 75
 date: 2017-09-25
 video_id: RPz75gcHj18
-repository: CC_0075_Wikipedia
+repository: CC_075_Wikipedia
 web_editor: A4u07unm5
 
 links:

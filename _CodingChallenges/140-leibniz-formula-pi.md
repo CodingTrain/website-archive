@@ -4,7 +4,7 @@ video_number: 140
 date: 2019-03-18
 video_id: uH4trBNn540
 web_editor: 8nvCqk0-W
-repository: CC_0140_Pi_Leibniz
+repository: CC_140_Pi_Leibniz
 
 links:
   - title: "Leibniz formula for Pi"

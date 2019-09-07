@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/48-tweetsbymonth.html
 video_number: 48
 date: 2017-01-06
 video_id: UrznYJltZrU
-repository: CC_0048_TweetsByMonth
+repository: CC_048_TweetsByMonth
 web_editor: adc42eDiu
 
 links:

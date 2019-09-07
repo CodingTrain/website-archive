@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/88-snowfall.html
 video_number: 88
 date: 2017-12-25
 video_id: cl-mHFCGzYk
-repository: CC_0088_snowfall
+repository: CC_088_snowfall
 web_editor: UMUPBVuH5
 
 links:

@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/71-minesweeper.html
 video_number: 71
 date: 2017-05-18
 video_id: LFU5ZlrR21E
-repository: CC_0071_minesweeper
+repository: CC_071_minesweeper
 web_editor: -mz-ePoqd
 
 links:
@@ -25,8 +25,8 @@ contributions:
     author:
       name: "Gareth Williams"
       url: https://github.com/gaweph
-    url: https://gaweph.github.io/p5-live-examples/CodingChallenges/CC_0071_minesweeper/
-    source: https://github.com/Gaweph/p5-live-examples/tree/master/CodingChallenges/CC_0071_minesweeper
+    url: https://gaweph.github.io/p5-live-examples/CodingChallenges/CC_071_minesweeper/
+    source: https://github.com/Gaweph/p5-live-examples/tree/master/CodingChallenges/CC_071_minesweeper
   - title: "Mine-Buddy"
     author:
       name: "dondanhill"

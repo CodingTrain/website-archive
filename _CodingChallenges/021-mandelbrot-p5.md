@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/21-mandelbrot-p5.html
 video_number: 21
 date: 2016-06-13
 video_id: 6z7GQewK-Ks
-repository: CC_0021_Mandelbrot
+repository: CC_021_Mandelbrot
 web_editor: KsV1wWLqd
 
 links:

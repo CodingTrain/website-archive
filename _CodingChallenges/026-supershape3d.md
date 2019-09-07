@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/26-supershape3d.html
 video_number: 26
 date: 2016-06-30
 video_id: akM4wMZIBWg
-repository: CC_0026_SuperShape3D
+repository: CC_026_SuperShape3D
 links:
   - title: "Supershapes (Superformula)"
     url: "http://paulbourke.net/geometry/supershape/"

@@ -3,7 +3,7 @@ title: "XOR Problem with TensorFlow.js"
 video_number: 106
 date: 2018-06-11
 video_id: N3ZnNa01BPM
-repository: CC_0106_xor_tfjs
+repository: CC_106_xor_tfjs
 web_editor: ueNMC_Wh6
 
 links:

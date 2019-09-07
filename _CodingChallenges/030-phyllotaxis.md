@@ -4,7 +4,7 @@ redirect_from: CodingChallenges/30-phyllotaxis.html
 video_number: 30
 date: 2016-08-03
 video_id: KWoJgHFYWxY
-repository: CC_0030_Phyllotaxis
+repository: CC_030_Phyllotaxis
 web_editor: CehY0jsLV
 
 links:

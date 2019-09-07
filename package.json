@@ -18,7 +18,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "lint": "./node_modules/.bin/eslint CodingChallenges/CC_0001_StarField_p5.js/*.js",
+=======
+    "lint": "./node_modules/.bin/eslint CodingChallenges/CC_001_StarField_p5.js/*.js",
+>>>>>>> parent of f4bcbfe1... fixed a bug in 0092_xor
     "test-html": "bundle exec htmlproofer ./_site --assume-extension --check-html --disable-external --url-ignore '/#.*/'"
 =======
     "test-html": "bundle exec htmlproofer ./_site --assume-extension --check-html --disable-external --url-ignore '/#.*/'",
