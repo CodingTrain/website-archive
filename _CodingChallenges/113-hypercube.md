@@ -47,6 +47,12 @@ contributions:
     author:
       name: "David FAIVRE-MAÇON"
     url: "https://codepen.io/Dayd/pen/gBEexq"
+  - title: "4D projection with full matrix class"
+    author:
+      name: "David Snyder"
+      url: "https://github.com/GypsyDangerous"
+    url: "https://editor.p5js.org/davidgraygs4@gmail.com/full/492uCszzp"
+    source: "https://editor.p5js.org/davidgraygs4@gmail.com/sketches/492uCszzp"
 ---
 
 In this coding challenge, I visualize a 4D Hypercube (aka "Tesseract") in Processing (Java).
