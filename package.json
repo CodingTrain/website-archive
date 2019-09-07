@@ -17,8 +17,13 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+<<<<<<< HEAD
     "lint": "./node_modules/.bin/eslint CodingChallenges/CC_0001_StarField_p5.js/*.js",
     "test-html": "bundle exec htmlproofer ./_site --assume-extension --check-html --disable-external --url-ignore '/#.*/'"
+=======
+    "test-html": "bundle exec htmlproofer ./_site --assume-extension --check-html --disable-external --url-ignore '/#.*/'",
+    "lint": "./node_modules/.bin/eslint ."
+>>>>>>> 8283c6d7a7613bc3861c064ca564591233abcf1f
   },
   "repository": {
     "type": "git",
