@@ -28,7 +28,7 @@ contributions:
     video_id: "L4_wtMmpEaE"
     source: "https://gist.github.com/spulilol/4732968c3073faf8a42d2b7477caf929"
   - title: "custom 3D renderer"
-    author: 
+    author:
       name: "David Snyder"
       url: "https://github.com/GypsyDangerous"
     url: "https://editor.p5js.org/davidgraygs4@gmail.com/full/Dq2_2s6Ly"
