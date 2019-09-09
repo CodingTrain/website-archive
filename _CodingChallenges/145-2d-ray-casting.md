@@ -125,7 +125,7 @@ contributions:
     author:
       name: "Nate Plamondon"
       url: "https://github.com/meznak"
-    url: "https://youtu.be/JoYN-UGypSg"
+    video_id: "JoYN-UGypSg"
     source: "https://github.com/meznak/ray_cast"
 videos:
   - title: "Coding Adventure: Ray Marching"
