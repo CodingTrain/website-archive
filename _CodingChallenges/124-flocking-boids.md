@@ -89,5 +89,11 @@ contributions:
       url: "https://github.com/meznak"
     url: "https://github.com/meznak/boids_py"
     source: "https://github.com/meznak/boids_py"
+  - title: "Flocking with AI piloted predators"
+    author:
+      name: "Guillaume Manen"
+      url: "https://github.com/gmanen"
+    url: "https://editor.p5js.org/gmanen/present/HF0OH8ATr"
+    source: "https://github.com/gmanen/shoaks"
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
