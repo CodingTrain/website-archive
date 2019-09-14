@@ -28,12 +28,11 @@ contributions:
       url: "https://owenmcateer.github.io/Motus-Art/"
     url: "https://owenmcateer.github.io/Motus-Art/projects/week_07.html"
     source: "https://github.com/owenmcateer/Motus-Art/blob/master/src/week_07/main.js"
-    title: "2d snowy landscape gen"
-    author:Sebastien Lorentz
+  - title: "2d snowy landscape gen"
+    author:
       name: "Sebastien Lorentz"
       url: "https://editor.p5js.org/sebastien.lorentz/present/dVLMU3-mG"
     url: "https://editor.p5js.org/sebastien.lorentz/full/dVLMU3-mG"
     source: "https://editor.p5js.org/sebastien.lorentz/sketches/dVLMU3-mG"
 ---
-
 In this coding challenge, I create a 3D procedural terrain using Perlin Noise and the beginShape() function in Processing.
