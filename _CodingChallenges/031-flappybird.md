@@ -34,11 +34,10 @@ contributions:
       name: "Shriram"
       url: "https://shrirambo.github.io/p5Gallery/Resources/Jumpy%20Banana/index.html"
     source: "https://github.com/ShriRambo/p5Gallery/tree/master/Resources/Jumpy%20Banana"
-   -title: "Full Graphics Flappy Bird"
-    author:Sebastien Lorentz
+  - title: "Full Graphics Flappy Bird"
+    author: "Sebastien Lorentz"
     name: "Color Flappy bird"
     url: "https://editor.p5js.org/sebastien.lorentz/present/ht-gL0Z4o"
     source: "https://editor.p5js.org/sebastien.lorentz/sketches/ht-gL0Z4o"
 ---
-
 In this coding challenge, I attempt to program in JavaScript (using the p5.js framework) a clone of the game Flappy Bird.
