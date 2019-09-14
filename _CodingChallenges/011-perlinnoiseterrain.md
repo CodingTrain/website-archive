@@ -22,7 +22,7 @@ contributions:
       url: "https://mattstone.io/"
     url: "https://uploads.mattstone.io/terrain"
     source: "https://github.com/bigmstone/terrain"
-     - title: "2d snowy landscape gen"
+  - title: "2d snowy landscape gen"
     author:
       name: "Sebastien Lorentz"
       url: "https://editor.p5js.org/sebastien.lorentz/present/dVLMU3-mG"
