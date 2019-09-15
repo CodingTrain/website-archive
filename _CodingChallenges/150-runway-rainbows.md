@@ -24,6 +24,13 @@ videos:
   - title: "Intro to Runway Part 2"
     author: "The Coding Train"
     video_id: "7btNir5L8Jc"
+
+contributions:
+  - title: "StyleGAN Rainbow Animation"
+    author:
+      name: "Mumflr"
+    video_id: "hZEBIKbY3yI"
+    source: "https://repl.it/@MumflrFumperdin/rainbow"
 ---
 
 In this challenge I generate rainbows using the StyleGAN Machine Learning model available in Runway ML and send the rainbows to the browser with p5.js! This challenge is based on the live coding talk from the 2019 Eyeo Festival.
