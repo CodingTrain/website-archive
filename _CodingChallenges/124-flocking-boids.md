@@ -95,5 +95,9 @@ contributions:
       url: "https://github.com/gmanen"
     url: "https://editor.p5js.org/gmanen/present/HF0OH8ATr"
     source: "https://github.com/gmanen/shoaks"
+  - title: "Quadtree and Flocking Simulation"
+    author: "Ernst Schmidt"
+    url: https://www.ernst-schmidt.com/coding/5d70ea631d0a070017666552
+    source: https://editor.p5js.org/Kubi/sketches/PZWh7P8h1
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
