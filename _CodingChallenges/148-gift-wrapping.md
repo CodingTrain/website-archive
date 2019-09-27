@@ -65,5 +65,11 @@ contributions:
       url: "https://github.com/Guy-Yome"
     url: "https://editor.p5js.org/Guy_Yome/sketches/-73RZAaRJ"
     source: "https://editor.p5js.org/Guy_Yome/sketches/-73RZAaRJ"
+  - title: "Quickhull in python (no animation)"
+    author:
+      name: "David Snyder"
+      url: "https://github.com/GypsyDangerous"
+    url: "https://github.com/GypsyDangerous/QuickHull-in-python"
+    source: "https://github.com/GypsyDangerous/QuickHull-in-python"
 ---
 In this coding challenge, I implement the "Gift Wrapping algorithm" (aka Jarvis march) for calculating a convex hull in JavaScript. This is a foundational topic in computational geometry!
