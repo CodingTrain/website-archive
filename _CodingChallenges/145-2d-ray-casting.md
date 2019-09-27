@@ -115,6 +115,18 @@ contributions:
       url: "https://github.com/matheuslrsouza"
     url: "https://matheuslrsouza.github.io/particle-filter-js/"
     source: "https://github.com/matheuslrsouza/particle-filter-js"
+  - title: "2D cave Exploration"
+    author:
+      name: "David Snyder"
+      url: "https://github.com/GypsyDangerous"
+    url: "https://editor.p5js.org/davidgraygs4@gmail.com/full/TsYNF-x9H"
+    source: "https://editor.p5js.org/davidgraygs4@gmail.com/sketches/TsYNF-x9H"
+  - title: "Ray casting with pygame"
+    author:
+      name: "Nate Plamondon"
+      url: "https://github.com/meznak"
+    video_id: "JoYN-UGypSg"
+    source: "https://github.com/meznak/ray_cast"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"

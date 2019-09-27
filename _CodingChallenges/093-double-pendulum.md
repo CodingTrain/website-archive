@@ -52,5 +52,11 @@ contributions:
       url: "https://github.com/dtj2011/Double-Pendulum"
     url: "https://codepen.io/dtj2011/full/XvXaWW"
     source: "https://github.com/dtj2011/Double-Pendulum"
+  - title: "Double Pendulum in C++ Cinder Framework"
+    author:
+      name: "Ayman"
+      url: "https://github.com/aymanmh/cinder/tree/master/DoublePendulum"
+    url: "https://github.com/aymanmh/cinder/tree/master/DoublePendulum"
+    source: "https://github.com/aymanmh/cinder/tree/master/DoublePendulum"
 ---
 In this coding challenge, I create a double pendulum simulation in Processing.

@@ -49,6 +49,12 @@ contributions:
       url: "https://github.com/GypsyDangerous"
     url: "https://editor.p5js.org/davidgraygs4@gmail.com/full/96wsqZdh6"
     source: "https://editor.p5js.org/davidgraygs4@gmail.com/sketches/96wsqZdh6"
+  - title: "C++ Cinder Verion"
+    author:
+      name: "Ayman"
+      url: "https://github.com/aymanmh"
+    url: "https://github.com/aymanmh/cinder/tree/master/FloydSteinbergDithering"
+    source: "https://github.com/aymanmh/cinder/tree/master/FloydSteinbergDithering"
 
 community_references:
   - title: "DHALF.txt"

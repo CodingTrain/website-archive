@@ -79,6 +79,12 @@ contributions:
       name: "alok"
     url: "https://aloksbd.github.io/Game-Sprint/3-snake/index.html"
     source: "https://github.com/aloksbd/Game-Sprint/tree/master/3-snake"
+  - title: "Touch Snake Game"
+    author:
+      name: "Amin Ahmad Ahmadi"
+      url: "https://twitter.com/AminAhmadAhmadi"
+    url: "https://editor.p5js.org/AminCodingChallenge/full/9QYlaqrgV"
+    source: "https://editor.p5js.org/AminCodingChallenge/sketches/9QYlaqrgV"
 ---
 
 In this coding challenge, I attempt to code a p5.js version of the Snake Game.

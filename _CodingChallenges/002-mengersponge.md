@@ -28,6 +28,12 @@ contributions:
       url: "https://bjorvack.github.io/code-challenges/"
     url: "https://bjorvack.github.io/code-challenges/challenges/cc-002-menger-sponge/"
     source: "https://github.com/bjorvack/code-challenges/tree/master/challenges/cc-002-menger-sponge"
+  - title: "Sponge Plus"
+    author:
+      name: "Amin Ahmad Ahmadi"
+      url: "https://twitter.com/AminAhmadAhmadi"
+    url: "https://editor.p5js.org/AminCodingChallenge/full/3S1QjYwAy"
+    source: "https://editor.p5js.org/AminCodingChallenge/sketches/3S1QjYwAy"
 ---
 
 In this coding challenge, I attempt to code the Menger Sponge (fractals) using Processing.

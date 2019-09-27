@@ -44,6 +44,17 @@ contributions:
       name: "Alexandropoulos Dimitrios"
       url: "https://sites.google.com/view/myp5jsprojects"
     url: "https://www.openprocessing.org/sketch/681167"
+  - title: "Rotating starfield"
+    author:
+      name: "Misa Sivonen"
+      url: "https://github.com/MSivonen"
+    url: "https://github.com/MSivonen/Starfield"
+  - title: "Interactive Viewing Angle Starfield"
+    author:
+      name: "Amin Ahmad Ahmadi"
+      url: "https://twitter.com/AminAhmadAhmadi"
+    url: "https://editor.p5js.org/AminCodingChallenge/present/aoIBBYSgY"
+    source: "https://editor.p5js.org/AminCodingChallenge/sketches/aoIBBYSgY"
 ---
 
 This is the first in a new series of videos.  In this video I attempt to program a "star field" or "warp speed" visualization in Processing.  
