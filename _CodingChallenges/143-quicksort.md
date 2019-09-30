@@ -25,6 +25,12 @@ contributions:
       url: "https://github.com/bohdandrahan"
     url: "https://bohdandrahan.github.io/Sorting-Visual/"
     source: "https://github.com/bohdandrahan/Sorting-Visual"
+  - title: "Sorting Algorithm Visualizations"
+    author:
+      name: "khoi"
+      url: "https://github.com/khoi"
+    url: "https://sort.khoi.io"
+    source: "https://github.com/khoi/p5-projects/tree/master/sorting"
 
 links:
   - title: "Quicksort on Wikipedia"
