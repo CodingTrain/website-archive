@@ -4,6 +4,7 @@ video_number: 150
 date: 2019-08-21
 video_id: vEetoBuHj8g
 web_editor: K6l0JbS6u
+repository: CC_150_Ai_Rainbows_Runway
 
 links:
   - title: "RunwayML"
