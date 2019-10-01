@@ -99,5 +99,11 @@ contributions:
     author: "Ernst Schmidt"
     url: https://www.ernst-schmidt.com/coding/5d70ea631d0a070017666552
     source: https://editor.p5js.org/Kubi/sketches/PZWh7P8h1
+  - title: "Parasites"
+    author:
+      name: "Anurag Hazra"
+      url: "https://anuraghazra.github.io/"
+    url: "https://anuraghazra.github.io/parasites/"
+    source: "https://github.com/anuraghazra/parasites"
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
