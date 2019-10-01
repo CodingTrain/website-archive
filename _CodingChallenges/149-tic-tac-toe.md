@@ -125,4 +125,4 @@ contributions:
     url: "https://drive.google.com/open?id=1dST51-hAYgv9JTU8aruuJHhb4T1BR06w"
     source: "https://drive.google.com/open?id=1dST51-hAYgv9JTU8aruuJHhb4T1BR06w"
 ---
-This is be a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
+This is a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
