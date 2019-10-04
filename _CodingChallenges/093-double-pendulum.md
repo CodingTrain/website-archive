@@ -58,5 +58,11 @@ contributions:
       url: "https://github.com/aymanmh/cinder/tree/master/DoublePendulum"
     url: "https://github.com/aymanmh/cinder/tree/master/DoublePendulum"
     source: "https://github.com/aymanmh/cinder/tree/master/DoublePendulum"
+    - title: "Tripple Pendulum in Processing"
+    author:
+      name: "Martin"
+      url: "https://github.com/martif1202/processing/blob/master/triple_pendulum.pde"
+    url: "https://github.com/martif1202/processing/blob/master/triple_pendulum.pde"
+    source: "https://github.com/martif1202/processing/blob/master/triple_pendulum.pde"
 ---
 In this coding challenge, I create a double pendulum simulation in Processing.
