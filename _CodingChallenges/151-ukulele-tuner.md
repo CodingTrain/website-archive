@@ -23,5 +23,9 @@ contributions:
     author: "MineBill"
     url: https://editor.p5js.org/terrestrialstudio@gmail.com/full/-bovQ8Zxl
     source: https://editor.p5js.org/terrestrialstudio@gmail.com/sketches/-bovQ8Zxl
+  - title: "Ukulele Tuner with Pitch Trail"
+    author: "originalang"
+    url: https://editor.p5js.org/originalang/sketches/NK3x9FZ_0
+    source: https://editor.p5js.org/originalang/sketches/NK3x9FZ_0
 ---
 In this challenge, I attempt to create a Ukulele tuner in JavaScript using p5.js, ml5.js and the pre-trained machine learning model CREPE: A Convolutional REpresentation for Pitch Estimation. Can you make one with a more elegant and creative interface?
