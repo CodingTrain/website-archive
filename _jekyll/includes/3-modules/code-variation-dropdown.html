@@ -9,7 +9,7 @@
 {% endcomment %}
 
 
-<div class="download-button">
+<button class="download-button">
   <span class="title">{{ include.title }}</span>
   <ul>
     {% for variation in include.variations %}
@@ -20,4 +20,4 @@
       <li><a href="{{ site.web_editor_sketch_prefix | append: page.web_editor }}" target="_blank">Web Editor</a></li>
     {% endif %}
   </ul>
-</div>
+</button>
