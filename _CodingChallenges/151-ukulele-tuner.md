@@ -19,6 +19,10 @@ links:
     url: "https://www.szynalski.com/tone-generator/"
 
 contributions:
+  - title: "Afinador - An experimental Guitar/Bass/Anything Tuner webapp"
+    author: "Luciano Tonet"
+    url: "https://afinador.herokuapp.com/"
+    source: https://github.com/tonetlds/afinador
   - title: "Ukulele/Guitar Tuner"
     author: "MineBill"
     url: https://editor.p5js.org/terrestrialstudio@gmail.com/full/-bovQ8Zxl
