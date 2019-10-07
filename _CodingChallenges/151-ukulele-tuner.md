@@ -31,6 +31,12 @@ contributions:
     author: "originalang"
     url: https://editor.p5js.org/originalang/sketches/NK3x9FZ_0
     source: https://editor.p5js.org/originalang/sketches/NK3x9FZ_0
+  - title: "Ukulele Tuner, same model new design"
+    author:
+      name: "David Snyder"
+      url: https://github.com/GypsyDangerous
+    url: https://editor.p5js.org/davidgraygs4@gmail.com/sketches/AERfQG31O
+    source: https://editor.p5js.org/davidgraygs4@gmail.com/sketches/AERfQG31O
   - title: "Original Ukulele Tuner"
     author: "Simon Tiger Houben"
     url: https://editor.p5js.org/simontiger/full/VtgkGHrtp
