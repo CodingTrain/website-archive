@@ -31,5 +31,21 @@ contributions:
     author: "originalang"
     url: https://editor.p5js.org/originalang/sketches/NK3x9FZ_0
     source: https://editor.p5js.org/originalang/sketches/NK3x9FZ_0
+  - title: "Original Ukulele Tuner"
+    author: "Simon Tiger Houben"
+    url: https://editor.p5js.org/simontiger/full/VtgkGHrtp
+    source: https://editor.p5js.org/simontiger/sketches/VtgkGHrtp
+  - title: "Ukulele Tuner: Tuning All Strings at Once"
+    author: "Simon Tiger Houben"
+    url: https://editor.p5js.org/simontiger/full/LXV6dEoz9
+    source: https://editor.p5js.org/simontiger/sketches/LXV6dEoz9
+  - title: "Ukulele Tuner: Click to Tune the Next String"
+    author: "Simon Tiger Houben"
+    url: https://editor.p5js.org/simontiger/full/0fb8c4uBI
+    source: https://editor.p5js.org/simontiger/sketches/0fb8c4uBI
+  - title: "Ukulele Tuner: Random # Generator!!!!"
+    author: "Simon Tiger Houben"
+    url: https://editor.p5js.org/simontiger/full/eOXdkP7tz
+    source: https://editor.p5js.org/simontiger/sketches/eOXdkP7tz
 ---
 In this challenge, I attempt to create a Ukulele tuner in JavaScript using p5.js, ml5.js and the pre-trained machine learning model CREPE: A Convolutional REpresentation for Pitch Estimation. Can you make one with a more elegant and creative interface?
