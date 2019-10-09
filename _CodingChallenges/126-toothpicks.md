@@ -23,7 +23,7 @@ contributions:
       name: "Veta314"
     url: "https://editor.p5js.org/Veta314/sketches/Skm8IvjxV"
   - title: "Infinite Zoom"
-    author: 
+    author:
       name: "tht-jxny"
     url: "https://editor.p5js.org/tht-jxny/full/HJXcWqoW4"
 ---
