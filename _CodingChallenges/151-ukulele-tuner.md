@@ -53,5 +53,9 @@ contributions:
     author: "Simon Tiger Houben"
     url: https://editor.p5js.org/simontiger/full/eOXdkP7tz
     source: https://editor.p5js.org/simontiger/sketches/eOXdkP7tz
+  - title: "Ukelele Tuner : UI changes and changed way of getting frequency from the model"
+    author: "Lokesh Kumar"
+    url: "https://editor.p5js.org/lokeshlkr@gmail.com/full/RcEcndWR2"
+    source: https://editor.p5js.org/lokeshlkr@gmail.com/sketches/RcEcndWR2
 ---
 In this challenge, I attempt to create a Ukulele tuner in JavaScript using p5.js, ml5.js and the pre-trained machine learning model CREPE: A Convolutional REpresentation for Pitch Estimation. Can you make one with a more elegant and creative interface?
