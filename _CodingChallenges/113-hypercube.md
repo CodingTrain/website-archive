@@ -51,8 +51,8 @@ contributions:
     author:
       name: "David Snyder"
       url: "https://github.com/GypsyDangerous"
-    url: "https://editor.p5js.org/davidgraygs4@gmail.com/full/492uCszzp"
-    source: "https://editor.p5js.org/davidgraygs4@gmail.com/sketches/492uCszzp"
+    url: "https://editor.p5js.org/D_Snyder/full/492uCszzp"
+    source: "https://editor.p5js.org/D_Snyder/sketches/492uCszzp"
 ---
 
 In this coding challenge, I visualize a 4D Hypercube (aka "Tesseract") in Processing (Java).
