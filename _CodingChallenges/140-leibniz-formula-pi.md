@@ -19,7 +19,12 @@ videos:
     author: "Numberphile"
     video_id: "d0vY0CKYhPY"
 
-contributions:
+contributions: 
+  - title: "Calculating Pi from The Arctangent Infinite Series"
+    author:
+      name: "Abhijeet S. Mankani"
+    url: "https://editor.p5js.org/abhijeetmankani/full/UXbtMlcKq"
+    source: "https://editor.p5js.org/abhijeetmankani/sketches/UXbtMlcKq"
   - title: "My interactive version of Leibniz formula for Pi"
     author:
       name: "Saahil Khatkhate"
