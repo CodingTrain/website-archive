@@ -29,6 +29,12 @@ contributions:
       url: https://github.com/olback
     url: https://olback.github.io/code-snippets/js/guess-the-number/
     source: https://github.com/olback/code-snippets/tree/master/js/guess-the-number
+  - title: "Guess my number, chat"
+    author:
+      name: David
+      url: https://github.com/GypsyDangerous
+    url: https://gypsydangerous.github.io/number-guessing-bot/
+    source: https://gypsydangerous.github.io/Guess-My-number
 ---
 
 In this coding challenge I attempt to create a chatbot that plays a number guessing game. I use the RiveScript along the JavaScript library p5.js.

@@ -20,8 +20,8 @@ contributions:
     author:
       name: "David Snyder"
       url: "https://github.com/GypsyDangerous"
-    url: "https://editor.p5js.org/davidgraygs4@gmail.com/full/A0IzNW_l0"
-    source: "https://editor.p5js.org/davidgraygs4@gmail.com/sketches/A0IzNW_l0"
+    url: "https://editor.p5js.org/D_Snyder/full/A0IzNW_l0"
+    source: "https://editor.p5js.org/D_Snyder/sketches/A0IzNW_l0"
   - title: "Tic-Tac-Toe Animated!"
     author: "The Tasteful Toastie"
     url: "https://editor.p5js.org/TheTastefulToastie/sketches/EZWUlidf1"
