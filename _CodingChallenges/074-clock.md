@@ -135,6 +135,12 @@ contributions:
       url: "https://borisbreuer.de"
     url: "https://borisbreuer.de/clock"
     source: "https://github.com/borisbreuer/clock"
+  - title: "Puzzle Clock"
+    author:
+      name: "Ernst Schmidt"
+      url: "https://www.ernst-schmidt.com/"
+    url: "https://www.ernst-schmidt.com/coding/5c7838dd5896d80017d4452d"
+    source: "https://editor.p5js.org/Kubi/sketches/SkGfubabE"
 ---
 
 In this coding challenge, I attempt to program a clock in HTML5 canvas with the p5.js library.
