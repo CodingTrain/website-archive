@@ -33,6 +33,12 @@ contributions:
       url: "https://github.com/GypsyDangerous"
     url: "https://editor.p5js.org/D_Snyder/full/n3YFHyz0D"
     source: "https://editor.p5js.org/D_Snyder/sketches/n3YFHyz0D"
+  - title: "Pure HTML 3D rendering"
+    author:
+      name: "Abhishek Choudhary"
+      url: "https://theabbie.github.io"
+    url: "https://theabbie.github.io/custom/3d.html"
+    source: "https://raw.githubusercontent.com/theabbie/theabbie.github.io/master/custom/3d.html"
 ---
 
 In this coding challenge I render a 3D object (cube) in 2D using rotation and projection matrices in Processing (Java).
