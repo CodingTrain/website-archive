@@ -31,6 +31,12 @@ contributions:
       url: "https://github.com/DomKiki"
     url: "https://editor.p5js.org/DomKiki/sketches/XGefxlwK4"
     source: "https://github.com/DomKiki/Langton-Ant"
+  - title: "Pure HTML langton's ant"
+    author:
+      name: "Abhishek Choudhary"
+      url: "https://theabbie.github.io"
+    url: "https://theabbie.github.io/files/grid.html"
+    source: "https://raw.githubusercontent.com/theabbie/theabbie.github.io/master/files/grid.html"
 
 links:
   - title: "Langton's Ant on Wikipedia"
