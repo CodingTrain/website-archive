@@ -85,6 +85,12 @@ contributions:
       url: "https://twitter.com/AminAhmadAhmadi"
     url: "https://editor.p5js.org/AminCodingChallenge/full/9QYlaqrgV"
     source: "https://editor.p5js.org/AminCodingChallenge/sketches/9QYlaqrgV"
+  - title: "Pure HTML snake game"
+    author:
+      name: "Abhishek Choudhary"
+      url: "https://theabbie.github.io"
+    url: "https://theabbie.github.io/files/snake.html"
+    source: "https://raw.githubusercontent.com/theabbie/theabbie.github.io/master/files/snake.html"
 ---
 
 In this coding challenge, I attempt to code a p5.js version of the Snake Game.
