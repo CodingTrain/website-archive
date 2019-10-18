@@ -15,7 +15,7 @@ links:
 videos:
   - title: "Challenge #128: Sketch-RNN Snowflakes"
     author: "The Coding Train"
-    video_id: "pdaNttb7Mr8"
+    video_id: "/CodingChallenges/128-sketchrnn-snowflakes"
   - title: "Live Stream #185"
     author: "The Coding Train"
     video_id: "5S87w8IqSHI"
