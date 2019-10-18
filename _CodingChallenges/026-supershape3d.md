@@ -17,6 +17,11 @@ links:
   - title: "Peasycam"
     url: "http://mrfeinberg.com/peasycam/"
     author: Jonathan Feinberg
+videos:
+  - title: "Coding Challenge: Spherical Geometry"
+    author: "The Coding Train"
+    url: "/CodingChallenges/025-spheregeometry"
+  
 contributions:
   - title: "3D SuperShape in WEBGL"
     author:
