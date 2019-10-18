@@ -17,10 +17,10 @@ links:
 videos:
   - title: "Challenge #55: Mathematical Rose Patterns"
     author: "The Coding Train"
-    url: "/CodingChallenges/055-roses.html"
+    url: "/CodingChallenges/055-roses"
   - title: "Polar Coordinates - p5.js Tutorial"
     author: "The Coding Train"
-    video_id: "N633bLi_YCw"
+    url: "/Tutorials/9-additional-topics/9.20-polar-coordinates"
 ---
 
 In this pilot episode of Coding in the Cabana, I code a visualization of the Maurer Rose pattern.
