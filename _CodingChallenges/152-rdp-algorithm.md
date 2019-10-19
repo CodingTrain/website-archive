@@ -11,6 +11,8 @@ links:
     url: https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm
   - title: "Nature of Code Chapter 6"
     url: "https://natureofcode.com/book/chapter-6-autonomous-agents/"
+  - title: "Scalar Projection Processing Example"
+    url: "https://github.com/nature-of-code/noc-examples-processing/tree/master/chp06_agents/SimpleScalarProjection"
 
 videos:
   - title: "Challenge #128: Sketch-RNN Snowflakes"
