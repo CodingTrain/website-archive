@@ -15,7 +15,7 @@ links:
 videos:
   - title: "ES6 Arrow Syntax"
     author: "The Coding Train"
-    video_id: "/Tutorials/16-javascript-es6/16.3-arrow-function"
+    url: "/Tutorials/16-javascript-es6/16.3-arrow-function"
 contributions:
   - title: "Jarvis's convex hull algorithm"
     author:
