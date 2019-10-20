@@ -21,8 +21,8 @@ videos:
   - title: "Polar Coordinates - p5.js Tutorial"
     author: "The Coding Train"
     url: "/Tutorials/9-additional-topics/9.20-polar-coordinates"
-    
-contributions
+
+contributions:
   - title: "Maurer rose with UI"
     author:
       name: "David Snyder"
