@@ -21,6 +21,20 @@ videos:
   - title: "Polar Coordinates - p5.js Tutorial"
     author: "The Coding Train"
     url: "/Tutorials/9-additional-topics/9.20-polar-coordinates"
+    
+contributions
+  - title: "Maurer rose with UI"
+    author:
+      name: "David Snyder"
+      url: "https://github.com/GypsyDangerous"
+    url: "https://editor.p5js.org/D_Snyder/full/lE-Dexkr2"
+    source: "https://editor.p5js.org/D_Snyder/sketches/lE-Dexkr2"
+  - title: "3D maurer rose radius as Z"
+    author:
+      name: "David Snyder"
+      url: "https://github.com/GypsyDangerous"
+    url: "https://editor.p5js.org/D_Snyder/full/avDF4BxuU"
+    source: "https://editor.p5js.org/D_Snyder/sketches/avDF4BxuU"
 ---
 
 In this pilot episode of Coding in the Cabana, I code a visualization of the Maurer Rose pattern.
