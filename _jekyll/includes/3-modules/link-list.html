@@ -32,7 +32,7 @@
         {% if link.video_id %}
           {% assign url = 'https://youtu.be/' | append: link.video_id %}
         {% elsif link.playlist_id %}
-          {% assign url = 'https://www.youtube.com/playlist?list=' | append: link.playlist_id %}
+          {% assign url = 'https://www.youtube.com/?list=' | append: link.playlist_id %}
         {% else %}
           {% assign url = link.url %}
         {% endif %}
