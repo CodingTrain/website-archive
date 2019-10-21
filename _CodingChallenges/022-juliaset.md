@@ -11,6 +11,10 @@ links:
   - title: "Julia Set page"
     url: "http://paulbourke.net/fractals/juliaset/"
     author: "Paul Bourke"
+videos:
+  - title: "Coding Challenge: Mandelbrot Set"
+    author: "The Coding Train"
+    url: "/CodingChallenges/021-mandelbrot-p5"
 contributions:
   - title: "Julia set with Mandelbrot map in p5.js"
     author:
