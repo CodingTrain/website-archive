@@ -35,6 +35,12 @@ contributions:
       url: "https://github.com/GypsyDangerous"
     url: "https://editor.p5js.org/D_Snyder/full/avDF4BxuU"
     source: "https://editor.p5js.org/D_Snyder/sketches/avDF4BxuU"
+  - title: "Maurer Rose linked to scroll"
+    author:
+      name: "Sam Lee"
+      url: "https://codepen.io/leimapapa"
+    url: "https://codepen.io/leimapapa/full/PooWmow"
+    source: "https://codepen.io/leimapapa/pen/PooWmow?editors=0010"
 ---
 
 In this pilot episode of Coding in the Cabana, I code a visualization of the Maurer Rose pattern.
