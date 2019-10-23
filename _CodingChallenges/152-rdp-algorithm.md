@@ -21,6 +21,12 @@ videos:
   - title: "Live Stream #185"
     author: "The Coding Train"
     video_id: "5S87w8IqSHI"
+
+contributions:
+  - title: "Ramer–Douglas–Peucker algorithm in 3D using p5.js"
+    author: "Miká Kruschel"
+    url: "https://editor.p5js.org/mikakruschel/full/ZmaEzFIvA"
+    source: "https://editor.p5js.org/mikakruschel/sketches/ZmaEzFIvA"
 ---
 
 The Ramer–Douglas–Peucker algorithm (aka "iterative end-point fit algorithm"), takes a curve composed of line segments and reduces the fidelty to a "lower fidelity" curve with fewer points.
