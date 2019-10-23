@@ -49,7 +49,7 @@ videos:
   - title: "2D Arrays in JavaScript"
     url: "/Tutorials/9-additional-topics/9.15-2d-arrays-in-javascript"
   - title: "The Modulo Operator with Golan Levin"
-    url: "/GuestTutorials/6-golan-levin-modulo-operator"
+    url: "/GuestTutorials/006-golan-levin-modulo-operator"
 ---
 This live session continues my tutorials on Object Oriented Programming with ES6.
 I also attempt a coding challenge: Conway's Game of Life with p5.js.

@@ -143,7 +143,7 @@ defaults:
       layout:           "video"
       video_type:       "Guest Tutorial"
       video_type_short: "Tutorial"
-      can_contribute:   false
+      can_contribute:   true
 
   # Courses
   - scope:              { path: "", type: "Courses" }
