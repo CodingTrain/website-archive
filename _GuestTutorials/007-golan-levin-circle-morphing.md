@@ -3,8 +3,7 @@ title: "Circle Morphing with Golan Levin"
 video_number: 7
 date: 2017-10-25
 video_id: mvgcNOX8JGQ
-can_contribute: true
-repository: false
+repository: https://github.com/golanlevin/circle-morphing
 
 custom_sections:
   - title: "Contact Golan"
