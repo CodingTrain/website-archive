@@ -43,9 +43,9 @@ links:
 
 videos:
   - title: "Golan Levin's Circle Morphing"
-    url: "/GuestTutorials/7-golan-levin-circle-morphing"
+    url: "/GuestTutorials/007-golan-levin-circle-morphing"
   - title: "Golan Levin's Modulo Operator"
-    url: "/GuestTutorials/6-golan-levin-modulo-operator"
+    url: "/GuestTutorials/006-golan-levin-modulo-operator"
   - title: "ES6 Let"
     url: "/Tutorials/16-javascript-es6/16.1-let-vs-var"
   - title: "ES6 Const"

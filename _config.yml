@@ -93,12 +93,13 @@ includes_dir: _jekyll/includes
 
 # --- Collections ---
 collections:
-  Streams:          { output: true }
-  CodingChallenges: { output: true }
-  Tutorials:        { output: true }
-  GuestTutorials:   { output: true }
-  Courses:          { output: true }
-  Guides:           { output: true }
+  Streams:           { output: true }
+  CodingChallenges:  { output: true }
+  Tutorials:         { output: true }
+  CodingInTheCabana: { output: true }
+  GuestTutorials:    { output: true }
+  Courses:           { output: true }
+  Guides:            { output: true }
 
 
 
@@ -128,13 +129,21 @@ defaults:
       video_type:       "Tutorial"
       can_contribute:   false
 
+  # Coding in the Cabana
+  - scope:              { path: "", type: "CodingInTheCabana" }
+    values:
+      layout:           "video"
+      video_type:       "Coding in the Cabana"
+      video_type_short: "Cabana"
+      can_contribute:   true
+
   # Guest Tutorials
   - scope:              { path: "", type: "GuestTutorials" }
     values:
       layout:           "video"
       video_type:       "Guest Tutorial"
       video_type_short: "Tutorial"
-      can_contribute:   false
+      can_contribute:   true
 
   # Courses
   - scope:              { path: "", type: "Courses" }
