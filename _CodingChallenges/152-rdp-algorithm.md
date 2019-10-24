@@ -33,7 +33,7 @@ contributions:
     video_id: 09iiGKhn92s
   - title: "perform RDP on path for fourier drawing"
     author: "David Snyder"
-    url: "https://editor.p5js.org/D_Snyder/sketches/sQ2qgRaAo"
+    url: "https://editor.p5js.org/D_Snyder/full/sQ2qgRaAo"
     source: https://editor.p5js.org/D_Snyder/sketches/sQ2qgRaAo
 ---
 
