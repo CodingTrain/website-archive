@@ -31,6 +31,10 @@ contributions:
     author: "Michael Macewich"
     url: "https://github.com/w8HAQRHkTx7r/RDP-Coding-Challenge-152"
     video_id: 09iiGKhn92s
+  - title: "perform RDP on path for fourier drawing"
+    author: "Michael Macewich"
+    url: "https://editor.p5js.org/D_Snyder/sketches/sQ2qgRaAo"
+    source: https://editor.p5js.org/D_Snyder/sketches/sQ2qgRaAo
 ---
 
 The Ramer–Douglas–Peucker algorithm (aka "iterative end-point fit algorithm"), takes a curve composed of line segments and reduces the fidelty to a "lower fidelity" curve with fewer points.
