@@ -12,9 +12,9 @@ links:
 
 videos:
   - title: "Asteroids - Part 1"
-    url: "CodingChallenges/046.1-asteroids-part-1"
+    url: "/CodingChallenges/046.1-asteroids-part-1"
   - title: "Asteroids - Part 2"
-    url: "CodingChallenges/046.2-asteroids-part-2"
+    url: "/CodingChallenges/046.2-asteroids-part-2"
 
 custom_sections:
   - title: "Contact Yining Shi"
