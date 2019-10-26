@@ -20,7 +20,7 @@ videos:
     url: "/GuestTutorials/006-golan-levin-modulo-operator"
   - title: "Fractal Trees Coding Challenge"
     author: "The Coding Train"
-    url: "/CodingChallenges/014-fractaltree.html"
+    url: "/CodingChallenges/014-fractaltree"
   - title: "UNCRACKABLE? The Collatz Conjecture"
     author: "Numberphile"
     video_id: "5mFpVDpKX70"
