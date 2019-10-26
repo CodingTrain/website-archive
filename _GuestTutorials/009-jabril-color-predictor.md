@@ -1,6 +1,5 @@
 ---
-title: "Guest Tutorial #9: Color Predictor with Jabril
-"
+title: "Guest Tutorial #9: Color Predictor with Jabril"
 video_number: 9
 date: 2018-04-10
 video_id: iN3WAko2rL8
