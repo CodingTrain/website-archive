@@ -20,4 +20,4 @@ custom_sections:
 
 Jabril visits the Coding Train to present a new project: A Machine Learning Color Predictor!
 
-Self-proclaimed "fuil time cany consumer", Jabril explores the realm of software development employing his unique skill of speaking without moving his lips. His entertaining personality guides us down the path as he dabbles in AI, machine learning, robotics and video games.
+Self-proclaimed "full time candy consumer", Jabril explores the realm of software development, employing his unique skill of speaking without moving his lips. We are highly entertained as he dabbles through AI, machine learning, robotics and video games.
