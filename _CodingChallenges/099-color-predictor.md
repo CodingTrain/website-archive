@@ -22,7 +22,7 @@ videos:
   - title: "Jabril on Youtube"
     url: "https://www.youtube.com/channel/UCQALLeQPoZdZC4JNUboVEUg"
   - title: "Jabril on The Coding Train"
-    video_id: "iN3WAko2rL8"
+    url: "/GuestTutorials/009-jabril-color-predictor"
   - title: "My Neural Networks playlist"
     playlist_id: "PLRqwX-V7Uu6aCibgK1PTWWu9by6XFdCfh"
   - title: "Neural Networks"
