@@ -41,6 +41,7 @@ let directories = {
   _GuestTutorials: formatDefinitions.video,
   _Streams: formatDefinitions.stream,
   _Tutorials: formatDefinitions.video,
+  _CodingInTheCabana: formatDefinitions.video,
 };
 
 let knownVideos = {};
@@ -235,7 +236,12 @@ describe('Repositories', () => {
 
           //If repository contains 'github.com' let the test pass
           if (repository.match(/.*github\.com\/CodingTrain\/.*/)) return;
-          
+
+          // Allow external links for guest tutorials folder.
+          for (file of files) {
+            if (file.path.match(/.*\/_GuestTutorials\/.*/)) return;
+          }
+
           const stat = fs.statSync(urlToRepositoryDirectoryFilename(repository));
           if (!stat.isDirectory) {
             throw new Error('Repository is not a directory');
