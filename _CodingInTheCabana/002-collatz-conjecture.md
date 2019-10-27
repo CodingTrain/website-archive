@@ -24,7 +24,7 @@ videos:
   - title: "UNCRACKABLE? The Collatz Conjecture"
     author: "Numberphile"
     video_id: "5mFpVDpKX70"
-    
+
 contributions:
   - title: "collatz rainbow tree"
     author:
@@ -33,5 +33,4 @@ contributions:
     url: "https://editor.p5js.org/sequentialchaos/full/R3G_dBXzc"
     source: "https://editor.p5js.org/sequentialchaos/sketches/R3G_dBXzc"
 ---
-
 It's the second episode of Coding in the Cabana! Here I attempt to visualize the Collatz Conjecture in Processing.
