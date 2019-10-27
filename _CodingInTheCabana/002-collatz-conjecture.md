@@ -36,5 +36,11 @@ contributions:
     author: "ALVAROCA"
     url: "https://editor.p5js.org/ALVAROCA/full/2yoCVWCYI"
     source: "https://editor.p5js.org/ALVAROCA/sketches/2yoCVWCYI"
+  - title: "Collatz growing tree"
+    author:
+      name: "Vanawy"
+      url: "https://github.com/vanawy"
+    url: "https://editor.p5js.org/Vanawy/full/JQkClspVZ"
+    source: "https://editor.p5js.org/Vanawy/sketches/JQkClspVZ"
 ---
 It's the second episode of Coding in the Cabana! Here I attempt to visualize the Collatz Conjecture in Processing.
