@@ -32,5 +32,9 @@ contributions:
       url: "https://github.com/sequentialchaos"
     url: "https://editor.p5js.org/sequentialchaos/full/R3G_dBXzc"
     source: "https://editor.p5js.org/sequentialchaos/sketches/R3G_dBXzc"
+  - title: "growing visualization"
+    author: "ALVAROCA"
+    url: "https://editor.p5js.org/ALVAROCA/full/2yoCVWCYI"
+    source: "https://editor.p5js.org/ALVAROCA/sketches/2yoCVWCYI"
 ---
 It's the second episode of Coding in the Cabana! Here I attempt to visualize the Collatz Conjecture in Processing.
