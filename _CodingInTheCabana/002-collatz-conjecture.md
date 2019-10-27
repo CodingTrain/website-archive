@@ -24,7 +24,7 @@ videos:
   - title: "UNCRACKABLE? The Collatz Conjecture"
     author: "Numberphile"
     video_id: "5mFpVDpKX70"
-    
+
 contributions:
   - title: "growing visualization"
     author: "ALVAROCA"
