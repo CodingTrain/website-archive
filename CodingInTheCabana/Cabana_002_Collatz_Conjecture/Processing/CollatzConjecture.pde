@@ -1,10 +1,17 @@
+// The Collatz Conjecture
+// The Coding Train / Daniel Shiffman
+// https://thecodingtrain.com/CodingInTheCabana/002-collatz-conjecture.html
+// https://youtu.be/EYLWxwo1Ed8
+// https://editor.p5js.org/codingtrain/sketches/XjLDE7gu6
+
 import processing.pdf.*;
+
 void setup() {
   //size(1200, 600);
   fullScreen();
-  // beginRecord(PDF, "collatz.pdf"); 
+  // beginRecord(PDF, "collatz.pdf");
   background(0);
-  for (int i = 1; i < 100000; i++) { 
+  for (int i = 1; i < 100000; i++) {
     IntList sequence = new IntList();
     int n = i;
     do {
@@ -12,7 +19,7 @@ void setup() {
       n = collatz(n);
     } while (n != 1);
     sequence.append(1);
-    sequence.reverse(); 
+    sequence.reverse();
     float len = height/100.0;
     float angle = 0.15;
     resetMatrix();

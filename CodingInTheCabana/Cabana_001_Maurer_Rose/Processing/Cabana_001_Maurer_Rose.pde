@@ -1,7 +1,9 @@
 // Maurer Rose
-// The Coding Train
+// The Coding Train / Daniel Shiffman
+// https://thecodingtrain.com/CodingInTheCabana/002-collatz-conjecture.html
 // https://youtu.be/4uU9lZ-HSqA
-// https://en.wikipedia.org/wiki/Maurer_rose
+// https://editor.p5js.org/codingtrain/sketches/qa7RiptE9
+
 
 float n = 0;
 float d = 0;
@@ -24,7 +26,7 @@ void draw() {
     float r = 150 * sin(radians(n*k));
     float x = r * cos(radians(k));
     float y = r * sin(radians(k));
-    vertex(x,y);    
+    vertex(x,y);
   }
   endShape();
 
@@ -37,13 +39,13 @@ void draw() {
     float r = 150 * sin(radians(n*k));
     float x = r * cos(radians(k));
     float y = r * sin(radians(k));
-    vertex(x,y);    
+    vertex(x,y);
   }
   endShape();
 
   n += 0.001;
   d += 0.003;
 
-  
-  
+
+
 }
