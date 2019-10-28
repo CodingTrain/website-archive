@@ -51,5 +51,11 @@ contributions:
       url: "https://github.com/diplofocus"
     url: "https://editor.p5js.org/diplofocus/full/oIG2Ir3vD"
     source: "https://editor.p5js.org/diplofocus/full/oIG2Ir3vD"
+  - title: "Collatz Visualization in Python's P5 Lib"
+    author:
+      name: "Alex Day"
+      url: "https://alexday.me"
+    url: "https://imgur.com/a/pXfzD8j"
+    source: "https://github.com/AlexanderDavid/Collatz-Conjecture-Visualization"
 ---
 It's the second episode of Coding in the Cabana! Here I attempt to visualize the Collatz Conjecture in Processing.
