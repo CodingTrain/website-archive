@@ -45,5 +45,11 @@ contributions:
   - title: "Collatz' birb in Processing"
     author: "SpectralPiano"
     source: "https://github.com/SpectralFlame/collatz-birb"
+  - title: "Collatz Visualization in Python's P5 Lib"
+    author:
+      name: "Alex Day"
+      url: "alexday.me"
+    url: "https://imgur.com/a/pXfzD8j"
+    source: "https://github.com/AlexanderDavid/Collatz-Conjecture-Visualization"
 ---
 It's the second episode of Coding in the Cabana! Here I attempt to visualize the Collatz Conjecture in Processing.
