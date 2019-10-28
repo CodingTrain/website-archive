@@ -42,5 +42,8 @@ contributions:
       url: "https://github.com/vanawy"
     url: "https://editor.p5js.org/Vanawy/full/JQkClspVZ"
     source: "https://editor.p5js.org/Vanawy/sketches/JQkClspVZ"
+  - title: "Collatz' birb in Processing"
+    author: "SpectralPiano"
+    source: "https://github.com/SpectralFlame/collatz-birb"
 ---
 It's the second episode of Coding in the Cabana! Here I attempt to visualize the Collatz Conjecture in Processing.
