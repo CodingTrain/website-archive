@@ -46,7 +46,7 @@ contributions:
     author: "SpectralPiano"
     source: "https://github.com/SpectralFlame/collatz-birb"
   - title: "collatz-steered tree"
-    author: 
+    author:
       name: "diplofocus"
       url: "https://github.com/diplofocus"
     url: "https://editor.p5js.org/diplofocus/full/oIG2Ir3vD"
