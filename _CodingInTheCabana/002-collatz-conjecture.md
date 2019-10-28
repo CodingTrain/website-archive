@@ -48,7 +48,7 @@ contributions:
   - title: "Collatz Visualization in Python's P5 Lib"
     author:
       name: "Alex Day"
-      url: "alexday.me"
+      url: "https://alexday.me"
     url: "https://imgur.com/a/pXfzD8j"
     source: "https://github.com/AlexanderDavid/Collatz-Conjecture-Visualization"
 ---
