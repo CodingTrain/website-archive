@@ -69,7 +69,7 @@ contributions:
       url: "https://jcponce.github.io"
     url: "https://jcponce.github.io/sketches/collatz"
     source: "https://github.com/jcponce/jcponce.github.io/tree/master/sketches/collatz"
-  - title: "Collatz Sea Tree"
+  - title: "Collatz Sea Weed"
     author:
       name: "Manish Kumar"
       url: "https://github.com/manishKr135"
