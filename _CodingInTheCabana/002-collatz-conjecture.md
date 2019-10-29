@@ -69,5 +69,11 @@ contributions:
       url: "https://jcponce.github.io"
     url: "https://jcponce.github.io/sketches/collatz"
     source: "https://github.com/jcponce/jcponce.github.io/tree/master/sketches/collatz"
+  - title: "Collatz Sea Tree"
+    author:
+      name: "Manish Kumar"
+      url: "https://github.com/manishKr135"
+    url: "https://github.com/manishKr135/CollatzWeed"
+    source: "https://github.com/manishKr135/CollatzWeed"
 ---
 It's the second episode of Coding in the Cabana! Here I attempt to visualize the Collatz Conjecture in Processing.
