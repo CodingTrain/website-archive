@@ -63,5 +63,11 @@ contributions:
       url: "https://github.com/LuisMDLeon"
     url: "https://codepen.io/LuisMDLeon/full/jOOLzGB"
     source: "https://codepen.io/LuisMDLeon/pen/jOOLzGB?editors=1010"
+  - title: "Collatz Sea Tree"
+    author:
+      name: "Juan Carlos Ponce Campuzano"
+      url: "https://jcponce.github.io"
+    url: "https://jcponce.github.io/sketches/collatz"
+    source: "https://github.com/jcponce/jcponce.github.io/tree/master/sketches/collatz"
 ---
 It's the second episode of Coding in the Cabana! Here I attempt to visualize the Collatz Conjecture in Processing.
