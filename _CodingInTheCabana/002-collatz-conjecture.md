@@ -75,5 +75,11 @@ contributions:
       url: "https://github.com/manishKr135"
     url: "https://github.com/manishKr135/CollatzWeed"
     source: "https://github.com/manishKr135/CollatzWeed"
+  - title: "Collatz Sea Weed"
+    author:
+      name: "Manish Kumar"
+      url: "https://github.com/manishKr135"
+    url: "https://github.com/manishKr135/CollatzWeed"
+    source: "https://github.com/manishKr135/CollatzWeed" 
 ---
 It's the second episode of Coding in the Cabana! Here I attempt to visualize the Collatz Conjecture in Processing.
