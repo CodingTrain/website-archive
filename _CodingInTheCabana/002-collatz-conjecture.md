@@ -57,5 +57,11 @@ contributions:
       url: "https://alexday.me"
     url: "https://imgur.com/a/pXfzD8j"
     source: "https://github.com/AlexanderDavid/Collatz-Conjecture-Visualization"
+  - title: "Collatz Thing"
+    author:
+      name: "Luis M. de León"
+      url: "https://github.com/LuisMDLeon"
+    url: "https://codepen.io/LuisMDLeon/full/jOOLzGB"
+    source: "https://codepen.io/LuisMDLeon/pen/jOOLzGB?editors=1010"
 ---
 It's the second episode of Coding in the Cabana! Here I attempt to visualize the Collatz Conjecture in Processing.
