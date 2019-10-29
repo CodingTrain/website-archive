@@ -45,6 +45,12 @@ contributions:
   - title: "Collatz' birb in Processing"
     author: "SpectralPiano"
     source: "https://github.com/SpectralFlame/collatz-birb"
+  - title: "collatz-steered tree"
+    author:
+      name: "diplofocus"
+      url: "https://github.com/diplofocus"
+    url: "https://editor.p5js.org/diplofocus/full/oIG2Ir3vD"
+    source: "https://editor.p5js.org/diplofocus/full/oIG2Ir3vD"
   - title: "Collatz Visualization in Python's P5 Lib"
     author:
       name: "Alex Day"
