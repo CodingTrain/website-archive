@@ -52,7 +52,7 @@ contributions:
     url: "https://imgur.com/a/pXfzD8j"
     source: "https://github.com/AlexanderDavid/Collatz-Conjecture-Visualization"
   - title: "Collatz Sea Tree"
-    author: 
+    author:
       name: "Juan Carlos Ponce Campuzano"
       url: "https://jcponce.github.io"
     url: "https://jcponce.github.io/sketches/collatz"
