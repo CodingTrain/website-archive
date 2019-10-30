@@ -100,6 +100,7 @@ collections:
   GuestTutorials:    { output: true }
   Courses:           { output: true }
   Guides:            { output: true }
+  FAQ:               { output: true }
 
 
 
@@ -152,6 +153,12 @@ defaults:
       video_type:       "Session"
       can_contribute:   false
 
+  # Guides
   - scope:              { path: "", type: "Guides" }
     values:
       layout:           "guide"
+
+  # Frequently Asked Questions
+  - scope:              { path: "", type: "FAQ"}
+    values:
+      layout:           "faq"

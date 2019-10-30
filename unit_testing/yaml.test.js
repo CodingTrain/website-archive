@@ -42,6 +42,7 @@ let directories = {
   _Streams: formatDefinitions.stream,
   _Tutorials: formatDefinitions.video,
   _CodingInTheCabana: formatDefinitions.video,
+  _FAQ: formatDefinitions.faq,
 };
 
 let knownVideos = {};
@@ -60,6 +61,13 @@ const checkFolder = (videoFormat, name, { directories, files }) => describe(name
 
   it('index.md is valid', () => {
     expect(files['index.md']).not.toBeUndefined();
+
+    // FAQ exception for series format requirement.
+    if (name === "_FAQ") {
+      assertPropTypes(formatDefinitions.faq, files['index.md'].content, "YAML", 'index.md');
+      return;
+    }
+
     assertPropTypes(formatDefinitions.series, files['index.md'].content, "YAML", 'index.md');
   });
 
