@@ -75,5 +75,11 @@ contributions:
       url: "https://github.com/manishKr135"
     url: "https://github.com/manishKr135/CollatzWeed"
     source: "https://github.com/manishKr135/CollatzWeed"
+  - title: "CollatzSunrise"
+    author:
+      name: "Anurag Hazra"
+      url: "https://anuraghazra.github.io/"
+    url: "https://anuraghazra.github.io/CanvasFun/collatzSunrise/"
+    source: "https://github.com/anuraghazra/CanvasFun/tree/master/collatzSunrise"
 ---
 It's the second episode of Coding in the Cabana! Here I attempt to visualize the Collatz Conjecture in Processing.
