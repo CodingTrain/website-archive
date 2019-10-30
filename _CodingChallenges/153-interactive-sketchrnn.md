@@ -29,4 +29,4 @@ videos:
     url: "/CodingChallenges/152-rdp-algorithm"
 ---
 
-This challenge uses SketchRNN from ml5.js to create a program where the person starts the drawing and computer will finish it using whatever SketchRNN model is loaded.
+This challenge uses  the pre-trained SketchRNN machine learning model (available with the ml5.js library) to create a p5.js sketch that finishes a person's drawing.
