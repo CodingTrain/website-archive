@@ -81,5 +81,11 @@ contributions:
       url: "https://anuraghazra.github.io/"
     url: "https://anuraghazra.github.io/CanvasFun/collatzSunrise/"
     source: "https://github.com/anuraghazra/CanvasFun/tree/master/collatzSunrise"
+  - title: "Collatz tree where the branch width is proportional to the number of times a number is used"
+    author:
+      name: "Remko aka SuperRembo"
+      url: "https://twitter.com/SuperRembo"
+    url: "https://editor.p5js.org/SuperRembo/present/FlVS_V65b"
+    source: "https://editor.p5js.org/SuperRembo/sketches/FlVS_V65b"
 ---
 It's the second episode of Coding in the Cabana! Here I attempt to visualize the Collatz Conjecture in Processing.
