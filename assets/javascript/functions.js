@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
       navButton.addEventListener('click', toggleMobileNav);
       navMenu.addEventListener('keydown', handleKeydown);
       navButton.setAttribute('aria-label', 'Open navigation menu');
-      setBackToTopButton()
+      setUpBackToTopButton();
     }
 
     function handleKeydown(event) {
@@ -113,13 +113,13 @@ document.addEventListener('DOMContentLoaded', function (event) {
       });
     }
 
-    function setBackToTopButton() {
+    function setUpBackToTopButton() {
       var backToTopButton = document.querySelector('.back-to-top-button');
       document.addEventListener('scroll', () => {
         if (window.scrollY > 1000) {
-          backToTopButton.classList.add('active')
+          backToTopButton.classList.add('active');
         } else {
-          backToTopButton.classList.remove('active')  
+          backToTopButton.classList.remove('active');
         }
       });
       backToTopButton.addEventListener('click', () => {
