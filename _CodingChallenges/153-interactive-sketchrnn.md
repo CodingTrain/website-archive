@@ -4,7 +4,7 @@ video_number: 153
 date: 2019-10-24
 video_id: ZCXkvwLxBrA
 web_editor: hcumr-aua
-repository: CC_153_InteractiveSketchRRN
+repository: CC_153_Interactive_SketchRRN
 
 links:
   - title: "ml5.js"
