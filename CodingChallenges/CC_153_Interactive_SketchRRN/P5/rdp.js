@@ -1,3 +1,8 @@
+// The Coding Train
+// https://thecodingtrain.com/CodingChallenges/153-interactive-sketchrnn.html
+// https://youtu.be/ZCXkvwLxBrA
+// https://editor.p5js.org/codingtrain/sketches/hcumr-aua
+
 let epsilon = 5;
 
 function rdp(startIndex, endIndex, allPoints, rdpPoints) {
