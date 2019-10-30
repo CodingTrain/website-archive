@@ -1,4 +1,4 @@
-name: Ruby
+name: Jekyll Build Test
 
 on: [push]
 
