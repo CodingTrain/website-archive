@@ -1,7 +1,7 @@
 ---
 title: "Interactive Drawing with SketchRNN"
 video_number: 153
-date: 2019-10-24
+date: 2019-10-31
 video_id: ZCXkvwLxBrA
 web_editor: hcumr-aua
 repository: CC_153_Interactive_SketchRRN
