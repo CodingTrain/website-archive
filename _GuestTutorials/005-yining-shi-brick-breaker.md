@@ -9,7 +9,8 @@ live_example: https://codingtrain.github.io/BrickBreaker/
 links:
   - title: "P5.playground"
     url: "http://yining1023.github.io/p5PlayGround"
-
+  - title: "Another Brick Breaker game"
+    url: "https://yining1023.github.io/brickBreaker/"
 videos:
   - title: "Asteroids - Part 1"
     url: "/CodingChallenges/046.1-asteroids-part-1"
