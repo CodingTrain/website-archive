@@ -16,7 +16,7 @@ links:
   - title: "Node.js"
     url: "https://nodejs.org"
   - title: "Learn I2C on Sparkfun"
-    https://learn.sparkfun.com/tutorials/i2c
+    url: "https://learn.sparkfun.com/tutorials/i2c"
 
 custom_sections:
 
