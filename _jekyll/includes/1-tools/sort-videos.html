@@ -3,6 +3,7 @@
 
   Parameters:
     videos Video[]              Array of videos that will be sorted.
+    sortByDate bool             Wether to sort the videos by date (default: false).
     reverse bool                Wether to reverse the order in which videos are storedin the array (default: false).
     future bool                 Wether to include future videos (default: false).
     [1.1] seriesPath string     The series path by which the videos will be filtered.
@@ -36,7 +37,11 @@
 {% endunless %}
 
 {% comment %} Filter out the index pages. {% endcomment %}
-{% assign out_sortedVideos = int_videos | where: 'layout', 'video' | sort: 'video_number' %}
+{% if include.sortByDate %}
+  {% assign out_sortedVideos = int_videos | where: 'layout', 'video' | sort: 'date' %}
+{% else %}
+  {% assign out_sortedVideos = int_videos | where: 'layout', 'video' | sort: 'video_number' %}
+{% endif %}
 
 {% comment %} Reverse video order if include.reverse is set to true. {% endcomment %}
 {% if include.reverse %}
