@@ -4,6 +4,7 @@ redirect_from: CodingChallenges/47-pixelsorting.html
 video_number: 47
 date: 2016-12-21
 video_id: JUDYkxU6J0o
+web_editor: zxruKuft9
 repository: CC_047_PixelSorting
 
 links:
