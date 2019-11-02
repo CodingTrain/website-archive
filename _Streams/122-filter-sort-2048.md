@@ -1,7 +1,7 @@
 ---
 title: "filter(), sort() and 2048"
 video_number: 122
-date: 2018-02-16
+date: 2018-02-18
 video_id: ze_o4YvZ6-s
 
 topics:

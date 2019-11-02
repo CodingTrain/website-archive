@@ -1,7 +1,7 @@
 ---
 title: "Collatz Conjecture"
 video_number: 2
-date: 2019-10-25
+date: 2019-10-27
 video_id: EYLWxwo1Ed8
 web_editor: XjLDE7gu6
 repository: Cabana_002_Collatz_Conjecture

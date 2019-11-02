@@ -2,7 +2,7 @@
 title: "Menger Sponge Fractal"
 redirect_from: CodingChallenges/02-mengersponge.html
 video_number: 2
-date: 2016-04-18
+date: 2016-04-17
 video_id: LG8ZK-rRkXo
 repository: CC_002_MengerSponge
 web_editor: 5kcBUriAy

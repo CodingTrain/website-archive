@@ -2,7 +2,7 @@
 title: "Chrome Extension with p5.js Sketch - Doodle Chrome Extension"
 redirect_from: CodingChallenges/83-doodle-chrome-extension.html
 video_number: 83
-date: 2017-11-16
+date: 2017-11-20
 video_id: IXXNIcQQLU8
 repository: CC_083_Chrome_Extension_with_p5js_Sketch
 
