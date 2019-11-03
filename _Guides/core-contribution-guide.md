@@ -112,4 +112,4 @@ from GitHub.
 
 Sometimes, things don't work like they should. If you get stuck, don't worry!
 Feel free to ask for help at any time! You can even join the `#website`
-channel over on Slack if you are a patron of The Coding Train.
+channel over on Slack if you are a member of The Coding Train.
