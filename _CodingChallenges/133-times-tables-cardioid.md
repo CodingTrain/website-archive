@@ -25,7 +25,7 @@ videos:
     url: "/Tutorials/9-additional-topics/9.20-polar-coordinates"
   - title: "The Modulo Operator"
     author: "Golan Levin"
-    url: "/GuestTutorials/6-golan-levin-modulo-operator"
+    url: "/GuestTutorials/006-golan-levin-modulo-operator"
 
 contributions:
   - title: "Grid of times tables"

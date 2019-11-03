@@ -104,6 +104,29 @@ contributions:
       url: "https://github.com/milchreis"
     url: "https://milchreis.github.io/Flashy/"
     source: "https://github.com/Milchreis/Flashy"
+  - title: "Super Optimized 2D Raycasting"
+    author:
+      name: "M M"
+    url: "https://editor.p5js.org/mmftl/present/6QIxezFS3"
+    source: "https://editor.p5js.org/mmftl/sketches/6QIxezFS3"
+  - title: "Ray, The Self Driving Robot"
+    author:
+      name: "Matheus Souza"
+      url: "https://github.com/matheuslrsouza"
+    url: "https://matheuslrsouza.github.io/particle-filter-js/"
+    source: "https://github.com/matheuslrsouza/particle-filter-js"
+  - title: "2D cave Exploration"
+    author:
+      name: "David Snyder"
+      url: "https://github.com/GypsyDangerous"
+    url: "https://editor.p5js.org/davidgraygs4@gmail.com/full/TsYNF-x9H"
+    source: "https://editor.p5js.org/davidgraygs4@gmail.com/sketches/TsYNF-x9H"
+  - title: "Ray casting with pygame"
+    author:
+      name: "Nate Plamondon"
+      url: "https://github.com/meznak"
+    video_id: "JoYN-UGypSg"
+    source: "https://github.com/meznak/ray_cast"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"
@@ -113,7 +136,7 @@ videos:
     video_id: "uSzGdfdOoG8"
   - title: "Coding Challenge: Rendering Ray Casting"
     author: "Coding Train"
-    video_id: "/CodingChallenges/146-rendering-ray-casting"
+    url: "/CodingChallenges/146-rendering-ray-casting"
 ---
 
 In this video, I implement a basic ray casting engine with line segment "surfaces" and vector "rays." The result simulates a light source casting shadows in a 2D canvas.

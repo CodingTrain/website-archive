@@ -1,7 +1,7 @@
 ---
 title: "Backpropagation"
 video_number: 115
-date: 2018-01-19
+date: 2018-01-20
 video_id: XHj52k75PYo
 
 topics:
@@ -39,8 +39,6 @@ videos:
     url: "https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab"
   - title: "Gradient Descent by 3Blue1Brown"
     video_id: "IHZwWFHWa-w"
-  - title: "Gradient Descent by Siraj Raval"
-    video_id: "XdM6ER7zTLk"
   - title: "My Video on Gradient Descent"
     video_id: "jc2IthslyzM"
 ---

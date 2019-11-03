@@ -1,5 +1,5 @@
 #
-# Jekyll Configuraton for https://codingtrain.github.io/Rainwbow-Code/
+# Jekyll Configuraton for https://thecodingtrain.com
 #
 #  ToDo for Jekyll v3.7:
 #    - move collections into a subfolder using collections_dir: <path>
@@ -66,7 +66,7 @@ links:
 markdown: kramdown
 
 # Exclude code for Node.js and Q_and_A
-exclude: [ 'Node', 'Q_and_A', 'unit_testing', 'node_modules', 'vendor/bundle/', 'vendor/cache/', 'vendor/gems/', 'vendor/ruby/']
+exclude: [ 'Node', 'Q_and_A', 'unit_testing', 'node_modules', 'vendor/bundle/', 'vendor/cache/', 'vendor/gems/', 'vendor/ruby/' ]
 
 # Include future videos (used for 'Upcoming Streams' section).
 future: true
@@ -93,11 +93,13 @@ includes_dir: _jekyll/includes
 
 # --- Collections ---
 collections:
-  Streams:          { output: true }
-  CodingChallenges: { output: true }
-  Tutorials:        { output: true }
-  GuestTutorials:   { output: true }
-  Courses:          { output: true }
+  Streams:           { output: true }
+  CodingChallenges:  { output: true }
+  Tutorials:         { output: true }
+  CodingInTheCabana: { output: true }
+  GuestTutorials:    { output: true }
+  Courses:           { output: true }
+  Guides:            { output: true }
 
 
 
@@ -109,35 +111,47 @@ defaults:
   - scope:              { path: "", type: "Streams" }
     values:
       layout:           "video"
-      video_type:       "stream"
+      video_type:       "Stream"
       can_contribute:   false
 
   # Coding Challenges
   - scope:              { path: "", type: "CodingChallenges" }
     values:
       layout:           "video"
-      video_type:       "coding challenge"
-      video_type_short: "challenge"
+      video_type:       "Coding Challenge"
+      video_type_short: "Challenge"
       can_contribute:   true
 
   # Tutorials
   - scope:              { path: "", type: "Tutorials" }
     values:
       layout:           "video"
-      video_type:       "tutorial"
+      video_type:       "Tutorial"
       can_contribute:   false
+
+  # Coding in the Cabana
+  - scope:              { path: "", type: "CodingInTheCabana" }
+    values:
+      layout:           "video"
+      video_type:       "Coding in the Cabana"
+      video_type_short: "Cabana"
+      can_contribute:   true
 
   # Guest Tutorials
   - scope:              { path: "", type: "GuestTutorials" }
     values:
       layout:           "video"
-      video_type:       "guest tutorial"
-      video_type_short: "tutorial"
-      can_contribute:   false
+      video_type:       "Guest Tutorial"
+      video_type_short: "Tutorial"
+      can_contribute:   true
 
   # Courses
   - scope:              { path: "", type: "Courses" }
     values:
       layout:           "video"
-      video_type:       "session"
+      video_type:       "Session"
       can_contribute:   false
+
+  - scope:              { path: "", type: "Guides" }
+    values:
+      layout:           "guide"

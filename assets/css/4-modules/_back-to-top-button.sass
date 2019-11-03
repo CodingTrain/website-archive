@@ -1,0 +1,33 @@
+
+.back-to-top-button
+  background: $ct-blue
+  z-index: 99
+  position: fixed
+  bottom: -50px
+  right: 5px
+  padding: 20px 5px 10px 5px
+  border-radius: 5px
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.6)
+  cursor: pointer
+  transition: all ease-in-out 0.5s
+
+  > span
+    background: #eee
+    width: 30px
+    height: 7px
+    border-radius: 5px
+    margin-bottom: 10px
+    position: relative
+
+  > span:nth-child(1)
+    transform: rotate(-45deg)
+    float: left
+    left: 7px
+
+  > span:nth-child(2)
+    transform: rotate(45deg)
+    float: right
+    right: 7px
+
+.back-to-top-button.active
+    bottom: 5px

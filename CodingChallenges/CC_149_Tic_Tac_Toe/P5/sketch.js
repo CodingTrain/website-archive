@@ -92,13 +92,13 @@ function draw() {
       let y = h * j + h / 2;
       let spot = board[i][j];
       textSize(32);
+      let r = w / 4;
       if (spot == players[1]) {
         noFill();
-        ellipse(x, y, w / 2);
+        ellipse(x, y, r * 2);
       } else if (spot == players[0]) {
-        let xr = w / 4;
-        line(x - xr, y - xr, x + xr, y + xr);
-        line(x + xr, y - xr, x - xr, y + xr);
+        line(x - r, y - r, x + r, y + r);
+        line(x + r, y - r, x - r, y + r);
       }
 
     }

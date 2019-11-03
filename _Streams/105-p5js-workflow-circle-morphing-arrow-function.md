@@ -1,7 +1,7 @@
 ---
 title: "p5.js Workflow, Circle Morphing and Arrow Function"
 video_number: 105
-date: 2017-10-27
+date: 2017-10-28
 video_id: ldx_J589fcs
 
 topics:
@@ -43,9 +43,9 @@ links:
 
 videos:
   - title: "Golan Levin's Circle Morphing"
-    url: "/GuestTutorials/7-golan-levin-circle-morphing"
+    url: "/GuestTutorials/007-golan-levin-circle-morphing"
   - title: "Golan Levin's Modulo Operator"
-    url: "/GuestTutorials/6-golan-levin-modulo-operator"
+    url: "/GuestTutorials/006-golan-levin-modulo-operator"
   - title: "ES6 Let"
     url: "/Tutorials/16-javascript-es6/16.1-let-vs-var"
   - title: "ES6 Const"

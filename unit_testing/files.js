@@ -8,6 +8,7 @@ const yamlFolders = [
   '_GuestTutorials',
   '_Streams',
   '_Tutorials',
+  '_CodingInTheCabana',
 ];
 
 

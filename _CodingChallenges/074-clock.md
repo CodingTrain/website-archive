@@ -16,6 +16,14 @@ links:
     url: "https://github.com/ITPNYU/ICM-2017"
 
 contributions:
+  - title: "Simple Analog Clock With Minute And Hour Smoothing"
+    author: "Abhijeet S. Mankani"
+    url: https://editor.p5js.org/abhijeetmankani/full/WKtYu4-Cd
+    source: https://editor.p5js.org/abhijeetmankani/sketches/WKtYu4-Cd
+  - title: "Rainbow Analog Clock With Minute And Hour Smoothing"
+    author: "Abhijeet S. Mankani"
+    url: https://editor.p5js.org/abhijeetmankani/full/K553n5FlB
+    source: https://editor.p5js.org/abhijeetmankani/sketches/K553n5FlB
   - title: "Digital 7 Segment Clock"
     author: "andreanidouglas"
     url: https://clock-p5-cmtedouglas.c9users.io/index.html
@@ -109,6 +117,30 @@ contributions:
       url: "https://github.com/owenmcateer/Motus-Art"
     url: "https://owenmcateer.github.io/Motus-Art/projects/week_09.html"
     source: "https://github.com/owenmcateer/Motus-Art/blob/master/src/week_09/main.js"
+  - title: "Modern Radio Clock"
+    author:
+      name: "Martin Marguerat"
+      url: "https://marramstudios.com"
+    url: "https://editor.p5js.org/martin@multiarts.ch/full/Hk3o7UQ07"
+    source: "https://editor.p5js.org/martin@multiarts.ch/sketches/Hk3o7UQ07"
+  - title: "Onion Clock"
+    author:
+      name: "Ernst Schmidt"
+      url: "https://ernst-schmidt.com"
+    url: "https://www.ernst-schmidt.com/coding/5d765ef90938150017951f9f"
+    source: "https://editor.p5js.org/Kubi/sketches/qgPruCwvR"
+  - title: "BB-Clock"
+    author:
+      name: "Boris Breuer"
+      url: "https://borisbreuer.de"
+    url: "https://borisbreuer.de/clock"
+    source: "https://github.com/borisbreuer/clock"
+  - title: "Puzzle Clock"
+    author:
+      name: "Ernst Schmidt"
+      url: "https://www.ernst-schmidt.com/"
+    url: "https://www.ernst-schmidt.com/coding/5c7838dd5896d80017d4452d"
+    source: "https://editor.p5js.org/Kubi/sketches/SkGfubabE"
 ---
 
 In this coding challenge, I attempt to program a clock in HTML5 canvas with the p5.js library.
