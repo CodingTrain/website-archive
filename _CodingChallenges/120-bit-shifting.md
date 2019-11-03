@@ -1,7 +1,7 @@
 ---
 title: "Bit Shifting"
 video_number: 120
-date: 2018-10-24
+date: 2018-10-25
 video_id: oCBlwsY8sR4
 web_editor: Hk8CVYvi7
 repository: CC_120_Bit_Shifting

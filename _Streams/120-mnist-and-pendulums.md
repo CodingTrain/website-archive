@@ -1,7 +1,7 @@
 ---
 title: " MNIST and Pendulums"
 video_number: 120
-date: 2018-02-09
+date: 2018-02-10
 video_id: KhogNPC24eI
 
 topics:

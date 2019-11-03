@@ -1,7 +1,7 @@
 ---
 title: "The Return of Neural Networks"
 video_number: 113
-date: 2018-01-05
+date: 2018-01-06
 video_id: raFdpMUWO9Q
 
 topics:

@@ -2,7 +2,7 @@
 title: "Langton's Ant"
 redirect_from: CodingChallenges/89-langtonsant.html
 video_number: 89
-date: 2018-01-07
+date: 2018-01-08
 video_id: G1EgjgMo48U
 repository: CC_089_langtonsant
 web_editor: svbAzt8sb

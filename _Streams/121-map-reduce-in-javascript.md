@@ -1,7 +1,7 @@
 ---
 title: "map() and reduce() in JavaScript"
 video_number: 121
-date: 2018-02-16
+date: 2018-02-17
 video_id: kWoZ9_ECZxQ
 
 topics:

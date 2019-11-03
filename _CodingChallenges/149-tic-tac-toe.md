@@ -1,7 +1,7 @@
 ---
 title: "Tic Tac Toe"
 video_number: 149
-date: 2019-07-23
+date: 2019-07-24
 video_id: GTWrWM1UsnA
 web_editor: 5JngATm3c
 repository: CC_149_Tic_Tac_Toe
