@@ -71,5 +71,11 @@ contributions:
       url: "https://github.com/GypsyDangerous"
     url: "https://github.com/GypsyDangerous/QuickHull-in-python"
     source: "https://github.com/GypsyDangerous/QuickHull-in-python"
+  - title: "Visual convex hull (click to draw points, press enter / swipe to start)"
+    author:
+      name: "Abhishek Choudhary"
+      url: "https://theabbie.github.io"
+    url: "https://theabbie.github.io/files/hull.html"
+    source: "https://github.com/theabbie/theabbie.github.io/blob/master/files/hull.html"
 ---
 In this coding challenge, I implement the "Gift Wrapping algorithm" (aka Jarvis march) for calculating a convex hull in JavaScript. This is a foundational topic in computational geometry!
