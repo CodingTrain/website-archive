@@ -2,7 +2,7 @@
 title: "Julia Set in Processing"
 redirect_from: CodingChallenges/22-juliaset.html
 video_number: 22
-date: 2016-06-17
+date: 2016-06-16
 video_id: fAsaSkmbF5s
 repository: CC_022_JuliaSet
 links:

@@ -1,7 +1,7 @@
 ---
 title: "More Neural Networks"
 video_number: 118
-date: 2018-02-02
+date: 2018-02-04
 video_id: e8H588SXu6U
 
 topics:

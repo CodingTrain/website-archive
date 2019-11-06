@@ -205,7 +205,7 @@ for (const [name, directory] of Object.entries(files)) {
   checkFolder(directories[name], name, directory);
 }
 
-describe('Repositories', () => {
+xdescribe('Repositories', () => {
   describe('Web Editor mappings', () => {
     for (const [repository, web_editors] of Object.entries(repositoryToWebEditorMapping)) {
       const nonBlankKeys = Object.keys(web_editors).filter(x => x !== 'undefined');

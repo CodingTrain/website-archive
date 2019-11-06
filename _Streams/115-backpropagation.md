@@ -1,7 +1,7 @@
 ---
 title: "Backpropagation"
 video_number: 115
-date: 2018-01-19
+date: 2018-01-20
 video_id: XHj52k75PYo
 
 topics:
