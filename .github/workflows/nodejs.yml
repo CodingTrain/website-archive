@@ -24,10 +24,12 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: npm install and test
+    - name: Installing Node Dependencies
       run: |
         cd unit_testing
         npm install
+    - name: Running Jest
+      run: |
         npm run test
       env:
         CI: true
