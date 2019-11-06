@@ -23,7 +23,7 @@ jobs:
         path: unit_testing/node_modules
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
-          ${{ runner.os }}-node-cache
+          ${{ runner.os }}-node-
     - name: npm install and test
       run: |
         cd unit_testing
