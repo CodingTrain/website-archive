@@ -30,6 +30,7 @@ jobs:
         npm install
     - name: Running Jest
       run: |
+        cd unit_testing
         npm run test
       env:
         CI: true
