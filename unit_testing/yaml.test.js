@@ -42,6 +42,7 @@ let directories = {
   _Streams: formatDefinitions.stream,
   _Tutorials: formatDefinitions.video,
   _CodingInTheCabana: formatDefinitions.video,
+  _TeachableMachine: formatDefinitions.video,
 };
 
 let knownVideos = {};
