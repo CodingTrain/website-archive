@@ -24,6 +24,11 @@ function setup() {
 
 function draw() {
   background(0);
+  fill(0);
+  noStroke();
+  textSize(12);
+  text(`Best: ${floor(recordDistance)}`, 340, 10);
+  
   fill(255);
   for (var i = 0; i < cities.length; i++) {
     ellipse(cities[i].x, cities[i].y, 8, 8);

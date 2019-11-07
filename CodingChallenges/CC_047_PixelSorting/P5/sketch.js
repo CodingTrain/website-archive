@@ -12,6 +12,7 @@ let sorted;
 let index = 0;
 
 function preload() {
+    // try data/sunflower.jpg or data/sunflower400.jpg
     img = loadImage("data/sunflower100.jpg");
 }
 

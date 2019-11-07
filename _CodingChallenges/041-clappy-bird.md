@@ -2,7 +2,7 @@
 title: "Clappy Bird"
 redirect_from: CodingChallenges/41-clappy-bird.html
 video_number: 41
-date: 2016-08-20
+date: 2016-10-20
 video_id: aKiyCeIuwn4
 repository: CC_041_ClappyBird
 web_editor: tL29haKoC

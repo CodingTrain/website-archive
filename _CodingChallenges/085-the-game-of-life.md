@@ -19,7 +19,7 @@ videos:
   - title: "2D Arrays in JavaScript"
     url: "/Tutorials/9-additional-topics/9.15-2d-arrays-in-javascript"
   - title: "The Modulo Operator with Golan Levin"
-    url: "/GuestTutorials/6-golan-levin-modulo-operator"
+    url: "/GuestTutorials/006-golan-levin-modulo-operator"
 
 contributions:
   - title: "Game of Life"

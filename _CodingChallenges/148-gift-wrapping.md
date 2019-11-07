@@ -1,7 +1,7 @@
 ---
 title: "Gift Wrapping Algorithm"
 video_number: 148
-date: 2019-07-10
+date: 2019-07-13
 video_id: YNyULRrydVI
 web_editor: IVE9CxBOF
 repository: CC_148_Gift_Wrapping
@@ -15,14 +15,14 @@ links:
 videos:
   - title: "ES6 Arrow Syntax"
     author: "The Coding Train"
-    video_id: "/Tutorials/16-javascript-es6/16.3-arrow-function"
+    url: "/Tutorials/16-javascript-es6/16.3-arrow-function"
 contributions:
   - title: "Jarvis's convex hull algorithm"
     author:
       name: "David Snyder"
       url: "https://github.com/GypsyDangerous"
-    url: "https://editor.p5js.org/davidgraygs4@gmail.com/present/4fkl_Z7Un"
-    source: "https://editor.p5js.org/davidgraygs4@gmail.com/sketches/4fkl_Z7Un"
+    url: "https://editor.p5js.org/D_Snyder/present/4fkl_Z7Un"
+    source: "https://editor.p5js.org/D_Snyder/sketches/4fkl_Z7Un"
   - title: "JarvisMarch.pde"
     author:
       name: "Fi Graham"
@@ -71,5 +71,11 @@ contributions:
       url: "https://github.com/GypsyDangerous"
     url: "https://github.com/GypsyDangerous/QuickHull-in-python"
     source: "https://github.com/GypsyDangerous/QuickHull-in-python"
+  - title: "Visual convex hull (click to draw points, press enter / swipe to start)"
+    author:
+      name: "Abhishek Choudhary"
+      url: "https://theabbie.github.io"
+    url: "https://theabbie.github.io/files/hull.html"
+    source: "https://github.com/theabbie/theabbie.github.io/blob/master/files/hull.html"
 ---
 In this coding challenge, I implement the "Gift Wrapping algorithm" (aka Jarvis march) for calculating a convex hull in JavaScript. This is a foundational topic in computational geometry!
