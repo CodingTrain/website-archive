@@ -1,7 +1,7 @@
 ---
 title: "Chrome Extensions Continued"
 video_number: 107
-date: 2017-11-17
+date: 2017-11-18
 video_id: h3p0U8yWrMU
 
 topics:

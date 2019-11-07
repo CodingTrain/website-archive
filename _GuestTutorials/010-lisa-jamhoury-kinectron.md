@@ -4,6 +4,12 @@ video_number: 10
 date: 2018-04-11
 video_id: BV6xK3EOznI
 
+links:
+  - title: "Kinectron"
+    url: "https://kinectron.github.io/"
+  - title: "Three.js Examples"
+    url: "https://github.com/kinectron/kinectron/tree/master/examples/threejs_examples"
+
 custom_sections:
   - title: "Contact Lisa"
     items:

@@ -7,10 +7,11 @@ permalink: /
 {% include 1-tools/sort-videos.html videos=site.Streams future=true reverse=true %}
 {% assign nextStream = out_sortedVideos | where_exp: 'stream', 'stream.date >= site.time' | first %}
 
-{% comment %} Get latest coding challenges. {% endcomment %}
-{% include 1-tools/sort-videos.html videos=site.CodingChallenges reverse=true %}
+{% comment %} Get latest coding challenges and coding in the cabana. {% endcomment %}
+{% assign CabanaAndChallengeVideos = site.CodingInTheCabana | concat: site.CodingChallenges %}
+{% include 1-tools/sort-videos.html videos=CabanaAndChallengeVideos sortByDate=true reverse=true %}
 
-{% comment %} Use the latest coding challenge if a stream hasn't been scheduled yet. {% endcomment %}
+{% comment %} Use the latest coding challenge or coding in the cabana if a stream hasn't been scheduled yet. {% endcomment %}
 {% if nextStream == null %}
   {% assign offset = 1 %}
   {% assign nextStream = out_sortedVideos | first %}
@@ -20,9 +21,9 @@ permalink: /
 
 {% assign featuredVideos = '' | split: '' %}
 
-{% comment %} Add latest coding challenges to featured videos array. {% endcomment %}
-{% for challenge in out_sortedVideos limit:2 offset:offset %}
-  {% assign featuredVideos = featuredVideos | push: challenge %}
+{% comment %} Add latest coding challenges or coding in the cabana to featured videos array. {% endcomment %}
+{% for challengeOrCabana in out_sortedVideos limit:2 offset:offset %}
+  {% assign featuredVideos = featuredVideos | push: challengeOrCabana %}
 {% endfor %}
 
 {% comment %} Get lastest stream and add it to the featured videos array. {% endcomment %}

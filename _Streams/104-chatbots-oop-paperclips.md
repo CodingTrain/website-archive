@@ -1,7 +1,7 @@
 ---
 title: "Chatbots with p5.Speech, More OOP in JS & Paperclips"
 video_number: 104
-date: 2017-10-13
+date: 2017-10-14
 video_id: gFqBnxIm5Us
 
 topics:
