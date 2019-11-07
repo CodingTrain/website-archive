@@ -1,8 +1,8 @@
 ---
-title: Audio - Teachable Machine
+title: "Teachable Machine: Audio"
 video_number: 3
 date: 2019-11-07
-video_id: AAAAAAAAAAAC
+video_id: TOrVsLklltM
 repository: 3-teachable-audio
 web_editor: e3nrNMG7A
 
@@ -19,4 +19,4 @@ links:
     url: "https://learn.ml5js.org/docs/#/reference/sound-classifier"
 ---
 
-Here we look at how to use Teachable Machine by Google to create a sound classification model and use it in p5js sketches.
+ In this video, I train a sound classifier and import the machine learning model into a p5.js sketch with the ml5.js library.
