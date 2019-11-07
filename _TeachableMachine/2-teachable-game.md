@@ -1,8 +1,8 @@
 ---
-title: Game Controls
+title: Snake Game - Teachable Machine
 video_number: 2
-date: 2019-11-07
-video_id: "aaaaaaac"
+date: 2019-11-06
+video_id: AAAAAAAAAAAB
 repository: false
 web_editor: tqoOkW_ai
 

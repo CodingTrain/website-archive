@@ -157,10 +157,10 @@ defaults:
       layout:           "guide"
 
 
-  # Teachable Machines
+  # Teachable Machine
   - scope:              { path: "", type: "TeachableMachine" }
     values:
       layout:           "video"
-      video_type:       "Teachable Machine Tutorial"
-      video_type_short: "Tutorial"
+      video_type:       "Coding Challenge"
+      video_type_short: "Challenge"
       can_contribute:   true
