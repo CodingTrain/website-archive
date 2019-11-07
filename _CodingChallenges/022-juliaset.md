@@ -2,7 +2,7 @@
 title: "Julia Set in Processing"
 redirect_from: CodingChallenges/22-juliaset.html
 video_number: 22
-date: 2016-06-17
+date: 2016-06-16
 video_id: fAsaSkmbF5s
 repository: CC_022_JuliaSet
 links:
@@ -11,6 +11,10 @@ links:
   - title: "Julia Set page"
     url: "http://paulbourke.net/fractals/juliaset/"
     author: "Paul Bourke"
+videos:
+  - title: "Coding Challenge: Mandelbrot Set"
+    author: "The Coding Train"
+    url: "/CodingChallenges/021-mandelbrot-p5"
 contributions:
   - title: "Julia set with Mandelbrot map in p5.js"
     author:

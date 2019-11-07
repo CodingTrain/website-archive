@@ -1,7 +1,7 @@
 ---
 title: "Bit Shifting"
 video_number: 120
-date: 2018-10-24
+date: 2018-10-25
 video_id: oCBlwsY8sR4
 web_editor: Hk8CVYvi7
 repository: CC_120_Bit_Shifting
@@ -16,7 +16,7 @@ videos:
   - title: "Seven-Segment Display"
     url: "/CodingChallenges/117-seven-segment"
   - title: "The Modulo Operator with Golan Levin"
-    url: "/GuestTutorials/6-golan-levin-modulo-operator"
+    url: "/GuestTutorials/006-golan-levin-modulo-operator"
 ---
 
 In this coding challenge, I talk about bitwise operations, and more specifically, bit shifting.

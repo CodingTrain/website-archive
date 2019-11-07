@@ -18,7 +18,7 @@ videos:
   - title: "Inheritance in JavaScript"
     video_id: "MfxBfRD0FVU"
   - title: "Phaser Game Development with Catt Small"
-    video_id: "T9kOFSFvgKc"
+    url: "/GuestTutorials/008-catt-small-phaser-game-development"
 
 contributions:
   - title: "Koji version"

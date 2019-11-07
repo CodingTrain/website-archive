@@ -22,6 +22,10 @@ contributions:
     author:
       name: "Veta314"
     url: "https://editor.p5js.org/Veta314/sketches/Skm8IvjxV"
+  - title: "Infinite Zoom of Toothpicks"
+    author:
+      name: "tht-jxny"
+    url: "https://editor.p5js.org/tht-jxny/full/HJXcWqoW4"
 ---
 
 In this coding challenge, I implement Omar Pol's fractal toothpick sequence.

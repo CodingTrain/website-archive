@@ -89,7 +89,7 @@ You don't have to specify all key-value pairs! Only `title`, `author.name` and `
 
 ## 3. Create a Pull Request
 
-The last step is creating a pull request for your changes. Just choose "Pull Request" to create one. Fill out the required information (title and description) and hit "Open". Please try to **include a link to a running demo** (or video / gif /  screen capture) in the pull request's description. This makes it easy to  quickly view the contribution and provide feedback!
+The last step is creating a pull request for your changes. Just choose "Pull Request" to create one. Fill out the required information (title and description) and hit "Open". Please try to **include a link to a running demo** (or video / gif /  screen capture) in the pull request's description. This makes it easy to  quickly view the contribution and provide feedback! There is also a place in the pull request template to include your preferences about your contribution being shared on The Coding Train's social media.
 
 That's it! You will be notified as soon as a contributor with write access to this repository has reviewed your changes.
 

@@ -53,5 +53,9 @@ contributions:
       url: "https://www.jackuss.nl"
     url: "http://coding.jackuss.nl/FleeingNumbers/index.html"
     source: "https://github.com/jackuss1981/FleeingNumbers"
+  - title: "Fancy Clock"
+    author: "Shrike"
+    url: https://deshrike.github.io/FancyClock/
+    source: https://github.com/DeShrike/FancyClock
 ---
 In this coding challenge, I look at extracting font path points from text in p5.js with p5.Font.textToPoints().  I render the text as particles with steering behaviors that react to the mouse.

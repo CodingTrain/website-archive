@@ -14,7 +14,7 @@ links:
 
 videos:
   - title: "Guest Tutorial #6: The Modulo Operator with Golan Levin"
-    url: "/GuestTutorials/6-golan-levin-modulo-operator"
+    url: "/GuestTutorials/006-golan-levin-modulo-operator"
 
 contributions:
   - title: "Where Should I Stand?"

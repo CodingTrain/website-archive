@@ -1,7 +1,7 @@
 ---
 title: "4D Hypercube (aka 'Tesseract')"
 video_number: 113
-date: 2018-08-21
+date: 2018-08-22
 video_id: XE3YDVdQSPo
 repository: CC_113_Hypercube
 web_editor: n0y8ntgWi
@@ -51,8 +51,8 @@ contributions:
     author:
       name: "David Snyder"
       url: "https://github.com/GypsyDangerous"
-    url: "https://editor.p5js.org/davidgraygs4@gmail.com/full/492uCszzp"
-    source: "https://editor.p5js.org/davidgraygs4@gmail.com/sketches/492uCszzp"
+    url: "https://editor.p5js.org/D_Snyder/full/492uCszzp"
+    source: "https://editor.p5js.org/D_Snyder/sketches/492uCszzp"
 ---
 
 In this coding challenge, I visualize a 4D Hypercube (aka "Tesseract") in Processing (Java).
