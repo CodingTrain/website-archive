@@ -1,0 +1,37 @@
+name: GitHub Gist Deployment
+
+on:
+  push:
+    branches:    
+      - master  
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: ['12.x']
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Cache node modules
+      uses: actions/cache@v1
+      with:
+        path: unit_testing/node_modules
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - name: Uploading Coding Challenges Variations to GitHub Gists
+      run: |
+        npm i
+        node checkVariations.js
+      env:
+        CI: true
+        OCTOCAT_KEY: ${{ secrets.OCTOCAT_KEY }}
+        GIST_ID: ${{ secrets.GIST_ID }}
