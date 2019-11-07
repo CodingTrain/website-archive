@@ -7,6 +7,9 @@ const client = new GitHub({
   token: process.env.OCTOCAT_KEY
 });
 (async () => {
+  // just testing
+  // can i possibly log the env vars in the PR checks?
+  console.log(process.env.GIST_ID);
   let current_data = await client.get(`/gists/${process.env.GIST_ID}`);
   current_data = current_data.body.files["CodingChallenge_Variations.md"].content;
   const yaml_files = fs.readdirSync("_CodingChallenges");
