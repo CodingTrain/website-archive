@@ -161,6 +161,6 @@ defaults:
   - scope:              { path: "", type: "TeachableMachine" }
     values:
       layout:           "video"
-      video_type:       "Coding Challenge"
-      video_type_short: "Challenge"
+      video_type:       "Teachable Machine"
+      video_type_short: "Tutorial"
       can_contribute:   true

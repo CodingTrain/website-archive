@@ -3,7 +3,7 @@ title: Snake Game - Teachable Machine
 video_number: 2
 date: 2019-11-07
 video_id: AAAAAAAAAAAB
-repository: false
+repository: 2-teachable-game
 web_editor: tqoOkW_ai
 
 links:

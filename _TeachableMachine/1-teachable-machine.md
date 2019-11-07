@@ -4,7 +4,7 @@ video_number: 1
 date: 2019-11-07
 video_id: AAAAAAAAAAAA
 web_editor: PoZXqbu4v
-repository: false
+repository: 1-teachable-machine
 
 links:
   - title: "Teachable Machine Site"
