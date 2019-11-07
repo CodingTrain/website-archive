@@ -1,7 +1,7 @@
 ---
 title: Audio - Teachable Machine
 video_number: 3
-date: 2019-11-06
+date: 2019-11-07
 video_id: AAAAAAAAAAAC
 repository: false
 web_editor: e3nrNMG7A

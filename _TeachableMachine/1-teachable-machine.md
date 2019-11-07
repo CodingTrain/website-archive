@@ -1,7 +1,7 @@
 ---
 title: "Teachable Machine"
 video_number: 1
-date: 2019-11-06
+date: 2019-11-07
 video_id: AAAAAAAAAAAA
 web_editor: PoZXqbu4v
 repository: false
