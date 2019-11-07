@@ -12,11 +12,11 @@ let label = "waiting...";
 
 // The classifier
 let classifier;
-let modelURL = 'https://storage.googleapis.com/tm-models/onzpfu6q/model.json';
+let modelURL = 'https://storage.googleapis.com/tm-models/onzpfu6q/';
 
 // STEP 1: Load the model!
 function preload() {
-  classifier = ml5.imageClassifier(modelURL);
+  classifier = ml5.imageClassifier(modelURL + 'model.json');
 }
 
 // Snake Game Variables

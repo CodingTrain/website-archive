@@ -9,11 +9,11 @@ let video;
 let label = "waiting...";
 // The classifier
 let classifier;
-let modelURL = 'https://storage.googleapis.com/tm-models/YadBJmj5/model.json';
+let modelURL = 'https://storage.googleapis.com/tm-models/YadBJmj5/';
 
 // STEP 1: Load the model!
 function preload() {
-  classifier = ml5.imageClassifier(modelURL);
+  classifier = ml5.imageClassifier(modelURL + 'model.json');
 }
 
 function setup() {
