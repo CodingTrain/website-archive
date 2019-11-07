@@ -8,6 +8,7 @@
     - author[.name] string|Author   The author's name of the linked content.
     - author.url string             The author's URL of the linked content.
     - source string                 Link to the source code of the link's destination.
+    - web_editor                    Link to p5.js web editor destination.
 
   Parameters:
     title string    The title of this list of links.
@@ -35,6 +36,11 @@
           {% assign url = 'https://www.youtube.com/playlist?list=' | append: link.playlist_id %}
         {% else %}
           {% assign url = link.url %}
+        {% endif %}
+
+        {% comment %} Link to a p5js web editor sketch. {% endcomment %}
+        {% if link.web_editor %}
+          {% assign url = 'https://editor.p5js.org/codingtrain/sketches/' | append: link.web_editor %}
         {% endif %}
 
 

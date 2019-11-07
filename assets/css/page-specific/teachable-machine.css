@@ -1,0 +1,22 @@
+.header-image {
+  display: none;
+}
+
+h2 {
+  display: none;
+}
+
+.title-image {
+  width: 80%;
+  margin-top: 5rem;
+}
+
+.description {
+  border: none !important;
+}
+
+.add-bars {
+  border: 1px solid #a2a2a2;
+  border-right: none;
+  border-left: none;
+}

@@ -38,6 +38,12 @@ contributions:
       url: "https://legiec.io"
     url: "https://bibixx.github.io/cc-color-predictor"
     source: "https://github.com/bibixx/cc-color-predictor"
+  - title: "Color Brightness Classifier and Network-Visualization"
+    author:
+      name: "Ernst Schmidt"
+      url: "https://www.ernst-schmidt.com/coding/sketches"
+    url: "https://www.ernst-schmidt.com/coding/5d00f8c51c1770001776aa52"
+    source: "https://editor.p5js.org/Kubi/sketches/t_N8dPwBg"
 ---
 
 In coding challenge, I use my neural network JavaScript library to create a "color predictor."

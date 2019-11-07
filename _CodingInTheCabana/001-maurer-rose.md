@@ -45,8 +45,8 @@ contributions:
     author:
       name: "Winston Smith"
       url: "https://github.com/sequentialchaos"
-    url: "https://editor.p5js.org/sequentialchaos/sketches/Zq70Kbrmk"
-    source: "https://editor.p5js.org/sequentialchaos/full/Zq70Kbrmk"
+    url: "https://editor.p5js.org/sequentialchaos/full/Zq70Kbrmk"
+    source: "https://editor.p5js.org/sequentialchaos/sketches/Zq70Kbrmk"
 ---
 
 In this pilot episode of Coding in the Cabana, I code a visualization of the Maurer Rose pattern.
