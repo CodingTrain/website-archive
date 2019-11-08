@@ -101,8 +101,7 @@ collections:
   Courses:           { output: true }
   Guides:            { output: true }
   FAQ:               { output: true }
-
-
+  TeachableMachine:  { output: true }
 
 # --- Defaults ---
 
@@ -162,3 +161,11 @@ defaults:
   - scope:              { path: "", type: "FAQ"}
     values:
       layout:           "faq"
+
+  # Teachable Machine
+  - scope:              { path: "", type: "TeachableMachine" }
+    values:
+      layout:           "video"
+      video_type:       "Teachable Machine"
+      video_type_short: "Tutorial"
+      can_contribute:   true

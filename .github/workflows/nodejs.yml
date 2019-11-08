@@ -1,6 +1,6 @@
 name: Jest
 
-on: [push]
+on: [pull_request]
 
 jobs:
   build:
@@ -17,10 +17,20 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install and test
+    - name: Cache node modules
+      uses: actions/cache@v1
+      with:
+        path: unit_testing/node_modules
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - name: Installing Node Dependencies
       run: |
         cd unit_testing
         npm install
+    - name: Running Jest
+      run: |
+        cd unit_testing
         npm run test
       env:
         CI: true

@@ -1,7 +1,7 @@
 ---
 title: "More OOP with ES6 & The Game of Life"
 video_number: 108
-date: 2017-12-08
+date: 2017-12-09
 video_id: U8S1qDjIE2Y
 
 topics:

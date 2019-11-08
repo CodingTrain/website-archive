@@ -1,7 +1,7 @@
 ---
 title: "Happy Holidays from the Coding Train!"
 video_number: 112
-date: 2017-12-21
+date: 2017-12-23
 video_id: dEWmwQMKgIk
 
 topics:
