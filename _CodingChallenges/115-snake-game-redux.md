@@ -41,6 +41,12 @@ contributions:
       url: "https://github.com/milchreis"
     url: "https://milchreis.github.io/Snake3D/"
     source: "https://github.com/Milchreis/Snake3D"
+  - title: "Snake"
+    author:
+      name: "Frederik Shull"
+      url: "https://github.com/zlyfer"
+    url: "https://zlyfer.net/sites/games/snake/"
+    source: "https://github.com/zlyfer/snake"
 ---
 
 Snake Game!? Again!? Now with the p5.js Web Editor!

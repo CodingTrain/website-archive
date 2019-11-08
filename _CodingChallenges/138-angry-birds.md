@@ -18,7 +18,7 @@ videos:
   - title: "Inheritance in JavaScript"
     video_id: "MfxBfRD0FVU"
   - title: "Phaser Game Development with Catt Small"
-    video_id: "T9kOFSFvgKc"
+    url: "/GuestTutorials/008-catt-small-phaser-game-development"
 
 contributions:
   - title: "Koji version"
@@ -27,6 +27,12 @@ contributions:
       url: "https://www.milesexner.com"
     url: "https://angrybird.withkoji.com/"
     source: "https://withkoji.com/~Dizolivemint/p5-and-matter-js-coding-train-angry-birds-tutorial"
+  - title: "OU vs. Texas College Football Version"
+    author:
+      name: "Sam Lee"
+      url: "https://codepen.io/leimapapa/"
+    url: "https://codepen.io/leimapapa/full/GPKYpo"
+    source: "https://codepen.io/leimapapa/pen/GPKYpo"
 ---
 
 An attempt to implement the basic mechanics of Angry Birds in JavaScript using p5.js and the matter.js physics engine.

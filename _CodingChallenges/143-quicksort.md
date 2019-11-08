@@ -25,6 +25,18 @@ contributions:
       url: "https://github.com/bohdandrahan"
     url: "https://bohdandrahan.github.io/Sorting-Visual/"
     source: "https://github.com/bohdandrahan/Sorting-Visual"
+  - title: "Sorting Algorithm Visualizations"
+    author:
+      name: "khoi"
+      url: "https://github.com/khoi"
+    url: "https://sort.khoi.io"
+    source: "https://github.com/khoi/p5-projects/tree/master/sorting"
+  - title: "Quicksort visualized with generators"
+    author:
+      name: "David Snyder"
+      url: "https://github.com/GypsyDangerous"
+    url: "https://editor.p5js.org/D_Snyder/full/gEBQa5elpY"
+    source: "https://editor.p5js.org/D_Snyder/sketches/gEBQa5elpY"
 
 links:
   - title: "Quicksort on Wikipedia"

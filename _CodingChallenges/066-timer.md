@@ -19,6 +19,11 @@ contributions:
       name: "musa11971"
       url: https://github.com/musa11971
     source: https://github.com/musa11971/p5js-timer
+  - title: "Count Up and Down Timer"
+    author:
+      name: "Sam Lee"
+      url: https://codepen.io/leimapapa/
+    source: https://codepen.io/leimapapa/pen/qeaWoP
 ---
 
 In this video, I use the p5.js library to create a web-based countdown timer. I discuss the native JavaScript method setInterval() and well as p5's millis().

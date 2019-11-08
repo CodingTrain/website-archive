@@ -1,7 +1,7 @@
 ---
 title: "More Neural Networks"
 video_number: 118
-date: 2018-02-02
+date: 2018-02-04
 video_id: e8H588SXu6U
 
 topics:
@@ -47,8 +47,6 @@ videos:
     url: "https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab"
   - title: "Gradient Descent by 3Blue1Brown"
     video_id: "IHZwWFHWa-w"
-  - title: "Gradient Descent by Siraj Raval"
-    video_id: "XdM6ER7zTLk"
   - title: "My Video on Gradient Descent"
     video_id: "jc2IthslyzM"
 ---

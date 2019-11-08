@@ -41,6 +41,8 @@ let directories = {
   _GuestTutorials: formatDefinitions.video,
   _Streams: formatDefinitions.stream,
   _Tutorials: formatDefinitions.video,
+  _CodingInTheCabana: formatDefinitions.video,
+  _TeachableMachine: formatDefinitions.video,
 };
 
 let knownVideos = {};
@@ -204,7 +206,7 @@ for (const [name, directory] of Object.entries(files)) {
   checkFolder(directories[name], name, directory);
 }
 
-describe('Repositories', () => {
+xdescribe('Repositories', () => {
   describe('Web Editor mappings', () => {
     for (const [repository, web_editors] of Object.entries(repositoryToWebEditorMapping)) {
       const nonBlankKeys = Object.keys(web_editors).filter(x => x !== 'undefined');
@@ -235,7 +237,12 @@ describe('Repositories', () => {
 
           //If repository contains 'github.com' let the test pass
           if (repository.match(/.*github\.com\/CodingTrain\/.*/)) return;
-          
+
+          // Allow external links for guest tutorials folder.
+          for (file of files) {
+            if (file.path.match(/.*\/_GuestTutorials\/.*/)) return;
+          }
+
           const stat = fs.statSync(urlToRepositoryDirectoryFilename(repository));
           if (!stat.isDirectory) {
             throw new Error('Repository is not a directory');

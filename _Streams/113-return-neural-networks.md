@@ -1,7 +1,7 @@
 ---
 title: "The Return of Neural Networks"
 video_number: 113
-date: 2018-01-05
+date: 2018-01-06
 video_id: raFdpMUWO9Q
 
 topics:
@@ -41,8 +41,6 @@ videos:
     url: "https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi"
   - title: "3Blue1Brown's Linear Algebra playlist"
     url: "https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab"
-  - title: "Siraj Raval's channel"
-    url: "https://www.youtube.com/channel/UCWN3xxRkmTPmbKwht9FuE5A"
   - title: "My Series on ES6"
     url: "/Tutorials/16-javascript-es6"
   - title: "My Game of Life coding challenge"

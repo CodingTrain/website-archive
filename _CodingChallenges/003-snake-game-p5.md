@@ -69,6 +69,28 @@ contributions:
       name: "Morel Takougang"
       url: "https://github.com/MorelT98"
     source: "https://github.com/MorelT98/coding-challenges/blob/master/003_snake.py"
+  - title: "Two player Snake"
+    author:
+      name: "Michael Delfino"
+      url: "https://codepen.io/mrmichael"
+    url: "https://codepen.io/mrdelfino/pen/GrvzwL"
+  - title: "Pong"
+    author:
+      name: "alok"
+    url: "https://aloksbd.github.io/Game-Sprint/3-snake/index.html"
+    source: "https://github.com/aloksbd/Game-Sprint/tree/master/3-snake"
+  - title: "Touch Snake Game"
+    author:
+      name: "Amin Ahmad Ahmadi"
+      url: "https://twitter.com/AminAhmadAhmadi"
+    url: "https://editor.p5js.org/AminCodingChallenge/full/9QYlaqrgV"
+    source: "https://editor.p5js.org/AminCodingChallenge/sketches/9QYlaqrgV"
+  - title: "Pure HTML snake game"
+    author:
+      name: "Abhishek Choudhary"
+      url: "https://theabbie.github.io"
+    url: "https://theabbie.github.io/files/snake.html"
+    source: "https://raw.githubusercontent.com/theabbie/theabbie.github.io/master/files/snake.html"
 ---
 
 In this coding challenge, I attempt to code a p5.js version of the Snake Game.

@@ -1,7 +1,7 @@
 ---
 title: "Flocking Simulation"
 video_number: 124
-date: 2018-12-10
+date: 2018-12-11
 repository: CC_124_Flocking_Boids
 video_id: mhjuuHl6qHM
 web_editor: ry4XZ8OkN
@@ -89,5 +89,21 @@ contributions:
       url: "https://github.com/meznak"
     url: "https://github.com/meznak/boids_py"
     source: "https://github.com/meznak/boids_py"
+  - title: "Flocking with AI piloted predators"
+    author:
+      name: "Guillaume Manen"
+      url: "https://github.com/gmanen"
+    url: "https://editor.p5js.org/gmanen/present/HF0OH8ATr"
+    source: "https://github.com/gmanen/shoaks"
+  - title: "Quadtree and Flocking Simulation"
+    author: "Ernst Schmidt"
+    url: https://www.ernst-schmidt.com/coding/5d70ea631d0a070017666552
+    source: https://editor.p5js.org/Kubi/sketches/PZWh7P8h1
+  - title: "Parasites"
+    author:
+      name: "Anurag Hazra"
+      url: "https://anuraghazra.github.io/"
+    url: "https://anuraghazra.github.io/parasites/"
+    source: "https://github.com/anuraghazra/parasites"
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.

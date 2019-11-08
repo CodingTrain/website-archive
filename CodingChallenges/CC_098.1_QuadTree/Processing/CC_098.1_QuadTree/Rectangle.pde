@@ -16,11 +16,11 @@ class Rectangle {
  double height ; 
  double width;
  
- public Rectangle (double x , double y , double height , double width){
+ public Rectangle (double x , double y , double width , double height){
    this.x = x;
    this.y = y;
-   this.height = height;
    this.width = width;
+   this.height = height;
  }
  
 }

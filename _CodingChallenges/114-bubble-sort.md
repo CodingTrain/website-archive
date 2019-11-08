@@ -1,7 +1,7 @@
 ---
 title: "Bubble Sort Visualization"
 video_number: 114
-date: 2018-08-22
+date: 2018-08-27
 video_id: 67k3I2GxTH8
 repository: CC_114_BubbleSortViz
 web_editor: 3HVrL9m36
@@ -46,6 +46,12 @@ contributions:
       name: "Mogens Meißner"
       url: "http://mogensmeissner.tk"
     source: "https://github.com/MogiMei/VisualizeBubbleSort/blob/master/sketch.js"
+  - title: "Sorting Algorithm Visualizations"
+    author:
+      name: "khoi"
+      url: "https://github.com/khoi"
+    url: "https://sort.khoi.io"
+    source: "https://github.com/khoi/p5-projects/tree/master/sorting"
 ---
 
 In this coding challenge, I implement a "bubble sort" algorithm in Processing (Java) and sort randomly generated lines. [#SortingTrain](https://twitter.com/hashtag/SortingTrain)

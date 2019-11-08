@@ -53,6 +53,24 @@ contributions:
       url: "https://github.com/rinovethamoses97"
     url: "https://rinovethamoses97.github.io/Chrome-Dino-Game/public/"
     source: "https://github.com/rinovethamoses97/Chrome-Dino-Game"
+  - title: "Responsive jump height and obstacle speed based on window size"
+    author:
+      name: "Sam Lee"
+      url: "https://codepen.io/leimapapa/"
+    url: "https://codepen.io/leimapapa/full/zVoJWz"
+    source: "https://codepen.io/leimapapa/pen/zVoJWz?editors=0110"
+  - title: "advanced collision detection algorithms and other cool features"
+    author:
+      name: "Yaron Dames"
+      url: "https://github.com/yarondms"
+    url: "https://yarondms.github.io/Dino/"
+    source: "https://github.com/yarondms/Dino"
+  - title: "Neuroevolution of smart balls on a pseudorandom obstacle course"
+    author:
+      name: "Ernst Schmidt"
+      url: "https://www.ernst-schmidt.com/coding/sketches"
+    url: "https://www.ernst-schmidt.com/coding/5d30690dc7a6e90017a94ef6"
+    source: "https://editor.p5js.org/Kubi/sketches/GNf1AzD0J"
 ---
 
 In this challenge, I attempt to make my own version of Google's Dinosaur Game (T-Rex run!) with a unique twist -- controlling the dinosaur (unicorn, in this case) with a machine learning Speech Commands model! 

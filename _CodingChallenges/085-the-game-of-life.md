@@ -19,7 +19,7 @@ videos:
   - title: "2D Arrays in JavaScript"
     url: "/Tutorials/9-additional-topics/9.15-2d-arrays-in-javascript"
   - title: "The Modulo Operator with Golan Levin"
-    url: "/GuestTutorials/6-golan-levin-modulo-operator"
+    url: "/GuestTutorials/006-golan-levin-modulo-operator"
 
 contributions:
   - title: "Game of Life"
@@ -42,5 +42,11 @@ contributions:
       name: "Greg Kreisman"
     url: "https://editor.p5js.org/greggelong/present/VGD6wwYTv"
     source: "https://editor.p5js.org/greggelong/sketches/VGD6wwYTv"
+  - title: "React.js Game of Life"
+    author:
+      name: "Fi Graham"
+      url: http://createdby.fi
+    url: https://figraham.github.io/react-game-of-life/
+    source: "https://github.com/figraham/react-game-of-life"
 ---
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.
