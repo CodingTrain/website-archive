@@ -1,8 +1,8 @@
 ---
-title: Snake Game - Teachable Machine
+title: "Teachable Machine: Snake"
 video_number: 2
 date: 2019-11-07
-video_id: AAAAAAAAAAAB
+video_id: UPgxnGC8oBU
 repository: 2-teachable-game
 web_editor: tqoOkW_ai
 
@@ -25,4 +25,4 @@ videos:
     url: "/CodingChallenges/003-snake-game-p5"
 ---
 
-This video is about adding webcam machine learning controls to a game using Teachable Machine by Google. In this case we use the snake game from coding challenge 115.
+In this video, I demonstrate how to control an interaction with an image classification machine learning model to play the snake game.

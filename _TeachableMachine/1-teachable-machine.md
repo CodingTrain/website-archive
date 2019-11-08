@@ -1,8 +1,8 @@
 ---
-title: "Teachable Machine"
+title: "Teachable Machine: Images"
 video_number: 1
 date: 2019-11-07
-video_id: AAAAAAAAAAAA
+video_id: kwcillcWOg0
 web_editor: PoZXqbu4v
 repository: 1-teachable-machine
 
@@ -21,4 +21,4 @@ links:
     url: "https://learn.ml5js.org/docs/#/"
 ---
 
-This video shows how to train an image classification model using Teachable Machine by Google.
+In this video, I train an image classifier and import the machine learning model into a p5.js sketch with ml5.js.

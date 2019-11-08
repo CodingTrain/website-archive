@@ -3,23 +3,23 @@
 // https://thecodingtrain.com/TeachableMachine/3-teachable-audio
 // https://editor.p5js.org/codingtrain/sketches/e3nrNMG7A
 
-let video;
 
+// Storing the label
 let label = "waiting...";
 
+// Classifier and model url
 let classifier;
+let modelURL = 'https://storage.googleapis.com/tm-models/YZIaLXxm/';
 
 // STEP 1: Load the model!
 function preload() {
-  classifier = ml5.soundClassifier(
-    "https://storage.googleapis.com/tm-models/YZIaLXxm/model.json"
-  );
+  classifier = ml5.soundClassifier(modelURL + 'model.json');
 }
 
 function setup() {
   createCanvas(640, 520);
 
-  // STEP 2: Start classifying
+  // STEP 2: Start classifying (will listen to mic by default)
   classifyAudio();
 }
 
@@ -37,7 +37,9 @@ function draw() {
   // fill(255);
   // text(label, width/2, height - 16);
 
+  // Background noise is headphones
   let emoji = "🎧";
+  // Pick an emoji based on label
   if (label == "Train") {
     emoji = "🚂";
   } else if (label == "Bell") {
@@ -46,6 +48,7 @@ function draw() {
     emoji = "🎸";
   }
 
+  // Draw the emoji
   textSize(256);
   text(emoji, width / 2, height / 2);
 }
@@ -56,5 +59,6 @@ function gotResults(error, results) {
     console.error(error);
     return;
   }
+  // Store the label
   label = results[0].label;
 }

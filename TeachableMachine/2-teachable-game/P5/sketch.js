@@ -3,19 +3,23 @@
 // https://thecodingtrain.com/TeachableMachine/2-teachable-game.html
 // https://editor.p5js.org/codingtrain/sketches/tqoOkW_ai
 
+// The video
 let video;
 let flipVideo;
+
+// Storing the label
 let label = "waiting...";
 
+// The classifier
 let classifier;
+let modelURL = 'https://storage.googleapis.com/tm-models/onzpfu6q/';
 
 // STEP 1: Load the model!
 function preload() {
-  classifier = ml5.imageClassifier(
-    "https://storage.googleapis.com/tm-models/onzpfu6q/model.json"
-  );
+  classifier = ml5.imageClassifier(modelURL + 'model.json');
 }
 
+// Snake Game Variables
 let snake;
 let rez = 20;
 let food;
@@ -28,11 +32,13 @@ function setup() {
   video = createCapture(VIDEO);
   video.size(640, 480);
   video.hide();
+  // Mirro the video since we trained it that way!
   flipVideo = ml5.flipImage(video);
 
   // STEP 2: Start classifying
   classifyVideo();
 
+  // Snake Game
   w = floor(width / rez);
   h = floor(height / rez);
   frameRate(5);
@@ -42,16 +48,19 @@ function setup() {
 
 // STEP 2 classify!
 function classifyVideo() {
+  // Flip the video!
   flipVideo = ml5.flipImage(video);
   classifier.classify(flipVideo, gotResults);
 }
 
+// Snake Game
 function foodLocation() {
   let x = floor(random(w));
   let y = floor(random(h));
   food = createVector(x, y);
 }
 
+// Control the game based on the label
 function controlSnake() {
   if (label === "left") {
     snake.setDir(-1, 0);
@@ -65,12 +74,15 @@ function controlSnake() {
 }
 
 function draw() {
-  background(220);
+  background(255);
+
+  // Draw the video?
   image(flipVideo, 0, 0);
   textSize(32);
-  fill(255);
+  fill(0);
   text(label, 10, 50);
 
+  // Draw the game
   scale(rez);
   if (snake.eat(food)) {
     foodLocation();
@@ -96,6 +108,7 @@ function gotResults(error, results) {
     return;
   }
   label = results[0].label;
+  // Control the snake and classify again!
   controlSnake();
   classifyVideo();
 }
