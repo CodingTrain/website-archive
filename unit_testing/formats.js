@@ -78,7 +78,7 @@ const link = (module.exports.link = exact({
   video_id: validateVideoId(),
   playlist_id: PropTypes.string,
   source: PropTypes.string,
-  web_editor: PropTypes.string,
+  web_editor: PropTypes.string
 }));
 
 const contribution = (module.exports.contribution = exact({
@@ -109,7 +109,7 @@ const videoBase = (module.exports.videoBase = exact({
   community_references: PropTypes.arrayOf(PropTypes.shape(link)),
   contributions: PropTypes.arrayOf(PropTypes.shape(contribution)),
   custom_sections: PropTypes.arrayOf(PropTypes.shape(customSection)),
-  ignore_filename: PropTypes.bool,
+  ignore_filename: PropTypes.bool
 }));
 
 const video = (module.exports.video = exact({
@@ -129,29 +129,22 @@ const series = (module.exports.series = exact({
   layout: PropTypes.oneOf(["series-index"]),
   series_number: PropTypes.number,
   reverse: PropTypes.bool
-});
+}));
 
 const questionBase = exact({
   question: PropTypes.string.isRequired,
   answer: PropTypes.string.isRequired,
   section: PropTypes.string.isRequired,
-  links: PropTypes.arrayOf(PropTypes.shape(link)),
-})
+  links: PropTypes.arrayOf(PropTypes.shape(link))
+});
 
 const sectionBase = exact({
-  title: PropTypes.string.isRequired,
-})
+  title: PropTypes.string.isRequired
+});
 
-const faq = module.exports.faq = exact({
+const faq = (module.exports.faq = exact({
   title: PropTypes.string.isRequired,
-  sections : PropTypes.oneOfType([
-    PropTypes.shape(sectionBase),
-    PropTypes.arrayOf(PropTypes.shape(sectionBase)),
-  ]),
-  faq: PropTypes.oneOfType([
-    PropTypes.shape(questionBase),
-    PropTypes.arrayOf(PropTypes.shape(questionBase)),
-  ]),
-})
-  redirect_from: PropTypes.arrayOf(PropTypes.string),
+  sections: PropTypes.oneOfType([PropTypes.shape(sectionBase), PropTypes.arrayOf(PropTypes.shape(sectionBase))]),
+  faq: PropTypes.oneOfType([PropTypes.shape(questionBase), PropTypes.arrayOf(PropTypes.shape(questionBase))]),
+  redirect_from: PropTypes.arrayOf(PropTypes.string)
 }));
