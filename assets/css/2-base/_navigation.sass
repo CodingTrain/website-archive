@@ -46,6 +46,10 @@
     font-size: 16px
     overflow: hidden
     background: rgba(9,20,154,0.55)
+    transition: all 0.3s ease
+	
+    &:hover
+      background: rgba(9,20,154,0.74)
 
     @media (max-width: $tablet-big)
       width: 0%
@@ -53,6 +57,9 @@
       top: 10rem
       position: fixed
       background: none
+	  
+      &:hover
+        background: none
 
     .links
       @extend .wrapper
