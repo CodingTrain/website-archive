@@ -1,7 +1,7 @@
 ---
 title: "Teachable Machine: Snake"
 video_number: 2
-date: 2019-11-07
+date: 2019-11-08
 video_id: UPgxnGC8oBU
 repository: 2-teachable-game
 web_editor: tqoOkW_ai
