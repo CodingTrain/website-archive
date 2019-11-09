@@ -1,7 +1,7 @@
 ---
 title: "Teachable Machine: Snake"
 video_number: 2
-date: 2019-11-07
+date: 2019-11-08
 video_id: UPgxnGC8oBU
 repository: 2-teachable-game
 web_editor: tqoOkW_ai
@@ -23,6 +23,14 @@ videos:
   - title: "Snake Game (Original) - Coding Challenge #3"
     author: "The Coding Train"
     url: "/CodingChallenges/003-snake-game-p5"
+
+contributions:
+  - title: "Rock Paper Scissors"
+    author:
+      name: "Miká Kruschel"
+      url: "https://github.com/mikakruschel"
+    url: "https://editor.p5js.org/mikakruschel/full/fQHlDecY9"
+    source: "https://editor.p5js.org/mikakruschel/sketches/fQHlDecY9"
 ---
 
 In this video, I demonstrate how to control an interaction with an image classification machine learning model to play the snake game.
