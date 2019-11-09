@@ -13,6 +13,6 @@ redirect_from:
 <div class="add-bars">
   <p>
     Introducing <a href="https://teachablemachine.withgoogle.com/">Teachable Machine 2.0 from Google Creative Lab</a>! <br/>
-    Train a computer to recognize your own images, sounds, & poses.
+    Train a computer to recognize your own images, sounds & poses.
   </p>
 </div>
