@@ -47,7 +47,7 @@ contributions:
       url: "https://github.com/sequentialchaos"
     url: "https://editor.p5js.org/sequentialchaos/full/Zq70Kbrmk"
     source: "https://editor.p5js.org/sequentialchaos/sketches/Zq70Kbrmk"
-    - title: "Rainbow maurer rose"
+  - title: "Rainbow maurer rose"
     author:
       name: "Stampyzfanz"
       url: "https://github.com/stampyzfanz"
