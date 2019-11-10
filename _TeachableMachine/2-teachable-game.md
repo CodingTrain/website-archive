@@ -31,6 +31,12 @@ contributions:
       url: "https://github.com/mikakruschel"
     url: "https://editor.p5js.org/mikakruschel/full/fQHlDecY9"
     source: "https://editor.p5js.org/mikakruschel/sketches/fQHlDecY9"
+  - title: "Techable Machine"
+    author:
+      name: "Shekhar Tyagi"
+      url: "https://github.com/notshekhar"
+    url: "https://notshekhar.github.io/KNN-Classifier/"
+    source: "https://github.com/notshekhar/KNN-Classifier/"  
 ---
 
 In this video, I demonstrate how to control an interaction with an image classification machine learning model to play the snake game.
