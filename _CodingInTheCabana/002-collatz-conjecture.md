@@ -87,5 +87,8 @@ contributions:
       url: "https://twitter.com/SuperRembo"
     url: "https://editor.p5js.org/SuperRembo/present/FlVS_V65b"
     source: "https://editor.p5js.org/SuperRembo/sketches/FlVS_V65b"
+  - title: "Collatz' birb 3D in Processing"
+    author: "SpectralPiano"
+    source: "https://github.com/SpectralFlame/Collatz-birb-3D"
 ---
 It's the second episode of Coding in the Cabana! Here I attempt to visualize the Collatz Conjecture in Processing.
