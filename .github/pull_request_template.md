@@ -3,7 +3,7 @@ Thank you for contributing to The Coding Train website!
 
 This is a template to get more information about your pull request. To check any option, replace the "[ ]" with a "[x]". Be sure to check out how it looks in the preview tab! Feel free to remove all or any portion of the template that is not relevant, as it is mainly designed for community contributions.
 
-It would be helpful if in the sidebar on the right of your screen you could add "Community Contribution" using the "Labels" menu. You can see the guide at: https://thecodingtrain.com/Guides/community-contribution-guide.html.
+You can see the guide at: https://thecodingtrain.com/Guides/community-contribution-guide.html.
 -->
 
 ### Community Contribution
