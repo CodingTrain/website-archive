@@ -78,12 +78,6 @@ const client = new GitHub({
     process.exit(0);
   }
 
-  //Obsolete since the result has moved to GitHub Gists
-  // if (fs.existsSync('CodingChallenge_Variations.md')) {
-  //   fs.unlinkSync('CodingChallenge_Variations.md');
-  // }
-  // fs.writeFileSync('CodingChallenge_Variations.md', result_table, 'UTF8');
-
   //Upload content to GitHub Gist
   console.log("\x1b[32m", `Uploading result to GitHub Gist. Gist ID: ${process.env.GIST_ID}`);
   client.patch(`/gists/${process.env.GIST_ID}`, {
