@@ -42,6 +42,12 @@ contributions:
       url: "https://codepen.io/PyBlend/"
     url: "https://codepen.io/PyBlend/full/XoVBzN"
     source: "https://codepen.io/PyBlend/pen/XoVBzN"
+  - title: "#codevember - 12 - SnowFlakes Falling using p5JS"
+    author:
+      name: "rajatkantinandi"
+      url: "https://codepen.io/rajatkantinandi"
+    url: "https://codepen.io/rajatkantinandi/full/QWWVrmB"
+    source: "https://codepen.io/rajatkantinandi/pen/QWWVrmB"
 ---
 
 In this holiday coding challenge, I create a "Brownian Tree Snowflake" in Processing (Java). This video was recorded as part of a fundraiser for the [Processing Foundation](https://processingfoundation.org/support/).
