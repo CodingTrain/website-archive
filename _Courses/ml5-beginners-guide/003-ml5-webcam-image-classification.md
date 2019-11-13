@@ -1,9 +1,10 @@
 ---
 title: "ml5.js: Webcam Image Classification"
-video_number: 3
+video_number: 3.0
 date: 2018-08-02
 video_id: D9BoBSkLvFo
 repository: https://github.com/CodingTrain/website/tree/master/Courses/beginner_ml5/03_video_classification
+can_contribute: true
 
 links:
   - title: "code"

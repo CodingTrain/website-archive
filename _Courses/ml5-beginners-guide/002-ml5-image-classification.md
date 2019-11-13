@@ -1,9 +1,10 @@
 ---
 title: "ml5.js: Image Classification with MobileNet"
-video_number: 2
+video_number: 2.0
 date: 2018-08-01
 video_id: yNkAuWz5lnY
 repository: https://github.com/CodingTrain/website/tree/master/Courses/beginner_ml5/02_image_classification
+can_contribute: true
 
 links:
   - title: "ml5.js"

@@ -1,9 +1,10 @@
 ---
 title: "ml5.js: Feature Extractor Classification"
-video_number: 5
+video_number: 5.0
 date: 2018-08-14
 video_id: eeO-rWYFuG0
 repository: https://github.com/CodingTrain/website/tree/master/Courses/beginner_ml5/04_feature_extractor_classification
+can_contribute: true
 
 links:
   - title: "code"

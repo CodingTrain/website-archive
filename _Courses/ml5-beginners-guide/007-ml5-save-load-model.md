@@ -1,9 +1,10 @@
 ---
 title: "ml5.js: Save/Load Model"
-video_number: 7
+video_number: 7.0
 date: 2018-11-12
 video_id: eU7gIy3xV30
 repository: https://github.com/CodingTrain/website/tree/master/Courses/beginner_ml5/06_feature_extractor_load_save
+can_contribute: true
 
 links:
   - title: "ml5.js"

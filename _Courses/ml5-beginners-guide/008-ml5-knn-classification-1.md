@@ -1,26 +1,26 @@
 ---
-title: "ml5.js: KNN Classification Part 2"
-video_number: 9
+title: "ml5.js: KNN Classification Part 1"
+video_number: 8.0
 date: 2019-02-04
-video_id: Mwo5_bUVhlA
+video_id: KTNqXwkLuM4
 repository: https://github.com/CodingTrain/website/tree/master/Courses/beginner_ml5/07_knn_classifier
+can_contribute: true
 
 links:
+  - title: "Teachable Machine"
+    url: "https://teachablemachine.withgoogle.com/"
   - title: "ml5.js"
     url: "https://ml5js.org/"
   - title: "Machine Learning for the Web by Yining Shi"
     url: "https://github.com/yining1023/machine-learning-for-the-web"
   - title: "How to build a Teachable Machine with TensorFlow.js by Nikhil Thorat"
     url: "https://observablehq.com/@nsthorat/how-to-build-a-teachable-machine-with-tensorflow-js"
-  - title: "Webcam PacMan"
+  - title: "MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications"
     url: "https://arxiv.org/abs/1704.04861"
 videos:
   - title: "Beginners Guide to Machine Learning in JavaScript"
     author: "The Coding Train"
-    url: "https://storage.googleapis.com/tfjs-examples/webcam-transfer-learning/dist/index.html"
-  - title: "Nearest Neighbors Recommendation Engine"
-    author: "The Coding Train"
-    url: "https://www.youtube.com/watch?v=N8Fabn1om2k"
+    url: "https://www.youtube.com/playlist?list=PLRqwX-V7Uu6YPSwT06y_AEYTqIwbeam3y"
 ---
 
-This video  series covers "KNN Classification." In this second part, I train the KNN image classifier using the ml5.js library.
+This video covers "KNN Classification." In this first part, I begin the process of building a "teachable machine"-style image classifier with ml5.js.

@@ -1,9 +1,10 @@
 ---
 title: "ml5.js: Feature Extractor Regression"
-video_number: 6
+video_number: 6.0
 date: 2018-08-16
 video_id: aKgq0m1YjvQ
 repository: https://github.com/CodingTrain/website/tree/master/Courses/beginner_ml5/05_feature_extractor_regression
+can_contribute: true
 
 links:
   - title: "code"

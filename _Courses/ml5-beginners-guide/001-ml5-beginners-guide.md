@@ -1,8 +1,9 @@
 ---
 title: "A Beginner's Guide to Machine Learning with ml5.js"
-video_number: 1
+video_number: 1.0
 date: 2018-07-31
 video_id: jmznx0Q1fP0
+can_contribute: true
 
 links:
   - title: "ml5.js"

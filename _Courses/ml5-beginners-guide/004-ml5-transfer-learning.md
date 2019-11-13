@@ -1,8 +1,9 @@
 ---
 title: "ml5.js: Transfer Learning with Feature Extractor"
-video_number: 4
+video_number: 4.0
 date: 2018-08-13
 video_id: kRpZ5OqUY6Y
+can_contribute: true
 
 links:
   - title: "code"
