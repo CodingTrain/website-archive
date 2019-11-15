@@ -57,5 +57,9 @@ contributions:
     author: "Shrike"
     url: https://deshrike.github.io/FancyClock/
     source: https://github.com/DeShrike/FancyClock
+  - title: "Changing Text based on User Input"
+    author: "Arnav Sirigere"
+    url: https://editor.p5js.org/Arnav-Sirigere/full/4kjlzekku
+    source: https://editor.p5js.org/Arnav-Sirigere/sketches/4kjlzekku
 ---
 In this coding challenge, I look at extracting font path points from text in p5.js with p5.Font.textToPoints().  I render the text as particles with steering behaviors that react to the mouse.
