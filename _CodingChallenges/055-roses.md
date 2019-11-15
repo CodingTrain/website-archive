@@ -20,8 +20,8 @@ contributions:
     source: "https://github.com/GypsyDangerous/Finished-Projects"
   - title: "Polar Rose Fireworks"
     author:
-       name: "David Snyder"
-       url: "https://github.com/GypsyDangerous"
+      name: "David Snyder"
+      url: "https://github.com/GypsyDangerous"
     url: "https://editor.p5js.org/D_Snyder/full/V4QZDfwl-"
     source: "https://editor.p5js.org/D_Snyder/sketches/V4QZDfwl-"
 ---
