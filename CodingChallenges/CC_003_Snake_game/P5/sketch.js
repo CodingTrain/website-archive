@@ -27,7 +27,7 @@ function mousePressed() {
 
 function draw() {
   background(51);
- if (s.eat(food)) {
+  if (s.eat(food)) {
     pickLocation();
   }
   s.death();
