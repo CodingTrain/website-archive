@@ -36,17 +36,17 @@ function followed(eventMsg) {
 
 function tweetIt(txt) {
 
-	var tweet = {
-	  status: txt
-	}
+  var tweet = {
+    status: txt
+  }
 
-	T.post('statuses/update', tweet, tweeted);
+  T.post('statuses/update', tweet, tweeted);
 
-	function tweeted(err, data, response) {
-	  if (err) {
-	  	console.log("Something went wwrong!");
-	  } else {
-	    console.log("It worked!");
-	  }
-	}
+  function tweeted(err, data, response) {
+    if (err) {
+      console.log("Something went wwrong!");
+    } else {
+      console.log("It worked!");
+    }
+  }
 }

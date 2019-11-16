@@ -56,14 +56,25 @@ module.exports = {
   },
   'overrides': [
     
-    // { // These overrides are for any external libraries used in sketches.
-    //   'files': [
-    //     '',
-    //   ],
-    //   'rules': {
-    //     'no-var': 'off',
-    //   },
-    // }
+    // These are overrides for files where changes would make it hard for those coming from the video to understand.
+
+    {
+      'files': [
+        'Courses/programming_with_text/session02/2-0607_regexTestMatchExec/sketch.js',
+      ],
+      'rules': {
+        'no-cond-assign': 'off',
+      },
+    },
+
+    {
+      'files': [
+        'Courses/beginner_ml5/07_knn_classifier/sketch.js',
+      ],
+      'rules': {
+        'no-use-before-define': 'off',
+      },
+    },
   
   ],
 };
