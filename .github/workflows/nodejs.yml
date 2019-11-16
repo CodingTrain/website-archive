@@ -24,6 +24,8 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
+    - name: Lint Example JavaScript
+      run: npm run lint
     - name: Installing Node Dependencies
       run: |
         cd unit_testing
