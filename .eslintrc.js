@@ -4,34 +4,68 @@ module.exports = {
     amd: true,
     es6: true
   },
-  extends: ['eslint:recommended', 'prettier', 'p5js', 'p5js/dom'],
+  extends: ['eslint:recommended', 'p5js', 'p5js/dom', 'p5js/sound'],
   plugins: ['prettier'],
   rules: {
-    'prettier/prettier': [
-      'error',
-      {
-        singleQuote: true
-      }
-    ],
-    'no-cond-assign': [2, 'except-parens'],
-    eqeqeq: ['error', 'smart'],
-    'no-use-before-define': [
-      2,
-      {
-        functions: false
-      }
-    ],
-    'new-cap': 0,
-    'no-caller': 2,
-    'no-undef': 2,
-    'no-unused-vars': ['error', {
-      args: 'none'
+
+    // 'prettier/prettier': ['error', {
+    //   singleQuote: true
+    // }],
+
+    'no-cond-assign': ['error', 'except-parens'],
+    
+    'no-use-before-define': ['error', {
+      'classes': false,
+      'functions': false
     }],
+
+    'no-caller': 'error',
+
     'no-empty': ['error', {
       allowEmptyCatch: true
     }],
-    'no-console': 'off'
-  }
+
+    // 'no-var': 'error',
+
+    // eqeqeq: ['error', 'smart'],
+
+    // "semi": ['error', 'always'],
+
+    "linebreak-style": ['error', 'unix'],
+
+    'no-unused-vars': 'off',
+    // 'no-unused-vars': ['error', {
+    //   "vars": "local"
+    // }],
+
+    'no-undef': 'off',
+    // 'no-undef': 'error',
+
+    'no-redeclare': 'off',
+    // 'no-redeclare': ['error', {
+    //   'builtinGlobals': false,
+    // }],
+
+    'no-prototype-builtins': 'off', // would be nice to remove
+
+    'new-cap': 'off',
+
+  },
+  "parserOptions": {
+    "ecmaVersion": 11,
+  },
+  'overrides': [
+    
+    // { // These overrides are for any external libraries used in sketches.
+    //   'files': [
+    //     '',
+    //   ],
+    //   'rules': {
+    //     'no-var': 'off',
+    //   },
+    // }
+  
+  ],
 };
 
 // module.exports = {
@@ -45,10 +79,7 @@ module.exports = {
 //       "error",
 //       4
 //     ],
-//     "linebreak-style": [
-//       "error",
-//       "unix"
-//     ],
+//     
 //     "quotes": [
 //       "error",
 //       "single"
