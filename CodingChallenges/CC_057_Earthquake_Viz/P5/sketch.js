@@ -16,12 +16,23 @@ var earthquakes;
 
 function preload() {
   // The clon and clat in this url are edited to be in the correct order.
-  mapimg = loadImage('https://api.mapbox.com/styles/v1/mapbox/dark-v9/static/' +
-    clon + ',' + clat + ',' + zoom + '/' +
-    ww + 'x' + hh +
-    '?access_token=pk.eyJ1IjoiY29kaW5ndHJhaW4iLCJhIjoiY2l6MGl4bXhsMDRpNzJxcDh0a2NhNDExbCJ9.awIfnl6ngyHoB3Xztkzarw');
+  mapimg = loadImage(
+    'https://api.mapbox.com/styles/v1/mapbox/dark-v9/static/' +
+      clon +
+      ',' +
+      clat +
+      ',' +
+      zoom +
+      '/' +
+      ww +
+      'x' +
+      hh +
+      '?access_token=pk.eyJ1IjoiY29kaW5ndHJhaW4iLCJhIjoiY2l6MGl4bXhsMDRpNzJxcDh0a2NhNDExbCJ9.awIfnl6ngyHoB3Xztkzarw'
+  );
   // earthquakes = loadStrings('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.csv');
-  earthquakes = loadStrings('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.csv');
+  earthquakes = loadStrings(
+    'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.csv'
+  );
 }
 
 function mercX(lon) {
@@ -38,7 +49,6 @@ function mercY(lat) {
   var c = PI - log(b);
   return a * c;
 }
-
 
 function setup() {
   createCanvas(ww, hh);
@@ -59,9 +69,9 @@ function setup() {
     var y = mercY(lat) - cy;
     // This addition fixes the case where the longitude is non-zero and
     // points can go off the screen.
-    if(x < - width/2) {
+    if (x < -width / 2) {
       x += width;
-    } else if(x > width / 2) {
+    } else if (x > width / 2) {
       x -= width;
     }
     mag = pow(10, mag);
@@ -72,5 +82,4 @@ function setup() {
     fill(255, 0, 255, 200);
     ellipse(x, y, d, d);
   }
-
 }

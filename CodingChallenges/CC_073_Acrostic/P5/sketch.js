@@ -5,8 +5,9 @@
 // Acrostic
 // Video: https://youtu.be/jwoK5WKVXGw
 
-let url1 = "https://api.wordnik.com:80/v4/words.json/search/";
-let url2 = "?caseSensitive=true&minCorpusCount=1&maxCorpusCount=25&minDictionaryCount=1&maxDictionaryCount=-1&minLength=6&maxLength=-1&skip=1&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5"
+let url1 = 'https://api.wordnik.com:80/v4/words.json/search/';
+let url2 =
+  '?caseSensitive=true&minCorpusCount=1&maxCorpusCount=25&minDictionaryCount=1&maxDictionaryCount=-1&minLength=6&maxLength=-1&skip=1&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5';
 
 function setup() {
   noCanvas();
@@ -32,8 +33,6 @@ function setup() {
       let letter = word.charAt(i);
       let div = createDiv('');
       pickWord(div, letter);
-
     }
-
   }
 }

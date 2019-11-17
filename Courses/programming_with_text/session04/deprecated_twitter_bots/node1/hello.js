@@ -1,2 +1,1 @@
-
-console.log("Hello aribitrary video website");
+console.log('Hello aribitrary video website');

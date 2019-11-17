@@ -15,7 +15,7 @@ class Block {
   }
 
   hitWall() {
-    return (this.x <= 0)
+    return this.x <= 0;
   }
 
   reverse() {
@@ -23,14 +23,13 @@ class Block {
   }
 
   collide(other) {
-    return !(this.x + this.w < other.x ||
-      this.x > other.x + other.w);
+    return !(this.x + this.w < other.x || this.x > other.x + other.w);
   }
 
   bounce(other) {
     let sumM = this.m + other.m;
-    let newV = (this.m - other.m) / sumM * this.v;
-    newV += (2 * other.m / sumM) * other.v;
+    let newV = ((this.m - other.m) / sumM) * this.v;
+    newV += ((2 * other.m) / sumM) * other.v;
     return newV;
   }
 
@@ -39,7 +38,6 @@ class Block {
   }
 
   show() {
-
     const x = constrain(this.x, this.xConstraint, width);
     image(blockImg, x, this.y, this.w, this.w);
   }

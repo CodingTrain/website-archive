@@ -10,16 +10,15 @@ function setup() {
   canvas = createCanvas(200, 200);
   bgcolor = color(200);
   nameP = createP('Your name!');
-  button = createButton("go");
+  button = createButton('go');
   button.mousePressed(changeColor);
 
   slider = createSlider(10, 100, 86);
   input = createInput('type your name');
-
 }
 
 function changeColor() {
-  bgcolor = color(random(255))
+  bgcolor = color(random(255));
 }
 
 function draw() {

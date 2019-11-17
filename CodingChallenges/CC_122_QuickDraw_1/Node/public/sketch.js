@@ -20,7 +20,6 @@ function newCat() {
   loadJSON('/cat', gotCat);
 }
 
-
 function draw() {
   if (cat) {
     let x = cat[strokeIndex][0][index];

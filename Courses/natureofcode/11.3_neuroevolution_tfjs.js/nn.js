@@ -27,7 +27,12 @@ class NeuralNetwork {
         weightCopies[i] = weights[i].clone();
       }
       modelCopy.setWeights(weightCopies);
-      return new NeuralNetwork(modelCopy, this.input_nodes, this.hidden_nodes, this.output_nodes);
+      return new NeuralNetwork(
+        modelCopy,
+        this.input_nodes,
+        this.hidden_nodes,
+        this.output_nodes
+      );
     });
   }
 

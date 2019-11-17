@@ -6,7 +6,8 @@
 // Part 1: https://youtu.be/yLuk0twx8Hc
 // https://thecodingtrain.com/CodingChallenges/122.1-quick-draw
 
-const url = 'https://quickdrawfiles.appspot.com/drawing/cat?isAnimated=false&format=json&key='
+const url =
+  'https://quickdrawfiles.appspot.com/drawing/cat?isAnimated=false&format=json&key=';
 
 let strokeIndex = 0;
 let index = 0;
@@ -28,7 +29,6 @@ function newCat() {
   let apiKey = 'AIzaSyCLxdiMV5-46xuFWFbdDhVoJi7DMwe-H9Q'; // keyInput.value();
   loadJSON(url + apiKey, gotCat);
 }
-
 
 function gotCat(data) {
   background(220);

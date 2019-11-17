@@ -41,8 +41,8 @@ function draw() {
 }
 
 function reduceDenominator(numerator, denominator) {
-    function rec(a, b) {
-        return b ? rec(b, a % b) : a;
-    }
-    return denominator / rec(numerator, denominator);
+  function rec(a, b) {
+    return b ? rec(b, a % b) : a;
+  }
+  return denominator / rec(numerator, denominator);
 }

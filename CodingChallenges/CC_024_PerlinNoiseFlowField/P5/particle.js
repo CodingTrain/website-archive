@@ -17,7 +17,7 @@ function Particle() {
     this.vel.limit(this.maxspeed);
     this.pos.add(this.vel);
     this.acc.mult(0);
-  }
+  };
 
   this.follow = function(vectors) {
     var x = floor(this.pos.x / scl);
@@ -25,11 +25,11 @@ function Particle() {
     var index = x + y * cols;
     var force = vectors[index];
     this.applyForce(force);
-  }
+  };
 
   this.applyForce = function(force) {
     this.acc.add(force);
-  }
+  };
 
   this.show = function() {
     stroke(this.h, 255, 255, 25);
@@ -40,12 +40,12 @@ function Particle() {
     strokeWeight(1);
     line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y);
     this.updatePrev();
-  }
+  };
 
   this.updatePrev = function() {
     this.prevPos.x = this.pos.x;
     this.prevPos.y = this.pos.y;
-  }
+  };
 
   this.edges = function() {
     if (this.pos.x > width) {
@@ -64,7 +64,5 @@ function Particle() {
       this.pos.y = height;
       this.updatePrev();
     }
-
-  }
-
+  };
 }

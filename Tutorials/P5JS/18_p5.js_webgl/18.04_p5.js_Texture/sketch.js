@@ -9,7 +9,7 @@ let kitten;
 let cam;
 
 function preload() {
-  kitten = loadImage('kittens/kitten0.jpg')
+  kitten = loadImage('kittens/kitten0.jpg');
 }
 
 function setup() {

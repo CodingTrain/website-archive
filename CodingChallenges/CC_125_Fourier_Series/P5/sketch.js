@@ -41,7 +41,6 @@ function draw() {
   }
   wave.unshift(y);
 
-
   translate(200, 0);
   line(x - 200, y, 0, wave[0]);
   beginShape();

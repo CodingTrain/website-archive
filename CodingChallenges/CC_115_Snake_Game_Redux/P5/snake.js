@@ -6,7 +6,6 @@
 // https://youtu.be/OMoVcohRgZA
 
 class Snake {
-
   constructor() {
     this.body = [];
     this.body[0] = createVector(floor(w / 2), floor(h / 2));
@@ -63,8 +62,7 @@ class Snake {
     for (let i = 0; i < this.body.length; i++) {
       fill(0);
       noStroke();
-      rect(this.body[i].x, this.body[i].y, 1, 1)
+      rect(this.body[i].x, this.body[i].y, 1, 1);
     }
   }
-
 }

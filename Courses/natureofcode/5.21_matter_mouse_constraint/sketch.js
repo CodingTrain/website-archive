@@ -21,7 +21,6 @@ var ground;
 
 var mConstraint;
 
-
 function setup() {
   var canvas = createCanvas(400, 400);
   engine = Engine.create();
@@ -30,7 +29,6 @@ function setup() {
 
   var prev = null;
   for (var x = 200; x < 400; x += 20) {
-
     var fixed = false;
     if (!prev) {
       fixed = true;
@@ -45,14 +43,13 @@ function setup() {
         bodyB: prev.body,
         length: 20,
         stiffness: 0.4
-      }
+      };
       var constraint = Constraint.create(options);
       World.add(world, constraint);
     }
 
     prev = p;
   }
-
 
   boundaries.push(new Boundary(200, height, width, 50, 0));
 
@@ -61,7 +58,7 @@ function setup() {
   //console.log(canvasmouse);
   var options = {
     mouse: canvasmouse
-  }
+  };
   mConstraint = MouseConstraint.create(engine, options);
   World.add(world, mConstraint);
   console.log(mConstraint);

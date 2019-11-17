@@ -8,19 +8,19 @@ function Particle(x, y, r, fixed) {
     friction: 0,
     restitution: 0.95,
     isStatic: fixed
-  }
+  };
   this.body = Bodies.circle(x, y, r, options);
   this.r = r;
   World.add(world, this.body);
 
   this.isOffScreen = function() {
     var pos = this.body.position;
-    return (pos.y > height + 100);
-  }
+    return pos.y > height + 100;
+  };
 
   this.removeFromWorld = function() {
     World.remove(world, this.body);
-  }
+  };
 
   this.show = function() {
     var pos = this.body.position;
@@ -34,6 +34,5 @@ function Particle(x, y, r, fixed) {
     fill(127);
     ellipse(0, 0, this.r * 2);
     pop();
-  }
-
+  };
 }

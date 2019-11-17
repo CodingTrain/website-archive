@@ -17,5 +17,4 @@ function setup() {
       createP(speechRec.resultString);
     }
   }
-
 }

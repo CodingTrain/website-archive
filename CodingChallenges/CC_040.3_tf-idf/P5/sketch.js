@@ -8,7 +8,7 @@ var counts = {};
 var keys = [];
 var allwords = [];
 
-var files = ['rainbow.txt','sports.txt', 'eclipse.txt', 'fish.txt'];
+var files = ['rainbow.txt', 'sports.txt', 'eclipse.txt', 'fish.txt'];
 
 function preload() {
   for (var i = 0; i < files.length; i++) {
@@ -18,7 +18,7 @@ function preload() {
 
 function setup() {
   for (var i = 0; i < txt.length; i++) {
-    allwords[i] = txt[i].join("\n");
+    allwords[i] = txt[i].join('\n');
   }
 
   var tokens = allwords[0].split(/\W+/);
@@ -48,8 +48,6 @@ function setup() {
     othercounts.push(tempcounts);
   }
 
-
-
   for (var i = 0; i < keys.length; i++) {
     var word = keys[i];
     for (var j = 0; j < othercounts.length; j++) {
@@ -66,7 +64,6 @@ function setup() {
     wordobj.tfidf = wordobj.tf * log(files.length / wordobj.df);
   }
 
-
   keys.sort(compare);
 
   function compare(a, b) {
@@ -77,7 +74,7 @@ function setup() {
 
   for (var i = 0; i < keys.length; i++) {
     var key = keys[i];
-    createDiv(key + " " + counts[key].tfidf);
+    createDiv(key + ' ' + counts[key].tfidf);
   }
 
   noCanvas();

@@ -15,8 +15,8 @@ function setup() {
 }
 
 function pickLocation() {
-  let cols = floor(width/scl);
-  let rows = floor(height/scl);
+  let cols = floor(width / scl);
+  let rows = floor(height / scl);
   food = createVector(floor(random(cols)), floor(random(rows)));
   food.mult(scl);
 }

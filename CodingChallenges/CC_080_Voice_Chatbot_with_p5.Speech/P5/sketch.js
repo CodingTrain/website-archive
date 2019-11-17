@@ -14,7 +14,7 @@ function setup() {
   speechRec.start(continuous, interim);
 
   let bot = new RiveScript();
-  bot.loadFile("brain.rive", brainReady, brainError);
+  bot.loadFile('brain.rive', brainReady, brainError);
 
   function brainReady() {
     console.log('Chatbot ready!');
@@ -22,9 +22,8 @@ function setup() {
   }
 
   function brainError() {
-    console.log('Chatbot error!')
+    console.log('Chatbot error!');
   }
-
 
   // let button = select('#submit');
   // let user_input = select('#user_input');
@@ -36,7 +35,7 @@ function setup() {
     if (speechRec.resultValue) {
       let input = speechRec.resultString;
       //user_input.value(input);
-      let reply = bot.reply("local-user", input);
+      let reply = bot.reply('local-user', input);
       speech.speak(reply);
       //output.html(reply);
     }
@@ -45,5 +44,4 @@ function setup() {
   // function chat() {
   //   let input = user_input.value();
   // }
-
 }

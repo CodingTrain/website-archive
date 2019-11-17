@@ -49,8 +49,6 @@ function draw() {
   }
   fill(255);
   text(s, 20, height / 2);
-
-
 }
 
 function swap(a, i, j) {

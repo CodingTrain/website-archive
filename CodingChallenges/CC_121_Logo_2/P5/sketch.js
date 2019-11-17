@@ -12,7 +12,7 @@ function setup() {
   angleMode(DEGREES);
   background(0);
   turtle = new Turtle(100, 100, 0);
-  editor = select("#code");
+  editor = select('#code');
   editor.input(goTurtle);
   goTurtle();
 }
@@ -21,7 +21,7 @@ function execute(commands) {
   for (let command of commands) {
     let name = command.name;
     let arg = command.arg;
-    if (name === "repeat") {
+    if (name === 'repeat') {
       for (let i = 0; i < arg; i++) {
         execute(command.commands);
       }

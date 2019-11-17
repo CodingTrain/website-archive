@@ -9,7 +9,6 @@ function setup() {
 
   makeTimer(timer1, 500);
   makeTimer(timer2, 312);
-
 }
 
 function makeTimer(elt, wait) {
@@ -20,10 +19,6 @@ function makeTimer(elt, wait) {
     counter++;
   }
 }
-
-
-
-
 
 function draw() {
   background(51);

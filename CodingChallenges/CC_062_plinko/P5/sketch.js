@@ -72,10 +72,7 @@ function setup() {
     var y = height - h / 2;
     var b = new Boundary(x, y, w, h);
     bounds.push(b);
-
   }
-
-
 }
 
 function newParticle() {

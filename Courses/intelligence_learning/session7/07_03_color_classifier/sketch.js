@@ -15,12 +15,12 @@
 function setup() {
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyDPekCKX4ee6h9NVR2lEITGAM0XIHn-c7c",
-    authDomain: "color-classification.firebaseapp.com",
-    databaseURL: "https://color-classification.firebaseio.com",
-    projectId: "color-classification",
-    storageBucket: "",
-    messagingSenderId: "590040209608"
+    apiKey: 'AIzaSyDPekCKX4ee6h9NVR2lEITGAM0XIHn-c7c',
+    authDomain: 'color-classification.firebaseapp.com',
+    databaseURL: 'https://color-classification.firebaseio.com',
+    projectId: 'color-classification',
+    storageBucket: '',
+    messagingSenderId: '590040209608'
   };
   firebase.initializeApp(config);
   database = firebase.database();
@@ -50,14 +50,13 @@ function gotData(results) {
     }
   }
 
-  users.sort((a,b) => {
+  users.sort((a, b) => {
     return uid_bycount[a] - uid_bycount[b];
-  })
+  });
 
   for (let id of users) {
     console.log(`${id} ${uid_bycount[id]}`);
   }
 
   //console.log(uid_bycount)
-
 }

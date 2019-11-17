@@ -22,11 +22,11 @@ var stack = [];
 
 function setup() {
   createCanvas(600, 600);
-  cols = floor(width/w);
-  rows = floor(height/w);
+  cols = floor(width / w);
+  rows = floor(height / w);
   //frameRate(5);
 
-  for (var   j = 0; j < rows; j++) {
+  for (var j = 0; j < rows; j++) {
     for (var i = 0; i < cols; i++) {
       var cell = new Cell(i, j);
       grid.push(cell);
@@ -34,8 +34,6 @@ function setup() {
   }
 
   current = grid[0];
-
-
 }
 
 function draw() {
@@ -62,16 +60,14 @@ function draw() {
   } else if (stack.length > 0) {
     current = stack.pop();
   }
-
 }
 
 function index(i, j) {
-  if (i < 0 || j < 0 || i > cols-1 || j > rows-1) {
+  if (i < 0 || j < 0 || i > cols - 1 || j > rows - 1) {
     return -1;
   }
   return i + j * cols;
 }
-
 
 function removeWalls(a, b) {
   var x = a.i - b.i;

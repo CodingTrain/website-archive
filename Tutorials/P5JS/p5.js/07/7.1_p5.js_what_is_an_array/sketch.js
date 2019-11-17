@@ -13,8 +13,7 @@ function setup() {
 }
 
 function draw() {
-background(0);
+  background(0);
   ellipse(100, 200, num, num);
   ellipse(200, 200, nums[2], nums[2]);
-
 }

@@ -5,7 +5,6 @@
 // https://editor.p5js.org/codingtrain/sketches/HJn1hOPjX
 
 class Bit {
-
   constructor(x, y, d) {
     this.x = x;
     this.y = y;
@@ -24,7 +23,6 @@ class Bit {
     }
   }
 
-
   show() {
     stroke(255);
     if (this.state) {
@@ -34,7 +32,4 @@ class Bit {
     }
     ellipse(this.x, this.y, this.diameter);
   }
-
-
-
 }

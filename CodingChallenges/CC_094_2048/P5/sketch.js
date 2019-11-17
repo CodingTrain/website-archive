@@ -69,14 +69,13 @@ function keyPressed() {
 
     let gameover = isGameOver();
     if (gameover) {
-      console.log("GAME OVER");
+      console.log('GAME OVER');
     }
 
     let gamewon = isGameWon();
     if (gamewon) {
-      console.log("GAME WON");
+      console.log('GAME WON');
     }
-
   }
 }
 

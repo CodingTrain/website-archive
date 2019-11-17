@@ -26,7 +26,6 @@ function setup() {
   block2 = new Block(300, 100, m2, -1 / timeSteps, 20);
   countDiv = createDiv(count);
   countDiv.style('font-size', '72pt');
-
 }
 
 function draw() {

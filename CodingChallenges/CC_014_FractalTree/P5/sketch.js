@@ -17,7 +17,6 @@ function draw() {
   stroke(255);
   translate(200, height);
   branch(100);
-
 }
 
 function branch(len) {

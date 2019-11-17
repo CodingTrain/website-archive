@@ -20,7 +20,6 @@ function preload() {
   spritesheet = loadImage('horse/horse.png');
 }
 
-
 function setup() {
   createCanvas(640, 480);
   let frames = spritedata.frames;

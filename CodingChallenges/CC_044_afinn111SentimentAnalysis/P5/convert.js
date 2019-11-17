@@ -4,7 +4,7 @@
 // Code for: https://youtu.be/uw3GbsY_Pbc
 
 var table;
-var afinn = {}
+var afinn = {};
 
 function preload() {
   table = loadTable('AFINN-111.txt', 'tsv');
@@ -23,11 +23,6 @@ function setup() {
   }
   console.log(afinn);
   save(afinn, 'afinn111.json');
-
-
-
 }
 
-function draw() {
-
-}
+function draw() {}

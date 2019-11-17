@@ -3,7 +3,6 @@
 
 let tentacle;
 
-
 function setup() {
   createCanvas(600, 400);
 
@@ -21,7 +20,6 @@ function setup() {
   tentacle = current;
 }
 
-
 function draw() {
   background(51);
 
@@ -37,5 +35,3 @@ function draw() {
     next = next.par;
   }
 }
-
-

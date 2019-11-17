@@ -39,7 +39,6 @@ function setup() {
     }
   }
 
-
   for (var n = 0; n < totalBees; n++) {
     var index = floor(random(options.length));
     var choice = options[index];
@@ -50,13 +49,11 @@ function setup() {
     grid[i][j].bee = true;
   }
 
-
   for (var i = 0; i < cols; i++) {
     for (var j = 0; j < rows; j++) {
       grid[i][j].countBees();
     }
   }
-
 }
 
 function gameOver() {
@@ -76,7 +73,6 @@ function mousePressed() {
         if (grid[i][j].bee) {
           gameOver();
         }
-
       }
     }
   }

@@ -52,5 +52,4 @@ function draw() {
   }
 
   // console.log(circles.length, world.bodies.length);
-
 }

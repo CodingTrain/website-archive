@@ -10,25 +10,21 @@
  *  Shawn Van Every (Shawn.Van.Every@nyu.edu)
  *  ITP/NYU
  *  LGPL
- *  
+ *
  *  https://github.com/vanevery/p5.serialport
  *
  */
 (function(root, factory) {
   if (typeof define === 'function' && define.amd)
     define('p5.serialport', ['p5'], function(p5) {
-      (factory(p5));
+      factory(p5);
     });
-  else if (typeof exports === 'object')
-    factory(require('../p5'));
-  else
-    factory(root['p5']);
-}(this, function(p5) {
-
+  else if (typeof exports === 'object') factory(require('../p5'));
+  else factory(root['p5']);
+})(this, function(p5) {
   // =============================================================================
   //                         p5.SerialPort
   // =============================================================================
-
 
   /*
   var serialPort = new SerialPort();
@@ -44,7 +40,6 @@
    * @constructor
    */
   p5.SerialPort = function(_hostname, _serverport) {
-
     var self = this;
 
     this.bufferSize = 1; // How much to buffer before sending data event
@@ -55,7 +50,7 @@
 
     this.serialport = null;
     this.serialoptions = null;
-    
+
     this.emitQueue = [];
 
     this.serialportList = [];
@@ -64,7 +59,7 @@
       this.hostname = _hostname;
     } else {
       //console.log("typeof _hostname " + typeof _hostname + " setting to locahost");
-      this.hostname = "localhost";
+      this.hostname = 'localhost';
     }
 
     if (typeof _serverport === 'number') {
@@ -75,11 +70,13 @@
     }
 
     try {
-      this.socket = new WebSocket("ws://" + this.hostname + ":" + this.serverport);
-      console.log(("ws://" + this.hostname + ":" + this.serverport));
+      this.socket = new WebSocket(
+        'ws://' + this.hostname + ':' + this.serverport
+      );
+      console.log('ws://' + this.hostname + ':' + this.serverport);
     } catch (err) {
       //console.log(err + "\n" + "Is the p5.serialserver running?");
-      if (typeof self.errorCallback !== "undefined") {
+      if (typeof self.errorCallback !== 'undefined') {
         self.errorCallback("Couldn't connect to the server, is it running?");
       }
     }
@@ -88,18 +85,18 @@
       console.log('opened socket');
       serialConnected = true;
 
-      if (typeof self.connectedCallback !== "undefined") {
+      if (typeof self.connectedCallback !== 'undefined') {
         self.connectedCallback();
       }
-      
+
       if (self.emitQueue.length > 0) {
-        for (var i = 0; i < self.emitQueue.length; i ++){
+        for (var i = 0; i < self.emitQueue.length; i++) {
           //console.log("queue: " + self.emitQueue[i]);
           self.emit(self.emitQueue[i]);
         }
         self.emitQueue = [];
       }
-      
+
       /* Now handled by the queue
       if (self.serialport && self.serialoptions) {
         // If they have asked for a connect, these won't be null and we should try the connect now
@@ -122,21 +119,21 @@
       var messageObject = JSON.parse(event.data);
 
       // MESSAGE ROUTING
-      if (typeof messageObject.method !== "undefined") {
+      if (typeof messageObject.method !== 'undefined') {
         if (messageObject.method == 'echo') {
           //console.log("echo: " + messageObject.data);
-        } else if (messageObject.method === "openserial") {
-          if (typeof self.openCallback !== "undefined") {
+        } else if (messageObject.method === 'openserial') {
+          if (typeof self.openCallback !== 'undefined') {
             self.openCallback();
           }
-        } else if (messageObject.method === "data") {
+        } else if (messageObject.method === 'data') {
           // Add to buffer, assuming this comes in byte by byte
           //console.log("data: " +  JSON.stringify(messageObject.data));
           self.serialBuffer.push(messageObject.data);
-          
+
           //console.log(self.serialBuffer.length);
 
-          if (typeof self.dataCallback !== "undefined") {
+          if (typeof self.dataCallback !== 'undefined') {
             // Hand it to sketch
             if (self.serialBuffer.length >= self.bufferSize) {
               self.dataCallback();
@@ -144,31 +141,30 @@
             //console.log(self.serialBuffer.length);
           }
 
-          if (typeof self.rawDataCallback !== "undefined") {
+          if (typeof self.rawDataCallback !== 'undefined') {
             self.rawDataCallback(messageObject.data);
           }
         } else if (messageObject.method === 'list') {
-          
           self.serialportList = messageObject.data;
 
-          if (typeof self.listCallback !== "undefined") {
+          if (typeof self.listCallback !== 'undefined') {
             self.listCallback(messageObject.data);
           }
-        } else if (messageObject.method === "write") {
+        } else if (messageObject.method === 'write') {
           // Success Callback?
-        } else if (messageObject.method === "error") {
+        } else if (messageObject.method === 'error') {
           //console.log(messageObject.data);
 
-          if (typeof self.errorCallback !== "undefined") {
+          if (typeof self.errorCallback !== 'undefined') {
             // Hand it to sketch
             self.errorCallback(messageObject.data);
           }
         } else {
           // Got message from server without known method
-          console.log("Unknown Method: " + messageObject);
+          console.log('Unknown Method: ' + messageObject);
         }
       } else {
-        console.log("Method Undefined: " + messageObject);
+        console.log('Method Undefined: ' + messageObject);
       }
     };
 
@@ -176,7 +172,7 @@
       //console.log("socketOnClose");
       //console.log(event);
 
-      if (typeof self.closeCallback !== "undefined") {
+      if (typeof self.closeCallback !== 'undefined') {
         self.closeCallback();
       }
     };
@@ -185,11 +181,10 @@
       //console.log("socketOnError");
       //console.log(event);
 
-      if (typeof self.errorCallback !== "undefined") {
+      if (typeof self.errorCallback !== 'undefined') {
         self.errorCallback();
       }
     };
-
   };
 
   p5.SerialPort.prototype.emit = function(data) {
@@ -201,8 +196,11 @@
   };
 
   p5.SerialPort.prototype.isConnected = function() {
-    if (self.serialConnected) { return true; }
-    else { return false; }
+    if (self.serialConnected) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   // list() - list serial ports available to the server
@@ -220,7 +218,6 @@
   };
 
   p5.SerialPort.prototype.open = function(_serialport, _serialoptions, cb) {
-
     if (typeof cb === 'function') {
       this.openCallback = cb;
     }
@@ -234,7 +231,7 @@
       this.serialoptions = {};
     }
 
-    // If our socket is connected, we'll do this now, 
+    // If our socket is connected, we'll do this now,
     // otherwise it will happen in the socket.onopen callback
     this.emit({
       method: 'openserial',
@@ -248,10 +245,10 @@
   p5.SerialPort.prototype.write = function(data) {
     //Writes bytes, chars, ints, bytes[], Strings to the serial port
     var toWrite = null;
-    if (typeof data == "number") {
+    if (typeof data == 'number') {
       // This is the only one I am treating differently, the rest of the clauses are meaningless
       toWrite = [data];
-    } else if (typeof data == "string") {
+    } else if (typeof data == 'string') {
       toWrite = data;
     } else if (Array.isArray(data)) {
       toWrite = data;
@@ -263,7 +260,7 @@
       method: 'write',
       data: toWrite
     });
-    //this.socket.send({method:'writeByte',data:data});  ? 
+    //this.socket.send({method:'writeByte',data:data});  ?
     //this.socket.send({method:'writeString',data:data})  ?
   };
 
@@ -314,14 +311,17 @@
   };
 
   p5.SerialPort.prototype.readBytesUntil = function(charToFind) {
-    console.log("Looking for: " + charToFind.charCodeAt(0));
+    console.log('Looking for: ' + charToFind.charCodeAt(0));
     //Reads from the port into a buffer of bytes up to and including a particular character. If the character isn't in the buffer, 'null' is returned. The version with without the byteBuffer parameter returns a byte array of all data up to and including the interesting byte. This is not efficient, but is easy to use. The version with the byteBuffer parameter is more memory and time efficient. It grabs the data in the buffer and puts it into the byte array passed in and returns an int value for the number of bytes read. If the byte buffer is not large enough, -1 is returned and an error is printed to the message area. If nothing is in the buffer, 0 is returned.
     var index = this.serialBuffer.indexOf(charToFind.charCodeAt(0));
     if (index !== -1) {
       // What to return
       var returnBuffer = this.serialBuffer.slice(0, index + 1);
       // Clear out what was returned
-      this.serialBuffer = this.serialBuffer.slice(index, this.serialBuffer.length + index);
+      this.serialBuffer = this.serialBuffer.slice(
+        index,
+        this.serialBuffer.length + index
+      );
       return returnBuffer;
     } else {
       return -1;
@@ -339,26 +339,27 @@
     }
     // Clear the buffer
     this.serialBuffer.length = 0;
-    return stringBuffer.join("");
+    return stringBuffer.join('');
   };
 
   p5.SerialPort.prototype.readStringUntil = function(stringToFind) {
-
     var stringBuffer = [];
     //console.log("serialBuffer Length: " + this.serialBuffer.length);
     for (var i = 0; i < this.serialBuffer.length; i++) {
       //console.log("push: " + String.fromCharCode(this.serialBuffer[i]));
       stringBuffer.push(String.fromCharCode(this.serialBuffer[i]));
     }
-    stringBuffer = stringBuffer.join("");
+    stringBuffer = stringBuffer.join('');
     //console.log("stringBuffer: " + stringBuffer);
 
-    var returnString = "";
+    var returnString = '';
     var foundIndex = stringBuffer.indexOf(stringToFind);
     //console.log("found index: " + foundIndex);
     if (foundIndex > -1) {
       returnString = stringBuffer.substr(0, foundIndex);
-      this.serialBuffer = this.serialBuffer.slice(foundIndex + stringToFind.length);
+      this.serialBuffer = this.serialBuffer.slice(
+        foundIndex + stringToFind.length
+      );
     }
     //console.log("Sending: " + returnString);
     return returnString;
@@ -366,8 +367,8 @@
 
   // readStringUntil("\r\n");
   p5.SerialPort.prototype.readLine = function() {
-    return this.readStringUntil("\r\n");
-  }; 
+    return this.readStringUntil('\r\n');
+  };
 
   // TODO
   //p5.SerialPort.prototype.bufferUntil
@@ -417,31 +418,31 @@
   // Register callback methods from sketch
 
   p5.SerialPort.prototype.onData = function(_callback) {
-    this.on('data',_callback);
+    this.on('data', _callback);
   };
 
   p5.SerialPort.prototype.onOpen = function(_callback) {
-    this.on('open',_callback);
+    this.on('open', _callback);
   };
 
   p5.SerialPort.prototype.onClose = function(_callback) {
-    this.on('close',_callback);
+    this.on('close', _callback);
   };
 
   p5.SerialPort.prototype.onError = function(_callback) {
-    this.on('error',_callback);
+    this.on('error', _callback);
   };
 
   p5.SerialPort.prototype.onList = function(_callback) {
-    this.on('list',_callback);
+    this.on('list', _callback);
   };
 
   p5.SerialPort.prototype.onConnected = function(_callback) {
-    this.on('connected',_callback);
+    this.on('connected', _callback);
   };
 
   p5.SerialPort.prototype.onRawData = function(_callback) {
-    this.on('rawdata',_callback);
+    this.on('rawdata', _callback);
   };
 
   // Version 2
@@ -462,6 +463,6 @@
       this.rawDataCallback = _callback;
     }
   };
-}));
+});
 
 // EOF

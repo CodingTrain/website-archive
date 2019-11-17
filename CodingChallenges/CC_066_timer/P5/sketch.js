@@ -19,13 +19,12 @@ function convertSeconds(s) {
 var ding;
 
 function preload() {
-  ding = loadSound("ding.mp3");
+  ding = loadSound('ding.mp3');
 }
 
 function setup() {
   noCanvas();
   startTime = millis();
-
 
   var params = getURLParams();
   console.log(params);
@@ -48,5 +47,4 @@ function setup() {
       //counter = 0;
     }
   }
-
 }

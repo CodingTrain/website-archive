@@ -10,7 +10,8 @@
 let nn;
 let lr_slider;
 
-let training_data = [{
+let training_data = [
+  {
     inputs: [0, 0],
     outputs: [0]
   },
@@ -32,7 +33,6 @@ function setup() {
   createCanvas(400, 400);
   nn = new NeuralNetwork(2, 4, 1);
   lr_slider = createSlider(0.01, 0.5, 0.1, 0.01);
-
 }
 
 function draw() {
@@ -59,7 +59,4 @@ function draw() {
       rect(i * resolution, j * resolution, resolution, resolution);
     }
   }
-
-
-
 }

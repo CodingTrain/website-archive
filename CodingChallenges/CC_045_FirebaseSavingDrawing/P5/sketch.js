@@ -12,8 +12,6 @@ var isDrawing = false;
 function setup() {
   canvas = createCanvas(200, 200);
 
-
-
   canvas.mousePressed(startPath);
   canvas.parent('canvascontainer');
   canvas.mouseReleased(endPath);
@@ -24,14 +22,12 @@ function setup() {
   var clearButton = select('#clearButton');
   clearButton.mousePressed(clearDrawing);
 
-
-
   var config = {
     apiKey: [YOUR_API_KEY],
-    authDomain: "my-not-awesome-project.firebaseapp.com",
-    databaseURL: "https://my-not-awesome-project.firebaseio.com",
-    storageBucket: "my-not-awesome-project.appspot.com",
-    messagingSenderId: "583703514528"
+    authDomain: 'my-not-awesome-project.firebaseapp.com',
+    databaseURL: 'https://my-not-awesome-project.firebaseio.com',
+    storageBucket: 'my-not-awesome-project.appspot.com',
+    messagingSenderId: '583703514528'
   };
   firebase.initializeApp(config);
   database = firebase.database();
@@ -42,7 +38,6 @@ function setup() {
     console.log(params.id);
     showDrawing(params.id);
   }
-
 
   var ref = database.ref('drawings');
   ref.on('value', gotData, errData);
@@ -65,7 +60,7 @@ function draw() {
     var point = {
       x: mouseX,
       y: mouseY
-    }
+    };
     currentPath.push(point);
   }
 
@@ -76,21 +71,18 @@ function draw() {
     var path = drawing[i];
     beginShape();
     for (var j = 0; j < path.length; j++) {
-      vertex(path[j].x, path[j].y)
+      vertex(path[j].x, path[j].y);
     }
     endShape();
   }
-
-
 }
-
 
 function saveDrawing() {
   var ref = database.ref('drawings');
   var data = {
-    name: "Dan",
+    name: 'Dan',
     drawing: drawing
-  }
+  };
   var result = ref.push(data, dataSent);
   console.log(result.key);
 
@@ -100,7 +92,6 @@ function saveDrawing() {
 }
 
 function gotData(data) {
-
   // clear the listing
   var elts = selectAll('.listing');
   for (var i = 0; i < elts.length; i++) {
@@ -144,9 +135,7 @@ function showDrawing(key) {
     drawing = dbdrawing.drawing;
     //console.log(drawing);
   }
-
 }
-
 
 function clearDrawing() {
   drawing = [];

@@ -14,13 +14,13 @@ function setup() {
   // paragraph = select('#unicorn');
   // paragraphs = selectAll('p');
   paragraphs = selectAll('.rainbow');
-  
+
   for (var i = 0; i < paragraphs.length; i++) {
     // paragraph.mouseOver(changeBackground);
-    paragraphs[i].style('font-size', "24pt");
+    paragraphs[i].style('font-size', '24pt');
   }
   //paragraph.style('background-color', '#F0F')
-  
+
   var button = select('#button');
   button.mousePressed(canvasBg);
 }
@@ -30,5 +30,5 @@ function canvasBg() {
 }
 
 function changeBackground() {
-  paragraph.style('background-color', '#F0F')
+  paragraph.style('background-color', '#F0F');
 }

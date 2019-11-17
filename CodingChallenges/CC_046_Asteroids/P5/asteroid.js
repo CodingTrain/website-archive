@@ -7,7 +7,7 @@ function Asteroid(pos, r) {
   if (pos) {
     this.pos = pos.copy();
   } else {
-    this.pos = createVector(random(width), random(height))
+    this.pos = createVector(random(width), random(height));
   }
   if (r) {
     this.r = r * 0.5;
@@ -24,7 +24,7 @@ function Asteroid(pos, r) {
 
   this.update = function() {
     this.pos.add(this.vel);
-  }
+  };
 
   this.render = function() {
     push();
@@ -42,14 +42,14 @@ function Asteroid(pos, r) {
     }
     endShape(CLOSE);
     pop();
-  }
+  };
 
   this.breakup = function() {
     var newA = [];
     newA[0] = new Asteroid(this.pos, this.r);
     newA[1] = new Asteroid(this.pos, this.r);
     return newA;
-  }
+  };
 
   this.edges = function() {
     if (this.pos.x > width + this.r) {
@@ -62,6 +62,5 @@ function Asteroid(pos, r) {
     } else if (this.pos.y < -this.r) {
       this.pos.y = height + this.r;
     }
-  }
-
+  };
 }

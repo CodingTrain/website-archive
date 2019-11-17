@@ -2,9 +2,7 @@
 // http://codingtra.in
 // http://patreon.com/codingtrain
 
-console.log("Chrome extension go?");
-
-
+console.log('Chrome extension go?');
 
 chrome.runtime.onMessage.addListener(gotMessage);
 

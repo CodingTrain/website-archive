@@ -5,10 +5,10 @@ var circles = [];
 
 function setup() {
   createCanvas(640, 360);
-  
+
   // Lets make sure we don't get stuck in infinite loop
   var protection = 0;
-  
+
   // Try to get to 500
   while (circles.length < 500) {
     // Pick a random circle
@@ -16,7 +16,7 @@ function setup() {
       x: random(width),
       y: random(height),
       r: random(6, 36)
-    }
+    };
 
     // Does it overlap any previous circles?
     var overlapping = false;
@@ -27,12 +27,12 @@ function setup() {
         overlapping = true;
       }
     }
-  
+
     // If not keep it!
     if (!overlapping) {
       circles.push(circle);
     }
-    
+
     // Are we stuck?
     protection++;
     if (protection > 10000) {
@@ -46,5 +46,4 @@ function setup() {
     noStroke();
     ellipse(circles[i].x, circles[i].y, circles[i].r * 2, circles[i].r * 2);
   }
-
 }

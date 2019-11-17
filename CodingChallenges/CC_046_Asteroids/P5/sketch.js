@@ -53,8 +53,6 @@ function draw() {
   ship.turn();
   ship.update();
   ship.edges();
-
-
 }
 
 function keyReleased() {

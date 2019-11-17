@@ -12,7 +12,6 @@ function setup() {
 
   var buttonA = select('#analyze');
   buttonA.mousePressed(analyzeThis);
-
 }
 
 function analyzeThis() {
@@ -20,7 +19,7 @@ function analyzeThis() {
 
   var data = {
     text: txt
-  }
+  };
   httpPost('analyze/', data, 'json', dataPosted, postErr);
 }
 
@@ -31,8 +30,6 @@ function dataPosted(result) {
 function postErr(err) {
   console.log(err);
 }
-
-
 
 function submitWord() {
   var word = select('#word').value();

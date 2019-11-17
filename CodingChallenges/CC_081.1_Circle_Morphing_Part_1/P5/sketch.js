@@ -36,7 +36,6 @@ function setup() {
       end = polarToCartesian(radius, endA);
     }
   }
-
 }
 
 function draw() {
@@ -58,7 +57,6 @@ function draw() {
   }
   endShape(CLOSE);
 
-
   // beginShape();
   // for (let i = 0; i < cirPath.length; i++) {
   //   let v = cirPath[i];
@@ -77,5 +75,4 @@ function draw() {
   //   fill(0);
   //   ellipse(v.x, v.y, 8);
   // }
-
 }

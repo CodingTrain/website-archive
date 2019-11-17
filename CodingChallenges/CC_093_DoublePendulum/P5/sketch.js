@@ -47,7 +47,7 @@ function draw() {
   let a1_a = (num1 + num2 + num3 * num4) / den;
 
   num1 = 2 * sin(a1 - a2);
-  num2 = (a1_v * a1_v * r1 * (m1 + m2));
+  num2 = a1_v * a1_v * r1 * (m1 + m2);
   num3 = g * (m1 + m2) * cos(a1);
   num4 = a2_v * a2_v * r2 * m2 * cos(a1 - a2);
   den = r2 * (2 * m1 + m2 - m2 * cos(2 * a1 - 2 * a2));

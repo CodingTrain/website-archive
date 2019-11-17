@@ -37,7 +37,7 @@ function setup() {
   for (let i = 0; i < cols * rows; i++) {
     let tile = new Tile(x, y, resolution, i, i + 1);
     tiles.push(tile);
-    x = x + (resolution * dir);
+    x = x + resolution * dir;
     // Move along a winding path up the rows
     if (x >= width || x <= -resolution) {
       dir *= -1;
@@ -56,7 +56,9 @@ function setup() {
   // Pick random Ladders
   for (let i = 0; i < 3; i++) {
     let index = floor(random(0, tiles.length - cols));
-    tiles[index].snadder = floor(random(cols - (index % cols), tiles.length - index - 1));
+    tiles[index].snadder = floor(
+      random(cols - (index % cols), tiles.length - index - 1)
+    );
   }
 
   // A new player

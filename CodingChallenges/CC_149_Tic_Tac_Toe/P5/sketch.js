@@ -6,7 +6,7 @@
 let board = [
   ['', '', ''],
   ['', '', ''],
-  ['', '', ''],
+  ['', '', '']
 ];
 
 let players = ['X', 'O'];
@@ -26,7 +26,7 @@ function setup() {
 }
 
 function equals3(a, b, c) {
-  return (a == b && b == c && a != '');
+  return a == b && b == c && a != '';
 }
 
 function checkWinner() {
@@ -59,7 +59,6 @@ function checkWinner() {
   } else {
     return winner;
   }
-
 }
 
 function nextTurn() {
@@ -100,7 +99,6 @@ function draw() {
         line(x - r, y - r, x + r, y + r);
         line(x + r, y - r, x - r, y + r);
       }
-
     }
   }
 
@@ -110,7 +108,7 @@ function draw() {
     let resultP = createP('');
     resultP.style('font-size', '32pt');
     if (result == 'tie') {
-      resultP.html("Tie!")
+      resultP.html('Tie!');
     } else {
       resultP.html(`${result} wins!`);
     }
