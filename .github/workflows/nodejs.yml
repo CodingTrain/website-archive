@@ -26,8 +26,11 @@ jobs:
           ${{ runner.os }}-node-
     - name: Installing Node Dependencies
       run: |
+        npm install
         cd unit_testing
         npm install
+    - name: Lint Example JavaScript
+      run: npm run lint
     - name: Running Jest
       run: |
         cd unit_testing
