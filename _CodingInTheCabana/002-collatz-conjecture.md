@@ -1,7 +1,7 @@
 ---
 title: "Collatz Conjecture"
 video_number: 2
-date: 2019-10-25
+date: 2019-10-27
 video_id: EYLWxwo1Ed8
 web_editor: XjLDE7gu6
 repository: Cabana_002_Collatz_Conjecture
@@ -87,5 +87,8 @@ contributions:
       url: "https://twitter.com/SuperRembo"
     url: "https://editor.p5js.org/SuperRembo/present/FlVS_V65b"
     source: "https://editor.p5js.org/SuperRembo/sketches/FlVS_V65b"
+  - title: "Collatz' birb 3D in Processing"
+    author: "SpectralPiano"
+    source: "https://github.com/SpectralFlame/Collatz-birb-3D"
 ---
 It's the second episode of Coding in the Cabana! Here I attempt to visualize the Collatz Conjecture in Processing.

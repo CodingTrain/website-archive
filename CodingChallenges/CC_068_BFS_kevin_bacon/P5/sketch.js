@@ -88,7 +88,7 @@ function bfs() {
     txt += n.value
     if (i != 0) {
       txt += ' --> '
-    };
+    }
   }
   createP(txt);
 }

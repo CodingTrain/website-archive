@@ -1,7 +1,7 @@
 ---
 title: "Koch Fractal Snowflake"
 video_number: 129
-date: 2018-12-26
+date: 2018-12-30
 repository: CC_129_Koch_Snowflake
 video_id: X8bXDKqMsXE
 web_editor: "SJHcVCAgN"

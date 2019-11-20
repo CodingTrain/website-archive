@@ -29,7 +29,7 @@ function Walker(x, y) {
         //if (random(1) < 0.1) {
         this.stuck = true;
         return true;
-        break;
+        // break;
         //}
       }
     }

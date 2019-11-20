@@ -1,7 +1,7 @@
 ---
 title: "RDP Algorithm"
 video_number: 152
-date: 2019-10-21
+date: 2019-10-23
 video_id: nSYw9GrakjY
 web_editor: SQjSugKn6
 repository: CC_152_RDP_Algorithm

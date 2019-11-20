@@ -18,6 +18,12 @@ contributions:
       url: "https://www.openprocessing.org/user/151106"
     url: "https://www.openprocessing.org/sketch/659765"
     source: "https://github.com/GypsyDangerous/Finished-Projects"
+  - title: "Polar Rose Fireworks"
+    author:
+      name: "David Snyder"
+      url: "https://github.com/GypsyDangerous"
+    url: "https://editor.p5js.org/D_Snyder/full/V4QZDfwl-"
+    source: "https://editor.p5js.org/D_Snyder/sketches/V4QZDfwl-"
 ---
 
 In this coding challenge, I attempt to create rose (rhodonea) curves using trigonometry function and polar coordinates.

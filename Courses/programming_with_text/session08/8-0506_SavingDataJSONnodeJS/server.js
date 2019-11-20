@@ -38,20 +38,18 @@ function addWord(request, response) {
     words[word] = score;
     var data = JSON.stringify(words, null, 2);
     fs.writeFile('words.json', data, finished);
-
-    function finished(err) {
-      console.log('all set.');
-      reply = {
-        word: word,
-        score: score,
-        status: "success"
-      }
-      response.send(reply);
-    }
-
-
   }
+  
+}
 
+function finished(err) {
+  console.log('all set.');
+  reply = {
+    word: word,
+    score: score,
+    status: "success"
+  }
+  response.send(reply);
 }
 
 app.get('/all', sendAll);

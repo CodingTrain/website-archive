@@ -7,10 +7,11 @@ permalink: /
 {% include 1-tools/sort-videos.html videos=site.Streams future=true reverse=true %}
 {% assign nextStream = out_sortedVideos | where_exp: 'stream', 'stream.date >= site.time' | first %}
 
-{% comment %} Get latest coding challenges. {% endcomment %}
-{% include 1-tools/sort-videos.html videos=site.CodingChallenges reverse=true %}
+{% comment %} Get latest coding challenges, coding in the cabana and teachable machine video. {% endcomment %}
+{% assign featuredSeries = site.CodingInTheCabana | concat: site.CodingChallenges | concat: site.TeachableMachine %}
+{% include 1-tools/sort-videos.html videos=featuredSeries sortByDate=true reverse=true %}
 
-{% comment %} Use the latest coding challenge if a stream hasn't been scheduled yet. {% endcomment %}
+{% comment %} Use the latest coding challenge, coding in the cabana or teachable machine video if a stream hasn't been scheduled yet. {% endcomment %}
 {% if nextStream == null %}
   {% assign offset = 1 %}
   {% assign nextStream = out_sortedVideos | first %}
@@ -20,9 +21,9 @@ permalink: /
 
 {% assign featuredVideos = '' | split: '' %}
 
-{% comment %} Add latest coding challenges to featured videos array. {% endcomment %}
-{% for challenge in out_sortedVideos limit:2 offset:offset %}
-  {% assign featuredVideos = featuredVideos | push: challenge %}
+{% comment %} Add latest coding challenges, coding in the cabana or teachable machine video to featured videos array. {% endcomment %}
+{% for challengeCabanaOrTM in out_sortedVideos limit:2 offset:offset %}
+  {% assign featuredVideos = featuredVideos | push: challengeCabanaOrTM %}
 {% endfor %}
 
 {% comment %} Get lastest stream and add it to the featured videos array. {% endcomment %}
@@ -53,9 +54,9 @@ permalink: /
 
   <h2>Support The Coding Train</h2>
   <div class="support">
-    {% capture patreonLogo %}{% include 4-vector-graphics/patreon.svg %}{% endcapture %}
-    {% include 3-modules/hero-item.html image=patreonLogo title='Consider supporting?' content='Join the Coding Train
-    community with a YouTube membership or Patreon subscription!' url=site.links.patreon cta='Become a Patron' class='patreon' %}
+    {% capture memberLogo %}{% include 4-vector-graphics/squarebrackets.svg %}{% endcapture %}
+    {% include 3-modules/hero-item.html image=memberLogo title='Consider supporting?' content='Join the Coding Train
+    community with a YouTube membership or Patreon subscription!' url=site.links.youtube cta='Become a Member' class='patreon' %}
 
     {% capture merchStoreImage %}<img alt='The Coding Train Merchandise Store' src="{{ '/assets/images/merch-store.png' | relative_url }}" />{%
     endcapture %}
