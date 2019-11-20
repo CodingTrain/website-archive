@@ -19,12 +19,12 @@ function Cell(i, j) {
   this.visited = false;
 
   this.checkNeighbors = function() {
-    var neighbors = [];
+    let neighbors = [];
 
-    var top = grid[index(i, j - 1)];
-    var right = grid[index(i + 1, j)];
-    var bottom = grid[index(i, j + 1)];
-    var left = grid[index(i - 1, j)];
+    let top = grid[index(i, j - 1)];
+    let right = grid[index(i + 1, j)];
+    let bottom = grid[index(i, j + 1)];
+    let left = grid[index(i - 1, j)];
 
     if (top && !top.visited) {
       neighbors.push(top);
@@ -40,23 +40,23 @@ function Cell(i, j) {
     }
 
     if (neighbors.length > 0) {
-      var r = floor(random(0, neighbors.length));
+      let r = floor(random(0, neighbors.length));
       return neighbors[r];
     } else {
       return undefined;
     }
   };
   this.highlight = function() {
-    var x = this.i * w;
-    var y = this.j * w;
+    let x = this.i * w;
+    let y = this.j * w;
     noStroke();
     fill(0, 0, 255, 100);
     rect(x, y, w, w);
   };
 
   this.show = function() {
-    var x = this.i * w;
-    var y = this.j * w;
+    let x = this.i * w;
+    let y = this.j * w;
     stroke(255);
     if (this.walls[0]) {
       line(x, y, x + w, y);
