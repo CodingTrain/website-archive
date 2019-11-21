@@ -5,7 +5,7 @@
 const replace = require("replace-in-file");
 
 //Specify the release you want to update to
-const release = "0.9.0";
+const release = "0.10.2";
 
 const paths = ["./**/index.html"];
 const ignored_files = ["./_site/**/*.html"];
@@ -13,52 +13,70 @@ const ignored_files = ["./_site/**/*.html"];
 const p5_js = {
   name: "p5.js",
   files: paths,
-  from: new RegExp("https://cdnjs.cloudflare.com/ajax/libs/p5.js/[0-9].[0-9].[0-9]/p5.js"),
-  to: `https://cdnjs.cloudflare.com/ajax/libs/p5.js/${release}/p5.min.js`,
+  from: new RegExp(
+    `https:\/\/cdn.jsdelivr.net\/npm\/p5@[0-99].[0-99].[0-99]\/lib\/p5.js`
+  ),
+  to: `https://cdn.jsdelivr.net/npm/p5@${release}/lib/p5.min.js`,
   ignore: ignored_files
 };
 const p5_sound_js = {
   name: "p5.sound.js",
   files: paths,
-  from: new RegExp("https://cdnjs.cloudflare.com/ajax/libs/p5.js/[0-9].[0-9].[0-9]/addons/p5.sound.js"),
-  to: `https://cdnjs.cloudflare.com/ajax/libs/p5.js/${release}/addons/p5.sound.min.js`,
+  from: new RegExp(
+    `https:\/\/cdn.jsdelivr.net\/npm\/p5@[0-99].[0-99].[0-99]\/lib\/addons\/p5.sound.js`
+  ),
+  to: `https://cdn.jsdelivr.net/npm/p5@${release}/lib/addons/p5.sound.min.js`,
   ignore: ignored_files
 };
 const p5_dom_js = {
   name: "p5.dom.js",
   files: paths,
-  from: new RegExp("https://cdnjs.cloudflare.com/ajax/libs/p5.js/[0-9].[0-9].[0-9]/addons/p5.dom.js"),
-  to: `https://cdnjs.cloudflare.com/ajax/libs/p5.js/${release}/addons/p5.dom.min.js`,
+  from: new RegExp(
+    `https:\/\/cdn.jsdelivr.net\/npm\/p5@[0-99].[0-99].[0-99]\/lib\/addons\/p5.dom.js`
+  ),
+  to: ``,
   ignore: ignored_files
 };
 const p5_min_js = {
   name: "p5.min.js",
   files: paths,
-  from: new RegExp("https://cdnjs.cloudflare.com/ajax/libs/p5.js/[0-9].[0-9].[0-9]/p5.min.js"),
-  to: `https://cdnjs.cloudflare.com/ajax/libs/p5.js/${release}/p5.min.js`,
+  from: new RegExp(
+    `https:\/\/cdn.jsdelivr.net\/npm\/p5@[0-99].[0-99].[0-99]\/lib\/p5.min.js`
+  ),
+  to: `https://cdn.jsdelivr.net/npm/p5@${release}/lib/p5.min.js`,
   ignore: ignored_files
 };
 const p5_sound_min_js = {
   name: "p5.sound.min.js",
   files: paths,
-  from: new RegExp("https://cdnjs.cloudflare.com/ajax/libs/p5.js/[0-9].[0-9].[0-9]/addons/p5.sound.min.js"),
-  to: `https://cdnjs.cloudflare.com/ajax/libs/p5.js/${release}/addons/p5.sound.min.js`,
+  from: new RegExp(
+    `https:\/\/cdn.jsdelivr.net\/npm\/p5@[0-99].[0-99].[0-99]\/lib\/addons\/p5.sound.min.js`
+  ),
+  to: `https://cdn.jsdelivr.net/npm/p5@${release}/lib/addons/p5.sound.min.js`,
   ignore: ignored_files
 };
 const p5_dom_min_js = {
   name: "p5.dom.min.js",
   files: paths,
-  from: new RegExp("https://cdnjs.cloudflare.com/ajax/libs/p5.js/[0-9].[0-9].[0-9]/addons/p5.dom.min.js"),
-  to: `https://cdnjs.cloudflare.com/ajax/libs/p5.js/${release}/addons/p5.dom.min.js`,
+  from: new RegExp(
+    `https:\/\/cdn.jsdelivr.net\/npm\/p5@[0-99].[0-99].[0-99]\/lib\/addons\/p5.dom.min.js`
+  ),
+  to: ``,
   ignore: ignored_files
 };
-const options = [p5_js, p5_sound_js, p5_dom_js, p5_min_js, p5_sound_min_js, p5_dom_min_js];
+const options = [
+  p5_js,
+  p5_sound_js,
+  p5_dom_js,
+  p5_min_js,
+  p5_sound_min_js,
+  p5_dom_min_js
+];
 
 (async () => {
   for (const option of options) {
     try {
-      const changes = await replace(option);
-      console.log(`${option.name}: `, changes.join(", "));
+      await replace(option);
     } catch (error) {
       console.error("Error occurred:", error);
     }
