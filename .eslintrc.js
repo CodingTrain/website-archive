@@ -69,7 +69,7 @@ module.exports = {
 
     {
       'files': [
-        'Courses/beginner_ml5/07_knn_classifier/sketch.js',
+        ' Courses/beginner_ml5/07_knn_classifier/P5/sketch.js',
       ],
       'rules': {
         'no-use-before-define': 'off',
