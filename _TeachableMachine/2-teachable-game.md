@@ -55,6 +55,12 @@ contributions:
       url: "https://twitter.com/deplodog"
     url: "https://editor.p5js.org/deplodog@gmail.com/present/HrbT-gueC"
     source: "https://editor.p5js.org/deplodog@gmail.com/sketches/HrbT-gueC"
+  - title: "Theremin"
+    author:
+      name: "Jeffrey Vest"
+      url: "https://github.com/JeffreyVest"
+    url: "https://blissful-meninsky-cec284.netlify.com/"
+    source: "https://github.com/JeffreyVest/theremin"
 ---
 
 In this video, I demonstrate how to control an interaction with an image classification machine learning model to play the snake game.
