@@ -49,6 +49,12 @@ contributions:
       url: "https://simontiger.com"
     url: "https://editor.p5js.org/simontiger/present/qH_ZSvup5"
     source: "https://editor.p5js.org/simontiger/sketches/qH_ZSvup5"
+  - title: "Snake Game Evolutionary AI"
+    author:
+      name: "Alex N"
+      url: "https://twitter.com/deplodog"
+    url: "https://editor.p5js.org/deplodog@gmail.com/present/HrbT-gueC"
+    source: "https://editor.p5js.org/deplodog@gmail.com/sketches/HrbT-gueC"
 ---
 
 In this video, I demonstrate how to control an interaction with an image classification machine learning model to play the snake game.
