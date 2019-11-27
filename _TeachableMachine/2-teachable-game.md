@@ -49,7 +49,7 @@ contributions:
       url: "https://simontiger.com"
     url: "https://editor.p5js.org/simontiger/present/qH_ZSvup5"
     source: "https://editor.p5js.org/simontiger/sketches/qH_ZSvup5"
-    - title: "Snake Game Evolutionary AI"
+  - title: "Snake Game Evolutionary AI"
     author:
       name: "Alex N"
       url: "https://twitter.com/deplodog"
