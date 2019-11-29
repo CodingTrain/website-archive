@@ -39,6 +39,10 @@ contributions:
     author: "Aryan Chharia"
     url: "https://editor.p5js.org/aryan.chharia@gmail.com/full/lP_zBPh_l"
     source: "https://editor.p5js.org/aryan.chharia@gmail.com/sketches/lP_zBPh_l"
+   - title: "Original Looking Pong"
+    author: "James W"
+    url: "https://editor.p5js.org/JamesW/full/1dTQC21fd"
+    source: "https://editor.p5js.org/JamesW/sketches/1dTQC21fd"
 ---
 
 In this challenge, I attempt (emphasis on the word "attempt") to program the classic video game Pong in Processing (Java).
