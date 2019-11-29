@@ -47,12 +47,28 @@ void draw() {
 
 void keyPressed() {
   if (keyCode == UP) {
-    s.dir(0, -1);
+    if(s.yspeed == 1){
+       s.dir(0, 1);
+    }else{
+       s.dir(0, -1);
+    }
   } else if (keyCode == DOWN) {
-    s.dir(0, 1);
+    if(s.yspeed == -1){
+       s.dir(0, -1);
+    }else{
+       s.dir(0, 1);
+    }
   } else if (keyCode == RIGHT) {
-    s.dir(1, 0);
+    if(s.xspeed == -1){
+       s.dir(-1, 0);  
+    }else{
+       s.dir(1, 0);
+    }
   } else if (keyCode == LEFT) {
-    s.dir(-1, 0);
+    if(s.xspeed == 1){
+       s.dir(1, 0);  
+    }else{
+       s.dir(-1, 0);
+    }
   }
 }
