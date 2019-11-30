@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
     var navButton = document.getElementById('menu-button');
     var navMenu = document.getElementById('global-nav');
     var navLinks = Array.from(document.querySelectorAll('#global-nav a'));
-    var navContainer = document.getElementById('nav-container');
     var mbBackdrop = document.getElementById('mobilenav-backdrop');
     var ESCAPE_CODE = 27;
 
@@ -88,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     function enableNavLinks() {
       navButton.setAttribute('aria-label', 'Close navigation menu');
-      navContainer.classList.add('active');
+      navMenu.classList.add('active');
       mbBackdrop.classList.add('active');
       navButton.classList.add('active');
 
@@ -103,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     function disableNavLinks() {
       navButton.setAttribute('aria-label', 'Open navigation menu');
-      navContainer.classList.remove('active');
+      navMenu.classList.remove('active');
       mbBackdrop.classList.remove('active');
       navButton.classList.remove('active');
 
