@@ -51,91 +51,92 @@ function timecodeToSeconds(timecode) {
   return seconds;
 }
 
-document.addEventListener('DOMContentLoaded', function (event) {
-  var NavApp = {};
-  NavApp.App = (function () {
-    var navButton = document.getElementById('menu-button');
-    var navMenu = document.getElementById('global-nav');
-    var navLinks = Array.from(document.querySelectorAll('#global-nav a'));
-    var mbBackdrop = document.getElementById('mobilenav-backdrop');
-    var ESCAPE_CODE = 27;
 
-    function initApp() {
-      navButton.addEventListener('click', toggleMobileNav);
-      navMenu.addEventListener('keydown', handleKeydown);
-      navButton.setAttribute('aria-label', 'Open navigation menu');
-      setUpBackToTopButton();
+class NavApplication {
+
+  constructor() {
+    this.navButton = document.getElementById('menu-button');
+    this.navMenu = document.getElementById('global-nav');
+    this.navLinks = Array.from(document.querySelectorAll('#global-nav a'));
+    this.mbBackdrop = document.getElementById('mobilenav-backdrop');
+    this.ESCAPE_CODE = 27;
+
+    this.handleKeydown = this.handleKeydown.bind(this);
+    this.toggleMobileNav = this.toggleMobileNav.bind(this);
+    this.enableNavLinks = this.enableNavLinks.bind(this);
+    this.disableNavLinks = this.disableNavLinks.bind(this);
+
+    this.navButton.addEventListener('click', this.toggleMobileNav);
+    this.navMenu.addEventListener('keydown', this.handleKeydown);
+    this.navButton.setAttribute('aria-label', 'Open navigation menu');
+    this.setUpBackToTopButton();
+  }
+
+  handleKeydown(event) {
+    if (event.keyCode === ESCAPE_CODE) {
+      this.navContainer.classList.remove('active');
+      this.mbBackdrop.classList.remove('active');
+      this.navButton.classList.remove('active');
+      this.disableNavLinks();
+      this.navButton.focus();
     }
+  }
 
-    function handleKeydown(event) {
-      if (event.keyCode === ESCAPE_CODE) {
-        navContainer.classList.remove('active');
-        mbBackdrop.classList.remove('active');
-        navButton.classList.remove('active');
-        disableNavLinks();
-        navButton.focus();
-      }
+  toggleMobileNav() {
+    if (this.mbBackdrop.classList.contains('active')) {
+      this.disableNavLinks();
+    } else {
+      this.enableNavLinks();
     }
+  }
 
-    function toggleMobileNav() {
-      if (mbBackdrop.classList.contains('active')) {
-        disableNavLinks();
+  enableNavLinks() {
+    this.navButton.setAttribute('aria-label', 'Close navigation menu');
+    this.navMenu.classList.add('active');
+    this.mbBackdrop.classList.add('active');
+    this.navButton.classList.add('active');
+
+    this.navMenu.removeAttribute('aria-hidden');
+    this.navLinks.forEach((el) => {
+      el.removeAttribute('tabIndex');
+    });
+    setTimeout(() => {
+      navLinks[0].focus();
+    }, 200);
+  }
+
+  disableNavLinks() {
+    this.navButton.setAttribute('aria-label', 'Open navigation menu');
+    this.navMenu.classList.remove('active');
+    this.mbBackdrop.classList.remove('active');
+    this.navButton.classList.remove('active');
+
+    this.navMenu.setAttribute('aria-hidden', 'true');
+    this.navLinks.forEach((el) => {
+      el.setAttribute('tabIndex', '-1');
+    });
+  }
+
+  setUpBackToTopButton() {
+    const backToTopButton = document.querySelector('.back-to-top-button');
+    document.addEventListener('scroll', () => {
+      if (window.scrollY > 1000) {
+        backToTopButton.classList.add('active');
       } else {
-        enableNavLinks();
+        backToTopButton.classList.remove('active');
       }
-    }
-
-    function enableNavLinks() {
-      navButton.setAttribute('aria-label', 'Close navigation menu');
-      navMenu.classList.add('active');
-      mbBackdrop.classList.add('active');
-      navButton.classList.add('active');
-
-      navMenu.removeAttribute('aria-hidden');
-      navLinks.forEach(function (el) {
-        el.removeAttribute('tabIndex');
+    });
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
       });
-      setTimeout(function () {
-        navLinks[0].focus();
-      }, 200);
-    }
+    });
+  }
 
-    function disableNavLinks() {
-      navButton.setAttribute('aria-label', 'Open navigation menu');
-      navMenu.classList.remove('active');
-      mbBackdrop.classList.remove('active');
-      navButton.classList.remove('active');
+}
 
-      navMenu.setAttribute('aria-hidden', 'true');
-      navLinks.forEach(function (el) {
-        el.setAttribute('tabIndex', '-1');
-      });
-    }
-
-    function setUpBackToTopButton() {
-      var backToTopButton = document.querySelector('.back-to-top-button');
-      document.addEventListener('scroll', () => {
-        if (window.scrollY > 1000) {
-          backToTopButton.classList.add('active');
-        } else {
-          backToTopButton.classList.remove('active');
-        }
-      });
-      backToTopButton.addEventListener('click', () => {
-        window.scrollTo({
-          top: 0,
-          left: 0,
-          behavior: 'smooth'
-        });
-      });
-    }
-
-    return {
-      init: function () {
-        initApp();
-      }
-    }
-
-  })();
-  new NavApp.App.init();
+document.addEventListener('DOMContentLoaded', function (event) {
+  const NavApp = new NavApplication();
 });
