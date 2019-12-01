@@ -64,6 +64,13 @@ nav
     &:hover
       background: none
 
+  button
+    font-size: 16px
+    background: rgba(0,0,0,0)
+    box-shadow: none
+    color: $white
+    vertical-align: none
+  
   .links
     @extend .wrapper
     list-style-type: none
@@ -114,6 +121,18 @@ nav
               duration: 150ms
               delay: ($i - 1) * 75ms
               timing-function: $timing-function
+
+.submenu
+  visibility: hidden
+  position: fixed
+  top: 5rem
+  left: 0
+  height: 5rem
+  width: 100%
+  background: #D53072
+
+.submenu.active
+  visibility: visible
 
 
 // Mobile Navigation Drawer

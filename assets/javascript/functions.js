@@ -61,19 +61,61 @@ class NavApplication {
     this.mbBackdrop = document.getElementById('mobilenav-backdrop');
     this.ESCAPE_CODE = 27;
 
+    this.subMenuButtons = document.getElementsByClassName('submenu-button');
+    this.subMenus = document.getElementsByClassName('submenu');
+    
     this.handleKeydown = this.handleKeydown.bind(this);
     this.toggleMobileNav = this.toggleMobileNav.bind(this);
     this.enableNavLinks = this.enableNavLinks.bind(this);
     this.disableNavLinks = this.disableNavLinks.bind(this);
-
+    
     this.navButton.addEventListener('click', this.toggleMobileNav);
     this.navMenu.addEventListener('keydown', this.handleKeydown);
     this.navButton.setAttribute('aria-label', 'Open navigation menu');
     this.setUpBackToTopButton();
+    
+    this.setupSubMenus();
+  }
+
+  setupSubMenus() {
+    for (let i = 0; i < this.subMenuButtons.length; i++) {
+      this.subMenuButtons[i].addEventListener('click', this.toggleSubMenu);
+    }
+
+    for (let i = 0; i < this.subMenus.length; i++) {
+      this.subMenus[i].addEventListener('keydown', this.keydownSubmenu);
+    }
+  }
+
+  toggleSubMenu(event) {
+    const button = event.srcElement;
+    const forAttribute = button.getAttribute('for');
+    const subMenu = document.getElementById(forAttribute);
+    console.log(event, button, forAttribute, subMenu);
+    const placeholder = 'placeholder';
+    if (subMenu.classList.contains('active')) {
+      button.setAttribute('aria-label', `Open ${placeholder} Submenu`);
+      subMenu.classList.remove('active');
+      subMenu.setAttribute('aria-hidden', 'true');
+
+      // TODO remove tab index
+    } else {
+      button.setAttribute('aria-label', `Close ${placeholder} Submenu`);
+      subMenu.classList.add('active');
+      subMenu.removeAttribute('aria-hidden');
+
+      // TODO add tab index
+    }
+  }
+
+  keydownSubmenu(event) {
+    console.log(event);
+
+    // TODO
   }
 
   handleKeydown(event) {
-    if (event.keyCode === ESCAPE_CODE) {
+    if (event.keyCode === this.ESCAPE_CODE) {
       this.navContainer.classList.remove('active');
       this.mbBackdrop.classList.remove('active');
       this.navButton.classList.remove('active');
