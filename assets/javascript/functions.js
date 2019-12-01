@@ -66,6 +66,8 @@ class NavApplication {
     
     this.handleKeydown = this.handleKeydown.bind(this);
     this.toggleMobileNav = this.toggleMobileNav.bind(this);
+    this.toggleSubMenu = this.toggleSubMenu.bind(this);
+    this.closeSubMenus = this.closeSubMenus.bind(this);
     this.enableNavLinks = this.enableNavLinks.bind(this);
     this.disableNavLinks = this.disableNavLinks.bind(this);
     
@@ -85,26 +87,36 @@ class NavApplication {
     for (let i = 0; i < this.subMenus.length; i++) {
       this.subMenus[i].addEventListener('keydown', this.keydownSubmenu);
     }
+
+    this.closeSubMenus(); // sets the open text
   }
 
   toggleSubMenu(event) {
     const button = event.srcElement;
     const forAttribute = button.getAttribute('for');
     const subMenu = document.getElementById(forAttribute);
-    console.log(event, button, forAttribute, subMenu);
+    const openMenu = !subMenu.classList.contains('active');
+    this.closeSubMenus();
     const placeholder = 'placeholder';
-    if (subMenu.classList.contains('active')) {
-      button.setAttribute('aria-label', `Open ${placeholder} Submenu`);
-      subMenu.classList.remove('active');
-      subMenu.setAttribute('aria-hidden', 'true');
-
-      // TODO remove tab index
-    } else {
-      button.setAttribute('aria-label', `Close ${placeholder} Submenu`);
+    if (openMenu) {
+      button.setAttribute('aria-label', `Close ${forAttribute.split('-')[0]} Submenu`);
       subMenu.classList.add('active');
       subMenu.removeAttribute('aria-hidden');
 
-      // TODO add tab index
+      // TODO remove tab index
+    }
+  }
+
+  closeSubMenus() {
+    for (let i = 0; i < this.subMenuButtons.length; i++) {
+      const name = this.subMenuButtons[i].getAttribute('for').split('-')[0];
+      this.subMenuButtons[i].setAttribute('aria-label', `Open ${name} Submenu`);
+    }
+    for (let i = 0; i < this.subMenus.length; i++) {
+      this.subMenus[i].classList.remove('active');
+      this.subMenus[i].setAttribute('aria-hidden', 'true')
+
+      // todo add tab index
     }
   }
 
