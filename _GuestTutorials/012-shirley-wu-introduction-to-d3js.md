@@ -19,7 +19,7 @@ links:
 
 parts:
   - title: "D3.js Cont'd with Shirley Wu"
-    url: "https://www.youtube.com/watch?v=SGtT10OdGjA"
+    video_id: "SGtT10OdGjA"
 
 custom_sections:
   - title: "Contact Shirley Wu"
