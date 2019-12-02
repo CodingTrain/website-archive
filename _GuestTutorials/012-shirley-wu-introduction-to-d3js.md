@@ -30,6 +30,13 @@ custom_sections:
         url: "https://sxywu.com/"
       - title: "Github"
         url: "https://github.com/sxywu"
+
+contributions:
+  - title: "Film Flowers variation using canvas"
+    author:
+      name: "Miká Kruschel"
+      url: "https://github.com/mikakruschel/"
+    url: "https://observablehq.com/@mikakruschel/film-flowers-variation"
 ---
 
 Shirley Wu presents D3.js, a library for manipulating documents based on data.
