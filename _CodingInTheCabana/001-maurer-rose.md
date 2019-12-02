@@ -53,7 +53,7 @@ contributions:
       url: "https://github.com/stampyzfanz"
     url: "https://stampyzfanz.github.io/games/MaurerRose/"
     source: "https://github.com/stampyzfanz/games/tree/gh-pages/MaurerRose"
-    - title: "Maurer Rose with Perlin Noise - (FLASHING IMAGES!)"
+  - title: "Maurer Rose with Perlin Noise - (FLASHING IMAGES!)"
     author:
       name: "Dwino Morren"
       url: "https://github.com/dwino"
