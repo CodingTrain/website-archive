@@ -48,5 +48,9 @@ contributions:
       url: http://createdby.fi
     url: https://figraham.github.io/react-game-of-life/
     source: "https://github.com/figraham/react-game-of-life"
+  - title: "Life Game Canvas"
+    author: "Ryosuke Osaki"
+    url: https://www.openprocessing.org/sketch/805872
+    source: https://github.com/Sakio1535/Life-Game-Canvas
 ---
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.
