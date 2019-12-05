@@ -1,5 +1,8 @@
-// ml5.js: Train Your Own Neural Network
+// ml5.js: Neural Network Regression
 // The Coding Train / Daniel Shiffman
+// https://thecodingtrain.com/Courses/ml5-beginners-guide/6.4-ml5-regression.html
+// https://youtu.be/fFzvwdkzr_c
+// https://editor.p5js.org/codingtrain/sketches/aw7R9aSkh
 
 let model;
 let targetLabel = "C";

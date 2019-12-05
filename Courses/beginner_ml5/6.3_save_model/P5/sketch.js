@@ -1,5 +1,8 @@
-// ml5.js: Train Your Own Neural Network
+// ml5.js: Save Neural Network Trained Model
 // The Coding Train / Daniel Shiffman
+// https://thecodingtrain.com/Courses/ml5-beginners-guide/6.3-ml5-save-model.html
+// https://youtu.be/wUrg9Hjkhg0
+// https://editor.p5js.org/codingtrain/sketches/RxDbDKGiG
 
 let model;
 let targetLabel = "C";
