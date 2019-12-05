@@ -1,0 +1,24 @@
+{
+  "data": { "inputMin": [12, 30], "inputMax": [373, 394], "outputMin": 0, "outputMax": 1 },
+  "meta": {
+    "inputUnits": 2,
+    "outputUnits": 7,
+    "inputs": { "x": { "dtype": "number" }, "y": { "dtype": "number" } },
+    "outputs": {
+      "label": {
+        "dtype": "string",
+        "uniqueValues": ["C", "D", "E", "F", "G", "A", "B"],
+        "legend": {
+          "C": [1, 0, 0, 0, 0, 0, 0],
+          "D": [0, 1, 0, 0, 0, 0, 0],
+          "E": [0, 0, 1, 0, 0, 0, 0],
+          "F": [0, 0, 0, 1, 0, 0, 0],
+          "G": [0, 0, 0, 0, 1, 0, 0],
+          "A": [0, 0, 0, 0, 0, 1, 0],
+          "B": [0, 0, 0, 0, 0, 0, 1]
+        }
+      }
+    },
+    "isNormalized": true
+  }
+}
