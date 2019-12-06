@@ -124,5 +124,9 @@ contributions:
     author: "Yubraj Sharma"
     url: "https://drive.google.com/open?id=1dST51-hAYgv9JTU8aruuJHhb4T1BR06w"
     source: "https://drive.google.com/open?id=1dST51-hAYgv9JTU8aruuJHhb4T1BR06w"
+  - title: "Simplest Tic-tac-toe (PvsP) with Resizable Grid"
+    author: "Sahil Jindal"
+    url: "https://github.com/sahil-jindal/Tic-tac-toe"
+    source: "https://github.com/sahil-jindal/Tic-tac-toe"
 ---
 This is a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
