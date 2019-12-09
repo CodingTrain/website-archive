@@ -64,9 +64,9 @@ contributions:
     author:
       name: "Pallav Dubey"
       url: "https://editor.p5js.org/pallav1/full/OSVtxd1le"
-      url: "https://editor.p5js.org/pallav1/sketches/OSVtxd1le"
-      source: "https://editor.p5js.org/pallav1/sketches/OSVtxd1le"
-      title: "Use finger to control snake!!"
+    url: "https://editor.p5js.org/pallav1/sketches/OSVtxd1le"
+    source: "https://editor.p5js.org/pallav1/sketches/OSVtxd1le"
+   - title: "Use finger to control snake!!"
 ---
 
 In this video, I demonstrate how to control an interaction with an image classification machine learning model to play the snake game.
