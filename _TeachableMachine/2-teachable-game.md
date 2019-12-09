@@ -61,6 +61,12 @@ contributions:
       url: "https://github.com/JeffreyVest"
     url: "https://blissful-meninsky-cec284.netlify.com/"
     source: "https://github.com/JeffreyVest/theremin"
+  - title: "Use finger to control snake!!"
+    author:
+      name: "Pallav Dubey"
+      url: "https://editor.p5js.org/pallav1/full/OSVtxd1le"
+    url: "https://editor.p5js.org/pallav1/sketches/OSVtxd1le"
+    source: "https://editor.p5js.org/pallav1/sketches/OSVtxd1le"
 ---
 
 In this video, I demonstrate how to control an interaction with an image classification machine learning model to play the snake game.
