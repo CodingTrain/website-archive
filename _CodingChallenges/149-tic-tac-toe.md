@@ -10,6 +10,9 @@ videos:
   - title: "How to add your contribution to The Coding Train website "
     author: "The Coding Train"
     video_id: "fkIr0inoQ7Y"
+  - title: "Coding Challenge #154: Tic Tac Toe AI with Minimax Algorithm"
+    author: "The Coding Train"
+    url: "/CodingChallenges/154-tic-tac-toe-minimax"
 
 contributions:
   - title: "Tic-Tac-Toe Human vs Human (click)"
