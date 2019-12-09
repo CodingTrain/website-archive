@@ -8,7 +8,7 @@ layout: base
 
   {% comment %} Only select videos that are in this series. {% endcomment %}
   {% assign videos = site[page.collection] %}
-  {% include 1-tools/sort-videos.html videos=videos seriesPage=page %}
+  {% include 1-tools/sort-videos.html videos=videos seriesPage=page future=true %}
   {% assign sortedVideos = out_sortedVideos %}
 
   {% comment %} Remove series path from video path. {% endcomment %}
@@ -57,7 +57,7 @@ layout: base
           <h3>{% if seriesIndexPage.series_number %}{{ seriesIndexPage.video_type }} #{{ seriesIndexPage.series_number }}: {% endif %}{{ seriesIndexPage.title }}</h3>
           <div class="subtitle">{{ seriesIndexPage.subtitle }}</div>
           <div class="description-excerpt">{{ seriesIndexPage.excerpt }}</div>
-          {% include 3-modules/video-list.html videos=sortedVideos seriesPage=seriesIndexPage limit=3 reverse=seriesIndexPage.reverse %}
+          {% include 3-modules/video-list.html videos=sortedVideos seriesPage=seriesIndexPage limit=3 reverse=seriesIndexPage.reverse future=true %}
         </div>
 
       {% endif %}
@@ -66,6 +66,6 @@ layout: base
   {% comment %} This page displays a list of videos. {% endcomment %}
   {% else %}
     {% comment %} Display all videos. {% endcomment %}
-    {% include 3-modules/video-list.html sortedVideos=sortedVideos reverse=page.reverse %}
+    {% include 3-modules/video-list.html sortedVideos=sortedVideos reverse=page.reverse future=true %}
   {% endif %}
 </div>
