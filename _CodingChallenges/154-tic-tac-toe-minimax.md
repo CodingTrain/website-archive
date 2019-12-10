@@ -2,7 +2,7 @@
 title: "Tic Tac Toe AI with Minimax Algorithm"
 video_number: 154
 date: 2019-12-08
-video_id: I64-UTORVfU
+video_id: trKjYdBASyQ
 web_editor: 0zyUhZdJD
 repository: CC_154_Tic_Tac_Toe_Minimax
 
@@ -21,4 +21,4 @@ videos:
     url: "/CodingChallenges/149-tic-tac-toe"
 ---
 
-This challenge takes the tic tac toe game I made in coding challenge 149 and adds an ai for a person to play against using the minimax algorithm.
+In this challenge I take the Tic Tac Toe game from coding challenge #149 and add an AI opponent for a human player by implenenting the Minimax algorithm.
