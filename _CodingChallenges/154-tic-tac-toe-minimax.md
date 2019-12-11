@@ -33,6 +33,9 @@ contributions:
       url: "https://simontiger.com"
     url: "https://Chess-AI-User-friendly--simontiger.repl.co"
     source: "https://repl.it/@simontiger/Chess-AI-User-friendly"
+  - title: "Reversi MiniMax with alpha-beta pruning"
+    author: "Copper France"
+    url: "https://editor.p5js.org/copperfrance/full/gre73vNp4"
 ---
 
 In this challenge I take the Tic Tac Toe game from coding challenge #149 and add an AI opponent for a human player by implenenting the Minimax algorithm.
