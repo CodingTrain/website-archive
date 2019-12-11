@@ -37,7 +37,7 @@ contributions:
     author: "Copper France"
     url: "https://editor.p5js.org/copperfrance/full/gre73vNp4"
   - title: "Tic Tac Toe MiniMax in python with alpha-beta pruning"
-    author: 
+    author:
       name: "David Snyder"
       url: "https://github.com/GypsyDangerous"
     url: "https://github.com/GypsyDangerous/Tic-Tac-Toe/blob/master/README.md"
