@@ -19,6 +19,20 @@ videos:
   - title: "Coding Challenge #149: Tic Tac Toe"
     author: "The Coding Train"
     url: "/CodingChallenges/149-tic-tac-toe"
+
+contributions:
+  - title: "Chess AI"
+    author:
+      name: "Simon Tiger Houben"
+      url: "https://simontiger.com"
+    url: "https://Chess-AI--simontiger.repl.co"
+    source: "https://repl.it/@simontiger/Chess-AI"
+  - title: "Chess AI with customizable search depth"
+    author:
+      name: "Simon Tiger Houben"
+      url: "https://simontiger.com"
+    url: "https://Chess-AI-User-friendly--simontiger.repl.co"
+    source: "https://repl.it/@simontiger/Chess-AI-User-friendly"
 ---
 
 In this challenge I take the Tic Tac Toe game from coding challenge #149 and add an AI opponent for a human player by implenenting the Minimax algorithm.
