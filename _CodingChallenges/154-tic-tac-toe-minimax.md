@@ -21,6 +21,12 @@ videos:
     url: "/CodingChallenges/149-tic-tac-toe"
 
 contributions:
+  - title: "Tic Tac Toe With Alpha Beta Pruning"
+    author:
+      name: "Rino Vetha Moses"
+      url: "https://github.com/rinovethamoses97"
+    url: "https://rinovethamoses97.github.io/Tic-Tac-Toe/index.html"
+    source: "https://github.com/rinovethamoses97/Tic-Tac-Toe"
   - title: "Chess AI"
     author:
       name: "Simon Tiger Houben"
