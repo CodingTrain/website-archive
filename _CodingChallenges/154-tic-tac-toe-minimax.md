@@ -48,6 +48,16 @@ contributions:
       url: "https://github.com/GypsyDangerous"
     url: "https://github.com/GypsyDangerous/Tic-Tac-Toe"
     source: "https://github.com/GypsyDangerous/Tic-Tac-Toe"
+  - title: "Connect 4 with MiniMax"
+    author:
+      name: "Kobe Liesenborgs"
+    url: "https://editor.p5js.org/KobeL/full/jbqr01bAC"
+    source: "https://editor.p5js.org/KobeL/sketches/jbqr01bAC"
+  - title: "Connect 4 with MiniMax and alpha-beta pruning"
+    author:
+      name: "Kobe Liesenborgs"
+    url: "https://editor.p5js.org/KobeL/full/_F_AdrK9t"
+    source: "https://editor.p5js.org/KobeL/sketches/_F_AdrK9t"
 ---
 
 In this challenge I take the Tic Tac Toe game from coding challenge #149 and add an AI opponent for a human player by implenenting the Minimax algorithm.
