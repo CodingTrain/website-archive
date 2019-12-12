@@ -44,6 +44,7 @@ contributions:
   - title: "Draw, Reduce, Make Curves"
     author: "Ignotus El Mago"
     url: "https://github.com/Ignotus-mago/DrawReduceMakeCurves"
+    source: "https://github.com/Ignotus-mago/DrawReduceMakeCurves"
     video_id: U4aC8tJkbtA
 ---
 
