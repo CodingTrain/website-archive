@@ -40,8 +40,8 @@ contributions:
     author:
       name: "David Snyder"
       url: "https://github.com/GypsyDangerous"
-    url: "https://github.com/GypsyDangerous/Tic-Tac-Toe/blob/master/README.md"
-    source: "https://github.com/GypsyDangerous/Tic-Tac-Toe/blob/master/README.md"
+    url: "https://github.com/GypsyDangerous/Tic-Tac-Toe"
+    source: "https://github.com/GypsyDangerous/Tic-Tac-Toe"
 ---
 
 In this challenge I take the Tic Tac Toe game from coding challenge #149 and add an AI opponent for a human player by implenenting the Minimax algorithm.
