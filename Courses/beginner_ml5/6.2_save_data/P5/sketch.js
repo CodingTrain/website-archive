@@ -5,9 +5,9 @@
 // https://editor.p5js.org/codingtrain/sketches/4fxtImOMz
 
 let model;
-let targetLabel = "C";
+let targetLabel = 'C';
 
-let state = "collection";
+let state = 'collection';
 
 let notes = {
   C: 261.6256,
@@ -30,20 +30,20 @@ function setup() {
 
   wave = new p5.Oscillator();
 
-  wave.setType("sine");
+  wave.setType('sine');
   wave.start();
   wave.freq(440);
   wave.amp(env);
 
   let options = {
-    inputs: ["x", "y"],
-    outputs: ["label"],
-    task: "classification",
-    debug: "true",
+    inputs: ['x', 'y'],
+    outputs: ['label'],
+    task: 'classification',
+    debug: 'true',
     learningRate: 0.5
   };
   model = ml5.neuralNetwork(options);
-  model.loadData("mouse-notes.json", dataLoaded);
+  model.loadData('mouse-notes.json', dataLoaded);
 
   background(255);
 }
@@ -63,8 +63,8 @@ function dataLoaded() {
     textAlign(CENTER, CENTER);
     text(target.label, inputs.x, inputs.y);
   }
-  state = "training";
-  console.log("starting training");
+  state = 'training';
+  console.log('starting training');
   model.normalizeData();
   let options = {
     epochs: 200
@@ -73,16 +73,16 @@ function dataLoaded() {
 }
 
 function keyPressed() {
-  if (key == "t") {
-    state = "training";
-    console.log("starting training");
+  if (key == 't') {
+    state = 'training';
+    console.log('starting training');
     model.normalizeData();
     let options = {
       epochs: 200
     };
     model.train(options, whileTraining, finishedTraining);
-  } else if (key == "s") {
-    model.saveData("mouse-notes");
+  } else if (key == 's') {
+    model.saveData('mouse-notes');
   } else {
     targetLabel = key.toUpperCase();
   }
@@ -93,8 +93,8 @@ function whileTraining(epoch, loss) {
 }
 
 function finishedTraining() {
-  console.log("finished training.");
-  state = "prediction";
+  console.log('finished training.');
+  state = 'prediction';
 }
 
 function mousePressed() {
@@ -103,7 +103,7 @@ function mousePressed() {
     y: mouseY
   };
 
-  if (state == "collection") {
+  if (state == 'collection') {
     let target = {
       label: targetLabel
     };
@@ -118,7 +118,7 @@ function mousePressed() {
 
     wave.freq(notes[targetLabel]);
     env.play();
-  } else if (state == "prediction") {
+  } else if (state == 'prediction') {
     model.classify(inputs, gotResults);
   }
 }

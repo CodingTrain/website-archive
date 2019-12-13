@@ -5,9 +5,9 @@
 // https://editor.p5js.org/codingtrain/sketches/RxDbDKGiG
 
 let model;
-let targetLabel = "C";
+let targetLabel = 'C';
 
-let state = "collection";
+let state = 'collection';
 
 let notes = {
   C: 261.6256,
@@ -30,24 +30,24 @@ function setup() {
 
   wave = new p5.Oscillator();
 
-  wave.setType("sine");
+  wave.setType('sine');
   wave.start();
   wave.freq(440);
   wave.amp(env);
 
   let options = {
-    inputs: ["x", "y"],
-    outputs: ["label"],
-    task: "classification",
-    debug: "true",
+    inputs: ['x', 'y'],
+    outputs: ['label'],
+    task: 'classification',
+    debug: 'true',
     learningRate: 0.5
   };
   model = ml5.neuralNetwork(options);
-  model.loadData("mouse-notes.json", dataLoaded);
+  model.loadData('mouse-notes.json', dataLoaded);
   const modelInfo = {
-    model: "model/model.json",
-    metadata: "model/model_meta.json",
-    weights: "model/model.weights.bin"
+    model: 'model/model.json',
+    metadata: 'model/model_meta.json',
+    weights: 'model/model.weights.bin'
   };
 
   model.load(modelInfo, modelLoaded);
@@ -56,8 +56,8 @@ function setup() {
 }
 
 function modelLoaded() {
-  console.log("model loaded");
-  state = "prediction";
+  console.log('model loaded');
+  state = 'prediction';
 }
 
 function dataLoaded() {
@@ -85,17 +85,17 @@ function dataLoaded() {
 }
 
 function keyPressed() {
-  if (key == "t") {
-    state = "training";
-    console.log("starting training");
+  if (key == 't') {
+    state = 'training';
+    console.log('starting training');
     model.normalizeData();
     let options = {
       epochs: 200
     };
     model.train(options, whileTraining, finishedTraining);
-  } else if (key == "s") {
-    model.saveData("mouse-notes");
-  } else if (key == "m") {
+  } else if (key == 's') {
+    model.saveData('mouse-notes');
+  } else if (key == 'm') {
     model.save();
   } else {
     targetLabel = key.toUpperCase();
@@ -107,8 +107,8 @@ function whileTraining(epoch, loss) {
 }
 
 function finishedTraining() {
-  console.log("finished training.");
-  state = "prediction";
+  console.log('finished training.');
+  state = 'prediction';
 }
 
 function mousePressed() {
@@ -117,7 +117,7 @@ function mousePressed() {
     y: mouseY
   };
 
-  if (state == "collection") {
+  if (state == 'collection') {
     let target = {
       label: targetLabel
     };
@@ -132,7 +132,7 @@ function mousePressed() {
 
     wave.freq(notes[targetLabel]);
     env.play();
-  } else if (state == "prediction") {
+  } else if (state == 'prediction') {
     model.classify(inputs, gotResults);
   }
 }

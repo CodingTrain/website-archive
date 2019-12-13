@@ -14,9 +14,8 @@ let sigmoid = new ActivationFunction(
 
 let tanh = new ActivationFunction(
   x => Math.tanh(x),
-  y => 1 - (y * y)
+  y => 1 - y * y
 );
-
 
 class NeuralNetwork {
   constructor(input_nodes, hidden_nodes, output_nodes) {
@@ -36,11 +35,9 @@ class NeuralNetwork {
     this.setLearningRate();
 
     this.setActivationFunction();
-
   }
 
   predict(input_array) {
-
     // Generating the Hidden Outputs
     let inputs = Matrix.fromArray(input_array);
     let hidden = Matrix.multiply(this.weights_ih, inputs);
@@ -91,7 +88,6 @@ class NeuralNetwork {
     gradients.multiply(output_errors);
     gradients.multiply(this.learning_rate);
 
-
     // Calculate deltas
     let hidden_T = Matrix.transpose(hidden);
     let weight_ho_deltas = Matrix.multiply(gradients, hidden_T);
@@ -131,7 +127,11 @@ class NeuralNetwork {
     if (typeof data == 'string') {
       data = JSON.parse(data);
     }
-    let nn = new NeuralNetwork(data.input_nodes, data.hidden_nodes, data.output_nodes);
+    let nn = new NeuralNetwork(
+      data.input_nodes,
+      data.hidden_nodes,
+      data.output_nodes
+    );
     nn.weights_ih = Matrix.deserialize(data.weights_ih);
     nn.weights_ho = Matrix.deserialize(data.weights_ho);
     nn.bias_h = Matrix.deserialize(data.bias_h);
@@ -139,5 +139,4 @@ class NeuralNetwork {
     nn.learning_rate = data.learning_rate;
     return nn;
   }
-
 }

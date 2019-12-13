@@ -5,16 +5,16 @@
 // https://editor.p5js.org/codingtrain/sketches/0zyUhZdJD
 
 let board = [
-  ["", "", ""],
-  ["", "", ""],
-  ["", "", ""]
+  ['', '', ''],
+  ['', '', ''],
+  ['', '', '']
 ];
 
 let w; // = width / 3;
 let h; // = height / 3;
 
-let ai = "X";
-let human = "O";
+let ai = 'X';
+let human = 'O';
 let currentPlayer = human;
 
 function setup() {
@@ -25,7 +25,7 @@ function setup() {
 }
 
 function equals3(a, b, c) {
-  return a == b && b == c && a != "";
+  return a == b && b == c && a != '';
 }
 
 function checkWinner() {
@@ -56,14 +56,14 @@ function checkWinner() {
   let openSpots = 0;
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
-      if (board[i][j] == "") {
+      if (board[i][j] == '') {
         openSpots++;
       }
     }
   }
 
   if (winner == null && openSpots == 0) {
-    return "tie";
+    return 'tie';
   } else {
     return winner;
   }
@@ -75,7 +75,7 @@ function mousePressed() {
     let i = floor(mouseX / w);
     let j = floor(mouseY / h);
     // If valid turn
-    if (board[i][j] == "") {
+    if (board[i][j] == '') {
       board[i][j] = human;
       currentPlayer = ai;
       bestMove();
@@ -112,10 +112,10 @@ function draw() {
   let result = checkWinner();
   if (result != null) {
     noLoop();
-    let resultP = createP("");
-    resultP.style("font-size", "32pt");
-    if (result == "tie") {
-      resultP.html("Tie!");
+    let resultP = createP('');
+    resultP.style('font-size', '32pt');
+    if (result == 'tie') {
+      resultP.html('Tie!');
     } else {
       resultP.html(`${result} wins!`);
     }

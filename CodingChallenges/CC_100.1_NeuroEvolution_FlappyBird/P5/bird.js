@@ -13,7 +13,6 @@ class Bird {
     this.lift = -12;
     this.velocity = 0;
 
-
     this.score = 0;
     this.fitness = 0;
     if (brain) {
@@ -21,7 +20,6 @@ class Bird {
     } else {
       this.brain = new NeuralNetwork(5, 8, 2);
     }
-
   }
 
   show() {
@@ -39,18 +37,16 @@ class Bird {
   }
 
   think(pipes) {
-
     // Find the closest pipe
     let closest = null;
     let closestD = Infinity;
     for (let i = 0; i < pipes.length; i++) {
-      let d = (pipes[i].x + pipes[i].w) - this.x;
+      let d = pipes[i].x + pipes[i].w - this.x;
       if (d < closestD && d > 0) {
         closest = pipes[i];
         closestD = d;
       }
     }
-
 
     let inputs = [];
     inputs[0] = this.y / height;
@@ -63,11 +59,10 @@ class Bird {
     if (output[0] > output[1]) {
       this.up();
     }
-
   }
 
   offScreen() {
-    return (this.y > height || this.y < 0);
+    return this.y > height || this.y < 0;
   }
 
   update() {
@@ -77,5 +72,4 @@ class Bird {
     //this.velocity *= 0.9;
     this.y += this.velocity;
   }
-
 }

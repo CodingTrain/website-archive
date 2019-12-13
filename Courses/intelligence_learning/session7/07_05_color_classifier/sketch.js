@@ -13,28 +13,27 @@
 // https://github.com/CodingTrain/ColorClassifer-TensorFlow.js
 
 let filter = {
-  'YGdqOTDDmrbGm80gM5UHicxMBgS2': true,
-  'HUXmyv1dSSUnIvYk976MPWUSaTG2': true,
-  'hPdk0Qpo0Gb5NsWSgxsqPM7M2EA2': true
+  YGdqOTDDmrbGm80gM5UHicxMBgS2: true,
+  HUXmyv1dSSUnIvYk976MPWUSaTG2: true,
+  hPdk0Qpo0Gb5NsWSgxsqPM7M2EA2: true
 };
 
 function setup() {
   noCanvas();
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyDPekCKX4ee6h9NVR2lEITGAM0XIHn-c7c",
-    authDomain: "color-classification.firebaseapp.com",
-    databaseURL: "https://color-classification.firebaseio.com",
-    projectId: "color-classification",
-    storageBucket: "",
-    messagingSenderId: "590040209608"
+    apiKey: 'AIzaSyDPekCKX4ee6h9NVR2lEITGAM0XIHn-c7c',
+    authDomain: 'color-classification.firebaseapp.com',
+    databaseURL: 'https://color-classification.firebaseio.com',
+    projectId: 'color-classification',
+    storageBucket: '',
+    messagingSenderId: '590040209608'
   };
   firebase.initializeApp(config);
   database = firebase.database();
   let ref = database.ref('colors');
   ref.once('value', gotData); //, errorData);
 }
-
 
 function gotData(results) {
   let data = results.val();

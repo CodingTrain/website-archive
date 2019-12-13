@@ -16,7 +16,6 @@ function preload() {
   kitten = loadImage('kittens/kitten2.jpg');
 }
 
-
 function setup() {
   createCanvas(400, 300, WEBGL);
   // graphics = createGraphics(300, 300);
@@ -49,7 +48,4 @@ function draw() {
   plane(300, 300);
 
   angle += 0.03;
-
-
-
 }

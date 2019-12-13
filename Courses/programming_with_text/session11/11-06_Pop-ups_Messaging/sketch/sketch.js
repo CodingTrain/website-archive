@@ -4,16 +4,16 @@ function setup() {
   userinput.input(changeText);
 
   function changeText() {
-    console.log("text changed");
+    console.log('text changed');
 
     let params = {
       active: true,
       currentWindow: true
-    }
+    };
     chrome.tabs.query(params, gotTabs);
 
     function gotTabs(tabs) {
-      console.log("got tabs");
+      console.log('got tabs');
       console.log(tabs);
       // send a message to the content script
       let message = userinput.value();
@@ -22,10 +22,5 @@ function setup() {
       };
       chrome.tabs.sendMessage(tabs[0].id, msg);
     }
-
-
-
-
   }
-
 }

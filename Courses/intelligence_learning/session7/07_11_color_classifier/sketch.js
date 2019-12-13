@@ -29,12 +29,11 @@ let labelList = [
   'purple-ish',
   'brown-ish',
   'grey-ish'
-]
+];
 
 function preload() {
   data = loadJSON('colorData.json');
 }
-
 
 function setup() {
   lossP = createP('Loss');
@@ -64,7 +63,6 @@ function setup() {
   // xs.print();
   // ys.print();
 
-
   // Building Model
   model = tf.sequential();
 
@@ -93,7 +91,6 @@ function setup() {
   train().then(results => {
     console.log(results.history.loss);
   });
-
 }
 
 // Training Function
@@ -105,8 +102,8 @@ async function train() {
     callbacks: {
       onTrainBegin: () => console.log('training start'),
       onTrainEnd: () => console.log('training complete'),
-      onBatchEnd: async(num, logs) => {
-          await tf.nextFrame();
+      onBatchEnd: async (num, logs) => {
+        await tf.nextFrame();
       },
       onEpochEnd: (num, logs) => {
         console.log('Epoch: ' + num);
@@ -114,7 +111,7 @@ async function train() {
         // console.log('Loss: ' + logs.loss);
       }
     }
-  }
+  };
   return await model.fit(xs, ys, options);
 }
 
@@ -123,5 +120,5 @@ function draw() {
   background(0);
   stroke(255);
   strokeWeight(4);
-  line(frameCount % width, 0, frameCount % width, height)
+  line(frameCount % width, 0, frameCount % width, height);
 }

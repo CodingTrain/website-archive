@@ -17,7 +17,7 @@ function setup() {
 
   for (let i = 0; i < n; i++) {
     // let v = createVector(random(width), random(height));
-    let angle = i * TWO_PI / n;
+    let angle = (i * TWO_PI) / n;
     let v = p5.Vector.fromAngle(angle);
     v.mult(width / 2);
     v.add(width / 2, height / 2);
@@ -38,7 +38,6 @@ function reset() {
 }
 
 function draw() {
-
   if (frameCount % 100 == 0) {
     //reset();
   }

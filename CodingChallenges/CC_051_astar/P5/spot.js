@@ -7,7 +7,6 @@
 
 // An object to describe a spot in the grid
 function Spot(i, j) {
-
   // Location
   this.i = i;
   this.j = j;
@@ -35,11 +34,11 @@ function Spot(i, j) {
       fill(0);
       noStroke();
       ellipse(this.i * w + w / 2, this.j * h + h / 2, w / 2, h / 2);
-    } else if (col){
+    } else if (col) {
       fill(col);
       rect(this.i * w, this.j * h, w, h);
     }
-  }
+  };
 
   // Figure out who my neighbors are
   this.addNeighbors = function(grid) {
@@ -69,5 +68,5 @@ function Spot(i, j) {
     if (i < cols - 1 && j < rows - 1) {
       this.neighbors.push(grid[i + 1][j + 1]);
     }
-  }
+  };
 }

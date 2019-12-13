@@ -19,7 +19,6 @@ function setup() {
   wave.freq(440);
   wave.amp(0);
 
-
   button = createButton('play/pause');
   button.mousePressed(toggle);
 }
@@ -41,6 +40,4 @@ function toggle() {
     wave.amp(0, 1);
     playing = false;
   }
-
-
 }

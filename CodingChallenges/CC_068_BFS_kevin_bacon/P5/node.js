@@ -18,4 +18,4 @@ Node.prototype.addEdge = function(neighbor) {
   this.edges.push(neighbor);
   // Both directions!
   neighbor.edges.push(this);
-}
+};

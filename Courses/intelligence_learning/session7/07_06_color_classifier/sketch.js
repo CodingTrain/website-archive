@@ -18,7 +18,6 @@ function preload() {
   data = loadJSON('colorData.json');
 }
 
-
 function setup() {
   //console.log(data.entries.length);
 
@@ -32,5 +31,4 @@ function setup() {
   let xs = tf.tensor2d(colors);
   console.log(xs.shape);
   xs.print();
-
 }

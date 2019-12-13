@@ -11,18 +11,18 @@ function setup() {
   canvas.mouseOver(overpara);
   canvas.mouseOut(outpara);
   canvas.mousePressed(changeColor);
-  
+
   bgcolor = color(200);
   nameP = createP('Your name!');
-  
-  button = createButton("go go go go");
+
+  button = createButton('go go go go');
   button.mousePressed(changeColor);
   slider = createSlider(10, 100, 86);
   nameInput = createInput('type your name');
-  
+
   nameP.mouseOver(overpara);
   nameP.mouseOut(outpara);
-  
+
   nameInput.changed(updateText);
 }
 
@@ -38,14 +38,12 @@ function outpara() {
   nameP.html('your mouse is out');
 }
 function changeColor() {
-  bgcolor = color(random(255))
-  
+  bgcolor = color(random(255));
 }
 
 // function mousePressed() {
 //   changeColor();
 // }
-
 
 function draw() {
   background(bgcolor);
@@ -53,5 +51,4 @@ function draw() {
   ellipse(100, 100, slider.value(), slider.value());
   //nameP.html(input.value());
   text(nameInput.value(), 10, 20);
-  
 }

@@ -35,7 +35,7 @@ function DNA(genes) {
     }
     // Gives DNA object an array
     return new DNA(newgenes);
-  }
+  };
 
   // Adds random mutation to the genes to add variance.
   this.mutation = function() {
@@ -46,6 +46,5 @@ function DNA(genes) {
         this.genes[i].setMag(maxforce);
       }
     }
-  }
-
+  };
 }

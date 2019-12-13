@@ -9,7 +9,6 @@
 // https://editor.p5js.org/codingtrain/sketches/Hk8CVYvi7
 
 class Bit {
-
   constructor(x, y, d) {
     this.x = x;
     this.y = y;
@@ -28,12 +27,10 @@ class Bit {
     }
   }
 
-
   show() {
     stroke(255);
     strokeWeight(2);
     fill(this.state ? 255 : 51);
     ellipse(this.x, this.y, this.diameter);
   }
-
 }

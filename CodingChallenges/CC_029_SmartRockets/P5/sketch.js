@@ -26,7 +26,6 @@ function setup() {
   population = new Population();
   lifeP = createP();
   target = createVector(width / 2, 50);
-
 }
 
 function draw() {

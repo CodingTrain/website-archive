@@ -3,10 +3,9 @@
 // http://codingtra.in
 
 // KNN Classification with Feature Extractor
-// 1: https://youtu.be/KTNqXwkLuM4 
-// 2: https://youtu.be/Mwo5_bUVhlA 
-// 3: https://youtu.be/JWsKay58Z2g 
-
+// 1: https://youtu.be/KTNqXwkLuM4
+// 2: https://youtu.be/Mwo5_bUVhlA
+// 3: https://youtu.be/JWsKay58Z2g
 
 let video;
 let features;

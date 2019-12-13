@@ -25,19 +25,18 @@ function pickColor() {
 function setup() {
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyDPekCKX4ee6h9NVR2lEITGAM0XIHn-c7c",
-    authDomain: "color-classification.firebaseapp.com",
-    databaseURL: "https://color-classification.firebaseio.com",
-    projectId: "color-classification",
-    storageBucket: "",
-    messagingSenderId: "590040209608"
+    apiKey: 'AIzaSyDPekCKX4ee6h9NVR2lEITGAM0XIHn-c7c',
+    authDomain: 'color-classification.firebaseapp.com',
+    databaseURL: 'https://color-classification.firebaseio.com',
+    projectId: 'color-classification',
+    storageBucket: '',
+    messagingSenderId: '590040209608'
   };
   firebase.initializeApp(config);
   database = firebase.database();
 
   createCanvas(100, 100);
   pickColor();
-
 
   let buttons = [];
   buttons.push(createButton('red-ish'));
@@ -53,10 +52,6 @@ function setup() {
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].mousePressed(sendData);
   }
-
-
-
-
 }
 
 function sendData() {
@@ -70,17 +65,17 @@ function sendData() {
     g: g,
     b: b,
     label: this.html()
-  }
+  };
   console.log('saving data');
   console.log(data);
 
   let color = colorDatabase.push(data, finished);
-  console.log("Firebase generated key: " + color.key);
+  console.log('Firebase generated key: ' + color.key);
 
   // Reload the data for the page
   function finished(err) {
     if (err) {
-      console.error("ooops, something went wrong.");
+      console.error('ooops, something went wrong.');
       console.error(err);
     } else {
       console.log('Data saved successfully');

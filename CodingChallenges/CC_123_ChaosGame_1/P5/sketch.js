@@ -29,7 +29,6 @@ function setup() {
 }
 
 function draw() {
-
   for (let i = 0; i < 100; i++) {
     strokeWeight(2);
     point(x, y);
@@ -38,7 +37,6 @@ function draw() {
       stroke(255, 0, 255);
       x = lerp(x, ax, 0.5);
       y = lerp(y, ay, 0.5);
-
     } else if (r == 1) {
       stroke(0, 255, 255);
       x = lerp(x, bx, 0.5);

@@ -55,5 +55,4 @@ function draw() {
     radius *= shrink;
     walkers.push(new Walker());
   }
-
 }

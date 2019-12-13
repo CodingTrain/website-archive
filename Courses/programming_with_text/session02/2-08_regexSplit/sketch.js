@@ -3,17 +3,16 @@
 // http://patreon.com/codingtrain
 // Code for: https://youtu.be/fdyqutmcI2Q
 
-
 var textfield;
 var output;
 var submit;
 
 function setup() {
   noCanvas();
-  textfield = select("#input");
+  textfield = select('#input');
   //textfield.changed(newText);
   output = select('#output');
-  submit = select("#submit");
+  submit = select('#submit');
   submit.mousePressed(newText);
 }
 

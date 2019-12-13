@@ -49,11 +49,10 @@ function keyPressed() {
 }
 
 function draw() {
-  
   if (random(1) < 0.005) {
     trains.push(new Train());
   }
-  
+
   background(bImg);
   for (let t of trains) {
     t.move();

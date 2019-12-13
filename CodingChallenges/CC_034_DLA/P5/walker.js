@@ -19,13 +19,15 @@ function Walker(x, y) {
     this.pos.add(vel);
     this.pos.x = constrain(this.pos.x, 0, width);
     this.pos.y = constrain(this.pos.y, 0, height);
-  }
-
+  };
 
   this.checkStuck = function(others) {
     for (var i = 0; i < others.length; i++) {
       var d = distSq(this.pos, others[i].pos);
-      if (d < (this.r * this.r + others[i].r * others[i].r +  2 * others[i].r * this.r)) {
+      if (
+        d <
+        this.r * this.r + others[i].r * others[i].r + 2 * others[i].r * this.r
+      ) {
         //if (random(1) < 0.1) {
         this.stuck = true;
         return true;
@@ -34,11 +36,11 @@ function Walker(x, y) {
       }
     }
     return false;
-  }
+  };
 
   this.setHue = function(hu) {
     this.hu = hu;
-  }
+  };
 
   this.show = function() {
     noStroke();
@@ -48,8 +50,7 @@ function Walker(x, y) {
       fill(360, 0, 255);
     }
     ellipse(this.pos.x, this.pos.y, this.r * 2, this.r * 2);
-  }
-
+  };
 }
 
 function randomPoint() {
@@ -69,7 +70,6 @@ function randomPoint() {
     return createVector(width, y);
   }
 }
-
 
 function distSq(a, b) {
   var dx = b.x - a.x;

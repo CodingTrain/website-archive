@@ -4,7 +4,6 @@
 // Code for: https://youtu.be/cXgA1d_E-jY&
 
 function Pipe() {
-
   var spacing = random(50, height / 2);
   var centery = random(spacing, height - spacing);
 
@@ -25,7 +24,7 @@ function Pipe() {
     }
     this.highlight = false;
     return false;
-  }
+  };
 
   this.show = function() {
     noStroke();
@@ -35,11 +34,11 @@ function Pipe() {
     }
     rect(this.x, 0, this.w, this.top);
     rect(this.x, height - this.bottom, this.w, this.bottom);
-  }
+  };
 
   this.update = function() {
     this.x -= this.speed;
-  }
+  };
 
   this.offscreen = function() {
     if (this.x < -this.w) {
@@ -47,7 +46,5 @@ function Pipe() {
     } else {
       return false;
     }
-  }
-
-
+  };
 }

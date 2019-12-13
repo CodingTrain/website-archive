@@ -10,9 +10,9 @@ let ANTLEFT = 3;
 
 function setup() {
   createCanvas(400, 400);
-  grid = make2DArray(width,height);
-  x = width/2;
-  y = height/2;
+  grid = make2DArray(width, height);
+  x = width / 2;
+  y = height / 2;
   dir = ANTUP;
 }
 
@@ -41,18 +41,17 @@ function moveForward() {
     x--;
   }
 
-  if (x > width-1) {
+  if (x > width - 1) {
     x = 0;
   } else if (x < 0) {
-    x = width-1;
+    x = width - 1;
   }
-  if (y > height-1) {
+  if (y > height - 1) {
     y = 0;
   } else if (y < 0) {
-    y = height-1;
+    y = height - 1;
   }
 }
-
 
 function draw() {
   strokeWeight(1);

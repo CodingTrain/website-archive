@@ -6,7 +6,6 @@
 // https://youtu.be/i-k04yzfMpw
 // https://editor.p5js.org/codingtrain/sketches/ryTuOf3gN
 
-
 let editor;
 let turtle;
 

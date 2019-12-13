@@ -7,7 +7,7 @@ function Circle(x, y, r) {
   var options = {
     friction: 0,
     restitution: 0.95
-  }
+  };
   this.body = Bodies.circle(x, y, r, options);
   this.r = r;
   World.add(world, this.body);
@@ -24,6 +24,5 @@ function Circle(x, y, r) {
     fill(127);
     ellipse(0, 0, this.r * 2);
     pop();
-  }
-
+  };
 }

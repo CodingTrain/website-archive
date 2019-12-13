@@ -30,7 +30,6 @@ function whileTraining(loss) {
   }
 }
 
-
 function gotResults(error, result) {
   if (error) {
     console.error(error);
@@ -62,8 +61,6 @@ function setup() {
   trainButton.mousePressed(function() {
     classifier.train(whileTraining);
   });
-
-
 }
 
 function draw() {

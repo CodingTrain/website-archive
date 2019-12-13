@@ -35,7 +35,7 @@ Cell.prototype.show = function() {
       }
     }
   }
-}
+};
 
 Cell.prototype.countBees = function() {
   if (this.bee) {
@@ -58,11 +58,11 @@ Cell.prototype.countBees = function() {
     }
   }
   this.neighborCount = total;
-}
+};
 
 Cell.prototype.contains = function(x, y) {
-  return (x > this.x && x < this.x + this.w && y > this.y && y < this.y + this.w);
-}
+  return x > this.x && x < this.x + this.w && y > this.y && y < this.y + this.w;
+};
 
 Cell.prototype.reveal = function() {
   this.revealed = true;
@@ -70,7 +70,7 @@ Cell.prototype.reveal = function() {
     // flood fill time
     this.floodFill();
   }
-}
+};
 
 Cell.prototype.floodFill = function() {
   for (var xoff = -1; xoff <= 1; xoff++) {
@@ -89,4 +89,4 @@ Cell.prototype.floodFill = function() {
       }
     }
   }
-}
+};

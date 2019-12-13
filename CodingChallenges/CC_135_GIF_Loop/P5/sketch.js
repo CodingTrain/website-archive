@@ -20,7 +20,7 @@ function draw() {
   }
   render(percent);
   if (record) {
-    save("output/gif-" + nf(counter, 3) + ".png");
+    save('output/gif-' + nf(counter, 3) + '.png');
     if (counter == totalFrames - 1) {
       noLoop();
     }

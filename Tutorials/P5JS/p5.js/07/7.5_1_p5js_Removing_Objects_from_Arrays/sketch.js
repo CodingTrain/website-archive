@@ -9,8 +9,6 @@ function setup() {
     let b = new Bubble(x, y, r);
     bubbles.push(b);
   }
-
-
 }
 
 function mousePressed() {

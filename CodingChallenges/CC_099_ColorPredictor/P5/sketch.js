@@ -12,7 +12,7 @@
 let r, g, b;
 let brain;
 
-let which = "black";
+let which = 'black';
 
 let wButton;
 let bButton;
@@ -39,7 +39,6 @@ function setup() {
   }
 
   pickColor();
-
 }
 
 function mousePressed() {
@@ -53,10 +52,8 @@ function mousePressed() {
   //
   // brain.train(inputs, targets);
 
-
   pickColor();
 }
-
 
 function colorPredictor(r, g, b) {
   console.log(floor(r + g + b));
@@ -65,9 +62,9 @@ function colorPredictor(r, g, b) {
   //console.log(outputs);
 
   if (outputs[0] > outputs[1]) {
-    return "black";
+    return 'black';
   } else {
-    return "white";
+    return 'white';
   }
 
   // if (r + g + b > 300) {
@@ -85,7 +82,6 @@ function trainColor(r, g, b) {
   }
 }
 
-
 function draw() {
   background(r, g, b);
   strokeWeight(4);
@@ -96,18 +92,16 @@ function draw() {
   noStroke();
   fill(0);
   textAlign(CENTER, CENTER);
-  text("black", 150, 100);
+  text('black', 150, 100);
   fill(255);
-  text("white", 450, 100);
+  text('white', 450, 100);
 
   let which = colorPredictor(r, g, b);
-  if (which === "black") {
+  if (which === 'black') {
     fill(0);
     ellipse(150, 200, 60);
   } else {
     fill(255);
     ellipse(450, 200, 60);
   }
-
-
 }

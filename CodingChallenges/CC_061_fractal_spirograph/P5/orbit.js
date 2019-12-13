@@ -12,16 +12,16 @@ function Orbit(x_, y_, r_, n, p) {
   this.r = r_;
   this.parent = p;
   this.child = null;
-  this.speed = (radians(pow(k, n-1)))/resolution;
-  this.angle = -PI/2;
+  this.speed = radians(pow(k, n - 1)) / resolution;
+  this.angle = -PI / 2;
 
   this.addChild = function() {
     var newr = this.r / 3.0;
     var newx = this.x + this.r + newr;
     var newy = this.y;
-    this.child = new Orbit(newx, newy, newr, n+1, this);
+    this.child = new Orbit(newx, newy, newr, n + 1, this);
     return this.child;
-  }
+  };
 
   this.update = function() {
     var parent = this.parent;
@@ -31,12 +31,12 @@ function Orbit(x_, y_, r_, n, p) {
       this.x = parent.x + rsum * cos(this.angle);
       this.y = parent.y + rsum * sin(this.angle);
     }
-  }
+  };
 
   this.show = function() {
     stroke(255, 100);
     strokeWeight(1);
     noFill();
-    ellipse(this.x, this.y, this.r*2, this.r*2);
-  }
+    ellipse(this.x, this.y, this.r * 2, this.r * 2);
+  };
 }

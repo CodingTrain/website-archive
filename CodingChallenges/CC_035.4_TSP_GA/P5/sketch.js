@@ -67,11 +67,6 @@ function draw() {
     ellipse(cities[n].x, cities[n].y, 16, 16);
   }
   endShape();
-
-
-
-
-
 }
 
 // function shuffle(a, num) {
@@ -82,13 +77,11 @@ function draw() {
 //   }
 // }
 
-
 function swap(a, i, j) {
   var temp = a[i];
   a[i] = a[j];
   a[j] = temp;
 }
-
 
 function calcDistance(points, order) {
   var sum = 0;

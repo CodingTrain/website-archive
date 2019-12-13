@@ -30,7 +30,6 @@ function whileTraining(loss) {
   }
 }
 
-
 function gotResults(error, result) {
   if (error) {
     console.error(error);
@@ -55,13 +54,10 @@ function setup() {
     predictor.addImage(slider.value());
   });
 
-
   trainButton = createButton('train');
   trainButton.mousePressed(function() {
     predictor.train(whileTraining);
   });
-
-
 }
 
 function draw() {

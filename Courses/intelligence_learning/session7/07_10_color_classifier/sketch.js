@@ -26,12 +26,11 @@ let labelList = [
   'purple-ish',
   'brown-ish',
   'grey-ish'
-]
+];
 
 function preload() {
   data = loadJSON('colorData.json');
 }
-
 
 function setup() {
   //console.log(data.entries.length);
@@ -59,7 +58,6 @@ function setup() {
   // console.log(ys.shape);
   // xs.print();
   // ys.print();
-
 
   // Building Model
   model = tf.sequential();
@@ -91,12 +89,11 @@ function setup() {
     epochs: 50,
     validationSplit: 0.1,
     shuffle: true
-  }
+  };
 
   model.fit(xs, ys, options).then(results => {
-    console.log(results.history.loss)
+    console.log(results.history.loss);
   });
-
 }
 
 function draw() {

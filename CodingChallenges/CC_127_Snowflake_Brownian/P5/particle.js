@@ -5,7 +5,6 @@
 // https://editor.p5js.org/codingtrain/sketches/SJcAeCpgE
 
 class Particle {
-
   constructor(radius, angle) {
     this.pos = p5.Vector.fromAngle(angle);
     this.pos.mult(radius);
@@ -17,7 +16,7 @@ class Particle {
     this.pos.y += random(-3, 3);
 
     let angle = this.pos.heading();
-    angle = constrain(angle, 0, PI/6);
+    angle = constrain(angle, 0, PI / 6);
     let magnitude = this.pos.mag();
     this.pos = p5.Vector.fromAngle(angle);
     this.pos.setMag(magnitude);
@@ -32,7 +31,7 @@ class Particle {
   intersects(snowflake) {
     let result = false;
     for (let s of snowflake) {
-      let d = dist(s.pos.x, s.pos.y, this.pos.x, this.pos.y); 
+      let d = dist(s.pos.x, s.pos.y, this.pos.x, this.pos.y);
       if (d < this.r * 2) {
         result = true;
         break;
@@ -42,6 +41,6 @@ class Particle {
   }
 
   finished() {
-    return (this.pos.x < 1);
+    return this.pos.x < 1;
   }
 }

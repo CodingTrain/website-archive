@@ -20,7 +20,10 @@ function setup() {
 }
 
 function loss(pred, labels) {
-  return pred.sub(labels).square().mean();
+  return pred
+    .sub(labels)
+    .square()
+    .mean();
 }
 
 function predict(x) {
@@ -38,7 +41,6 @@ function mousePressed() {
 }
 
 function draw() {
-
   tf.tidy(() => {
     if (x_vals.length > 0) {
       const ys = tf.tensor1d(y_vals);
@@ -56,7 +58,6 @@ function draw() {
     point(px, py);
   }
 
-
   const lineX = [0, 1];
 
   const ys = tf.tidy(() => predict(lineX));
@@ -71,7 +72,6 @@ function draw() {
 
   strokeWeight(2);
   line(x1, y1, x2, y2);
-
 
   console.log(tf.memory().numTensors);
   //noLoop();

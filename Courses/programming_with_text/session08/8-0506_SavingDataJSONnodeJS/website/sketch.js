@@ -27,9 +27,7 @@ function submitWord() {
     console.log(data);
     drawData();
   }
-
 }
-
 
 function gotData(data) {
   background(51);

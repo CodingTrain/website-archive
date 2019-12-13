@@ -12,7 +12,7 @@ let rainbow;
 
 function setup() {
   createCanvas(400, 400);
-  createButton("rainbow").mousePressed(generateRainbow);
+  createButton('rainbow').mousePressed(generateRainbow);
 }
 
 function generateRainbow() {
@@ -21,12 +21,12 @@ function generateRainbow() {
   for (let i = 0; i < 512; i++) {
     z[i] = random(-1, 1);
   }
-  const path = "http://localhost:8000/query";
+  const path = 'http://localhost:8000/query';
   const data = {
     z: z,
     truncation: 0.8
   };
-  httpPost(path, "json", data, gotImage, gotError);
+  httpPost(path, 'json', data, gotImage, gotError);
 }
 
 function gotError(error) {

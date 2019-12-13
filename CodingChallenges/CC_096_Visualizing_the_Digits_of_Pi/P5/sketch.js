@@ -11,15 +11,14 @@ let counts = new Array(10);
 let index = 0;
 
 function preload() {
-  pi = loadStrings("pi-1million.txt");
+  pi = loadStrings('pi-1million.txt');
 }
 
 function setup() {
   createCanvas(420, 420);
 
-
   //println(pi.length());
-  const sdigits = pi[0].split("");
+  const sdigits = pi[0].split('');
 
   //println(sdigits.length);
   digits = int(sdigits);
@@ -33,7 +32,6 @@ function setup() {
 }
 
 function draw() {
-
   translate(width / 2, height / 2);
 
   const digit = digits[index];
@@ -53,5 +51,4 @@ function draw() {
 
   stroke(255, 50);
   line(x1, y1, x2, y2);
-
 }

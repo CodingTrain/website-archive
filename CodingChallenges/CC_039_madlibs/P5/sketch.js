@@ -5,7 +5,8 @@
 
 var data;
 
-var txt = '$$Exclamation$$! they said $$Adverb$$ as they jumped into their $$Noun$$ and flew off with their $$Adjective$$ $$PluralNoun$$.';
+var txt =
+  '$$Exclamation$$! they said $$Adverb$$ as they jumped into their $$Noun$$ and flew off with their $$Adjective$$ $$PluralNoun$$.';
 
 function setup() {
   noCanvas();
@@ -23,7 +24,6 @@ function replacer(match, pos) {
   var entry = random(data);
   return entry[pos];
 }
-
 
 function generate() {
   //console.log('generate');

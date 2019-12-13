@@ -27,16 +27,7 @@ function setup() {
   var r = 98 / 255;
   var g = 175 / 255;
   var b = 116 / 255;
-  chroma.screen = [r,g,b,1];
-
-
-
-
+  chroma.screen = [r, g, b, 1];
 
   seriously.go();
-
-
-
 }
-
-

@@ -35,7 +35,6 @@ function mousePressed() {
       }
     }
   }
-
 }
 
 function draw() {
@@ -52,5 +51,4 @@ function draw() {
     ellipse(leaves[i].x, leaves[i].y, 8, 8);
     leaves[i].y += random(0, 2);
   }
-
 }

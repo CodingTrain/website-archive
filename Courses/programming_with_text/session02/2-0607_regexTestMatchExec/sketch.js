@@ -10,10 +10,10 @@ var submit;
 
 function setup() {
   noCanvas();
-  textfield = select("#input");
+  textfield = select('#input');
   //textfield.changed(newText);
   output = select('#output');
-  submit = select("#submit");
+  submit = select('#submit');
   submit.mousePressed(newText);
 }
 
@@ -25,12 +25,8 @@ function newText() {
 
   // var result = r.exec(s);
   var results;
-  while (results = r.exec(s)) {
+  while ((results = r.exec(s))) {
     createP(results[1]);
     // do something with the matched results
   }
-
-
-
-
 }

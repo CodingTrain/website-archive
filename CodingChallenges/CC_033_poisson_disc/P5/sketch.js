@@ -53,11 +53,17 @@ function draw() {
         var col = floor(sample.x / w);
         var row = floor(sample.y / w);
 
-        if (col > -1 && row > -1 && col < cols && row < rows && !grid[col + row * cols]) {
+        if (
+          col > -1 &&
+          row > -1 &&
+          col < cols &&
+          row < rows &&
+          !grid[col + row * cols]
+        ) {
           var ok = true;
           for (var i = -1; i <= 1; i++) {
             for (var j = -1; j <= 1; j++) {
-              var index = (col + i) + (row + j) * cols;
+              var index = col + i + (row + j) * cols;
               var neighbor = grid[index];
               if (neighbor) {
                 var d = p5.Vector.dist(sample, neighbor);
@@ -81,7 +87,6 @@ function draw() {
       if (!found) {
         active.splice(randIndex, 1);
       }
-
     }
   }
 

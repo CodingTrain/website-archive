@@ -25,21 +25,22 @@ class Rectangle {
   }
 
   contains(point) {
-    return (point.x >= this.x - this.w &&
+    return (
+      point.x >= this.x - this.w &&
       point.x <= this.x + this.w &&
       point.y >= this.y - this.h &&
-      point.y <= this.y + this.h);
+      point.y <= this.y + this.h
+    );
   }
-
 
   intersects(range) {
-    return !(range.x - range.w > this.x + this.w ||
+    return !(
+      range.x - range.w > this.x + this.w ||
       range.x + range.w < this.x - this.w ||
       range.y - range.h > this.y + this.h ||
-      range.y + range.h < this.y - this.h);
+      range.y + range.h < this.y - this.h
+    );
   }
-
-
 }
 
 // circle class for a circle shaped query
@@ -55,12 +56,11 @@ class Circle {
     // check if the point is in the circle by checking if the euclidean distance of
     // the point and the center of the circle if smaller or equal to the radius of
     // the circle
-    let d = Math.pow((point.x - this.x), 2) + Math.pow((point.y - this.y), 2);
+    let d = Math.pow(point.x - this.x, 2) + Math.pow(point.y - this.y, 2);
     return d <= this.rSquared;
   }
 
   intersects(range) {
-
     var xDist = Math.abs(range.x - this.x);
     var yDist = Math.abs(range.y - this.y);
 
@@ -70,15 +70,13 @@ class Circle {
     var w = range.w;
     var h = range.h;
 
-    var edges = Math.pow((xDist - w), 2) + Math.pow((yDist - h), 2);
+    var edges = Math.pow(xDist - w, 2) + Math.pow(yDist - h, 2);
 
     // no intersection
-    if (xDist > (r + w) || yDist > (r + h))
-      return false;
+    if (xDist > r + w || yDist > r + h) return false;
 
     // intersection within the circle
-    if (xDist <= w || yDist <= h)
-      return true;
+    if (xDist <= w || yDist <= h) return true;
 
     // intersection on the edge of the circle
     return edges <= this.rSquared;
@@ -94,7 +92,9 @@ class QuadTree {
       throw TypeError('boundary should be a Rectangle');
     }
     if (typeof capacity !== 'number') {
-      throw TypeError(`capacity should be a number but is a ${typeof capacity}`);
+      throw TypeError(
+        `capacity should be a number but is a ${typeof capacity}`
+      );
     }
     if (capacity < 1) {
       throw RangeError('capacity must be greater than 0');
@@ -137,8 +137,12 @@ class QuadTree {
       this.subdivide();
     }
 
-    if (this.northeast.insert(point) || this.northwest.insert(point) ||
-      this.southeast.insert(point) || this.southwest.insert(point)) {
+    if (
+      this.northeast.insert(point) ||
+      this.northwest.insert(point) ||
+      this.southeast.insert(point) ||
+      this.southwest.insert(point)
+    ) {
       return true;
     }
   }
@@ -166,5 +170,4 @@ class QuadTree {
 
     return found;
   }
-
 }

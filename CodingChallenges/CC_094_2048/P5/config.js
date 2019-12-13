@@ -1,46 +1,46 @@
 let colorsSizes = {
-  "2": {
+  '2': {
     size: 64,
-    color: "#F35956"
+    color: '#F35956'
   },
-  "4": {
+  '4': {
     size: 64,
-    color: "#F35956"
+    color: '#F35956'
   },
-  "8": {
+  '8': {
     size: 64,
-    color: "#49BB6C"
+    color: '#49BB6C'
   },
-  "16": {
+  '16': {
     size: 64,
-    color: "#2494C1"
+    color: '#2494C1'
   },
-  "32": {
+  '32': {
     size: 64,
-    color: "#9659A7"
+    color: '#9659A7'
   },
-  "64": {
+  '64': {
     size: 64,
-    color: "#F1C500"
+    color: '#F1C500'
   },
-  "128": {
+  '128': {
     size: 36,
-    color: "#FF5956"
+    color: '#FF5956'
   },
-  "256": {
+  '256': {
     size: 36,
-    color: "#F1C5FF"
+    color: '#F1C5FF'
   },
-  "512": {
+  '512': {
     size: 36,
-    color: "#00000"
+    color: '#00000'
   },
-  "1024": {
+  '1024': {
     size: 64,
-    color: "#24FFC1"
+    color: '#24FFC1'
   },
-  "2048": {
+  '2048': {
     size: 64,
-    color: "#A659A9"
-  },
-}
+    color: '#A659A9'
+  }
+};

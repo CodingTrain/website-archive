@@ -15,7 +15,7 @@ function draw() {
   // Set the position of each slider dynamically using map()
   for (var i = 0; i < sliders.length; i++) {
     // Map sine function to range from 0 to 100 for slider
-    var x = map(sin(angle+offset), -1, 1, 0, 255);
+    var x = map(sin(angle + offset), -1, 1, 0, 255);
     // Control the slider
     sliders[i].value(x);
     offset += 0.25;

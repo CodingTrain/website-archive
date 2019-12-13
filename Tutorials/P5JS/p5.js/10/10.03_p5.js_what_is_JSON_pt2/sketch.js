@@ -5,7 +5,7 @@ Video referenced (9:05)"createP from DOM" https://vimeo.com/142698165 */
 var data;
 
 function preload() {
-  data = loadJSON("birds.json");
+  data = loadJSON('birds.json');
 }
 
 function setup() {

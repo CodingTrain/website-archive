@@ -13,5 +13,4 @@ function draw() {
 
   fill(255, 0, 150);
   rect(0, 0, 50, 50);
-
 }

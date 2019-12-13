@@ -70,11 +70,7 @@ function Tree() {
         branch.reset();
       }
     }
-  }
-
-
-
-
+  };
 
   this.show = function() {
     for (var i = 0; i < this.leaves.length; i++) {
@@ -84,7 +80,5 @@ function Tree() {
     for (var i = 0; i < this.branches.length; i++) {
       this.branches[i].show();
     }
-
-  }
-
+  };
 }

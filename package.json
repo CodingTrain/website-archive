@@ -22,7 +22,12 @@
     "lint-cc": "./node_modules/.bin/eslint ./CodingChallenges/",
     "lint-cabana": "./node_modules/.bin/eslint ./CodingInTheCabana/",
     "lint-tutorials": "./node_modules/.bin/eslint ./Tutorials/",
-    "lint-courses": "./node_modules/.bin/eslint ./Courses/"
+    "lint-courses": "./node_modules/.bin/eslint ./Courses/",
+    "lint-fix": "npm run lint-cc-fix && npm run lint-cabana-fix && npm run lint-tutorials-fix && npm run lint-courses-fix",
+    "lint-cc-fix": "./node_modules/.bin/eslint ./CodingChallenges/ --fix",
+    "lint-cabana-fix": "./node_modules/.bin/eslint ./CodingInTheCabana/ --fix",
+    "lint-tutorials-fix": "./node_modules/.bin/eslint ./Tutorials/ --fix",
+    "lint-courses-fix": "./node_modules/.bin/eslint ./Courses/ --fix"
   },
   "repository": {
     "type": "git",

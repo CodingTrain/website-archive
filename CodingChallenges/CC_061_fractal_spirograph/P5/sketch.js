@@ -14,7 +14,7 @@ var end;
 
 function setup() {
   createCanvas(600, 600);
-  sun = new Orbit(width/2, height/2, width/4, 0);
+  sun = new Orbit(width / 2, height / 2, width / 4, 0);
   var next = sun;
   for (var i = 0; i < 10; i++) {
     next = next.addChild();

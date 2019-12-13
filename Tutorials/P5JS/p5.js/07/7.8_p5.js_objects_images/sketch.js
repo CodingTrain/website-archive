@@ -28,7 +28,6 @@ function mousePressed() {
   }
 }
 
-
 function draw() {
   background(0);
   for (let i = 0; i < bubbles.length; i++) {
@@ -43,13 +42,17 @@ class Bubble {
     this.y = y;
     this.r = r;
     this.kitten = random(kittens);
-
   }
 
   clicked(px, py) {
     //let d = dist(px, py, this.x, this.y);
     //if (d < this.r) {
-    if (px > this.x && px < this.x + this.r && py > this.y && py < this.y + this.r) {
+    if (
+      px > this.x &&
+      px < this.x + this.r &&
+      py > this.y &&
+      py < this.y + this.r
+    ) {
       this.kitten = flower; //random(kittens);
     }
   }

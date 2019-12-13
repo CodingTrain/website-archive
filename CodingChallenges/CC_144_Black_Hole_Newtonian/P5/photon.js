@@ -12,7 +12,6 @@
 // https://editor.p5js.org/codingtrain/sketches/4DvaeH0Ur
 
 class Photon {
-
   constructor(x, y) {
     this.pos = createVector(x, y);
     this.vel = createVector(-c, 0);
@@ -38,8 +37,6 @@ class Photon {
     if (this.history.length > 500) {
       this.history.splice(0, 1);
     }
-
-
   }
 
   show() {
@@ -55,8 +52,5 @@ class Photon {
     }
 
     endShape();
-
   }
-
-
 }

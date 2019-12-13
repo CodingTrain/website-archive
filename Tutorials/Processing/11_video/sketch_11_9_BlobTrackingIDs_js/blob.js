@@ -4,7 +4,6 @@
 // Code for: https://youtu.be/r0lvsMPGEoY
 
 class Blob {
-
   constructor(x, y) {
     this.minx = x;
     this.miny = y;
@@ -26,7 +25,6 @@ class Blob {
     fill(0);
     text(this.id, this.minx + (this.maxx - this.minx) * 0.5, this.maxy - 10);
   }
-
 
   add(x, y) {
     this.minx = min(this.minx, x);
