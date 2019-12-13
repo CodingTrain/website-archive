@@ -22,7 +22,7 @@ function Polygon(n) {
       this.edges.push(edge);
     }
     this.vertices.push(a);
-  }
+  };
 
   this.close = function() {
     var total = this.vertices.length;
@@ -30,18 +30,17 @@ function Polygon(n) {
     var first = this.vertices[0];
     var edge = new Edge(last, first);
     this.edges.push(edge);
-  }
+  };
 
   this.hankin = function() {
     for (var i = 0; i < this.edges.length; i++) {
       this.edges[i].hankin(this.sides);
     }
-  }
+  };
 
   this.show = function() {
     for (var i = 0; i < this.edges.length; i++) {
       this.edges[i].show();
     }
-  }
-
+  };
 }

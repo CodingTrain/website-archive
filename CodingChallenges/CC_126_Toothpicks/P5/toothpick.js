@@ -5,7 +5,6 @@
 // https://editor.p5js.org/codingtrain/sketches/SJMl3u5xN
 
 class Toothpick {
-
   constructor(x, y, d) {
     this.newPick = true;
 
@@ -23,8 +22,7 @@ class Toothpick {
     }
   }
 
-
-  intersects(x,y) {
+  intersects(x, y) {
     if (this.ax == x && this.ay == y) {
       return true;
     } else if (this.bx == x && this.by == y) {
@@ -34,9 +32,7 @@ class Toothpick {
     }
   }
 
-
-
-   createA(others) {
+  createA(others) {
     let available = true;
     for (let other of others) {
       if (other != this && other.intersects(this.ax, this.ay)) {
@@ -51,7 +47,7 @@ class Toothpick {
     }
   }
 
-   createB(others) {
+  createB(others) {
     let available = true;
     for (let other of others) {
       if (other != this && other.intersects(this.bx, this.by)) {

@@ -71,14 +71,8 @@ function setup() {
       resultP.parent(div);
     }
 
-
     // console.log(similarityScores);
-
   }
-
-
-
-
 }
 
 function euclideanDistance(name1, name2) {
@@ -90,7 +84,6 @@ function euclideanDistance(name1, name2) {
   titles.splice(i, 1);
   var j = titles.indexOf('timestamp');
   titles.splice(j, 1);
-
 
   var sumSquares = 0;
   for (var i = 0; i < titles.length; i++) {

@@ -8,7 +8,6 @@
 // For more:
 // https://github.com/CodingTrain/QuadTree
 
-
 let particles = [];
 
 function setup() {
@@ -21,14 +20,12 @@ function setup() {
 function draw() {
   background(0);
 
-
   let boundary = new Rectangle(300, 200, 600, 400);
   let qtree = new QuadTree(boundary, 4);
 
   for (let p of particles) {
     let point = new Point(p.x, p.y, p);
     qtree.insert(point);
-
 
     p.move();
     p.render();
@@ -46,5 +43,4 @@ function draw() {
       }
     }
   }
-
 }

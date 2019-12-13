@@ -3,7 +3,6 @@
 2. Code is at 7:57 seconds on drawing rectangle
 */
 
-
 function setup() {
   createCanvas(640, 360);
 }

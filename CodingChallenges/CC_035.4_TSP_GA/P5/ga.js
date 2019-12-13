@@ -22,7 +22,6 @@ function calculateFitness() {
       currentBest = population[i];
     }
 
-
     // This fitness function has been edited from the original video
     // to improve performance, as discussed in The Nature of Code 9.6 video,
     // available here: https://www.youtube.com/watch?v=HzaLIO9dLbA
@@ -50,7 +49,6 @@ function nextGeneration() {
     newPopulation[i] = order;
   }
   population = newPopulation;
-
 }
 
 function pickOne(list, prob) {
@@ -78,7 +76,6 @@ function crossOver(orderA, orderB) {
   }
   return neworder;
 }
-
 
 function mutate(order, mutationRate) {
   for (var i = 0; i < totalCities; i++) {

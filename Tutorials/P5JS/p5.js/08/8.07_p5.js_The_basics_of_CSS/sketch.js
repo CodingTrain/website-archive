@@ -14,19 +14,19 @@ function setup() {
   txt = createP('some text');
   txt.mouseOver(changeStyle);
   txt.mouseOut(revertStyle);
-  
-  button = createButton("go");
+
+  button = createButton('go');
   // button.mousePressed(changeStyle);
 }
 
 function changeStyle() {
-  txt.style("background-color", "pink");
-  txt.style("padding", "24px");
+  txt.style('background-color', 'pink');
+  txt.style('padding', '24px');
 }
 
 function revertStyle() {
-  txt.style("background-color", "purple");
-  txt.style("padding", "8px");
+  txt.style('background-color', 'purple');
+  txt.style('padding', '8px');
 }
 
 function draw() {

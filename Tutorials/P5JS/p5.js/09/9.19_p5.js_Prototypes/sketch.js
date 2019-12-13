@@ -8,7 +8,7 @@ function Particle() {
 
 Particle.prototype.show = function() {
   point(this.x, this.y);
-}
+};
 
 var p;
 var v;
@@ -16,8 +16,8 @@ var v;
 p5.Vector.prototype.double = function() {
   this.x *= 2;
   this.y *= 2;
-  this.z *- 2;
-}
+  this.z * -2;
+};
 
 function setup() {
   createCanvas(600, 600);
@@ -26,6 +26,4 @@ function setup() {
   v = createVector(3, 4);
 }
 
-function draw() {
-
-}
+function draw() {}

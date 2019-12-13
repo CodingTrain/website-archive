@@ -1,7 +1,7 @@
 let kitten;
 
 function preload() {
-  kitten = loadImage("data/kitten.jpg");
+  kitten = loadImage('data/kitten.jpg');
 }
 
 function setup() {
@@ -42,7 +42,7 @@ function setColorAtIndex(img, x, y, clr) {
 // The step 0 is always included, so the number of steps
 // is actually steps + 1
 function closestStep(max, steps, value) {
-  return round(steps * value / 255) * floor(255 / steps);
+  return round((steps * value) / 255) * floor(255 / steps);
 }
 
 function makeDithered(img, steps) {

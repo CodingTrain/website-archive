@@ -5,7 +5,6 @@
 // https://editor.p5js.org/codingtrain/sketches/LbNt1nyxE
 
 class Ground extends Box {
-
   constructor(x, y, w, h) {
     super(x, y, w, h);
     this.body.isStatic = true;
@@ -23,5 +22,4 @@ class Ground extends Box {
     rect(0, 0, this.w, this.h);
     pop();
   }
-
 }

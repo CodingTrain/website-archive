@@ -7,7 +7,6 @@ function setup() {
   for (let i = 0; i < 4; i++) {
     vibrations.push(new Particle(random(width), random(height)));
   }
-
 }
 
 function draw() {
@@ -33,7 +32,6 @@ function mousePressed() {
 }
 
 class Particle {
-
   constructor(x, y) {
     this.x = x;
     this.y = y;
@@ -68,7 +66,7 @@ class Particle {
     // beginShape();
     for (let i = 0; i < this.history.length; i++) {
       let pos = this.history[i];
-      let col = map(i, 0, this.history.length, 75, 200)
+      let col = map(i, 0, this.history.length, 75, 200);
       fill(col);
       let d = map(i, 0, this.history.length, 1, 24);
       ellipse(pos.x, pos.y, d, d);

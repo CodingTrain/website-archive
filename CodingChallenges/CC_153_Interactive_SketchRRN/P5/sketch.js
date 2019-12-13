@@ -6,13 +6,13 @@
 let sketchRNN;
 let currentStroke;
 let x, y;
-let nextPen = "down";
+let nextPen = 'down';
 let seedPath = [];
 let seedPoints = [];
 let personDrawing = false;
 
 function preload() {
-  sketchRNN = ml5.sketchRNN("catpig");
+  sketchRNN = ml5.sketchRNN('catpig');
 }
 
 function startDrawing() {
@@ -53,7 +53,7 @@ function sketchRNNStart() {
     let strokePath = {
       dx: rdpPoints[i].x - rdpPoints[i - 1].x,
       dy: rdpPoints[i].y - rdpPoints[i - 1].y,
-      pen: "down"
+      pen: 'down'
     };
     seedPath.push(strokePath);
   }
@@ -67,7 +67,7 @@ function setup() {
   canvas.mouseReleased(sketchRNNStart);
   background(255);
   //sketchRNN.generate(gotStrokePath);
-  console.log("model loaded");
+  console.log('model loaded');
 }
 
 function gotStrokePath(error, strokePath) {
@@ -86,15 +86,15 @@ function draw() {
   }
 
   if (currentStroke) {
-    if (nextPen == "end") {
+    if (nextPen == 'end') {
       sketchRNN.reset();
       sketchRNNStart();
       currentStroke = null;
-      nextPen = "down";
+      nextPen = 'down';
       return;
     }
 
-    if (nextPen == "down") {
+    if (nextPen == 'down') {
       line(x, y, x + currentStroke.dx, y + currentStroke.dy);
     }
     x += currentStroke.dx;

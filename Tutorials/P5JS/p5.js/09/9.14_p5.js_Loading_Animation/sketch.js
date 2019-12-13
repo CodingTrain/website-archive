@@ -29,17 +29,16 @@ function draw() {
   background(51);
 
   if (loading) {
-
     stroke(255);
     noFill();
     rect(10, 10, 200, 20);
 
     noStroke();
     fill(255, 100);
-    var w = 200 * counter / totalSongs;
+    var w = (200 * counter) / totalSongs;
     rect(10, 10, w, 20);
 
-    translate(width/2, height/2);
+    translate(width / 2, height / 2);
     rotate(angle);
     strokeWeight(4);
     stroke(255);
@@ -48,5 +47,4 @@ function draw() {
   } else {
     background(0, 255, 0);
   }
-
 }

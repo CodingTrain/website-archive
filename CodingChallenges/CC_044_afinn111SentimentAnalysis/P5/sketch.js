@@ -3,13 +3,11 @@
 // http://patreon.com/codingtrain
 // Code for: https://youtu.be/VV1JmMYceJw
 
-
 var afinn;
 
 function preload() {
   afinn = loadJSON('afinn111.json');
 }
-
 
 function setup() {
   noCanvas();
@@ -44,10 +42,4 @@ function setup() {
   }
 }
 
-
-
-
-
-function draw() {
-
-}
+function draw() {}

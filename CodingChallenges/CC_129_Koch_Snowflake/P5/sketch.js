@@ -19,9 +19,9 @@ function setup() {
   let s1 = new Segment(a, b);
 
   let len = p5.Vector.dist(a, b);
-  let h = len * sqrt(3) / 2;
-  let c = createVector(300, 100+h);
-  
+  let h = (len * sqrt(3)) / 2;
+  let c = createVector(300, 100 + h);
+
   let s2 = new Segment(b, c);
   let s3 = new Segment(c, a);
   segments.push(s1);
@@ -40,7 +40,6 @@ function mousePressed() {
   }
   segments = nextGeneration;
 }
-
 
 function draw() {
   background(0);

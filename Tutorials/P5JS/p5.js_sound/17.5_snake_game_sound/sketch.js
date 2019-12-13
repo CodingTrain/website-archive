@@ -23,10 +23,10 @@ var food;
 var musicRate = 1;
 
 function preload() {
-  eatSound = loadSound("sounds/Alert/Alert - 06.mp3");
-  startOverSound = loadSound("sounds/Voice/Voice - Cartoon Laugh 01.mp3");
-  hello = loadSound("sounds/Voice/Voice - Hello 01.mp3");
-  music = loadSound("sounds/Music/Music - 01.mp3");
+  eatSound = loadSound('sounds/Alert/Alert - 06.mp3');
+  startOverSound = loadSound('sounds/Voice/Voice - Cartoon Laugh 01.mp3');
+  hello = loadSound('sounds/Voice/Voice - Hello 01.mp3');
+  music = loadSound('sounds/Music/Music - 01.mp3');
 }
 
 function setup() {
@@ -43,7 +43,6 @@ function setup() {
 
   // Pick a food location
   pickLocation();
-
 }
 
 // Pick a food location
@@ -73,13 +72,9 @@ function draw() {
   // Draw snake
   s.show();
 
-
   fill(150, 255, 255);
   rect(food.x, food.y, scl, scl);
 }
-
-
-
 
 // Moving the snake
 function keyPressed() {

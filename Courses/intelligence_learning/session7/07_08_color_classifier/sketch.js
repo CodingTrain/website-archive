@@ -26,12 +26,11 @@ let labelList = [
   'purple-ish',
   'brown-ish',
   'grey-ish'
-]
+];
 
 function preload() {
   data = loadJSON('colorData.json');
 }
-
 
 function setup() {
   //console.log(data.entries.length);
@@ -60,7 +59,6 @@ function setup() {
   xs.print();
   ys.print();
 
-
   // Building Model
   model = tf.sequential();
 
@@ -77,7 +75,6 @@ function setup() {
   model.add(hidden);
   model.add(output);
 
-
   // The Next Steps:
 
   // Create an optimizer
@@ -86,6 +83,4 @@ function setup() {
   // Compile the model
 
   // Train the model
-
-
 }

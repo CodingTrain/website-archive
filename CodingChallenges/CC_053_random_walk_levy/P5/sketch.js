@@ -34,5 +34,4 @@ function draw() {
 
   //pos = pos + step;
   pos.add(step);
-
 }

@@ -2,7 +2,6 @@
 // https://github.com/ITPNYU/Obamathon
 // YouTube video tutorial: https://youtu.be/UrznYJltZrU
 
-
 // All data
 var potus;
 
@@ -13,23 +12,21 @@ var counts = {};
 // This is silly and a better strategy would be to load from a text files
 // or use an algorithm like TF-IDF to pick out unique words
 var ignore = {
-  "the": 'true',
-  "to": 'true',
-  "we": 'true',
-  "of": 'true',
-  "and": 'true',
-  "a": 'true',
-  "http": 'true',
-  "https": 'true',
-  "our": 'true'
-}
+  the: 'true',
+  to: 'true',
+  we: 'true',
+  of: 'true',
+  and: 'true',
+  a: 'true',
+  http: 'true',
+  https: 'true',
+  our: 'true'
+};
 
 // Load the data
 function preload() {
   potus = loadJSON('flotus.json');
-
 }
-
 
 function setup() {
   createCanvas(600, 400);
@@ -71,7 +68,6 @@ function setup() {
         }
       }
     }
-
   }
   background(0);
 
@@ -115,7 +111,5 @@ function setup() {
     // Draw the word
     fill(255);
     text(biggestWord, i * w, height - h - 5);
-
   }
-
 }

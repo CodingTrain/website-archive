@@ -29,7 +29,6 @@ function rdp(startIndex, endIndex, allPoints, rdpPoints) {
   }
 }
 
-
 function findFurthest(points, a, b) {
   let recordDistance = -1;
   const start = points[a];
@@ -50,7 +49,6 @@ function findFurthest(points, a, b) {
   }
 }
 
-
 function lineDist(c, a, b) {
   const norm = scalarProjection(c, a, b);
   return p5.Vector.dist(c, norm);
@@ -64,7 +62,6 @@ function scalarProjection(p, a, b) {
   const normalPoint = p5.Vector.add(a, ab);
   return normalPoint;
 }
-
 
 function draw() {
   background(0);
@@ -105,6 +102,6 @@ function draw() {
   fill(255);
   noStroke();
   textSize(24);
-  text("epsilon: " + nf(epsilon, 2, 2), 20, 25);
-  text("n: " + rdpPoints.length, 20, 50);
+  text('epsilon: ' + nf(epsilon, 2, 2), 20, 25);
+  text('n: ' + rdpPoints.length, 20, 50);
 }

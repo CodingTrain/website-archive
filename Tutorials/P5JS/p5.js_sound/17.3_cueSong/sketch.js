@@ -9,10 +9,10 @@ var jumpButton;
 
 function setup() {
   createCanvas(200, 200);
-  song = loadSound("rainbow.mp3", loaded);
-  button = createButton("play");
+  song = loadSound('rainbow.mp3', loaded);
+  button = createButton('play');
   button.mousePressed(togglePlaying);
-  jumpButton = createButton("jump");
+  jumpButton = createButton('jump');
   jumpButton.mousePressed(jumpSong);
   background(51);
 
@@ -36,29 +36,19 @@ function draw() {
   //if (song.currentTime() > 5) {
   //background(song.currentTime() * 10, 0, 255);
   //}
-
-
 }
-
-
-
-
-
-
-
-
 
 function togglePlaying() {
   if (!song.isPlaying()) {
     song.play();
     song.setVolume(0.3);
-    button.html("pause");
+    button.html('pause');
   } else {
     song.stop();
-    button.html("play");
+    button.html('play');
   }
 }
 
 function loaded() {
-  console.log("loaded");
+  console.log('loaded');
 }

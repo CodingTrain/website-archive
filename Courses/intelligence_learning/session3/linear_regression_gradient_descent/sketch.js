@@ -17,9 +17,6 @@ function gradientDescent() {
     m = m + error * x * learning_rate;
     b = b + error * learning_rate;
   }
-
-
-
 }
 
 function drawLine() {
@@ -36,10 +33,7 @@ function drawLine() {
   stroke(255);
   strokeWeight(2);
   line(x1, y1, x2, y2);
-
-
 }
-
 
 function mousePressed() {
   var x = map(mouseX, 0, width, 0, 1);
@@ -62,5 +56,4 @@ function draw() {
     gradientDescent();
     drawLine();
   }
-
 }

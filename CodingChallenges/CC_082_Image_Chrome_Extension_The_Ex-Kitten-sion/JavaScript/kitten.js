@@ -2,15 +2,14 @@
 // http://codingtra.in
 // http://patreon.com/codingtrain
 
-
 console.log('Kittens of the world, unite as one!');
 
 let filenames = [
-  "freddie-marriage-40645.jpg",
-  "koen-eijkelenboom-353684.jpg",
-  "mikhail-vasilyev-130018.jpg",
-  "mikhail-vasilyev-253977.jpg",
-  "roxanne-desgagnes-277568.jpg"
+  'freddie-marriage-40645.jpg',
+  'koen-eijkelenboom-353684.jpg',
+  'mikhail-vasilyev-130018.jpg',
+  'mikhail-vasilyev-253977.jpg',
+  'roxanne-desgagnes-277568.jpg'
 ];
 
 let imgs = document.getElementsByTagName('img');

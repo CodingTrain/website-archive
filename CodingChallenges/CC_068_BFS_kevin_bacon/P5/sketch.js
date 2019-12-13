@@ -47,12 +47,11 @@ function bfs() {
   graph.reset();
   var start = graph.setStart(dropdown.value());
   // var start = graph.setStart("Kevin Bacon");
-  var end = graph.setEnd("Kevin Bacon");
+  var end = graph.setEnd('Kevin Bacon');
 
   console.log(graph);
 
   var queue = [];
-
 
   start.searched = true;
   queue.push(start);
@@ -60,7 +59,7 @@ function bfs() {
   while (queue.length > 0) {
     var current = queue.shift();
     if (current == end) {
-      console.log("Found " + current.value);
+      console.log('Found ' + current.value);
       break;
     }
     var edges = current.edges;
@@ -85,9 +84,9 @@ function bfs() {
   var txt = '';
   for (var i = path.length - 1; i >= 0; i--) {
     var n = path[i];
-    txt += n.value
+    txt += n.value;
     if (i != 0) {
-      txt += ' --> '
+      txt += ' --> ';
     }
   }
   createP(txt);

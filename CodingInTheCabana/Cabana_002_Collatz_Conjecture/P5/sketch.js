@@ -4,7 +4,6 @@
 // https://youtu.be/EYLWxwo1Ed8
 // https://editor.p5js.org/codingtrain/sketches/XjLDE7gu6
 
-
 function setup() {
   createCanvas(800, 600);
   background(0);
@@ -36,7 +35,6 @@ function setup() {
     }
   }
 }
-
 
 function collatz(n) {
   // even

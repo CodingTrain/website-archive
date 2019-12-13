@@ -20,12 +20,7 @@ const train_xs = tf.tensor2d([
   [0, 1],
   [1, 1]
 ]);
-const train_ys = tf.tensor2d([
-  [0],
-  [1],
-  [1],
-  [0]
-]);
+const train_ys = tf.tensor2d([[0], [1], [1], [0]]);
 
 function setup() {
   createCanvas(400, 400);
@@ -42,7 +37,6 @@ function setup() {
     }
   }
   xs = tf.tensor2d(inputs);
-
 
   model = tf.sequential();
   let hidden = tf.layers.dense({
@@ -61,10 +55,9 @@ function setup() {
   model.compile({
     optimizer: optimizer,
     loss: 'meanSquaredError'
-  })
+  });
 
   setTimeout(train, 10);
-
 }
 
 function train() {
@@ -84,10 +77,6 @@ function trainModel() {
 function draw() {
   background(0);
 
-
-
-
-
   tf.tidy(() => {
     // Get the predictions
     let ys = model.predict(xs);
@@ -97,16 +86,19 @@ function draw() {
     let index = 0;
     for (let i = 0; i < cols; i++) {
       for (let j = 0; j < rows; j++) {
-        let br = y_values[index] * 255
+        let br = y_values[index] * 255;
         fill(br);
         rect(i * resolution, j * resolution, resolution, resolution);
         fill(255 - br);
         textSize(8);
         textAlign(CENTER, CENTER);
-        text(nf(y_values[index], 1, 2), i * resolution + resolution / 2, j * resolution + resolution / 2)
+        text(
+          nf(y_values[index], 1, 2),
+          i * resolution + resolution / 2,
+          j * resolution + resolution / 2
+        );
         index++;
       }
     }
   });
-
 }

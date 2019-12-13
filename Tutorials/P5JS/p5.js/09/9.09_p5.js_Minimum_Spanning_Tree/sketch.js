@@ -7,7 +7,6 @@ function setup() {
     var v = createVector(random(width), random(height));
     vertices.push(v);
   }
-
 }
 
 function mousePressed() {
@@ -46,16 +45,19 @@ function draw() {
     }
     stroke(255);
     strokeWeight(2);
-    line(reached[rIndex].x, reached[rIndex].y, unreached[uIndex].x, unreached[uIndex].y);
+    line(
+      reached[rIndex].x,
+      reached[rIndex].y,
+      unreached[uIndex].x,
+      unreached[uIndex].y
+    );
     reached.push(unreached[uIndex]);
     unreached.splice(uIndex, 1);
   }
-
 
   for (var i = 0; i < vertices.length; i++) {
     fill(255);
     stroke(255);
     ellipse(vertices[i].x, vertices[i].y, 16, 16);
   }
-
 }

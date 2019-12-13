@@ -24,12 +24,11 @@ let labelList = [
   'purple-ish',
   'brown-ish',
   'grey-ish'
-]
+];
 
 function preload() {
   data = loadJSON('colorData.json');
 }
-
 
 function setup() {
   //console.log(data.entries.length);
@@ -59,5 +58,4 @@ function setup() {
   ys.print();
 
   //console.log(labels);
-
 }

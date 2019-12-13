@@ -5,10 +5,10 @@ var frameCounter = 0;
 function setup() {
   createCanvas(640, 360);
   resetSketch();
-  var button = createButton("reset");
+  var button = createButton('reset');
   button.mousePressed(resetSketch);
   txt = createP('0');
-  txt.style('font-size','32pt');
+  txt.style('font-size', '32pt');
 }
 
 function resetSketch() {
@@ -23,6 +23,6 @@ function resetSketch() {
 function draw() {
   background(51);
   flock.run();
-  txt.html(frameCounter );
+  txt.html(frameCounter);
   frameCounter++;
 }

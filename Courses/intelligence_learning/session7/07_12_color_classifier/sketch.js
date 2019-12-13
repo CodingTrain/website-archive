@@ -29,7 +29,7 @@ let labelList = [
   'purple-ish',
   'brown-ish',
   'grey-ish'
-]
+];
 
 function preload() {
   data = loadJSON('colorData.json');
@@ -76,7 +76,7 @@ function setup() {
   model.compile({
     optimizer: optimizer,
     loss: 'categoricalCrossentropy',
-    metrics: ['accuracy'],
+    metrics: ['accuracy']
   });
 
   train();
@@ -97,9 +97,9 @@ async function train() {
         await tf.nextFrame();
       },
       onTrainEnd: () => {
-        console.log('finished')
-      },
-    },
+        console.log('finished');
+      }
+    }
   });
 }
 
@@ -112,9 +112,7 @@ function draw() {
   stroke(255);
   line(frameCount % width, 0, frameCount % width, height);
   tf.tidy(() => {
-    const input = tf.tensor2d([
-      [r, g, b]
-    ]);
+    const input = tf.tensor2d([[r, g, b]]);
     let results = model.predict(input);
     let argMax = results.argMax(1);
     let index = argMax.dataSync()[0];

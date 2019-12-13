@@ -2,22 +2,21 @@ require('dotenv').config();
 const Mastodon = require('mastodon-api');
 const fs = require('fs');
 
-console.log("Mastodon Bot starting...");
+console.log('Mastodon Bot starting...');
 
 const M = new Mastodon({
   client_key: process.env.CLIENT_KEY,
   client_secret: process.env.CLIENT_SECRET,
   access_token: process.env.ACCESS_TOKEN,
   timeout_ms: 60 * 1000, // optional HTTP request timeout to apply to all requests.
-  api_url: 'https://botsin.space/api/v1/', // optional, defaults to https://mastodon.social/api/v1/
-})
+  api_url: 'https://botsin.space/api/v1/' // optional, defaults to https://mastodon.social/api/v1/
+});
 
 //toot();
 //setInterval(toot, 24 * 60 * 60 * 1000);
 
-const listener = M.stream('streaming/user')
-listener.on('error', err => console.log(err))
-
+const listener = M.stream('streaming/user');
+listener.on('error', err => console.log(err));
 
 listener.on('message', msg => {
   // fs.writeFileSync(`data${new Date().getTime()}.json`, JSON.stringify(msg, null, 2));
@@ -28,7 +27,6 @@ listener.on('message', msg => {
     if (msg.data.type === 'follow') {
       toot(`@${acct} Welcome aboard!`);
     } else if (msg.data.type === 'mention') {
-
       const regex1 = /(like|favou?rite|❤)/i;
       const content = msg.data.status.content;
       const id = msg.data.status.id;
@@ -61,7 +59,7 @@ listener.on('message', msg => {
 function toot(content, id) {
   const params = {
     status: content
-  }
+  };
   if (id) {
     params.in_reply_to_id = id;
   }

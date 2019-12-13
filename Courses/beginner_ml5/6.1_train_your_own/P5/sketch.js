@@ -5,10 +5,10 @@
 // https://editor.p5js.org/codingtrain/sketches/zwGahux8a
 
 let model;
-let targetLabel = "C";
+let targetLabel = 'C';
 // let trainingData = [];
 
-let state = "collection";
+let state = 'collection';
 
 let notes = {
   C: 261.6256,
@@ -27,25 +27,25 @@ function setup() {
 
   wave = new p5.Oscillator();
 
-  wave.setType("sine");
+  wave.setType('sine');
   wave.start();
   wave.freq(440);
   wave.amp(env);
 
   let options = {
-    inputs: ["x", "y"],
-    outputs: ["label"],
-    task: "classification",
-    debug: "true"
+    inputs: ['x', 'y'],
+    outputs: ['label'],
+    task: 'classification',
+    debug: 'true'
   };
   model = ml5.neuralNetwork(options);
   background(255);
 }
 
 function keyPressed() {
-  if (key == "t") {
-    state = "training";
-    console.log("starting training");
+  if (key == 't') {
+    state = 'training';
+    console.log('starting training');
     model.normalizeData();
     let options = {
       epochs: 200
@@ -61,8 +61,8 @@ function whileTraining(epoch, loss) {
 }
 
 function finishedTraining() {
-  console.log("finished training.");
-  state = "prediction";
+  console.log('finished training.');
+  state = 'prediction';
 }
 
 function mousePressed() {
@@ -71,7 +71,7 @@ function mousePressed() {
     y: mouseY
   };
 
-  if (state == "collection") {
+  if (state == 'collection') {
     let target = {
       label: targetLabel
     };
@@ -86,7 +86,7 @@ function mousePressed() {
 
     wave.freq(notes[targetLabel]);
     env.play();
-  } else if (state == "prediction") {
+  } else if (state == 'prediction') {
     model.classify(inputs, gotResults);
   }
 }

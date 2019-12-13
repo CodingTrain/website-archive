@@ -28,7 +28,6 @@ function draw() {
 }
 
 class Particle {
-
   constructor() {
     this.x = 300;
     this.y = 380;
@@ -53,5 +52,4 @@ class Particle {
     fill(255, this.alpha);
     ellipse(this.x, this.y, 16);
   }
-
 }

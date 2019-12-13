@@ -6,10 +6,8 @@
 // Edited Video: https://youtu.be/cl-mHFCGzYk
 
 function getRandomSize() {
-
   let r = pow(random(0, 1), 3);
   return constrain(r * 32, 2, 32);
-
 
   // let r = randomGaussian() * 2.5;
   // return constrain(abs(r * r), 2, 36);
@@ -22,9 +20,7 @@ function getRandomSize() {
   // }
 }
 
-
 class Snowflake {
-
   constructor(sx, sy, img) {
     let x = sx || random(width);
     let y = sy || random(-100, -10);
@@ -33,12 +29,10 @@ class Snowflake {
     this.vel = createVector(0, 0);
     this.acc = createVector();
     this.angle = random(TWO_PI);
-    this.dir = (random(1) > 0.5) ? 1 : -1;
+    this.dir = random(1) > 0.5 ? 1 : -1;
     this.xOff = 0;
     this.r = getRandomSize();
   }
-
-
 
   applyForce(force) {
     // Parallax Effect hack
@@ -60,7 +54,6 @@ class Snowflake {
   }
 
   update() {
-
     this.xOff = sin(this.angle * 2) * 2 * this.r;
 
     this.vel.add(this.acc);
@@ -85,8 +78,7 @@ class Snowflake {
       this.pos.x = -this.r;
     }
 
-    this.angle += this.dir * this.vel.mag() / 200;
-
+    this.angle += (this.dir * this.vel.mag()) / 200;
   }
 
   render() {
@@ -99,14 +91,9 @@ class Snowflake {
     imageMode(CENTER);
     image(this.img, 0, 0, this.r, this.r);
     pop();
-
-
   }
 
   // offScreen() {
   //   return (this.pos.y > height + this.r);
   // }
-
-
-
 }

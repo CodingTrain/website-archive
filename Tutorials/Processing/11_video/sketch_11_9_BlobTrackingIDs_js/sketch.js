@@ -21,7 +21,6 @@ function setup() {
   trackColor = color(183, 12, 83);
 }
 
-
 function keyPressed() {
   if (key == 'a') {
     distThreshold += 5;
@@ -82,7 +81,7 @@ function draw() {
 
   // There are no blobs!
   if (blobs.length < 1 && currentBlobs.length > 0) {
-    print("Adding blobs!");
+    print('Adding blobs!');
     for (let b of currentBlobs) {
       b.id = blobCounter;
       blobs.push(b);
@@ -119,7 +118,6 @@ function draw() {
       b.taken = false;
     }
 
-
     // Match whatever blobs you can match
     for (let cb of currentBlobs) {
       let recordD = 1000;
@@ -151,18 +149,15 @@ function draw() {
     b.show();
   }
 
-
-
   textAlign(RIGHT);
   fill(0);
   noStroke();
   //text(currentBlobs.size(), width-10, 40);
   //text(blobs.size(), width-10, 80);
   textSize(12);
-  text("color threshold: " + threshold, width - 10, 50);
-  text("distance threshold: " + distThreshold, width - 10, 25);
+  text('color threshold: ' + threshold, width - 10, 50);
+  text('distance threshold: ' + distThreshold, width - 10, 25);
 }
-
 
 function distSq(a1, b1, c1, a2, b2, c2) {
   let x1, y1, z1, x2, y2, z2;
@@ -181,16 +176,19 @@ function distSq(a1, b1, c1, a2, b2, c2) {
     y2 = b2;
     z2 = c2;
   }
-  const d = (x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1) + (z1 - z2) * (z1 - z2);
+  const d =
+    (x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1) + (z1 - z2) * (z1 - z2);
   return d;
 }
-
-
 
 function mousePressed() {
   // Save color where the mouse is clicked in trackColor variable
   video.loadPixels();
   const loc = (mouseX + mouseY * video.width) * 4;
-  trackColor = color(video.pixels[loc], video.pixels[loc + 1], video.pixels[loc + 2]);
+  trackColor = color(
+    video.pixels[loc],
+    video.pixels[loc + 1],
+    video.pixels[loc + 2]
+  );
   console.log(trackColor);
 }

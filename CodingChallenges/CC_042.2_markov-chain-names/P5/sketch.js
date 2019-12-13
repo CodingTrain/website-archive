@@ -32,13 +32,12 @@ function setup() {
       ngrams[gram].push(txt.charAt(i + order));
     }
   }
-  button = createButton("generate");
+  button = createButton('generate');
   button.mousePressed(markovIt);
   console.log(ngrams);
 }
 
 function markovIt() {
-
   var currentGram = random(beginnings);
   var result = currentGram;
 

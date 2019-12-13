@@ -25,21 +25,17 @@ function draw() {
 
   var vol = mic.getLevel();
 
-
   for (var i = pipes.length - 1; i >= 0; i--) {
     pipes[i].show();
     pipes[i].update();
 
     if (pipes[i].hits(bird)) {
-      console.log("HIT");
+      console.log('HIT');
     }
-
 
     if (pipes[i].offscreen()) {
       pipes.splice(i, 1);
     }
-
-
   }
 
   bird.update();
@@ -76,8 +72,6 @@ function draw() {
   stroke(0, 0, 255);
   strokeWeight(4);
   line(width - 50, by, width, by);
-
-
 }
 
 function keyPressed() {

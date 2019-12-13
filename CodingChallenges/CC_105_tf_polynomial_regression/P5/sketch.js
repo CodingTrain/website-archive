@@ -23,19 +23,23 @@ function setup() {
 }
 
 function loss(pred, labels) {
-  return pred.sub(labels).square().mean();
+  return pred
+    .sub(labels)
+    .square()
+    .mean();
 }
 
 function predict(x) {
   const xs = tf.tensor1d(x);
   // y = ax^3 + bx^2 + cx + d
-  const ys = xs.pow(tf.scalar(3)).mul(a)
+  const ys = xs
+    .pow(tf.scalar(3))
+    .mul(a)
     .add(xs.square().mul(b))
     .add(xs.mul(c))
     .add(d);
   return ys;
 }
-
 
 function mousePressed() {
   dragging = true;
@@ -69,7 +73,6 @@ function draw() {
     let py = map(y_vals[i], -1, 1, height, 0);
     point(px, py);
   }
-
 
   const curveX = [];
   for (let x = -1; x <= 1; x += 0.05) {

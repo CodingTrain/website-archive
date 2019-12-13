@@ -13,7 +13,6 @@ let happyButton;
 let sadButton;
 let trainButton;
 
-
 function modelReady() {
   console.log('Model is ready!!!');
   // classifier.load('model.json', customModelReady);
@@ -38,22 +37,22 @@ function setup() {
   classifier = mobilenet.classification(video, videoReady);
 
   happyButton = createButton('happy');
-  happyButton.mousePressed(function () {
+  happyButton.mousePressed(function() {
     classifier.addImage('happy');
   });
 
   sadButton = createButton('sad');
-  sadButton.mousePressed(function () {
+  sadButton.mousePressed(function() {
     classifier.addImage('sad');
   });
 
   trainButton = createButton('train');
-  trainButton.mousePressed(function () {
+  trainButton.mousePressed(function() {
     classifier.train(whileTraining);
   });
 
   saveButton = createButton('save');
-  saveButton.mousePressed(function () {
+  saveButton.mousePressed(function() {
     classifier.save();
   });
 }
@@ -66,7 +65,6 @@ function draw() {
   text(label, 10, height - 10);
 }
 
-
 function whileTraining(loss) {
   if (loss == null) {
     console.log('Training Complete');
@@ -75,7 +73,6 @@ function whileTraining(loss) {
     console.log(loss);
   }
 }
-
 
 function gotResults(error, result) {
   if (error) {

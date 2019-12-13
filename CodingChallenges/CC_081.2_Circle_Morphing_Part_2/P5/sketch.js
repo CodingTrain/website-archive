@@ -24,14 +24,10 @@ function setup() {
       cv.fixed = true;
     }
     cirPath.push(cv);
-
   }
-
 }
 
 function draw() {
-
-
   background(220);
   translate(width / 2, height / 2);
   rotate(30);
@@ -60,5 +56,4 @@ function draw() {
   if (v) {
     v.active = false;
   }
-
 }

@@ -10,11 +10,10 @@ var submit;
 function setup() {
   noCanvas();
   // textfield = createInput("your favorite food");
-  textfield = select("#txt");
+  textfield = select('#txt');
   output = select('#output');
-  submit = select("#submit");
+  submit = select('#submit');
   submit.mousePressed(newText);
-
 }
 
 function newText() {
@@ -28,7 +27,6 @@ function newText() {
   words = words.sort();
   s = join(words, ' ');
   createP(s);
-
 
   //var index = s.indexOf("rainbow");
   //var newtext = s.substring(s.length / 2, s.length);

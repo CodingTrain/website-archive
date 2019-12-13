@@ -9,13 +9,13 @@ var amp;
 
 function setup() {
   createCanvas(200, 200);
-  song = loadSound("rainbow.mp3", loaded);
+  song = loadSound('rainbow.mp3', loaded);
   amp = new p5.Amplitude();
   background(51);
 }
 
 function loaded() {
-  button = createButton("play");
+  button = createButton('play');
   button.mousePressed(togglePlaying);
 }
 
@@ -29,14 +29,13 @@ function draw() {
   ellipse(width / 2, height / 2, diam, diam);
 }
 
-
 function togglePlaying() {
   if (!song.isPlaying()) {
     song.play();
     song.setVolume(0.3);
-    button.html("pause");
+    button.html('pause');
   } else {
     song.stop();
-    button.html("play");
+    button.html('play');
   }
 }

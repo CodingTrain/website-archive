@@ -17,6 +17,6 @@ function draw() {
     particles[i].update();
     particles[i].show();
   }
-  
+
   //line(frameCount, 0, frameCount, height);
 }

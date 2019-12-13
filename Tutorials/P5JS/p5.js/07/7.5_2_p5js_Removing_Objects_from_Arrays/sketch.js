@@ -2,14 +2,12 @@ let bubbles = [];
 
 function setup() {
   createCanvas(600, 400);
-
 }
 
 function mouseDragged() {
   let r = 40;
   let b = new Bubble(mouseX, mouseY, r);
   bubbles.push(b);
-
 }
 
 function draw() {
@@ -27,7 +25,6 @@ function draw() {
   if (bubbles.length > 10) {
     bubbles.splice(0, 1);
   }
-
 }
 
 class Bubble {

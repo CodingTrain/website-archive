@@ -15,7 +15,7 @@ let dvd;
 let r, g, b;
 
 function preload() {
-  dvd = loadImage("dvd_logo.png");
+  dvd = loadImage('dvd_logo.png');
 }
 
 function setup() {
@@ -31,7 +31,6 @@ function pickColor() {
   r = random(100, 256);
   g = random(100, 256);
   b = random(100, 256);
-
 }
 
 function draw() {
@@ -40,7 +39,6 @@ function draw() {
   // Draw the DVD logo
   tint(r, g, b);
   image(dvd, x, y);
-
 
   x = x + xspeed;
   y = y + yspeed;
