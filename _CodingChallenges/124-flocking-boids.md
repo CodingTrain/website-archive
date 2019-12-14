@@ -105,5 +105,9 @@ contributions:
       url: "https://anuraghazra.github.io/"
     url: "https://anuraghazra.github.io/parasites/"
     source: "https://github.com/anuraghazra/parasites"
+  - title: "Frontal Cone View and Obstacle"
+    author: "Arnav Sirigere"
+    url: https://editor.p5js.org/Arnav-Sirigere/full/FMBzzf5Vd
+    source: https://editor.p5js.org/Arnav-Sirigere/sketches/FMBzzf5Vd
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
