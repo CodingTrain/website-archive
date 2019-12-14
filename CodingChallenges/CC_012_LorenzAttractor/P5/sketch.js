@@ -41,7 +41,7 @@ function draw() {
   for (let v of points) {
     stroke(hu, 255, 255);
     vertex(v.x, v.y, v.z);
-    //PVector offset = PVector.random3D();
+    //var offset = p5.Vector.random3D();
     //offset.mult(0.1);
     //v.add(offset);
 
