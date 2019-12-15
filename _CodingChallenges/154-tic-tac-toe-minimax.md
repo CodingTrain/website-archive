@@ -63,6 +63,12 @@ contributions:
       name: "Yuval bilu"
     url: "https://editor.p5js.org/yuvalbi/present/HuinyONTR"
     source: "https://editor.p5js.org/yuvalbi/sketches/HuinyONTR"
+  - title: "Tic Tac Toe MiniMax with difficulties"
+    author:
+      name: "David Snyder"
+      url: "https://github.com/GypsyDangerous"
+    url: "https://editor.p5js.org/D_Snyder/full/A7Y89mBLB"
+    source: "https://editor.p5js.org/D_Snyder/sketches/A7Y89mBLB"
 ---
 
 In this challenge I take the Tic Tac Toe game from coding challenge #149 and add an AI opponent for a human player by implenenting the Minimax algorithm.
