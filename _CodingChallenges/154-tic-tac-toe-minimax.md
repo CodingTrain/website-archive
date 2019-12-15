@@ -58,6 +58,11 @@ contributions:
       name: "Kobe Liesenborgs"
     url: "https://editor.p5js.org/KobeL/full/_F_AdrK9t"
     source: "https://editor.p5js.org/KobeL/sketches/_F_AdrK9t"
+  - title "minimax thats thinking about depth"
+    author:
+      name: "yuval bilu"
+    url: "https://editor.p5js.org/yuvalbi/present/HuinyONTR"
+    source: "https://editor.p5js.org/yuvalbi/sketches/HuinyONTR"
 ---
 
 In this challenge I take the Tic Tac Toe game from coding challenge #149 and add an AI opponent for a human player by implenenting the Minimax algorithm.
