@@ -22,7 +22,7 @@ contributions:
   - title: Ball Paint style + reproduction adn speed control
     author: "Arnav Sirigere"
     url: "https://editor.p5js.org/Arnav-Sirigere/full/0iRp-6BRt"
-    scource: "https://editor.p5js.org/Arnav-Sirigere/sketches/0iRp-6BRt"
+    source: "https://editor.p5js.org/Arnav-Sirigere/sketches/0iRp-6BRt"
 ---
 
 In this coding challenge, I simulate a "random walk" with vectors in p5.js, varying the distance of each step size. This is known as a "Lévy Flight" (named after french mathematician Paul Lévy.)
