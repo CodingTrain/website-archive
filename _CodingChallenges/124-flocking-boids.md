@@ -109,5 +109,11 @@ contributions:
     author: "Arnav Sirigere"
     url: https://editor.p5js.org/Arnav-Sirigere/full/FMBzzf5Vd
     source: https://editor.p5js.org/Arnav-Sirigere/sketches/FMBzzf5Vd
+  - title: "Flock of Conformity"
+    author:
+      name: "Sam Lee"
+      url: "https://codepen.io/leimapapa"
+    url: "https://codepen.io/leimapapa/full/abzZLBy"
+    source: "https://codepen.io/leimapapa/pen/abzZLBy?editors=0010"
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
