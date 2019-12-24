@@ -15,7 +15,7 @@
   top: 20px
   z-index: 10000
 
-  @media (max-width: $tablet-big)
+  @media (max-width: $tablet)
     display: flex
     cursor: pointer
 
@@ -38,7 +38,7 @@ nav
   width: 100%
   z-index: 9000
 
-  @media (max-width: $tablet-big)
+  @media (max-width: $tablet)
     padding-top: 2rem
     width: auto
 
@@ -54,7 +54,7 @@ nav
   &:hover
     background: rgba(9,20,154,0.74)
 
-  @media (max-width: $tablet-big)
+  @media (max-width: $tablet)
     width: 0%
     height: 100%
     top: 10rem
@@ -71,7 +71,7 @@ nav
     color: $white
     vertical-align: none
     
-    @media (max-width: $tablet-big)
+    @media (max-width: $tablet)
       background: $ct-blue
       border: 2px solid $ct-blue
       padding: 0.7em 1em
@@ -84,14 +84,14 @@ nav
     justify-content: center
     align-items: center
 
-    @media (max-width: $tablet-big)
+    @media (max-width: $tablet)
       flex-direction: column
       align-items: flex-start
       height: auto
       padding-left: 2rem
 
     button
-      @media (max-width: $tablet-big)
+      @media (max-width: $tablet)
         margin: 0.5em 0
 
     a
@@ -111,7 +111,7 @@ nav
         border-color: $white
         text-shadow: 0px 0px 5px #BBB
 
-      @media (max-width: $tablet-big)
+      @media (max-width: $tablet)
         visibility: hidden
         margin: 0.5em 0
         text-shadow: none
@@ -142,7 +142,7 @@ nav
   border-bottom-right-radius: $standard-border-radius
   box-shadow: 0px 6px 0px 0px rgba(0, 0, 0, 0.06)
 
-  @media (max-width: $tablet-big)
+  @media (max-width: $tablet)
     position: inherit
     background: none
     box-shadow: none
@@ -154,7 +154,7 @@ nav
     align-items: flex-start
     padding: 0.5em 0
 
-    @media (max-width: $tablet-big)
+    @media (max-width: $tablet)
       margin: 0
       margin-left: 1em
       padding: 0em 0
@@ -162,7 +162,7 @@ nav
     li
       margin: 0.5em 0
       a
-        @media (max-width: $tablet-big)
+        @media (max-width: $tablet)
           margin: 0
           background: $ct-purple
           border: 2px solid $ct-purple
@@ -170,7 +170,7 @@ nav
 .submenu.active
   visibility: visible
 
-  @media (max-width: $tablet-big)
+  @media (max-width: $tablet)
     height: auto
     overflow: auto
 
@@ -181,7 +181,7 @@ nav
 
 #menu-button
   ~ .mobilenav-backdrop.active
-    @media (max-width: $tablet-big)
+    @media (max-width: $tablet)
       filter: blur(10px)
       pointer-events: none
 
@@ -192,7 +192,7 @@ nav
     width: 100%
     height: auto
 
-    @media (max-width: $tablet-big)
+    @media (max-width: $tablet)
       padding-top: 10rem
       padding-bottom: 1em
       background: rgba(#FFF, 0.5)
@@ -202,7 +202,7 @@ nav
       right: 0
 
     .links li
-      @media (max-width: $tablet-big)
+      @media (max-width: $tablet)
         a
           visibility: visible
           opacity: 1
