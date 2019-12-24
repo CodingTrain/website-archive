@@ -90,6 +90,10 @@ nav
       height: auto
       padding-left: 2rem
 
+    button
+      @media (max-width: $tablet-big)
+        margin: 0.5em 0
+
     a
       display: block
       list-style-type: none
@@ -141,8 +145,9 @@ nav
   @media (max-width: $tablet-big)
     position: inherit
     background: none
-    border-radius: none
     box-shadow: none
+    height: 0
+    overflow: hidden
 
   .links
     flex-direction: column
@@ -152,6 +157,7 @@ nav
     @media (max-width: $tablet-big)
       margin: 0
       margin-left: 1em
+      padding: 0em 0
 
     li
       margin: 0.5em 0
@@ -163,6 +169,10 @@ nav
 
 .submenu.active
   visibility: visible
+
+  @media (max-width: $tablet-big)
+    height: auto
+    overflow: auto
 
 
 // Mobile Navigation Drawer
@@ -184,6 +194,7 @@ nav
 
     @media (max-width: $tablet-big)
       padding-top: 10rem
+      padding-bottom: 1em
       background: rgba(#FFF, 0.5)
       position: absolute
       top: 0
