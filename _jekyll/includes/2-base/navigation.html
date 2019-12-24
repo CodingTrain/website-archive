@@ -5,30 +5,63 @@
 </button>
 <nav class="navigation" id="global-nav" aria-label="Main navigation">
   <ul class="links">
+
     <li><a class="top-link" href="{{ '/' | relative_url }}" id="home">Home</a></li>
+
     <li>
-        <button class="submenu-button top-link" aria-haspopup="true" for="challenges-submenu">Challenges</button>
-        <div class="submenu" id="challenges-submenu">
-          <ul class="links">
-            <li><a href="{{ '/CodingChallenges' | relative_url }}">Coding Challenges</a></li>
-            <li><a href="{{ '/CodingInTheCabana' | relative_url }}">Coding In The Cabana</a></li>
-          </ul>
-        </div>
-      </li>
-    <li><a class="top-link" href="{{ '/Tutorials' | relative_url }}">Tutorials</a></li>
-    <li><a class="top-link" href="{{ '/Streams' | relative_url }}">Streams</a></li>
+      <button class="submenu-button top-link" aria-haspopup="true" for="challenges-submenu">Challenges</button>
+      <div class="submenu" id="challenges-submenu">
+        <ul class="links">
+          <li><a href="{{ '/CodingChallenges' | relative_url }}">Coding Challenges</a></li>
+          <li><a href="{{ '/CodingInTheCabana' | relative_url }}">Coding In The Cabana</a></li>
+        </ul>
+      </div>
+    </li>
+
     <li>
-      <button class="submenu-button top-link" aria-haspopup="true" for="courses-submenu">Courses</button>
+      <button class="submenu-button top-link" aria-haspopup="true" for="beginners-submenu">Beginners</button>
+      <div class="submenu" id="beginners-submenu">
+        <ul class="links">
+          <li><a href="{{ '/Tutorials' | relative_url }}">p5.js</a></li>
+          <li><a href="{{ '/Courses/learning-processing' | relative_url }}">Processing</a></li>
+          <!-- <li><a href="{{ '/' | relative_url }}">Git and GitHub</a></li> -->
+        </ul>
+      </div>
+    </li>
+
+    <li>
+      <button class="submenu-button top-link" aria-haspopup="true" for="courses-submenu">Learning</button>
       <div class="submenu" id="courses-submenu">
         <ul class="links">
-          <li><a href="{{ '/Courses' | relative_url }}">Courses</a></li>
+          <!-- <li><a href="{{ '/' | relative_url }}">Nature of Code</a></li> -->
+          <li><a href="{{ '/Courses/ml5-beginners-guide' | relative_url }}">ml5.js Beginners Guide</a></li>
+          <li><a href="{{ '/GuestTutorials' | relative_url }}">Guest Tutorials</a></li>
           <li><a href="{{ '/Courses/data-and-apis' | relative_url }}">Data and APIs</a></li>
-          <li><a href="{{ '/Courses/learning-processing' | relative_url }}">Learning Processing</a></li>
-          <li><a href="{{ '/Courses/ml5-beginners-guide' | relative_url }}">ML5 Beginners Guide</a></li>
           <li><a href="{{ '/Courses/programming-with-text' | relative_url }}">Programming with Text</a></li>
         </ul>
       </div>
     </li>
-    <li><a class="top-link" href="{{ site.github.repository_url }}" target="_blank">Github</a></li>
+
+    <li>
+      <button class="submenu-button top-link" aria-haspopup="true" for="more-submenu">More</button>
+      <div class="submenu" id="more-submenu">
+        <ul class="links">
+          <li><a href="{{ '/Streams' | relative_url }}">Streams</a></li>
+          <li><a href="{{ '/TeachableMachine' | relative_url }}">Teachable Machine</a></li>
+        </ul>
+      </div>
+    </li>
+
+    <li>
+      <button class="submenu-button top-link" aria-haspopup="true" for="contribute-submenu">Contribute</button>
+      <div class="submenu" id="contribute-submenu">
+        <ul class="links">
+            <li><a href="{{ '/Guides/community-contribution-guide' | relative_url }}">Community Contribution Guide</a></li>
+          <li><a href="{{ site.github.repository_url }}" target="_blank">Github</a></li>
+          <li><a href="{{ '/Guides' | relative_url }}">All Guides</a></li>
+        </ul>
+      </div>
+    </li>
+
   </ul>
 </nav>
