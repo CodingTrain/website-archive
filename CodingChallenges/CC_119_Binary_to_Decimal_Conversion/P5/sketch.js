@@ -22,9 +22,6 @@ function setup() {
     byte[i] = new Bit(w / 2 + i * w, 50, w - 4);
     byte[i].setState(1);
   }
-
-
-
 }
 
 function draw() {
@@ -36,10 +33,6 @@ function draw() {
   }
 
   decimalP.html(binaryToDecimal(num));
-
-
-
-
 }
 
 function binaryToDecimal(val) {

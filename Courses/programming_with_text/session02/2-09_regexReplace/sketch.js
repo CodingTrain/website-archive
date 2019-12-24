@@ -9,10 +9,10 @@ var submit;
 
 function setup() {
   noCanvas();
-  textfield = select("#input");
+  textfield = select('#input');
   //textfield.changed(newText);
   output = select('#output');
-  submit = select("#submit");
+  submit = select('#submit');
   submit.mousePressed(newText);
 }
 
@@ -26,18 +26,11 @@ function newText() {
 
 function replacer(match, group1, group2) {
   console.log(arguments);
-  console.log(arguments[0].length + arguments[1].length + arguments[2].length)
-    // console.log(match);
-    // console.log(group1);
-    // console.log(group2);
+  console.log(arguments[0].length + arguments[1].length + arguments[2].length);
+  // console.log(match);
+  // console.log(group1);
+  // console.log(group2);
   return match;
 }
-
-
-
-
-
-
-
 
 /**/

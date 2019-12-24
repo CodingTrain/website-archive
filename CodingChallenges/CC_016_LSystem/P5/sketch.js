@@ -7,19 +7,19 @@
 // axiom: A
 // rules: (A → AB), (B → A)
 var angle;
-var axiom = "F";
+var axiom = 'F';
 var sentence = axiom;
 var len = 100;
 
 var rules = [];
 rules[0] = {
-  a: "F",
-  b: "FF+[+F-F-F]-[-F+F+F]"
-}
+  a: 'F',
+  b: 'FF+[+F-F-F]-[-F+F+F]'
+};
 
 function generate() {
   len *= 0.5;
-  var nextSentence = "";
+  var nextSentence = '';
   for (var i = 0; i < sentence.length; i++) {
     var current = sentence.charAt(i);
     var found = false;
@@ -37,7 +37,6 @@ function generate() {
   sentence = nextSentence;
   createP(sentence);
   turtle();
-
 }
 
 function turtle() {
@@ -48,16 +47,16 @@ function turtle() {
   for (var i = 0; i < sentence.length; i++) {
     var current = sentence.charAt(i);
 
-    if (current == "F") {
+    if (current == 'F') {
       line(0, 0, 0, -len);
       translate(0, -len);
-    } else if (current == "+") {
+    } else if (current == '+') {
       rotate(angle);
-    } else if (current == "-") {
-      rotate(-angle)
-    } else if (current == "[") {
+    } else if (current == '-') {
+      rotate(-angle);
+    } else if (current == '[') {
       push();
-    } else if (current == "]") {
+    } else if (current == ']') {
       pop();
     }
   }
@@ -69,6 +68,6 @@ function setup() {
   background(51);
   createP(axiom);
   turtle();
-  var button = createButton("generate");
+  var button = createButton('generate');
   button.mousePressed(generate);
 }

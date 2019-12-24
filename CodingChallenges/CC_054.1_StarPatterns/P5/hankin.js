@@ -24,7 +24,7 @@ function Hankin(a, v) {
     //   fill(255, 255, 0);
     //   ellipse(this.end.x, this.end.y, 8);
     // }
-  }
+  };
 
   this.findEnd = function(other) {
     // line line intersection???
@@ -32,16 +32,18 @@ function Hankin(a, v) {
     // other.a, other.v (P3, P4-P3)
 
     // From: http://paulbourke.net/geometry/pointlineplane/
-    var den = (other.v.y * this.v.x) - (other.v.x * this.v.y);
+    var den = other.v.y * this.v.x - other.v.x * this.v.y;
     if (!den) {
       return;
     }
-    var numa = (other.v.x * (this.a.y - other.a.y)) - (other.v.y * (this.a.x - other.a.x));
-    var numb = (this.v.x * (this.a.y - other.a.y)) - (this.v.y * (this.a.x - other.a.x));
+    var numa =
+      other.v.x * (this.a.y - other.a.y) - other.v.y * (this.a.x - other.a.x);
+    var numb =
+      this.v.x * (this.a.y - other.a.y) - this.v.y * (this.a.x - other.a.x);
     var ua = numa / den;
     var ub = numb / den;
-    var x = this.a.x + (ua * this.v.x);
-    var y = this.a.y + (ua * this.v.y);
+    var x = this.a.x + ua * this.v.x;
+    var y = this.a.y + ua * this.v.y;
 
     if (ua > 0 && ub > 0) {
       var candidate = createVector(x, y);
@@ -59,9 +61,5 @@ function Hankin(a, v) {
         }
       }
     }
-
-
-
-  }
-
+  };
 }

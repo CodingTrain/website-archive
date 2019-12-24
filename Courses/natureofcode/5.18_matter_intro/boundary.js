@@ -9,7 +9,7 @@ function Boundary(x, y, w, h, a) {
     restitution: 0.95,
     angle: a,
     isStatic: true
-  }
+  };
   this.body = Bodies.rectangle(x, y, w, h, options);
   this.w = w;
   this.h = h;
@@ -28,6 +28,5 @@ function Boundary(x, y, w, h, a) {
     fill(0);
     rect(0, 0, this.w, this.h);
     pop();
-  }
-
+  };
 }

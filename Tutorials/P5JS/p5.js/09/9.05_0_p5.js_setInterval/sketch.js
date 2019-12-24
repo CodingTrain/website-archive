@@ -6,7 +6,7 @@ function setup() {
   createCanvas(200, 200);
   timer = createP('timer 1');
   timer2 = createP('timer 2');
-  
+
   interval = setInterval(timeIt, 500);
 }
 

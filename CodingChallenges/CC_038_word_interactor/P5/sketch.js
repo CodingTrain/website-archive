@@ -10,9 +10,9 @@ var submit;
 function setup() {
   console.log(this);
   noCanvas();
-  textfield = select("#input");
+  textfield = select('#input');
   output = select('#output');
-  submit = select("#submit");
+  submit = select('#submit');
   submit.mousePressed(newText);
 }
 
@@ -33,7 +33,6 @@ function newText() {
   var words = s.split(/(\W+)/);
   console.log(words);
   for (var i = 0; i < words.length; i++) {
-
     var span = createSpan(words[i]);
     span.parent(output);
 

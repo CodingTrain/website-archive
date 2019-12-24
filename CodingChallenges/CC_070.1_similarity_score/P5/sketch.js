@@ -35,7 +35,6 @@ function setup() {
 
   resultP = createP('');
 
-
   function euclideanSimilarity() {
     var name1 = dropdown1.value();
     var name2 = dropdown2.value();
@@ -48,7 +47,6 @@ function setup() {
     titles.splice(i, 1);
     var j = titles.indexOf('timestamp');
     titles.splice(j, 1);
-
 
     var sumSquares = 0;
     for (var i = 0; i < titles.length; i++) {
@@ -65,6 +63,4 @@ function setup() {
     var similarity = 1 / (1 + d);
     resultP.html(similarity);
   }
-
-
 }

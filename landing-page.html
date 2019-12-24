@@ -22,13 +22,9 @@ permalink: /
 {% assign featuredVideos = '' | split: '' %}
 
 {% comment %} Add latest coding challenges, coding in the cabana or teachable machine video to featured videos array. {% endcomment %}
-{% for challengeCabanaOrTM in out_sortedVideos limit:2 offset:offset %}
+{% for challengeCabanaOrTM in out_sortedVideos limit:3 offset:offset %}
   {% assign featuredVideos = featuredVideos | push: challengeCabanaOrTM %}
 {% endfor %}
-
-{% comment %} Get lastest stream and add it to the featured videos array. {% endcomment %}
-{% include 1-tools/sort-videos.html videos=site.Streams reverse=true %}
-{% assign featuredVideos = featuredVideos | push: out_sortedVideos[0] %}
 
 <div class="landing-page">
   <div class="welcome-message">

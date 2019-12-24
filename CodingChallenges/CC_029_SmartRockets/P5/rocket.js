@@ -24,7 +24,7 @@ function Rocket(dna) {
   // Object can recieve force and add to acceleration
   this.applyForce = function(force) {
     this.acc.add(force);
-  }
+  };
   // Calulates fitness of rocket
   this.calcFitness = function() {
     // Takes distance to target
@@ -40,8 +40,7 @@ function Rocket(dna) {
     if (this.crashed) {
       this.fitness /= 10;
     }
-
-  }
+  };
   // Updates state of rocket
   this.update = function() {
     // Checks distance from rocket to target
@@ -52,7 +51,12 @@ function Rocket(dna) {
       this.pos = target.copy();
     }
     // Rocket hit the barrier
-    if (this.pos.x > rx && this.pos.x < rx + rw && this.pos.y > ry && this.pos.y < ry + rh) {
+    if (
+      this.pos.x > rx &&
+      this.pos.x < rx + rw &&
+      this.pos.y > ry &&
+      this.pos.y < ry + rh
+    ) {
       this.crashed = true;
     }
     // Rocket has hit left or right of window
@@ -64,7 +68,6 @@ function Rocket(dna) {
       this.crashed = true;
     }
 
-
     //applies the random vectors defined in dna to consecutive frames of rocket
     this.applyForce(this.dna.genes[count]);
     // if rocket has not got to goal and not crashed then update physics engine
@@ -74,7 +77,7 @@ function Rocket(dna) {
       this.acc.mult(0);
       this.vel.limit(4);
     }
-  }
+  };
   // displays rocket to window
   this.show = function() {
     // push and pop allow's rotating and translation not to affect other objects
@@ -90,6 +93,5 @@ function Rocket(dna) {
     rectMode(CENTER);
     rect(0, 0, 25, 5);
     pop();
-  }
-
+  };
 }

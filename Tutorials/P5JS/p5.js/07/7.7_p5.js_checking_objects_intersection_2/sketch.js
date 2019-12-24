@@ -27,10 +27,7 @@ function draw() {
     } else {
       b.changeColor(0);
     }
-
-
   }
-
 }
 
 class Bubble {
@@ -43,7 +40,7 @@ class Bubble {
 
   intersects(other) {
     let d = dist(this.x, this.y, other.x, other.y);
-    return (d < this.r + other.r);
+    return d < this.r + other.r;
     // if (d < this.r + other.r) {
     //   return true;
     // } else {

@@ -21,7 +21,7 @@ class Blackhole {
   pull(photon) {
     const force = p5.Vector.sub(this.pos, photon.pos);
     const r = force.mag();
-    const fg = G * this.mass / (r * r);
+    const fg = (G * this.mass) / (r * r);
     force.setMag(fg);
     photon.vel.add(force);
     photon.vel.setMag(c);
@@ -30,7 +30,6 @@ class Blackhole {
       photon.stop();
     }
   }
-
 
   show() {
     ellipseMode(RADIUS);
@@ -47,10 +46,5 @@ class Blackhole {
     strokeWeight(32);
 
     ellipse(this.pos.x, this.pos.y, this.rs * 1.5 + 16);
-
-
   }
-
-
-
 }

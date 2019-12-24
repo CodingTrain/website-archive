@@ -39,7 +39,6 @@ function setup() {
     }
   }
 
-
   var button = createButton('submit');
   button.mousePressed(predictRatings);
   resultP = createP('');
@@ -57,9 +56,6 @@ function setup() {
 
     findNearestNeighbors(newUser);
   }
-
-
-
 
   function findNearestNeighbors(user) {
     for (var i = 0; i < resultDivs.length; i++) {
@@ -82,11 +78,9 @@ function setup() {
       return score2 - score1;
     }
 
-
     for (var i = 0; i < data.titles.length; i++) {
       var title = data.titles[i];
       if (user[title] == null) {
-
         var k = 5;
         var weightedSum = 0;
         var similaritySum = 0;
@@ -105,15 +99,8 @@ function setup() {
         var div = createDiv(title + ': ' + stars);
         resultDivs.push(div);
         div.parent(resultP);
-
-
-
-
-
       }
     }
-
-
 
     // var k = 5;
     // for (var i = 0; i < k; i++) {
@@ -124,18 +111,11 @@ function setup() {
     //   div.parent(resultP);
     // }
 
-
     // console.log(similarityScores);
-
   }
-
-
-
-
 }
 
 function euclideanDistance(ratings1, ratings2) {
-
   var titles = data.titles;
 
   var sumSquares = 0;

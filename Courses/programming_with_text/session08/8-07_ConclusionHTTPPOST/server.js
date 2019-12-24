@@ -22,16 +22,18 @@ var app = express();
 var server = app.listen(3000, listening);
 
 function listening() {
-  console.log("listening. . . ");
+  console.log('listening. . . ');
 }
 
 app.use(express.static('website'));
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // support json encoded bodies
-app.use(bodyParser.urlencoded({
-  extended: true
-})); // support encoded bodies
+app.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+); // support encoded bodies
 
 app.use(cors());
 
@@ -68,7 +70,7 @@ function analyzeThis(request, response) {
     score: totalScore,
     comparative: comp,
     words: wordlist
-  }
+  };
   response.send(reply);
 }
 
@@ -81,27 +83,24 @@ function addWord(request, response) {
   var reply;
   if (!score && score !== 0) {
     var reply = {
-      msg: "Score is required."
-    }
+      msg: 'Score is required.'
+    };
     response.send(reply);
   } else {
     additional[word] = score;
     var data = JSON.stringify(additional, null, 2);
     fs.writeFile('additional.json', data, finished);
-
-    function finished(err) {
-      console.log('all set.');
-      reply = {
-        word: word,
-        score: score,
-        status: "success"
-      }
-      response.send(reply);
-    }
-
-
   }
+}
 
+function finished(err) {
+  console.log('all set.');
+  reply = {
+    word: word,
+    score: score,
+    status: 'success'
+  };
+  response.send(reply);
 }
 
 app.get('/all', sendAll);
@@ -110,7 +109,7 @@ function sendAll(request, response) {
   var data = {
     additional: additional,
     afinn: afinn
-  }
+  };
   response.send(data);
 }
 
@@ -121,15 +120,15 @@ function searchWord(request, response) {
   var reply;
   if (words[word]) {
     reply = {
-      status: "found",
+      status: 'found',
       word: word,
       score: words[word]
-    }
+    };
   } else {
     reply = {
-      status: "not found",
+      status: 'not found',
       word: word
-    }
+    };
   }
   response.send(reply);
 }

@@ -7,10 +7,10 @@
 
 let defaultColor = [255, 0, 0];
 let colors = [
-  [255, 255,   0],
-  [  0, 185,  63],
-  [  0, 104, 255],
-  [122,   0, 229]
+  [255, 255, 0],
+  [0, 185, 63],
+  [0, 104, 255],
+  [122, 0, 229]
 ];
 
 let sandpiles;
@@ -23,7 +23,7 @@ function setup() {
   sandpiles = new Array(width).fill().map(i => new Array(height).fill(0));
   nextpiles = new Array(width).fill().map(i => new Array(height).fill(0));
 
-  sandpiles[width/2][height/2] = 1000000000;
+  sandpiles[width / 2][height / 2] = 1000000000;
 
   background(defaultColor[0], defaultColor[1], defaultColor[2]);
 }
@@ -40,14 +40,10 @@ function topple() {
       let num = sandpiles[x][y];
       if (num >= 4) {
         nextpiles[x][y] -= 4;
-        if (x+1 < width)
-          nextpiles[x+1][y]++;
-        if (x-1 >= 0)
-          nextpiles[x-1][y]++;
-        if (y+1 < height)
-          nextpiles[x][y+1]++;
-        if (y-1 >= 0)
-          nextpiles[x][y-1]++;
+        if (x + 1 < width) nextpiles[x + 1][y]++;
+        if (x - 1 >= 0) nextpiles[x - 1][y]++;
+        if (y + 1 < height) nextpiles[x][y + 1]++;
+        if (y - 1 >= 0) nextpiles[x][y - 1]++;
       }
     }
   }
@@ -74,7 +70,7 @@ function render() {
       }
 
       let pix = (x + y * width) * 4;
-      pixels[pix    ] = col[0];
+      pixels[pix] = col[0];
       pixels[pix + 1] = col[1];
       pixels[pix + 2] = col[2];
       // pixels[pix + 3] = 255;

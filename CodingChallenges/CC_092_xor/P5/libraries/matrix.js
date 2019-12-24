@@ -4,7 +4,9 @@ class Matrix {
   constructor(rows, cols) {
     this.rows = rows;
     this.cols = cols;
-    this.data = Array(this.rows).fill().map(() => Array(this.cols).fill(0));
+    this.data = Array(this.rows)
+      .fill()
+      .map(() => Array(this.cols).fill(0));
   }
 
   static fromArray(arr) {
@@ -18,8 +20,9 @@ class Matrix {
     }
 
     // Return a new Matrix a-b
-    return new Matrix(a.rows, a.cols)
-      .map((_, i, j) => a.data[i][j] - b.data[i][j]);
+    return new Matrix(a.rows, a.cols).map(
+      (_, i, j) => a.data[i][j] - b.data[i][j]
+    );
   }
 
   toArray() {
@@ -49,26 +52,26 @@ class Matrix {
   }
 
   static transpose(matrix) {
-    return new Matrix(matrix.cols, matrix.rows)
-      .map((_, i, j) => matrix.data[j][i]);
+    return new Matrix(matrix.cols, matrix.rows).map(
+      (_, i, j) => matrix.data[j][i]
+    );
   }
 
   static multiply(a, b) {
     // Matrix product
     if (a.cols !== b.rows) {
-      console.log('Columns of A must match rows of B.')
+      console.log('Columns of A must match rows of B.');
       return;
     }
 
-    return new Matrix(a.rows, b.cols)
-      .map((e, i, j) => {
-        // Dot product of values in col
-        let sum = 0;
-        for (let k = 0; k < a.cols; k++) {
-          sum += a.data[i][k] * b.data[k][j];
-        }
-        return sum;
-      });
+    return new Matrix(a.rows, b.cols).map((e, i, j) => {
+      // Dot product of values in col
+      let sum = 0;
+      for (let k = 0; k < a.cols; k++) {
+        sum += a.data[i][k] * b.data[k][j];
+      }
+      return sum;
+    });
   }
 
   multiply(n) {
@@ -99,8 +102,9 @@ class Matrix {
 
   static map(matrix, func) {
     // Apply a function to every element of matrix
-    return new Matrix(matrix.rows, matrix.cols)
-      .map((e, i, j) => func(matrix.data[i][j], i, j));
+    return new Matrix(matrix.rows, matrix.cols).map((e, i, j) =>
+      func(matrix.data[i][j], i, j)
+    );
   }
 
   print() {

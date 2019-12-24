@@ -17,6 +17,6 @@ function draw() {
   var dx = r * cos(angle);
   var dy = r * sin(angle);
 
-  point(x+dx, y+dy);
-  line(x, y, x+dx, y + dy);
+  point(x + dx, y + dy);
+  line(x, y, x + dx, y + dy);
 }

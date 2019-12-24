@@ -35,7 +35,7 @@ function processRita() {
       output += words[i];
     }
 
-    output += " ";
+    output += ' ';
   }
   createP(output);
 }

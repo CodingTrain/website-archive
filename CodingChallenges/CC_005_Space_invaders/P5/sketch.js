@@ -12,7 +12,7 @@ function setup() {
   ship = new Ship();
   // drop = new Drop(width/2, height/2);
   for (var i = 0; i < 6; i++) {
-    flowers[i] = new Flower(i*80+80, 60);
+    flowers[i] = new Flower(i * 80 + 80, 60);
   }
 }
 
@@ -48,13 +48,11 @@ function draw() {
     }
   }
 
-  for (var i = drops.length-1; i >= 0; i--) {
+  for (var i = drops.length - 1; i >= 0; i--) {
     if (drops[i].toDelete) {
       drops.splice(i, 1);
     }
   }
-
-
 }
 
 function keyReleased() {
@@ -62,7 +60,6 @@ function keyReleased() {
     ship.setDir(0);
   }
 }
-
 
 function keyPressed() {
   if (key === ' ') {

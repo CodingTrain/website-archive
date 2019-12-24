@@ -51,6 +51,4 @@ function draw() {
     //rect(i * w, y, w - 2, height - y);
   }
   //endShape();
-
-
 }

@@ -9,7 +9,6 @@
 
 // https://editor.p5js.org/codingtrain/sketches/xgQNXkxx1
 
-
 var vehicles = [];
 var food = [];
 var poison = [];
@@ -37,10 +36,6 @@ function setup() {
   }
 
   debug = createCheckbox();
-
-
-
-
 }
 
 function mouseDragged() {
@@ -61,7 +56,6 @@ function draw() {
     var y = random(height);
     poison.push(createVector(x, y));
   }
-
 
   for (var i = 0; i < food.length; i++) {
     fill(0, 255, 0);
@@ -92,6 +86,5 @@ function draw() {
       food.push(createVector(x, y));
       vehicles.splice(i, 1);
     }
-
   }
 }

@@ -1,4 +1,3 @@
-
 /* 
 
 1. Code below is for https://vimeo.com/channels/learningp5js/141211396
@@ -7,7 +6,7 @@
 
 */
 
-var words = ["rainbow", "heart", "purple", "friendship", "love"];
+var words = ['rainbow', 'heart', 'purple', 'friendship', 'love'];
 
 var index = 0;
 
@@ -16,7 +15,6 @@ function setup() {
 }
 
 function draw() {
-
   background(0);
 
   fill(255);

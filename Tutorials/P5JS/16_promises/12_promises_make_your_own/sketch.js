@@ -9,7 +9,7 @@ function setup() {
   noCanvas();
   delayES8(1000)
     .then(() => createP('hello'))
-    .catch((err) => console.error(err));
+    .catch(err => console.error(err));
 }
 
 async function delayES8(time) {
@@ -19,7 +19,6 @@ async function delayES8(time) {
   let val = await somethingElseElse();
   return val;
 }
-
 
 function delay(time) {
   return new Promise((resolve, reject) => {

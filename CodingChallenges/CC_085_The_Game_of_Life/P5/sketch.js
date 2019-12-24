@@ -63,16 +63,11 @@ function draw() {
       } else {
         next[i][j] = state;
       }
-
     }
   }
 
   grid = next;
-
-
-
 }
-
 
 function countNeighbors(grid, x, y) {
   let sum = 0;

@@ -18,7 +18,7 @@ class Particle {
 
   intersects(other) {
     let d = dist(this.x, this.y, other.x, other.y);
-    return (d < this.r + other.r);
+    return d < this.r + other.r;
   }
 
   setHighlight(value) {
@@ -39,5 +39,4 @@ class Particle {
     }
     ellipse(this.x, this.y, this.r * 2);
   }
-
 }

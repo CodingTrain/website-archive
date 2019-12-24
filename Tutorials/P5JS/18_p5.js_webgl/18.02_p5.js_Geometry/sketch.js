@@ -14,7 +14,7 @@ function draw() {
   background(175);
 
   rectMode(CENTER);
-  noStroke()
+  noStroke();
   fill(0, 0, 255);
   //translate(0, 0, mouseX);
   rotateX(angle);

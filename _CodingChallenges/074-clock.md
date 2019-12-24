@@ -141,6 +141,10 @@ contributions:
       url: "https://www.ernst-schmidt.com/"
     url: "https://www.ernst-schmidt.com/coding/5c7838dd5896d80017d4452d"
     source: "https://editor.p5js.org/Kubi/sketches/SkGfubabE"
+  - title: "Hexadecimal Color Clock"
+    author: "Timothy Shek"
+    url: https://editor.p5js.org/arandomtim/full/7g7wv82Dj
+    source: https://editor.p5js.org/arandomtim/sketches/7g7wv82Dj
 ---
 
 In this coding challenge, I attempt to program a clock in HTML5 canvas with the p5.js library.

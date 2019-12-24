@@ -18,14 +18,13 @@ const options = {
   lat: 0,
   lng: 0,
   zoom: 1.5,
-  style: "http://{s}.tile.osm.org/{z}/{x}/{y}.png"
-}
+  style: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+};
 
 function preload() {
   youtubeData = loadTable('subscribers_geo.csv', 'header');
   //youtubeData = loadTable('watch_time_geo.csv', 'header');
   countries = loadJSON('countries.json');
-
 }
 
 function setup() {
@@ -68,8 +67,6 @@ function setup() {
 
   //console.log(data);
 
-
-
   // console.log(countries);
   //console.log(youtubeData);
 }
@@ -83,7 +80,4 @@ function draw() {
     const scl = pow(2, zoom); // * sin(frameCount * 0.1);
     ellipse(pix.x, pix.y, country.diameter * scl);
   }
-
-
-
 }

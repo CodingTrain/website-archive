@@ -2,15 +2,15 @@
 // http://youtube.com/thecodingtrain
 // http://codingtra.in
 
-// Transfer Learning Feature Extractor Regression with ml5
-// https://youtu.be/aKgq0m1YjvQ
+// Transfer Learning Feature Extractor Classification with ml5
+// https://youtu.be/eeO-rWYFuG0
 
 let mobilenet;
-let predictor;
+let classifier;
 let video;
-let value = 0;
-let slider;
-let addButton;
+let label = 'test';
+let ukeButton;
+let whistleButton;
 let trainButton;
 
 function modelReady() {
@@ -24,19 +24,18 @@ function videoReady() {
 function whileTraining(loss) {
   if (loss == null) {
     console.log('Training Complete');
-    predictor.predict(gotResults);
+    classifier.classify(gotResults);
   } else {
     console.log(loss);
   }
 }
 
-
 function gotResults(error, result) {
   if (error) {
     console.error(error);
   } else {
-    value = result;
-    predictor.predict(gotResults);
+    label = result;
+    classifier.classify(gotResults);
   }
 }
 
@@ -46,32 +45,28 @@ function setup() {
   video.hide();
   background(0);
   mobilenet = ml5.featureExtractor('MobileNet', modelReady);
-  predictor = mobilenet.regression(video, videoReady);
+  classifier = mobilenet.classification(video, videoReady);
 
-  slider = createSlider(0, 1, 0.5, 0.01);
-
-  addButton = createButton('add example image');
-  addButton.mousePressed(function() {
-    predictor.addImage(slider.value());
+  ukeButton = createButton('happy');
+  ukeButton.mousePressed(function() {
+    classifier.addImage('happy');
   });
 
+  whistleButton = createButton('sad');
+  whistleButton.mousePressed(function() {
+    classifier.addImage('sad');
+  });
 
   trainButton = createButton('train');
   trainButton.mousePressed(function() {
-    predictor.train(whileTraining);
+    classifier.train(whileTraining);
   });
-
-
 }
 
 function draw() {
   background(0);
   image(video, 0, 0, 320, 240);
-  rectMode(CENTER);
-  fill(255, 0, 200);
-  rect(value * width, height / 2, 50, 50);
-
   fill(255);
   textSize(16);
-  text(value, 10, height - 10);
+  text(label, 10, height - 10);
 }

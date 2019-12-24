@@ -5,25 +5,25 @@
 // https://editor.p5js.org/codingtrain/sketches/BJqG8zhlN
 
 const commandLookUp = {
-  "fd": function (amt) {
+  fd: function(amt) {
     turtle.forward(amt);
   },
-  "bd": function (amt) {
+  bd: function(amt) {
     turtle.forward(-amt);
   },
-  "rt": function (angle) {
+  rt: function(angle) {
     turtle.right(angle);
   },
-  "lt": function (angle) {
+  lt: function(angle) {
     turtle.right(-angle);
   },
-  "pu": function () {
+  pu: function() {
     turtle.pen = false;
   },
-  "pd": function () {
+  pd: function() {
     turtle.pen = true;
   }
-}
+};
 
 class Turtle {
   constructor(x, y, angle) {
@@ -52,6 +52,4 @@ class Turtle {
   right(angle) {
     rotate(angle);
   }
-
-
 }

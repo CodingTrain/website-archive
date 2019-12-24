@@ -4,8 +4,6 @@
 2. Video Referenced at 1:55 is For Loops, https://vimeo.com/channels/learningp5js/139013336 
 */
 
-
-
 var nums = [100, 35, 46, 72];
 
 function setup() {
@@ -24,5 +22,4 @@ function draw() {
   // ellipse(200, 200, nums[1], nums[1]);
   // ellipse(300, 200, nums[2], nums[2]);
   // ellipse(400, 200, nums[3], nums[3]);
-  
 }

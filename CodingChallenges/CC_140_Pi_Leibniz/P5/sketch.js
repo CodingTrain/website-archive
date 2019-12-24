@@ -21,9 +21,9 @@ function draw() {
   background(0);
   let den = iterations * 2 + 3;
   if (iterations % 2 == 0) {
-    pi -= (4 / den);
+    pi -= 4 / den;
   } else {
-    pi += (4 / den);
+    pi += 4 / den;
   }
   history.push(pi);
 

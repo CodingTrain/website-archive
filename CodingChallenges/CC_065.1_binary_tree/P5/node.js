@@ -21,7 +21,7 @@ Node.prototype.search = function(val) {
     return this.right.search(val);
   }
   return null;
-}
+};
 
 Node.prototype.visit = function() {
   if (this.left != null) {
@@ -31,14 +31,14 @@ Node.prototype.visit = function() {
   if (this.right != null) {
     this.right.visit();
   }
-}
+};
 
 Node.prototype.addNode = function(n) {
   if (n.value < this.value) {
     if (this.left == null) {
       this.left = n;
     } else {
-      this.left.addNode(n)
+      this.left.addNode(n);
     }
   } else if (n.value > this.value) {
     if (this.right == null) {
@@ -47,4 +47,4 @@ Node.prototype.addNode = function(n) {
       this.right.addNode(n);
     }
   }
-}
+};

@@ -9,11 +9,10 @@ var keys = [];
 
 function preload() {
   txt = loadStrings('rainbow.txt');
-
 }
 
 function setup() {
-  var allwords = txt.join("\n");
+  var allwords = txt.join('\n');
   var tokens = allwords.split(/\W+/);
   for (var i = 0; i < tokens.length; i++) {
     var word = tokens[i].toLowerCase();
@@ -38,10 +37,8 @@ function setup() {
 
   for (var i = 0; i < keys.length; i++) {
     var key = keys[i];
-    createDiv(key + " " + counts[key]);
+    createDiv(key + ' ' + counts[key]);
   }
-
-
 
   noCanvas();
 }

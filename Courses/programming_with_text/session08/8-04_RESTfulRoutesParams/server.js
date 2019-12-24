@@ -4,12 +4,11 @@
 // Code for: https://youtu.be/oMhAd864bBc
 
 var words = {
-  "rainbow": 5,
-  "unicorn": 3,
-  "doom": -3,
-  "gloom": -2
-}
-
+  rainbow: 5,
+  unicorn: 3,
+  doom: -3,
+  gloom: -2
+};
 
 console.log('server is starting');
 
@@ -20,7 +19,7 @@ var app = express();
 var server = app.listen(3000, listening);
 
 function listening() {
-  console.log("listening. . . ");
+  console.log('listening. . . ');
 }
 
 app.use(express.static('website'));
@@ -34,13 +33,13 @@ function addWord(request, response) {
   var reply;
   if (!score) {
     reply = {
-      msg: "Score is required."
-    }
+      msg: 'Score is required.'
+    };
   } else {
     words[word] = score;
     reply = {
-      msg: "Thank you for your word."
-    }
+      msg: 'Thank you for your word.'
+    };
   }
 
   response.send(reply);
@@ -59,15 +58,15 @@ function searchWord(request, response) {
   var reply;
   if (words[word]) {
     reply = {
-      status: "found",
+      status: 'found',
       word: word,
       score: words[word]
-    }
+    };
   } else {
     reply = {
-      status: "not found",
+      status: 'not found',
       word: word
-    }
+    };
   }
   response.send(reply);
 }

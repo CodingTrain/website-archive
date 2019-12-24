@@ -10,25 +10,21 @@
  *  Shawn Van Every (Shawn.Van.Every@nyu.edu)
  *  ITP/NYU
  *  LGPL
- *  
+ *
  *  https://github.com/vanevery/p5.serialport
  *
  */
 (function(root, factory) {
   if (typeof define === 'function' && define.amd)
     define('p5.serialport', ['p5'], function(p5) {
-      (factory(p5));
+      factory(p5);
     });
-  else if (typeof exports === 'object')
-    factory(require('../p5'));
-  else
-    factory(root['p5']);
-}(this, function(p5) {
-
+  else if (typeof exports === 'object') factory(require('../p5'));
+  else factory(root['p5']);
+})(this, function(p5) {
   // =============================================================================
   //                         p5.SerialPort
   // =============================================================================
-
 
   /*
   var serialPort = new SerialPort();
@@ -44,7 +40,6 @@
    * @constructor
    */
   p5.SerialPort = function(_hostname, _serverport) {
-
     var self = this;
 
     this.bufferSize = 1; // How much to buffer before sending data event
@@ -55,14 +50,14 @@
 
     this.serialport = null;
     this.serialoptions = null;
-    
+
     this.emitQueue = [];
 
     if (typeof _hostname === 'string') {
       this.hostname = _hostname;
     } else {
       //console.log("typeof _hostname " + typeof _hostname + " setting to locahost");
-      this.hostname = "localhost";
+      this.hostname = 'localhost';
     }
 
     if (typeof _serverport === 'number') {
@@ -73,10 +68,12 @@
     }
 
     try {
-      this.socket = new WebSocket("ws://" + this.hostname + ":" + this.serverport);
+      this.socket = new WebSocket(
+        'ws://' + this.hostname + ':' + this.serverport
+      );
     } catch (err) {
       //console.log(err + "\n" + "Is the p5.serialserver running?");
-      if (typeof self.errorCallback !== "undefined") {
+      if (typeof self.errorCallback !== 'undefined') {
         self.errorCallback("Couldn't connect to the server, is it running?");
       }
     }
@@ -84,17 +81,17 @@
     this.socket.onopen = function(event) {
       serialConnected = true;
 
-      if (typeof self.connectedCallback !== "undefined") {
+      if (typeof self.connectedCallback !== 'undefined') {
         self.connectedCallback();
       }
-      
+
       if (self.emitQueue.length > 0) {
-        for (var i = 0; i < self.emitQueue.length; i ++){
+        for (var i = 0; i < self.emitQueue.length; i++) {
           self.emit(self.emitQueue[i]);
         }
         self.emitQueue = [];
       }
-      
+
       /* Now handled by the queue
       if (self.serialport && self.serialoptions) {
         // If they have asked for a connect, these won't be null and we should try the connect now
@@ -117,21 +114,21 @@
       var messageObject = JSON.parse(event.data);
 
       // MESSAGE ROUTING
-      if (typeof messageObject.method !== "undefined") {
+      if (typeof messageObject.method !== 'undefined') {
         if (messageObject.method == 'echo') {
           //console.log("echo: " + messageObject.data);
-        } else if (messageObject.method === "openserial") {
-          if (typeof self.openCallback !== "undefined") {
+        } else if (messageObject.method === 'openserial') {
+          if (typeof self.openCallback !== 'undefined') {
             self.openCallback();
           }
-        } else if (messageObject.method === "data") {
+        } else if (messageObject.method === 'data') {
           // Add to buffer, assuming this comes in byte by byte
           //console.log("data: " +  JSON.stringify(messageObject.data));
           self.serialBuffer.push(messageObject.data);
-          
+
           //console.log(self.serialBuffer.length);
 
-          if (typeof self.dataCallback !== "undefined") {
+          if (typeof self.dataCallback !== 'undefined') {
             // Hand it to sketch
             if (self.serialBuffer.length >= self.bufferSize) {
               self.dataCallback();
@@ -139,28 +136,28 @@
             //console.log(self.serialBuffer.length);
           }
 
-          if (typeof self.rawDataCallback !== "undefined") {
+          if (typeof self.rawDataCallback !== 'undefined') {
             self.rawDataCallback(messageObject.data);
           }
         } else if (messageObject.method === 'list') {
-          if (typeof self.listCallback !== "undefined") {
+          if (typeof self.listCallback !== 'undefined') {
             self.listCallback(messageObject.data);
           }
-        } else if (messageObject.method === "write") {
+        } else if (messageObject.method === 'write') {
           // Success Callback?
-        } else if (messageObject.method === "error") {
+        } else if (messageObject.method === 'error') {
           //console.log(messageObject.data);
 
-          if (typeof self.errorCallback !== "undefined") {
+          if (typeof self.errorCallback !== 'undefined') {
             // Hand it to sketch
             self.errorCallback(messageObject.data);
           }
         } else {
           // Got message from server without known method
-          console.log("Unknown Method: " + messageObject);
+          console.log('Unknown Method: ' + messageObject);
         }
       } else {
-        console.log("Method Undefined: " + messageObject);
+        console.log('Method Undefined: ' + messageObject);
       }
     };
 
@@ -168,7 +165,7 @@
       //console.log("socketOnClose");
       //console.log(event);
 
-      if (typeof self.closeCallback !== "undefined") {
+      if (typeof self.closeCallback !== 'undefined') {
         self.closeCallback();
       }
     };
@@ -177,11 +174,10 @@
       //console.log("socketOnError");
       //console.log(event);
 
-      if (typeof self.errorCallback !== "undefined") {
+      if (typeof self.errorCallback !== 'undefined') {
         self.errorCallback();
       }
     };
-
   };
 
   p5.SerialPort.prototype.emit = function(data) {
@@ -193,8 +189,11 @@
   };
 
   p5.SerialPort.prototype.isConnected = function() {
-    if (self.serialConnected) { return true; }
-    else { return false; }
+    if (self.serialConnected) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   // list() - list serial ports available to the server
@@ -209,7 +208,6 @@
   };
 
   p5.SerialPort.prototype.open = function(_serialport, _serialoptions, cb) {
-
     if (typeof cb === 'function') {
       this.openCallback = cb;
     }
@@ -223,7 +221,7 @@
       this.serialoptions = {};
     }
 
-    // If our socket is connected, we'll do this now, 
+    // If our socket is connected, we'll do this now,
     // otherwise it will happen in the socket.onopen callback
     this.emit({
       method: 'openserial',
@@ -241,7 +239,7 @@
       method: 'write',
       data: data
     });
-    //this.socket.send({method:'writeByte',data:data});  ? 
+    //this.socket.send({method:'writeByte',data:data});  ?
     //this.socket.send({method:'writeString',data:data})  ?
   };
 
@@ -289,7 +287,10 @@
       // What to return
       var returnBuffer = this.serialBuffer.slice(0, index + 1);
       // Clear out what was returned
-      this.serialBuffer = this.serialBuffer.slice(index, this.serialBuffer.length + index);
+      this.serialBuffer = this.serialBuffer.slice(
+        index,
+        this.serialBuffer.length + index
+      );
       return returnBuffer;
     } else {
       return -1;
@@ -307,26 +308,27 @@
     }
     // Clear the buffer
     this.serialBuffer.length = 0;
-    return stringBuffer.join("");
+    return stringBuffer.join('');
   };
 
   p5.SerialPort.prototype.readStringUntil = function(stringToFind) {
-
     var stringBuffer = [];
     //console.log("serialBuffer Length: " + this.serialBuffer.length);
     for (var i = 0; i < this.serialBuffer.length; i++) {
       //console.log("push: " + String.fromCharCode(this.serialBuffer[i]));
       stringBuffer.push(String.fromCharCode(this.serialBuffer[i]));
     }
-    stringBuffer = stringBuffer.join("");
+    stringBuffer = stringBuffer.join('');
     //console.log("stringBuffer: " + stringBuffer);
 
-    var returnString = "";
+    var returnString = '';
     var foundIndex = stringBuffer.indexOf(stringToFind);
     //console.log("found index: " + foundIndex);
     if (foundIndex > -1) {
       returnString = stringBuffer.substr(0, foundIndex);
-      this.serialBuffer = this.serialBuffer.slice(foundIndex + stringToFind.length);
+      this.serialBuffer = this.serialBuffer.slice(
+        foundIndex + stringToFind.length
+      );
     }
     //console.log("Sending: " + returnString);
     return returnString;
@@ -395,6 +397,6 @@
       this.rawDataCallback = _callback;
     }
   };
-}));
+});
 
 // EOF

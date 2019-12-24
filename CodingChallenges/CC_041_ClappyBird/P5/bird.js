@@ -15,11 +15,11 @@ function Bird() {
     fill(255);
     noStroke();
     ellipse(this.x, this.y, 32, 32);
-  }
+  };
 
   this.up = function() {
     this.velocity += this.lift;
-  }
+  };
 
   this.update = function() {
     this.velocity += this.gravity;
@@ -35,7 +35,5 @@ function Bird() {
       this.y = 0;
       this.velocity = 0;
     }
-
-  }
-
+  };
 }
