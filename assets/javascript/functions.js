@@ -57,9 +57,11 @@ class NavApplication {
   constructor() {
     this.navButton = document.getElementById('menu-button');
     this.navMenu = document.getElementById('global-nav');
-    this.navLinks = Array.from(document.querySelectorAll('#global-nav a'));
+    this.navLinks = [...(document.getElementsByClassName('top-link'))];
     this.mbBackdrop = document.getElementById('mobilenav-backdrop');
     this.ESCAPE_CODE = 27;
+
+    this.escapeSubMenu = false;
 
     this.subMenuButtons = document.getElementsByClassName('submenu-button');
     this.subMenus = document.getElementsByClassName('submenu');
@@ -84,10 +86,6 @@ class NavApplication {
       this.subMenuButtons[i].addEventListener('click', this.toggleSubMenu);
     }
 
-    for (let i = 0; i < this.subMenus.length; i++) {
-      this.subMenus[i].addEventListener('keydown', this.keydownSubmenu);
-    }
-
     this.closeSubMenus(); // sets the open text
   }
 
@@ -97,13 +95,16 @@ class NavApplication {
     const subMenu = document.getElementById(forAttribute);
     const openMenu = !subMenu.classList.contains('active');
     this.closeSubMenus();
-    const placeholder = 'placeholder';
     if (openMenu) {
+      this.escapeSubMenu = true;
+
       button.setAttribute('aria-label', `Close ${forAttribute.split('-')[0]} Submenu`);
       subMenu.classList.add('active');
       subMenu.removeAttribute('aria-hidden');
 
-      // TODO remove tab index
+      ([...(subMenu.querySelectorAll('a'))]).forEach(el => {
+        el.removeAttribute('tabIndex');
+      });
     }
   }
 
@@ -114,25 +115,23 @@ class NavApplication {
     }
     for (let i = 0; i < this.subMenus.length; i++) {
       this.subMenus[i].classList.remove('active');
-      this.subMenus[i].setAttribute('aria-hidden', 'true')
+      this.subMenus[i].setAttribute('aria-hidden', 'true');
 
-      // todo add tab index
+      ([...(this.subMenus[i].querySelectorAll('a'))]).forEach(el => {
+        el.setAttribute('tabIndex', -1);
+      });
     }
-  }
-
-  keydownSubmenu(event) {
-    console.log(event);
-
-    // TODO
+    this.escapeSubMenu = false;
   }
 
   handleKeydown(event) {
     if (event.keyCode === this.ESCAPE_CODE) {
-      this.navContainer.classList.remove('active');
-      this.mbBackdrop.classList.remove('active');
-      this.navButton.classList.remove('active');
-      this.disableNavLinks();
-      this.navButton.focus();
+      if (this.escapeSubMenu) {
+        this.closeSubMenus();
+      } else {
+        this.disableNavLinks();
+        this.navButton.focus();
+      }
     }
   }
 
@@ -155,7 +154,7 @@ class NavApplication {
       el.removeAttribute('tabIndex');
     });
     setTimeout(() => {
-      navLinks[0].focus();
+      this.navLinks[0].focus();
     }, 200);
   }
 
