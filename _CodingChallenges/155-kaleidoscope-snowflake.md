@@ -4,7 +4,6 @@ video_number: 155
 date: 2019-12-25
 web_editor: JbWCVPX5a
 video_id: R3C2giDfmO8
-repository: CC_155_Kaleidoscope_Snowflake
 
 links:
   - title: "#SupportP5"
