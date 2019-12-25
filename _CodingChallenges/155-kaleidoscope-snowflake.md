@@ -13,8 +13,11 @@ links:
     url: "https://permadi.com/java/spaint/spaint.html"
 
 videos:
-  - title: "Coding Challenge #127: Tic Tac Toe"
-    author: "Coding Train"
+  - title: "Transformations Pt.1 (Translate, Rotate, Push/Pop) - p5.js Tutorial"
+    author: "The Coding Train"
+    url: "/Tutorials/9-additional-topics/9.1-transformations-part-1"
+  - title: "Coding Challenge #127: Brownian Tree Snowflake"
+    author: "The Coding Train"
     url: "/CodingChallenges/127-snowflake-brownian"
   - title: "2019 Processing Foundation Holiday Telethon"
     author: "The Coding Train"
