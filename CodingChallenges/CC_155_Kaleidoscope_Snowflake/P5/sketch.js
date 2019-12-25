@@ -15,16 +15,16 @@ function setup() {
   createCanvas(800, 800);
   angleMode(DEGREES);
   background(127);
-  saveButton = createButton("save");
+  saveButton = createButton('save');
   saveButton.mousePressed(saveSnowflake);
-  clearButton = createButton("clear");
+  clearButton = createButton('clear');
   clearButton.mousePressed(clearCanvas);
   slider = createSlider(1, 32, 4, 0.1);
   //colorMode(HSB);
 }
 
 function saveSnowflake() {
-  save("snowflake.png");
+  save('snowflake.png');
 }
 
 function clearCanvas() {
