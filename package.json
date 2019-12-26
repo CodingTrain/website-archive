@@ -8,7 +8,7 @@
     "dotenv": "^8.2.0",
     "eslint": "^6.8.0",
     "eslint-config-p5js": "^1.0.1",
-    "eslint-config-prettier": "^6.7.0",
+    "eslint-config-prettier": "^6.8.0",
     "eslint-plugin-prettier": "^3.1.2",
     "octocat": "^1.2.1",
     "prettier": "^1.19.1",
