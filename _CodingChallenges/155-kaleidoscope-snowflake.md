@@ -30,6 +30,12 @@ contributions:
       url: "https://www.sololearn.com/Profile/10779261"
     url: "https://code.sololearn.com/WmtTj0e3g8mt/#js"
     source: "https://code.sololearn.com/WmtTj0e3g8mt/#js"
+  - title: "Kaleidoscope Snowflake with Color and Pen Weight Controls"
+    author:
+      name: "Ravi Dhiman"
+      url: "https://github.com/ravid7000"
+    url: "https://editor.p5js.org/ravid7000/present/74w9Fcx4D"
+    source: "https://editor.p5js.org/ravid7000/sketches/74w9Fcx4D"
 ---
 
 Happy holidays! #SupportP5! This video shows an attempt to make a snowflake from a "kaleidoscope painting" effect.
