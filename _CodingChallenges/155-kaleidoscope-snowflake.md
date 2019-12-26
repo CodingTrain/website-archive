@@ -22,7 +22,7 @@ videos:
   - title: "2019 Processing Foundation Holiday Telethon"
     author: "The Coding Train"
     video_id: 3wMFd8OGI84
- 
+
 contributions:
   - title: "Snow Flake Make & Share {Firebase}"
     author:
