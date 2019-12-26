@@ -22,6 +22,14 @@ videos:
   - title: "2019 Processing Foundation Holiday Telethon"
     author: "The Coding Train"
     video_id: 3wMFd8OGI84
+
+contributions:
+  - title: "Snow Flake Make & Share {Firebase}"
+    author:
+      name: "Ashutosh Agrawal"
+      url: "https://www.sololearn.com/Profile/10779261"
+    url: "https://code.sololearn.com/WmtTj0e3g8mt/#js"
+    source: "https://code.sololearn.com/WmtTj0e3g8mt/#js"
 ---
 
 Happy holidays! #SupportP5! This video shows an attempt to make a snowflake from a "kaleidoscope painting" effect.
