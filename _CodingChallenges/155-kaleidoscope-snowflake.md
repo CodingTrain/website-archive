@@ -22,6 +22,15 @@ videos:
   - title: "2019 Processing Foundation Holiday Telethon"
     author: "The Coding Train"
     video_id: 3wMFd8OGI84
+    
+contributions:
+  - title: "Kaleidoscope Snowflake with Color and Pen Weight Controls"
+    author:
+      name: "Ravi Dhiman"
+      url: "https://github.com/ravid7000"
+    url: "https://editor.p5js.org/ravid7000/present/74w9Fcx4D"
+    source: "https://editor.p5js.org/ravid7000/sketches/74w9Fcx4D"
+
 ---
 
 Happy holidays! #SupportP5! This video shows an attempt to make a snowflake from a "kaleidoscope painting" effect.
