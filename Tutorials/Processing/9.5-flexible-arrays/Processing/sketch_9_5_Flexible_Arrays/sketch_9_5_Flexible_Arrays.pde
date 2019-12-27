@@ -1,5 +1,10 @@
-Bubble[] bubbles = new Bubble[100];
+// Arrays of Flexible Size
+// Learning Processing
+// The Coding Train / Daniel Shiffman
+// https://thecodingtrain.com/Courses/learning-processing/9-arrays/9.5-flexible-arrays.html
+// https://youtu.be/Hf-AHwRaodA
 
+Bubble[] bubbles = new Bubble[100];
 int total = 0;
 
 void setup() {
@@ -10,13 +15,13 @@ void setup() {
 }
 
 void mousePressed() {
-  total = total + 1; 
+  total = total + 1;
 }
 
 void keyPressed() {
-   total = total - 1;
-} 
- 
+  total = total - 1;
+}
+
 void draw() {
   background(255);
   for (int i = 0; i < total; i++) {
@@ -25,4 +30,3 @@ void draw() {
     bubbles[i].top();
   }
 }
-
