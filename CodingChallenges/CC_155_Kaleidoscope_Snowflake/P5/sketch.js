@@ -44,7 +44,6 @@ function draw() {
       let hu = map(sin(xoff), -1, 1, 0, 255);
       xoff += 1;
       stroke(hu, 100);
-      let angle = 360 / symmetry;
       for (let i = 0; i < symmetry; i++) {
         rotate(angle);
         //let d = dist(mx, my, pmx, pmy);
