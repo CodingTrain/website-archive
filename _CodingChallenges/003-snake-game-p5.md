@@ -15,32 +15,32 @@ contributions:
   - title: "P5.JS Snake Game"
     author:
       name: "strikemike2k"
-      url: "https://github.com/strikemike2k"
-    url: "https://strikemike2k.github.io/snake/"
-    source: "https://github.com/strikemike2k/snake"
+      url: https://github.com/strikemike2k
+    url: https://strikemike2k.github.io/snake/
+    source: https://github.com/strikemike2k/snake
   - title: "Snake in JavaScript"
     author:
       name: "bjorvack"
-      url: "https://github.com/bjorvack"
-    url: "https://bjorvack.github.io/code-challenges/challenges/cc-003-snake/"
-    source: "https://github.com/bjorvack/code-challenges/tree/master/challenges/cc-003-snake"
+      url: https://github.com/bjorvack
+    url: https://bjorvack.github.io/code-challenges/challenges/cc-003-snake/
+    source: https://github.com/bjorvack/code-challenges/tree/master/challenges/cc-003-snake
   - title: "Snake Game 🐍"
     author:
       name: "elena-in-code"
-      url: "https://github.com/elena-in-code"
-    url: "https://elena-in-code.github.io/Snake-Game/"
-    source: "https://github.com/elena-in-code/Snake-Game"
+      url: https://github.com/elena-in-code
+    url: https://elena-in-code.github.io/Snake-Game/
+    source: https://github.com/elena-in-code/Snake-Game
   - title: "Swifty Snake Game"
     author:
       name: "Bob Voorneveld"
-      url: "https://www.bobvoorneveld.nl"
+      url: https://www.bobvoorneveld.nl
     source: "https://github.com/bobvoorneveld/Coding-Challenges/tree/master/CC003-The%20Snake%20Game"
   - title: "Snake Game"
     author:
       name: "Bruce Chen"
-      url: "https://github.com/BruceChen034020"
-    url: "https://brucechen034020.github.io/SnakeGame/"
-    source: "https://github.com/BruceChen034020/SnakeGame"
+      url: https://github.com/BruceChen034020
+    url: https://brucechen034020.github.io/SnakeGame/
+    source: https://github.com/BruceChen034020/SnakeGame
   - title: "Snake Game"
     author:
       name: "Vignesh Joglekar"
@@ -61,9 +61,9 @@ contributions:
   - title: "Snake Game"
     author:
       name: "Po Mauguet"
-      url: "https://github.com/pom421"
-    url: "http://pom421.github.io/CodingChallenges/CC_03_Snake_game/"
-    source: "https://github.com/pom421/pom421.github.io/tree/master/CodingChallenges/CC_03_Snake_game"
+      url: https://github.com/pom421
+    url: http://pom421.github.io/CodingChallenges/CC_03_Snake_game/
+    source: https://github.com/pom421/pom421.github.io/tree/master/CodingChallenges/CC_03_Snake_game
   - title: "Python Edition"
     author:
       name: "Morel Takougang"
@@ -91,7 +91,7 @@ contributions:
       url: "https://theabbie.github.io"
     url: "https://theabbie.github.io/files/snake.html"
     source: "https://raw.githubusercontent.com/theabbie/theabbie.github.io/master/files/snake.html"
-   - title: "SSS-nake"
+  - title: "SSS-nake"
     author:
       name: "morris"
       url: "https://github.com/morris178/"
