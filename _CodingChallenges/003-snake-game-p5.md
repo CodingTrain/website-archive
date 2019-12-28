@@ -94,9 +94,9 @@ contributions:
    - title: "SSS-nake"
     author:
       name: "morris"
-      url: https://github.com/morris178/
-    url: https://editor.p5js.org/morris178/full/MDE2LNYA6
-    source: https://editor.p5js.org/morris178/sketches/MDE2LNYA6
+      url: "https://github.com/morris178/"
+    url: "https://editor.p5js.org/morris178/full/MDE2LNYA6"
+    source: "https://editor.p5js.org/morris178/sketches/MDE2LNYA6"
 ---
 
 In this coding challenge, I attempt to code a p5.js version of the Snake Game.
