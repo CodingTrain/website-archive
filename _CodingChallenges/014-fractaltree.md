@@ -37,10 +37,10 @@ contributions:
     url: "https://github.com/RipplB/Recursive-fractal-tree"
     source: "https://github.com/RipplB/Recursive-fractal-tree"
   - title: "Blooming Effect & Rainbow Tree!"
-    author: 
+    author:
       name: "Arnav Sirigere"
       url: "https://github.com/Arnav-Sirigere/"
-    url: "https://editor.p5js.org/Arnav-Sirigere/full/ZCuoBe9DT"  
+    url: "https://editor.p5js.org/Arnav-Sirigere/full/ZCuoBe9DT"
     source: "https://editor.p5js.org/Arnav-Sirigere/sketches/ZCuoBe9DT"
 ---
 In this coding challenge, I'm going to show you how to create a Fractal Tree with a recursive algorithm in p5.js.
