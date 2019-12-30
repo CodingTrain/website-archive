@@ -36,6 +36,12 @@ contributions:
       url: "https://github.com/ravid7000"
     url: "https://editor.p5js.org/ravid7000/present/74w9Fcx4D"
     source: "https://editor.p5js.org/ravid7000/sketches/74w9Fcx4D"
+  - title: "Snowflake generator"
+    author:
+      name: "Clipi"
+      url: "https://github.com/Clipi-12"
+    url: "https://editor.p5js.org/Clipi/full/HEWqeH_XD"
+    source: "https://editor.p5js.org/Clipi/sketches/HEWqeH_XD"
 ---
 
 Happy holidays! #SupportP5! This video shows an attempt to make a snowflake from a "kaleidoscope painting" effect.
