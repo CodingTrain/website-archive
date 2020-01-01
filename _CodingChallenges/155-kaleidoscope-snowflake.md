@@ -45,7 +45,7 @@ contributions:
     - title: "Animated snowflake"
     author:
       name: "Marcus Whiteley"
-      url: "wheapps.com"
+      url: "https://www.wheapps.com/"
     url: "https://editor.p5js.org/MarcusW/full/fTJ0AyvYQ"
     source: "https://editor.p5js.org/MarcusW/sketches/fTJ0AyvYQ"
 ---
