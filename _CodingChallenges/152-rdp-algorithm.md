@@ -50,8 +50,5 @@ contributions:
     author: "Thomas Povinelli"
     url: "https://repl.it/@elunico/RDP-Algorithm"
     source: "https://github.com/elunico/RDP-Algorithm"
-    
 ---
-
 The Ramer–Douglas–Peucker algorithm (aka "iterative end-point fit algorithm"), takes a curve composed of line segments and reduces the fidelty to a "lower fidelity" curve with fewer points.
-
