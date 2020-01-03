@@ -9,9 +9,9 @@
 {% endcomment %}
 
 
-<div class="download-button">
-  <span class="title">{{ include.title }}</span>
-  <ul>
+<button class="submenu-button variation-button" for={{ include.title }} aria-haspopup="true">{{ include.title }}</button>
+  <div class="submenu" id={{ include.title }}>
+  <ul class="links">
     {% for variation in include.variations %}
       {% assign variationURL = include.baseURL | append: '/' | append: variation.folder %}
       <li><a href="{{ variationURL }}" target="_blank">{{ variation.name }}</a></li>
@@ -20,4 +20,5 @@
       <li><a href="{{ site.web_editor_sketch_prefix | append: page.web_editor }}" target="_blank">Web Editor</a></li>
     {% endif %}
   </ul>
+</div>
 </div>
