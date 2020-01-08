@@ -49,10 +49,10 @@ void draw() {
       
       line(mx, my, pmx, pmy);
       
-      push();
+      pushMatrix();
       scale(1, -1);
       line(mx, my, pmx, pmy);
-      pop();
+      popMatrix();
     }
   }
   

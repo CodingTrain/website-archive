@@ -27,5 +27,9 @@ contributions:
       url: "https://twitter.com/aminahmadahmadi/"
     url: "https://editor.p5js.org/AminCodingChallenge/full/hxRaq59Xt"
     source: "https://editor.p5js.org/AminCodingChallenge/sketches/hxRaq59Xt"
+  - title: "Rainy, Splashy, Windy Night"
+    author: "Aryaman Kejriwal"
+    url: "https://github.com/AryamanKejriwal"
+    source: "https://github.com/AryamanKejriwal/RainWithWindAndSplash"
 ---
 In this viewer submitted coding challenge, I attempt to code a Purple Rain Simulator in Processing.
