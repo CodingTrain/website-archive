@@ -5,8 +5,10 @@ date: 2016-04-19
 video_id: oPpnCh7InLY
 
 links:
-  - title: "Joey Lee on GitHub"
-    url: https://github.com/joeyklee
+  - title: "GitHub Website"
+    url: https://github.com/
+  - title: "Rainbow Poem Repository"
+    url: https://github.com/CodingTrain/Rainbow-Poem
 ---
 
 In this second video of the Git and GitHub for Poets tutorial series, we cover the concept of branches.
