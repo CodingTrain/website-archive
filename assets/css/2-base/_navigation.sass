@@ -57,6 +57,37 @@ nav
     width: auto
     height: auto
     overflow: hidden
+   
+  .links
+    a
+      @media (max-width: $tablet)
+          visibility: hidden
+          margin: 0.5em 0
+          text-shadow: none
+          background: $ct-blue
+          border: 2px solid $ct-blue
+          padding: 0.7em 1em
+          border-radius: $standard-border-radius
+          opacity: 0
+          transform: translateX(-3rem)
+          &:focus
+            border-color: #00008b
+          @for $i from 1 through 7
+            &:nth-child(#{abs($i - 8)})
+              transition:
+                property: all
+                duration: 150ms
+                delay: ($i - 1) * 75ms
+                timing-function: $timing-function
+
+  .submenu
+    @media (max-width: $tablet)
+      position: inherit
+      background: none
+      box-shadow: none
+      height: 0
+      overflow: hidden
+  
   width: 100%
   height: 5rem
   font-size: 16px
