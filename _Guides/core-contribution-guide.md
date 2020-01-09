@@ -30,6 +30,10 @@ After that, simply run
 ```
 $ docker-compose up
 ```
+Linux users may have to use `sudo` to build the site. It is a minor change to the original command, simply run
+```
+$ sudo docker-compose up
+```
 
 Docker will then run a container with all dependencies installed.
 Head over to `http://localhost:4000` to see the built site.
