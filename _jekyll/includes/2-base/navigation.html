@@ -9,7 +9,8 @@
     <li><a class="top-link" href="{{ '/' | relative_url }}" id="home">Home</a></li>
 
     <li>
-      <button class="submenu-button top-link" aria-haspopup="true" for="challenges-submenu">Challenges</button>
+      <button class="submenu-button top-link" aria-haspopup="true"
+        for="challenges-submenu"><span>Challenges</span></button>
       <div class="submenu" id="challenges-submenu">
         <ul class="links">
           <li><a href="{{ '/CodingChallenges' | relative_url }}">Coding Challenges</a></li>
@@ -19,18 +20,19 @@
     </li>
 
     <li>
-      <button class="submenu-button top-link" aria-haspopup="true" for="beginners-submenu">Beginners</button>
+      <button class="submenu-button top-link" aria-haspopup="true"
+        for="beginners-submenu"><span>Beginners</span></button>
       <div class="submenu" id="beginners-submenu">
         <ul class="links">
           <li><a href="{{ '/Tutorials' | relative_url }}">p5.js</a></li>
           <li><a href="{{ '/Courses/learning-processing' | relative_url }}">Processing</a></li>
-          <!-- <li><a href="{{ '/' | relative_url }}">Git and GitHub</a></li> -->
+          <li><a href="{{ '/beginners/git-and-github' | relative_url }}">Git and GitHub</a></li>
         </ul>
       </div>
     </li>
 
     <li>
-      <button class="submenu-button top-link" aria-haspopup="true" for="courses-submenu">Learning</button>
+      <button class="submenu-button top-link" aria-haspopup="true" for="courses-submenu"><span>Learning</span></button>
       <div class="submenu" id="courses-submenu">
         <ul class="links">
           <!-- <li><a href="{{ '/' | relative_url }}">Nature of Code</a></li> -->
@@ -43,7 +45,7 @@
     </li>
 
     <li>
-      <button class="submenu-button top-link" aria-haspopup="true" for="more-submenu">More</button>
+      <button class="submenu-button top-link" aria-haspopup="true" for="more-submenu"><span>More</span></button>
       <div class="submenu" id="more-submenu">
         <ul class="links">
           <li><a href="{{ '/Streams' | relative_url }}">Streams</a></li>
@@ -53,10 +55,12 @@
     </li>
 
     <li>
-      <button class="submenu-button top-link" aria-haspopup="true" for="contribute-submenu">Contribute</button>
+      <button class="submenu-button top-link" aria-haspopup="true"
+        for="contribute-submenu"><span>Contribute</span></button>
       <div class="submenu" id="contribute-submenu">
         <ul class="links">
-            <li><a href="{{ '/Guides/community-contribution-guide' | relative_url }}">Community Contribution Guide</a></li>
+          <li><a href="{{ '/Guides/community-contribution-guide' | relative_url }}">Community Contribution Guide</a>
+          </li>
           <li><a href="{{ site.github.repository_url }}" target="_blank">Github</a></li>
           <li><a href="{{ '/Guides' | relative_url }}">All Guides</a></li>
         </ul>

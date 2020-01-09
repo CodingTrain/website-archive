@@ -101,6 +101,7 @@ collections:
   Courses:           { output: true }
   Guides:            { output: true }
   TeachableMachine:  { output: true }
+  beginners:         { output: true }
 
 
 # --- Defaults ---
@@ -127,6 +128,13 @@ defaults:
     values:
       layout:           "video"
       video_type:       "Tutorial"
+      can_contribute:   false
+
+  # beginners
+  - scope:              { path: "", type: "beginners" }
+    values:
+      layout:           "video"
+      video_type:       "Lesson"
       can_contribute:   false
 
   # Coding in the Cabana

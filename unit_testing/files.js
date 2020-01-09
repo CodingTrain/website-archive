@@ -10,6 +10,7 @@ const yamlFolders = [
   '_Tutorials',
   '_CodingInTheCabana',
   '_TeachableMachine',
+  '_beginners',
 ];
 
 

@@ -43,6 +43,7 @@ let directories = {
   _Tutorials: formatDefinitions.video,
   _CodingInTheCabana: formatDefinitions.video,
   _TeachableMachine: formatDefinitions.video,
+  _beginners: formatDefinitions.video,
 };
 
 let knownVideos = {};
