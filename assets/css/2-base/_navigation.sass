@@ -57,6 +57,23 @@ nav
     width: auto
     height: auto
     overflow: hidden
+    width: 0%
+    height: 100%
+    top: 10rem
+    position: fixed
+    background: none
+  
+    &:hover
+      background: none
+    
+    
+  .submenu
+    @media (max-width: $tablet)
+      position: inherit
+      background: none
+      box-shadow: none
+      height: 0
+      overflow: hidden
    
   .links
     a
@@ -79,14 +96,6 @@ nav
                 duration: 150ms
                 delay: ($i - 1) * 75ms
                 timing-function: $timing-function
-
-  .submenu
-    @media (max-width: $tablet)
-      position: inherit
-      background: none
-      box-shadow: none
-      height: 0
-      overflow: hidden
   
   width: 100%
   height: 5rem
@@ -98,14 +107,7 @@ nav
   &:hover
     background: rgba(9,20,154,0.74)
   @media (max-width: $tablet)
-    width: 0%
-    height: 100%
-    top: 10rem
-    position: fixed
-    background: none
-  
-    &:hover
-      background: none
+    
   button
     font-size: 16px
     background: rgba(0,0,0,0)
@@ -136,37 +138,37 @@ nav
         border-color: #00008b
         span
           border-color: transparent
-    @extend .wrapper
-    list-style-type: none
-    height: 100%
-    display: flex
-    justify-content: center
-    align-items: center
-    @media (max-width: $tablet)
-      flex-direction: column
-      align-items: flex-start
-      height: auto
-      padding-left: 2rem
-    button
-      @media (max-width: $tablet)
-        margin: 0.5em 0
-    a
-      display: block
+    .links
+      @extend .wrapper
       list-style-type: none
-      margin: 0em 1em
-      padding: 0 2px
-      color: #FFF
-      border: 1px solid transparent
-      border-radius: 2px
-      @include text-style('title')
-      text-decoration: none
-      &:hover,
-        text-shadow: 0px 0px 5px #BBB
-      &:focus,
-        outline: none
-        border-color: $white
-        text-shadow: 0px 0px 5px #BBB
-      nav
+      height: 100%
+      display: flex
+      justify-content: center
+      align-items: center
+      @media (max-width: $tablet)
+        flex-direction: column
+        align-items: flex-start
+        height: auto
+        padding-left: 2rem
+      button
+        @media (max-width: $tablet)
+          margin: 0.5em 0
+      a
+        display: block
+        list-style-type: none
+        margin: 0em 1em
+        padding: 0 2px
+        color: #FFF
+        border: 1px solid transparent
+        border-radius: 2px
+        @include text-style('title')
+        text-decoration: none
+        &:hover,
+          text-shadow: 0px 0px 5px #BBB
+        &:focus,
+          outline: none
+          border-color: $white
+          text-shadow: 0px 0px 5px #BBB
         @media (max-width: $tablet)
           visibility: hidden
           margin: 0.5em 0
@@ -186,6 +188,7 @@ nav
                 duration: 150ms
                 delay: ($i - 1) * 75ms
                 timing-function: $timing-function
+      
 .submenu
   visibility: hidden
   position: fixed
