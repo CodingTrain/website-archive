@@ -7,7 +7,7 @@ video_id: f9vaiHoq-Fk
 topics:
   - title: "Resolving merge conflicts"
     time: "26:40"
-    video_id: "JtIX3HJKwfo"
+    url: /beginners/git-and-github/9-resolving-merge-conflicts
   - title: "XOR Problem"
     time: "52:51"
     url: "/CodingChallenges/092-xor"
