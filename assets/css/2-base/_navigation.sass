@@ -135,25 +135,26 @@ nav
         outline: none
         border-color: $white
         text-shadow: 0px 0px 5px #BBB
-      @media (max-width: $tablet)
-        visibility: hidden
-        margin: 0.5em 0
-        text-shadow: none
-        background: $ct-blue
-        border: 2px solid $ct-blue
-        padding: 0.7em 1em
-        border-radius: $standard-border-radius
-        opacity: 0
-        transform: translateX(-3rem)
-        &:focus
-          border-color: #00008b
-        @for $i from 1 through 7
-          &:nth-child(#{abs($i - 8)})
-            transition:
-              property: all
-              duration: 150ms
-              delay: ($i - 1) * 75ms
-              timing-function: $timing-function
+      nav
+        @media (max-width: $tablet)
+          visibility: hidden
+          margin: 0.5em 0
+          text-shadow: none
+          background: $ct-blue
+          border: 2px solid $ct-blue
+          padding: 0.7em 1em
+          border-radius: $standard-border-radius
+          opacity: 0
+          transform: translateX(-3rem)
+          &:focus
+            border-color: #00008b
+          @for $i from 1 through 7
+            &:nth-child(#{abs($i - 8)})
+              transition:
+                property: all
+                duration: 150ms
+                delay: ($i - 1) * 75ms
+                timing-function: $timing-function
 .submenu
   visibility: hidden
   position: fixed
@@ -164,12 +165,13 @@ nav
   border-bottom-left-radius: $standard-border-radius
   border-bottom-right-radius: $standard-border-radius
   box-shadow: 0px 6px 0px 0px rgba(0, 0, 0, 0.06)
-  @media (max-width: $tablet)
-    position: inherit
-    background: none
-    box-shadow: none
-    height: 0
-    overflow: hidden
+  nav
+    @media (max-width: $tablet)
+      position: inherit
+      background: none
+      box-shadow: none
+      height: 0
+      overflow: hidden
   .links
     flex-direction: column
     align-items: flex-start
