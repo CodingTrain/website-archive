@@ -63,13 +63,14 @@ nav
     padding-top: 2rem
     width: auto
     height: auto
-    overflow: hidden
+
   width: 100%
   height: 5rem
   font-size: 16px
+  overflow: hidden
   background: rgba(9,20,154,0.55)
   transition-delay: 0.3s
-  transition-property: width
+  transition-property: width transform
   transition-timing-function: ease
 
   &:hover
@@ -91,33 +92,13 @@ nav
     box-shadow: none
     color: $white
     vertical-align: none
-    cursor: pointer
-    *
-      pointer-events: none
-    span
-      border: 1px solid transparent
-      padding: 0 2px
-    &:hover,
-        text-shadow: 0px 0px 5px #BBB
-        transform: scale(1)
-    &:focus,
-      outline: none
-      text-shadow: 0px 0px 5px #BBB
-      transform: scale(1)
-      span
-        border: 1px solid $white
-        border-radius: 2px
-
-
+    
     @media (max-width: $tablet)
       background: $ct-blue
       border: 2px solid $ct-blue
       padding: 0.7em 1em
-
-      &:focus
-        border-color: #00008b
-        span
-          border-color: transparent
+  
+.links
     @extend .wrapper
     list-style-type: none
     height: 100%
@@ -151,26 +132,26 @@ nav
         outline: none
         border-color: $white
         text-shadow: 0px 0px 5px #BBB
-
-      @media (max-width: $tablet)
-        visibility: hidden
-        margin: 0.5em 0
-        text-shadow: none
-        background: $ct-blue
-        border: 2px solid $ct-blue
-        padding: 0.7em 1em
-        border-radius: $standard-border-radius
-        opacity: 0
-        transform: translateX(-3rem)
-        &:focus
-          border-color: #00008b
-        @for $i from 1 through 7
-          &:nth-child(#{abs($i - 8)})
-            transition:
-              property: all
-              duration: 150ms
-              delay: ($i - 1) * 75ms
-              timing-function: $timing-function
+      nav
+        @media (max-width: $tablet)
+          visibility: hidden
+          margin: 0.5em 0
+          text-shadow: none
+          background: $ct-blue
+          border: 2px solid $ct-blue
+          padding: 0.7em 1em
+          border-radius: $standard-border-radius
+          opacity: 0
+          transform: translateX(-3rem)
+          &:focus
+            border-color: #00008b
+          @for $i from 1 through 7
+            &:nth-child(#{abs($i - 8)})
+              transition:
+                property: all
+                duration: 150ms
+                delay: ($i - 1) * 75ms
+                timing-function: $timing-function
 
 .submenu
   visibility: hidden
@@ -183,12 +164,13 @@ nav
   border-bottom-right-radius: $standard-border-radius
   box-shadow: 0px 6px 0px 0px rgba(0, 0, 0, 0.06)
 
-  @media (max-width: $tablet)
-    position: inherit
-    background: none
-    box-shadow: none
-    height: 0
-    overflow: hidden
+  nav
+    @media (max-width: $tablet)
+      position: inherit
+      background: none
+      box-shadow: none
+      height: 0
+      overflow: hidden
 
   .links
     flex-direction: column
@@ -199,8 +181,7 @@ nav
       margin: 0
       margin-left: 1em
       padding: 0em 0
-      &:focus
-        border-color: #00008b
+
     li
       margin: 0.5em 0
       a
@@ -208,14 +189,14 @@ nav
           margin: 0
           background: $ct-purple
           border: 2px solid $ct-purple
-          &:focus
-            border-color: #00008b
+
 .submenu.active
   visibility: visible
 
   @media (max-width: $tablet)
     height: auto
     overflow: auto
+
 
 // Mobile Navigation Drawer
 .mobilenav-backdrop
