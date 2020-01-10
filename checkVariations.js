@@ -7,8 +7,8 @@ const client = new GitHub({
   token: process.env.OCTOCAT_KEY
 });
 (async () => {
-  let current_data = await client.get(`/gists/${process.env.GIST_ID}`);
-  current_data = current_data.body.files["CodingChallenge_Variations.md"].content;
+  let current_data = await client.get(`/repos/CodingTrain/website/issues/${process.env.ISSUE_NUMBER}`);
+  current_data = current_data.body;
   const yaml_files = fs.readdirSync("_CodingChallenges");
   for (const yaml_file of yaml_files) {
     const content = fs.readFileSync(`./_CodingChallenges/${yaml_file}`, "UTF8");
@@ -25,8 +25,7 @@ const client = new GitHub({
     });
   }
 
-  let result_table =
-    "| Number | Name | p5.js | Web Editor | Processing | Other | Number of Contributions |\n| --- | --- | --- | --- | --- | --- | --- | \n";
+  let result_table = "| Number | Name | p5.js | Web Editor | Processing | Other | Number of Contributions |\n| --- | --- | --- | --- | --- | --- | --- | \n";
 
   for (const challenge of challenges) {
     if (!challenge.repo) continue;
@@ -80,11 +79,7 @@ const client = new GitHub({
 
   //Upload content to GitHub Gist
   console.log("\x1b[32m", `Uploading result to GitHub Gist. Gist ID: ${process.env.GIST_ID}`);
-  client.patch(`/gists/${process.env.GIST_ID}`, {
-    files: {
-      "CodingChallenge_Variations.md": {
-        content: result_table
-      }
-    }
+  await client.patch(`/repos/CodingTrain/website/issues/${process.env.ISSUE_NUMBER}`, {
+    body: result_table
   });
 })();
