@@ -34,4 +34,4 @@ jobs:
       env:
         CI: true
         OCTOCAT_KEY: ${{ secrets.OCTOCAT_KEY }}
-        GIST_ID: ${{ secrets.GIST_ID }}
+        ISSUE_NUMBER: ${{ secrets.ISSUE_NUMBER }}
