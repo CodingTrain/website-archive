@@ -72,14 +72,16 @@ const client = new GitHub({
     result_table += line;
   }
 
-  if (current_data === result_table) {
+  result_table = "### This table is updated automatically\n" + result_table;
+
+  if (current_data.body === result_table) {
     console.log("\x1b[35m", "Aborting. The data has not changed.");
     process.exit(0);
   }
 
   //Upload content to GitHub Gist
-  console.log("\x1b[32m", `Uploading result to GitHub Gist. Gist ID: ${process.env.GIST_ID}`);
-  await client.patch(`/repos/CodingTrain/website/issues/${process.env.ISSUE_NUMBER}`, {
+  console.log("\x1b[32m", `Uploading result to GitHub Gist. Issue Number: ${process.env.ISSUE_NUMBER}`);
+  client.patch(`/repos/CodingTrain/website/issues/${process.env.ISSUE_NUMBER}`, {
     body: result_table
   });
 })();
