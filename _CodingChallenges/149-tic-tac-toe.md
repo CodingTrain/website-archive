@@ -131,5 +131,11 @@ contributions:
     author: "Sahil Jindal"
     url: "https://github.com/sahil-jindal/Tic-tac-toe"
     source: "https://github.com/sahil-jindal/Tic-tac-toe"
+  - title: "Tic Tac Toe with DOM manipulation"
+    author: 
+      name: "David Snyder"
+      url: "https://github.com/GypsyDangerous"
+    url: "https://codepen.io/Gypsydangerous/full/oNgMevp"
+    source: "https://codepen.io/Gypsydangerous/pen/oNgMevp"
 ---
 This is a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
