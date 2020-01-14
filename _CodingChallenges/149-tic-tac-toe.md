@@ -132,7 +132,7 @@ contributions:
     url: "https://github.com/sahil-jindal/Tic-tac-toe"
     source: "https://github.com/sahil-jindal/Tic-tac-toe"
   - title: "Tic Tac Toe with DOM manipulation"
-    author: 
+    author:
       name: "David Snyder"
       url: "https://github.com/GypsyDangerous"
     url: "https://codepen.io/Gypsydangerous/full/oNgMevp"
