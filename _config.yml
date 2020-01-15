@@ -6,7 +6,6 @@
 #    - set layout series-index for relevant files automatically (using a glob pattern).
 #
 
-
 # --- Site Settings ---
 
 # The site's title.
@@ -42,10 +41,11 @@ code_variations:
     folder: "JavaScript"
   - name: "Node.js"
     folder: "Node"
+  - name: "P5.JS"
+    folder: "p5-multi"
 
 # Links to other platforms.
 links:
-
   # Link to YouTube.
   youtube: https://youtube.com/thecodingtrain/
 
@@ -61,15 +61,13 @@ links:
   # Link to the Amazon store.
   amazon: https://www.amazon.com/shop/thecodingtrain
 
-
-
 # --- Build Settings ---
 
 # Use Kramdown as the preferred Markdown parser.
 markdown: kramdown
 
 # Exclude code for Node.js and Q_and_A
-exclude: [ 'Node', 'Q_and_A', 'unit_testing', 'node_modules', 'vendor/bundle/', 'vendor/cache/', 'vendor/gems/', 'vendor/ruby/' ]
+exclude: ["Node", "Q_and_A", "unit_testing", "node_modules", "vendor/bundle/", "vendor/cache/", "vendor/gems/", "vendor/ruby/"]
 
 # Include future videos (used for 'Upcoming Streams' section).
 future: true
@@ -78,100 +76,94 @@ future: true
 timezone: America/New_York
 
 # Compress HTML for production builds.
-compress_html: { ignore: { envs: ['development'] } }
+compress_html: { ignore: { envs: ["development"] } }
 
 # Search for SASS files inside assets/css.
-sass: { sass_dir: 'assets/css' }
+sass: { sass_dir: "assets/css" }
 
 # Use jekyll-redirect-from to allow redirections
 plugins:
   - jekyll-redirect-from
 
-
 # --- Jekyll Locations ---
-layouts_dir:  _jekyll/layouts
+layouts_dir: _jekyll/layouts
 includes_dir: _jekyll/includes
-
-
 
 # --- Collections ---
 collections:
-  Streams:           { output: true }
-  CodingChallenges:  { output: true }
-  Tutorials:         { output: true }
+  Streams: { output: true }
+  CodingChallenges: { output: true }
+  Tutorials: { output: true }
   CodingInTheCabana: { output: true }
-  GuestTutorials:    { output: true }
-  Courses:           { output: true }
-  Guides:            { output: true }
-  TeachableMachine:  { output: true }
-  beginners:         { output: true }
-
+  GuestTutorials: { output: true }
+  Courses: { output: true }
+  Guides: { output: true }
+  TeachableMachine: { output: true }
+  beginners: { output: true }
 
 # --- Defaults ---
 
 defaults:
-
   # Streams
-  - scope:              { path: "", type: "Streams" }
+  - scope: { path: "", type: "Streams" }
     values:
-      layout:           "video"
-      video_type:       "Stream"
-      can_contribute:   false
+      layout: "video"
+      video_type: "Stream"
+      can_contribute: false
 
   # Coding Challenges
-  - scope:              { path: "", type: "CodingChallenges" }
+  - scope: { path: "", type: "CodingChallenges" }
     values:
-      layout:           "video"
-      video_type:       "Coding Challenge"
+      layout: "video"
+      video_type: "Coding Challenge"
       video_type_short: "Challenge"
-      can_contribute:   true
+      can_contribute: true
 
   # Tutorials
-  - scope:              { path: "", type: "Tutorials" }
+  - scope: { path: "", type: "Tutorials" }
     values:
-      layout:           "video"
-      video_type:       "Tutorial"
-      can_contribute:   false
+      layout: "video"
+      video_type: "Tutorial"
+      can_contribute: false
 
   # beginners
-  - scope:              { path: "", type: "beginners" }
+  - scope: { path: "", type: "beginners" }
     values:
-      layout:           "video"
-      video_type:       "Lesson"
-      can_contribute:   false
+      layout: "video"
+      video_type: "Lesson"
+      can_contribute: false
 
   # Coding in the Cabana
-  - scope:              { path: "", type: "CodingInTheCabana" }
+  - scope: { path: "", type: "CodingInTheCabana" }
     values:
-      layout:           "video"
-      video_type:       "Coding in the Cabana"
+      layout: "video"
+      video_type: "Coding in the Cabana"
       video_type_short: "Cabana"
-      can_contribute:   true
+      can_contribute: true
 
   # Guest Tutorials
-  - scope:              { path: "", type: "GuestTutorials" }
+  - scope: { path: "", type: "GuestTutorials" }
     values:
-      layout:           "video"
-      video_type:       "Guest Tutorial"
+      layout: "video"
+      video_type: "Guest Tutorial"
       video_type_short: "Tutorial"
-      can_contribute:   true
+      can_contribute: true
 
   # Courses
-  - scope:              { path: "", type: "Courses" }
+  - scope: { path: "", type: "Courses" }
     values:
-      layout:           "video"
-      video_type:       "Session"
-      can_contribute:   false
+      layout: "video"
+      video_type: "Session"
+      can_contribute: false
 
-  - scope:              { path: "", type: "Guides" }
+  - scope: { path: "", type: "Guides" }
     values:
-      layout:           "guide"
-
+      layout: "guide"
 
   # Teachable Machine
-  - scope:              { path: "", type: "TeachableMachine" }
+  - scope: { path: "", type: "TeachableMachine" }
     values:
-      layout:           "video"
-      video_type:       "Teachable Machine"
+      layout: "video"
+      video_type: "Teachable Machine"
       video_type_short: "Tutorial"
-      can_contribute:   true
+      can_contribute: true
