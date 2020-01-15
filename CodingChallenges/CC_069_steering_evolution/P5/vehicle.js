@@ -53,7 +53,6 @@ function Vehicle(x, y, dna) {
 
   // Method to update location
   this.update = function() {
-
     this.health -= 0.005;
 
     // Update velocity
@@ -63,12 +62,12 @@ function Vehicle(x, y, dna) {
     this.position.add(this.velocity);
     // Reset accelerationelertion to 0 each cycle
     this.acceleration.mult(0);
-  }
+  };
 
   this.applyForce = function(force) {
     // We could add mass here if we want A = F / M
     this.acceleration.add(force);
-  }
+  };
 
   this.behaviors = function(good, bad) {
     var steerG = this.eat(good, 0.2, this.dna[2]);
@@ -79,7 +78,7 @@ function Vehicle(x, y, dna) {
 
     this.applyForce(steerG);
     this.applyForce(steerB);
-  }
+  };
 
   this.clone = function() {
     if (random(1) < 0.002) {
@@ -87,7 +86,7 @@ function Vehicle(x, y, dna) {
     } else {
       return null;
     }
-  }
+  };
 
   this.eat = function(list, nutrition, perception) {
     var record = Infinity;
@@ -113,12 +112,11 @@ function Vehicle(x, y, dna) {
     }
 
     return createVector(0, 0);
-  }
+  };
 
   // A method that calculates a steering force towards a target
   // STEER = DESIRED MINUS VELOCITY
   this.seek = function(target) {
-
     var desired = p5.Vector.sub(target, this.position); // A vector pointing from the location to the target
 
     // Scale to maximum speed
@@ -130,11 +128,11 @@ function Vehicle(x, y, dna) {
 
     return steer;
     //this.applyForce(steer);
-  }
+  };
 
   this.dead = function() {
-    return (this.health < 0)
-  }
+    return this.health < 0;
+  };
 
   this.display = function() {
     // Draw a triangle rotated in the direction of velocity
@@ -143,7 +141,6 @@ function Vehicle(x, y, dna) {
     push();
     translate(this.position.x, this.position.y);
     rotate(angle);
-
 
     if (debug.checked()) {
       strokeWeight(3);
@@ -171,8 +168,7 @@ function Vehicle(x, y, dna) {
     endShape(CLOSE);
 
     pop();
-  }
-
+  };
 
   this.boundaries = function() {
     var d = 25;
@@ -198,5 +194,5 @@ function Vehicle(x, y, dna) {
       steer.limit(this.maxforce);
       this.applyForce(steer);
     }
-  }
+  };
 }

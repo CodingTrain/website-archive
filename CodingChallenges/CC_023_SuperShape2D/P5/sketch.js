@@ -20,12 +20,11 @@ function setup() {
 }
 
 function supershape(theta) {
-
-  var part1 = (1 / a) * cos(theta * m / 4);
+  var part1 = (1 / a) * cos((theta * m) / 4);
   part1 = abs(part1);
   part1 = pow(part1, n2);
 
-  var part2 = (1 / b) * sin(theta * m / 4);
+  var part2 = (1 / b) * sin((theta * m) / 4);
   part2 = abs(part2);
   part2 = pow(part2, n3);
 
@@ -35,9 +34,8 @@ function supershape(theta) {
     return 0;
   }
 
-  return (1 / part3);
+  return 1 / part3;
 }
-
 
 function draw() {
   m = map(sin(osc), -1, 1, 0, 10); //slider.value();
@@ -63,6 +61,4 @@ function draw() {
     vertex(x, y);
   }
   endShape(CLOSE);
-
-
 }

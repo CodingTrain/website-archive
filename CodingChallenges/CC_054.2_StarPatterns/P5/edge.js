@@ -19,7 +19,7 @@ function Edge(a, b) {
     line(this.a.x, this.a.y, this.b.x, this.b.y);
     this.h1.show();
     this.h2.show();
-  }
+  };
 
   this.hankin = function(sides) {
     var mid = p5.Vector.add(this.a, this.b);
@@ -46,7 +46,7 @@ function Edge(a, b) {
     v2.rotate(radians(angle));
 
     // Calculate interior angle
-    var interior = (sides - 2) * PI / sides;
+    var interior = ((sides - 2) * PI) / sides;
     // Law of sines right here!
     var alpha = interior * 0.5;
     var beta = PI - radians(angle) - alpha;
@@ -57,7 +57,5 @@ function Edge(a, b) {
 
     this.h1 = new Hankin(offset1, v1);
     this.h2 = new Hankin(offset2, v2);
-
-  }
-
+  };
 }

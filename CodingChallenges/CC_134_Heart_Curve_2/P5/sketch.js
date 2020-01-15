@@ -33,7 +33,6 @@ function render(percent) {
   }
   endShape();
 
-
   if (percent < 0.5) {
     const a = map(percent, 0, 0.5, 0, TWO_PI);
     const x = 16 * pow(sin(a), 3);
@@ -42,5 +41,4 @@ function render(percent) {
   } else {
     heart.splice(0, 1);
   }
-
 }

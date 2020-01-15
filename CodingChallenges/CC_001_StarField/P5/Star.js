@@ -17,7 +17,7 @@ function Star() {
       this.y = random(-height, height);
       this.pz = this.z;
     }
-  }
+  };
 
   this.show = function() {
     fill(255);
@@ -36,6 +36,5 @@ function Star() {
 
     stroke(255);
     line(px, py, sx, sy);
-
-  }
+  };
 }

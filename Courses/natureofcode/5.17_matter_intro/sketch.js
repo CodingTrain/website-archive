@@ -22,7 +22,7 @@ function setup() {
   //Engine.run(engine);
   var options = {
     isStatic: true
-  }
+  };
   ground = Bodies.rectangle(200, height, width, 100, options);
 
   World.add(world, ground);
@@ -47,5 +47,4 @@ function draw() {
   fill(170);
   rectMode(CENTER);
   rect(ground.position.x, ground.position.y, width, 100);
-
 }

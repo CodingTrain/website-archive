@@ -11,6 +11,5 @@ function Leaf() {
     fill(255);
     noStroke();
     ellipse(this.pos.x, this.pos.y, 4, 4);
-  }
-
+  };
 }

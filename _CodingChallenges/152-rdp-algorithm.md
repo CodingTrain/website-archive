@@ -41,7 +41,14 @@ contributions:
       url: "https://www.instagram.com/motus_art/"
     url: "https://owenmcateer.github.io/Motus-Art/projects/week_74.html"
     source: "https://github.com/owenmcateer/Motus-Art/blob/master/src/week_74/main.js"
+  - title: "Draw, Reduce, Make Curves"
+    author: "Ignotus El Mago"
+    url: "https://github.com/Ignotus-mago/DrawReduceMakeCurves"
+    source: "https://github.com/Ignotus-mago/DrawReduceMakeCurves"
+    video_id: U4aC8tJkbtA
+  - title: "RDP Line Simplification in Python with matplotlib"
+    author: "Thomas Povinelli"
+    url: "https://repl.it/@elunico/RDP-Algorithm"
+    source: "https://github.com/elunico/RDP-Algorithm"
 ---
-
 The Ramer–Douglas–Peucker algorithm (aka "iterative end-point fit algorithm"), takes a curve composed of line segments and reduces the fidelty to a "lower fidelity" curve with fewer points.
-

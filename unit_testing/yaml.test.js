@@ -44,6 +44,7 @@ let directories = {
   _CodingInTheCabana: formatDefinitions.video,
   _FAQ: formatDefinitions.faq,
   _TeachableMachine: formatDefinitions.video,
+  _beginners: formatDefinitions.video,
 };
 
 let knownVideos = {};

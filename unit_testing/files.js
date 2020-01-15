@@ -11,6 +11,7 @@ const yamlFolders = [
   '_CodingInTheCabana',
   '_FAQ',
   '_TeachableMachine',
+  '_beginners',
 ];
 
 

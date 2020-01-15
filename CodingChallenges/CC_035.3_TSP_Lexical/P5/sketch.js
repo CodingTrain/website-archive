@@ -11,7 +11,6 @@ var order = [];
 var totalPermutations;
 var count = 0;
 
-
 var recordDistance;
 var bestEver;
 
@@ -29,7 +28,6 @@ function setup() {
 
   totalPermutations = factorial(totalCities);
   console.log(totalPermutations);
-
 }
 
 function draw() {
@@ -50,7 +48,6 @@ function draw() {
   }
   endShape();
 
-
   translate(0, height / 2);
   stroke(255);
   strokeWeight(1);
@@ -61,8 +58,6 @@ function draw() {
     vertex(cities[n].x, cities[n].y);
   }
   endShape();
-
-
 
   var d = calcDistance(cities, order);
   if (d < recordDistance) {
@@ -77,11 +72,9 @@ function draw() {
   // }
   fill(255);
   var percent = 100 * (count / totalPermutations);
-  text(nf(percent, 0, 2) + "% completed", 20, height / 2 - 50);
+  text(nf(percent, 0, 2) + '% completed', 20, height / 2 - 50);
 
   nextOrder();
-
-
 }
 
 function swap(a, i, j) {
@@ -89,7 +82,6 @@ function swap(a, i, j) {
   a[i] = a[j];
   a[j] = temp;
 }
-
 
 function calcDistance(points, order) {
   var sum = 0;

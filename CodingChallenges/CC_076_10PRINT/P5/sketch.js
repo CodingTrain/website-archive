@@ -26,5 +26,4 @@ function draw() {
     x = 0;
     y = y + spacing;
   }
-
 }

@@ -10,14 +10,12 @@ let gravity;
 
 let zOff = 0;
 
-
 let spritesheet;
 let textures = [];
 
 function preload() {
   spritesheet = loadImage('flakes32.png');
 }
-
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -30,18 +28,12 @@ function setup() {
     }
   }
 
-
   for (let i = 0; i < 400; i++) {
     let x = random(width);
     let y = random(height);
     let design = random(textures);
     snow.push(new Snowflake(x, y, design));
   }
-
-
-
-
-
 }
 
 function draw() {
@@ -68,5 +60,4 @@ function draw() {
   //     snow.splice(i, 1);
   //   }
   // }
-
 }

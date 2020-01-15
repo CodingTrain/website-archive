@@ -36,8 +36,8 @@ function setup() {
 
   const mouse = Mouse.create(canvas.elt);
   const options = {
-    mouse: mouse,
-  }
+    mouse: mouse
+  };
 
   // A fix for HiDPI displays
   mouse.pixelRatio = pixelDensity();
@@ -51,7 +51,6 @@ function keyPressed() {
     bird = new Bird(150, 300, 25);
     slingshot.attach(bird.body);
   }
-
 }
 
 function mouseReleased() {

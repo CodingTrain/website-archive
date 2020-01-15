@@ -7,8 +7,8 @@ const client = new GitHub({
   token: process.env.OCTOCAT_KEY
 });
 (async () => {
-  let current_data = await client.get(`/gists/${process.env.GIST_ID}`);
-  current_data = current_data.body.files["CodingChallenge_Variations.md"].content;
+  let current_data = await client.get(`/repos/CodingTrain/website/issues/${process.env.ISSUE_NUMBER}`);
+  current_data = current_data.body;
   const yaml_files = fs.readdirSync("_CodingChallenges");
   for (const yaml_file of yaml_files) {
     const content = fs.readFileSync(`./_CodingChallenges/${yaml_file}`, "UTF8");
@@ -25,8 +25,7 @@ const client = new GitHub({
     });
   }
 
-  let result_table =
-    "| Number | Name | p5.js | Web Editor | Processing | Other | Number of Contributions |\n| --- | --- | --- | --- | --- | --- | --- | \n";
+  let result_table = "| Number | Name | p5.js | Web Editor | Processing | Other | Number of Contributions |\n| --- | --- | --- | --- | --- | --- | --- | \n";
 
   for (const challenge of challenges) {
     if (!challenge.repo) continue;
@@ -73,24 +72,16 @@ const client = new GitHub({
     result_table += line;
   }
 
-  if (current_data === result_table) {
+  result_table = "### This table is updated automatically\n" + result_table;
+
+  if (current_data.body === result_table) {
     console.log("\x1b[35m", "Aborting. The data has not changed.");
     process.exit(0);
   }
 
-  //Obsolete since the result has moved to GitHub Gists
-  // if (fs.existsSync('CodingChallenge_Variations.md')) {
-  //   fs.unlinkSync('CodingChallenge_Variations.md');
-  // }
-  // fs.writeFileSync('CodingChallenge_Variations.md', result_table, 'UTF8');
-
   //Upload content to GitHub Gist
-  console.log("\x1b[32m", `Uploading result to GitHub Gist. Gist ID: ${process.env.GIST_ID}`);
-  client.patch(`/gists/${process.env.GIST_ID}`, {
-    files: {
-      "CodingChallenge_Variations.md": {
-        content: result_table
-      }
-    }
+  console.log("\x1b[32m", `Uploading result to GitHub Gist. Issue Number: ${process.env.ISSUE_NUMBER}`);
+  client.patch(`/repos/CodingTrain/website/issues/${process.env.ISSUE_NUMBER}`, {
+    body: result_table
   });
 })();

@@ -19,7 +19,7 @@ function Edge(a, b) {
     //line(this.a.x, this.a.y, this.b.x, this.b.y);
     this.h1.show();
     this.h2.show();
-  }
+  };
 
   this.hankin = function() {
     var mid = p5.Vector.add(this.a, this.b);
@@ -38,21 +38,17 @@ function Edge(a, b) {
     v1.normalize();
     v2.normalize();
 
-
     v1.rotate(radians(-angle));
     v2.rotate(radians(angle));
 
     this.h1 = new Hankin(offset1, v1);
     this.h2 = new Hankin(offset2, v2);
-
-  }
+  };
 
   this.findEnds = function(edge) {
     this.h1.findEnd(edge.h1);
     this.h1.findEnd(edge.h2);
     this.h2.findEnd(edge.h1);
     this.h2.findEnd(edge.h2);
-  }
-
-
+  };
 }

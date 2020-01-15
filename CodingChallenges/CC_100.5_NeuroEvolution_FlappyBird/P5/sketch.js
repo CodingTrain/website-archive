@@ -18,10 +18,9 @@ let counter = 0;
 let brainJSON;
 
 function preload() {
-  brainJSON = loadJSON("best_bird.json");
+  brainJSON = loadJSON('best_bird.json');
   //brainJSON = loadJSON("bad_bird.json");
 }
-
 
 function setup() {
   createCanvas(640, 480);
@@ -31,7 +30,6 @@ function setup() {
 }
 
 function draw() {
-
   for (let n = 0; n < slider.value(); n++) {
     if (counter % 75 == 0) {
       pipes.push(new Pipe());
@@ -42,7 +40,7 @@ function draw() {
       pipes[i].update();
 
       if (pipes[i].hits(bird)) {
-        console.log("collision");
+        console.log('collision');
       }
       if (pipes[i].offscreen()) {
         pipes.splice(i, 1);
@@ -50,14 +48,11 @@ function draw() {
     }
 
     if (bird.offScreen()) {
-      console.log("bottom");
+      console.log('bottom');
     }
-
 
     bird.think(pipes);
     bird.update();
-
-
 
     // All the drawing stuff
     background(0);

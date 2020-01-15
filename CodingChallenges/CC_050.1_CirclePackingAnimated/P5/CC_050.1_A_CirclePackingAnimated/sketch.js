@@ -12,7 +12,7 @@ function setup() {
 
 function draw() {
   background(0);
-  frameRate(20)
+  frameRate(20);
 
   var total = 5;
   var count = 0;
@@ -27,7 +27,7 @@ function draw() {
     attempts++;
     if (attempts > 100) {
       noLoop();
-      console.log("finished");
+      console.log('finished');
       break;
     }
   }

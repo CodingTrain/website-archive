@@ -16,19 +16,19 @@ function setup() {
   // createP("This is a random number " + random(100));
 
   paragraph = select('#unicorn');
-  
+
   for (var i = 0; i < 100; i++) {
     var par = createP('rainbow');
     par.position(random(500), random(500));
   }
   paragraphs = selectAll('p');
   // paragraphs = selectAll('.rainbow');
-  
+
   for (var i = 0; i < paragraphs.length; i++) {
     paragraphs[i].mouseOver(highlight);
     paragraphs[i].mouseOut(unhighlight);
   }
-  
+
   // paragraph = select('#unicorn');
   // paragraph.mouseOver(highlight);
   // paragraph.mouseOut(unhighlight);

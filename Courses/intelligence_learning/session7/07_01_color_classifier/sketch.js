@@ -26,9 +26,6 @@ function setup() {
 
   let submit = createButton('submit');
   submit.mousePressed(sendData);
-
-
-
 }
 
 function sendData() {

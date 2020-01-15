@@ -27,7 +27,6 @@ function draw() {
   loadPixels();
   for (var x = 0; x < width; x++) {
     for (var y = 0; y < height; y++) {
-
       var a = map(x, 0, width, minSlider.value(), maxSlider.value());
       var b = map(y, 0, height, minSlider.value(), maxSlider.value());
 

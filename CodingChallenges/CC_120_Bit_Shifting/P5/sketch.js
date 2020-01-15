@@ -24,7 +24,6 @@ function setup() {
   }
 }
 
-
 function shiftBits() {
   let num = getBinaryString();
   let val = binaryToDecimal(num);
@@ -33,9 +32,6 @@ function shiftBits() {
   for (let i = 0; i < 8; i++) {
     byte[i].setState(num.charAt(i));
   }
-
-
-
 }
 
 function getBinaryString() {
@@ -45,7 +41,6 @@ function getBinaryString() {
     num += byte[i].state ? '1' : '0';
   }
   return num;
-
 }
 
 function draw() {
@@ -54,13 +49,11 @@ function draw() {
   decimalP.html(binaryToDecimal(num));
 }
 
-
 function mousePressed() {
   for (let i = 0; i < byte.length; i++) {
     byte[i].toggle(mouseX, mouseY);
   }
 }
-
 
 function decimalToBinary(num) {
   let bits = '';
@@ -73,8 +66,6 @@ function decimalToBinary(num) {
   }
   return bits;
 }
-
-
 
 function binaryToDecimal(val) {
   let sum = 0;

@@ -69,7 +69,6 @@ function setup() {
     }
   }
 
-
   // Start and end
   start = grid[0][0];
   end = grid[cols - 1][rows - 1];
@@ -81,10 +80,8 @@ function setup() {
 }
 
 function draw() {
-
   // Am I still searching?
   if (openSet.length > 0) {
-
     // Best next option
     var winner = 0;
     for (var i = 0; i < openSet.length; i++) {
@@ -97,7 +94,7 @@ function draw() {
     // Did I finish?
     if (current === end) {
       noLoop();
-      console.log("DONE!");
+      console.log('DONE!');
     }
 
     // Best option moves from openSet to closedSet
@@ -133,9 +130,8 @@ function draw() {
           neighbor.previous = current;
         }
       }
-
     }
-  // Uh oh, no solution
+    // Uh oh, no solution
   } else {
     console.log('no solution');
     noLoop();
@@ -159,7 +155,6 @@ function draw() {
     openSet[i].show(color(0, 255, 0, 50));
   }
 
-
   // Find the path by working backwards
   path = [];
   var temp = current;
@@ -169,9 +164,8 @@ function draw() {
     temp = temp.previous;
   }
 
-
   // for (var i = 0; i < path.length; i++) {
-    // path[i].show(color(0, 0, 255));
+  // path[i].show(color(0, 0, 255));
   //}
 
   // Drawing path as continuous line
@@ -183,7 +177,4 @@ function draw() {
     vertex(path[i].i * w + w / 2, path[i].j * h + h / 2);
   }
   endShape();
-
-
-
 }

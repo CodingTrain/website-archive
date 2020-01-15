@@ -7,7 +7,7 @@ var circles;
 var img;
 
 function preload() {
-  img = loadImage("assets/kitten.jpg");
+  img = loadImage('assets/kitten.jpg');
 }
 
 function setup() {
@@ -19,8 +19,8 @@ function setup() {
 
   console.log(img.width);
   console.log(img.height);
-  console.log("pixels", img.pixels.length);
-  console.log(density)
+  console.log('pixels', img.pixels.length);
+  console.log(density);
 }
 
 function draw() {
@@ -39,7 +39,7 @@ function draw() {
     attempts++;
     if (attempts > 1000) {
       noLoop();
-      console.log("finished");
+      console.log('finished');
       break;
     }
   }
@@ -87,9 +87,9 @@ function newCircle() {
   if (valid) {
     var index = (int(x) + int(y) * img.width) * 4;
     var r = img.pixels[index];
-    var g = img.pixels[index+1];
-    var b = img.pixels[index+2];
-    var c = color(r,g,b);
+    var g = img.pixels[index + 1];
+    var b = img.pixels[index + 2];
+    var c = color(r, g, b);
     return new Circle(x, y, color(c));
   } else {
     return null;

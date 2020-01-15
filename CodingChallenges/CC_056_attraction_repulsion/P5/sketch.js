@@ -40,5 +40,4 @@ function draw() {
     particle.update();
     particle.show();
   }
-
 }

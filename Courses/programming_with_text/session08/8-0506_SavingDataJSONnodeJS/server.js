@@ -17,7 +17,7 @@ var app = express();
 var server = app.listen(3000, listening);
 
 function listening() {
-  console.log("listening. . . ");
+  console.log('listening. . . ');
 }
 
 app.use(express.static('website'));
@@ -31,27 +31,24 @@ function addWord(request, response) {
   var reply;
   if (!score) {
     var reply = {
-      msg: "Score is required."
-    }
+      msg: 'Score is required.'
+    };
     response.send(reply);
   } else {
     words[word] = score;
     var data = JSON.stringify(words, null, 2);
     fs.writeFile('words.json', data, finished);
-
-    function finished(err) {
-      console.log('all set.');
-      reply = {
-        word: word,
-        score: score,
-        status: "success"
-      }
-      response.send(reply);
-    }
-
-
   }
+}
 
+function finished(err) {
+  console.log('all set.');
+  reply = {
+    word: word,
+    score: score,
+    status: 'success'
+  };
+  response.send(reply);
 }
 
 app.get('/all', sendAll);
@@ -67,15 +64,15 @@ function searchWord(request, response) {
   var reply;
   if (words[word]) {
     reply = {
-      status: "found",
+      status: 'found',
       word: word,
       score: words[word]
-    }
+    };
   } else {
     reply = {
-      status: "not found",
+      status: 'not found',
       word: word
-    }
+    };
   }
   response.send(reply);
 }

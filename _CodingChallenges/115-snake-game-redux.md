@@ -47,6 +47,18 @@ contributions:
       url: "https://github.com/zlyfer"
     url: "https://zlyfer.net/sites/games/snake/"
     source: "https://github.com/zlyfer/snake"
+  - title: "Snake game 16x8 display"
+    author:
+      name: "David Snyder"
+      url: "https://github.com/GypsyDangerous"
+    url: "https://editor.p5js.org/D_Snyder/full/dccXgYaes"
+    source: "https://editor.p5js.org/D_Snyder/sketches/dccXgYaes"
+  - title: "Snake Game AI"
+    author:
+      name: "Mike Kuijper"
+      url: "https://github.com/MikeKuijper"
+    url: "https://mikekuijper.github.io/ai-snake"
+    source: "https://github.com/MikeKuijper/ai-snake"
 ---
 
 Snake Game!? Again!? Now with the p5.js Web Editor!

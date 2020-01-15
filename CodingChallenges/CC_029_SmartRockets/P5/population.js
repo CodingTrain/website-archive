@@ -17,7 +17,6 @@ function Population() {
   }
 
   this.evaluate = function() {
-
     var maxfit = 0;
     // Iterate through all rockets and calcultes their fitness
     for (var i = 0; i < this.popsize; i++) {
@@ -42,7 +41,7 @@ function Population() {
         this.matingpool.push(this.rockets[i]);
       }
     }
-  }
+  };
   // Selects appropriate genes for child
   this.selection = function() {
     var newRockets = [];
@@ -58,7 +57,7 @@ function Population() {
     }
     // This instance of rockets are the new rockets
     this.rockets = newRockets;
-  }
+  };
 
   // Calls for update and show functions
   this.run = function() {
@@ -67,5 +66,5 @@ function Population() {
       // Displays rockets to screen
       this.rockets[i].show();
     }
-  }
+  };
 }

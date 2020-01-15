@@ -26,32 +26,28 @@ let colorByLabel = {
   'purple-ish': [],
   'brown-ish': [],
   'orange-ish': [],
-  'yellow-ish': [],
-}
+  'yellow-ish': []
+};
 
 let label = 'grey-ish';
-
 
 function setup() {
   createCanvas(400, 400);
 
-
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyDPekCKX4ee6h9NVR2lEITGAM0XIHn-c7c",
-    authDomain: "color-classification.firebaseapp.com",
-    databaseURL: "https://color-classification.firebaseio.com",
-    projectId: "color-classification",
-    storageBucket: "",
-    messagingSenderId: "590040209608"
+    apiKey: 'AIzaSyDPekCKX4ee6h9NVR2lEITGAM0XIHn-c7c',
+    authDomain: 'color-classification.firebaseapp.com',
+    databaseURL: 'https://color-classification.firebaseio.com',
+    projectId: 'color-classification',
+    storageBucket: '',
+    messagingSenderId: '590040209608'
   };
   firebase.initializeApp(config);
   database = firebase.database();
   let ref = database.ref('colors');
   ref.once('value', gotData); //, errorData);
 }
-
-
 
 function gotData(results) {
   let data = results.val();
@@ -67,14 +63,14 @@ function gotData(results) {
     //let col = color(record.r, record.g, record.b);
     colorByLabel[record.label].push(record);
 
-
-    if(record.uid == 'YGdqOTDDmrbGm80gM5UHicxMBgS2') {
+    if (record.uid == 'YGdqOTDDmrbGm80gM5UHicxMBgS2') {
       userData.push(record);
     }
   }
 
   // Visualizing Data by User
-  userData.sort((a,b) => {a.label > b.label
+  userData.sort((a, b) => {
+    a.label > b.label;
     if (a.label > b.label) {
       return 1;
     } else {
@@ -83,16 +79,14 @@ function gotData(results) {
   });
 
   let title = createDiv(`Data Entered by ${userData[0].uid}`);
-  title.style('padding-top','50px');
+  title.style('padding-top', '50px');
   for (let entry of userData) {
     let div = createDiv(entry.label);
     let colorBox = createDiv('');
     colorBox.parent(div);
-    colorBox.size(10,10);
-    colorBox.style('background-color',`rgb(${entry.r},${entry.g},${entry.b})`)
+    colorBox.size(10, 10);
+    colorBox.style('background-color', `rgb(${entry.r},${entry.g},${entry.b})`);
   }
-
-
 
   // Visualizing Data by Color Label
   let blues = colorByLabel[label];
@@ -101,7 +95,7 @@ function gotData(results) {
   for (let i = 0; i < blues.length; i++) {
     noStroke();
     fill(blues[i].r, blues[i].g, blues[i].b);
-    rect(x,y,10,10);
+    rect(x, y, 10, 10);
     x += 10;
     if (x >= width) {
       x = 0;
@@ -145,5 +139,4 @@ function gotData(results) {
   // }
 
   //console.log(uid_bycount)
-
 }

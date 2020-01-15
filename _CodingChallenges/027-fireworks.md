@@ -42,6 +42,14 @@ contributions:
       url: https://anuraghazra.github.io
     url: https://anuraghazra.github.io/CanvasFun/fireworks/
     source: https://github.com/anuraghazra/CanvasFun/tree/master/fireworks
+  - title: "Text Fireworks!"
+    author: "Arnav Sirigere"
+    url: https://editor.p5js.org/Arnav-Sirigere/full/gHb_ytBvB
+    source: https://editor.p5js.org/Arnav-Sirigere/sketches/gHb_ytBvB
+  - title: "New Year Fireworks"
+    author: "Karol Zachura"
+    url: https://media.giphy.com/media/XxSadBn6UaU0bWqqTV/giphy.gif
+    source: https://github.com/f0uu/processing_projects/tree/master/new_year_fireworks
 ---
 
 In this 4th of July themed coding challenge, I build an HTML5 canvas fireworks simulation from scratch using the p5.js JavaScript library. I also show how to use Processing to create 3D Fireworks.

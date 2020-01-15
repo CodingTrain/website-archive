@@ -13,12 +13,12 @@ let pen;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   setupNewSketch();
-  model = ml5.SketchRNN("snowflake", modelReady);
+  model = ml5.SketchRNN('snowflake', modelReady);
   background(0);
 }
 
 function modelReady() {
-  console.log("model ready");
+  console.log('model ready');
   model.reset();
   model.generate(gotSketch);
 }
@@ -28,7 +28,7 @@ function draw() {
   if (strokePath != null) {
     let newX = x + strokePath.dx * 0.2;
     let newY = y + strokePath.dy * 0.2;
-    if (pen == "down") {
+    if (pen == 'down') {
       stroke(255);
       strokeWeight(2);
       line(x, y, newX, newY);
@@ -38,14 +38,14 @@ function draw() {
     x = newX;
     y = newY;
 
-    if (pen !== "end") {
+    if (pen !== 'end') {
       model.generate(gotSketch);
     } else {
-      console.log("drawing complete");
+      console.log('drawing complete');
       // In the video forgot to reset the pen to "down"
       // along with the x,y position so here is a new
       // function that takes care of both!
-      setupNewSketch(); 
+      setupNewSketch();
       model.reset();
       model.generate(gotSketch);
     }
@@ -62,7 +62,7 @@ function gotSketch(error, s) {
 }
 
 function setupNewSketch() {
-  pen = "down";
+  pen = 'down';
   x = random(-width / 2, width / 2);
   y = random(-height / 2, height / 2);
 }

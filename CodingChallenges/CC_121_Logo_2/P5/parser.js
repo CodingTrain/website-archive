@@ -15,7 +15,9 @@ class Parser {
   }
 
   getRepeat() {
-    while (this.text.charAt(this.index++) !== '[' && this.remainingTokens()) {}
+    while (this.text.charAt(this.index++) !== '[' && this.remainingTokens()) {
+      /* empty */
+    }
     let start = this.index;
 
     let bracketCount = 1;
@@ -78,6 +80,4 @@ class Parser {
     }
     return commands;
   }
-
-
 }

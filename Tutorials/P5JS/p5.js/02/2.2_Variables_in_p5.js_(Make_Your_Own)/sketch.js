@@ -14,6 +14,6 @@ function draw() {
   // ellipse
   fill(250, 200, 200);
   ellipse(circleX, 200, 80, 80);
-  
+
   circleX = circleX + 1;
 }

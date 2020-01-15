@@ -15,21 +15,20 @@ function setup() {
     var p = createA('#', 'apples');
     var x = floor(random(windowWidth));
     var y = floor(random(windowHeight));
-    p.position(x,y);
-    p.class('apple')
+    p.position(x, y);
+    p.class('apple');
   }
 
   for (i = 0; i < 10; i++) {
     // var p = createP('blueberries');
     // var p = createA('http://google.com', 'blueberries')
-    p = createA('#', 'blueberries')
+    p = createA('#', 'blueberries');
     x = floor(random(windowWidth));
     y = floor(random(windowHeight));
-    p.position(x,y);
+    p.position(x, y);
     p.class('blueberry');
-    p.mousePressed(becomeApple)
-  } 
-  
+    p.mousePressed(becomeApple);
+  }
 }
 
 function becomeApple() {
@@ -37,16 +36,4 @@ function becomeApple() {
   this.class('apple');
 }
 
-function draw() {
-  
-}
-
-
-
-
-
-
-
-
-
-
+function draw() {}

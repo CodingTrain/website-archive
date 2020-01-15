@@ -3,7 +3,6 @@
 // http://patreon.com/codingtrain
 // Code for: https://youtu.be/cXgA1d_E-jY&
 
-
 var bird;
 var pipes = [];
 
@@ -16,12 +15,12 @@ function setup() {
 function draw() {
   background(0);
 
-  for (var i = pipes.length-1; i >= 0; i--) {
+  for (var i = pipes.length - 1; i >= 0; i--) {
     pipes[i].show();
     pipes[i].update();
 
     if (pipes[i].hits(bird)) {
-      console.log("HIT");
+      console.log('HIT');
     }
 
     if (pipes[i].offscreen()) {

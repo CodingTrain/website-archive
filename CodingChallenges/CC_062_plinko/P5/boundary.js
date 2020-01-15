@@ -17,7 +17,7 @@ function Boundary(x, y, w, h) {
   World.add(world, this.body);
 }
 
-Boundary.prototype.show = function () {
+Boundary.prototype.show = function() {
   fill(255);
   stroke(255);
   var pos = this.body.position;
@@ -26,4 +26,4 @@ Boundary.prototype.show = function () {
   rectMode(CENTER);
   rect(0, 0, this.w, this.h);
   pop();
-}
+};

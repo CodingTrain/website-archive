@@ -4,11 +4,6 @@
 
 // All examples: github.com/shiffman/Video-Lesson-Materials
 
+function setup() {}
 
-function setup() {
-  
-}
-
-function draw() {
-  
-}
+function draw() {}

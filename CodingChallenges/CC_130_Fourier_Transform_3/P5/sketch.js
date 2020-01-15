@@ -62,4 +62,3 @@ function draw() {
     path = [];
   }
 }
-

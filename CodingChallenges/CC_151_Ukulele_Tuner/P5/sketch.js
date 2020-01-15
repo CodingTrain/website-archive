@@ -1,31 +1,32 @@
-
 // Daniel Shiffman
 // https://thecodingtrain.com/CodingChallenges/151-ukulele-tuner.html
 // https://youtu.be/F1OkDTUkKFo
 // https://editor.p5js.org/codingtrain/sketches/8io2zvT03
 
-const model_url = 'https://cdn.jsdelivr.net/gh/ml5js/ml5-data-and-models/models/pitch-detection/crepe/';
+const model_url =
+  'https://cdn.jsdelivr.net/gh/ml5js/ml5-data-and-models/models/pitch-detection/crepe/';
 let pitch;
 let mic;
 let freq = 0;
 let threshold = 1;
 
-let notes = [{
-  note: 'A',
-  freq: 440
-},
-{
-  note: 'E',
-  freq: 329.6276
-},
-{
-  note: 'C',
-  freq: 261.6256
-},
-{
-  note: 'G',
-  freq: 391.9954
-}
+let notes = [
+  {
+    note: 'A',
+    freq: 440
+  },
+  {
+    note: 'E',
+    freq: 329.6276
+  },
+  {
+    note: 'C',
+    freq: 261.6256
+  },
+  {
+    note: 'G',
+    freq: 391.9954
+  }
 ];
 
 function setup() {
@@ -37,12 +38,7 @@ function setup() {
 
 function listening() {
   console.log('listening');
-  pitch = ml5.pitchDetection(
-    model_url,
-    audioContext,
-    mic.stream,
-    modelLoaded
-  );
+  pitch = ml5.pitchDetection(model_url, audioContext, mic.stream, modelLoaded);
 }
 
 function draw() {
@@ -51,7 +47,6 @@ function draw() {
   fill(255);
   textSize(32);
   text(freq.toFixed(2), width / 2, height - 150);
-
 
   let closestNote = -1;
   let recordDiff = Infinity;
@@ -65,7 +60,6 @@ function draw() {
 
   textSize(64);
   text(closestNote.note, width / 2, height - 50);
-
 
   let diff = recordDiff;
   // let amt = map(diff, -100, 100, 0, 1);
@@ -93,8 +87,6 @@ function draw() {
     fill(0, 255, 0);
   }
   rect(200 + diff / 2, 100, 10, 75);
-
-
 }
 
 function modelLoaded() {

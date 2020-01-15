@@ -10,8 +10,6 @@ function setup() {
 function draw() {
   background(0);
 
-
-
   if (bubble1.intersects(bubble2)) {
     background(200, 0, 100);
   }
@@ -22,7 +20,6 @@ function draw() {
   //bubble2.move();
   bubble2.x = mouseX;
   bubble2.y = mouseY;
-
 }
 
 class Bubble {
@@ -35,7 +32,7 @@ class Bubble {
 
   intersects(other) {
     let d = dist(this.x, this.y, other.x, other.y);
-    return (d < this.r + other.r);
+    return d < this.r + other.r;
     // if (d < this.r + other.r) {
     //   return true;
     // } else {

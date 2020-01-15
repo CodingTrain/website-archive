@@ -4,56 +4,36 @@
 // Code for: https://youtu.be/8Z9FRiW2Jlc
 
 var rules = {
-  "S": [
-    ["NP", "VP"],
-    ["Interj", "NP", "VP"]
+  S: [
+    ['NP', 'VP'],
+    ['Interj', 'NP', 'VP']
   ],
-  "NP": [
-    ["Det", "N"],
-    ["Det", "N", "that", "VP"],
-    ["Det", "Adj", "N"]
+  NP: [
+    ['Det', 'N'],
+    ['Det', 'N', 'that', 'VP'],
+    ['Det', 'Adj', 'N']
   ],
-  "VP": [
-    ["Vtrans", "NP"],
-    ["Vintr"]
+  VP: [['Vtrans', 'NP'], ['Vintr']],
+  Interj: [['oh'], ['my'], ['wow'], ['darn']],
+  Det: [['this'], ['that'], ['the']],
+  N: [
+    ['amoeba'],
+    ['dichotomy'],
+    ['seagull'],
+    ['trombone'],
+    ['overstaffed'],
+    ['corsage']
   ],
-  "Interj": [
-    ["oh"],
-    ["my"],
-    ["wow"],
-    ["darn"]
+  Adj: [
+    ['bald'],
+    ['smug'],
+    ['important'],
+    ['tame'],
+    ['overstaffed'],
+    ['corsage']
   ],
-  "Det": [
-    ["this"],
-    ["that"],
-    ["the"]
-  ],
-  "N": [
-    ["amoeba"],
-    ["dichotomy"],
-    ["seagull"],
-    ["trombone"],
-    ["overstaffed"],
-    ["corsage"]
-  ],
-  "Adj": [
-    ["bald"],
-    ["smug"],
-    ["important"],
-    ["tame"],
-    ["overstaffed"],
-    ["corsage"]
-  ],
-  "Vtrans": [
-    ["computes"],
-    ["examines"],
-    ["foregrounds"],
-  ],
-  "Vintr": [
-    ["coughs"],
-    ["daydreams"],
-    ["whines"],
-  ]
+  Vtrans: [['computes'], ['examines'], ['foregrounds']],
+  Vintr: [['coughs'], ['daydreams'], ['whines']]
 };
 // var rules = {
 //   "S": [
@@ -79,7 +59,7 @@ function expand(start, expansion) {
   } else {
     expansion.push(start);
   }
-  return expansion.join(" ");
+  return expansion.join(' ');
 }
 
 var button;
@@ -91,14 +71,9 @@ function setup() {
 }
 
 function cfg() {
-
-  var start = "S";
+  var start = 'S';
   var expansion = [];
   var result = expand(start, expansion);
   console.log(result);
   createP(result);
-
-
-
-
 }

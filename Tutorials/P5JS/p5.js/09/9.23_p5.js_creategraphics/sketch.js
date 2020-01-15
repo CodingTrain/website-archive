@@ -37,5 +37,4 @@ function draw() {
   pop();
 
   angle += 0.1;
-
 }

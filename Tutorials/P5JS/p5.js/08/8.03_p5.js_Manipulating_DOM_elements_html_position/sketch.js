@@ -11,15 +11,12 @@ function setup() {
   h1 = createElement('h1', 'Waiting.');
   // h1.position(400, 400);
   // createP("My favorite color is purple")
-  
 }
-
 
 function mousePressed() {
-  h1.html("Now I will show you my favorite number");
-  createP("My favorite number is " + random(0, 10));
+  h1.html('Now I will show you my favorite number');
+  createP('My favorite number is ' + random(0, 10));
 }
-
 
 function draw() {
   //clear();

@@ -6,19 +6,28 @@
   "dependencies": {},
   "devDependencies": {
     "dotenv": "^8.2.0",
-    "eslint": "^6.6.0",
+    "eslint": "^6.8.0",
     "eslint-config-p5js": "^1.0.1",
-    "eslint-config-prettier": "^6.5.0",
-    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-prettier": "^3.1.2",
     "octocat": "^1.2.1",
-    "prettier": "^1.18.2",
-    "replace-in-file": "^4.2.0",
-    "yaml-front-matter": "^4.0.0"
+    "prettier": "^1.19.1",
+    "replace-in-file": "^5.0.2",
+    "yaml-front-matter": "^4.1.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "test-html": "bundle exec htmlproofer ./_site --assume-extension --check-html --disable-external --url-ignore '/#.*/'",
-    "lint": "./node_modules/.bin/eslint CodingChallenges/CC_001_StarField_p5.js/*.js"
+    "lint": "npm run lint-cc && npm run lint-cabana && npm run lint-tutorials && npm run lint-courses",
+    "lint-cc": "./node_modules/.bin/eslint ./CodingChallenges/",
+    "lint-cabana": "./node_modules/.bin/eslint ./CodingInTheCabana/",
+    "lint-tutorials": "./node_modules/.bin/eslint ./Tutorials/",
+    "lint-courses": "./node_modules/.bin/eslint ./Courses/",
+    "lint-fix": "npm run lint-cc-fix && npm run lint-cabana-fix && npm run lint-tutorials-fix && npm run lint-courses-fix",
+    "lint-cc-fix": "./node_modules/.bin/eslint ./CodingChallenges/ --fix",
+    "lint-cabana-fix": "./node_modules/.bin/eslint ./CodingInTheCabana/ --fix",
+    "lint-tutorials-fix": "./node_modules/.bin/eslint ./Tutorials/ --fix",
+    "lint-courses-fix": "./node_modules/.bin/eslint ./Courses/ --fix"
   },
   "repository": {
     "type": "git",

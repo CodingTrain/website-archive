@@ -31,7 +31,7 @@ function draw() {
       }
     }
   } else {
-    console.log("finished");
+    console.log('finished');
     noLoop();
   }
   i++;

@@ -10,6 +10,9 @@ videos:
   - title: "How to add your contribution to The Coding Train website "
     author: "The Coding Train"
     video_id: "fkIr0inoQ7Y"
+  - title: "Coding Challenge #154: Tic Tac Toe AI with Minimax Algorithm"
+    author: "The Coding Train"
+    url: "/CodingChallenges/154-tic-tac-toe-minimax"
 
 contributions:
   - title: "Tic-Tac-Toe Human vs Human (click)"
@@ -124,5 +127,15 @@ contributions:
     author: "Yubraj Sharma"
     url: "https://drive.google.com/open?id=1dST51-hAYgv9JTU8aruuJHhb4T1BR06w"
     source: "https://drive.google.com/open?id=1dST51-hAYgv9JTU8aruuJHhb4T1BR06w"
+  - title: "Simplest Tic-Tac-toe Game (PvsP) in C/C++ with Resizable grid"
+    author: "Sahil Jindal"
+    url: "https://github.com/sahil-jindal/Tic-tac-toe"
+    source: "https://github.com/sahil-jindal/Tic-tac-toe"
+  - title: "Tic Tac Toe with DOM manipulation"
+    author:
+      name: "David Snyder"
+      url: "https://github.com/GypsyDangerous"
+    url: "https://codepen.io/Gypsydangerous/full/oNgMevp"
+    source: "https://codepen.io/Gypsydangerous/pen/oNgMevp"
 ---
 This is a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.

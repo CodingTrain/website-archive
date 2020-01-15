@@ -24,5 +24,4 @@ class Counter {
     this.count++;
     this.p.html(this.count);
   }
-
 }

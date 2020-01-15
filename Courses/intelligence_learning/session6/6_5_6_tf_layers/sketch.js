@@ -35,19 +35,13 @@ model.compile({
   loss: tf.losses.meanSquaredError
 });
 
-
 const xs = tf.tensor2d([
   [0, 0],
   [0.5, 0.5],
   [1, 1]
 ]);
 
-const ys = tf.tensor2d([
-  [1],
-  [0.5],
-  [0]
-]);
-
+const ys = tf.tensor2d([[1], [0.5], [0]]);
 
 train().then(() => {
   let outputs = model.predict(xs);
@@ -60,12 +54,11 @@ async function train() {
     const config = {
       shuffle: true,
       epochs: 10
-    }
+    };
     const response = await model.fit(xs, ys, config);
     console.log(response.history.loss[0]);
   }
 }
-
 
 // const xs = tf.tensor2d([
 //   [0.25, 0.92],

@@ -42,7 +42,6 @@ function setup() {
       grid[i][j].b = 1;
     }
   }
-
 }
 
 function draw() {
@@ -52,20 +51,13 @@ function draw() {
     for (var y = 1; y < height - 1; y++) {
       var a = grid[x][y].a;
       var b = grid[x][y].b;
-      next[x][y].a = a +
-        (dA * laplaceA(x, y)) -
-        (a * b * b) +
-        (feed * (1 - a));
-      next[x][y].b = b +
-        (dB * laplaceB(x, y)) +
-        (a * b * b) -
-        ((k + feed) * b);
+      next[x][y].a = a + dA * laplaceA(x, y) - a * b * b + feed * (1 - a);
+      next[x][y].b = b + dB * laplaceB(x, y) + a * b * b - (k + feed) * b;
 
       next[x][y].a = constrain(next[x][y].a, 0, 1);
       next[x][y].b = constrain(next[x][y].b, 0, 1);
     }
   }
-
 
   loadPixels();
   for (var x = 0; x < width; x++) {
@@ -83,12 +75,8 @@ function draw() {
   }
   updatePixels();
 
-
   swap();
-
-
 }
-
 
 function laplaceA(x, y) {
   var sumA = 0;
@@ -117,8 +105,6 @@ function laplaceB(x, y) {
   sumB += grid[x - 1][y + 1].b * 0.05;
   return sumB;
 }
-
-
 
 function swap() {
   var temp = grid;

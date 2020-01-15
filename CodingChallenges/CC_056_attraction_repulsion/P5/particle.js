@@ -16,7 +16,7 @@ function Particle(x, y) {
     this.vel.limit(5);
     this.pos.add(this.vel);
     this.acc.mult(0);
-  }
+  };
 
   this.show = function() {
     stroke(255, 255);
@@ -25,8 +25,7 @@ function Particle(x, y) {
 
     this.prev.x = this.pos.x;
     this.prev.y = this.pos.y;
-
-  }
+  };
 
   this.attracted = function(target) {
     // var dir = target - this.pos
@@ -40,6 +39,5 @@ function Particle(x, y) {
       force.mult(-10);
     }
     this.acc.add(force);
-  }
-
+  };
 }

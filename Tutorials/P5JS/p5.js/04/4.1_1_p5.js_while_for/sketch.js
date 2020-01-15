@@ -10,7 +10,7 @@ function draw() {
   background(0);
   strokeWeight(4);
   stroke(255);
-  
+
   var x = 0;
   // ellipse(0, 200, 25, 25);
   ellipse(x, 200, 25, 25);

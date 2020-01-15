@@ -12,23 +12,23 @@ const ndjson = require('ndjson');
 let rainbows = [];
 fs.createReadStream('rainbow.ndjson')
   .pipe(ndjson.parse())
-  .on('data', function (obj) {
+  .on('data', function(obj) {
     rainbows.push(obj);
-  })
+  });
 
 let cats = [];
 fs.createReadStream('cat.ndjson')
   .pipe(ndjson.parse())
-  .on('data', function (obj) {
+  .on('data', function(obj) {
     cats.push(obj);
-  })
+  });
 
 const express = require('express');
 const app = express();
 const port = 3000;
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}!`)
+  console.log(`Example app listening on port ${port}!`);
 });
 
 app.get('/rainbow', (request, response) => {
@@ -41,4 +41,4 @@ app.get('/cat', (request, response) => {
   response.send(cats[index]);
 });
 
-app.use(express.static('public'))
+app.use(express.static('public'));

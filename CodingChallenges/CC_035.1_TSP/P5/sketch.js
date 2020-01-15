@@ -19,7 +19,6 @@ function setup() {
   var d = calcDistance(cities);
   recordDistance = d;
   bestEver = cities.slice();
-
 }
 
 function draw() {
@@ -28,7 +27,7 @@ function draw() {
   noStroke();
   textSize(12);
   text(`Best: ${floor(recordDistance)}`, 340, 10);
-  
+
   fill(255);
   for (var i = 0; i < cities.length; i++) {
     ellipse(cities[i].x, cities[i].y, 8, 8);
@@ -52,8 +51,6 @@ function draw() {
   }
   endShape();
 
-
-
   var i = floor(random(cities.length));
   var j = floor(random(cities.length));
   swap(cities, i, j);
@@ -70,7 +67,6 @@ function swap(a, i, j) {
   a[i] = a[j];
   a[j] = temp;
 }
-
 
 function calcDistance(points) {
   var sum = 0;

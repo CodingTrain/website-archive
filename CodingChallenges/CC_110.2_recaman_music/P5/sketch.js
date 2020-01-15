@@ -8,7 +8,7 @@
 let attackLevel = 1;
 let releaseLevel = 0;
 
-let attackTime = 0.01
+let attackTime = 0.01;
 let decayTime = 0.1;
 let susPercent = 0.5;
 let releaseTime = 0.5;
@@ -45,7 +45,6 @@ class Arc {
       arc(x, 0, diameter, diameter, 0, PI);
     }
   }
-
 }
 
 function setup() {
