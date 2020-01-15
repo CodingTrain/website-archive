@@ -4,7 +4,11 @@
 // https://youtu.be/I64-UTORVfU
 // https://editor.p5js.org/codingtrain/sketches/0zyUhZdJD
 
-let board = [['', '', ''], ['', '', ''], ['', '', '']];
+let board = [
+  ['', '', ''],
+  ['', '', ''],
+  ['', '', '']
+];
 
 let w; // = width / 3;
 let h; // = height / 3;

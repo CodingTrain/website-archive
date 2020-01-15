@@ -14,7 +14,12 @@ let rows;
 
 let xs;
 
-const train_xs = tf.tensor2d([[0, 0], [1, 0], [0, 1], [1, 1]]);
+const train_xs = tf.tensor2d([
+  [0, 0],
+  [1, 0],
+  [0, 1],
+  [1, 1]
+]);
 const train_ys = tf.tensor2d([[0], [1], [1], [0]]);
 
 function setup() {

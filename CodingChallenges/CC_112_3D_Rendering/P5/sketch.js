@@ -10,7 +10,10 @@ let angle = 0;
 
 let points = [];
 
-const projection = [[1, 0, 0], [0, 1, 0]];
+const projection = [
+  [1, 0, 0],
+  [0, 1, 0]
+];
 
 function setup() {
   createCanvas(600, 400);
@@ -69,21 +72,9 @@ function draw() {
 
   // Connecting
   for (let i = 0; i < 4; i++) {
-    connect(
-      i,
-      (i + 1) % 4,
-      projected
-    );
-    connect(
-      i + 4,
-      ((i + 1) % 4) + 4,
-      projected
-    );
-    connect(
-      i,
-      i + 4,
-      projected
-    );
+    connect(i, (i + 1) % 4, projected);
+    connect(i + 4, ((i + 1) % 4) + 4, projected);
+    connect(i, i + 4, projected);
   }
 
   angle += 0.03;

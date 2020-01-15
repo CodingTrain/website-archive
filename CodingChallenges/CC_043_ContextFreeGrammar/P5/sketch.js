@@ -4,8 +4,15 @@
 // Code for: https://youtu.be/8Z9FRiW2Jlc
 
 var rules = {
-  S: [['NP', 'VP'], ['Interj', 'NP', 'VP']],
-  NP: [['Det', 'N'], ['Det', 'N', 'that', 'VP'], ['Det', 'Adj', 'N']],
+  S: [
+    ['NP', 'VP'],
+    ['Interj', 'NP', 'VP']
+  ],
+  NP: [
+    ['Det', 'N'],
+    ['Det', 'N', 'that', 'VP'],
+    ['Det', 'Adj', 'N']
+  ],
   VP: [['Vtrans', 'NP'], ['Vintr']],
   Interj: [['oh'], ['my'], ['wow'], ['darn']],
   Det: [['this'], ['that'], ['the']],

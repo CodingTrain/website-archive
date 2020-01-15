@@ -12,7 +12,10 @@ let sigmoid = new ActivationFunction(
   y => y * (1 - y)
 );
 
-let tanh = new ActivationFunction(x => Math.tanh(x), y => 1 - y * y);
+let tanh = new ActivationFunction(
+  x => Math.tanh(x),
+  y => 1 - y * y
+);
 
 class NeuralNetwork {
   constructor(input_nodes, hidden_nodes, output_nodes) {
