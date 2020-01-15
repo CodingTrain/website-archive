@@ -9,12 +9,7 @@
 // https://youtu.be/vtMKeEGpMI4
 
 function blankGrid() {
-  return [
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0]
-  ];
+  return [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]];
 }
 
 function compare(a, b) {

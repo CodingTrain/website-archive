@@ -62,11 +62,7 @@ function draw() {
     let distance = 2;
     let w = 1 / (distance - rotated.w);
 
-    const projection = [
-      [w, 0, 0, 0],
-      [0, w, 0, 0],
-      [0, 0, w, 0]
-    ];
+    const projection = [[w, 0, 0, 0], [0, w, 0, 0], [0, 0, w, 0]];
 
     let projected = matmul(projection, rotated);
     projected.mult(width / 8);
@@ -81,19 +77,54 @@ function draw() {
 
   // Connecting
   for (let i = 0; i < 4; i++) {
-    connect(0, i, (i + 1) % 4, projected3d);
-    connect(0, i + 4, ((i + 1) % 4) + 4, projected3d);
-    connect(0, i, i + 4, projected3d);
+    connect(
+      0,
+      i,
+      (i + 1) % 4,
+      projected3d
+    );
+    connect(
+      0,
+      i + 4,
+      ((i + 1) % 4) + 4,
+      projected3d
+    );
+    connect(
+      0,
+      i,
+      i + 4,
+      projected3d
+    );
   }
 
   for (let i = 0; i < 4; i++) {
-    connect(8, i, (i + 1) % 4, projected3d);
-    connect(8, i + 4, ((i + 1) % 4) + 4, projected3d);
-    connect(8, i, i + 4, projected3d);
+    connect(
+      8,
+      i,
+      (i + 1) % 4,
+      projected3d
+    );
+    connect(
+      8,
+      i + 4,
+      ((i + 1) % 4) + 4,
+      projected3d
+    );
+    connect(
+      8,
+      i,
+      i + 4,
+      projected3d
+    );
   }
 
   for (let i = 0; i < 8; i++) {
-    connect(0, i, i + 8, projected3d);
+    connect(
+      0,
+      i,
+      i + 8,
+      projected3d
+    );
   }
 
   //angle = map(mouseX, 0, width, 0, TWO_PI);

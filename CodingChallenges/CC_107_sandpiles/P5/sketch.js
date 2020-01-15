@@ -6,12 +6,7 @@
 // https://youtu.be/diGjw5tghYU
 
 let defaultColor = [255, 0, 0];
-let colors = [
-  [255, 255, 0],
-  [0, 185, 63],
-  [0, 104, 255],
-  [122, 0, 229]
-];
+let colors = [[255, 255, 0], [0, 185, 63], [0, 104, 255], [122, 0, 229]];
 
 let sandpiles;
 let nextpiles;

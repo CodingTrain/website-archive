@@ -35,11 +35,7 @@ model.compile({
   loss: tf.losses.meanSquaredError
 });
 
-const xs = tf.tensor2d([
-  [0, 0],
-  [0.5, 0.5],
-  [1, 1]
-]);
+const xs = tf.tensor2d([[0, 0], [0.5, 0.5], [1, 1]]);
 
 const ys = tf.tensor2d([[1], [0.5], [0]]);
 

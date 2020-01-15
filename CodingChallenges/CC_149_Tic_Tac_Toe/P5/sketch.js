@@ -3,11 +3,7 @@
 // https://youtu.be/GTWrWM1UsnA
 // https://editor.p5js.org/codingtrain/sketches/5JngATm3c
 
-let board = [
-  ['', '', ''],
-  ['', '', ''],
-  ['', '', '']
-];
+let board = [['', '', ''], ['', '', ''], ['', '', '']];
 
 let players = ['X', 'O'];
 
