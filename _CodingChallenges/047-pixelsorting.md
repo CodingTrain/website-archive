@@ -18,6 +18,11 @@ contributions:
       url: "https://kyojingames.com/demos.php"
     url: "https://github.com/thetornadotitan/QuickSort-Pixel-Sorting"
     source: "https://github.com/thetornadotitan/QuickSort-Pixel-Sorting"
+  - title: "Pixel Sorting Game"
+    author:
+      name: "Maj Šavli"
+    url: "https://github.com/saullas/pixel-sort"
+    source: "https://github.com/saullas/pixel-sort"
 ---
 
 In this coding challenge, I implement "Pixel Sorting" in Processing (Java). Using a "selection sort" algorithm, I sort the pixels of an image by brightness and hue.
