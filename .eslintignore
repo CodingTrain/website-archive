@@ -23,3 +23,7 @@ Courses/programming_with_text/session07/7-03_CFGwithRiTaJS/libraries/
 Courses/programming_with_text/session10/10-03_Text-to-Speech_with_p5.Speech/libraries/p5.speech.js
 Courses/programming_with_text/session10/10-04_Speech_Recognition_with_p5.Speech/libraries/p5.speech.js
 Courses/beginner_ml5/7.2_pose_classifier/*
+Courses/beginner_ml5/7.3_pose_regression/P5/lib/ml5.min.js
+Courses/beginner_ml5/7.3_pose_regression/P5-multi/1_data_collection/lib/ml5.min.js
+Courses/beginner_ml5/7.3_pose_regression/P5-multi/2_loading_data/lib/ml5.min.js
+Courses/beginner_ml5/7.3_pose_regression/P5-multi/3_deploying_trained_model/lib/ml5.min.js
