@@ -31,12 +31,11 @@ function delay(time) {
   });
 }
 
-
 function trainModel() {
   brain.normalizeData();
   let options = {
     epochs: 50
-  }
+  };
   brain.train(options, finishedTraining);
 }
 
@@ -46,7 +45,6 @@ async function keyPressed() {
   } else if (key == 't') {
     trainModel();
   } else if (key == 'd') {
-
     let r = rSlider.value();
     let g = gSlider.value();
     let b = bSlider.value();
@@ -62,10 +60,7 @@ async function keyPressed() {
     console.log('not collecting');
     state = 'waiting';
   }
-
-
 }
-
 
 function setup() {
   createCanvas(640, 480);
@@ -84,7 +79,7 @@ function setup() {
     outputs: 3,
     task: 'regression',
     debug: true
-  }
+  };
   brain = ml5.neuralNetwork(options);
 
   // brain.loadData('color_poses.json', dataReady);
@@ -153,7 +148,6 @@ function gotPoses(poses) {
   }
 }
 
-
 function modelLoaded() {
   console.log('poseNet ready');
 }
@@ -187,5 +181,4 @@ function draw() {
   let g = gSlider.value();
   let b = bSlider.value();
   background(r, g, b, 100);
-
 }

@@ -32,39 +32,34 @@ function delay(time) {
   });
 }
 
-
 async function keyPressed() {
   if (key == 's') {
     brain.saveData();
   } else if (key == 'd') {
-    
     let r = rSlider.value();
     let g = gSlider.value();
     let b = bSlider.value();
-    targetColor = [r,g,b];
-    
-    console.log(r,g,b);
-    
+    targetColor = [r, g, b];
+
+    console.log(r, g, b);
+
     await delay(3000);
     console.log('collecting');
     state = 'collecting';
-    
+
     await delay(3000);
     console.log('not collecting');
     state = 'waiting';
   }
-
-
 }
 
 function setup() {
   createCanvas(640, 480);
-  
-  rSlider = createSlider(0,255,255);
-  gSlider = createSlider(0,255,0);
-  bSlider = createSlider(0,255,0);
-  
-  
+
+  rSlider = createSlider(0, 255, 255);
+  gSlider = createSlider(0, 255, 0);
+  bSlider = createSlider(0, 255, 0);
+
   video = createCapture(VIDEO);
   video.hide();
   poseNet = ml5.poseNet(video, modelLoaded);
@@ -76,12 +71,12 @@ function setup() {
     // outputs: ['red','green','blue'],
     task: 'regression',
     debug: true
-  }
+  };
   brain = ml5.neuralNetwork(options);
 }
 
 function gotPoses(poses) {
-  // console.log(poses); 
+  // console.log(poses);
   if (poses.length > 0) {
     pose = poses[0].pose;
     skeleton = poses[0].skeleton;
@@ -96,9 +91,7 @@ function gotPoses(poses) {
       brain.addData(inputs, targetColor);
     }
   }
-
 }
-
 
 function modelLoaded() {
   console.log('poseNet ready');

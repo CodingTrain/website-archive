@@ -19,14 +19,14 @@ function setup() {
     outputs: 3,
     task: 'regression',
     debug: true
-  }
+  };
   brain = ml5.neuralNetwork(options);
   brain.loadData('color_poses.json', dataReady);
 }
 
 function dataReady() {
   brain.normalizeData();
-  brain.train({epochs: 50}, finished); 
+  brain.train({ epochs: 50 }, finished);
 }
 
 function finished() {

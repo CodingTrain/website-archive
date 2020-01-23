@@ -36,12 +36,12 @@ function setup() {
     outputs: 3,
     task: 'regression',
     debug: true
-  }
+  };
   brain = ml5.neuralNetwork(options);
   const modelInfo = {
     model: 'model/model.json',
     metadata: 'model/model_meta.json',
-    weights: 'model/model.weights.bin',
+    weights: 'model/model.weights.bin'
   };
   brain.load(modelInfo, brainLoaded);
 }
@@ -77,19 +77,13 @@ function gotResult(error, results) {
   predictColor();
 }
 
-
-
-
-
-
 function gotPoses(poses) {
-  // console.log(poses); 
+  // console.log(poses);
   if (poses.length > 0) {
     pose = poses[0].pose;
     skeleton = poses[0].skeleton;
   }
 }
-
 
 function modelLoaded() {
   console.log('poseNet ready');
@@ -124,5 +118,4 @@ function draw() {
   let g = gSlider.value();
   let b = bSlider.value();
   background(r, g, b, 100);
-
 }
