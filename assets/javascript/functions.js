@@ -97,6 +97,10 @@ class NavApplication {
     this.setUpBackToTopButton();
 
     this.setupSubMenus();
+    
+    if (window.innerWidth <= 700) { // in mobile
+      this.disableNavLinks();
+    }
   }
 
   setupSubMenus() {
