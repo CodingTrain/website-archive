@@ -97,8 +97,9 @@ class NavApplication {
     this.setUpBackToTopButton();
 
     this.setupSubMenus();
-    
-    if (window.innerWidth <= 700) { // in mobile
+
+    // if this changes sass needs to be updated too
+    if (window.innerWidth <= 700) { // if in mobile
       this.disableNavLinks();
     }
   }
