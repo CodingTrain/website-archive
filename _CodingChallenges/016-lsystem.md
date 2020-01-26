@@ -24,6 +24,12 @@ contributions:
       url: "https://github.com/ameya98"
     url: "https://ameya98.github.io/WebPPL/generative_art/"
     source: "https://github.com/ameya98/WebPPL/tree/master/generative_art"
+  - title: "Dragon Curve using an L-System"
+    author:
+      name: "Noah Jahnel"
+      url: "http://www.mega-firm.com/"
+    url: "http://www.mega-firm.com/projects/dragonCurve/index.html"
+    source: "https://editor.p5js.org/katn1nja4/sketches/4_ubw0QsH"
 ---
 
 In this third installment of my series on algorithmic botany, I discuss L-systems and how they can be used to generate tree and other fractal patterns in p5.js.
