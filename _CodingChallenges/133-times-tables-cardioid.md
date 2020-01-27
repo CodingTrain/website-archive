@@ -81,6 +81,12 @@ contributions:
       url: "https://github.com/QTimort"
     url: "http://htmlpreview.github.io/?https://github.com/QTimort/coffee-cup-light-rays/blob/master/dist/index.html"
     source: "https://github.com/QTimort/coffee-cup-caustic-reflections"
+  - title: "Multi-shape interactive Timetable"
+    author:
+      name: "Szymon Nowacki"
+      url: "https://github.com/Szymon300101"
+    url: "https://szymon300101.github.io/TableFlow/"
+    source: "https://github.com/Szymon300101/TableFlow/tree/gh-pages"
 ---
 
 In this video, I visualize the "mathematical heart" Cardioid using times tables calculations.
