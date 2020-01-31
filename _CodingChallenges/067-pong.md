@@ -43,7 +43,7 @@ contributions:
     author: "James W"
     url: "https://editor.p5js.org/JamesW/full/1dTQC21fd"
     source: "https://editor.p5js.org/JamesW/sketches/1dTQC21fd"
-    - title: "Pong Atari version"
+  - title: "Pong Atari version"
     author: "Marc N"
     url: "https://editor.p5js.org/mragonias/full/yTDYn8pt"
     source: "https://editor.p5js.org/mragonias/sketches/yTDYn8pt"
