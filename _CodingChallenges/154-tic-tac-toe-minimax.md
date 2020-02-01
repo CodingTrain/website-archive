@@ -69,6 +69,12 @@ contributions:
       url: "https://github.com/GypsyDangerous"
     url: "https://editor.p5js.org/D_Snyder/full/A7Y89mBLB"
     source: "https://editor.p5js.org/D_Snyder/sketches/A7Y89mBLB"
+  - title: "Tic Tac Toe MiniMax with Angular and Charts"
+    author:
+      name: "Harald Brabenetz"
+      url: "https://github.com/brabenetz"
+    url: "http://brabenetz.net/learning/ai-tic-tac-toe-minimax/#/information"
+    source: "https://github.com/brabenetz/ai-tic-tac-toe-minimax"
 ---
 
 In this challenge I take the Tic Tac Toe game from coding challenge #149 and add an AI opponent for a human player by implenenting the Minimax algorithm.
