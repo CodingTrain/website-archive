@@ -38,10 +38,10 @@ contributions:
     url: "https://editor.p5js.org/D_Snyder/full/gEBQa5elpY"
     source: "https://editor.p5js.org/D_Snyder/sketches/gEBQa5elpY"
   - title: "Sleep sort"
-      author:
-        name: "Felix Rewer"
-      url: "https://editor.p5js.org/felix-jealous/full/rl2iGBVL"
-      source: "https://editor.p5js.org/felix-jealous/sketches/rl2iGBVL"
+    author:
+      name: "Felix Rewer"
+    url: "https://editor.p5js.org/felix-jealous/full/rl2iGBVL
+    source: "https://editor.p5js.org/felix-jealous/sketches/rl2iGBVL"
 links:
   - title: "Quicksort on Wikipedia"
     url: "https://en.wikipedia.org/wiki/Quicksort"
