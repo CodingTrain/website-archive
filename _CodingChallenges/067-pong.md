@@ -50,6 +50,6 @@ contributions:
   - title: "Pong AI x Computer"
     author: "Rodrigo Kulb"
     url: "http://rodrigo-kulb.com.br/pong"
-    source: "https://github.com/rodrigoKulb/pongAI"    
+    source: "https://github.com/rodrigoKulb/pongAI"
 ---
 In this challenge, I attempt (emphasis on the word "attempt") to program the classic video game Pong in Processing (Java).
