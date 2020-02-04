@@ -2,8 +2,9 @@ Hello and welcome to the GitHub repo for The Coding Train website! This houses a
 
 # Other links
 * [The Coding Train on YouTube](https://www.youtube.com/thecodingtrain/)
-* [Patreon](http://patreon.com/codingtrain "Coding Train - Patreon")
+* [Become a YouTube Member](https://youtube.com/thecodingtrain/join)
 * [For topic suggestions](https://github.com/CodingTrain/Rainbow-Topics/)  
+* [Join The Coding Train Discord](https://discord.gg/hPuGy2g)
 * [Coding questions](https://discourse.processing.org)
 
 # Live Streams
