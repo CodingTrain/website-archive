@@ -4,4 +4,4 @@ layout: series-index
 reverse: true
 ---
 
-Peaceful coding with processing and p5.js in the comfort of my garden cabana!
+It's a beautiful day to code in a cabana!
