@@ -18,6 +18,5 @@ videos:
   - title: "Hilbert's Curve: Is infinite math useful?"
     author: "3Blue1Brown"
     video_id: "3s7h2MHQtxc"
-
 ---
 In this video I use Processing 4 to make a Pseudo Hilbert Curve and animate it.
