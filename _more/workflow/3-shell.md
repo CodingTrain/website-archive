@@ -3,6 +3,9 @@ title: Shell
 video_number: 3
 date: 2018-09-19
 video_id: FnkkzgYuXUM
+redirect_from:
+  - /Tutorials/19-workflow/19.3-shell
+  - /Tutorials/19-workflow/19.3-shell.html
 
 links:
   - title: "iTerm"
