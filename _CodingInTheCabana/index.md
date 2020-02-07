@@ -4,4 +4,4 @@ layout: series-index
 reverse: true
 ---
 
-It's a beautiful day for some coding!
+It's a beautiful day to code in a cabana!
