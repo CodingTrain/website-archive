@@ -100,6 +100,7 @@ collections:
   Guides: { output: true }
   TeachableMachine: { output: true }
   beginners: { output: true }
+  more: { output: true }
 
 # --- Defaults ---
 
@@ -159,6 +160,11 @@ defaults:
   - scope: { path: "", type: "Guides" }
     values:
       layout: "guide"
+
+  
+  - scope: { path: "", type: "more" }
+    values:
+      layout: "video"
 
   # Teachable Machine
   - scope: { path: "", type: "TeachableMachine" }

@@ -3,6 +3,9 @@ title: Python and Virtualenv
 video_number: 6
 date: 2018-09-27
 video_id: nnhjvHYRsmM
+redirect_from:
+  - /Tutorials/19-workflow/19.6-python
+  - /Tutorials/19-workflow/19.6-python.html
 
 links:
   - title: "Python"
