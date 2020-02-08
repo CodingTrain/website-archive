@@ -3,6 +3,7 @@
 // The Coding Train / Daniel Shiffman
 // https://thecodingtrain.com/CodingInTheCabana/003-hilbert-curve.html
 // https://youtu.be/dSK-MW-zuAc
+// https://editor.p5js.org/codingtrain/sketches/LPf9PLmp
 
 const order = 8;
 let N;
@@ -53,7 +54,6 @@ function draw() {
   //  text(i, path[i].x+5, path[i].y);
   // }
 }
-
 
 function hilbert(i) {
   const points = [
