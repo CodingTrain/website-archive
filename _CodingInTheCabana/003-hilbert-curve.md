@@ -21,10 +21,16 @@ videos:
 
 contributions:
   - title: "Hilbert curve translated in C# (Windows only)"
+     author:
+       name: "Clément Lebeau"
+       url: "https://github.com/drlime04"
+     url: "http://s000.tinyupload.com/download.php?file_id=26092986124837649902&t=2609298612483764990214617"
+     source: "https://github.com/drlime04/HilbertCurveContribution"
+  - title: "Hilbert and Z-curve with order and RGB sliders"
     author:
-      name: "Clément Lebeau"
-      url: "https://github.com/drlime04"
-    url: "http://s000.tinyupload.com/download.php?file_id=26092986124837649902&t=2609298612483764990214617"
-    source: "https://github.com/drlime04/HilbertCurveContribution"
+      name: "Kobe L"
+      url: "https://editor.p5js.org/KobeL/sketches"
+    url: "https://editor.p5js.org/KobeL/full/LqyM45kZ"
+    source: "https://editor.p5js.org/KobeL/sketches/LqyM45kZ"
 ---
 It's the third episode of Coding in the Cabana! On this snowy day, I attempt to animate the path of the classic "space filling curve" known as the Hilbert Curve.
