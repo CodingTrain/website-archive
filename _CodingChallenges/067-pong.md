@@ -43,5 +43,13 @@ contributions:
     author: "James W"
     url: "https://editor.p5js.org/JamesW/full/1dTQC21fd"
     source: "https://editor.p5js.org/JamesW/sketches/1dTQC21fd"
+  - title: "Pong Atari version"
+    author: "Marc N"
+    url: "https://editor.p5js.org/mragonias/full/yTDYn8pt"
+    source: "https://editor.p5js.org/mragonias/sketches/yTDYn8pt"
+  - title: "Pong AI x Computer"
+    author: "Rodrigo Kulb"
+    url: "http://rodrigo-kulb.com.br/pong"
+    source: "https://github.com/rodrigoKulb/pongAI"
 ---
 In this challenge, I attempt (emphasis on the word "attempt") to program the classic video game Pong in Processing (Java).

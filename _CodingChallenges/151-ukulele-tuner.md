@@ -57,5 +57,9 @@ contributions:
     author: "Lokesh Kumar"
     url: "https://editor.p5js.org/lokeshlkr@gmail.com/full/RcEcndWR2"
     source: https://editor.p5js.org/lokeshlkr@gmail.com/sketches/RcEcndWR2
+  - title: "A pitch detection Game: Record your melody and I'll play back while playing the piano"
+    author: "Joseph Azar"
+    url: "https://playmesomething.par-azar.com/"
+    source: https://github.com/josazar/PlayMeSomething
 ---
 In this challenge, I attempt to create a Ukulele tuner in JavaScript using p5.js, ml5.js and the pre-trained machine learning model CREPE: A Convolutional REpresentation for Pitch Estimation. Can you make one with a more elegant and creative interface?

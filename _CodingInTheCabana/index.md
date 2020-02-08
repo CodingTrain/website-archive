@@ -4,4 +4,4 @@ layout: series-index
 reverse: true
 ---
 
-Peaceful coding with processing and p5.js in the comfort of my garden cabana!
+The sun out is, the birds are chirping, it's a beautiful day to code a generative algorithm. Choo choo!

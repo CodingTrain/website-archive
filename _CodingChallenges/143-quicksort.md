@@ -37,7 +37,11 @@ contributions:
       url: "https://github.com/GypsyDangerous"
     url: "https://editor.p5js.org/D_Snyder/full/gEBQa5elpY"
     source: "https://editor.p5js.org/D_Snyder/sketches/gEBQa5elpY"
-
+  - title: "Sleep sort"
+    author:
+      name: "Felix Rewer"
+    url: "https://editor.p5js.org/felix-jealous/full/rl2iGBVL"
+    source: "https://editor.p5js.org/felix-jealous/sketches/rl2iGBVL"
 links:
   - title: "Quicksort on Wikipedia"
     url: "https://en.wikipedia.org/wiki/Quicksort"
@@ -51,5 +55,4 @@ videos:
   - title: "async/await"
     video_id: "XO77Fib9tSI"
 ---
-
 In this video, I implement a Quicksort algorithm in JavaScript visualize the sorting with p5.js.

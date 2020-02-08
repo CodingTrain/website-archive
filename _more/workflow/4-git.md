@@ -3,6 +3,9 @@ title: Git
 video_number: 4
 date: 2018-09-20
 video_id: _sLgRBrZh6o
+redirect_from:
+  - /Tutorials/19-workflow/19.4-git
+  - /Tutorials/19-workflow/19.4-git.html
 
 links:
   - title: "Visual Studio Code"
