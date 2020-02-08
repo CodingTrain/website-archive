@@ -2,7 +2,7 @@
 title: "Hilbert Curve"
 video_number: 3
 date: 2019-02-06
-video_id: a
+video_id: dSK-MW-zuAc
 web_editor: LPf9PLmp
 repository: Cabana_003_Hilbert_Curve
 
@@ -11,7 +11,7 @@ links:
     url: "https://en.wikipedia.org/wiki/Hilbert_curve"
   - title: "Iterative algorithm for drawing Hilbert curve by Marcin Chwedczuk"
     url: "https://marcin-chwedczuk.github.io/iterative-algorithm-for-drawing-hilbert-curve"
-  - title: "Processing 4 Repository"
+  - title: "Processing 4 alpha"
     url: "https://github.com/processing/processing4"
 
 videos:
@@ -19,4 +19,5 @@ videos:
     author: "3Blue1Brown"
     video_id: "3s7h2MHQtxc"
 ---
-In this video I use Processing 4 to make a Pseudo Hilbert Curve and animate it.
+
+It's the third episode of Coding in the Cabana! On this snowy day, I attempt to animate the path of the classic "space filling curve" known as the Hilbert Curve.
