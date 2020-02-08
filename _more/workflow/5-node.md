@@ -3,6 +3,9 @@ title: Node
 video_number: 5
 date: 2018-09-24
 video_id: FjWbUK2HdCo
+redirect_from:
+  - /Tutorials/19-workflow/19.5-node
+  - /Tutorials/19-workflow/19.5-node.html
 
 links:
   - title: "iTerm"

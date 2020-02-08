@@ -3,6 +3,9 @@ title: Introduction to My Workflow
 video_number: 1
 date: 2018-09-14
 video_id: gJa6wri8YNQ
+redirect_from:
+  - /Tutorials/19-workflow/19.1-introduction
+  - /Tutorials/19-workflow/19.1-introduction.html
 
 links:
   - title: "Processing"
