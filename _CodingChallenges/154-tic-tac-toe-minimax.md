@@ -1,7 +1,7 @@
 ---
 title: "Tic Tac Toe AI with Minimax Algorithm"
 video_number: 154
-date: 2019-12-08
+date: 2019-12-11
 video_id: trKjYdBASyQ
 web_editor: 0zyUhZdJD
 repository: CC_154_Tic_Tac_Toe_Minimax
