@@ -3,7 +3,6 @@
 // The Coding Train / Daniel Shiffman
 // https://thecodingtrain.com/CodingInTheCabana/003-hilbert-curve.html
 // https://youtu.be/dSK-MW-zuAc
-// https://editor.p5js.org/codingtrain/sketches/LPf9PLmp
 
 const order = 8;
 let N;
@@ -17,7 +16,7 @@ function setup() {
   createCanvas(512, 512);
   colorMode(HSB, 360, 255, 255);
   background(0);
-  
+
   N = int(pow(2, order));
   total = N * N;
 
@@ -25,7 +24,7 @@ function setup() {
     path[i] = hilbert(i);
     let len = width / N;
     path[i].mult(len);
-    path[i].add(len/2, len/2);
+    path[i].add(len / 2, len / 2);
   }
 }
 
@@ -39,11 +38,11 @@ function draw() {
   for (let i = 1; i < counter; i++) {
     let h = map(i, 0, path.length, 0, 360);
     stroke(h, 255, 255);
-    line(path[i].x, path[i].y, path[i-1].x, path[i-1].y);
+    line(path[i].x, path[i].y, path[i - 1].x, path[i - 1].y);
   }
   //endShape();
 
-  counter+=50;
+  counter += 50;
   if (counter >= path.length) {
     counter = 0;
   }
