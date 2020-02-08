@@ -1,7 +1,7 @@
 ---
 title: "Hilbert Curve"
 video_number: 3
-date: 2019-02-06
+date: 2020-02-08
 video_id: dSK-MW-zuAc
 web_editor: LPf9PLmp
 repository: Cabana_003_Hilbert_Curve
