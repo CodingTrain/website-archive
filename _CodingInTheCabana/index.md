@@ -4,4 +4,4 @@ layout: series-index
 reverse: true
 ---
 
-It's a beautiful day to code in a cabana!
+The sun out is, the birds are chirping, it's a beautiful day to code a generative algorithm. Choo choo!
