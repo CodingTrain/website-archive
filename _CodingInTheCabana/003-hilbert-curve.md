@@ -21,11 +21,11 @@ videos:
 
 contributions:
   - title: "Hilbert curve translated in C# (Windows only)"
-     author:
-       name: "Clément Lebeau"
-       url: "https://github.com/drlime04"
-     url: "http://s000.tinyupload.com/download.php?file_id=26092986124837649902&t=2609298612483764990214617"
-     source: "https://github.com/drlime04/HilbertCurveContribution"
+    author:
+      name: "Clément Lebeau"
+      url: "https://github.com/drlime04"
+    url: "http://s000.tinyupload.com/download.php?file_id=26092986124837649902&t=2609298612483764990214617"
+    source: "https://github.com/drlime04/HilbertCurveContribution"
   - title: "Hilbert and Z-curve with order and RGB sliders"
     author:
       name: "Kobe L"
