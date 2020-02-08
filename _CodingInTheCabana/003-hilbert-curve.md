@@ -18,7 +18,7 @@ videos:
   - title: "Hilbert's Curve: Is infinite math useful?"
     author: "3Blue1Brown"
     video_id: "3s7h2MHQtxc"
-    
+
 contributions:
   - title: "Hilbert curve translated in C# (Windows only)"
     author:
@@ -27,5 +27,4 @@ contributions:
     url: "http://s000.tinyupload.com/download.php?file_id=26092986124837649902&t=2609298612483764990214617"
     source: "https://github.com/drlime04/HilbertCurveContribution"
 ---
-
 It's the third episode of Coding in the Cabana! On this snowy day, I attempt to animate the path of the classic "space filling curve" known as the Hilbert Curve.
