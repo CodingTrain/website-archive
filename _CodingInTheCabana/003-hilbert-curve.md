@@ -58,5 +58,11 @@ contributions:
     author: "Darbness"
     url: "https://github.com/Darbness/Hilbert-Curve"
     source: "https://github.com/Darbness/Hilbert-Curve"
+  - title: "Hilbert Curve with p5.js"
+    author:
+      name: "Thibaut Labrouche"
+      url: "https://github.com/Thithan77"
+    url: "https://codepen.io/Babouinduweb/full/xxGbyVg"
+    source: "https://codepen.io/Babouinduweb/pen/xxGbyVg"
 ---
 It's the third episode of Coding in the Cabana! On this snowy day, I attempt to animate the path of the classic "space filling curve" known as the Hilbert Curve.
