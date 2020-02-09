@@ -32,5 +32,11 @@ contributions:
       url: "https://editor.p5js.org/KobeL/sketches"
     url: "https://editor.p5js.org/KobeL/full/LqyM45kZ"
     source: "https://editor.p5js.org/KobeL/sketches/LqyM45kZ"
+  - title: "Hilbert Curve that zooms out from one order to the next"
+    author:
+      name: "Frode Austvik"
+      url: "https://github.com/edorfaus"
+    url: "https://edorfaus.github.io/coding-train-variants/CodingInTheCabana/Cabana_003_Hilbert_Curve/P5/"
+    source: "https://github.com/edorfaus/coding-train-variants/tree/master/CodingInTheCabana/Cabana_003_Hilbert_Curve/P5"
 ---
 It's the third episode of Coding in the Cabana! On this snowy day, I attempt to animate the path of the classic "space filling curve" known as the Hilbert Curve.
