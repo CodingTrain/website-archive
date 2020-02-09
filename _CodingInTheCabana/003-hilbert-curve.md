@@ -70,5 +70,11 @@ contributions:
       url: "https://simontiger.com"
     url: "https://editor.p5js.org/simontiger/full/2CrT12N4"
     source: "https://editor.p5js.org/simontiger/sketches/2CrT12N4"
+  - title: "Image dithering with hilbert curve"
+    author:
+      name: "David Snyder"
+      url: "https://github.com/GypsyDangerous"
+    url: "https://editor.p5js.org/D_Snyder/full/6iGNyqly"
+    source: "https://editor.p5js.org/D_Snyder/sketches/6iGNyqly"
 ---
 It's the third episode of Coding in the Cabana! On this snowy day, I attempt to animate the path of the classic "space filling curve" known as the Hilbert Curve.
