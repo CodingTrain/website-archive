@@ -32,6 +32,12 @@ contributions:
       url: "https://fraguilar.com"
     url: "https://github.com/fernand0aguilar/art-code-poetry/blob/master/Processing/Sandpiles/"
     source: "https://github.com/fernand0aguilar/art-code-poetry/blob/master/Processing/Sandpiles/Sandpiles.pde"
+  - title: "P5 Sandpiles with continuous grains and adjustable rendering"
+    author:
+      name: "Frode Austvik"
+      url: "https://github.com/edorfaus"
+    url: "https://edorfaus.github.io/coding-train-variants/CodingChallenges/CC_107_sandpiles/P5/"
+    source: "https://github.com/edorfaus/coding-train-variants/tree/master/CodingChallenges/CC_107_sandpiles/P5"
 ---
 
 In this coding challenge, inspired by Numberphile I visualize "sandpiles" with Processing (Java). 
