@@ -32,5 +32,11 @@ contributions:
       url: "https://editor.p5js.org/KobeL/sketches"
     url: "https://editor.p5js.org/KobeL/full/LqyM45kZ"
     source: "https://editor.p5js.org/KobeL/sketches/LqyM45kZ"
+  - title: "Hiilbert Curve - Interpolation Between Orders"
+    author:
+      name: "Cameron Brown"
+      url: "https://twitter.com/z6v"
+    url: "https://editor.p5js.org/cbrwn/full/xKE8rHPL"
+    source: "https://editor.p5js.org/cbrwn/sketches/xKE8rHPL"
 ---
 It's the third episode of Coding in the Cabana! On this snowy day, I attempt to animate the path of the classic "space filling curve" known as the Hilbert Curve.
