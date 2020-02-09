@@ -36,7 +36,7 @@ contributions:
     author:
       name: "Nikita Ursol"
       url: "https://github.com/kanashimia"
-    url: "https://raw.githubusercontent.com/kanashimia/Throw-Away-Projects/master/FunctionalHilbert/h.png"
+    url: "https://raw.githubusercontent.com/kanashimia/Throw-Away-Projects/master/FunctionalHilbert/h-small.png"
     source: "https://github.com/kanashimia/Throw-Away-Projects/tree/master/FunctionalHilbert"
 ---
 It's the third episode of Coding in the Cabana! On this snowy day, I attempt to animate the path of the classic "space filling curve" known as the Hilbert Curve.
