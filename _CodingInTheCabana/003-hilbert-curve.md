@@ -64,5 +64,11 @@ contributions:
       url: "https://github.com/Thithan77"
     url: "https://codepen.io/Babouinduweb/full/xxGbyVg"
     source: "https://codepen.io/Babouinduweb/pen/xxGbyVg"
+  - title: "Editable Space-filling Curve"
+    author:
+      name: "Simon Tiger Houben"
+      url: "https://simontiger.com"
+    url: "https://editor.p5js.org/simontiger/full/2CrT12N4"
+    source: "https://editor.p5js.org/simontiger/sketches/2CrT12N4"
 ---
 It's the third episode of Coding in the Cabana! On this snowy day, I attempt to animate the path of the classic "space filling curve" known as the Hilbert Curve.
