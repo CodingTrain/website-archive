@@ -32,6 +32,12 @@ contributions:
       url: "https://editor.p5js.org/KobeL/sketches"
     url: "https://editor.p5js.org/KobeL/full/LqyM45kZ"
     source: "https://editor.p5js.org/KobeL/sketches/LqyM45kZ"
+  - title: "Functional Hilbert Curve, done in Haskell (5 lines of code)"
+    author:
+      name: "Nikita Ursol"
+      url: "https://github.com/kanashimia"
+    url: "https://raw.githubusercontent.com/kanashimia/Throw-Away-Projects/master/FunctionalHilbert/h-small.png"
+    source: "https://github.com/kanashimia/Throw-Away-Projects/tree/master/FunctionalHilbert"
   - title: "Hiilbert Curve - Interpolation Between Orders"
     author:
       name: "Cameron Brown"
