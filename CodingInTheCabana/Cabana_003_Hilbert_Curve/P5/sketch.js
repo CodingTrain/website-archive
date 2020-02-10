@@ -20,10 +20,10 @@ function setup() {
 
   N = int(pow(2, order));
   total = N * N;
+  let len = width / N;
 
   for (let i = 0; i < total; i++) {
     path[i] = hilbert(i);
-    let len = width / N;
     path[i].mult(len);
     path[i].add(len / 2, len / 2);
   }
