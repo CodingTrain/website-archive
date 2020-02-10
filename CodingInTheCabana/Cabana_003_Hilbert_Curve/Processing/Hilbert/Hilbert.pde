@@ -17,10 +17,10 @@ void setup() {
   size(1024, 1024);
   colorMode(HSB, 360, 255, 255);
   background(0);
+  float len = width / N;
 
   for (int i = 0; i < total; i++) {
     path[i] = hilbert(i);
-    float len = width / N;
     path[i].mult(len);
     path[i].add(len/2, len/2);
   }
