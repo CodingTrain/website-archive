@@ -76,5 +76,14 @@ contributions:
       url: "https://github.com/GypsyDangerous"
     url: "https://editor.p5js.org/D_Snyder/full/6iGNyqly"
     source: "https://editor.p5js.org/D_Snyder/sketches/6iGNyqly"
+    - title: "Hilbert's Flower"
+    author:
+      name: "Brian New"
+      url: "https://github.com/RedHenDev"
+    url: "https://codepen.io/RedHenDev/full/BaNNwQq"
+    source: "https://codepen.io/RedHenDev/pen/BaNNwQq"
+    
+    
+    
 ---
 It's the third episode of Coding in the Cabana! On this snowy day, I attempt to animate the path of the classic "space filling curve" known as the Hilbert Curve.
