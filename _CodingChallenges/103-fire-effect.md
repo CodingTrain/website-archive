@@ -24,13 +24,11 @@ contributions:
       name: "stellartux"
       url: "https://github.com/stellartux"
     url: "https://www.shadertoy.com/view/lsdBD2"
-
   - title: "Fire Effect DOOM style"
     author:
       name: "lsmanoel"
       url: "https://github.com/lsmanoel/DoomFireEffect_ProcessingVersion"
     url: "https://github.com/lsmanoel/DoomFireEffect_ProcessingVersion"
-
   - title: "P5.js version with simple cooling map optimization"
     author:
       name: "Frode Austvik"
