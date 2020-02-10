@@ -35,8 +35,8 @@ function cool() {
   let increment = 0.02;
   // For every x,y coordinate in a 2D space, calculate a noise value and produce a brightness value
   for (let x = 0; x < w; x++) {
-    xoff += increment;   // Increment xoff
-    let yoff = ystart;   // For every xoff, start yoff at 0
+    xoff += increment; // Increment xoff
+    let yoff = ystart; // For every xoff, start yoff at 0
     for (let y = 0; y < h; y++) {
       yoff += increment; // Increment yoff
 
@@ -64,7 +64,7 @@ function fire(rows) {
   buffer1.loadPixels();
   for (let x = 0; x < w; x++) {
     for (let j = 0; j < rows; j++) {
-      let y = h-(j+1);
+      let y = h - (j + 1);
       let index = (x + y * w) * 4;
       buffer1.pixels[index] = 255;
       buffer1.pixels[index + 1] = 255;
@@ -86,13 +86,13 @@ function draw() {
   background(0);
   buffer1.loadPixels();
   buffer2.loadPixels();
-  for (let x = 1; x < w-1; x++) {
-    for (let y = 1; y < h-1; y++) {
-      let index0 = ((x) + (y) * w) * 4;
-      let index1 = ((x+1) + (y) * w) * 4;
-      let index2 = ((x-1) + (y) * w) * 4;
-      let index3 = ((x) + (y+1) * w) * 4;
-      let index4 = ((x) + (y-1) * w) * 4;
+  for (let x = 1; x < w - 1; x++) {
+    for (let y = 1; y < h - 1; y++) {
+      let index0 = (x + y * w) * 4; // x, y
+      let index1 = (x + 1 + y * w) * 4; // (x + 1), y
+      let index2 = (x - 1 + y * w) * 4; // (x - 1), y
+      let index3 = (x + (y + 1) * w) * 4; // x, (y + 1)
+      let index4 = (x + (y - 1) * w) * 4; // x, (y - 1)
 
       // Because we are using only gray colors, the value of the color
       // components are the same, and we can use that as brightness.
