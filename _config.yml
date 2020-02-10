@@ -161,7 +161,6 @@ defaults:
     values:
       layout: "guide"
 
-  
   - scope: { path: "", type: "more" }
     values:
       layout: "video"
