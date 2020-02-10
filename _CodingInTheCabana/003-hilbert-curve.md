@@ -76,7 +76,7 @@ contributions:
       url: "https://github.com/GypsyDangerous"
     url: "https://editor.p5js.org/D_Snyder/full/6iGNyqly"
     source: "https://editor.p5js.org/D_Snyder/sketches/6iGNyqly"
-    - title: "Hilbert's Flower"
+  - title: "Hilbert's Flower"
     author:
       name: "Brian New"
       url: "https://github.com/RedHenDev"
