@@ -82,5 +82,11 @@ contributions:
       url: "https://github.com/RedHenDev"
     url: "https://codepen.io/RedHenDev/full/BaNNwQq"
     source: "https://codepen.io/RedHenDev/pen/BaNNwQq"
+  - title: "Hilbert Curve SVG from L-system"
+    author:
+      name: "stellartux"
+      url: "https://stellartux.github.io/"
+    url: "https://stellartux.github.io/random/hilbert/"
+    source: "https://github.com/stellartux/random/tree/master/hilbert"
 ---
 It's the third episode of Coding in the Cabana! On this snowy day, I attempt to animate the path of the classic "space filling curve" known as the Hilbert Curve.
