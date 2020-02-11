@@ -82,6 +82,12 @@ contributions:
       url: "https://github.com/RedHenDev"
     url: "https://codepen.io/RedHenDev/full/BaNNwQq"
     source: "https://codepen.io/RedHenDev/pen/BaNNwQq"
+  - title: "Peano Curve (another space-filling curve)"
+    author:
+      name: "Kristian Wichmann"
+      url: "https://github.com/kwichmann"
+    url: "https://editor.p5js.org/kwichmann/sketches/VlOuk51M"
+    source: "https://editor.p5js.org/kwichmann/sketches/VlOuk51M"
   - title: "Hilbert Curve SVG from L-system"
     author:
       name: "stellartux"
