@@ -82,6 +82,12 @@ contributions:
       url: "https://github.com/RedHenDev"
     url: "https://codepen.io/RedHenDev/full/BaNNwQq"
     source: "https://codepen.io/RedHenDev/pen/BaNNwQq"
+  - title: "Animated Hilbert Curve (morph from order 0 to 6 made in VB.Net)"
+    author:
+      name: "Jos Gielen"
+      url: "https://github.com/JosGielen"
+    url: "https://github.com/JosGielen/Coding_Train_VB.net/blob/master/Cabana/Animated%20Hilbert%20Curve/Results/HilbertMorph0-6.gif"
+    source: "https://github.com/JosGielen/Coding_Train_VB.net/tree/master/Cabana/Animated%20Hilbert%20Curve"
   - title: "Peano Curve (another space-filling curve)"
     author:
       name: "Kristian Wichmann"
