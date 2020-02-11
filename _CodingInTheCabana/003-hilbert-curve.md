@@ -100,5 +100,11 @@ contributions:
       url: "https://stellartux.github.io/"
     url: "https://stellartux.github.io/random/hilbert/"
     source: "https://github.com/stellartux/random/tree/master/hilbert"
+  - title: "gosper curve (flowsnake) with L-system"
+    author:
+      name: "David Snyder"
+      url: "https://github.com/GypsyDangerous"
+    url: "https://editor.p5js.org/D_Snyder/full/2sn_O_qb"
+    source: "https://editor.p5js.org/D_Snyder/sketches/2sn_O_qb"
 ---
 It's the third episode of Coding in the Cabana! On this snowy day, I attempt to animate the path of the classic "space filling curve" known as the Hilbert Curve.
