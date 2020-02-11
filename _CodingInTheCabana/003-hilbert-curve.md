@@ -82,5 +82,11 @@ contributions:
       url: "https://github.com/RedHenDev"
     url: "https://codepen.io/RedHenDev/full/BaNNwQq"
     source: "https://codepen.io/RedHenDev/pen/BaNNwQq"
+  - title: "Peano Curve (another space-filling curve)"
+    author:
+      name: "Kristian Wichmann"
+      url: "https://github.com/kwichmann"
+    url: "https://editor.p5js.org/kwichmann/sketches/VlOuk51M"
+    source: "https://editor.p5js.org/kwichmann/sketches/VlOuk51M"
 ---
 It's the third episode of Coding in the Cabana! On this snowy day, I attempt to animate the path of the classic "space filling curve" known as the Hilbert Curve.
