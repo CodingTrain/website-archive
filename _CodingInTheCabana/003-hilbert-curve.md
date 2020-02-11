@@ -88,5 +88,17 @@ contributions:
       url: "https://github.com/JosGielen"
     url: "https://github.com/JosGielen/Coding_Train_VB.net/blob/master/Cabana/Animated%20Hilbert%20Curve/Results/HilbertMorph0-6.gif"
     source: "https://github.com/JosGielen/Coding_Train_VB.net/tree/master/Cabana/Animated%20Hilbert%20Curve"
+  - title: "Peano Curve (another space-filling curve)"
+    author:
+      name: "Kristian Wichmann"
+      url: "https://github.com/kwichmann"
+    url: "https://editor.p5js.org/kwichmann/sketches/VlOuk51M"
+    source: "https://editor.p5js.org/kwichmann/sketches/VlOuk51M"
+  - title: "Hilbert Curve SVG from L-system"
+    author:
+      name: "stellartux"
+      url: "https://stellartux.github.io/"
+    url: "https://stellartux.github.io/random/hilbert/"
+    source: "https://github.com/stellartux/random/tree/master/hilbert"
 ---
 It's the third episode of Coding in the Cabana! On this snowy day, I attempt to animate the path of the classic "space filling curve" known as the Hilbert Curve.

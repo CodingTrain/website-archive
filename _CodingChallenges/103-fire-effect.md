@@ -35,5 +35,11 @@ contributions:
       url: "https://github.com/edorfaus"
     url: "https://edorfaus.github.io/coding-train-variants/CodingChallenges/CC_103_Flames/P5/"
     source: "https://github.com/edorfaus/coding-train-variants/tree/master/CodingChallenges/CC_103_Flames/P5"
+  - title: "Fire effect with coloring, and text rase up out the fire"
+    author:
+      name: "TheRedKorsar"
+      url: "https://github.com/TheRedKorsar"
+    url: "https://github.com/TheRedKorsar/CC_103_Flames"
+    source: "https://github.com/TheRedKorsar/CC_103_Flames/blob/master/CC_103_Flames.pde"
 ---
 In this coding challenge, I implement a pixel-based “fire” algorithm using Processing (Java).
