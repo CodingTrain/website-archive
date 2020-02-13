@@ -36,14 +36,15 @@ let verbose = false;
 // Create variable with path to directories to check, and check them
 // against their specified format
 let directories = {
-  _CodingChallenges: formatDefinitions.video,
-  _Courses: formatDefinitions.video,
-  _GuestTutorials: formatDefinitions.video,
-  _Streams: formatDefinitions.stream,
-  _Tutorials: formatDefinitions.video,
-  _CodingInTheCabana: formatDefinitions.video,
-  _TeachableMachine: formatDefinitions.video,
-  _beginners: formatDefinitions.video,
+  "_CodingChallenges": formatDefinitions.video,
+  "_Courses": formatDefinitions.video,
+  "_GuestTutorials": formatDefinitions.video,
+  "_Streams": formatDefinitions.stream,
+  "_Tutorials": formatDefinitions.video,
+  "_CodingInTheCabana": formatDefinitions.video,
+  "_TeachableMachine": formatDefinitions.video,
+  "_beginners": formatDefinitions.video,
+  "_more/faq": formatDefinitions.faq,
 };
 
 let knownVideos = {};
@@ -62,6 +63,13 @@ const checkFolder = (videoFormat, name, { directories, files }) => describe(name
 
   it('index.md is valid', () => {
     expect(files['index.md']).not.toBeUndefined();
+
+    // faq exception for series format requirement
+    if (name === '_more/faq') {
+      assertPropTypes(formatDefinitions.faq, files['index.md'].content, "YAML", 'index.md');
+      return;
+    }
+
     assertPropTypes(formatDefinitions.series, files['index.md'].content, "YAML", 'index.md');
   });
 
@@ -204,6 +212,7 @@ const checkFolder = (videoFormat, name, { directories, files }) => describe(name
 
 const files = getAllFiles();
 for (const [name, directory] of Object.entries(files)) {
+  //console.log(name, directory, directories[name]);
   checkFolder(directories[name], name, directory);
 }
 

@@ -131,3 +131,22 @@ const series = (module.exports.series = exact({
   reverse: PropTypes.bool,
   redirect_from: PropTypes.arrayOf(PropTypes.string),
 }));
+
+const questionBase = exact({
+  question: PropTypes.string.isRequired,
+  answer: PropTypes.string.isRequired,
+  section: PropTypes.string.isRequired,
+  links: PropTypes.arrayOf(PropTypes.shape(link))
+});
+
+const sectionBase = exact({
+  title: PropTypes.string.isRequired
+});
+
+const faq = (module.exports.faq = exact({
+  title: PropTypes.string.isRequired,
+  layout: PropTypes.string,
+  sections: PropTypes.oneOfType([PropTypes.shape(sectionBase), PropTypes.arrayOf(PropTypes.shape(sectionBase))]),
+  faq: PropTypes.oneOfType([PropTypes.shape(questionBase), PropTypes.arrayOf(PropTypes.shape(questionBase))]),
+  redirect_from: PropTypes.arrayOf(PropTypes.string),
+}));

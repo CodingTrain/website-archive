@@ -31,7 +31,7 @@ faq:
     links:
       - title: "The Coding Train Website"
         url: "https://thecodingtrain.com/"
-        title: "Open an Issue on the website repository"
+      - title: "Open an issue on the website repository"
         url: "https://github.com/CodingTrain/website/issues/new"
   - question: "Didn’t you do this already in a live stream?"
     section: "General"
@@ -42,7 +42,7 @@ faq:
     links:
       - title: "Processing"
         url: "https://processing.org/"
-        title: "p5.js"
+      - title: "p5.js"
         url: "https://p5js.org/"
   - question: "What code editor do you use?"
     answer: "Most commonly I use the p5.js Web Editor or Visual Studio Code. You can learn more about it in my workflow series, which includes a video about vs code."
