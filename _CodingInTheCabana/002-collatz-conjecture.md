@@ -96,7 +96,5 @@ contributions:
       url: "https://github.com/RedHenDev"
     url: "https://codepen.io/RedHenDev/full/ZegBpR"
     source: "https://github.com/RedHenDev/p5_projects/tree/master/collatzHailstorm"
-    
-    
 ---
 It's the second episode of Coding in the Cabana! Here I attempt to visualize the Collatz Conjecture in Processing.
