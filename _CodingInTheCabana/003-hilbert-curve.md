@@ -106,5 +106,11 @@ contributions:
       url: "https://github.com/GypsyDangerous"
     url: "https://editor.p5js.org/D_Snyder/full/2sn_O_qb"
     source: "https://editor.p5js.org/D_Snyder/sketches/2sn_O_qb"
+  - title: "dragon curve, gosper curve and hilbert curve with L-system"
+    author:
+      name: "David Snyder"
+      url: "https://github.com/GypsyDangerous"
+    url: "https://editor.p5js.org/D_Snyder/full/AbO9VQMr"
+    source: "https://editor.p5js.org/D_Snyder/sketches/AbO9VQMr"
 ---
 It's the third episode of Coding in the Cabana! On this snowy day, I attempt to animate the path of the classic "space filling curve" known as the Hilbert Curve.
