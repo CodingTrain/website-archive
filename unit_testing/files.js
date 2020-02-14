@@ -12,6 +12,7 @@ const yamlFolders = [
   '_TeachableMachine',
   '_beginners',
   '_more/faq',
+  '_more/workflow'
 ];
 
 

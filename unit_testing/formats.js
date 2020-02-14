@@ -93,7 +93,7 @@ const customSection = (module.exports.customSection = exact({
 
 const videoBase = (module.exports.videoBase = exact({
   title: PropTypes.string.isRequired,
-  redirect_from: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.String)]),
+  redirect_from: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
   video_number: PropTypes.number.isRequired,
   date: PropTypes.instanceOf(Date).isRequired,
   video_id: validateVideoId(),
@@ -124,12 +124,11 @@ const stream = (module.exports.stream = exact({
 
 const series = (module.exports.series = exact({
   title: PropTypes.string.isRequired,
-  redirect_from: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.String)]),
+  redirect_from: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
   subtitle: PropTypes.string,
   layout: PropTypes.oneOf(["series-index"]),
   series_number: PropTypes.number,
   reverse: PropTypes.bool,
-  redirect_from: PropTypes.arrayOf(PropTypes.string),
 }));
 
 const questionBase = exact({
