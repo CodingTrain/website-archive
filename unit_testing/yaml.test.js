@@ -45,6 +45,7 @@ let directories = {
   _TeachableMachine: formatDefinitions.video,
   _beginners: formatDefinitions.video,
   "_more/workflow": formatDefinitions.video,
+  "_more/archive": formatDefinitions.video,
 };
 
 let knownVideos = {};

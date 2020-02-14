@@ -110,6 +110,7 @@ const videoBase = (module.exports.videoBase = exact({
   contributions: PropTypes.arrayOf(PropTypes.shape(contribution)),
   custom_sections: PropTypes.arrayOf(PropTypes.shape(customSection)),
   ignore_filename: PropTypes.bool,
+  remake: PropTypes.string,
 }));
 
 const video = (module.exports.video = exact({
