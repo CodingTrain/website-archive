@@ -1,7 +1,10 @@
-/*
-https://vimeo.com/channels/learningp5js/138331801
-*/
-// var col = 0;
+// The map() Function
+// Code! Programming with p5.js
+// The Coding Train / Daniel Shiffman
+// https://thecodingtrain.com/beginners/p5js/beginners/p5js/2.4-map.html
+// https://youtu.be/nicMAoW6u1g
+// https://editor.p5js.org/codingtrain/sketches/yJqbGf71
+
 var r = 0;
 var b = 225;
 
@@ -11,11 +14,8 @@ function setup() {
 
 function draw() {
   // background
-  //col = mouseX;
-  //col = map(mouseX, 0, 600, 0, 255);
   r = map(mouseX, 0, 600, 0, 255);
   b = map(mouseX, 0, 600, 255, 0);
-  // background(col);
   background(r, 0, b);
 
   // ellipse
