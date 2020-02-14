@@ -14,13 +14,47 @@
 // However, since we're not using transparency here, and we have a
 // background() call that fills the entire canvas with a color, we
 // don't need to change the alpha value, so can set only the first 3.
+//
+//
+// The next big difference is that this version of the code has three
+// global arrays that it uses to set those entries in the pixels array,
+// instead of calculating the color values to use for every pixel.
+//
+// This change was done because the code used to to calculate the color
+// values is a bit slow. Since there are only 100 different values
+// (from 0 up to maxiterations), there are only 100 different colors,
+// so we can easily calculate them in advance and then use them later.
+//
+// To do this, the code for creating a color from how long it took to
+// get to infinity was moved from draw() to setup(), with a loop that
+// saves the color for every possible iteration count (aka value of n).
+//
+// Also, the maxiterations constant was moved to the top to be reused.
 
 let angle = 0;
+
+// Maximum number of iterations for each point on the complex plane
+const maxiterations = 100;
+
+// Colors to be used for each possible iteration count
+const colorsRed = [];
+const colorsGreen = [];
+const colorsBlue = [];
 
 function setup() {
   pixelDensity(1);
   createCanvas(640, 360);
   colorMode(HSB, 1);
+
+  // Create the colors to be used for each possible iteration count
+  for (let n = 0; n < maxiterations; n++) {
+    // Gosh, we could make fancy colors here if we wanted
+    let hu = sqrt(n / maxiterations);
+    let col = color(hu, 255, 150);
+    colorsRed[n] = red(col);
+    colorsGreen[n] = green(col);
+    colorsBlue[n] = blue(col);
+  }
 }
 
 function draw() {
@@ -49,9 +83,6 @@ function draw() {
   // Make sure we can write to the pixels[] array.
   // Only need to do this once since we don't do any other drawing.
   loadPixels();
-
-  // Maximum number of iterations for each point on the complex plane
-  let maxiterations = 100;
 
   // x goes from xmin to xmax
   let xmax = xmin + w;
@@ -93,12 +124,10 @@ function draw() {
         pixels[pix + 1] = 0;
         pixels[pix + 2] = 0;
       } else {
-        // Gosh, we could make fancy colors here if we wanted
-        let hu = sqrt(n / maxiterations);
-        let col = color(hu, 255, 150);
-        pixels[pix + 0] = red(col);
-        pixels[pix + 1] = green(col);
-        pixels[pix + 2] = blue(col);
+        // Otherwise, use the colors that we made in setup()
+        pixels[pix + 0] = colorsRed[n];
+        pixels[pix + 1] = colorsGreen[n];
+        pixels[pix + 2] = colorsBlue[n];
       }
       x += dx;
     }
