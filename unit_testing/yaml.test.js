@@ -48,6 +48,7 @@ let directories = {
   "_learning/ml5": formatDefinitions.video,
   "_more/faq": formatDefinitions.faq,
   "_more/workflow": formatDefinitions.video,
+  "_more/archive": formatDefinitions.video,
 };
 
 let knownVideos = {};
