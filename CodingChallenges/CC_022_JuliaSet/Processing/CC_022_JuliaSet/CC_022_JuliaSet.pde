@@ -1,7 +1,8 @@
-// Daniel Shiffman
-// http://codingtra.in
-// http://patreon.com/codingtrain
-// Code for: https://youtu.be/fAsaSkmbF5s
+// Julia Set
+// The Coding Train / Daniel Shiffman
+// https://thecodingtrain.com/CodingChallenges/022-juliaset.html
+// https://youtu.be/fAsaSkmbF5s
+// https://editor.p5js.org/codingtrain/sketches/G6qbMmaI
 
 float angle = 0;
 
