@@ -73,6 +73,12 @@ contributions:
       url: "https://editor.p5js.org/pallav1/full/OSVtxd1le"
     url: "https://editor.p5js.org/pallav1/sketches/OSVtxd1le"
     source: "https://editor.p5js.org/pallav1/sketches/OSVtxd1le"
+  - title: "Refined UI for Snake, including quick add of own model"
+    author:
+      name: "Ali Karpuzoglu"
+      url: "https://alikarpuzoglu.com"
+    url: "https://alikarpuzoglu.com/snake_ml/"
+    source: "https://github.com/AliKarpuzoglu/AliKarpuzoglu.github.io/tree/master/snake_ml"
 ---
 
 In this video, I demonstrate how to control an interaction with an image classification machine learning model to play the snake game.
