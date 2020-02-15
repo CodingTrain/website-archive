@@ -2,6 +2,7 @@
 // The Coding Train / Daniel Shiffman
 // https://thecodingtrain.com/CodingChallenges/022-juliaset.html
 // https://youtu.be/fAsaSkmbF5s
+// https://editor.p5js.org/codingtrain/sketches/G6qbMmaI
 
 // The biggest difference from the Processing version this is based on
 // is that the pixel arrays do not have one index for each pixel, but
