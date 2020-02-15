@@ -32,7 +32,7 @@ function setup() {
   video = createCapture(VIDEO);
   video.size(640, 480);
   video.hide();
-  // Mirro the video since we trained it that way!
+  // Mirror the video since we trained it that way!
   flipVideo = ml5.flipImage(video);
 
   // STEP 2: Start classifying
@@ -51,6 +51,7 @@ function classifyVideo() {
   // Flip the video!
   flipVideo = ml5.flipImage(video);
   classifier.classify(flipVideo, gotResults);
+  flipVideo.remove()
 }
 
 // Snake Game
