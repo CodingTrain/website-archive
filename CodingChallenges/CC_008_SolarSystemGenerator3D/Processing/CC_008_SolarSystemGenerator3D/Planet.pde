@@ -1,7 +1,7 @@
-// Daniel Shiffman
-// http://codingtra.in
-// http://patreon.com/codingtrain
-// Code for: https://youtu.be/dncudkelNxw
+// Solar System in Processing - Part 2 (3D)
+// The Coding Train / Daniel Shiffman
+// https://thecodingtrain.com/CodingChallenges/008-solarsystemgenerator3d.html
+// https://youtu.be/dncudkelNxw
 
 class Planet {
   float radius;
@@ -10,8 +10,6 @@ class Planet {
   float angle;
   float orbitspeed;
   PVector v;
-
-  PShape globe;
 
   Planet(float r, float d, float o) {
 
