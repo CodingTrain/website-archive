@@ -112,5 +112,11 @@ contributions:
       url: "https://github.com/GypsyDangerous"
     url: "https://editor.p5js.org/D_Snyder/full/AbO9VQMr"
     source: "https://editor.p5js.org/D_Snyder/sketches/AbO9VQMr"
+  - title: "Hilbert Curve translated in Pygame"
+    author:
+      name: "Ari24"
+      url: ""
+    url: ""
+    source: "https://github.com/Ari24-cb24/Python-Speedcoding/tree/master/Hilbert%20Curve"
 ---
 It's the third episode of Coding in the Cabana! On this snowy day, I attempt to animate the path of the classic "space filling curve" known as the Hilbert Curve.
