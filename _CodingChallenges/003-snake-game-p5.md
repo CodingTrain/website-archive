@@ -103,7 +103,5 @@ contributions:
       url: "https://github.com/kessinger8"
     url: "https://editor.p5js.org/Kessinger/full/HMBEmyuu"
     source: "https://editor.p5js.org/Kessinger/sketches/HMBEmyuu"
-    
 ---
-
 In this coding challenge, I attempt to code a p5.js version of the Snake Game.
