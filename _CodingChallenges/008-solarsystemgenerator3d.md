@@ -5,6 +5,7 @@ video_number: 8
 date: 2016-05-02
 video_id: dncudkelNxw
 repository: CC_008_SolarSystemGenerator3D
+web_editor: QIB-sT10
 
 links:
   - title: "PeasyCam library"
