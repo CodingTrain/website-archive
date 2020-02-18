@@ -2,6 +2,7 @@
 // The Coding Train / Daniel Shiffman
 // https://thecodingtrain.com/CodingChallenges/008-solarsystemgenerator3d.html
 // https://youtu.be/dncudkelNxw
+// https://editor.p5js.org/codingtrain/sketches/QIB-sT10
 
 // Since PeasyCam is only for Java, this instead uses p5.EasyCam,
 // which is based on PeasyCam but is made for p5.js.
