@@ -1,0 +1,29 @@
+---
+layout: base
+---
+
+<div class="faq">
+  {{ content }}
+
+  {% assign sections = page.sections %}
+  {% assign questions = page.faq %}
+
+  {% comment %} Loop through questions for each section {% endcomment %}
+  {% for section in sections %}
+    <h2>{{section.title}}</h2>
+
+    {% for question in questions %}
+      {% if question.section == section.title %}
+        <div class="faq-container">
+          <h3 class="faq-question">{{question.question}}</h3>
+          <p class="faq-answer">{{question.answer}}</p>
+          {% if question.links %}
+            {% include 3-modules/link-list.html links=question.links class='faq-links' %}
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endfor %}
+
+  {% endfor %}
+
+</div>
