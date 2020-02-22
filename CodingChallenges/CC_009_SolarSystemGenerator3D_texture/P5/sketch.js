@@ -2,6 +2,7 @@
 // The Coding Train / Daniel Shiffman
 // https://thecodingtrain.com/CodingChallenges/009-solarsystemgenerator3d-texture.html
 // https://youtu.be/FGAwi7wpU8c
+// https://editor.p5js.org/codingtrain/sketches/SD8a6k6A
 
 // Since PeasyCam is only for Java, this instead uses p5.EasyCam,
 // which is based on PeasyCam but is made for p5.js.
