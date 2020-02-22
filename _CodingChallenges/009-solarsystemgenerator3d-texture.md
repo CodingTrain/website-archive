@@ -5,6 +5,7 @@ video_number: 9
 date: 2016-05-02
 video_id: FGAwi7wpU8c
 repository: CC_009_SolarSystemGenerator3D_texture
+web_editor: SD8a6k6A
 
 links:
   - title: "PeasyCam library"
