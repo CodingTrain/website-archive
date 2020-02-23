@@ -8,7 +8,17 @@ layout: base
 
   {% comment %} Only select videos that are in this series. {% endcomment %}
   {% assign videos = site[page.collection] %}
-  {% include 1-tools/sort-videos.html videos=videos seriesPage=page future=true %}
+  {{ videos | inspect }}
+
+  {% if page.externalVideos %}
+    {% assign externalVideos = page.externalVideos %}
+  {% else %}
+    {% assign externalVideos = '' | split: '' %}
+  {% endif %}
+  {% assign allVideos = videos | concat: externalVideos %}
+  {{ allVideos | inspect }}
+
+  {% include 1-tools/sort-videos.html videos=allVideos seriesPage=page future=true %}
   {% assign sortedVideos = out_sortedVideos %}
 
   {% comment %} Remove series path from video path. {% endcomment %}
