@@ -3,7 +3,7 @@
 // The Coding Train / Daniel Shiffman
 // https://youtu.be/yNkAuWz5lnY
 // https://thecodingtrain.com/learning/ml5/1.1-image-classification.html
-// https://editor.p5js.org/codingtrain/sketches/
+// https://editor.p5js.org/codingtrain/sketches/FZF7iDe
 
 let mobilenet;
 let puffin;

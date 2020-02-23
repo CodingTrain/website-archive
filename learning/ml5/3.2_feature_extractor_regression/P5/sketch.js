@@ -3,7 +3,7 @@
 // The Coding Train / Daniel Shiffman
 // https://youtu.be/aKgq0m1YjvQ
 // https://thecodingtrain.com/learning/ml5/3.2-feature-extractor-regression.html
-// https://editor.p5js.org/codingtrain/sketches/
+// https://editor.p5js.org/codingtrain/sketches/psUcQBPf
 
 let mobilenet;
 let predictor;
@@ -34,7 +34,9 @@ function gotResults(error, result) {
   if (error) {
     console.error(error);
   } else {
-    value = result;
+    // updated to work with newer version of ml5
+    // value = result;
+    value = result.value;
     predictor.predict(gotResults);
   }
 }

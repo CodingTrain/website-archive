@@ -1,9 +1,9 @@
-// Feature Extractor Regression
+// Save/Load Model
 // A Beginner's Guide to Machine Learning with ml5.js
 // The Coding Train / Daniel Shiffman
 // https://youtu.be/eeO-rWYFuG0
 // https://thecodingtrain.com/learning/ml5/4.1-ml5-save-load-model.html
-// https://editor.p5js.org/codingtrain/sketches/
+// https://editor.p5js.org/codingtrain/sketches/1g9C6OKX
 
 let mobilenet;
 let classifier;
@@ -78,7 +78,9 @@ function gotResults(error, result) {
   if (error) {
     console.error(error);
   } else {
-    label = result;
+    // updated to work with newer version of ml5
+    // label = result;
+    label = result[0].label;
     classifier.classify(gotResults);
   }
 }

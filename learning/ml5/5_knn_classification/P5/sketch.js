@@ -1,11 +1,11 @@
-// Feature Extractor Regression
+// KNN Classification
 // A Beginner's Guide to Machine Learning with ml5.js
 // The Coding Train / Daniel Shiffman
 // 1: https://youtu.be/KTNqXwkLuM4
 // 2: https://youtu.be/Mwo5_bUVhlA
 // 3: https://youtu.be/JWsKay58Z2g
 // https://thecodingtrain.com/learning/ml5/4.1-ml5-save-load-model.html
-// https://editor.p5js.org/codingtrain/sketches/
+// https://editor.p5js.org/codingtrain/sketches/RERqlwJL
 
 let video;
 let features;

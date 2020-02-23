@@ -3,7 +3,7 @@
 // The Coding Train / Daniel Shiffman
 // https://youtu.be/D9BoBSkLvFo
 // https://thecodingtrain.com/learning/ml5/1.2-webcam-classification.html
-// https://editor.p5js.org/codingtrain/sketches/
+// https://editor.p5js.org/codingtrain/sketches/JrudwwVD
 
 let mobilenet;
 let video;

@@ -3,7 +3,7 @@
 // The Coding Train / Daniel Shiffman
 // https://youtu.be/eeO-rWYFuG0
 // https://thecodingtrain.com/learning/ml5/3.1-feature-extractor-classification.html
-// https://editor.p5js.org/codingtrain/sketches/
+// https://editor.p5js.org/codingtrain/sketches/5A_TJHA1
 
 let mobilenet;
 let classifier;
@@ -34,7 +34,9 @@ function gotResults(error, result) {
   if (error) {
     console.error(error);
   } else {
-    label = result;
+    // updated to work with newer version of ml5
+    // label = result;
+    label = result[0].label;
     classifier.classify(gotResults);
   }
 }
