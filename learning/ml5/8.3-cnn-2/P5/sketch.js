@@ -79,8 +79,8 @@ function pooling(img, x, y) {
   let brightR = -Infinity;
   let brightG = -Infinity;
   let brightB = -Infinity;
-  for (let i = 0; i < 2; i++) {
-    for (let j = 0; j < 2; j++) {
+  for (let i = 0; i < stride; i++) {
+    for (let j = 0; j < stride; j++) {
       let pix = index(x + i, y + j, img);
       let r = img.pixels[pix + 0];
       let g = img.pixels[pix + 1];
