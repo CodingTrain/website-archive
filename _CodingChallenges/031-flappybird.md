@@ -38,5 +38,9 @@ contributions:
     author: "Sebastien Lorentz"
     url: "https://editor.p5js.org/sebastien.lorentz/present/ht-gL0Z4o"
     source: "https://editor.p5js.org/sebastien.lorentz/sketches/ht-gL0Z4o"
+  - title: "Flappy Pose - Flap your arms to flap"
+    author: "Oz Ramos @checkboxOz"
+    url: "https://flappy-pose.glitch.me/"
+    source: "https://glitch.com/edit/#!/flappy-pose"
 ---
 In this coding challenge, I attempt to program in JavaScript (using the p5.js framework) a clone of the game Flappy Bird.
