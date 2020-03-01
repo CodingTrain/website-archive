@@ -45,6 +45,7 @@ let directories = {
   "_TeachableMachine": formatDefinitions.video,
   "_beginners": formatDefinitions.video,
   "_learning/nature-of-code": formatDefinitions.video,
+  "_learning/ml5": formatDefinitions.video,
   "_more/faq": formatDefinitions.faq,
   "_more/workflow": formatDefinitions.video,
 };
