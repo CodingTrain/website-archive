@@ -2,6 +2,7 @@
 // The Coding Train / Daniel Shiffman
 // https://thecodingtrain.com/CodingChallenges/102-2d-water-ripple.html
 // https://youtu.be/BZUdGqeOD0w
+// https://editor.p5js.org/codingtrain/sketches/tYXtzNSl
 
 // Algorithm: https://web.archive.org/web/20160418004149/http://freespace.virgin.net/hugo.elias/graphics/x_water.htm
 
