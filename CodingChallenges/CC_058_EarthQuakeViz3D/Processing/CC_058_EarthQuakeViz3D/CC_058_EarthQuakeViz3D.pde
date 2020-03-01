@@ -1,7 +1,8 @@
-// Daniel Shiffman
-// http://codingtra.in
-// Earthquake Data Viz
-// Video: [coming soon]
+// 3D Earthquake Data Visualization
+// The Coding Train / Daniel Shiffman
+// https://thecodingtrain.com/CodingChallenges/058-earthquakeviz3d.html
+// https://youtu.be/dbs4IYGfAXc
+// https://editor.p5js.org/codingtrain/sketches/tttPKxZi
 
 float angle;
 

@@ -37,11 +37,11 @@ contributions:
       url: "https://github.com/GypsyDangerous"
     url: "https://editor.p5js.org/D_Snyder/full/gEBQa5elpY"
     source: "https://editor.p5js.org/D_Snyder/sketches/gEBQa5elpY"
-  - title: "Sleep sort"
+  - title: "Sorting algorithms vizualized"
     author:
       name: "Felix Rewer"
-    url: "https://editor.p5js.org/felix-jealous/full/rl2iGBVL"
-    source: "https://editor.p5js.org/felix-jealous/sketches/rl2iGBVL"
+    url: "https://editor.p5js.org/felix-jealous/present/dVId587F"
+    source: "https://editor.p5js.org/felix-jealous/sketches/dVId587F"
 links:
   - title: "Quicksort on Wikipedia"
     url: "https://en.wikipedia.org/wiki/Quicksort"
