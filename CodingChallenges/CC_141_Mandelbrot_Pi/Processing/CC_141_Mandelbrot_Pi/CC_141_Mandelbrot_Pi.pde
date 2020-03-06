@@ -2,7 +2,6 @@
 // Daniel Shiffman
 // https://thecodingtrain.com/CodingChallenges/141-mandelbrot-pi.html
 // https://youtu.be/pn2vlselv_g
-// https://editor.p5js.org/codingtrain/sketches/LbNt1nyxE
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
