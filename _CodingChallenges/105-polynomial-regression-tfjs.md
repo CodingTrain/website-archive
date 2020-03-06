@@ -40,6 +40,12 @@ contributions:
       url: "https://github.com/bohdandrahan"
     url: "https://bohdandrahan.github.io/Polynomial-Regression-with-TensorFlow.js/index.html"
     source: "https://github.com/bohdandrahan/Polynomial-Regression-with-TensorFlow.js"
+  - title: "The Most Beautiful Polynomial Regression✨"
+    author:
+      name: "Giacomo Schiavo"
+      url: "https://github.com/giacomoschiavo"
+    url: "https://giacomoschiavo.github.io/projects/polynomial-regression-tf/"
+    source: "https://github.com/giacomoschiavo/projects/tree/master/polynomial-regression-tf"
 ---
 
 In this challenge, I expand the [linear example](https://youtu.be/dLp10CFIvxI) into polynomial regression!
