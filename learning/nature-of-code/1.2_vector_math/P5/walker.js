@@ -1,4 +1,4 @@
-// Vector Math
+// Getting Started with Vector Math
 // The Nature of Code
 // The Coding Train / Daniel Shiffman
 // https://thecodingtrain.com/learning/nature-of-code/1.2-vector-math.html
