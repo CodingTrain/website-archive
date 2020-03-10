@@ -1,6 +1,7 @@
 // What is a Vector
 // The Nature of Code
 // The Coding Train / Daniel Shiffman
+// https://youtu.be/bKEaK7WNLzM
 // https://thecodingtrain.com/learning/nature-of-code/1.1-what-is-a-vector.html
 // https://editor.p5js.org/codingtrain/sketches/JmEToUfk
 
