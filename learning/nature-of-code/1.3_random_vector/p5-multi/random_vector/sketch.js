@@ -1,6 +1,7 @@
-// Random Vector
+// A Random Vector
 // The Nature of Code
 // The Coding Train / Daniel Shiffman
+// https://youtu.be/jupjuq9Jl-M
 // https://thecodingtrain.com/learning/nature-of-code/1.3-random-vector.html
 
 // Random Vector: https://editor.p5js.org/codingtrain/sketches/qHKMdpRR
