@@ -77,5 +77,11 @@ contributions:
       url: "https://theabbie.github.io"
     url: "https://theabbie.github.io/files/hull.html"
     source: "https://github.com/theabbie/theabbie.github.io/blob/master/files/hull.html"
+  - title: "Finding the Convex Hull with vector's Cross Product"
+    author:
+      name: "Arthur Cavalcanti"
+      url: "https://github.com/arthurrcavalcanti"
+    url: "https://editor.p5js.org/arthurrc/full/OldqKcL5"
+    source: "https://editor.p5js.org/arthurrc/sketches/OldqKcL5"
 ---
 In this coding challenge, I implement the "Gift Wrapping algorithm" (aka Jarvis march) for calculating a convex hull in JavaScript. This is a foundational topic in computational geometry!
