@@ -11,7 +11,7 @@ function setup() {
   stroke(200);
 
   for (let i = 0; i < total + 1; i++) {
-    globe[i] = []
+    globe[i] = [];
     const lat = map(i, 0, total, 0, PI);
     for (let j = 0; j < total + 1; j++) {
       const lon = map(j, 0, total, 0, TWO_PI);
