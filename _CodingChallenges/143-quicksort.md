@@ -42,6 +42,11 @@ contributions:
       name: "Felix Rewer"
     url: "https://editor.p5js.org/felix-jealous/present/dVId587F"
     source: "https://editor.p5js.org/felix-jealous/sketches/dVId587F"
+  - title: "Adaptation with a really bad sort"
+    author:
+      name: "Joe Jackson"
+    url: "https://editor.p5js.org/budzique/full/eL779ZiF"
+    source: "https://editor.p5js.org/budzique/sketches/eL779ZiF"
 links:
   - title: "Quicksort on Wikipedia"
     url: "https://en.wikipedia.org/wiki/Quicksort"
