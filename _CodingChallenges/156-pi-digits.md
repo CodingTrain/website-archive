@@ -3,7 +3,7 @@ title: "Peeking Inside Pi"
 video_number: 156
 date: 2020-03-14
 web_editor: U649qYR4
-video_id: 08qLvWtF-oI
+video_id: MEdpRYyjz_0
 repository: CC_156_Pi_Digits
 
 links:
