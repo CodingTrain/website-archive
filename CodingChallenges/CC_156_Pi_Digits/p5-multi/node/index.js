@@ -10,6 +10,8 @@ const app = express();
 app.listen(3000, () => console.log('listening at 3000'));
 app.use(express.static('public'));
 
+let digits = '';
+
 app.get('/search/:digits', (request, response) => {
   console.log(request.params.digits);
   let search = request.params.digits;
@@ -22,7 +24,6 @@ app.get('/search/:digits', (request, response) => {
 
 const stream = fs.createReadStream('pi-billion.txt');
 
-let digits = '';
 stream.on('data', chunk => {
   digits += chunk;
 });
