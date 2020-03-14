@@ -1,0 +1,14 @@
+{
+  "name": "pi-digits",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "The Coding Train",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
