@@ -1,3 +1,9 @@
+// Spherical Geometry
+// The Coding Train / Daniel Shiffman
+// https://thecodingtrain.com/CodingChallenges/025-spheregeometry.html
+// https://youtu.be/RkuBWEkBrZA
+// https://editor.p5js.org/codingtrain/sketches/qVs1hxt
+
 const globe = [];
 const r = 200;
 const total = 25;
