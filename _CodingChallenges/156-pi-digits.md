@@ -22,6 +22,6 @@ videos:
     url: "/Tutorials/16-javascript-es6/16.3-arrow-function"
   - title: "Server-side with Node.js"
     author: "The Coding Train"
-    url: "/Courses/data-and-apis/2.1-server-side-node.html"
+    url: "/Courses/data-and-apis/2.1-server-side-node"
 ---
-In this special challenge for Pi Day challenge, I make a website for to search for a sequence of digits in pi.
+🥧 Happy Pi Day 2020! In this challenge, I build a simple web application using p5.js and node.js to search in the first billion digits of Pi.
