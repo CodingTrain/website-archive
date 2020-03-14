@@ -12,7 +12,7 @@ function preload() {
   raw = loadStrings('pi-million.txt');
 }
 
-function indexOf(txt, search) {  
+function indexOf(txt, search) {
   let start = search.charAt(0);
   for (let i = 0; i < txt.length; i++) {
     if (txt.charAt(i) === start) {
@@ -30,7 +30,6 @@ function indexOf(txt, search) {
   }
   return -1;
 }
-
 
 function searchItUp() {
   let search = searchBox.value();

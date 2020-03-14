@@ -27,7 +27,7 @@ stream.on('data', chunk => {
   digits += chunk;
 });
 
-function indexOf(txt, search) {  
+function indexOf(txt, search) {
   let start = search.charAt(0);
   for (let i = 0; i < txt.length; i++) {
     if (txt.charAt(i) === start) {
