@@ -14,6 +14,7 @@ const yamlFolders = [
   '_learning/nature-of-code',
   '_learning/ml5',
   '_more/faq',
+  '_more/workflow',
   '_more/archive',
 ];
 
