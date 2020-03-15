@@ -23,7 +23,7 @@ videos:
   - title: "Server-side with Node.js"
     author: "The Coding Train"
     url: "/Courses/data-and-apis/2.1-server-side-node"
-    
+
 contributions:
   - title: "Peeking in π with your Pitch!"
     author:
