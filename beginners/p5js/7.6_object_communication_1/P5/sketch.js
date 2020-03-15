@@ -3,7 +3,7 @@
 // The Coding Train / Daniel Shiffman
 // https://thecodingtrain.com/beginners/p5js/7.6-object-communication-1.html
 // https://youtu.be/W1-ej3Wu5zg
-// https://editor.p5js.org/codingtrain/sketches/
+// https://editor.p5js.org/codingtrain/sketches/OG-_2K16
 
 let bubble1;
 let bubble2;

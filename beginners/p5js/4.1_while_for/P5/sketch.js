@@ -3,7 +3,7 @@
 // The Coding Train / Daniel Shiffman
 // https://thecodingtrain.com/beginners/p5js/4.1-while-for.html
 // https://youtu.be/cnRD9o6odjk
-// https://editor.p5js.org/codingtrain/sketches/
+// https://editor.p5js.org/codingtrain/sketches/1B6jhzI6
 
 function setup() {
   createCanvas(600, 400);

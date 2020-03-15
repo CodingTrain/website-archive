@@ -3,7 +3,7 @@
 // The Coding Train / Daniel Shiffman
 // https://thecodingtrain.com/beginners/p5js/5.2-parameters-arguments.html
 // https://youtu.be/zkc417YapfE
-// https://editor.p5js.org/codingtrain/sketches/
+// https://editor.p5js.org/codingtrain/sketches/eGD-xzsw
 
 function setup() {
   createCanvas(600, 400);

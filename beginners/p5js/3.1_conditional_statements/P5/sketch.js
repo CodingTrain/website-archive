@@ -3,7 +3,7 @@
 // The Coding Train / Daniel Shiffman
 // https://thecodingtrain.com/beginners/p5js/3.1-conditional-statements.html
 // https://youtu.be/1Osb_iGDdjk
-// https://editor.p5js.org/codingtrain/sketches/
+// https://editor.p5js.org/codingtrain/sketches/z_yjYIha
 
 function setup() {
   createCanvas(600, 400);

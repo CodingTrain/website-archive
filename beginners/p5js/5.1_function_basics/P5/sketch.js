@@ -3,7 +3,7 @@
 // The Coding Train / Daniel Shiffman
 // https://thecodingtrain.com/beginners/p5js/5.1-function-basics.html
 // https://youtu.be/wRHAitGzBrg
-// https://editor.p5js.org/codingtrain/sketches/
+// https://editor.p5js.org/codingtrain/sketches/omHOuJY1
 
 var ball = {
   x: 300,

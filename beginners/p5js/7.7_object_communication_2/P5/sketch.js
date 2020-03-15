@@ -3,7 +3,7 @@
 // The Coding Train / Daniel Shiffman
 // https://thecodingtrain.com/beginners/p5js/7.7-object-communication-2.html
 // https://youtu.be/5Q9cA0REztY
-// https://editor.p5js.org/codingtrain/sketches/
+// https://editor.p5js.org/codingtrain/sketches/7SjPmXN2
 
 let bubbles = [];
 

@@ -3,7 +3,7 @@
 // The Coding Train / Daniel Shiffman
 // https://thecodingtrain.com/beginners/p5js/7.4-mouse-interaction.html
 // https://youtu.be/TaN5At5RWH8
-// https://editor.p5js.org/codingtrain/sketches/
+// https://editor.p5js.org/codingtrain/sketches/lE4ypFpI
 
 let bubbles = [];
 

@@ -3,7 +3,7 @@
 // The Coding Train / Daniel Shiffman
 // https://thecodingtrain.com/beginners/p5js/7.1-what-is-an-array.html
 // https://youtu.be/VIQoUghHSxU
-// https://editor.p5js.org/codingtrain/sketches/
+// https://editor.p5js.org/codingtrain/sketches/DmwVbhOZ
 
 var words = ["rainbow", "heart", "purple", "friendship", "love"];
 

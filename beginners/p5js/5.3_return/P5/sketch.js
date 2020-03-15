@@ -3,19 +3,21 @@
 // The Coding Train / Daniel Shiffman
 // https://thecodingtrain.com/beginners/p5js/5.3-return.html
 // https://youtu.be/qRnUBiTJ66Y
-// https://editor.p5js.org/codingtrain/sketches/
+// https://editor.p5js.org/codingtrain/sketches/twpIiI-v
+
+// println() is no longer part of p5.js use console.log(). For more info: https://p5js.org/reference/#/console/log
 
 function setup() {
   // var angle = degrees(PI/2);
-  // println(angle);
+  // console.log(angle);
 
   var km = milesToKm(26.3);
-  println(km);
+  console.log(km);
 
   var km2 = milesToKm(100);
-  println(km2);
+  console.log(km2);
 
-  // println(milesToKm(90));
+  // console.log(milesToKm(90));
 }
 
 function milesToKm(miles) {

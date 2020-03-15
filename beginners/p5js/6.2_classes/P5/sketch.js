@@ -3,7 +3,7 @@
 // The Coding Train / Daniel Shiffman
 // https://thecodingtrain.com/beginners/p5js/6.2-classes.html
 // https://youtu.be/T-HGdc8L-7w
-// https://editor.p5js.org/codingtrain/sketches/
+// https://editor.p5js.org/codingtrain/sketches/qi7N4LWq
 
 let bubble1;
 let bubble2;

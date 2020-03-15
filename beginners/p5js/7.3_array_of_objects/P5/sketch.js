@@ -3,7 +3,7 @@
 // The Coding Train / Daniel Shiffman
 // https://thecodingtrain.com/beginners/p5js/7.3-array-of-objects.html
 // https://youtu.be/fBqaA7zRO58
-// https://editor.p5js.org/codingtrain/sketches/
+// https://editor.p5js.org/codingtrain/sketches/1y_xfueO
 
 let bubbles = [];
 

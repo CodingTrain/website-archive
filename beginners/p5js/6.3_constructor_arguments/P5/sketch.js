@@ -3,7 +3,7 @@
 // The Coding Train / Daniel Shiffman
 // https://thecodingtrain.com/beginners/p5js/6.3-constructor-arguments.html
 // https://youtu.be/rHiSsgFRgx4
-// https://editor.p5js.org/codingtrain/sketches/
+// https://editor.p5js.org/codingtrain/sketches/HZG-lnyR
 
 let bubble1;
 let bubble2;

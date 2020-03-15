@@ -3,7 +3,7 @@
 // The Coding Train / Daniel Shiffman
 // https://thecodingtrain.com/beginners/p5js/7.2-arrays-loops.html
 // https://youtu.be/RXWO3mFuW-I
-// https://editor.p5js.org/codingtrain/sketches/
+// https://editor.p5js.org/codingtrain/sketches/ZnPevren
 
 var nums = [100, 25, 46, 72];
 

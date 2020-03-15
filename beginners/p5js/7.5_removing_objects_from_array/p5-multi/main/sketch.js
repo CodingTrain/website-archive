@@ -3,7 +3,9 @@
 // The Coding Train / Daniel Shiffman
 // https://thecodingtrain.com/beginners/p5js/7.5-removing-objects-from-array.html
 // https://youtu.be/tA_ZgruFF9k
-// https://editor.p5js.org/codingtrain/sketches/
+
+// Main Sketch: https://editor.p5js.org/codingtrain/sketches/smC4Jedi
+// Trail Sketch: https://editor.p5js.org/codingtrain/sketches/9Ve9S6Mx
 
 let bubbles = [];
 

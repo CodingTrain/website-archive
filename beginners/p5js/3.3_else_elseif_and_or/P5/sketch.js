@@ -3,7 +3,7 @@
 // The Coding Train / Daniel Shiffman
 // https://thecodingtrain.com/beginners/p5js/3.3-else-elseif-and-or.html
 // https://youtu.be/r2S7j54I68c
-// https://editor.p5js.org/codingtrain/sketches/
+// https://editor.p5js.org/codingtrain/sketches/In-bIB8w
 
 function setup() {
   createCanvas(600, 400);

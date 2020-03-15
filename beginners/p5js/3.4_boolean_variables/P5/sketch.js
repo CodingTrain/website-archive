@@ -3,7 +3,7 @@
 // The Coding Train / Daniel Shiffman
 // https://thecodingtrain.com/beginners/p5js/3.4-boolean-variables.html
 // https://youtu.be/Rk-_syQluvc
-// https://editor.p5js.org/codingtrain/sketches/
+// https://editor.p5js.org/codingtrain/sketches/yzBpV0CI
 
 function setup() {
   createCanvas(600, 400);
