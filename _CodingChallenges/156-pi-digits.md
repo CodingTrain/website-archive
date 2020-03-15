@@ -23,5 +23,13 @@ videos:
   - title: "Server-side with Node.js"
     author: "The Coding Train"
     url: "/Courses/data-and-apis/2.1-server-side-node"
+
+contributions:
+  - title: "Peeking in π with your Pitch!"
+    author:
+      name: "Arnav Sirigere"
+      url: "https://github.com/arnavsirigere"
+    url: "https://editor.p5js.org/Arnav-Sirigere/full/d3e6yoeA"
+    source: "https://editor.p5js.org/Arnav-Sirigere/sketches/d3e6yoeA"
 ---
 🥧 Happy Pi Day 2020! In this challenge, I build a simple web application using p5.js and node.js to search in the first billion digits of Pi.

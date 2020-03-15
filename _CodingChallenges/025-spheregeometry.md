@@ -4,6 +4,7 @@ redirect_from: CodingChallenges/25-spheregeometry.html
 video_number: 25
 date: 2016-06-29
 video_id: RkuBWEkBrZA
+web_editor: qVs1hxtc
 repository: CC_025_SphereGeometry
 links:
   - title: "Supershapes (Superformula)"
