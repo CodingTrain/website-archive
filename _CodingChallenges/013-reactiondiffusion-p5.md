@@ -17,6 +17,10 @@ contributions:
     author:
       name: "Ddone"
     url: "https://github.com/Deedone/Small-projects/tree/master/Reaction-diffusion"
+  - title: "C++/SFML/CUDA version with varying rates and reaction types"
+    author:
+      name: "Solidsilver"
+    url: "https://github.com/Solidsilver/PDEProj/tree/master/Numerics"
 ---
 
 In this coding challenge, I visualize a Reaction Diffusion simulation using the Gray Scott model in JavaScript (with the p5.js library).
