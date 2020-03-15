@@ -26,6 +26,12 @@ layout: base
     #{% if series.series_number %}{{ series.series_number }}.{% endif %}{{ page.video_number }}
   </div>
 
+  {% if page.remake %}
+  <div class="remake">
+    This video has been remade or updated. You can find the new version on <a href="{{ page.remake | relative_url }}">this webpage</a>.
+  </div>
+  {% endif %}
+
   <div class="player-and-topics">
     <div class="player">
 

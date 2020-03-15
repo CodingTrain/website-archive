@@ -7,10 +7,10 @@ video_id: gFqBnxIm5Us
 topics:
   - title: "Clicking on Objects"
     time: "38:50"
-    url: "/Tutorials/7-object-interaction/7.4-mouse-interaction"
+    url: "/beginners/p5js/7.4-mouse-interaction"
   - title: "Deleting Objects from Array"
     time: "1:05:50"
-    url: "/Tutorials/7-object-interaction/7.5-removing-objects-from-array"
+    url: "/beginners/p5js/7.5-removing-objects-from-array"
   - title: "p5.Speech text to speech"
     time: "1:48:31"
     url: "/Courses/programming-with-text/10-chatbots/10.3-text-to-speech"
