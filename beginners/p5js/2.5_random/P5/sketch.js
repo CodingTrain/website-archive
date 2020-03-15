@@ -31,4 +31,3 @@ function draw() {
   fill(col.r, col.g, col.b, 100);
   ellipse(spot.x, spot.y, 24, 24);
 }
-

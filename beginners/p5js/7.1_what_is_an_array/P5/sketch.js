@@ -5,7 +5,7 @@
 // https://youtu.be/VIQoUghHSxU
 // https://editor.p5js.org/codingtrain/sketches/DmwVbhOZ
 
-var words = ["rainbow", "heart", "purple", "friendship", "love"];
+var words = ['rainbow', 'heart', 'purple', 'friendship', 'love'];
 
 var index = 0;
 

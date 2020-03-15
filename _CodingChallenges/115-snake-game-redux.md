@@ -20,7 +20,8 @@ videos:
   - title: "Coding Challenge #3: Snake Game"
     url: "/CodingChallenges/003-snake-game-p5"
   - title: "ES6 Classes"
-    video_id: "T-HGdc8L-7w"
+    author: The Coding Train
+    url: /beginners/p5js/6.2-classes
 
 contributions:
   - title: "Sketch Algorithms Snake Game Tutorial using vanilla JS"

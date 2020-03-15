@@ -15,7 +15,7 @@ function draw() {
   stroke(255);
   strokeWeight(4);
   noFill();
-  
+
   // if (mouseX > 250) {
   //   ellipse(300, 200, 100, 100);
   // } else if (mouseX > 150) {
