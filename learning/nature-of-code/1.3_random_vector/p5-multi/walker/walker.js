@@ -1,8 +1,11 @@
-// Vector Math
+// A Vector Math
 // The Nature of Code
 // The Coding Train / Daniel Shiffman
+// https://youtu.be/jupjuq9Jl-M
 // https://thecodingtrain.com/learning/nature-of-code/1.2-vector-math.html
-// https://editor.p5js.org/codingtrain/sketches/GGn5cd-z
+
+// Random Vector: https://editor.p5js.org/codingtrain/sketches/qHKMdpRR
+// Walker: https://editor.p5js.org/codingtrain/sketches/_HHLfcGx
 
 class Walker {
   constructor(x, y) {
