@@ -171,6 +171,7 @@ defaults:
 
   - scope: { path: "", type: "more" }
     values:
+      video_type: "Video"
       layout: "video"
 
   # Teachable Machine

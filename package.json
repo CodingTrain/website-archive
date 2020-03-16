@@ -18,9 +18,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "test-html": "bundle exec htmlproofer ./_site --assume-extension --check-html --disable-external --url-ignore '/#.*/'",
-    "lint": "npm run lint-cc && npm run lint-cabana && npm run lint-tutorials && npm run lint-courses",
+    "lint": "npm run lint-cc && npm run lint-cabana && npm run lint-beginners && npm run lint-tutorials && npm run lint-courses",
     "lint-cc": "./node_modules/.bin/eslint ./CodingChallenges/",
     "lint-cabana": "./node_modules/.bin/eslint ./CodingInTheCabana/",
+    "lint-beginners": "./node_modules/.bin/eslint ./beginners",
     "lint-tutorials": "./node_modules/.bin/eslint ./Tutorials/",
     "lint-courses": "./node_modules/.bin/eslint ./Courses/",
     "lint-fix": "npm run lint-cc-fix && npm run lint-cabana-fix && npm run lint-tutorials-fix && npm run lint-courses-fix",
