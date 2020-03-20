@@ -12,7 +12,6 @@ function setup() {
 function draw() {
   background(0);
 
-
   let pos = createVector(200, 200);
   let mouse = createVector(mouseX, mouseY);
 
@@ -20,14 +19,13 @@ function draw() {
 
   // let m = v.mag();
   // v.div(m);
-  
+
   // v.normalize();
   // v.mult(50);
-  
-  v.normalize().mult(50);
-  
-  // v.setMag(50);
 
+  v.normalize().mult(50);
+
+  // v.setMag(50);
 
   translate(width / 2, height / 2);
   strokeWeight(4);
