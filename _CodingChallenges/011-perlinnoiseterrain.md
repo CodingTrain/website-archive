@@ -34,5 +34,11 @@ contributions:
       url: "https://editor.p5js.org/sebastien.lorentz/present/dVLMU3-mG"
     url: "https://editor.p5js.org/sebastien.lorentz/full/dVLMU3-mG"
     source: "https://editor.p5js.org/sebastien.lorentz/sketches/dVLMU3-mG"
+  - title: "Perfectly Looping Terrain Gif"
+    author:
+      name: "Liam Hillery"
+      url: "https://github.com/Lemmings42"
+    url: "https://github.com/Lemmings42/Coding_Challenges/tree/master/Terrain_Generation/Terrain_Loop_Lo-Res.gif"
+    source: "https://github.com/Lemmings42/Coding_Challenges/tree/master/Terrain_Generation"
 ---
 In this coding challenge, I create a 3D procedural terrain using Perlin Noise and the beginShape() function in Processing.
