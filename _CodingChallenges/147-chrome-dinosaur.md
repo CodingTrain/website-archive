@@ -71,7 +71,7 @@ contributions:
       url: "https://www.ernst-schmidt.com/coding/sketches"
     url: "https://www.ernst-schmidt.com/coding/5d30690dc7a6e90017a94ef6"
     source: "https://editor.p5js.org/Kubi/sketches/GNf1AzD0J"
-    - title: "Chrome Dinosaur Game with Computer Vision"
+  - title: "Chrome Dinosaur Game with Computer Vision"
     author:
       name: "Sushant Patrikar"
       url: "https://github.com/sushantPatrikar"
