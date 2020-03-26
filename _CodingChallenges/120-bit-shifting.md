@@ -17,6 +17,12 @@ videos:
     url: "/CodingChallenges/117-seven-segment"
   - title: "The Modulo Operator with Golan Levin"
     url: "/GuestTutorials/006-golan-levin-modulo-operator"
+
+contributions:
+  - title: "BitViz"
+    author: "Soumyadip Mondal"
+    url: https://unsuitable001.github.io/BitViz/
+    source: https://github.com/unsuitable001/BitViz
 ---
 
 In this coding challenge, I talk about bitwise operations, and more specifically, bit shifting.
