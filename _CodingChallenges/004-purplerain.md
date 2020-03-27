@@ -31,5 +31,9 @@ contributions:
     author: "Aryaman Kejriwal"
     url: "https://github.com/AryamanKejriwal"
     source: "https://github.com/AryamanKejriwal/RainWithWindAndSplash"
+    - title: "A Window into Prince's World"
+    author: "Daniel Kaye"
+    url: "http://dnkaye.com/2020_CodingChallenges.html"
+    source: "https://editor.p5js.org/danno484/sketches/s_tE8ND4R"
 ---
 In this viewer submitted coding challenge, I attempt to code a Purple Rain Simulator in Processing.
