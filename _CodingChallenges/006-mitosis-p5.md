@@ -19,6 +19,12 @@ contributions:
       url: "https://twitter.com/aminahmadahmadi/"
     url: "https://editor.p5js.org/AminCodingChallenge/full/nUyR3Xnpf"
     source: "https://editor.p5js.org/AminCodingChallenge/sketches/nUyR3Xnpf"
+    - title: "Exponential Growth is Scary"
+    author:
+      name: "Daniel Kaye"
+      url: "http://dnkaye.com/2020_CodingChallenges.html"
+    url: "https://editor.p5js.org/danno484/present/aKs1OwEpn"
+    source: "https://editor.p5js.org/danno484/sketches/aKs1OwEpn"
 ---
 
 In this viewer submitted coding challenge, I program a cellular mitosis simulation in p5.js.
