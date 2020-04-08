@@ -122,6 +122,5 @@ contributions:
       url: "https://jckimgit.github.io/p5jsSimulations/"
     url: "https://jckimgit.github.io/p5jsSimulations/hilbert"
     source: "https://github.com/jckimgit/p5jsSimulations"
-  
 ---
 It's the third episode of Coding in the Cabana! On this snowy day, I attempt to animate the path of the classic "space filling curve" known as the Hilbert Curve.
