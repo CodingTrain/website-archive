@@ -53,7 +53,7 @@ contributions:
     url: "https://sort.khoi.io"
     source: "https://github.com/khoi/p5-projects/tree/master/sorting"
   - title: "Alex Mansfield's sorting visualiser"
-    author: 
+    author:
       name: "Alex Mansfield"
       url: "https://mansfields.org"
     url: "https://mansfields.org/coding_challenges/sorting_visualiser/sorter.html"
