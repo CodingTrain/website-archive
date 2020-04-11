@@ -56,7 +56,7 @@ contributions:
     author:
       name: "Alex Mansfield"
       url: "https://mansfields.org"
-    url: "https://mansfields.org/coding_challenges/sorting_visualiser/sorter.html"
+    url: "https://mansfields.org/coding_challenges/sorting_visualiser/sorter.html?algo=bubble"
     source: "https://github.com/alim19/web/tree/master/public/coding_challenges/sorting_visualiser/"
 ---
 
