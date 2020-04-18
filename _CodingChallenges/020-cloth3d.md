@@ -4,6 +4,7 @@ redirect_from: CodingChallenges/20-cloth3d.html
 video_number: 20
 date: 2016-06-09
 video_id: jrk_lOg_pVA
+web_editor: U6n24GfsD
 repository: CC_020_ClothSimulation
 
 links:
