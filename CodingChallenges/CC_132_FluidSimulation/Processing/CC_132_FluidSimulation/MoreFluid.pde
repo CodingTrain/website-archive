@@ -11,7 +11,7 @@
 
 void diffuse (int b, float[] x, float[] x0, float diff, float dt) {
   float a = dt * diff * (N - 2) * (N - 2);
-  lin_solve(b, x, x0, a, 1 + 6 * a);
+  lin_solve(b, x, x0, a, 1 + 4 * a);
 }
 
 void lin_solve(int b, float[] x, float[] x0, float a, float c) {
@@ -47,7 +47,7 @@ void project(float[] velocX, float[] velocY, float[] p, float[] div) {
 
   set_bnd(0, div); 
   set_bnd(0, p);
-  lin_solve(0, p, div, 1, 6);
+  lin_solve(0, p, div, 1, 4);
 
   for (int j = 1; j < N - 1; j++) {
     for (int i = 1; i < N - 1; i++) {
