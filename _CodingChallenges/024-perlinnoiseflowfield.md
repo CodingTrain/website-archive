@@ -32,6 +32,12 @@ contributions:
       url: "https://github.com/Afferore43"
     url: "https://afferore43.github.io/flowfield/"
     source: "https://github.com/Afferore43/flowfield"
+  - title: "Interactive Flowfield"
+    author:
+      name: "Nils R"
+      url: "https://github.com/nilsDE/"
+    url: "https://nilsde.github.io/flowfield/"
+    source: "https://github.com/nilsDE/flowfield"
 ---
 
 In this coding challenge, I use Perlin noise to create a two-dimensional flow field with the p5.js library
