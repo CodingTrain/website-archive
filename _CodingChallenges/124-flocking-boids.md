@@ -115,5 +115,10 @@ contributions:
       url: "https://codepen.io/leimapapa"
     url: "https://codepen.io/leimapapa/full/abzZLBy"
     source: "https://codepen.io/leimapapa/pen/abzZLBy?editors=0010"
+  - title: "Boids implementation"
+    author:
+      name: "Christian Scott"
+    url: "https://kreativitetno.github.io/boids_p5js/"
+    source: "https://github.com/kreativitetNO/boids_p5js"
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.

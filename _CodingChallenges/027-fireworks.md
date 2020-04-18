@@ -50,6 +50,12 @@ contributions:
     author: "Karol Zachura"
     url: https://media.giphy.com/media/XxSadBn6UaU0bWqqTV/giphy.gif
     source: https://github.com/f0uu/processing_projects/tree/master/new_year_fireworks
+  - title: "Rocket Explosion Fireworks!!"
+    author:
+      name: "Tushar Upadhyay"
+      url: https://github.com/tushar-upadhyay
+    url: https://editor.p5js.org/tusharpg/full/8XmPDsf6H
+    source: https://editor.p5js.org/tusharpg/sketches/8XmPDsf6H
 ---
 
 In this 4th of July themed coding challenge, I build an HTML5 canvas fireworks simulation from scratch using the p5.js JavaScript library. I also show how to use Processing to create 3D Fireworks.

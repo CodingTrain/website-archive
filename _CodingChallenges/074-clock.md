@@ -149,6 +149,12 @@ contributions:
     author: "Mohammad Fahad"
     url: https://editor.p5js.org/Morphinepill/full/UFsFBd1Z
     source: https://editor.p5js.org/Morphinepill/sketches/UFsFBd1Z
+  - title: "Sine Clock"
+    author:
+      name: "Ernst Schmidt"
+      url: "https://www.ernst-schmidt.com/"
+    url: https://www.ernst-schmidt.com/coding/5e01d62c4c0d6b35f149a145
+    source: https://editor.p5js.org/Kubi/sketches/i9nZF5u5A
 ---
 
 In this coding challenge, I attempt to program a clock in HTML5 canvas with the p5.js library.
