@@ -58,6 +58,12 @@ contributions:
       url: "https://github.com/aymanmh"
     url: "https://raw.githubusercontent.com/aymanmh/cinder/master/Phyllotaxis/vc2013/sample.png"
     source: "https://github.com/aymanmh/cinder/tree/master/Phyllotaxis"
+  - title: "Colorfull PhylloTaxis pattern"
+    author:
+      name: "Tushar Upadhyay"
+      url: "https://github.com/tushar-upadhyay"
+    url: "https://editor.p5js.org/tusharpg/full/8NKuGMw4W"
+    source: "https://editor.p5js.org/tusharpg/sketches/8NKuGMw4W"
 ---
 
 In this coding challenge, I continue one of my favorite subjects: Algorithmic botany! This video covers the subject of Phyllotaxis, what it is and how it can be used to generate sunflower-like patterns inspired by nature.

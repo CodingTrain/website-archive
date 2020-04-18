@@ -52,6 +52,12 @@ contributions:
       url: "https://github.com/khoi"
     url: "https://sort.khoi.io"
     source: "https://github.com/khoi/p5-projects/tree/master/sorting"
+  - title: "Alex Mansfield's sorting visualiser"
+    author:
+      name: "Alex Mansfield"
+      url: "https://mansfields.org"
+    url: "https://mansfields.org/coding_challenges/sorting_visualiser/sorter.html?algo=bubble"
+    source: "https://github.com/alim19/web/tree/master/public/coding_challenges/sorting_visualiser/"
 ---
 
 In this coding challenge, I implement a "bubble sort" algorithm in Processing (Java) and sort randomly generated lines. [#SortingTrain](https://twitter.com/hashtag/SortingTrain)

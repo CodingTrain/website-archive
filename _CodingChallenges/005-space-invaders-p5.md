@@ -35,6 +35,18 @@ contributions:
       url: "https://twitter.com/aminahmadahmadi/"
     url: "https://editor.p5js.org/AminCodingChallenge/full/U3xEo8Ifg"
     source: "https://editor.p5js.org/AminCodingChallenge/sketches/U3xEo8Ifg"
+  - title: "Classic Style Space Invaders"
+    author:
+      name: "Daniel Kaye"
+      url: "http://dnkaye.com/2020_CodingChallenges.html"
+    url: "https://editor.p5js.org/danno484/present/zzO5nmnEg"
+    source: "https://editor.p5js.org/danno484/sketches/zzO5nmnEg"
+  - title: "Remastered with pictures space invaders"
+    author:
+      name: "Godeta"
+      url: "https://github.com/Godeta"
+    url: "https://godeta.github.io/space-invaders-JS/"
+    source: "https://editor.p5js.org/Godeta/present/iItQVOprn"
 ---
 
 In this viewer submitted coding challenge, I take on the task of coding a Space Invaders game to play in browser in JavaScript/HTML and the p5.js library.

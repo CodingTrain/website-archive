@@ -42,5 +42,9 @@ contributions:
     author: "Oz Ramos @checkboxOz"
     url: "https://flappy-pose.glitch.me/"
     source: "https://glitch.com/edit/#!/flappy-pose"
+  - title: "Flappy Bird Lite"
+    author: "Nguyen Van An @jounger"
+    url: "https://editor.p5js.org/jounger/present/AArmk7_SZ"
+    source: "https://editor.p5js.org/jounger/sketches/AArmk7_SZ"
 ---
 In this coding challenge, I attempt to program in JavaScript (using the p5.js framework) a clone of the game Flappy Bird.
