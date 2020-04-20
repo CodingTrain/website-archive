@@ -120,5 +120,15 @@ contributions:
       name: "Christian Scott"
     url: "https://kreativitetno.github.io/boids_p5js/"
     source: "https://github.com/kreativitetNO/boids_p5js"
+  - title: "Boids implementation with space division and other optimisations (p5.js version)"
+    author:
+      name: "Tamas Hortobagyi"
+    url: "https://hortom.github.io/boids-p5/"
+    source: "https://github.com/hortom/boids-p5"
+  - title: "Boids implementation with space division and other optimisations (pixi.js version)"
+    author:
+      name: "Tamas Hortobagyi"
+    url: "https://hortom.github.io/boids-pixi/"
+    source: "https://github.com/hortom/boids-pixi"
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
