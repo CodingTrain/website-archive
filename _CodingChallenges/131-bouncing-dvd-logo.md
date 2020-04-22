@@ -66,6 +66,12 @@ contributions:
       name: "kappekoff"
     url: "https://kappekoff.github.io/Spinning-DVD-logo/"
     source: "https://github.com/kappekoff/Spinning-DVD-logo"
+  - title: "Python3.6 implementation using pygame1.9"
+    author:
+      name: "chief141"
+      url: "https://github.com/chief141"
+    url: "https://repl.it/@chief141/Bouncing-DVD-logo"
+    source: "https://github.com/chief141/Coding-Train-Challenges-python/tree/master/Bouncing-DVD-logo"
 ---
 
 In this coding challenge, I simulate the "Bouncing DVD Logo" meme in JavaScript with p5.js.
