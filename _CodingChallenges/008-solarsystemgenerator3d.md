@@ -17,6 +17,14 @@ parts:
     url: "/CodingChallenges/007-solarsystemgenerator"
   - title: "Solar System in Processing - Part 3 (3D textures)"
     url: "/CodingChallenges/009-solarsystemgenerator3d-texture"
+
+contributions:
+  - title: "Simple 3D Solar System"
+    author:
+      name: "Daniel Kaye"
+      url: "http://dnkaye.com/2020_CodingChallenges.html"
+    url: "https://editor.p5js.org/danno484/present/EOChmqoJX"
+    source: "https://editor.p5js.org/danno484/sketches/EOChmqoJX"
 ---
 
 In the second part of this coding challenge, using Processing, I take the code from the [2D Solar System (Part 1)](https://youtu.be/l8SiJ-RmeHU) and turn it three-dimensional.
