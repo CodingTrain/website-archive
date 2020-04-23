@@ -37,5 +37,11 @@ contributions:
       url: "http://dnkaye.com/2020_CodingChallenges.html"
     source: "https://editor.p5js.org/danno484/sketches/s_tE8ND4R"
     url: "https://editor.p5js.org/danno484/full/s_tE8ND4R"
+  - title: "Python implementation of the original one"
+    author:
+      name: "chief141"
+      url: "https://github.com/chief141"
+    source: "https://github.com/chief141/Coding-Train-Challenges-python/tree/master/Purple-Rain"
+    url: "https://repl.it/@chief141/Purple-Rain"
 ---
 In this viewer submitted coding challenge, I attempt to code a Purple Rain Simulator in Processing.
