@@ -27,6 +27,12 @@ contributions:
       url: https://github.com/CatalaHD
     url: https://github.com/CatalaHD/SolarSystemProcessing
     source: https://github.com/CatalaHD/SolarSystemProcessing/blob/master/Planet.pde
+    - title: "Simple 3D Solar System"
+    author:
+      name: "Daniel Kaye"
+      url: "http://dnkaye.com/2020_CodingChallenges.html"
+    url: "https://editor.p5js.org/danno484/present/2NwiMyhxA"
+    source: "https://editor.p5js.org/danno484/sketches/2NwiMyhxA"
 ---
 
 In part 3 of this coding challenge, using Processing, I add texture to the 3D objects created in [part 2](https://youtu.be/dncudkelNxw).  The PShape class and createShape() functions are covered.
