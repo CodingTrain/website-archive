@@ -32,6 +32,12 @@ contributions:
       url: "https://github.com/tihawk/"
     url: "https://codepen.io/tihawk/full/XGNyEL"
     source: "https://github.com/tihawk/browser-visualisations/tree/master/public/simple-sampling"
+  - title: "Python3.6 implementation using pygame1.9"
+    author:
+      name: "Chief141"
+      url: "https://github.com/chief141"
+    url: "https://repl.it/@chief141/Approximating-PI"
+    source: "https://github.com/chief141/Coding-Train-Challenges-python/tree/master/Approximating-pi"
 ---
 
 In this coding challenge, I use use a "monte carlo" method to approximate the value of Pi in Processing (Java).
