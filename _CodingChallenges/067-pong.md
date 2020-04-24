@@ -51,5 +51,9 @@ contributions:
     author: "Rodrigo Kulb"
     url: "http://rodrigo-kulb.com.br/pong"
     source: "https://github.com/rodrigoKulb/pongAI"
+  - title: "Pong in Processing"
+    author: "Abdullah Al-Sabbagh"
+    url: "https://github.com/CleverEngage/pong"
+    source: "https://github.com/CleverEngage/pong"
 ---
 In this challenge, I attempt (emphasis on the word "attempt") to program the classic video game Pong in Processing (Java).
