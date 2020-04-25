@@ -42,7 +42,6 @@ contributions:
       url: "https://github.com/Arnav-Sirigere/"
     url: "https://editor.p5js.org/Arnav-Sirigere/full/ZCuoBe9DT"
     source: "https://editor.p5js.org/Arnav-Sirigere/sketches/ZCuoBe9DT"
-    
   - title: "Sierpinski Trianlge using fractal tree."
     author:
       name: "Amitabh Kotha"
