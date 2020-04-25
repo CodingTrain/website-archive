@@ -42,5 +42,12 @@ contributions:
       url: "https://github.com/Arnav-Sirigere/"
     url: "https://editor.p5js.org/Arnav-Sirigere/full/ZCuoBe9DT"
     source: "https://editor.p5js.org/Arnav-Sirigere/sketches/ZCuoBe9DT"
+    
+  - title: "Sierpinski Trianlge using fractal tree."
+    author:
+      name: "Amitabh Kotha"
+      url: "https://github.com/AmitabhKotha/"
+    url: "https://editor.p5js.org/Amitabh_Kotha/full/PV89AGldr"
+    source: "https://editor.p5js.org/Amitabh_Kotha/sketches/PV89AGldr"
 ---
 In this coding challenge, I'm going to show you how to create a Fractal Tree with a recursive algorithm in p5.js.
