@@ -11,6 +11,12 @@ contributions:
     author:
       name: "Jos Gielen"
     url: "https://github.com/JosGielen/hello-world/blob/master/3DSuperShapeGifLoop.gif"
+  - title: "Python3.6 implemetation using Pygame1.9"
+    author:
+      name: "Chief141"
+      url: "https://github.com/chief141"
+    source: "https://github.com/chief141/Coding-Train-Challenges-python/tree/master/making-GIF-loop"
+    url: "https://repl.it/@chief141/making-GIF-loop"
 
 links:
   - title: "Daily Art"
