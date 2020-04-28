@@ -103,5 +103,11 @@ contributions:
       url: "https://github.com/kessinger8"
     url: "https://editor.p5js.org/Kessinger/full/HMBEmyuu"
     source: "https://editor.p5js.org/Kessinger/sketches/HMBEmyuu"
+  - title: "Python3.6 implementation using pygame1.9"
+    author:
+      name: "chief141"
+      url: "https://github.com/chief141"
+    url: "https://repl.it/@chief141/Snake-Game"
+    source: "https://github.com/chief141/Coding-Train-Challenges-python/tree/master/snake-game"
 ---
 In this coding challenge, I attempt to code a p5.js version of the Snake Game.
