@@ -70,6 +70,5 @@ contributions:
       url: "https://github.com/ElizabethHudnott"
     url: "https://elizabethhudnott.github.io/algorithmic-art/background/?gen=phyllotaxis"
     source: "https://github.com/ElizabethHudnott/algorithmic-art/tree/master/background"
- ---
-
+---
 In this coding challenge, I continue one of my favorite subjects: Algorithmic botany! This video covers the subject of Phyllotaxis, what it is and how it can be used to generate sunflower-like patterns inspired by nature.
