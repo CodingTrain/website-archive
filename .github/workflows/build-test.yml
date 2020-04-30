@@ -1,4 +1,4 @@
-name: Unit Tests
+name: Build Tests
 on: [pull_request]
 jobs:
   jest:
@@ -31,7 +31,6 @@ jobs:
         env:
           CI: true
   jekyll:
-    needs: jest
     name: "Jekyll Build Test"
     runs-on: ubuntu-latest
     steps:
