@@ -55,5 +55,12 @@ contributions:
     author: "Abdullah Al-Sabbagh"
     url: "https://github.com/CleverEngage/pong"
     source: "https://github.com/CleverEngage/pong"
+  - title: "Python3.6 implementaion using Pygame1.9"
+    author:
+      name: "Chief141"
+      url: "https://chief141.github.io/chiefdev"
+    url: "https://repl.it/@chief141/pong-game"
+    source: "https://github.com/chief141/Coding-Train-Challenges-python/tree/master/Pong_game"
+    
 ---
 In this challenge, I attempt (emphasis on the word "attempt") to program the classic video game Pong in Processing (Java).
