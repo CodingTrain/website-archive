@@ -61,6 +61,5 @@ contributions:
       url: "https://chief141.github.io/chiefdev"
     url: "https://repl.it/@chief141/pong-game"
     source: "https://github.com/chief141/Coding-Train-Challenges-python/tree/master/Pong_game"
-    
 ---
 In this challenge, I attempt (emphasis on the word "attempt") to program the classic video game Pong in Processing (Java).
