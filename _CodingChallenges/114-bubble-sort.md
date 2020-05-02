@@ -58,6 +58,12 @@ contributions:
       url: "https://mansfields.org"
     url: "https://mansfields.org/coding_challenges/sorting_visualiser/sorter.html?algo=bubble"
     source: "https://github.com/alim19/web/tree/master/public/coding_challenges/sorting_visualiser/"
+  - title: "Python implementation using pygame"
+    author:
+      name: "chief141"
+      url: "https://chief141.github.io/chiefdev"
+    url: "https://repl.it/@chief141/Bubble-sorting-visualize"
+    source: "https://github.com/chief141/Coding-Train-Challenges-python/tree/master/bubble_sorting_visualize"
 ---
 
 In this coding challenge, I implement a "bubble sort" algorithm in Processing (Java) and sort randomly generated lines. [#SortingTrain](https://twitter.com/hashtag/SortingTrain)
