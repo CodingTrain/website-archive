@@ -56,6 +56,10 @@ contributions:
       url: https://github.com/tushar-upadhyay
     url: https://editor.p5js.org/tusharpg/full/8XmPDsf6H
     source: https://editor.p5js.org/tusharpg/sketches/8XmPDsf6H
+  - title: "Kali Puja FireWorks"
+    author: "Supriyo Paul"
+    url: https://editor.p5js.org/Supriyo/full/2_88sdlhE
+    source: https://editor.p5js.org/Supriyo/sketches/2_88sdlhE
 ---
 
 In this 4th of July themed coding challenge, I build an HTML5 canvas fireworks simulation from scratch using the p5.js JavaScript library. I also show how to use Processing to create 3D Fireworks.
