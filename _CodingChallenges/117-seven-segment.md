@@ -106,6 +106,12 @@ contributions:
       url: "http://anuraghazra.github.io"
     url: "https://anuraghazra.github.io/CanvasFun/sevenSegmentDisplay/"
     source: "https://github.com/anuraghazra/CanvasFun/tree/master/sevenSegmentDisplay"
+  - title: "Python implementation using pygame"
+    author:
+      name: "chief141"
+      url: "https://chief141.github.io/chiefdev"
+    url: "https://repl.it/@chief141/Seven-Segment-Display"
+    source: "https://github.com/chief141/Coding-Train-Challenges-python/tree/master/seven-segment-display"
 ---
 
 In this coding challenge, I make a Seven-Segment Display with p5.js. This video is inspired by Tom Scott's: [What's The Longest Word You Can Write With Seven-Segment Displays?](https://youtu.be/zp4BMR88260).
