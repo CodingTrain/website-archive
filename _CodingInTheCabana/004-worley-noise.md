@@ -21,7 +21,7 @@ links:
 videos:
   - title: "The Coding Train at Home (Worley Noise Live Stream)"
     author: "The Coding Train"
-    url: https://youtu.be/3z9d3tqVRyc?t=4874
+    video_id: 3z9d3tqVRyc?t=4874
   - title: "Coding Challenge #24: Perlin Noise Flow Field"
     author: "The Coding Train"
     url: /CodingChallenges/024-perlinnoiseflowfield
