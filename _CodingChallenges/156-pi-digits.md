@@ -31,5 +31,11 @@ contributions:
       url: "https://github.com/arnavsirigere"
     url: "https://editor.p5js.org/Arnav-Sirigere/full/d3e6yoeA"
     source: "https://editor.p5js.org/Arnav-Sirigere/sketches/d3e6yoeA"
+  - title: "Python implementation"
+    author:
+      name: "chief141"
+      url: "https://chief141.github.io"
+    url: "https://repl.it/@chief141/Searching-in-pi"
+    source: "https://github.com/chief141/Coding-Train-Challenges-python/tree/master/Searching_in_pi"
 ---
 🥧 Happy Pi Day 2020! In this challenge, I build a simple web application using p5.js and node.js to search in the first billion digits of Pi.
