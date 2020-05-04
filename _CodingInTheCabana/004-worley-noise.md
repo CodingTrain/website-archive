@@ -35,4 +35,4 @@ videos:
     author: "The Coding Train"
     url: /CodingChallenges/098.2-quadtree
 ---
-It's the third episode of Coding in the Cabana! On this snowy day, I attempt to animate the path of the classic "space filling curve" known as the Hilbert Curve.
+It's the fourth episode of Coding in the Cabana! Quarantined at home I explore the topic of Worley noise.

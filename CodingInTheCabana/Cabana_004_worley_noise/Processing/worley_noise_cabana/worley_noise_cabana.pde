@@ -1,3 +1,9 @@
+// Worley Noise
+// Coding in the Cabana
+// The Coding Train / Daniel Shiffman
+// https://thecodingtrain.com/CodingInTheCabana/004-worley-noise.html
+// https://youtu.be/4066MndcyCk
+// p5 port: https://editor.p5js.org/codingtrain/sketches/QsiCWVczZ
 
 PVector[] points = new PVector[100];
 
