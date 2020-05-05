@@ -15,11 +15,11 @@ custom_sections:
         url: "https://twitter.com/emilyxxie"
       - title: "Github account"
         url: "https://github.com/emilyxxie"
- contributions:
-  - title: "Matrix Digital Rain in Processing"
-    author: "Mylak005"
-    url: https://github.com/mylak005/Contributions/tree/MatrixRain/MatrixRainInProcessing
-    source: https://github.com/mylak005/Contributions/tree/MatrixRain/MatrixRainInProcessing
+contributions:
+ - title: "Matrix Digital Rain in Processing"
+   author: "Mylak005"
+   url: https://github.com/mylak005/Contributions/tree/MatrixRain/MatrixRainInProcessing
+   source: https://github.com/mylak005/Contributions/tree/MatrixRain/MatrixRainInProcessing
 ---
 In this guest tutorial, Emily Xie uses the p5.js library to recreate the digital rain effect from the movie The Matrix.
 
