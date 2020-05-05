@@ -15,6 +15,9 @@ links:
   - title: "Book of Shaders - Chapter 11 Noise"
     author: "Patricio Gonzalez Vivo & Jen Lowe"
     url: https://thebookofshaders.com/11/
+  - title: "The Nature of Code - Spatial Subdivision"
+    author: "Daniel Shiffman"
+    url: https://natureofcode.com/book/chapter-6-autonomous-agents/#chapter06_figure37
   - title: "saveFrame() (Processing Reference)"
     url: https://processing.org/reference/saveFrame_.html
 
@@ -35,4 +38,4 @@ videos:
     author: "The Coding Train"
     url: /CodingChallenges/098.2-quadtree
 ---
-It's the fourth episode of Coding in the Cabana! Quarantined at home I explore the topic of Worley noise.
+It's the fourth episode of Coding in the Cabana! Quarantined at home I explore the beauty of Worley noise.
