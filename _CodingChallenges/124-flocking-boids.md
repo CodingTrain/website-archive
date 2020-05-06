@@ -133,7 +133,7 @@ contributions:
   - title: "Emojis flocking"
     author:
       name: "Juan Carlos Ponce Campuzano"
-    url: "https://jcponce.github.io/"
+      url: "https://jcponce.github.io/"
     url: "https://editor.p5js.org/jcponce/present/ECrShIcB8"
     source: "https://editor.p5js.org/jcponce/sketches/ECrShIcB8"
 ---
