@@ -47,5 +47,11 @@ contributions:
       url: "https://github.com/alcadesign"
     url: "https://codepen.io/Alca/full/PoPePoJ"
     source: "https://codepen.io/Alca/pen/PoPePoJ"
+  - title: "Worley Noise in Pygame Python (Build your own Worley Noise)"
+    author:
+      name: "Ari24"
+      url: "https://github.com/Ari24-cb24"
+    url: "https://www.youtube.com/watch?v=AU5MUIGZyF4&t=0s"
+    source: "https://github.com/Ari24-cb24/Python-Speedcoding/tree/master/Worley%20Noise"
 ---
 It's the fourth episode of Coding in the Cabana! Quarantined at home I explore the beauty of Worley noise.
