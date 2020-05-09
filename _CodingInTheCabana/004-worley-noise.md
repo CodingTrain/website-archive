@@ -7,6 +7,8 @@ web_editor: QsiCWVczZ
 repository: Cabana_004_worley_noise
 
 links:
+  - title: "Additional code examples for video visuals"
+    url: https://github.com/CodingTrain/WorleyNoise
   - title: "Worley noise (Wikipedia)"
     url: https://en.wikipedia.org/wiki/Worley_noise
   - title: "A Cellular Texture Basis Function"
