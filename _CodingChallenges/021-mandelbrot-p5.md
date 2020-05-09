@@ -42,5 +42,10 @@ contributions:
       name: "Juan Carlos Ponce Campuzano"
     url: "https://jcponce.github.io/complex/mandelbrotexplorer/"
     source: "https://github.com/jcponce/complex/tree/gh-pages/mandelbrotexplorer"
+  - title: "Burning Ship Fractal"
+    author:
+      name: "Mylak005"
+      url: "https://github.com/mylak005/Contributions/tree/MatrixRain/BurningShip"
+    source: "https://github.com/mylak005/Contributions/tree/MatrixRain/BurningShip"
 ---
 In this coding challenge, I program from scratch the Mandelbrot set with p5.js

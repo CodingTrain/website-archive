@@ -130,5 +130,11 @@ contributions:
       name: "Tamas Hortobagyi"
     url: "https://hortom.github.io/boids-pixi/"
     source: "https://github.com/hortom/boids-pixi"
+  - title: "Emojis flocking"
+    author:
+      name: "Juan Carlos Ponce Campuzano"
+      url: "https://jcponce.github.io/"
+    url: "https://editor.p5js.org/jcponce/present/ECrShIcB8"
+    source: "https://editor.p5js.org/jcponce/sketches/ECrShIcB8"
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.

@@ -65,5 +65,11 @@ contributions:
       name: "David Shorey"
       url: "https://www.openprocessing.org/sketch/830290"
     source: "https://www.openprocessing.org/sketch/830290"
+  - title: "Backward Starfield"
+    author:
+      name: "Cássio Fernando Brito de Souza"
+      url: "https://www.linkedin.com/in/cassiofb-dev/"
+    url: "https://cassiofb-dev.github.io/star-field/"
+    source: "https://github.com/cassiofb-dev/star-field"
 ---
 This is the first in a new series of videos.  In this video I attempt to program a "star field" or "warp speed" visualization in Processing.  
