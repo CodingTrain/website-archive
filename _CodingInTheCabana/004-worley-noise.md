@@ -39,5 +39,13 @@ videos:
   - title: "Coding Challenge #98.2 - Quadtree"
     author: "The Coding Train"
     url: /CodingChallenges/098.2-quadtree
+
+contributions:
+  - title: "Worley Noise - 3D Rotating View"
+    author:
+      name: "Alca"
+      url: "https://github.com/alcadesign"
+    url: "https://codepen.io/Alca/full/PoPePoJ"
+    source: "https://codepen.io/Alca/pen/PoPePoJ"
 ---
 It's the fourth episode of Coding in the Cabana! Quarantined at home I explore the beauty of Worley noise.
