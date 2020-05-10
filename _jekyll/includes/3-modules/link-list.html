@@ -48,7 +48,7 @@
         {% if url contains 'http://' or url contains 'https://' %}
 
           {% comment %} External link (open in new tab/window). {% endcomment %}
-          <a href="{{ url }}" target="blank">{{ link.title }}</a>
+          <a href="{{ url }}" target="_blank">{{ link.title }}</a>
         {% elsif url %}
 
           {% comment %} Internal link (make sure that the url is correct). {% endcomment %}
@@ -69,7 +69,7 @@
 
         {% if link.author %}
           {% if link.author.url %}
-            <i> {{ by_phrasing }} <a href="{{ link.author.url }}" target="blank">{{ link.author.name | xml_escape }}</a></i>
+            <i> {{ by_phrasing }} <a href="{{ link.author.url }}" target="_blank">{{ link.author.name | xml_escape }}</a></i>
           {% else %}
             <i> {{ by_phrasing }} {{ link.author.name | default: link.author | xml_escape }}</i>
           {% endif %}
@@ -78,7 +78,7 @@
 
         {% comment %} Link to the source code. {% endcomment %}
         {% if link.source %}
-          (<a href="{{ link.source }}" target="blank">Source Code</a>)
+          (<a href="{{ link.source }}" target="_blank">Source Code</a>)
         {% endif %}
       </li>
     {% endfor %}
