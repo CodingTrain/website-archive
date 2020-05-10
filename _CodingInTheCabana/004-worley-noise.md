@@ -57,5 +57,11 @@ contributions:
     author: "gtplesko"
     url: "https://editor.p5js.org/gtplesko/sketches/HRHc0RhZk"
     source: "https://github.com/gtplesko/Worley-Trees"
+  - title: "Hypnotic spiraling worley noise"
+    author:
+      name: "David Snyder"
+      url: "https://github.com/GypsyDangerous"
+    url: "https://editor.p5js.org/D_Snyder/full/xGJYQCiDX"
+    source: "https://editor.p5js.org/D_Snyder/sketches/xGJYQCiDX"
 ---
 It's the fourth episode of Coding in the Cabana! Quarantined at home I explore the beauty of Worley noise.
