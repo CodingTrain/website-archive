@@ -75,5 +75,11 @@ contributions:
       url: "https://jcponce.github.io"
     url: "https://editor.p5js.org/jcponce/present/qUWkfuHLg"
     source: "https://editor.p5js.org/jcponce/sketches/qUWkfuHLg"
+  - title: "Worley Noise with Nth point slider and pixel size slider"
+    author:
+      name: "Greg Kreisman"
+      url: "https://greggelong.github.io/"
+    url: "https://editor.p5js.org/greggelong/full/4EMqsUDZG"
+    source: "https://editor.p5js.org/greggelong/sketches/4EMqsUDZG"
 ---
 It's the fourth episode of Coding in the Cabana! Quarantined at home I explore the beauty of Worley noise.
