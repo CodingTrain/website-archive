@@ -161,13 +161,13 @@ layout: base
         {% comment %} Display a message depending on wether there have been made community contributions already. {% endcomment %}
         {% if contributionsVideo.contributions %}
           <p>
-            You can also <a href="{{ addContributionURL }}" target="blank">add your own version!</a>
+            You can also <a href="{{ addContributionURL }}" target="_blank">add your own version!</a>
             (<a href="{% link _Guides/community-contribution-guide.md %}">See how</a>)
           </p>
         {% else %}
           <p>
             It seems like there haven't been made any variations based on this {{ page.video_type | downcase }} by the community yet.
-            Be the first and <a href="{{ addContributionURL }}" target="blank">add your own</a>!
+            Be the first and <a href="{{ addContributionURL }}" target="_blank">add your own</a>!
             If you don't know how, take a look at <a href="{% link _Guides/community-contribution-guide.md %}">this guide</a>.
           </p>
         {% endif %}
