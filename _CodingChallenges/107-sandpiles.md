@@ -38,6 +38,12 @@ contributions:
       url: "https://github.com/edorfaus"
     url: "https://edorfaus.github.io/coding-train-variants/CodingChallenges/CC_107_sandpiles/P5/"
     source: "https://github.com/edorfaus/coding-train-variants/tree/master/CodingChallenges/CC_107_sandpiles/P5"
+    - title: "Interactive sandpiles - make your own!"
+  author:
+    name: "Francisco Amaral"
+    url: "https://github.com/amaralis"
+  url: "https://amaralis.github.io/sandpiles/"
+  source: "https://github.com/amaralis/sandpiles"
 ---
 
 In this coding challenge, inspired by Numberphile I visualize "sandpiles" with Processing (Java). 
