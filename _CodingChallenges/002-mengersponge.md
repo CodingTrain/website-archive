@@ -34,6 +34,12 @@ contributions:
       url: "https://twitter.com/AminAhmadAhmadi"
     url: "https://editor.p5js.org/AminCodingChallenge/full/3S1QjYwAy"
     source: "https://editor.p5js.org/AminCodingChallenge/sketches/3S1QjYwAy"
+  - title: "Inside the Sponge"
+    author:
+      name: "Cássio Fernando Brito de Souza"
+      url: "https://www.linkedin.com/in/cassiofb-dev/"
+    url: "https://cassiofb-dev.github.io/menger-sponge-fractal/"
+    source: "https://github.com/cassiofb-dev/menger-sponge-fractal"
 ---
 
 In this coding challenge, I attempt to code the Menger Sponge (fractals) using Processing.
