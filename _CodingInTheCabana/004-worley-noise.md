@@ -53,6 +53,10 @@ contributions:
       url: "https://github.com/Ari24-cb24"
     video_id: AU5MUIGZyF4
     source: "https://github.com/Ari24-cb24/Python-Speedcoding/tree/master/Worley%20Noise"
+  - title: "Worly Trees"
+    author: "gtplesko"
+    url: "https://editor.p5js.org/gtplesko/sketches/HRHc0RhZk"
+    source: "https://github.com/gtplesko/Worley-Trees"
   - title: "Hypnotic spiraling worley noise"
     author:
       name: "David Snyder"
