@@ -75,5 +75,23 @@ contributions:
       url: "https://jcponce.github.io"
     url: "https://editor.p5js.org/jcponce/present/qUWkfuHLg"
     source: "https://editor.p5js.org/jcponce/sketches/qUWkfuHLg"
+  - title: "Worley Noise with Nth point slider and pixel size slider"
+    author:
+      name: "Greg Kreisman"
+      url: "https://greggelong.github.io/"
+    url: "https://editor.p5js.org/greggelong/full/4EMqsUDZG"
+    source: "https://editor.p5js.org/greggelong/sketches/4EMqsUDZG"
+  - title: "Cell Division simulation made with Worley Noise."
+    author:
+      name: "Jos Gielen"
+      url: "https://github.com/JosGielen"
+    url: "https://josgielen.github.io/Coding_Train_CSharp/Cabana/Worley%20Noise/Results/Worley%20Cell%20Division.html"
+    source: "https://github.com/JosGielen/Coding_Train_CSharp/tree/master/Cabana/Worley%20Noise"
+  - title: "Difference between n=0 and n=1 noise with marching squares and varying thresholds."
+    author:
+      name: "Kobe Liesenborgs"
+      url: "https://editor.p5js.org/KobeL/sketches"
+    url: "https://editor.p5js.org/KobeL/present/A7eDZ49Rz"
+    source: "https://editor.p5js.org/KobeL/sketches/A7eDZ49Rz"
 ---
 It's the fourth episode of Coding in the Cabana! Quarantined at home I explore the beauty of Worley noise.
