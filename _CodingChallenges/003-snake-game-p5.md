@@ -109,5 +109,11 @@ contributions:
       url: "https://github.com/chief141"
     url: "https://repl.it/@chief141/Snake-Game"
     source: "https://github.com/chief141/Coding-Train-Challenges-python/tree/master/snake-game"
+  - title: "Crazy Snake"
+    author:
+      name: "Cássio Fernando Brito de Souza"
+      url: "https://www.linkedin.com/in/cassiofb-dev/"
+    url: "https://cassiofb-dev.github.io/snake-game/"
+    source: "https://github.com/cassiofb-dev/snake-game"
 ---
 In this coding challenge, I attempt to code a p5.js version of the Snake Game.
