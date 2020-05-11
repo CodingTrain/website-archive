@@ -93,5 +93,11 @@ contributions:
       url: "https://editor.p5js.org/KobeL/sketches"
     url: "https://editor.p5js.org/KobeL/present/A7eDZ49Rz"
     source: "https://editor.p5js.org/KobeL/sketches/A7eDZ49Rz"
+  - title: "Animated Worley Noise in O(n^2)"
+    author:
+      name: "Cameron Shatto"
+      url: "https://github.com/CShatto99"
+    url: "https://github.com/CShatto99/MyProjects/tree/master/animatedWorleyNoise"
+    source: "https://github.com/CShatto99/MyProjects/blob/master/animatedWorleyNoise/animatedWorleyNoise.pde"
 ---
 It's the fourth episode of Coding in the Cabana! Quarantined at home I explore the beauty of Worley noise.
