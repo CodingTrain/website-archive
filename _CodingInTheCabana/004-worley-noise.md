@@ -87,5 +87,11 @@ contributions:
       url: "https://github.com/JosGielen"
     url: "https://josgielen.github.io/Coding_Train_CSharp/Cabana/Worley%20Noise/Results/Worley%20Cell%20Division.html"
     source: "https://github.com/JosGielen/Coding_Train_CSharp/tree/master/Cabana/Worley%20Noise"
+  - title: "Difference between n=0 and n=1 noise with marching squares and varying thresholds."
+    author:
+      name: "Kobe Liesenborgs"
+      url: "https://editor.p5js.org/KobeL/sketches"
+    url: "https://editor.p5js.org/KobeL/present/A7eDZ49Rz"
+    source: "https://editor.p5js.org/KobeL/sketches/A7eDZ49Rz"
 ---
 It's the fourth episode of Coding in the Cabana! Quarantined at home I explore the beauty of Worley noise.
