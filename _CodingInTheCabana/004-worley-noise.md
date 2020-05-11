@@ -81,5 +81,11 @@ contributions:
       url: "https://greggelong.github.io/"
     url: "https://editor.p5js.org/greggelong/full/4EMqsUDZG"
     source: "https://editor.p5js.org/greggelong/sketches/4EMqsUDZG"
+  - title: "Cell Division simulation made with Worley Noise."
+    author:
+      name: "Jos Gielen"
+      url: "https://github.com/JosGielen"
+    url: "https://josgielen.github.io/Coding_Train_CSharp/Cabana/Worley%20Noise/Results/Worley%20Cell%20Division.html"
+    source: "https://github.com/JosGielen/Coding_Train_CSharp/tree/master/Cabana/Worley%20Noise"
 ---
 It's the fourth episode of Coding in the Cabana! Quarantined at home I explore the beauty of Worley noise.
