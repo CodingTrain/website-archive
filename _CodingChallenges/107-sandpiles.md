@@ -45,4 +45,5 @@ contributions:
     url: "https://amaralis.github.io/sandpiles/"
     source: "https://github.com/amaralis/sandpiles"
 ---
+
 In this coding challenge, inspired by Numberphile I visualize "sandpiles" with Processing (Java).
