@@ -155,6 +155,10 @@ contributions:
       url: "https://www.ernst-schmidt.com/"
     url: https://www.ernst-schmidt.com/coding/5e01d62c4c0d6b35f149a145
     source: https://editor.p5js.org/Kubi/sketches/i9nZF5u5A
+  - title: "Clock and Angle"
+    author: "Bishoy Magdy"
+    url: https://bishoy-magdy.github.io/JavaScript/clock/clock.html
+    source: https://github.com/bishoy-magdy/JavaScript/blob/gh-pages/clock/script/clock.js
 ---
 
 In this coding challenge, I attempt to program a clock in HTML5 canvas with the p5.js library.
