@@ -32,17 +32,19 @@ web_editor_fullscreen_prefix: https://editor.p5js.org/full/
 #                       The first match is used. If the video has the `web_editor`
 #                       property, a link to the P5 Web Editor will be used instead.
 code_variations:
-  - name: "P5.JS"
+  - name: "Sketch"
     folder: "P5"
+    lang: "p5.js"
     live_example: true
-  - name: "Processing"
+  - name: "Sketch"
     folder: "Processing"
-  - name: "JavaScript"
+    lang: "Processing"
+  - name: "Program"
     folder: "JavaScript"
-  - name: "Node.js"
+    lang: "Javascript"
+  - name: "Program"
     folder: "Node"
-  - name: "P5.JS"
-    folder: "p5-multi"
+    lang: "Node.js"
 
 # Links to other platforms.
 links:

@@ -69,7 +69,14 @@ layout: base
             {% assign repositoryBasePath = '/' | append: page.collection | append: '/' | append: page.repository %}
             {% assign repositoryBaseURL = site.github.repository_url | append: '/tree/' | append: site.github.source.branch | append: repositoryBasePath %}
 
-            {% include 1-tools/code-variations.html repositoryBasePath=repositoryBasePath %}
+            {% comment %} If page has defined it's own variations create pageVariations for code variation tool. {% endcomment %}
+            {% if page.variations != null %}
+              {% assign pageVariations = page.variations %}
+            {% else %}
+              {% assign pageVariations = null %}
+            {% endif %}
+
+            {% include 1-tools/code-variations.html repositoryBasePath=repositoryBasePath pageVariations=pageVariations %}
             {% assign codeVariations = out_codeVariations %}
             {% assign numberOfVariations = codeVariations | size %}
 

@@ -81,6 +81,13 @@ const link = (module.exports.link = exact({
   web_editor: PropTypes.string,
 }));
 
+const variation = exact({
+  name: PropTypes.string.isRequired,
+  lang: PropTypes.string.isRequired,
+  folder: PropTypes.string.isRequired,
+  live_example: PropTypes.bool,
+});
+
 const contribution = (module.exports.contribution = exact({
   ...link,
   author: link.author.isRequired
@@ -116,7 +123,8 @@ const videoBase = (module.exports.videoBase = exact({
 const video = (module.exports.video = exact({
   ...videoBase,
   repository: PropTypes.oneOfType([PropTypes.string, PropTypes.oneOf([false])]),
-  video_id: videoBase.video_id.isRequired
+  video_id: videoBase.video_id.isRequired,
+  variations: PropTypes.oneOfType([PropTypes.shape(variation), PropTypes.arrayOf(PropTypes.shape(variation))]),
 }));
 
 const stream = (module.exports.stream = exact({
