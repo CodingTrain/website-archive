@@ -1,17 +1,18 @@
-![Logo](https://github.com/CodingTrain/website/blob/master/.github/ct-logo.png?raw=true)
+![Logo](https://github.com/CodingTrain/website/blob/master/.github/logo.png?raw=true)
 
 Hello and welcome to the GitHub repo for The Coding Train website! This houses all of the content at [thecodingtrain.com](https://thecodingtrain.com) as well as source code for corresponding videos. The site welcomes contributions from the community in a variety of ways! More informations at [CONTRIBUTING.md](CONTRIBUTING.md).
 
 # Other links
-* [The Coding Train on YouTube](https://www.youtube.com/thecodingtrain/)
-* [Become a YouTube Member](https://youtube.com/thecodingtrain/join)
-* [For topic suggestions](https://github.com/CodingTrain/Rainbow-Topics/)  
-* [Join The Coding Train Discord](https://discord.gg/hPuGy2g)
-* [Coding questions](https://discourse.processing.org)
+
+- [The Coding Train on YouTube](https://www.youtube.com/thecodingtrain/)
+- [Become a YouTube Member](https://youtube.com/thecodingtrain/join)
+- [For topic suggestions](https://github.com/CodingTrain/Rainbow-Topics/)
+- [Join The Coding Train Discord](https://discord.gg/hPuGy2g)
+- [Coding questions](https://discourse.processing.org)
 
 # Live Streams
 
-Live streams are announced as events on YouTube, [please subscribe to receive notifications for events](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw/subscribe)! 
+Live streams are announced as events on YouTube, [please subscribe to receive notifications for events](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw/subscribe)!
 
 # Add your own variation
 
