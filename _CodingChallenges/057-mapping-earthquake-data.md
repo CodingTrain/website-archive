@@ -31,6 +31,9 @@ contributions:
   - title: "3D Globe in P5.JS"
     author: "Dollee"
     source: https://github.com/dolleebhatia/p5.js-EarthquakeDataVisualization-3D
+     title: "Current weather API "
+    author: "kubo550"
+    source: https://github.com/kubo550/Current-Weather-API
 ---
 
 In this coding challenge, I visualize earthquake data from the [USGS](http://earthquake.usgs.gov/data/) by mapping the latitude, longitude and the magnitude of earthquakes with p5.js.
