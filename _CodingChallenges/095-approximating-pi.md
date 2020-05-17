@@ -23,8 +23,8 @@ contributions:
   - title: "p5 Version"
     author:
       name: "Mogens Meißner"
-      url: "http://mogensmeissner.tk/"
-    url: "http://mogensmeissner.tk/coding/examples/pi/p5/empty-example/index.html"
+      url: "https://m0g3ns.de"
+    url: "https://m0g3ns.de/ApproximatePi/"
     source: "https://github.com/MogiMei/ApproximatePi/"
   - title: "Smiley Version"
     author:
