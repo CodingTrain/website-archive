@@ -71,5 +71,11 @@ contributions:
       url: "https://www.linkedin.com/in/cassiofb-dev/"
     url: "https://cassiofb-dev.github.io/star-field/"
     source: "https://github.com/cassiofb-dev/star-field"
+  - title: "Starfield in Processing/Python"
+    author:
+      name: "Maksim Kurchevskiy"
+      url: "https://www.patreon.com/thienxxn"
+    url: "https://github.com/thienxxn/coding_challenges/tree/master/CC_001_Starfied_Python"
+    source: "https://github.com/thienxxn/coding_challenges/tree/master/CC_001_Starfied_Python"
 ---
 This is the first in a new series of videos.  In this video I attempt to program a "star field" or "warp speed" visualization in Processing.  

@@ -40,6 +40,12 @@ contributions:
       url: "https://www.linkedin.com/in/cassiofb-dev/"
     url: "https://cassiofb-dev.github.io/menger-sponge-fractal/"
     source: "https://github.com/cassiofb-dev/menger-sponge-fractal"
+  - title: "Menger sponge via Processing/Python"
+    author:
+      name: "Maksim Kurchevskiy"
+      url: "https://www.patreon.com/thienxxn"
+    url: "https://github.com/thienxxn/coding_challenges/tree/master/CC_002_Menger_Sponge_Python"
+    source: "https://github.com/thienxxn/coding_challenges/tree/master/CC_002_Menger_Sponge_Python"
 ---
 
 In this coding challenge, I attempt to code the Menger Sponge (fractals) using Processing.
