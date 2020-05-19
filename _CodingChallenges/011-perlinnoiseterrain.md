@@ -40,5 +40,11 @@ contributions:
       url: "https://github.com/Lemmings42"
     url: "https://github.com/Lemmings42/Coding_Challenges/tree/master/Terrain_Generation/Terrain_Loop_Lo-Res.gif"
     source: "https://github.com/Lemmings42/Coding_Challenges/tree/master/Terrain_Generation"
+  - title: "Tron Cycle over Perlin Noise Terrain"
+    author:
+      name: "Daniel Kaye"
+      url: "http://dnkaye.com/2020_CodingChallenges.html"
+    url: "https://editor.p5js.org/danno484/present/7DJW-j-C9a"
+    source: "https://editor.p5js.org/danno484/sketches/7DJW-j-C9a"
 ---
 In this coding challenge, I create a 3D procedural terrain using Perlin Noise and the beginShape() function in Processing.
