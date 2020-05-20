@@ -111,5 +111,11 @@ contributions:
       url: "http://violetcraze.net"
     url: "https://violetcraze.github.io/worley-mirror/"
     source: "https://github.com/violetcraze/worley-mirror"
+  - title: "Colorful Animated Worley Noise in p5.js"
+    author:
+      name: "Salami"
+      url: "https://github.com/markjoshua12"
+    url: "https://editor.p5js.org/gelami/full/W2r9UH2j3"
+    source: "https://editor.p5js.org/gelami/sketches/W2r9UH2j3"
 ---
 It's the fourth episode of Coding in the Cabana! Quarantined at home I explore the beauty of Worley noise.
