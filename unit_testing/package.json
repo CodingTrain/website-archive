@@ -17,7 +17,7 @@
     "jest": "^26.0.1",
     "prop-types": "^15.7.2",
     "prop-types-exact": "^1.2.0",
-    "js-yaml": "^3.13.1"
+    "js-yaml": "^3.14.0"
   },
   "dependencies": {
     "node-fetch": "^2.6.0"
