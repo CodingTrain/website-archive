@@ -27,7 +27,7 @@ videos:
     video_id: "NPoj8lk9Fo4"
   - title: "Learning Processing"
     playlist_id: "PLRqwX-V7Uu6ZYJC7L-r6rX6utt6wwJCyi"
-    
+
 contributions:
   - title: "Bars using python"
     author:
@@ -36,5 +36,4 @@ contributions:
     url: "https://repl.it/@chief141/visualizing-pi"
     source: "https://github.com/chief141/Coding-Train-Challenges-python/tree/master/visualizing-pi"
 ---
-
 In this second Pi Day coding challenge, I attempt to "visualize" the digits of Pi. [#PiTrain](https://twitter.com/hashtag/PiTrain)
