@@ -46,5 +46,11 @@ contributions:
       url: "http://dnkaye.com/2020_CodingChallenges.html"
     url: "https://editor.p5js.org/danno484/present/7DJW-j-C9a"
     source: "https://editor.p5js.org/danno484/sketches/7DJW-j-C9a"
+  - title: "p5.js Terrain with Editable Variables"
+    author:
+      name: "Sam Lee"
+      url: "https://codepen.io/leimapapa"
+    url: "https://codepen.io/leimapapa/full/oNjQLBP"
+    source: "https://codepen.io/leimapapa/pen/oNjQLBP"
 ---
 In this coding challenge, I create a 3D procedural terrain using Perlin Noise and the beginShape() function in Processing.
