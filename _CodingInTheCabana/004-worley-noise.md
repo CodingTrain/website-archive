@@ -117,5 +117,11 @@ contributions:
       url: "https://github.com/markjoshua12"
     url: "https://editor.p5js.org/gelami/full/W2r9UH2j3"
     source: "https://editor.p5js.org/gelami/sketches/W2r9UH2j3"
+    
+   - title: "Shader Worley Noise in p5.js"
+    author:
+      name: "Copper France"
+    url: "https://editor.p5js.org/copperfrance/full/Ejl47FrSh"
+    source: "https://editor.p5js.org/copperfrance/sketches/Ejl47FrSh"   
 ---
 It's the fourth episode of Coding in the Cabana! Quarantined at home I explore the beauty of Worley noise.
