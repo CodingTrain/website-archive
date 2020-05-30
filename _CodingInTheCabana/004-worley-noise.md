@@ -122,5 +122,9 @@ contributions:
       name: "Copper France"
     url: "https://editor.p5js.org/copperfrance/full/Ejl47FrSh"
     source: "https://editor.p5js.org/copperfrance/sketches/Ejl47FrSh"
+  - title: "Worley Noise with Boids in Processing"
+    author:
+      name: "Susul"
+    source: "https://github.com/Susul-1312/worleyboids"
 ---
 It's the fourth episode of Coding in the Cabana! Quarantined at home I explore the beauty of Worley noise.
