@@ -47,6 +47,12 @@ contributions:
       url: "https://github.com/Godeta"
     url: "https://godeta.github.io/space-invaders-JS/"
     source: "https://editor.p5js.org/Godeta/present/iItQVOprn"
+      - title: "Space Invaders"
+    author: "Carrie Hanscom"
+      name: "Carrie Hanscom"
+      url: "https://aerinkayne.github.io/spaceInvaders/"
+    url: "https://aerinkayne.github.io/"
+    source: "https://github.com/aerinkayne/spaceInvaders"
 ---
 
 In this viewer submitted coding challenge, I take on the task of coding a Space Invaders game to play in browser in JavaScript/HTML and the p5.js library.
