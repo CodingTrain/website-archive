@@ -47,8 +47,8 @@ contributions:
       url: "https://github.com/Godeta"
     url: "https://godeta.github.io/space-invaders-JS/"
     source: "https://editor.p5js.org/Godeta/present/iItQVOprn"
-      - title: "Space Invaders"
-    author: "Carrie Hanscom"
+  - title: "Space Invaders"
+    author:
       name: "Carrie Hanscom"
       url: "https://aerinkayne.github.io/spaceInvaders/"
     url: "https://aerinkayne.github.io/"
