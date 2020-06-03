@@ -22,7 +22,8 @@ github_download_prefix: https://minhaskamal.github.io/DownGit/#/home?url=
 
 # Prefixes for editor.p5js.org
 web_editor_sketch_prefix: https://editor.p5js.org/codingtrain/sketches/
-web_editor_fullscreen_prefix: https://editor.p5js.org/codingtrain/full/
+web_editor_fullscreen_prefix: https://editor.p5js.org/codingtrain/sketches/
+# web_editor_fullscreen_prefix: https://editor.p5js.org/codingtrain/full/
 
 # Suffixes for auto-detecting the video's code that's available for download/preview.
 #
