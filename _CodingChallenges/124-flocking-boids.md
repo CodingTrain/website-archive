@@ -142,5 +142,11 @@ contributions:
       url: "https://chief141.github.io/"
     url: "https://repl.it/@chief141/Boids-using-python"
     source: "https://github.com/chief141/Boids-using-python"
+  - title: "Pixi JS boids with color gradient"
+    author:
+      name: "Kevin Logue"
+      url: "https://github.com/loguek"
+    url: "https://coderadical.com/flocking/"
+    source: "https://github.com/loguek/flocking-pixi"
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
