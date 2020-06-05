@@ -62,7 +62,7 @@ contributions:
     source: https://editor.p5js.org/Supriyo/sketches/2_88sdlhE
   - title: "Heart Fireworks! "
     author: "Jakub Kurdziel"
-    url: https://editor.p5js.org/kubo550/full/kwuTF8Kfb
+    url: https://editor.p5js.org/kubo550/present/kwuTF8Kfb
     source: https://editor.p5js.org/kubo550/sketches/kwuTF8Kfb
 ---
 
