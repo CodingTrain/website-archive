@@ -53,6 +53,12 @@ contributions:
       url: "https://aerinkayne.github.io/spaceInvaders/"
     url: "https://aerinkayne.github.io/"
     source: "https://github.com/aerinkayne/spaceInvaders"
+  - title: "Paint Invaders"
+    author:
+      name: "Cássio Fernando Brito de Souza"
+      url: "https://www.linkedin.com/in/cassiofb-dev/"
+    url: "https://cassiofb-dev.github.io/paint-invaders/"
+    source: "https://github.com/cassiofb-dev/paint-invaders/tree/master"
 ---
 
 In this viewer submitted coding challenge, I take on the task of coding a Space Invaders game to play in browser in JavaScript/HTML and the p5.js library.
