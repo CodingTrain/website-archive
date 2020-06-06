@@ -25,5 +25,11 @@ contributions:
       url: "http://dnkaye.com/2020_CodingChallenges.html"
     url: "https://editor.p5js.org/danno484/present/aKs1OwEpn"
     source: "https://editor.p5js.org/danno484/sketches/aKs1OwEpn"
+  - title: "ES6 Dark Theme Mistosis"
+    author:
+      name: "Cássio Fernando Brito de Souza"
+      url: "https://www.linkedin.com/in/cassiofb-dev/"
+    url: "https://cassiofb-dev.github.io/mitosis/"
+    source: "https://github.com/cassiofb-dev/mitosis/tree/master"
 ---
 In this viewer submitted coding challenge, I program a cellular mitosis simulation in p5.js.
