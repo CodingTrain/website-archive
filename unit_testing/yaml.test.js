@@ -291,7 +291,7 @@ describe('Web Editors', () => {
         let webEditorData;
 
         beforeAll(async () => {
-          const resp = await fetch(`https://editor.p5js.org/editor/projects/${web_editor}`);
+          const resp = await fetch(`https://editor.p5js.org/editor/codingtrain/projects/${web_editor}`);
           webEditorData = await resp.json();
         });
 

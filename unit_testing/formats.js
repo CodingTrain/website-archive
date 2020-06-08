@@ -85,7 +85,7 @@ const variation = exact({
   name: PropTypes.string.isRequired,
   lang: PropTypes.string.isRequired,
   folder: PropTypes.string.isRequired,
-  live_example: PropTypes.bool,
+  web_editor: PropTypes.string,
 });
 
 const contribution = (module.exports.contribution = exact({
