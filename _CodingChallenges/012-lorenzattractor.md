@@ -28,6 +28,11 @@ contributions:
       url: "https://jcponce.github.io/"
     url: "https://jcponce.github.io/calculus/velfields/Lorenz/"
     source: "https://github.com/jcponce/calculus/tree/gh-pages/velfields/Lorenz"
+  - title: "Lorenz-Atractor-Resolume-Arena-Plugin"
+    author:
+      name: "Alejo Cortiñaz"
+      url: "https://www.instagram.com/alejo_rgb/?hl=es-la"
+    url: "https://github.com/alejoRGB/Lorenz-Atractor-Resolume-Arena-Plugin"
+    source: "https://github.com/alejoRGB/Lorenz-Atractor-Resolume-Arena-Plugin"
 ---
-
 In this coding challenge, I show you how to visualization the Lorenz Attractor in Processing (Java).

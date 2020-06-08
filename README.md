@@ -1,5 +1,7 @@
-![Logo](https://github.com/CodingTrain/website/blob/master/.github/logo.png?raw=true)
-
+<p align="center">
+  <img width="800" alt="The Coding Train Logo" src="https://github.com/CodingTrain/website/blob/master/.github/logo.png?raw=true">
+</p>
+</br>
 Hello and welcome to the GitHub repo for The Coding Train website! This houses all of the content at [thecodingtrain.com](https://thecodingtrain.com) as well as source code for corresponding videos. The site welcomes contributions from the community in a variety of ways! More informations at [CONTRIBUTING.md](CONTRIBUTING.md).
 
 # Other links

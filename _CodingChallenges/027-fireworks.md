@@ -60,6 +60,10 @@ contributions:
     author: "Supriyo Paul"
     url: https://editor.p5js.org/Supriyo/full/2_88sdlhE
     source: https://editor.p5js.org/Supriyo/sketches/2_88sdlhE
+  - title: "Heart Fireworks! "
+    author: "Jakub Kurdziel"
+    url: https://editor.p5js.org/kubo550/present/kwuTF8Kfb
+    source: https://editor.p5js.org/kubo550/sketches/kwuTF8Kfb
 ---
 
 In this 4th of July themed coding challenge, I build an HTML5 canvas fireworks simulation from scratch using the p5.js JavaScript library. I also show how to use Processing to create 3D Fireworks.

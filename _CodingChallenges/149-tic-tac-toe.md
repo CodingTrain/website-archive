@@ -15,6 +15,10 @@ videos:
     url: "/CodingChallenges/154-tic-tac-toe-minimax"
 
 contributions:
+  - title: "Regular Tic-Tac-Toe...or so it seems."
+    author: "wmrsp"
+    url: "https://editor.p5js.org/wmrsp/full/WvUMYJefz"
+    source: "https://bitbucket.org/WimarSchippers/coding-train-coding-challenges-p5.js/src/master/149-tic-tac-toe/"
   - title: "Tic-Tac-Toe Human vs Human (click)"
     author: "Sayan Ghosh"
     url: "https://sayan01.github.io/Tic-Tac-Toe/javascript/"
@@ -137,5 +141,9 @@ contributions:
       url: "https://github.com/GypsyDangerous"
     url: "https://codepen.io/Gypsydangerous/full/oNgMevp"
     source: "https://codepen.io/Gypsydangerous/pen/oNgMevp"
+  - title: "computer Tic-Tac-toe Game"
+    author: "Everett Holbrook"
+    url: "https://editor.p5js.org/eholbrook1/full/N__AZLN5H"
+    source: "https://editor.p5js.org/eholbrook1/sketches/N__AZLN5H"
 ---
 This is a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.

@@ -22,7 +22,8 @@ github_download_prefix: https://minhaskamal.github.io/DownGit/#/home?url=
 
 # Prefixes for editor.p5js.org
 web_editor_sketch_prefix: https://editor.p5js.org/codingtrain/sketches/
-web_editor_fullscreen_prefix: https://editor.p5js.org/full/
+web_editor_fullscreen_prefix: https://editor.p5js.org/codingtrain/sketches/
+# web_editor_fullscreen_prefix: https://editor.p5js.org/codingtrain/full/
 
 # Suffixes for auto-detecting the video's code that's available for download/preview.
 #
@@ -64,7 +65,17 @@ links:
 markdown: kramdown
 
 # Exclude code for Node.js and Q_and_A
-exclude: ["Node", "Q_and_A", "unit_testing", "node_modules", "vendor/bundle/", "vendor/cache/", "vendor/gems/", "vendor/ruby/"]
+exclude:
+  [
+    "Node",
+    "Q_and_A",
+    "unit_testing",
+    "node_modules",
+    "vendor/bundle/",
+    "vendor/cache/",
+    "vendor/gems/",
+    "vendor/ruby/",
+  ]
 
 # Include future videos (used for 'Upcoming Streams' section).
 future: true
