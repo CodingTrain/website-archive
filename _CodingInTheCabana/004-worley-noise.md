@@ -99,5 +99,17 @@ contributions:
       url: "https://github.com/CShatto99"
     url: "https://github.com/CShatto99/MyProjects/tree/master/animatedWorleyNoise"
     source: "https://github.com/CShatto99/MyProjects/blob/master/animatedWorleyNoise/animatedWorleyNoise.pde"
+  - title: "Lines being distorted with Worley noise"
+    author:
+      name: "Motus Art (Owen)"
+      url: "https://www.instagram.com/motus_art/"
+    url: "https://owenmcateer.github.io/Motus-Art/projects/week_105.html"
+    source: "https://github.com/owenmcateer/Motus-Art/blob/master/src/week_105/main.js"
+  - title: "Worley Mirror"
+    author:
+      name: "Violet Graham"
+      url: "http://violetcraze.net"
+    url: "https://violetcraze.github.io/worley-mirror/"
+    source: "https://github.com/violetcraze/worley-mirror"
 ---
 It's the fourth episode of Coding in the Cabana! Quarantined at home I explore the beauty of Worley noise.
