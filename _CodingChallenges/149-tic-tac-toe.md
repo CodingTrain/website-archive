@@ -141,7 +141,7 @@ contributions:
       url: "https://github.com/GypsyDangerous"
     url: "https://codepen.io/Gypsydangerous/full/oNgMevp"
     source: "https://codepen.io/Gypsydangerous/pen/oNgMevp"
-    title: "computer Tic-Tac-toe Game"
+  - title: "computer Tic-Tac-toe Game"
     author: "Everett Holbrook"
     url: "https://editor.p5js.org/eholbrook1/full/N__AZLN5H"
     source: "https://editor.p5js.org/eholbrook1/sketches/N__AZLN5H"
