@@ -16,6 +16,7 @@ function setup() {
     values[i] = random(height);
     states[i] = -1;
   }
+  framerate(24);
   quickSort(values, 0, values.length - 1);
 }
 
