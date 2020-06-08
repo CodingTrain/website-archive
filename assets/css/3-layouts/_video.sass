@@ -62,62 +62,68 @@
       ul
         padding-left: 1.5em
 
-      .code-actions
-        display: flex
-        justify-content: space-between
-        margin-top: 2em
+  .code-actions
 
-        a,
-        .download-button
-          @extend .cta-button
-          flex: 1
-          background: $ct-purple
-          color: #FFF
-          margin-right: 0.5em
+    .p5js
+      background: $ct-plum !important
 
-          &.disabled
-            background: lighten($ct-purple, 15%)
-            cursor: not-allowed
-            pointer-events: none
+    .Processing
+      background: $ct-blue !important
 
-        .download-button
-          position: relative
-          z-index: 1000
+    .Nodejs
+      background: $ct-green !important
 
-          ul
-            position: absolute
-            margin: 20px 0 0 -20px
-            padding: 0
-            width: 100%
-            visibility: hidden
-            opacity: 0
-            border-radius: 0 0 3px 3px
-            overflow: hidden
-            transition: all 100ms
+    .Javascript
+      background: $ct-purple !important
 
-            li
-              border-top: 1px solid lighten($ct-purple, 20%)
+    .variation-button
+      display: flex
+      justify-content: space-between
+      align-items: center
+      background: $ct-purple
+      position: relative
+      padding: 15px 20px
+      margin: 2.5%
+      width: 95%
+      border-radius: 5px
+      box-shadow: 0px 6px 0px 0px rgba(0,0,0,0.06)
+      font-family: "cubanoregular"
 
-              a
-                display: inline-block
-                padding: 15px 20px
-                width: 100%
-                text-decoration: none
-                color: #FFF
-                background: lighten($ct-purple, 10%)
-                transition: all 100ms
+      @media (max-width: $tablet-small)
+        display: grid
+        padding-top: 25px
 
-                &:hover
-                  background: lighten($ct-purple, 15%)
+      img
+        max-height: 1.5em
 
-          &:hover,
-          &:focus
-            border-bottom-left-radius: 0
-            border-bottom-right-radius: 0
+      .title
+        display: inline
+        color: $white
 
-            ul
-              visibility: visible
-              opacity: 1
+      ul
+        list-style-type: none
+        display: inline
+        margin: 0
+        padding: 0
+
+        li
+          display: inline
+
+          @media (max-width: $tablet-small)
+            display: block
+            margin: 25px 0px
+
+          a
+            text-decoration: none
+            background: rgba(0.0, 0.0, 0.0, 0.15)
+            padding: 10px
+            margin: 0
+            border-radius: 5px
+            color: white
+
+            &:hover
+              margin: 2px
+              padding: 8px
 
   .player-and-topics
     align-items: center

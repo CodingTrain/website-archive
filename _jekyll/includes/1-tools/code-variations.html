@@ -22,7 +22,7 @@
 {% endif %}
 
 {% comment %} For every possible code variation ... {% endcomment %}
-{% for int_variation in site.code_variations %}
+{% for int_variation in possibleVariations %}
 
   {% comment %} ... get the exact repository path and count the files inside. {% endcomment %}
   {% assign int_repositoryPath = include.repositoryBasePath | append: '/' | append: int_variation.folder %}
