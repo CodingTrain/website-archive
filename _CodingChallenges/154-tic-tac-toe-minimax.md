@@ -75,6 +75,12 @@ contributions:
       url: "https://github.com/brabenetz"
     url: "http://brabenetz.net/learning/ai-tic-tac-toe-minimax/#/information"
     source: "https://github.com/brabenetz/ai-tic-tac-toe-minimax"
+  - title: "Tic Tac Toe MiniMax with Realistic Design"
+    author:
+      name: "Som Shekhar Mukherjee"
+      url: "https://github.com/ssmkhrj"
+    url: "https://editor.p5js.org/ssmkhrj/full/JzpBW6cxO"
+    source: "https://editor.p5js.org/ssmkhrj/sketches/JzpBW6cxO"
 ---
 
 In this challenge I take the Tic Tac Toe game from coding challenge #149 and add an AI opponent for a human player by implenenting the Minimax algorithm.
