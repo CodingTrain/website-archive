@@ -26,7 +26,7 @@ contributions:
       url: https://github.com/ssmkhrj
     url: "https://codepen.io/ssmkhrj/full/OJMNmJJ"
     source: https://codepen.io/ssmkhrj/pen/OJMNmJJ
-    
+
   - title: "Audio and Color Gradient Particle System"
     author:
       name: "Riccardo Zaffalon"
