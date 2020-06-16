@@ -9,7 +9,7 @@
     "eslint": "^7.2.0",
     "eslint-config-p5js": "^1.0.1",
     "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-prettier": "^3.1.4",
     "octocat": "^1.2.1",
     "prettier": "^1.19.1",
     "replace-in-file": "^6.1.0",
