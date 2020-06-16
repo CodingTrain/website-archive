@@ -25,6 +25,12 @@ contributions:
       url: "http://dnkaye.com/2020_CodingChallenges.html"
     url: "https://editor.p5js.org/danno484/present/EOChmqoJX"
     source: "https://editor.p5js.org/danno484/sketches/EOChmqoJX"
+  - title: "3D Gravity Simulator with free cam"
+    author:
+      name: "Cássio Fernando Brito de Souza"
+      url: "https://twitter.com/cassiofb_dev"
+    url: "https://cassiofb-dev.github.io/gravity-3d/"
+    source: "https://github.com/cassiofb-dev/gravity-3d"
 ---
 
 In the second part of this coding challenge, using Processing, I take the code from the [2D Solar System (Part 1)](https://youtu.be/l8SiJ-RmeHU) and turn it three-dimensional.
