@@ -148,5 +148,11 @@ contributions:
       url: "https://github.com/loguek"
     url: "https://coderadical.com/flocking/"
     source: "https://github.com/loguek/flocking-pixi"
+  - title: "Flocking in C++ with octrees, compute shaders and regular grid"
+    author:
+      name: "Vojtěch Tomas"
+      url: "https://vojtatom.cz/"
+    url: "https://www.vojtatom.cz/flocking/"
+    source: "https://github.com/vojtatom/flocking-cpp"
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
