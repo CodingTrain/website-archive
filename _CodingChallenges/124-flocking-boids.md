@@ -148,7 +148,7 @@ contributions:
       url: "https://github.com/loguek"
     url: "https://coderadical.com/flocking/"
     source: "https://github.com/loguek/flocking-pixi"
-  - title: "Flocking in C++ with octrees, compute shaders and regular grid"
+  - title: "3D flocking in C++ and compute shaders with octree and regular grid"
     author:
       name: "Vojtěch Tomas"
       url: "https://vojtatom.cz/"
