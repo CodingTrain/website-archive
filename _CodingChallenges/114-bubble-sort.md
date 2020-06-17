@@ -11,6 +11,12 @@ links:
     url: "https://bost.ocks.org/mike/algorithms/"
 
 contributions:
+  - title: "BubbleSort Visualizer (with variable bar density)"
+    author:
+      name: "Som Shekhar Mukherjee"
+      url: "https://github.com/ssmkhrj"
+    url: "http://codepen.io/ssmkhrj/full/WNroXOo"
+    source: "https://codepen.io/ssmkhrj/pen/WNroXOo"
   - title: "P5.js Bubblesort Visualizer"
     author:
       name: "David"
