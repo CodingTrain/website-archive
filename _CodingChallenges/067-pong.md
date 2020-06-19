@@ -20,8 +20,8 @@ contributions:
   - title: "Single Player Version"
     author:
       name: "Gustavo Shigueo"
-      url: "https://editor.p5js.org/gustavo.gsmn/full/pu9rQeanT"
-    url: "https://editor.p5js.org/gustavo.gsmn/sketches/pu9rQeanT"
+    url: "https://editor.p5js.org/gustavo.gsmn/full/pu9rQeanT"
+    source: "https://editor.p5js.org/gustavo.gsmn/sketches/pu9rQeanT"
   - title: "Single Player Edition"
     author:
       name: "Nico Finkernagel"
