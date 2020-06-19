@@ -16,7 +16,6 @@ videos:
   - title: "My Video on Polar Coordinates"
     url: "/Tutorials/9-additional-topics/9.20-polar-coordinates"
 contributions:
-  
   - title: "Single Player Version"
     author:
       name: "Gustavo Shigueo"
