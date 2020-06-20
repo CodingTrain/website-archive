@@ -122,5 +122,11 @@ contributions:
       url: "https://jckimgit.github.io/p5jsSimulations/"
     url: "https://jckimgit.github.io/p5jsSimulations/hilbert"
     source: "https://github.com/jckimgit/p5jsSimulations"
+  - title: "Port of the algorithm to an R package"
+    author:
+      name: "Jannik Buhr"
+      url: "https://jmbuhr.de/"
+    url: "https://github.com/jannikbuhr/hilbeRt#example"
+    source: "https://github.com/jannikbuhr/hilbeRt"
 ---
 It's the third episode of Coding in the Cabana! On this snowy day, I attempt to animate the path of the classic "space filling curve" known as the Hilbert Curve.
