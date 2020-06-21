@@ -83,7 +83,7 @@ contributions:
       url: "http://buliarcatools.blog.fc2.com/"
     url: "https://forkphorus.github.io/app.html?id=404000997"
     source: "https://scratch.mit.edu/projects/404000997/editor/"
-    - title: "Starfield with scroll"
+  - title: "Starfield with scroll in JS"
     author:
       name: "Ashik Paul"
       url: "https://github.com/Ashikpaul"
