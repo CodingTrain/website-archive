@@ -77,5 +77,11 @@ contributions:
       url: "https://www.patreon.com/thienxxn"
     url: "https://github.com/thienxxn/coding_challenges/tree/master/CC_001_Starfied_Python"
     source: "https://github.com/thienxxn/coding_challenges/tree/master/CC_001_Starfied_Python"
+  - title: "Shoot the stars in Scratch"
+    author:
+      name: "Cristi Buliarca"
+      url: "http://buliarcatools.blog.fc2.com/"
+    url: "https://forkphorus.github.io/app.html?id=404000997"
+    source: "https://scratch.mit.edu/projects/404000997/editor/"
 ---
 This is the first in a new series of videos.  In this video I attempt to program a "star field" or "warp speed" visualization in Processing.  
