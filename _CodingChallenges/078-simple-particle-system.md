@@ -24,8 +24,8 @@ contributions:
     author:
       name: "Som Shekhar Mukherjee"
       url: https://github.com/ssmkhrj
-    url: "https://codepen.io/ssmkhrj/full/OJMNmJJ"
-    source: https://codepen.io/ssmkhrj/pen/OJMNmJJ
+    url: "https://codepen.io/ssmkhrj/full/gOPmBBz"
+    source: https://codepen.io/ssmkhrj/pen/gOPmBBz
 
   - title: "Audio and Color Gradient Particle System"
     author:
