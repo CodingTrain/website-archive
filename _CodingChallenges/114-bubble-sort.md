@@ -40,8 +40,8 @@ contributions:
   - title: "Sketch Algorithms Bubble Sort"
     author:
       name: "Subesh Bhandari"
-      url: "https://github.com/subeshb1"
-    url: "https://www.sketchalgorithms.com/sorting/bubble-sort"
+      url: "https://subeshbhandari.com"
+    url: "https://subeshbhandari.com/app/sorting/bubble-sort"
   - title: "Rainbow Bubble Sort"
     author:
       name: "The_Coder"
