@@ -27,9 +27,9 @@ contributions:
   - title: "Sketch Algorithms Snake Game Tutorial using vanilla JS"
     author:
       name: "Subesh Bhandari"
-      url: "http://subeshb1.com.np"
-    url: "https://www.sketchalgorithms.com/games/snake-game"
-    source: "https://www.sketchalgorithms.com/games/snake-game#code"
+      url: "https://subeshbhandari.com"
+    url: "https://subeshbhandari.com/app/games/snake-game"
+    source: "https://subeshbhandari.com/blog/games/build-a-snake-game#conclusion"
   - title: "Rainbow Snake Game"
     author:
       name: "Bohdan Drahan"
