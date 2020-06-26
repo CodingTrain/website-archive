@@ -21,6 +21,12 @@ contributions:
     author:
       name: "Solidsilver"
     url: "https://github.com/Solidsilver/PDEProj/tree/master/Numerics"
+  - title: "Rainbow Diffusion with Mouse Interativity and Symmetry"
+    author:
+      name: "Daniel Kaye"
+      url: "http://dnkaye.com/2020_CodingChallenges.html"
+    url: "https://editor.p5js.org/danno484/present/rhNcFsGoA"
+    source: "https://editor.p5js.org/danno484/sketches/rhNcFsGoA"
 ---
 
 In this coding challenge, I visualize a Reaction Diffusion simulation using the Gray Scott model in JavaScript (with the p5.js library).

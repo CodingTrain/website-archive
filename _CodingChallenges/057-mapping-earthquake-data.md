@@ -22,12 +22,6 @@ videos:
     url: /Courses/programming-with-text/2-regular-expressions
 
 contributions:
-  - title: "TOR IP Map"
-    author:
-      name: "Lugsole"
-      url: https://github.com/Lugsole
-    url: https://lugsole.github.io/TOR_MAP/
-    source: https://github.com/Lugsole/TOR_MAP
   - title: "3D Globe in P5.JS"
     author: "Dollee"
     source: https://github.com/dolleebhatia/p5.js-EarthquakeDataVisualization-3D

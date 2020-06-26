@@ -16,6 +16,11 @@ videos:
   - title: "My Video on Polar Coordinates"
     url: "/Tutorials/9-additional-topics/9.20-polar-coordinates"
 contributions:
+  - title: "Single Player Version"
+    author:
+      name: "Gustavo Shigueo"
+    url: "https://editor.p5js.org/gustavo.gsmn/full/pu9rQeanT"
+    source: "https://editor.p5js.org/gustavo.gsmn/sketches/pu9rQeanT"
   - title: "Single Player Edition"
     author:
       name: "Nico Finkernagel"
