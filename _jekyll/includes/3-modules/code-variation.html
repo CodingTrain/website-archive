@@ -1,0 +1,43 @@
+{% comment %}
+  A bar showing one code variation with icon and buttons to View Code, Download Code, and a link to the web editor if needed.
+
+  Parameters:
+    variation   variation               In the shape of name, lang, live_example and folder.
+    baseURL     string                  The URL used before the variation folder name.
+    downloadURL string                  The URL used for downloading code.
+    web_editor  string                  P5.JS Web Editor ID that will be selectable if given.
+{% endcomment %}
+
+<div class="{{include.variation.lang}} variation-button">
+
+  <img src="/assets/images/variation/{{ include.variation.lang }}.png" alt="icon for {{ include.variation.lang }}">
+
+  {% if include.variation.name %}
+    <span class="title">{{ include.variation.name }}</span>
+  {% else %}
+    <span class="title">{{ include.variation.lang }}</span>
+  {% endif %}
+
+  <ul>
+
+    {% comment %} Variation web editor button. If web_editor is defined for the variation. {% endcomment %}
+    {% if include.variation.web_editor %}
+      <li><a href="{{ site.web_editor_sketch_prefix | append: include.variation.web_editor }}" target="_blank" aria-label="View p5.js Code in the p5.js Web Editor">Web Editor</a></li>
+    {% endif %}
+
+    {% comment %} General web editor button. If web_editor is defined for the page and p5.js is a the lang is p5js. {% endcomment %}
+    {% if include.variation.lang == "p5js" and page.web_editor %}
+      {% unless include.variation.name %}
+        <li><a href="{{ site.web_editor_sketch_prefix | append: page.web_editor }}" target="_blank" aria-label="View p5.js Code in the p5.js Web Editor">Web Editor</a></li>
+      {% endunless %}
+    {% endif %}
+
+    {% assign variationURL = include.baseURL | append: '/' | append: include.variation.folder %}
+    <li><a href="{{ variationURL }}" target="_blank" aria-label="View {{ include.variation.lang }} Code">View Code</a></li>
+
+    {% assign downloadFrom = include.downloadURL | append: '/' | append: include.variation.folder %}
+    <li><a href="{{ downloadFrom }}" target="_blank" aria-label="Download {{ include.variation.lang }} Code">Download Code</a></li>
+
+  </ul>
+
+</div>
