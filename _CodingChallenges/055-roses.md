@@ -24,6 +24,12 @@ contributions:
       url: "https://github.com/GypsyDangerous"
     url: "https://editor.p5js.org/D_Snyder/full/V4QZDfwl-"
     source: "https://editor.p5js.org/D_Snyder/sketches/V4QZDfwl-"
+  - title: "Falling flowers in vanilla JavaScript"
+    author:
+      name: "Ashik Paul"
+      url: "https://github.com/Ashikpaul"
+    url: "http://ashik-flower.glitch.me/"
+    source: "https://github.com/Ashikpaul/MathFlowers"
 ---
 
 In this coding challenge, I attempt to create rose (rhodonea) curves using trigonometry function and polar coordinates.
