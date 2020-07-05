@@ -28,7 +28,7 @@ contributions:
     author:
       name: "Ashik Paul"
       url: "https://github.com/Ashikpaul"
-    url: "http://ashik-flower.glitch.me/"
+    url: "https://ashik-flower.glitch.me/"
     source: "https://github.com/Ashikpaul/MathFlowers"
 ---
 
