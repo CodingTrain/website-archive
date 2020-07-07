@@ -47,6 +47,11 @@ contributions:
       name: "Joe Jackson"
     url: "https://editor.p5js.org/budzique/full/eL779ZiF"
     source: "https://editor.p5js.org/budzique/sketches/eL779ZiF"
+  - title: "See poles being sorted"
+    author:
+      name: "Shubham Goel"
+    url: "https://peaceful-archimedes-611715.netlify.app"
+    source: "https://github.com/shubh67678/sorting-visualizer"
 links:
   - title: "Quicksort on Wikipedia"
     url: "https://en.wikipedia.org/wiki/Quicksort"
