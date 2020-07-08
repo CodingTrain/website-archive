@@ -28,6 +28,12 @@ contributions:
   - title: "Current weather API"
     author: "kubo550"
     source: https://github.com/kubo550/Current-Weather-API
+  - title: "Recoveries: COVID19"
+    author:
+      name: "Ashik Paul"
+      url: "https://github.com/AshikPaul"
+    url: "https://ashikpaul.github.io/COVID19_Recoveries/"
+    source: "https://github.com/Ashikpaul/COVID19_Recoveries"
 ---
 In this coding challenge, I visualize earthquake data from the [USGS](http://earthquake.usgs.gov/data/) by mapping the latitude, longitude and the magnitude of earthquakes with p5.js.
 
