@@ -29,7 +29,7 @@ videos:
   - title: "ES6 Arrow Function"
     url: "/Tutorials/16-javascript-es6/16.3-arrow-function"
   - title: "Closure in JavaScript"
-    video_id: "-jysK0nlz7A"
+    video_id: /Tutorials/9-additional-topics/9.6-javascript-closure
   - title: "Prototypes in JavaScript"
     video_id: "hS_WqkyUah8"
 ---
