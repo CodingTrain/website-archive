@@ -1,6 +1,6 @@
 // Daniel Shiffman
 // http://youtube.com/thecodingtrain
-// http://codingtra.in
+// http://codingtrain.in
 
 // Coding Challenge #113: 4D Hypercube
 // https://youtu.be/XE3YDVdQSPo
