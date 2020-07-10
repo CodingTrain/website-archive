@@ -30,6 +30,11 @@ contributions:
       url: "http://www.mega-firm.com/"
     url: "http://www.mega-firm.com/projects/dragonCurve/index.html"
     source: "https://editor.p5js.org/katn1nja4/sketches/4_ubw0QsH"
+  - title: "P.5 Custom L-System"
+    author:
+      name: "Raime Carroll"
+    url: "https://editor.p5js.org/chromatic.waltz/full/8ZTGSAjrm"
+    source: "https://editor.p5js.org/chromatic.waltz/sketches/8ZTGSAjrm"
 ---
 
 In this third installment of my series on algorithmic botany, I discuss L-systems and how they can be used to generate tree and other fractal patterns in p5.js.
