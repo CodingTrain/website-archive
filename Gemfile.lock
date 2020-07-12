@@ -261,6 +261,7 @@ DEPENDENCIES
   dotenv
   github-pages
   html-proofer
+  jekyll-seo-tag
   tzinfo-data
 
 BUNDLED WITH

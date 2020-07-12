@@ -58,6 +58,10 @@ links:
   # Link to the Amazon store.
   amazon: https://www.amazon.com/shop/thecodingtrain
 
+# SEO data for twitter
+twitter:
+  username: thecodingtrain
+
 # --- Build Settings ---
 
 # Use Kramdown as the preferred Markdown parser.
@@ -91,6 +95,7 @@ sass: { sass_dir: "assets/css" }
 # Use jekyll-redirect-from to allow redirections
 plugins:
   - jekyll-redirect-from
+  - jekyll-seo-tag
 
 # --- Jekyll Locations ---
 layouts_dir: _jekyll/layouts
