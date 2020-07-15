@@ -30,10 +30,6 @@ videos:
     video_id: "5mFpVDpKX70"
 
 contributions:
-    - title: "Danny's code but i fixed it so it draws the lines correctly."
-    author: "cshep99"
-    url: "https://editor.p5js.org/cshep99/present/DtAf8BXc-"
-    source: "https://editor.p5js.org/cshep99/sketches/DtAf8BXc-"
   - title: "collatz rainbow tree"
     author:
       name: "Winston Smith"
@@ -104,6 +100,9 @@ contributions:
       url: "https://github.com/RedHenDev"
     url: "https://codepen.io/RedHenDev/full/ZegBpR"
     source: "https://github.com/RedHenDev/p5_projects/tree/master/collatzHailstorm"
-
+  - title: "Danny's code but i fixed it so it draws the lines correctly."
+    author: "cshep99"
+    url: "https://editor.p5js.org/cshep99/present/DtAf8BXc-"
+    source: "https://editor.p5js.org/cshep99/sketches/DtAf8BXc-"
 ---
 It's the second episode of Coding in the Cabana! Here I attempt to visualize the Collatz Conjecture in Processing.
