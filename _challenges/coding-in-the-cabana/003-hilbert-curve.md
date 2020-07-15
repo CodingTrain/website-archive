@@ -4,7 +4,11 @@ video_number: 3
 date: 2020-02-08
 video_id: dSK-MW-zuAc
 web_editor: LPf9PLmp
-repository: Cabana_003_Hilbert_Curve
+repository: coding-in-the-cabana/003_hilbert_curve
+
+redirect_from:
+  - /CodingInTheCabana/003-hilbert-curve
+  - /CodingInTheCabana/003-hilbert-curve.html
 
 links:
   - title: "Hilbert Curve Wikipedia"

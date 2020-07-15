@@ -4,7 +4,11 @@ video_number: 4
 date: 2020-04-29
 video_id: 4066MndcyCk
 web_editor: QsiCWVczZ
-repository: Cabana_004_worley_noise
+repository: coding-in-the-cabana/004_worley_noise
+
+redirect_from:
+  - /CodingInTheCabana/004-worley-noise
+  - /CodingInTheCabana/004-worley-noise.html
 
 links:
   - title: "Additional code examples for video visuals"

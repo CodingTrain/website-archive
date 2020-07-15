@@ -4,7 +4,11 @@ video_number: 1
 date: 2019-10-11
 video_id: 4uU9lZ-HSqA
 web_editor: qa7RiptE9
-repository: Cabana_001_Maurer_Rose
+repository: coding-in-the-cabana/001_maurer_rose
+
+redirect_from:
+  - /CodingInTheCabana/001-maurer-rose
+  - /CodingInTheCabana/001-maurer-rose.html
 
 links:
   - title: "Maurer Rose Wikipedia"

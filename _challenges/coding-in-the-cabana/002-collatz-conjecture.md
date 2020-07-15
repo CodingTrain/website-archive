@@ -4,7 +4,11 @@ video_number: 2
 date: 2019-10-27
 video_id: EYLWxwo1Ed8
 web_editor: XjLDE7gu6
-repository: Cabana_002_Collatz_Conjecture
+repository: coding-in-the-cabana/002_collatz_conjecture
+
+redirect_from:
+  - /CodingInTheCabana/002-collatz-conjecture
+  - /CodingInTheCabana/002-collatz-conjecture.html
 
 links:
   - title: "Collatz Conjecture Wikipedia"
