@@ -8,7 +8,7 @@ permalink: /
 {% assign nextStream = out_sortedVideos | where_exp: 'stream', 'stream.date >= site.time' | first %}
 
 {% comment %} Get latest coding challenges, coding in the cabana and teachable machine video. {% endcomment %}
-{% assign featuredSeries = site.CodingInTheCabana | concat: site.CodingChallenges | concat: site.TeachableMachine %}
+{% assign featuredSeries = site.challenges | concat: site.CodingChallenges | concat: site.TeachableMachine %}
 {% include 1-tools/sort-videos.html videos=featuredSeries sortByDate=true reverse=true %}
 
 {% comment %} Use the latest coding challenge, coding in the cabana or teachable machine video if a stream hasn't been scheduled yet. {% endcomment %}

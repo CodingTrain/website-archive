@@ -106,12 +106,12 @@ collections:
   Streams: { output: true }
   CodingChallenges: { output: true }
   Tutorials: { output: true }
-  CodingInTheCabana: { output: true }
   GuestTutorials: { output: true }
   Courses: { output: true }
   Guides: { output: true }
   TeachableMachine: { output: true }
   beginners: { output: true }
+  challenges: { output: true }
   learning: { output: true }
   more: { output: true }
 
@@ -154,12 +154,11 @@ defaults:
       video_type: "Lesson"
       can_contribute: false
 
-  # Coding in the Cabana
-  - scope: { path: "", type: "CodingInTheCabana" }
+  # challenges
+  - scope: { path: "", type: "challenges" }
     values:
       layout: "video"
-      video_type: "Coding in the Cabana"
-      video_type_short: "Cabana"
+      video_type: "Challenge"
       can_contribute: true
 
   # Guest Tutorials
