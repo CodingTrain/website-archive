@@ -18,12 +18,6 @@ links:
     author: "Jonathan Feinberg"
 
 contributions:
-  - title: "Memorial Day Fireworks (with hearts)"
-    author:
-      name: "toferj"
-      url: https://github.com/toferj
-    url: https://toferj.github.io/p5js/fireworks/
-    source: https://github.com/toferj/p5js/tree/master/fireworks
   - title: "Rainbow Fireworks"
     author:
       name: "Caitlin (10 yrs old, using her Dad's Github)"
