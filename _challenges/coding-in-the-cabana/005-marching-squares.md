@@ -99,4 +99,4 @@ videos:
     author: "The Coding Train"
     video_id: ikwNrFvnL3g
 ---
-I'm back in my garden cabana for more coding fun! In this episode I explore marching squares in Processing.
+In this episode of Coding in the Cabana, Gloria Pickle and I investigate the Marching Squares algorithm and apply it to Open Simplex Noise in Processing.
