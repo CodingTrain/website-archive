@@ -98,5 +98,13 @@ videos:
   - title: "2D Noise - Perlin Noise and p5.js Tutorial"
     author: "The Coding Train"
     video_id: ikwNrFvnL3g
+
+contributions:
+  - title: "MarchingSquares in Python Pygame"
+    author:
+      name: "Ari24"
+      url: "https://github.com/ari24-cb24"
+    url: "https://github.com/Ari24-cb24/Python-Speedcoding/tree/master/MarchingSquares"
+
 ---
 In this episode of Coding in the Cabana, Gloria Pickle and I investigate the Marching Squares algorithm and apply it to Open Simplex Noise in Processing.
