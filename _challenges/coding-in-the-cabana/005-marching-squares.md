@@ -105,5 +105,10 @@ contributions:
       name: "Ari24"
       url: "https://github.com/ari24-cb24"
     source: "https://github.com/Ari24-cb24/Python-Speedcoding/tree/master/MarchingSquares"
+  - title: "Python - Marching Squares with 3D Perlin Noise"
+    author:
+      name: "Josh"
+      url: "https://github.com/JoshW-7/Marching-Squares"
+    source: "https://github.com/JoshW-7/Marching-Squares/blob/master/main.py"
 ---
 In this episode of Coding in the Cabana, Gloria Pickle and I investigate the Marching Squares algorithm and apply it to Open Simplex Noise in Processing.
