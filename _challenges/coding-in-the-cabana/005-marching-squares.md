@@ -110,5 +110,11 @@ contributions:
       name: "Josh"
       url: "https://github.com/JoshW-7/Marching-Squares"
     source: "https://github.com/JoshW-7/Marching-Squares/blob/master/main.py"
+  - title: "P5js - Marching Squares with square contours"
+    author:
+      name: "fanbyprinciple"
+      url: "https://editor.p5js.org/fanbyprinciple/present/irH3GxBi3"
+    source: "https://github.com/fanbyprinciple/noc-fanbyprinciple/tree/master/extra_projects/contour_dominos"
 ---
 In this episode of Coding in the Cabana, Gloria Pickle and I investigate the Marching Squares algorithm and apply it to Open Simplex Noise in Processing.
+  
