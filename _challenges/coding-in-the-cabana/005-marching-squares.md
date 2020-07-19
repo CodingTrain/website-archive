@@ -105,6 +105,12 @@ contributions:
       name: "Ari24"
       url: "https://github.com/ari24-cb24"
     source: "https://github.com/Ari24-cb24/Python-Speedcoding/tree/master/MarchingSquares"
+  - title: "Marching Squares in a Perlin Noise field"
+    author:
+      name: "Greg Kreisman"
+      url: "https://greggelong.github.io/"
+    url: "https://editor.p5js.org/greggelong/full/K8ymmGGC5"
+    source: "https://editor.p5js.org/greggelong/sketches/K8ymmGGC5"
   - title: "Python - Marching Squares with 3D Perlin Noise"
     author:
       name: "Josh"
@@ -117,4 +123,3 @@ contributions:
     source: "https://github.com/fanbyprinciple/noc-fanbyprinciple/tree/master/extra_projects/contour_dominos"
 ---
 In this episode of Coding in the Cabana, Gloria Pickle and I investigate the Marching Squares algorithm and apply it to Open Simplex Noise in Processing.
-  

@@ -95,7 +95,7 @@ function countNeighbors(x, y) {
   for (let i = x - 1; i <= x + 1; i++) {
     for (let j = y - 1; j <= y + 1; j++) {
       if (i >= 0 && i < rows && j >= 0 && j < cols) {
-        if (i != x || j != x) {
+        if (i != x || j != y) {
           count += map[i][j];
         }
       } else count++;
