@@ -27,10 +27,6 @@ contributions:
     author: "Alca"
     url: https://codepen.io/Alca/full/pWaZaX/
     source: https://codepen.io/Alca/pen/pWaZaX/right
-  - title: "Fractal Ball"
-    author: "jjwkdl"
-    url: https://jjwkdl.github.io/wordpress-content/javascript/fractal-ball/
-    source: https://github.com/jjwkdl/wordpress-content/tree/master/javascript/fractal-ball
   - title: "Recursive Remix"
     author: "Justin Riley"
     url: https://recursion.glitch.me/
