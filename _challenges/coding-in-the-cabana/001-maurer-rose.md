@@ -63,6 +63,12 @@ contributions:
       url: "https://github.com/dwino"
     url: "https://editor.p5js.org/dwino/full/O2xBcdksk"
     source: "https://editor.p5js.org/dwino/sketches/O2xBcdksk"
+  - title: "Maurer Rose in JavaScript"
+    author:
+      name: "Ashik Paul"
+      url: "https://github.com/AshikPaul"
+    url: "https://ashikpaul.github.io/Maurer-Rose/"
+    source: "https://github.com/Ashikpaul/Maurer-Rose"
 ---
 
 In this pilot episode of Coding in the Cabana, I code a visualization of the Maurer Rose pattern.
