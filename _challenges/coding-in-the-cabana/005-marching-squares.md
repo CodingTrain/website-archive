@@ -121,5 +121,10 @@ contributions:
       name: "fanbyprinciple"
       url: "https://editor.p5js.org/fanbyprinciple/present/irH3GxBi3"
     source: "https://github.com/fanbyprinciple/noc-fanbyprinciple/tree/master/extra_projects/contour_dominos"
+  - title: "Typescript - Marching Squares with random Numbers"
+    author:
+      name: "srukshan98"
+      url: "https://srukshan98.github.io/marching-squares-playable/"
+    source: "https://github.com/srukshan98/marching-squares-playable"
 ---
 In this episode of Coding in the Cabana, Gloria Pickle and I investigate the Marching Squares algorithm and apply it to Open Simplex Noise in Processing.
