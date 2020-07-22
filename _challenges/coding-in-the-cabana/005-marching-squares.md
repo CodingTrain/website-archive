@@ -125,5 +125,10 @@ contributions:
     author:
       name: "Oliver"
     url: "https://editor.p5js.org/oliholli/sketches/NB5Syz-3g"
+  - title: "Typescript - Marching Squares with random Numbers"
+    author:
+      name: "srukshan98"
+      url: "https://srukshan98.github.io/marching-squares-playable/"
+    source: "https://github.com/srukshan98/marching-squares-playable"
 ---
 In this episode of Coding in the Cabana, Gloria Pickle and I investigate the Marching Squares algorithm and apply it to Open Simplex Noise in Processing.
