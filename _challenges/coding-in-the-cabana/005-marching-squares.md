@@ -121,5 +121,9 @@ contributions:
       name: "fanbyprinciple"
       url: "https://editor.p5js.org/fanbyprinciple/present/irH3GxBi3"
     source: "https://github.com/fanbyprinciple/noc-fanbyprinciple/tree/master/extra_projects/contour_dominos"
+  - title: "Interpolated Contour Lines"
+    author:
+      name: "Oliver"
+    url: "https://editor.p5js.org/oliholli/sketches/NB5Syz-3g"
 ---
 In this episode of Coding in the Cabana, Gloria Pickle and I investigate the Marching Squares algorithm and apply it to Open Simplex Noise in Processing.
