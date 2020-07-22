@@ -121,6 +121,10 @@ contributions:
       name: "fanbyprinciple"
       url: "https://editor.p5js.org/fanbyprinciple/present/irH3GxBi3"
     source: "https://github.com/fanbyprinciple/noc-fanbyprinciple/tree/master/extra_projects/contour_dominos"
+  - title: "Interpolated Contour Lines"
+    author:
+      name: "Oliver"
+    url: "https://editor.p5js.org/oliholli/sketches/NB5Syz-3g"
   - title: "Typescript - Marching Squares with random Numbers"
     author:
       name: "srukshan98"
