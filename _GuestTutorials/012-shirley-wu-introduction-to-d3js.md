@@ -37,6 +37,11 @@ contributions:
       name: "Miká Kruschel"
       url: "https://github.com/mikakruschel/"
     url: "https://observablehq.com/@mikakruschel/film-flowers-variation"
+  - title: "Film Flowers Tutorial Code Submission"
+    author:
+      name: "Tariq Khan"
+      url: "https://github.com/digitalgnome/film-flowers"
+    url: "https://observablehq.com/@digitalgnome/film-flowers"
 ---
 
 Shirley Wu presents D3.js, a library for manipulating documents based on data.
