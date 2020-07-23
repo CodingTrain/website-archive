@@ -130,5 +130,11 @@ contributions:
       name: "srukshan98"
       url: "https://srukshan98.github.io/marching-squares-playable/"
     source: "https://github.com/srukshan98/marching-squares-playable"
+  - title: "Marching Cubes (3D) in Javascript using Three.js"
+    author:
+      name: "KineticTactic"
+      url: "https://github.com/KineticTactic"
+    url: "https://kinetictactic.github.io/marching-cubes-js/"
+    source: "https://github.com/KineticTactic/marching-cubes-js"
 ---
 In this episode of Coding in the Cabana, Gloria Pickle and I investigate the Marching Squares algorithm and apply it to Open Simplex Noise in Processing.
