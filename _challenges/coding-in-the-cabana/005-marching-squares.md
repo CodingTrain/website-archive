@@ -136,5 +136,10 @@ contributions:
       url: "https://github.com/KineticTactic"
     url: "https://kinetictactic.github.io/marching-cubes-js/"
     source: "https://github.com/KineticTactic/marching-cubes-js"
+  - title: "C++ 3D Marching Cubes with OpenGL"
+    author:
+      name: "Krafpy"
+      url: "https://github.com/Krafpy/"
+    source: "https://github.com/Krafpy/Marching-Cubes"
 ---
 In this episode of Coding in the Cabana, Gloria Pickle and I investigate the Marching Squares algorithm and apply it to Open Simplex Noise in Processing.
