@@ -52,5 +52,9 @@ contributions:
     author: "Ryosuke Osaki"
     url: https://www.openprocessing.org/sketch/805872
     source: https://github.com/Sakio1535/Life-Game-Canvas
+  - title: "Game of Life in C"
+    author: "Thomas Weichhart"
+    url: https://firefile.cc/drive/s/3Ij5i69TIl2Xi9crTNpFwp63eT3e4g!4u1diiExmG8XNNtE
+    source: https://github.com/ThomasW2005/Game-of-Life/blob/master/main.c
 ---
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.
