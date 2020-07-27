@@ -141,5 +141,11 @@ contributions:
       name: "Krafpy"
       url: "https://github.com/Krafpy/"
     source: "https://github.com/Krafpy/Marching-Cubes"
+   - title: "MarchingRays"
+    author:
+      name: "UnOriginalPun"
+      url: "https://da091005.github.io/MarchingRay/MarchingSquaresV3.html"
+    source: "https://github.com/da091005/da091005.github.io/tree/master/MarchingRay"
+    
 ---
 In this episode of Coding in the Cabana, Gloria Pickle and I investigate the Marching Squares algorithm and apply it to Open Simplex Noise in Processing.
