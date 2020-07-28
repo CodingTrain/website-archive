@@ -27,6 +27,11 @@ contributions:
       url: "http://dnkaye.com/2020_CodingChallenges.html"
     url: "https://editor.p5js.org/danno484/present/rhNcFsGoA"
     source: "https://editor.p5js.org/danno484/sketches/rhNcFsGoA"
+   - title: "Numpy implementation of Reaction-Diffusion-- I thought it would be faster!"
+    author:
+      name: "SoilStack"
+    url: "https://github.com/soilstack/react_diffuse"
+    source: "https://github.com/soilstack/react_diffuse/blob/master/rd_basic.py"
 ---
 
 In this coding challenge, I visualize a Reaction Diffusion simulation using the Gray Scott model in JavaScript (with the p5.js library).
