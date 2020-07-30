@@ -146,5 +146,13 @@ contributions:
       name: "UnOriginalPun"
     url: "https://da091005.github.io/MarchingRay/MarchingSquaresV3.html"
     source: "https://github.com/da091005/da091005.github.io/tree/master/MarchingRay"
+    - title: "Marching Squares with JavaScript!"
+    author:
+      name: "JoeWadsworth"
+      url: "https://github.com/JoeWadsworth"
+    url: "https://joewadsworth.github.io/Marching-Squares"
+    source: "https://github.com/JoeWadsworth/Marching-Squares"
+    
+    
 ---
 In this episode of Coding in the Cabana, Gloria Pickle and I investigate the Marching Squares algorithm and apply it to Open Simplex Noise in Processing.
