@@ -33,7 +33,7 @@ contributions:
   - title: "Multiple colored in Fractals"
     author: "ColeNOXyd2nd"
     source: https://github.com/ColeNOXyd2nd/fractal
-    - title: "Custom Fractal Spirograph in p5"
+  - title: "Custom Fractal Spirograph in p5"
     author: "Raime Carroll"
     url: https://editor.p5js.org/chromatic.waltz/present/3U4VpZ1Ee
     source: https://editor.p5js.org/chromatic.waltz/sketches/3U4VpZ1Ee
