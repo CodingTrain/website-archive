@@ -130,5 +130,9 @@ contributions:
     author:
       name: "Susul"
     source: "https://github.com/Susul-1312/worleyboids"
+  - title: "Worley Noise written with SDL2"
+    author:
+      name: "Hayden Coffey"
+    source: "https://github.com/hcoffey1/worley"
 ---
 It's the fourth episode of Coding in the Cabana! Quarantined at home I explore the beauty of Worley noise.
