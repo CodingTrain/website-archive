@@ -38,7 +38,7 @@ contributions:
     author:
       name: "Juan Carlos Ponce Campuzano"
       url: "https://jcponce.github.io/"
-    url: "https://editor.p5js.org/jcponce/present/JH7nMvdIC"
-    source: "https://editor.p5js.org/jcponce/sketches/JH7nMvdIC"
+    url: "https://editor.p5js.org/jcponce/present/WUmXSTPvr"
+    source: "https://editor.p5js.org/jcponce/sketches/WUmXSTPvr"
 ---
 In this coding challenge, I show you how to visualization the Lorenz Attractor in Processing (Java).
