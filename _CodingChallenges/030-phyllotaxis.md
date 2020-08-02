@@ -68,8 +68,8 @@ contributions:
     author:
       name: "Elizabeth Hudnott"
       url: "https://github.com/ElizabethHudnott"
-    url: "https://elizabethhudnott.github.io/algorithmic-art/background/?gen=phyllotaxis"
-    source: "https://github.com/ElizabethHudnott/algorithmic-art/tree/master/background"
+    url: "https://mathematical-art.github.io/?gen=phyllotaxis"
+    source: "https://github.com/mathematical-art/mathematical-art.github.io/tree/master/sketch"
   - title: "Spinning Phyllotaxis in JavaScript"
     author:
       name: "Ashik Paul"
