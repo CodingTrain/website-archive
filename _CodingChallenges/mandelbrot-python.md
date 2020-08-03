@@ -48,7 +48,7 @@ contributions:
       url: "https://github.com/mylak005/Contributions/tree/MatrixRain/BurningShip"
     source: "https://github.com/mylak005/Contributions/tree/MatrixRain/BurningShip"
   - title: "Mandelbrot Set but in Python"
-    author: 
+    author:
       name: "Arto"
       url: "https://github.com/AirtonBorges"
     url: "https://twitter.com/ArtoBorg/status/1288692756886573058?s=19"
