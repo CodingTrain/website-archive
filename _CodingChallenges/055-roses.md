@@ -30,6 +30,12 @@ contributions:
       url: "https://github.com/Ashikpaul"
     url: "https://ashik-flower.glitch.me/"
     source: "https://github.com/Ashikpaul/MathFlowers"
+  - title: "Mathematical Rose with Interactive Equation Editor"
+    author:
+      name: "Elizabeth Hudnott"
+      url: "https://github.com/elizabethhudnott"
+    url: "https://mathematical-art.github.io/?gen=graphing-calculator&preset=rose"
+    source: "https://github.com/mathematical-art/mathematical-art.github.io/tree/master/sketch"
 ---
 
 In this coding challenge, I attempt to create rose (rhodonea) curves using trigonometry function and polar coordinates.
