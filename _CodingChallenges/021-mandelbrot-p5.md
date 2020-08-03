@@ -47,5 +47,11 @@ contributions:
       name: "Mylak005"
       url: "https://github.com/mylak005/Contributions/tree/MatrixRain/BurningShip"
     source: "https://github.com/mylak005/Contributions/tree/MatrixRain/BurningShip"
+  - title: "Mandelbrot Set but in Python using PyGame"
+    author:
+      name: "Arto"
+      url: "https://github.com/AirtonBorges"
+    url: "https://twitter.com/ArtoBorg/status/1288692756886573058?s=19"
+    source: "https://github.com/mylak005/Contributions/tree/MatrixRain/BurningShip"
 ---
 In this coding challenge, I program from scratch the Mandelbrot set with p5.js
