@@ -155,6 +155,7 @@ contributions:
     - title: "MetaSlime: A creature made of Marching Squares"
     author: 
       name: "BasidiomyCody"
+      url: "https://editor.p5js.org/BasidiomyCody/present/k3BeoweuV"
        url: "https://editor.p5js.org/BasidiomyCody/present/k3BeoweuV"
     source: "https://editor.p5js.org/BasidiomyCody/present/k3BeoweuV"
 ---
