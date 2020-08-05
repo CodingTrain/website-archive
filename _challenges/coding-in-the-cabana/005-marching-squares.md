@@ -153,9 +153,9 @@ contributions:
     url: "https://joewadsworth.github.io/Marching-Squares"
     source: "https://github.com/JoeWadsworth/Marching-Squares"
   - title: "MetaSlime: A creature made of Marching Squares"
-    author: 
+    author:
       name: "BasidiomyCody"
-       url: "https://editor.p5js.org/BasidiomyCody/present/k3BeoweuV"
+    url: "https://editor.p5js.org/BasidiomyCody/sketches/k3BeoweuV"
     source: "https://editor.p5js.org/BasidiomyCody/present/k3BeoweuV"
 ---
 In this episode of Coding in the Cabana, Gloria Pickle and I investigate the Marching Squares algorithm and apply it to Open Simplex Noise in Processing.
