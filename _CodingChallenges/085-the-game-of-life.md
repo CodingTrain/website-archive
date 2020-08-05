@@ -56,5 +56,9 @@ contributions:
     author: "Thomas Weichhart"
     url: https://firefile.cc/drive/s/3Ij5i69TIl2Xi9crTNpFwp63eT3e4g!4u1diiExmG8XNNtE
     source: https://github.com/ThomasW2005/Game-of-Life/blob/master/main.c
+  - title: "Conway's Game of Life in ReactJS"
+    author: "Saswat Dash"
+    url: https://sdtrain.github.io/conway-game-of-life/
+    source: https://github.com/sdtrain/conway-game-of-life/
 ---
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.
