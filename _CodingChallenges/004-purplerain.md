@@ -49,5 +49,11 @@ contributions:
       url: "https://www.linkedin.com/in/cassiofb-dev/"
     url: "https://cassiofb-dev.github.io/purple-rain/"
     source: "https://github.com/cassiofb-dev/purple-rain"
+  - title: "Thunderstorm"
+    author:
+      name: "Suraj K"
+      url: "https://github.com/Suraj07"
+    url: "https://suraj07.github.io/p5js-code-challenges/challenges/thunderstorm/"
+    source: "https://github.com/Suraj07/p5js-code-challenges/tree/master/challenges/thunderstorm"
 ---
 In this viewer submitted coding challenge, I attempt to code a Purple Rain Simulator in Processing.

@@ -42,8 +42,13 @@ contributions:
     author:
       name: "Elizabeth Hudnott"
       url: "https://github.com/elizabethhudnott"
-    url: "https://elizabethhudnott.github.io/algorithmic-art/background/?gen=julia-set"
-    source: "https://github.com/ElizabethHudnott/algorithmic-art/tree/master/background"
+    url: "https://mathematical-art.github.io/?gen=julia-set"
+    source: "https://github.com/mathematical-art/mathematical-art.github.io/tree/master/sketch"
+  - title: "P5 Julia Set Explorer"
+    author:
+      name: "Raime Carroll"
+    url: "https://editor.p5js.org/chromatic.waltz/present/bckJH7R39"
+    source: "https://editor.p5js.org/chromatic.waltz/sketches/bckJH7R39"
 ---
 
 In this coding challenge, I program from the Julia Set fractal in Processing (Java).

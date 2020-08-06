@@ -115,5 +115,18 @@ contributions:
       url: "https://www.linkedin.com/in/cassiofb-dev/"
     url: "https://cassiofb-dev.github.io/snake-game/"
     source: "https://github.com/cassiofb-dev/snake-game"
+  - title: "Snake with Pseudo AI"
+    author:
+      name: "Bruno Rodrigues"
+      url: "https://www.linkedin.com/in/brunorodrigues355/"
+    url: "https://lughapp.github.io/p5-snake-game/"
+    source: "https://github.com/lughapp/p5-snake-game/"
+  - title: "Snake in C"
+    author:
+      name: "Thomas Weichhart"
+      url: "https://www.instagram.com/thomas_weichhart/?hl=de"
+    video_id: "https://www.youtube.com/watch?v=r7KOiF8WrQ8"
+    url: "https://github.com/ThomasW2005/snake/blob/master/snake.exe"
+    source: "https://github.com/ThomasW2005/snake"
 ---
 In this coding challenge, I attempt to code a p5.js version of the Snake Game.

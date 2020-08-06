@@ -38,6 +38,12 @@ contributions:
       url: "https://github.com/nilsDE/"
     url: "https://nilsde.github.io/flowfield/"
     source: "https://github.com/nilsDE/flowfield"
+  - title: "3D Simplex Flowfield"
+    author:
+      name: "Julian Karrer"
+      url: "https://studioerika.de/julian"
+    url: "https://studioerika.de/julian/project/flow"
+    source: "https://studioerika.de/julian/js/flow.js"
 ---
 
 In this coding challenge, I use Perlin noise to create a two-dimensional flow field with the p5.js library
