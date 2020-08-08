@@ -31,7 +31,7 @@ videos:
   - title: "Closure in JavaScript"
     video_id: /Tutorials/9-additional-topics/9.6-javascript-closure
   - title: "Prototypes in JavaScript"
-    video_id: "hS_WqkyUah8"
+    video_id: /Tutorials/9-additional-topics/9.19-Prototypes-in-javascript
 ---
 
 In this live stream, I cover higher order functions in JavaScript and discuss them in the context of arrays: `map()` and `reduce()`
