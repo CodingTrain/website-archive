@@ -154,5 +154,9 @@ contributions:
       url: "https://vojtatom.cz/"
     url: "https://www.vojtatom.cz/flocking/"
     source: "https://github.com/vojtatom/flocking-cpp"
+  - title: "Triangles instead of circles"
+    author: "Prem Naik"
+    url: "https://editor.p5js.org/TheSleepingAssassin/full/LVvPlIvzC"
+    source: "https://editor.p5js.org/TheSleepingAssassin/sketches/LVvPlIvzC"
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.

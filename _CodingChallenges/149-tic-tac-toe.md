@@ -145,5 +145,9 @@ contributions:
     author: "Everett Holbrook"
     url: "https://editor.p5js.org/eholbrook1/full/N__AZLN5H"
     source: "https://editor.p5js.org/eholbrook1/sketches/N__AZLN5H"
+  - title: "Ultimate TicTacToe"
+    author: "Brian Long"
+    url: "https://editor.p5js.org/brianlong912/present/UKhywuoJe"
+    source: "https://editor.p5js.org/brianlong912/sketches/UKhywuoJe"
 ---
 This is a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
