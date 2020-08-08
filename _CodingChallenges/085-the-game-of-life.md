@@ -53,9 +53,11 @@ contributions:
     url: https://www.openprocessing.org/sketch/805872
     source: https://github.com/Sakio1535/Life-Game-Canvas
   - title: "Game of Life in C"
-    author: "Thomas Weichhart"
-    url: https://firefile.cc/drive/s/3Ij5i69TIl2Xi9crTNpFwp63eT3e4g!4u1diiExmG8XNNtE
-    source: https://github.com/ThomasW2005/Game-of-Life/blob/master/main.c
+    author:
+      name: "Thomas Weichhart"
+      url: "https://www.instagram.com/thomas_weichhart"
+    video_id: "https://www.youtube.com/watch?v=TZifuj5G8yI"
+    source: "https://github.com/ThomasW2005/game-of-life"
   - title: "Conway's Game of Life in ReactJS"
     author: "Saswat Dash"
     url: https://sdtrain.github.io/conway-game-of-life/
