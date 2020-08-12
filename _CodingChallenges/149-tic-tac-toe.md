@@ -149,5 +149,9 @@ contributions:
     author: "Brian Long"
     url: "https://editor.p5js.org/brianlong912/present/UKhywuoJe"
     source: "https://editor.p5js.org/brianlong912/sketches/UKhywuoJe"
+  - title: "Invincible Tic Tac Toe"
+    author: "TanHongIT"
+    url: "https://tanhongit.github.io/JavaScript-Tic-Tac-Toe-Project/"
+    source: "https://github.com/TanHongIT/JavaScript-Tic-Tac-Toe-Project"
 ---
 This is a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
