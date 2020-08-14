@@ -153,5 +153,11 @@ contributions:
     author: "TanHongIT"
     url: "https://tanhongit.github.io/JavaScript-Tic-Tac-Toe-Project/"
     source: "https://github.com/TanHongIT/JavaScript-Tic-Tac-Toe-Project"
+  - title: "Tic Tac Toe With Ruby On Rails"
+    author:
+      name: "TanHongIT"
+      url: "https://tanhongit.com"
+    url: "https://railstictactoe.herokuapp.com/"
+    source: "https://github.com/TanHongIT/rails-tic-tac-toe-project"
 ---
 This is a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
