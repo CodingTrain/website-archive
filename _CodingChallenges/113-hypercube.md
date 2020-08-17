@@ -53,6 +53,12 @@ contributions:
       url: "https://github.com/GypsyDangerous"
     url: "https://editor.p5js.org/D_Snyder/full/492uCszzp"
     source: "https://editor.p5js.org/D_Snyder/sketches/492uCszzp"
+  - title: "Hypercube"
+    author:
+      name: "Andrew Y"
+      url: "http://mortis-grimreaper.ddns.net/projects/"
+    url: "http://mortis-grimreaper.ddns.net/projects/Hypercube/"
+    source: "https://github.com/YushchenkoAndrew/template/tree/master/JS/Hypercube"
 ---
 
 In this coding challenge, I visualize a 4D Hypercube (aka "Tesseract") in Processing (Java).
