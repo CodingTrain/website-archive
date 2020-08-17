@@ -61,5 +61,11 @@ contributions:
     author: "Arnav Sirigere"
     url: https://editor.p5js.org/Arnav-Sirigere/full/4kjlzekku
     source: https://editor.p5js.org/Arnav-Sirigere/sketches/4kjlzekku
+  - title: "Steering behaviors with different behaviors"
+    author:
+      name: "Andrew Y"
+      url: "https://github.com/YushchenkoAndrew"
+    url: "http://mortis-grimreaper.ddns.net/projects/SteeringBehavior/"
+    source: "https://github.com/YushchenkoAndrew/template/tree/master/JS/SteeringBehavior"
 ---
 In this coding challenge, I look at extracting font path points from text in p5.js with p5.Font.textToPoints().  I render the text as particles with steering behaviors that react to the mouse.
