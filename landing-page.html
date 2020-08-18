@@ -33,10 +33,10 @@ permalink: /
       <p>All aboard the Coding Train with Daniel Shiffman, a YouTube channel dedicated to beginner-friendly creative
         coding tutorials and challenges.</p>
       <div class="ctas">
-        <div><a href="{{ site.links.youtube }}?sub_confirmation=1" target="_blank" class="youtube">Subscribe on
+        <div><a href="{{ site.links.youtube }}?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="youtube">Subscribe on
           YouTube</a></div>
-        <div><a href="{{ site.links.youtube }}join" target="_blank" class="patreon">Become a Member</a></div>
-        <div><a href="{{ site.links.discord }}" target="_blank" class="discord">Join the Discord</a></div>
+        <div><a href="{{ site.links.youtube }}join" target="_blank" rel="noopener noreferrer" class="patreon">Become a Member</a></div>
+        <div><a href="{{ site.links.discord }}" target="_blank" rel="noopener noreferrer" class="discord">Join the Discord</a></div>
       </div>
     </div>
 
@@ -47,7 +47,7 @@ permalink: /
   <h2>Latest Videos</h2>
   <div class="featured-videos">
     {% include 3-modules/video-list.html sortedVideos=featuredVideos %}
-    <a href="{{ site.links.youtube }}" target="_blank" class="more-videos">Watch more videos</a>
+    <a href="{{ site.links.youtube }}" target="_blank" rel="noopener noreferrer" class="more-videos">Watch more videos</a>
   </div>
 
   <h2>Support The Coding Train</h2>
