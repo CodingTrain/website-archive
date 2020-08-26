@@ -15,6 +15,9 @@ videos:
     url: "/CodingChallenges/154-tic-tac-toe-minimax"
 
 contributions:
+  -title: "Tic-Tac-Toe game in python."
+    author: "abhinav jain"
+    url: "https://aajbrand.blogspot.com/2020/08/tic-tac-toe-game.html"
   - title: "Regular Tic-Tac-Toe...or so it seems."
     author: "wmrsp"
     url: "https://editor.p5js.org/wmrsp/full/WvUMYJefz"
