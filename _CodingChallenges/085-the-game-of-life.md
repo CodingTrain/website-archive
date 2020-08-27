@@ -65,7 +65,7 @@ contributions:
   - title: "Game of Life with Terminal Commands"
     author:
       name: "Andrew Y"
-      url: "https://github.com/YushchenkoAndrew"
+      url: "https://github.com/YushchenkoAndrew/"
     url: "http://mortis-grimreaper.ddns.net/projects/GameOfLife/"
     source: "https://github.com/YushchenkoAndrew/template/tree/master/JS/GameOfLife"
     
