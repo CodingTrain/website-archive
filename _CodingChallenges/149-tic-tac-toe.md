@@ -159,5 +159,8 @@ contributions:
       url: "https://tanhongit.com"
     url: "https://railstictactoe.herokuapp.com/"
     source: "https://github.com/TanHongIT/rails-tic-tac-toe-project"
+  - title: "Tic-Tac-Toe game in python."
+    author: "abhinav jain"
+    url: "https://aajbrand.blogspot.com/2020/08/tic-tac-toe-game.html"
 ---
 This is a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
