@@ -62,5 +62,12 @@ contributions:
     author: "Saswat Dash"
     url: https://sdtrain.github.io/conway-game-of-life/
     source: https://github.com/sdtrain/conway-game-of-life/
+  - title: "Game of Life with Terminal Commands"
+    author:
+      name: "Andrew Y"
+      url: "https://github.com/YushchenkoAndrew"
+    url: "http://mortis-grimreaper.ddns.net/projects/GameOfLife/"
+    source: "https://github.com/YushchenkoAndrew/template/tree/master/JS/GameOfLife"
+    
 ---
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.
