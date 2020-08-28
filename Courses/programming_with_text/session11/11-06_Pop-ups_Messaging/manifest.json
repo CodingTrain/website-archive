@@ -10,6 +10,7 @@
       "js": ["content.js"]
     }
   ],
+   "content_security_policy": "script-src 'self' https://cdn.jsdelivr.net/npm/p5@1.1.4/lib/p5.min.js; object-src 'self'",
   "permissions": ["tabs"],
   "browser_action": {
     "default_icon": "ct.png",

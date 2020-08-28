@@ -157,5 +157,17 @@ contributions:
       name: "BasidiomyCody"
     url: "https://editor.p5js.org/BasidiomyCody/present/k3BeoweuV"
     source: "https://editor.p5js.org/BasidiomyCody/sketches/k3BeoweuV"
+  - title: "Rainbow Perlin Noise field & Marching Squares"
+    author:
+      name: "UnaLuz"
+      url: "https://github.com/UnaLuz"
+    url: "https://editor.p5js.org/UnaLuz/full/gGn4TX0Sk"
+    source: "https://editor.p5js.org/UnaLuz/sketches/gGn4TX0Sk"
+  - title: "Metaballs"
+    author:
+      name: "Andrew Y"
+      url: "https://github.com/YushchenkoAndrew"
+    url: "http://mortis-grimreaper.ddns.net/projects/Metaballs/"
+    source: "https://github.com/YushchenkoAndrew/template/tree/master/JS/Metaballs"
 ---
 In this episode of Coding in the Cabana, Gloria Pickle and I investigate the Marching Squares algorithm and apply it to Open Simplex Noise in Processing.

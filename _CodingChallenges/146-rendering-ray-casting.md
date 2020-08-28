@@ -74,6 +74,12 @@ contributions:
       url: "https://codeblock.at/"
     url: "https://codepen.io/Grilly86/project/full/ApNRVn"
     source: "https://codepen.io/Grilly86/project/editor/ApNRVn"
+  - title: "Ray casting with Maze Generation and A* algorithm"
+    author:
+      name: "Andrew Y"
+      url: "http://mortis-grimreaper.ddns.net/projects/"
+    url: "http://mortis-grimreaper.ddns.net/projects/Raycasting3DAdvAdv/"
+    source: "https://github.com/YushchenkoAndrew/template/tree/master/JS/Raycasting3DAdvAdv"
 
 community_references:
   - title: "Code-It-Yourself! First Person Shooter (Quick and Simple C++)"

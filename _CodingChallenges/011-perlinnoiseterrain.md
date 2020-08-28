@@ -52,5 +52,11 @@ contributions:
       url: "https://codepen.io/leimapapa"
     url: "https://codepen.io/leimapapa/full/oNjQLBP"
     source: "https://codepen.io/leimapapa/pen/oNjQLBP"
+  - title: "Landscape and River Terrain Generation"
+    author:
+      name: "Suraj K"
+      url: "https://github.com/Suraj07"
+    url: "https://suraj07.github.io/p5js-code-challenges/challenges/terrain-generation/"
+    source: "https://github.com/Suraj07/p5js-code-challenges/tree/master/challenges/terrain-generation"
 ---
 In this coding challenge, I create a 3D procedural terrain using Perlin Noise and the beginShape() function in Processing.
