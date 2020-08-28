@@ -11,7 +11,7 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "octocat": "^1.2.1",
-    "prettier": "^1.19.1",
+    "prettier": "^2.1.1",
     "replace-in-file": "^6.1.0",
     "yaml-front-matter": "^4.1.0"
   },
