@@ -51,7 +51,6 @@ contributions:
       url: "https://github.com/mithi"
     url: "https://mithi.github.io/hello-3d-world/"
     source: "https://github.com/mithi/hello-3d-world"
-
 ---
 
 In this coding challenge I render a 3D object (cube) in 2D using rotation and projection matrices in Processing (Java).
