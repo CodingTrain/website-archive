@@ -39,6 +39,18 @@ contributions:
       url: "https://theabbie.github.io"
     url: "https://theabbie.github.io/custom/3d.html"
     source: "https://raw.githubusercontent.com/theabbie/theabbie.github.io/master/custom/3d.html"
+  - title: "Hello Tiny Box! Backface culling implementation"
+    author:
+      name: "Mithi Sevilla"
+      url: "https://github.com/mithi"
+    url: "https://mithi.github.io/hello-tiny-box/"
+    source: "https://github.com/mithi/hello-tiny-box"
+  - title: "Hello 3d world! Custom 3d Renderer"
+    author:
+      name: "Mithi Sevilla"
+      url: "https://github.com/mithi"
+    url: "https://mithi.github.io/hello-3d-world/"
+    source: "https://github.com/mithi/hello-3d-world"
 ---
 
 In this coding challenge I render a 3D object (cube) in 2D using rotation and projection matrices in Processing (Java).
