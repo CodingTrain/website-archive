@@ -10,6 +10,12 @@ web_editor: ISPozOLXW
 links:
   - title: "Exploring Meta-balls and Isosurfaces in 2D"
     url: "https://www.gamedev.net/articles/programming/graphics/exploring-metaballs-and-isosurfaces-in-2d-r2556"
+
+contributions:
+  - title: "Individually-colored metaballs (with GLSL shader)"
+    author: "Abang Farhan"
+    url: https://www.youtube.com/watch?v=LZfmCuEPRIM
+    source: https://github.com/abangfarhan/metaballs-pshaders
 ---
 
 In this coding challenge, I show you how to code from scratch Metaballs(Isosurfaces) in Processing and how to control them using the Blob Detection method from my previous computer vision video.
