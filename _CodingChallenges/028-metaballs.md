@@ -16,7 +16,7 @@ contributions:
     author:
       name: "Abang Farhan"
       url: "https://github.com/abangfarhan"
-    url: "https://www.youtube.com/watch?v=LZfmCuEPRIM"
+    video_id: LZfmCuEPRIM
     source: "https://github.com/abangfarhan/metaballs-pshaders"
 ---
 
