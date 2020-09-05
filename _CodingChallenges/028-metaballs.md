@@ -13,9 +13,11 @@ links:
 
 contributions:
   - title: "Individually-colored metaballs (with GLSL shader)"
-    author: "Abang Farhan"
-    url: https://www.youtube.com/watch?v=LZfmCuEPRIM
-    source: https://github.com/abangfarhan/metaballs-pshaders
+    author:
+      name: "Abang Farhan"
+      url: "https://github.com/abangfarhan"
+    url: "https://www.youtube.com/watch?v=LZfmCuEPRIM"
+    source: "https://github.com/abangfarhan/metaballs-pshaders"
 ---
 
 In this coding challenge, I show you how to code from scratch Metaballs(Isosurfaces) in Processing and how to control them using the Blob Detection method from my previous computer vision video.
