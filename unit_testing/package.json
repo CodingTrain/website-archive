@@ -20,6 +20,6 @@
     "js-yaml": "^3.14.0"
   },
   "dependencies": {
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.1"
   }
 }
