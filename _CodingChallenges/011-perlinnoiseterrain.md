@@ -58,5 +58,11 @@ contributions:
       url: "https://github.com/Suraj07"
     url: "https://suraj07.github.io/p5js-code-challenges/challenges/terrain-generation/"
     source: "https://github.com/Suraj07/p5js-code-challenges/tree/master/challenges/terrain-generation"
+  - title: "Interactive and Colorful Terrain"
+    author:
+      name: "Abang Farhan"
+      url: "https://github.com/abangfarhan"
+    video_id: 2N-t3u2dtXs
+    source: "https://github.com/abangfarhan/processing-terrain"
 ---
 In this coding challenge, I create a 3D procedural terrain using Perlin Noise and the beginShape() function in Processing.
