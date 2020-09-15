@@ -32,6 +32,10 @@ contributions:
     author: "Gareth Williams (Gaweph)"
     url: https://gaweph.github.io/p5-live-examples/CodingChallenges/CC_086_beesandbombs/
     source: https://github.com/Gaweph/p5-live-examples/tree/master/CodingChallenges/CC_086_beesandbombs
+  - title: "Oscillating Cube in Python"
+    author: "Chris Oliver"
+    url: https://github.com/chrisoliver345/Python-Processing/tree/master/Oscillating_Cube
+    source: https://github.com/chrisoliver345/Python-Processing/tree/master/Oscillating_Cube
 ---
 
 In this coding challenge, I attempt recreate a 3D @beesandbombs GIF with p5.js and the WebGL renderer.
