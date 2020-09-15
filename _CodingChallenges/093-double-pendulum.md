@@ -64,5 +64,11 @@ contributions:
       url: "https://github.com/martif1202/processing/blob/master/triple_pendulum.pde"
     url: "https://github.com/martif1202/processing/blob/master/triple_pendulum.pde"
     source: "https://github.com/martif1202/processing/blob/master/triple_pendulum.pde"
+  - title: "Double Spherical Pendulum"
+    author:
+      name: "Samuel Cobb"
+      url: "http://physicshub.herokuapp.com"
+    url: "https://editor.p5js.org/sjcobb/present/9G-6bVdbr"
+    source: "https://editor.p5js.org/sjcobb/sketches/9G-6bVdbr"
 ---
 In this coding challenge, I create a double pendulum simulation in Processing.
