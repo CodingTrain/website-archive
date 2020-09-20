@@ -56,7 +56,7 @@ contributions:
     author:
       name: "Thomas Weichhart"
       url: "https://www.instagram.com/thomas_weichhart"
-    video_id: "https://www.youtube.com/watch?v=TZifuj5G8yI"
+    video_id: "TZifuj5G8yI"
     source: "https://github.com/ThomasW2005/game-of-life"
   - title: "Conway's Game of Life in ReactJS"
     author: "Saswat Dash"
