@@ -125,7 +125,7 @@ contributions:
     author:
       name: "Thomas Weichhart"
       url: "https://www.instagram.com/thomas_weichhart/?hl=de"
-    video_id: "https://www.youtube.com/watch?v=r7KOiF8WrQ8"
+    video_id: "r7KOiF8WrQ8"
     url: "https://github.com/ThomasW2005/snake/blob/master/snake.exe"
     source: "https://github.com/ThomasW2005/snake"
 ---
