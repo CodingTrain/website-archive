@@ -1,6 +1,9 @@
 ---
-title: Programming with Text
+title: Programming With Text
 layout: series-index
+redirect_from:
+  - /programing-with-text
+  - /Courses/programming-with-text/
 ---
 
 This course focuses on programming strategies and techniques behind procedural analysis and generation of text-based data.
