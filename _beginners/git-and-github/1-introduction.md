@@ -12,3 +12,4 @@ links:
 ---
 
 In this first video of Git and GitHub for Poets, we go over the concepts of commits and repositories as well as an overview of the GitHub User Interface.
+thank you keep learning
