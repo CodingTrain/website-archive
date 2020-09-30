@@ -1,6 +1,6 @@
 ## Contributing to The Coding Train
 
-Contributions to this repository encouraged! We're all learning so mistakes and confusion are welcome, we're here to help and try to make contributing as friendly and accessible as possible.
+Contributions to this repository encouraged! We're all learning so mistakes and confusion please welcome, we're here to help and try to make contributing as friendly and accessible as soon as possible.
 
 Here are the type of contributions we are looking for:
  - bug-fixes
