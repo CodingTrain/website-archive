@@ -2,7 +2,7 @@
   <img width="800" alt="The Coding Train Logo" src="https://github.com/CodingTrain/website/blob/master/.github/logo.png?raw=true">
 </p>
 </br>
-Hello and welcome to the GitHub repository for The Coding Train website! This houses all of the content at <a href="https://thecodingtrain.com/">thecodingtrain.com</a> as well as source code for corresponding videos. The site welcomes contributions from the community in a variety of ways! More informations at <a href="docs/CONTRIBUTING.md">CONTRIBUTING.md</a>.
+Hello and welcome to the GitHub repository for The Coding Train website! This houses all of the content at <a href="https://thecodingtrain.com/">thecodingtrain.com</a> as well as source code for corresponding videos. The site welcomes the contributors in various ways! More informations at <a href="docs/CONTRIBUTING.md">CONTRIBUTING.md</a>.
 
 # Other links
 
@@ -18,7 +18,7 @@ Live streams are announced as events on YouTube, [please subscribe to receive no
 
 # Add your own variation
 
-If you want to share your own variation based on a Coding Train video, visit the page corresponding to the video on our [website](http://thecodingtrain.com). Check out the [Community Contributions Guide](https://thecodingtrain.com/Guides/community-contribution-guide.html) to see how it is done. It will then be featured right under the video on the website for everyone to see!
+If you want to share your own variation based on a Coding Train video, visit the page corresponding to the video on our [website](http://thecodingtrain.com). Check out the [Community Contributions Guide](https://thecodingtrain.com/Guides/community-contribution-guide.html) to see how it is done. It will be then featured right under the video on the website for the viewers!
 
 # Help adding pages for video tutorials
 
