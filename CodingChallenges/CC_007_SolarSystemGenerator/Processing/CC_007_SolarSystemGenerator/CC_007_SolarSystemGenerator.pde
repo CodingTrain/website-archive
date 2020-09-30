@@ -11,7 +11,8 @@ void setup() {
   sun.spawnMoons(5, 1);
 }
 
-void draw() {
+void draw() 
+{
   background(0);
   translate(width/2, height/2);
   sun.show();
