@@ -12,6 +12,8 @@ Hello and welcome to the GitHub repository for The Coding Train website! This ho
 - [Join The Coding Train Discord](https://discord.gg/hPuGy2g)
 - [Coding questions](https://discourse.processing.org)
 
+
+
 # Live Streams
 
 Live streams are announced as events on YouTube, [please subscribe to receive notifications for events](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw/subscribe)!
@@ -23,3 +25,6 @@ If you want to share your own variation based on a Coding Train video, visit the
 # Help adding pages for video tutorials
 
 We are currently in the process of migrating videos and community contributions to the new system. If you want to help with this, have a look at the [Content Contribution Guide](https://thecodingtrain.com/Guides/content-contribution-guide.html). Thanks for helping us out!
+
+
+Learn the technical skills you need for the job you want. As leaders in online education and learning to code, we’ve taught over 45 million people using a tested curriculum and an interactive learning environment. Start with HTML, CSS, JavaScript, SQL, Python, Data Science, and more.
