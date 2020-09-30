@@ -1,9 +1,9 @@
-# Code-of-Conduct
+# CODE-OF-CONDUCT
 
-This is a Code of Conduct for the Coding Train community. This is [largely based on the p5.js Code of Conduct](https://github.com/processing/p5.js/blob/master/CODE_OF_CONDUCT.md) and applies to all interactions here on GitHub, Discord, YouTube comments, and YouTube chat.
+This is a Code of Conduct for the Coding Train Community. This is [largely based on the p5.js Code of Conduct](https://github.com/processing/p5.js/blob/master/CODE_OF_CONDUCT.md) and applies to all interactions here on GitHub, Discord, YouTube comments, and YouTube chat.
 
 * **Be mindful of your language.** Any of the following behavior is unacceptable: 
-  * Offensive comments related to gender identity and expression, sexual orientation, race, ethnicity, language, neuro-type, size, ability, class, religion, culture, subculture, political opinion, age, skill level, occupation, or background
+  * Offensive comments related to gender identity and expression, sexual orientation, race, ethnicity, language, neuro-type, size, ability, class, religion, culture, colour,    subculture, political opinion, age, skill level, occupation, or background
   * Threats of violence
   * Deliberate intimidation
   * Sexually explicit or violent material
