@@ -16,7 +16,7 @@ Hello and welcome to the GitHub repo for The Coding Train website! This houses a
 
 Live streams are announced as events on YouTube, [please subscribe to receive notifications for events](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw/subscribe)!
 
-# Add your own variation
+# Add your own variation i.e. Your own idea.
 
 If you want to share your own variation based on a Coding Train video, visit the page corresponding to the video on our [website](http://thecodingtrain.com). Check out the [Community Contributions Guide](https://thecodingtrain.com/Guides/community-contribution-guide.html) to see how it's done. It will then be featured right under the video on the website for everyone to see!
 
