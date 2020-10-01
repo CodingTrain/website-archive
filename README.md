@@ -1,6 +1,7 @@
-An Amazing Project
+<p align ="center">!!!***An Amazing Project***!!!<p>
+<br>
 <p align="center">
-  <img width="832" alt="The Coding Train Logo" src="https://github.com/CodingTrain/website/blob/master/.github/logo.png?raw=true">
+  <img width="810" alt="The Coding Train Logo" src="https://github.com/CodingTrain/website/blob/master/.github/logo.png?raw=true">
 </p>
 </br>
 Hello and welcome to the GitHub repository for The Coding Train website! This houses all of the content at <a href="https://thecodingtrain.com/">thecodingtrain.com</a> as well as source code for corresponding videos. The site welcomes contributions from the community in a variety of ways! More informations at <a href="docs/CONTRIBUTING.md">CONTRIBUTING.md</a>.
