@@ -1,3 +1,5 @@
+#gitignoreisthebest
+
 ### Node.JS ###
 .DS_Store
 /config.js
