@@ -12,7 +12,7 @@ Hello and welcome to the GitHub repository for The Coding Train website! This ho
 - [Join The Coding Train Discord](https://discord.gg/hPuGy2g)
 - [Coding questions](https://discourse.processing.org)
 
-# Live Streams
+# Live Streams of events
 
 Live streams are announced as events on YouTube, [please subscribe to receive notifications for events](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw/subscribe)!
 
