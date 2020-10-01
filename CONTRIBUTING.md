@@ -10,7 +10,7 @@ Here are the type of contributions we are looking for:
  - adding any missing content - [guide](https://thecodingtrain.com/Guides/content-contribution-guide.html)
  - porting coding challenges to other languages (eg. Processing -> JavaScript/p5.js) - [overview](https://github.com/CodingTrain/website/issues/1347)
 
-The code in the repository should match the code written in the YouTube tutorials, so that fellow passengers can use this code as a base for their own implementations.
+The code in the repository should match the code written in the YouTube tutorials, so that fellow programmers can use this code as a base for their own implementations.
 
 To make a contribution, fork this repository and create a pull request.
 
