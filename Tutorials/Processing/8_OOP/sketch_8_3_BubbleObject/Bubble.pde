@@ -10,12 +10,12 @@ class Bubble {
     diameter = tempD;
   }
 
-  void ascend() {
+  void asc() {
     y--;
     x = x + random(-2,2);
   }
 
-  void display() {
+  void dis() {
     stroke(0);
     fill(127,100);
     ellipse(x, y, diameter, diameter);
