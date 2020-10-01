@@ -8,3 +8,8 @@ node_modules
 _site/
 .sass-cache/
 .jekyll-metadata
+### jquery ###
+.DS_Store
+/config.jquery
+node_modules
+.env
