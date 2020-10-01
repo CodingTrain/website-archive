@@ -3,7 +3,7 @@ layout: base
 permalink: /
 ---
 
-{% comment %} Get the next stream. {% endcomment %}
+{% comment %} Get to the next stream. {% endcomment %}
 {% include 1-tools/sort-videos.html videos=site.Streams future=true reverse=true %}
 {% assign nextStream = out_sortedVideos | where_exp: 'stream', 'stream.date >= site.time' | first %}
 
