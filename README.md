@@ -19,7 +19,7 @@ Live streams are announced as events on YouTube, [please subscribe to receive no
 
 # Add your own variation
 
-If you want to share your own variation based on a Coding Train video, visit the page corresponding to the video on our [website](http://thecodingtrain.com). Check out the [Community Contributions Guide](https://thecodingtrain.com/Guides/community-contribution-guide.html) to see how it is done. It will then be featured right under the video on the website for everyone to see!
+If you want to share your own variation based on a Coding Training video, visit the page corresponding to the video on our [website](http://thecodingtrain.com). Check out the [Community Contributions Guide](https://thecodingtrain.com/Guides/community-contribution-guide.html) to see how it is done. It will then be featured right under the video on the website for everyone to see!
 
 # Help adding pages for video tutorials
 
