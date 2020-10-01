@@ -6,10 +6,10 @@ source "https://rubygems.org"
 #
 #     bundle exec jekyll serve
 #
-# This will help ensure the proper Jekyll version is running.
+# This will help you ensure the proper Jekyll version is running.
 # Happy Jekylling!
 
-# If you have any plugins, put them here!
+# If you have any plugins, put them here!!!!!!
 group :jekyll_plugins do
   gem "github-pages"
   gem 'jekyll-seo-tag'
