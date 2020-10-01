@@ -1,4 +1,4 @@
-<p align ="center">!!!***An Amazing Project***!!!<p>
+<p align ="center"><b><i>!!!***An Amazing Project***!!!</i></b><p>
 <br>
 <p align="center">
   <img width="900" alt="The Coding Train Logo" src="https://github.com/CodingTrain/website/blob/master/.github/logo.png?raw=true">
