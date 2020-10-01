@@ -15,7 +15,7 @@ Hello and welcome to the GitHub repository for The Coding Train website! This ho
 
 # Live Streams
 
-Live streams are announced as events on YouTube, [please subscribe to receive notifications for events](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw/subscribe)!
+Live streams are announced as events on YouTube, [please subscribe to receive notifications for events first](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw/subscribe)!
 
 # Add your own variation
 
