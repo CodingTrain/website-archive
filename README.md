@@ -8,9 +8,13 @@ Hello and welcome to the GitHub repository for The Coding Train website! This ho
 # Other links
 
 1 [The Coding Train on YouTube](https://www.youtube.com/thecodingtrain/)
+
 2 [Become a YouTube Member](https://youtube.com/thecodingtrain/join)
+
 3 [For topic suggestions](https://github.com/CodingTrain/Rainbow-Topics/)
+
 4 [Join The Coding Train Discord](https://discord.gg/hPuGy2g)
+
 5 [Coding questions](https://discourse.processing.org)
 
 # Live Streams
