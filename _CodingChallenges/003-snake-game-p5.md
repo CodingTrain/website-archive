@@ -12,6 +12,12 @@ links:
     url: https://en.wikipedia.org/wiki/Snake_(video_game)
 
 contributions:
+  - title: "Vanilla JS Snake Game"
+    author:
+      name: "Som Shekhar Mukherjee"
+      url: https://github.com/ssmkhrj
+    url: https://codepen.io/ssmkhrj/full/Vwapvjw
+    source: hhttps://codepen.io/ssmkhrj/pen/Vwapvjw
   - title: "P5.JS Snake Game"
     author:
       name: "strikemike2k"
