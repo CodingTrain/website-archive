@@ -25,6 +25,6 @@ If you want to share your own variation based on a Coding Train video, visit the
 
 We are currently in the process of migrating videos and community contributions to our new system. If you want to help with this, have a look at the [Content Contribution Guide](https://thecodingtrain.com/Guides/content-contribution-guide.html). Thanks for helping us out!
 
-# Hacktoberfest
+# Hacktoberfest an amazing website
 
 If you're here for [Hacktoberfest](https://hacktoberfest.digitalocean.com/) please check out this issue: https://github.com/CodingTrain/website/issues/2615.
