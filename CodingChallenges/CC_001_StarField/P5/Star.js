@@ -2,7 +2,7 @@
 // http://codingtra.in
 // http://patreon.com/codingtrain
 // Code for: https://youtu.be/17WoOqgXsRM
-
+#naman bansal
 function Star() {
   this.x = random(-width, width);
   this.y = random(-height, height);
