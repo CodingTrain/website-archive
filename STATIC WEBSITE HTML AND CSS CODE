@@ -1,0 +1,107 @@
+<html>
+<head>
+<title>AIRFORCE</title> 
+     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+    <body>
+    <div class="main">
+        
+     <div class="nav-links" Id="nav-links">
+                   <i class="fa fa-close"onclick="closeMenu()" ></i>
+        
+        <a href="#">HOME</a>
+             <a href="#">AIRFORCE</a>
+             <a href="#">ABOUT US</a>
+            <a href="#">CONTAT US</a>
+        
+        </div> 
+         <i class="fa fa-bars" onclick="showMenu()"></i>
+        <div class="image">
+        <img src="iafanimatelogo.gif">
+        </div>
+    </div>
+        <script>
+        var show=document.getElementById("nav-links")
+   function showMenu()
+        {
+            show.style.right="0";  
+        }
+         function closeMenu()
+        {
+            show.style.right="-200px";   
+        }
+    </script>    
+    </body>
+</html>
+
+
+
+
+STYLE CODE
+
+*
+{
+    padding:0;
+    margin:0;
+    
+    
+}
+.main
+{
+    height: 100vh;
+    border:solid;
+    border-color: chocolate;
+    background-position: center;
+    background-image:url(IdioticJampackedBobolink.webp);
+    background-repeat: no-repeat;
+    
+}
+
+.nav-links
+{
+   
+    font-size: 10px;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: space-around;
+    
+}
+.nav-links a
+{
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+}
+.nav-links:hover{
+    background: transparent;
+       background-image: linear-gradient(to right,#4458dc 0%,#854fee 100%);
+}
+.nav-links a:hover
+{
+    background-color:antiquewhite;
+  font-size: 25px;
+    color: red;
+    font-weight:bold;
+}
+.nav-links a::after{
+    content:'';
+    width: 0;
+    height: 4px;
+    background:red;
+    display: block;
+    margin: auto;
+   transition: 0.5s; 
+    
+}
+.nav-links a:hover::after{
+    
+    width: 100%;
+    
+}
+.image
+{
+    display: flex;
+    justify-content: space-around;
+    background-size: 500px;
+}
