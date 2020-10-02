@@ -55,5 +55,11 @@ contributions:
       url: "https://github.com/Suraj07"
     url: "https://suraj07.github.io/p5js-code-challenges/challenges/thunderstorm/"
     source: "https://github.com/Suraj07/p5js-code-challenges/tree/master/challenges/thunderstorm"
+  - title: "Midnight Colorful Rain"
+    author:
+      name: "Akash Y"
+      url: "https://www.linkedin.com/in/aky91"
+    url: "https://editor.p5js.org/aky91/full/IUxpPJnaK"
+    source: "https://editor.p5js.org/aky91/sketches/IUxpPJnaK"
 ---
 In this viewer submitted coding challenge, I attempt to code a Purple Rain Simulator in Processing.
