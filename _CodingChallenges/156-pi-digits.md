@@ -37,5 +37,12 @@ contributions:
       url: "https://chief141.github.io"
     url: "https://repl.it/@chief141/Searching-in-pi"
     source: "https://github.com/chief141/Coding-Train-Challenges-python/tree/master/Searching_in_pi"
+    
+  - title: "Peeking in π with number pad"
+    author:
+      name: "Sarthak Kumar"
+      url: "https://iamsarthakk.github.io"
+    url: "https://iamsarthakk.github.io/P5.js/SearchPi/"
+    source: "https://github.com/iamsarthakk/P5.js/tree/master/SearchPi"
 ---
 🥧 Happy Pi Day 2020! In this challenge, I build a simple web application using p5.js and node.js to search in the first billion digits of Pi.
