@@ -37,7 +37,6 @@ contributions:
       url: "https://chief141.github.io"
     url: "https://repl.it/@chief141/Searching-in-pi"
     source: "https://github.com/chief141/Coding-Train-Challenges-python/tree/master/Searching_in_pi"
-    
   - title: "Peeking in π with number pad"
     author:
       name: "Sarthak Kumar"
