@@ -163,6 +163,10 @@ contributions:
     author: "Aleix Ferré"
     url: https://catalahd.github.io/Clocks/
     source: https://github.com/CatalaHD/Clocks
+  - title: "Minimalist Clock with continuously rotating pointer"
+    author: "Nick 'Milchreis' Müller"
+    url: https://calmcoding.github.io/minimalist-watch/
+    source: https://github.com/CalmCoding/minimalist-watch
 ---
 
 In this coding challenge, I attempt to program a clock in HTML5 canvas with the p5.js library.
