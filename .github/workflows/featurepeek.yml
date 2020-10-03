@@ -1,4 +1,4 @@
-name: Build and Ping FeaturePeek
+name: Build and FeaturePeek
 on: [push, pull_request]
 jobs:
   jekyll:
