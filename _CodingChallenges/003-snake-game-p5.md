@@ -134,5 +134,11 @@ contributions:
     video_id: "r7KOiF8WrQ8"
     url: "https://github.com/ThomasW2005/snake/blob/master/snake.exe"
     source: "https://github.com/ThomasW2005/snake"
+  - title: "Snake Game With Obstacles"
+    author:
+      name: "Sanjana"
+      url: https://github.com/sanjana-mukherjee
+    url: https://sanjana-mukherjee.github.io/Snake-Game/
+    source: https://github.com/sanjana-mukherjee/Snake-Game
 ---
 In this coding challenge, I attempt to code a p5.js version of the Snake Game.
