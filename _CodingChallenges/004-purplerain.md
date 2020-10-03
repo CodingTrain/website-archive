@@ -55,6 +55,12 @@ contributions:
       url: "https://github.com/Suraj07"
     url: "https://suraj07.github.io/p5js-code-challenges/challenges/thunderstorm/"
     source: "https://github.com/Suraj07/p5js-code-challenges/tree/master/challenges/thunderstorm"
+  - title: "Snow and rain"
+    author:
+      name: "Dmitry Dergunov"
+      url: "https://github.com/ddwebdevv"
+    url: "https://editor.p5js.org/ddwebdev/full/isq-7UK7f"
+    source: "https://editor.p5js.org/ddwebdev/sketches/isq-7UK7f"
   - title: "Midnight Colorful Rain"
     author:
       name: "Akash Y"
