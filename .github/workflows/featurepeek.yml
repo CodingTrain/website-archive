@@ -22,5 +22,8 @@ jobs:
       - name: Building Site
         run: |
           bundle exec jekyll build
+      - name: Running htmlproofer
+        run: |
+          bundle exec htmlproofer ./_site --assume-extension --check-html --disable-external --url-ignore "/#.*/"
       - name: Ping FeaturePeek
         run: bash <(curl -s https://peek.run/ci) 
