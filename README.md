@@ -1,3 +1,4 @@
+This project is very very exciting.
 <p align="center">
   <img width="800" alt="The Coding Train Logo" src="https://github.com/CodingTrain/website/blob/master/.github/logo.png?raw=true">
 </p>
