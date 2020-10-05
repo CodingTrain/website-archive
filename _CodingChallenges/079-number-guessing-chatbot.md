@@ -40,7 +40,7 @@ contributions:
       name: "Suman Kumar"
       url: "https://github.com/suman98kumar"
     url: "https://suman98kumar.github.io/Chatbot-GuessGame/"
-    source: "https://suman98kumar.github.io/Chatbot-GuessGame/"
+    source: "https://github.com/suman98kumar/Chatbot-GuessGame"
 ---
 
 In this coding challenge I attempt to create a chatbot that plays a number guessing game. I use the RiveScript along the JavaScript library p5.js.
