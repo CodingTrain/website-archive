@@ -52,6 +52,11 @@ contributions:
       name: "Shubham Goel"
     url: "https://peaceful-archimedes-611715.netlify.app"
     source: "https://github.com/shubh67678/sorting-visualizer"
+  - title: "Sorting Algorithms visualized as a Spectrum"
+    author:
+      name: "Adithi Narayan"
+    url: "https://github.com/Tvashta/Sort"
+    source: "https://github.com/Tvashta/Sort"
 links:
   - title: "Quicksort on Wikipedia"
     url: "https://en.wikipedia.org/wiki/Quicksort"
