@@ -70,6 +70,12 @@ contributions:
       url: "https://chief141.github.io/chiefdev"
     url: "https://repl.it/@chief141/Bubble-sorting-visualize"
     source: "https://github.com/chief141/Coding-Train-Challenges-python/tree/master/bubble_sorting_visualize"
+  - title: "Sorting Visualization using a Picture"
+    author:
+      name: "Akshay"
+      url: "https://github.com/9Nine-Tails"
+    url: "https://9nine-tails.github.io/Sorting-Algorithms-Visualized/"
+    source: "https://github.com/9Nine-Tails/Sorting-Algorithms-Visualized"
 ---
 
 In this coding challenge, I implement a "bubble sort" algorithm in Processing (Java) and sort randomly generated lines. [#SortingTrain](https://twitter.com/hashtag/SortingTrain)
