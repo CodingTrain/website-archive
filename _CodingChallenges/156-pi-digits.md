@@ -49,5 +49,11 @@ contributions:
       url: "https://github.com/datejer"
     url: "https://pi.ejer.gq/"
     source: "https://github.com/datejer/searchpi"
+  - title: "Pi Peekaboo"
+    author:
+      name: "Pratik Kulkarni"
+      url: "https://github.com/praaatik"
+    url: "https://shrouded-springs-15406.herokuapp.com/"
+    source: "https://github.com/praaatik/pi-peekaboo"
 ---
 🥧 Happy Pi Day 2020! In this challenge, I build a simple web application using p5.js and node.js to search in the first billion digits of Pi.
