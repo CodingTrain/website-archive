@@ -5,6 +5,7 @@ video_number: 79
 date: 2017-10-13
 video_id: zGe1m_bLOFk
 repository: CC_079_Number_Guessing_Chatbot
+web_editor: _XqFRhtaK
 
 links:
   - title: "RiveScript"
@@ -35,6 +36,12 @@ contributions:
       url: https://github.com/GypsyDangerous
     url: https://gypsydangerous.github.io/number-guessing-bot/
     source: https://gypsydangerous.github.io/Guess-My-number
+  - title: "Hack Natasha's Mind"
+    author:
+      name: "Suman Kumar"
+      url: "https://github.com/suman98kumar"
+    url: "https://suman98kumar.github.io/Chatbot-GuessGame/"
+    source: "https://github.com/suman98kumar/Chatbot-GuessGame"
 ---
 
 In this coding challenge I attempt to create a chatbot that plays a number guessing game. I use the RiveScript along the JavaScript library p5.js.

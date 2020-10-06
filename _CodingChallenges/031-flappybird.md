@@ -46,5 +46,14 @@ contributions:
     author: "Nguyen Van An @jounger"
     url: "https://editor.p5js.org/jounger/present/AArmk7_SZ"
     source: "https://editor.p5js.org/jounger/sketches/AArmk7_SZ"
+  - title: "Slide the rain"
+    author:
+      name: "Krishna Vishwakarma"
+      url: "https://github.io/thinkswell"
+    source: "https://codepen.io/thinks_code/full/WNwVymq"
+  - title: "Unicorn vs Deadpool"
+    author: "marvszl"
+    url: "https://editor.p5js.org/szloszjar.marvin@gmail.com/full/jE8DQY1Zd"
+    source: "https://editor.p5js.org/szloszjar.marvin@gmail.com/sketches/jE8DQY1Zd"
 ---
 In this coding challenge, I attempt to program in JavaScript (using the p5.js framework) a clone of the game Flappy Bird.

@@ -14,6 +14,12 @@ contributions:
       url: "http://codeblock.at/"
     url: "https://codepen.io/Grilly86/full/bwAoKq"
     source: "https://codepen.io/Grilly86/pen/bwAoKq"
+  - title: "Meta Matter"
+    author:
+      name: "Leith Ben Abdessalem"
+      url: "https://leithba.com/"
+    url: "https://www.openprocessing.org/sketch/773556"
+    source: "https://www.openprocessing.org/sketch/773556#code"
 ---
 
 In this coding challenge, I simulate a blob-like shape with wobbly edges using `beginShape()`, `endShape()`, polar coordinates, and perlin noise.
