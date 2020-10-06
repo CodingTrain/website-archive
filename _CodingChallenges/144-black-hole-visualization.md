@@ -74,6 +74,12 @@ contributions:
       url: "https://github.com/PeterDulworth"
     url: "http://sketches.peterdulworth.com/projects/blackhole.html"
     source: "https://github.com/PeterDulworth/sketches/tree/master/projects/blackhole"
+  - title: "Blackhole with funny photons in p5js"
+    author:
+      name: "Marc Berger"
+      url: "https://github.com/mberger75"
+    url: "https://editor.p5js.org/mberger75/sketches/f_8oKzndG"
+    source: "https://github.com/mberger75/2d_black_hole_visualization"
 ---
 
 Inspired by the recent image of the Powehi m87 black hole from the Event Horizon Telescope, I attempt to visualize the behavior or light (photons) following the  path of spacetime around the black hole.
