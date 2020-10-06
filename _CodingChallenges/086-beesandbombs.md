@@ -39,7 +39,7 @@ contributions:
   - title: "Dancing cube with mouse interaction"
     author: "Borrus-sudo"
     url: https://editor.p5js.org/DeathChargRocks21/sketches/oA7R9pZxY
-    source: https://editor.p5js.org/DeathChargRocks21/sketches/oA7R9pZxY  
+    source: https://editor.p5js.org/DeathChargRocks21/sketches/oA7R9pZxY
 ---
 
 In this coding challenge, I attempt recreate a 3D @beesandbombs GIF with p5.js and the WebGL renderer.
