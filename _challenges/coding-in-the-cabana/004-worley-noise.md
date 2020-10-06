@@ -134,5 +134,9 @@ contributions:
     author:
       name: "Hayden Coffey"
     source: "https://github.com/hcoffey1/worley"
+  - title: "Worley Noise with ripple effect"
+    author:
+      name: "Borrus-sudo"
+    source: "https://editor.p5js.org/DeathChargRocks21/sketches/fm0U3lBBE"
 ---
 It's the fourth episode of Coding in the Cabana! Quarantined at home I explore the beauty of Worley noise.
