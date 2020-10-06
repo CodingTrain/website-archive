@@ -1,8 +1,8 @@
-name: Ping FeaturePeek for Build
-on: [push, pull_request]
+name: Build
+on: [pull_request]
 jobs:
   jekyll:
-    name: "Build and Ping FeaturePeek"
+    name: "Jekyll Build Test"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -25,5 +25,3 @@ jobs:
       - name: Running htmlproofer
         run: |
           bundle exec htmlproofer ./_site --assume-extension --check-html --disable-external --url-ignore "/#.*/"
-      - name: Ping FeaturePeek
-        run: bash <(curl -s https://peek.run/ci) 
