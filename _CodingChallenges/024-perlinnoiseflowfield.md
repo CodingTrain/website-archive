@@ -44,6 +44,12 @@ contributions:
       url: "https://studioerika.de/julian"
     url: "https://studioerika.de/julian/project/flow"
     source: "https://studioerika.de/julian/js/flow.js"
+  - title: "Perlin Roots"
+    author:
+      name: "Leith Ben Abdessalem"
+      url: "https://leithba.com"
+    url: "https://www.openprocessing.org/sketch/738530"
+    source: "https://www.openprocessing.org/sketch/738530#code"
 ---
 
 In this coding challenge, I use Perlin noise to create a two-dimensional flow field with the p5.js library

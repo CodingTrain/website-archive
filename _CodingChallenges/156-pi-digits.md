@@ -43,6 +43,12 @@ contributions:
       url: "https://iamsarthakk.github.io"
     url: "https://iamsarthakk.github.io/P5.js/SearchPi/"
     source: "https://github.com/iamsarthakk/P5.js/tree/master/SearchPi"
+  - title: "Simplistic PI peeking in Next.js"
+    author:
+      name: "ejer"
+      url: "https://github.com/datejer"
+    url: "https://pi.ejer.gq/"
+    source: "https://github.com/datejer/searchpi"
   - title: "Pi Peekaboo"
     author:
       name: "Pratik Kulkarni"
