@@ -34,6 +34,5 @@ contributions:
       url: "https://github.com/kawaiipantsu"
     url: "https://editor.p5js.org/kawaiipantsu/present/uULTDdG0Q"
     source: "https://editor.p5js.org/kawaiipantsu/sketches/uULTDdG0Q"
-    
 ---
 In this coding challenge, I load a sprite sheet and create multiple animated sprites with the p5.js library.
