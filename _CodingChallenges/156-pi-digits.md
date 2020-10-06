@@ -43,5 +43,11 @@ contributions:
       url: "https://iamsarthakk.github.io"
     url: "https://iamsarthakk.github.io/P5.js/SearchPi/"
     source: "https://github.com/iamsarthakk/P5.js/tree/master/SearchPi"
+  - title: "Simplistic PI peeking in Next.js"
+    author:
+      name: "ejer"
+      url: "https://github.com/datejer"
+    url: "https://pi.ejer.gq/"
+    source: "https://github.com/datejer/searchpi"
 ---
 🥧 Happy Pi Day 2020! In this challenge, I build a simple web application using p5.js and node.js to search in the first billion digits of Pi.
