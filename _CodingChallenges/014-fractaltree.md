@@ -53,6 +53,6 @@ contributions:
       name: "Borrus-sudo"
       url: "https://graphicalpatterns.blogspot.com"
     url: "https://editor.p5js.org/DeathChargRocks21/sketches/SdTA9HXZr"
-    source: "https://editor.p5js.org/DeathChargRocks21/sketches/SdTA9HXZr"  
+    source: "https://editor.p5js.org/DeathChargRocks21/sketches/SdTA9HXZr"
 ---
 In this coding challenge, I'm going to show you how to create a Fractal Tree with a recursive algorithm in p5.js.
