@@ -24,6 +24,12 @@ videos:
     url: "/Tutorials/9-additional-topics/9.15-2d-arrays-in-javascript"
 
 contributions:
+  - title: "3D Lissajous Pattern Generator"
+    author:
+      name: "Jared Schiltz"
+      url: "https://github.com/jaredschiltz"
+    url: "https://jaredschiltz.github.io/3D-Lissajous-Pattern-Generator/"
+    source: "https://github.com/jaredschiltz/3D-Lissajous-Pattern-Generator"
   - title: "3D Lissajous Visualization"
     author:
       name: "Cole Spears"
