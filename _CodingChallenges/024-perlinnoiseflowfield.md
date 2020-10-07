@@ -50,6 +50,12 @@ contributions:
       url: "https://leithba.com"
     url: "https://www.openprocessing.org/sketch/738530"
     source: "https://www.openprocessing.org/sketch/738530#code"
+  - title: "Perlin noise with sine and cos waves"
+    author:
+      name: "Borrus-sudo"
+      url: "https://graphicaldesigns.blogsot.com"
+    url: "https://editor.p5js.org/DeathChargRocks21/sketches/SjYAyzrr6"
+    source: "https://editor.p5js.org/DeathChargRocks21/sketches/SjYAyzrr6"
 ---
 
 In this coding challenge, I use Perlin noise to create a two-dimensional flow field with the p5.js library
