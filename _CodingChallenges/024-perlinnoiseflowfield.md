@@ -55,7 +55,7 @@ contributions:
       name: "Borrus-sudo"
       url: "https://graphicaldesigns.blogsot.com"
     url: "https://editor.p5js.org/DeathChargRocks21/sketches/SjYAyzrr6"
-    source: "https://editor.p5js.org/DeathChargRocks21/sketches/SjYAyzrr6" 
+    source: "https://editor.p5js.org/DeathChargRocks21/sketches/SjYAyzrr6"
 ---
 
 In this coding challenge, I use Perlin noise to create a two-dimensional flow field with the p5.js library
