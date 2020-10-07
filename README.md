@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="800" alt="The Coding Train Logo" src="https://github.com/CodingTrain/website/blob/master/.github/logo.png?raw=true">
+  <img width="790" alt="The Coding Train Logo" src="https://github.com/CodingTrain/website/blob/master/.github/logo.png?raw=true">
 </p>
 </br>
 
@@ -23,7 +23,7 @@ If you want to share your own variation based on a Coding Train video, visit the
 
 # Help adding pages for video tutorials
 
-We are currently in the process of migrating videos and community contributions to our new system. If you want to help with this, have a look at the [Content Contribution Guide](https://thecodingtrain.com/Guides/content-contribution-guide.html). Thanks for helping us out!
+We are currently in the process of collecting videos and community contributions to our new system. If you want to help with this, have a look at the [Content Contribution Guide](https://thecodingtrain.com/Guides/content-contribution-guide.html). Thanks for helping us out!
 
 # Hacktoberfest
 
