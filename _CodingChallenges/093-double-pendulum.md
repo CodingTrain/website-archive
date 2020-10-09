@@ -70,5 +70,11 @@ contributions:
       url: "http://physicshub.herokuapp.com"
     url: "https://editor.p5js.org/sjcobb/present/9G-6bVdbr"
     source: "https://editor.p5js.org/sjcobb/sketches/9G-6bVdbr"
+  - title: "Double Pendulum with p5 and Matter.js"
+    author:
+      name: "Dipam Sen"
+      url: "http://github.com/dipamsen"
+    url: "https://dipamsen.github.io/double-pendulum-p5-matter/index.html"
+    source: "https://github.com/dipamsen/double-pendulum-p5-matter"
 ---
 In this coding challenge, I create a double pendulum simulation in Processing.

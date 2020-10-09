@@ -84,6 +84,12 @@ contributions:
       url: "https://github.com/aymanmh"
     source: "https://github.com/aymanmh/cinder/blob/master/LissajousCurveTable"
     video_id: "g4TTVgyhGQo"
+  - title: "3D Lissajous Pattern Generator"
+    author:
+      name: "Jared Schiltz"
+      url: "https://github.com/jaredschiltz"
+    url: "https://jaredschiltz.github.io/3D-Lissajous-Pattern-Generator/"
+    source: "https://github.com/jaredschiltz/3D-Lissajous-Pattern-Generator"
 ---
 
 In this Coding Challenge, I visualize a "Lissajous Curve Table" with Processing (Java).

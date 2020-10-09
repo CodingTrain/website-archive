@@ -167,6 +167,10 @@ contributions:
     author: "Nick 'Milchreis' Müller"
     url: https://calmcoding.github.io/minimalist-watch/
     source: https://github.com/CalmCoding/minimalist-watch
+  - title: "Fibonacci Clock"
+    author: "dzson"
+    url: https://dzson.github.io/FibonacciClock/index.html
+    source: https://github.com/dzson/FibonacciClock
 ---
 
 In this coding challenge, I attempt to program a clock in HTML5 canvas with the p5.js library.
