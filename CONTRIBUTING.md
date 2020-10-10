@@ -21,6 +21,6 @@ If you are just editing a single file, you may click the pencil when viewing the
 
 If you are unsure about git and GitHub, and how to make your contribution,
 these [Git and GitHub for Poets tutorials](https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZF9C0YMKuns9sLDzK6zoiV) might help.
-
+sorry,i don`t know how to contribute in project at github.i just want to create a pull request.
 Happy Coding!
 
