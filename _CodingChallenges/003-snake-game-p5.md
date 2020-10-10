@@ -140,5 +140,11 @@ contributions:
       url: https://github.com/sanjana-mukherjee
     url: https://sanjana-mukherjee.github.io/Snake-Game/
     source: https://github.com/sanjana-mukherjee/Snake-Game
+  - title: "Hanzi Snake Game"
+    author:
+      name: "Adrienne Rio"
+      url: "https://idea456.github.io/adrienne-rio"
+    url: "http://fun-mandarin.herokuapp.com/"
+    source: "https://github.com/idea456/fun-mandarin-games"
 ---
 In this coding challenge, I attempt to code a p5.js version of the Snake Game.
