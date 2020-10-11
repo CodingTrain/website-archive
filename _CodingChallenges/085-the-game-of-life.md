@@ -23,7 +23,9 @@ videos:
 
 contributions:
   - title: "Photo to cellular automata"
-    author: "Lenoir Christopher"
+    author: 
+      name: "Lenoir Christopher"
+      url: https://github.com/xLeDocteurx
     url: https://xledocteurx.github.io/photo-to-cellular-automata-2/
     source: https://github.com/xLeDocteurx/photo-to-cellular-automata-2
   - title: "Game of Life"
