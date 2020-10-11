@@ -22,6 +22,10 @@ videos:
     url: "/GuestTutorials/006-golan-levin-modulo-operator"
 
 contributions:
+  - title: "Photo to cellular automata"
+    author: "Lenoir Christopher"
+    url: https://xledocteurx.github.io/photo-to-cellular-automata-2/
+    source: https://github.com/xLeDocteurx/photo-to-cellular-automata-2
   - title: "Game of Life"
     author: "Alexandru Nastase"
     url: https://alexandrunst.github.io/Game-of-Life/
