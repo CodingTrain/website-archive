@@ -58,6 +58,10 @@ contributions:
     author: "Jakub Kurdziel"
     url: https://editor.p5js.org/kubo550/present/kwuTF8Kfb
     source: https://editor.p5js.org/kubo550/sketches/kwuTF8Kfb
+  - title: "Fireworks with text "
+    author: "Emre Biçer"
+    url: https://fireworks-text.herokuapp.com/?fs=true&text=CodingTrain%3C3
+    source: https://github.com/emrebicer/Animation-and-UI/tree/master/2-fireworks%20animation%20with%20text
 ---
 
 In this 4th of July themed coding challenge, I build an HTML5 canvas fireworks simulation from scratch using the p5.js JavaScript library. I also show how to use Processing to create 3D Fireworks.
