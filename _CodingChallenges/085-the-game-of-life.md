@@ -68,5 +68,11 @@ contributions:
       url: "https://github.com/YushchenkoAndrew/"
     url: "http://mortis-grimreaper.ddns.net/projects/GameOfLife/"
     source: "https://github.com/YushchenkoAndrew/template/tree/master/JS/GameOfLife"
+  - title: "Photo to cellular automata"
+    author:
+      name: "Lenoir Christopher"
+      url: https://github.com/xLeDocteurx
+    url: https://xledocteurx.github.io/photo-to-cellular-automata-2/
+    source: https://github.com/xLeDocteurx/photo-to-cellular-automata-2
 ---
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.
