@@ -144,5 +144,11 @@ contributions:
     author: "Cole Snow"
     url: https://editor.p5js.org/snowcol008/full/odG4k9NG_
     source: https://github.com/Coles-Code-Dump/Billeh-full
+  - title: "Hanzi Snake Game"
+    author:
+      name: "Adrienne Rio"
+      url: "https://idea456.github.io/adrienne-rio"
+    url: "http://fun-mandarin.herokuapp.com/"
+    source: "https://github.com/idea456/fun-mandarin-games"
 ---
 In this coding challenge, I attempt to code a p5.js version of the Snake Game.
