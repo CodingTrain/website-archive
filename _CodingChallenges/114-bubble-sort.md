@@ -76,6 +76,17 @@ contributions:
       url: "https://github.com/9Nine-Tails"
     url: "https://9nine-tails.github.io/Sorting-Algorithms-Visualized/"
     source: "https://github.com/9Nine-Tails/Sorting-Algorithms-Visualized"
+  - title: "Sorting Algorithms visualized as a Spectrum"
+    author:
+      name: "Adithi Narayan"
+    url: "https://github.com/Tvashta/Sort"
+    source: "https://github.com/Tvashta/Sort"
+  - title: "Sorting Visualizations - quick sort, bubble sort and insertion sort"
+    author:
+      name: "Gal Elmalah"
+      url: "https://github.com/galElmalah"
+    url: "https://galelmalah.github.io/sorting-visualisations/"
+    source: "https://github.com/galElmalah/sorting-visualisations"
 ---
 
 In this coding challenge, I implement a "bubble sort" algorithm in Processing (Java) and sort randomly generated lines. [#SortingTrain](https://twitter.com/hashtag/SortingTrain)
