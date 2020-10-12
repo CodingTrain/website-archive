@@ -59,6 +59,12 @@ contributions:
       url: "https://www.linkedin.com/in/cassiofb-dev/"
     url: "https://cassiofb-dev.github.io/paint-invaders/"
     source: "https://github.com/cassiofb-dev/paint-invaders/tree/master"
+  - title: "Hanzi Space Invaders"
+    author:
+      name: "Adrienne Rio"
+      url: "https://idea456.github.io/adrienne-rio"
+    url: "http://fun-mandarin.herokuapp.com/"
+    source: "https://github.com/idea456/fun-mandarin-games"
 ---
 
 In this viewer submitted coding challenge, I take on the task of coding a Space Invaders game to play in browser in JavaScript/HTML and the p5.js library.
