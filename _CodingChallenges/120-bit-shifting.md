@@ -23,6 +23,12 @@ contributions:
     author: "Soumyadip Mondal"
     url: https://unsuitable001.github.io/BitViz/
     source: https://github.com/unsuitable001/BitViz
+  - title: "Left Shift and Hexadecimal Representation"
+    author:
+      name: "Ritesh T"
+      url: "https://github.com/ritesh-dt"
+    url: "https://editor.p5js.org/ritesh-dt/full/ufEpfsq_J"
+    source: "https://editor.p5js.org/ritesh-dt/sketches/ufEpfsq_J"    
 ---
 
 In this coding challenge, I talk about bitwise operations, and more specifically, bit shifting.
