@@ -92,6 +92,12 @@ contributions:
       name: "Vaibhav Gupta (guptavaibhav0)"
       url: "https://github.com/guptavaibhav0"
     source: "https://github.com/guptavaibhav0/beesweeper"
+  - title: "3D MineSweeper"
+    author:
+      name: "jc1812"
+      url: "https://github.com/jc1812"
+    url: "https://lucid-villani-c69bfc.netlify.app/"
+    source: "https://github.com/jc1812/3DMineSweeper"
 ---
 
 In this challenge, I attempt to code the classic game Minesweeper in JavaScript with the p5.js library. This video builds on some previous tutorials related to the Prototypes and multi-dimensional arrays in JavaScript.
