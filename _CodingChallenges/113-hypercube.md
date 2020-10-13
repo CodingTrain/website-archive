@@ -59,6 +59,12 @@ contributions:
       url: "http://mortis-grimreaper.ddns.net/projects/"
     url: "http://mortis-grimreaper.ddns.net/projects/Hypercube/"
     source: "https://github.com/YushchenkoAndrew/template/tree/master/JS/Hypercube"
+  - title: "N-Dimensional Cubes in Processing"
+    author:
+      name: "Alexander C"
+      url: "https://github.com/piguyinthesky"
+    url: "https://piguyinthesky.github.io/projection/index.html"
+    source: "https://github.com/piguyinthesky/piguyinthesky.github.io/tree/main/projection/Projection"
 ---
 
 In this coding challenge, I visualize a 4D Hypercube (aka "Tesseract") in Processing (Java).
