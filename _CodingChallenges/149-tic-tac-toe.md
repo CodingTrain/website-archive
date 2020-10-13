@@ -162,5 +162,13 @@ contributions:
   - title: "Tic-Tac-Toe game in python."
     author: "abhinav jain"
     url: "https://aajbrand.blogspot.com/2020/08/tic-tac-toe-game.html"
+  - title: "Tic-Tac-Pro with 2D array vizualization in Python Processing"
+    author: "idea456"
+    url: "https://github.com/idea456/TicTacPro"
+    source: "https://github.com/idea456/TicTacPro"
+  - title: "Colourfull Tic Tac Toe"
+    author: "Amninder Singh"
+    url: "https://amnindersingh12.github.io/Colourfull-tic-tac-toe/"
+    source: "https://github.com/amnindersingh12/Colourfull-tic-tac-toe/tree/main"
 ---
 This is a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.

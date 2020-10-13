@@ -133,6 +133,11 @@ contributions:
       url: "https://www.kentpirma.eu/"
     video_id: "igKRMz--BuM"
     source: "https://github.com/internet8/RaycastingEngine"
+  - title: "Maze with Ray casting in Processing"
+    author:
+      name: "Adrian Carrillo"
+      url: "https://github.com/oropher"
+    source: "https://github.com/oropher/MazeGame"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"

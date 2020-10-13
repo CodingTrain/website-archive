@@ -158,5 +158,11 @@ contributions:
     author: "Prem Naik"
     url: "https://editor.p5js.org/TheSleepingAssassin/full/LVvPlIvzC"
     source: "https://editor.p5js.org/TheSleepingAssassin/sketches/LVvPlIvzC"
+  - title: "3D flocking (WEBGL): Colorful Butterflies and Flowers"
+    author:
+      name: "Juan Carlos Ponce Campuzano"
+      url: "https://jcponce.github.io/"
+    url: "https://editor.p5js.org/jcponce/present/fwsX61dRa"
+    source: "https://editor.p5js.org/jcponce/sketches/fwsX61dRa"
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.

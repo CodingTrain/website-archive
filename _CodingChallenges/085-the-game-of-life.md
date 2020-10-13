@@ -56,7 +56,7 @@ contributions:
     author:
       name: "Thomas Weichhart"
       url: "https://www.instagram.com/thomas_weichhart"
-    video_id: "https://www.youtube.com/watch?v=TZifuj5G8yI"
+    video_id: "TZifuj5G8yI"
     source: "https://github.com/ThomasW2005/game-of-life"
   - title: "Conway's Game of Life in ReactJS"
     author: "Saswat Dash"
@@ -68,5 +68,11 @@ contributions:
       url: "https://github.com/YushchenkoAndrew/"
     url: "http://mortis-grimreaper.ddns.net/projects/GameOfLife/"
     source: "https://github.com/YushchenkoAndrew/template/tree/master/JS/GameOfLife"
+  - title: "Photo to cellular automata"
+    author:
+      name: "Lenoir Christopher"
+      url: https://github.com/xLeDocteurx
+    url: https://xledocteurx.github.io/photo-to-cellular-automata-2/
+    source: https://github.com/xLeDocteurx/photo-to-cellular-automata-2
 ---
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.
