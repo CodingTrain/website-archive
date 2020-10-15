@@ -15,10 +15,6 @@ videos:
     url: "/CodingChallenges/154-tic-tac-toe-minimax"
 
 contributions:
-  - title: "Tic-Tac-Toe with Minimax Algorithm"
-    author: "Shekhar Tyagi"
-    url: "https://notshekhar.github.io/tic_tac_toe_game_using_JS"
-    source: "https://github.com/notshekhar/tic_tac_toe_game_using_JS"
   - title: "Regular Tic-Tac-Toe...or so it seems."
     author: "wmrsp"
     url: "https://editor.p5js.org/wmrsp/full/WvUMYJefz"
@@ -174,5 +170,9 @@ contributions:
     author: "Amninder Singh"
     url: "https://amnindersingh12.github.io/Colourfull-tic-tac-toe/"
     source: "https://github.com/amnindersingh12/Colourfull-tic-tac-toe/tree/main"
+  - title: "Tic-Tac-Toe with Minimax Algorithm"
+    author: "Shekhar Tyagi"
+    url: "https://notshekhar.github.io/tic_tac_toe_game_using_JS"
+    source: "https://github.com/notshekhar/tic_tac_toe_game_using_JS"
 ---
 This is a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
