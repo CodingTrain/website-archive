@@ -30,6 +30,12 @@ contributions:
       name: "Sam Lee"
       url: https://codepen.io/leimapapa
     url: https://codepen.io/leimapapa/full/QJwjwE
+    
+  - title: "Smart Bees"
+    author:
+      name: "Shekhar Tyagi"
+      url: https://github.com/notshekhar/
+    url: https://github.com/notshekhar/Smart-Bees
 ---
 
 In this (very long) coding challenge, I implement a genetic algorithm from scratch and create "smart rockets" (based on a simulation by Jer Thorp).  The rockets evolve the "best" path to a target, moving around obstacles.
