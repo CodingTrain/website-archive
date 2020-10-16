@@ -170,5 +170,9 @@ contributions:
     author: "Amninder Singh"
     url: "https://amnindersingh12.github.io/Colourfull-tic-tac-toe/"
     source: "https://github.com/amnindersingh12/Colourfull-tic-tac-toe/tree/main"
+   - title: "Tic Tac Toe"
+    author: "joedag32"
+    url: "https://editor.p5js.org/joedag32/present/jE7NYc2ad"
+    source: "https://github.com/joedag32/Colourfull-tic-tac-toe/tree/main"
 ---
 This is a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
