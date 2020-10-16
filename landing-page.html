@@ -3,7 +3,7 @@ layout: base
 permalink: /
 ---
 
-{% comment %} Get the next stream. {% endcomment %}
+{% comment %} start stream. {% endcomment %}
 {% include 1-tools/sort-videos.html videos=site.Streams future=true reverse=true %}
 {% assign nextStream = out_sortedVideos | where_exp: 'stream', 'stream.date >= site.time' | first %}
 
@@ -11,15 +11,15 @@ permalink: /
 {% assign featuredSeries = site.challenges | concat: site.CodingChallenges | concat: site.TeachableMachine %}
 {% include 1-tools/sort-videos.html videos=featuredSeries sortByDate=true reverse=true %}
 
-{% comment %} Use the latest coding challenge, coding in the cabana or teachable machine video if a stream hasn't been scheduled yet. {% endcomment %}
+{% comment %} Use the latest coding competions, coding in the cabana or teachable machine video if a stream hasn't been scheduled yet. {% endcomment %}
 {% if nextStream == null %}
   {% assign offset = 1 %}
-  {% assign nextStream = out_sortedVideos | first %}
+  {% assign nextStream = out_sorted Videos | first %}
 {% else %}
   {% assign offset = 0 %}
 {% endif %}
 
-{% assign featuredVideos = '' | split: '' %}
+{% assign featured Videos = '' | split: '' %}
 
 {% comment %} Add latest coding challenges, coding in the cabana or teachable machine video to featured videos array. {% endcomment %}
 {% for challengeCabanaOrTM in out_sortedVideos limit:3 offset:offset %}
