@@ -61,5 +61,11 @@ contributions:
       url: "https://github.com/amnindersingh12/"
     url: "https://amnindersingh12.github.io/two-pie/"
     source: "https://github.com/amnindersingh12/two-pie"
+  - title: "Calculating digits of pi with collisions"
+    author:
+      name: "Shekhar Tyagi"
+      url: "https://github.com/notshekhar/"
+    url: "https://notshekhar.github.io/calculating-digits-of-pi-with-collisions"
+    source: "https://github.com/notshekhar/calculating-digits-of-pi-with-collisions"
 ---
 🥧 Happy Pi Day 2020! In this challenge, I build a simple web application using p5.js and node.js to search in the first billion digits of Pi.
