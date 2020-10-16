@@ -5,7 +5,7 @@
 
 Hello and welcome to the GitHub repository for The Coding Train website! This houses all of the content at <a href="https://thecodingtrain.com/">thecodingtrain.com</a> as well as source code for corresponding videos. The site welcomes contributions from the community in a variety of ways! More information at <a href="CONTRIBUTING.md">CONTRIBUTING.md</a>.
 
-# Other links
+# Other links to run program
 
 - [The Coding Train on YouTube](https://www.youtube.com/thecodingtrain/)
 - [Become a YouTube Member](https://youtube.com/thecodingtrain/join)
