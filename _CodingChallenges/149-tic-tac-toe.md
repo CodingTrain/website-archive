@@ -174,7 +174,7 @@ contributions:
     author: "Shekhar Tyagi"
     url: "https://notshekhar.github.io/tic_tac_toe_game_using_JS"
     source: "https://github.com/notshekhar/tic_tac_toe_game_using_JS"
-   - title: "Tic Tac Toe"
+  - title: "Tic Tac Toe"
     author: "joedag32"
     url: "https://editor.p5js.org/joedag32/present/jE7NYc2ad"
     source: "https://github.com/joedag32/Colourfull-tic-tac-toe/tree/main"
