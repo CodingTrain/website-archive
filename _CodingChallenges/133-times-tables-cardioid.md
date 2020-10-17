@@ -91,7 +91,7 @@ contributions:
     author:
       name: "Dimitri Tabatadze"
       url: "https://github.com/D-T-666"
-    url: "d-t-666.github.io/p5-sketches/timestables"
+    url: "https://d-t-666.github.io/p5-sketches/timestables"
     source: "https://github.com/D-T-666/D-T-666.github.io/tree/master/p5-sketches/timestables"
 ---
 
