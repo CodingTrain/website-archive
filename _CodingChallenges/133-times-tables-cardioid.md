@@ -87,6 +87,12 @@ contributions:
       url: "https://github.com/Szymon300101"
     url: "https://szymon300101.github.io/TableFlow/"
     source: "https://github.com/Szymon300101/TableFlow/tree/gh-pages"
+  - title: "Lines Assemble!"
+    author:
+      name: "Dimitri Tabatadze"
+      url: "https://github.com/D-T-666"
+    url: "d-t-666.github.io/p5-sketches/timestables"
+    source: "https://github.com/D-T-666/D-T-666.github.io/tree/master/p5-sketches/timestables"
 ---
 
 In this video, I visualize the "mathematical heart" Cardioid using times tables calculations.
