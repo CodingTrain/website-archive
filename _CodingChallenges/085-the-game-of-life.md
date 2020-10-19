@@ -74,5 +74,9 @@ contributions:
       url: https://github.com/xLeDocteurx
     url: https://xledocteurx.github.io/photo-to-cellular-automata-2/
     source: https://github.com/xLeDocteurx/photo-to-cellular-automata-2
+  - title: "Yet Another Life (in ps.js using sparse arrays)"
+    author: "Rick Sidwell"
+    url: https://sidwellr.github.io/Yet-Another-Life/
+    source: https://github.com/sidwellr/Yet-Another-Life
 ---
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.
