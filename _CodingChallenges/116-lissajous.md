@@ -19,7 +19,7 @@ videos:
     author: "standupmaths"
     video_id: "4CbPksEl51Q"
   - title: "Polar Coordinates"
-    video_id: "znOBmOrtz_M"
+    video_id: "/more/archive/nature-of-code/3-Oscillation/3.2-Trigonometry-and-Polar-Coordinates"
   - title: "2D Arrays in JavaScript"
     url: "/Tutorials/9-additional-topics/9.15-2d-arrays-in-javascript"
 

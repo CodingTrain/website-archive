@@ -144,7 +144,7 @@ videos:
     video_id: "Cp5WWtMoeKg"
   - title: "Matrix Math"
     author: "Coding Train"
-    video_id: "uSzGdfdOoG8"
+    video_id: "/more/archive/nature-of-code/10-Neural-Networks/10.6-Neural-Networks-Matrix-Math-Part-1"
   - title: "Coding Challenge: Rendering Ray Casting"
     author: "Coding Train"
     url: "/CodingChallenges/146-rendering-ray-casting"

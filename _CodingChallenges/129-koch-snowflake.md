@@ -14,7 +14,7 @@ links:
 
 videos:
   - title: "Vectors"
-    video_id: "mWJkvxQXIa8"
+    video_id: "/more/archive/nature-of-code/1-Vectors/1.1-Vectors"
 
 contributions:
   - title: "Koch Snowflake with recursion"

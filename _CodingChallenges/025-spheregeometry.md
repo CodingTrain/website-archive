@@ -20,7 +20,7 @@ links:
     author: Jonathan Feinberg
 videos:
   - title: "My Video on Polar Coordinates"
-    video_id: "znOBmOrtz_M"
+    video_id: "/more/archive/nature-of-code/3-Oscillation/3.2-Trigonometry-and-Polar-Coordinates"
 contributions:
   - title: "Spherical Geometry in WEBGL"
     author:

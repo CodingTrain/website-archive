@@ -31,7 +31,7 @@ videos:
   - title: "My Neural Networks series"
     url: "https://www.youtube.com/playlist?list=PLRqwX-V7Uu6aCibgK1PTWWu9by6XFdCfh"
   - title: "My Pendulum Simulation"
-    video_id: "9iaEqGOh5WM"
+    video_id: "/more/archive/nature-of-code/3-Oscillation/3.4-Pendulum-Simulation"
   - title: "3Blue1Brown Neural Networks playlist"
     url: "https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi"
 ---
