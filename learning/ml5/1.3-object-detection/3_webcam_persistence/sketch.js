@@ -1,6 +1,6 @@
 // ml5.js: Object Detection with COCO-SSD (Webcam Persistance)
 // The Coding Train / Daniel Shiffman
-// https://thecodingtrain.com/learning/ml5/9.1-object-detection.html
+// https://thecodingtrain.com/learning/ml5/1.3-object-detection.html
 // https://youtu.be/QEzRxnuaZCk
 
 // p5.js Web Editor - Image: https://editor.p5js.org/codingtrain/sketches/ZNQQx2n5o
