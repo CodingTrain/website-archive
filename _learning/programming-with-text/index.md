@@ -6,6 +6,8 @@ redirect_from:
   - /Courses/programming-with-text/
   - /Courses/programming-with-text/2-regular-expressions/
   - /Courses/programming-with-text/2-regular-expressions/index.html
+  - /Courses/programming-with-text/10-chatbots/
+  - /Courses/programming-with-text/10-chatbots/index.html
 ---
 
 This course focuses on programming strategies and techniques behind procedural analysis and generation of text-based data.
