@@ -67,5 +67,11 @@ contributions:
       url: "https://www.linkedin.com/in/aky91"
     url: "https://editor.p5js.org/aky91/full/IUxpPJnaK"
     source: "https://editor.p5js.org/aky91/sketches/IUxpPJnaK"
+  - title: "Shooting Stars"
+    author:
+      name: "Amninder Singh"
+      url: "https://github.com/amnindersingh12"
+    url: "https://amnindersingh12.github.io/Shooting-Stars/"
+    source: "https://github.com/amnindersingh12/Shooting-Stars"
 ---
 In this viewer submitted coding challenge, I attempt to code a Purple Rain Simulator in Processing.
