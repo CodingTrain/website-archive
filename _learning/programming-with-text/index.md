@@ -4,6 +4,8 @@ layout: series-index
 redirect_from:
   - /programing-with-text
   - /Courses/programming-with-text/
+  - /Courses/programming-with-text/2-regular-expressions/
+  - /Courses/programming-with-text/2-regular-expressions/index.html
 ---
 
 This course focuses on programming strategies and techniques behind procedural analysis and generation of text-based data.
