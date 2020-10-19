@@ -9,10 +9,10 @@ topics:
     time: "30:20"
   - title: "Backpropagation Part 1"
     time: "36:22"
-    video_id: "QJoa0JYaX1I"
+    video_id: "/more/archive/nature-of-code/10-Neural-Networks/10.14-Neural-Networks-Backpropagation-Part-1"
   - title: "Backpropagation Part 2"
     time: "1:06:56"
-    video_id: "r2-P1Fi1g60"
+    video_id: "/more/archive/nature-of-code/10-Neural-Networks/10.15-Neural-Networks-Backpropagation-Part-2"
   - title: "Learning with Gradient Descent"
     time: "1:40:25"
 

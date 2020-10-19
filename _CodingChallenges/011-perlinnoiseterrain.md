@@ -14,7 +14,7 @@ links:
     url: "https://processing.org/reference/noise_.html"
 videos:
   - title: "My Video on Perlin Noise"
-    video_id: "8ZEMLCnn8v0"
+    video_id: "/more/archive/nature-of-code/0-Introduction/0.5-Perlin-Noise"
 contributions:
   - title: "Three.JS Implementation"
     author:

@@ -9,7 +9,7 @@ web_editor: IMJv_QwXy
 
 videos:
   - title: "My Video about Gravitational Attraction"
-    video_id: "fML1KpvvQTc"
+    video_id: "/more/archive/nature-of-code/2-Forces/2.6-Gravitational-Attraction"
 
 parts:
   - title: "Solar System in Processing - Part 2 (3D)"

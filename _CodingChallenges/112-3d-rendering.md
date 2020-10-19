@@ -18,7 +18,7 @@ videos:
   - title: "4D Hypercube(Tesseract)"
     url: "/CodingChallenges/113-hypercube"
   - title: "Matrix Math"
-    video_id: "uSzGdfdOoG8"
+    video_id: "/more/archive/nature-of-code/10-Neural-Networks/10.6-Neural-Networks-Matrix-Math-Part-1"
   - title: "Matrix Multiplication for 3D Rendering"
     video_id: "tzsgS19RRc8"
 

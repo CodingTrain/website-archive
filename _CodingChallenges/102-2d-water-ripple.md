@@ -16,7 +16,7 @@ videos:
   - title: "Game of Life Challenge"
     url: "/CodingChallenges/085-the-game-of-life"
   - title: "Cellular Automata"
-    video_id: "DKGodqDs9sA"
+    video_id: "/more/archive/nature-of-code/7-Cellular-Automata/7.1-Cellular-Automata"
 
 contributions:
   - title: "Splash!"

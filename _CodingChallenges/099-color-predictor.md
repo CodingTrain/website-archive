@@ -29,7 +29,7 @@ videos:
     author: "3Blue1Brown"
     playlist_id: "PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi"
   - title: "Doodle Classifier Coding Challenge"
-    video_id: "pqY_Tn2SIVA"
+    video_id: "/more/archive/nature-of-code/10-Neural-Networks/5.1-Doodle-Classifier-Introduction-Intelligence-and-Learning"
 
 contributions:
   - title: "Training data based on color contrast"
