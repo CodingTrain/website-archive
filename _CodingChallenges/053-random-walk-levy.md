@@ -11,7 +11,7 @@ links:
     url: "https://en.wikipedia.org/wiki/L%C3%A9vy_flight"
 videos:
   - title: "My Videos on Vectors"
-    video_id: "mWJkvxQXIa8"
+    video_id: "/more/archive/nature-of-code/1-Vectors/1.1-Vectors"
 contributions:
   - title: "3D levy flight walk"
     author:

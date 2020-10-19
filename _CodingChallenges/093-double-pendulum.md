@@ -13,7 +13,7 @@ links:
 
 videos:
   - title: "Pendulum Simulation"
-    video_id: "9iaEqGOh5WM"
+    video_id: "/more/archive/nature-of-code/3-Oscillation/3.4-Pendulum-Simulation"
 
 contributions:
   - title: "p5.js Double Pendulum with drag+drop and sliders"

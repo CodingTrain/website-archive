@@ -21,7 +21,7 @@ links:
 
 videos:
   - title: "Polar to Cartesian"
-    video_id: "znOBmOrtz_M"
+    video_id: "/more/archive/nature-of-code/3-Oscillation/3.2-Trigonometry-and-Polar-Coordinates"
   - title: "Pi is Beautiful"
     author: "Numberphile"
     video_id: "NPoj8lk9Fo4"

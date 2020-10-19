@@ -15,7 +15,7 @@ links:
 
 videos:
   - title: "Simple Harmonic Motion"
-    video_id: "GvwPwIUSYqE"
+    video_id: "/more/archive/nature-of-code/3-Oscillation/3.3-Simple-Harmonic-Motion"
 
 contributions:
   - title: "Cube Wave"
