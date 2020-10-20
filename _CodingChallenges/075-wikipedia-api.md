@@ -15,7 +15,7 @@ videos:
   - title: "Videos on working with data and APIs"
     url: /Tutorials/10-working-with-data
   - title: "My Videos on Regular Expressions"
-    url: /Courses/programming-with-text/2-regular-expressions
+    url: /learning/programming-with-text/2.1-introduction
 
 contributions:
   - title: "Wikipedia Graph-of-Relatedness Revealer"
