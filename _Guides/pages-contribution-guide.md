@@ -2,7 +2,7 @@
 title: "Pages Contribution Guide"
 ---
 
-*Last updated: October 8th 2020*
+*Last updated: October 20th 2020*
 
 Pages who needs them? Well the Coding Train website. You may have noticed that the Coding Train website might be missing a page for any number of videos that have been released on YouTube. If you'd like to help by adding new pages or updating existing pages this guide should help you.
 
@@ -92,9 +92,9 @@ videos: # Other YouTube videos mentioned in this video.
 
 ## What about the code?
 
-If the video you're working on has code in it then you want to make sure people can find it as that's one of the main reasons for the Coding Train website to exist.
+If the video you're working on a video that has code in it then you want to make sure people can find it as that's one of the main reasons for the Coding Train website to exist.
 
-Code goes in it's a similar place to the page itself but the path doesn't begin with an underscore. And you'll have to add a sub-folder for the code to be put in. As an example `_beginners/p5js/2.5-random.md` becomes `beginners/p5js/2.5-random/P5`. Each language or library has a default folder name which is automatically discovered and added to the page. `P5` for p5.js, `Processing` for Processing, `JavaScript` for JavaScript, and `Node` for Node.js. If another directory name is used it won't be detected unless it's added to in the variations section of the page.
+Code goes in a similar place to the page itself but the path doesn't begin with an underscore. And you'll have to add a sub-folder for the code to be put in. As an example `_beginners/p5js/2.5-random.md` becomes `beginners/p5js/2.5-random/P5`. Each language or library has a default folder name which is automatically discovered and added to the page. `P5` for p5.js, `Processing` for Processing, `JavaScript` for JavaScript, and `Node` for Node.js. If another directory name is used it won't be detected unless it's added to in the variations section of the page.
 
 The easiest way to find the code is in the description of the YouTube video but if it's not there then you can check [Coding Train p5.js web editor sketches](https://editor.p5js.org/codingtrain/sketches/), [Coding Train Repositories](https://github.com/CodingTrain), [Dan's GitHub](https://github.com/shiffman), and [RainbowCoder](https://github.com/RainbowCoder). If none of those work bring it up and we'll do our best to find it but in some case we might have to copy it from the video.
 
@@ -117,4 +117,4 @@ npm install
 npm run lint
 ```
 
-If you've made it to hear then you should be all set to make a pull request. Thanks for all your help with the Coding Train website!
+If you've made it to here then you should be all set to make a pull request. Thanks for all your help with the Coding Train website!
