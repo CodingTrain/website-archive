@@ -1,6 +1,15 @@
 ---
-title: Programming with Text
+title: Programming With Text
 layout: series-index
+redirect_from:
+  - /programing-with-text
+  - /Courses/programming-with-text/
+  - /Courses/programming-with-text/2-regular-expressions/
+  - /Courses/programming-with-text/2-regular-expressions/index.html
+  - /Courses/programming-with-text/10-chatbots/
+  - /Courses/programming-with-text/10-chatbots/index.html
+  - /Courses/programming-with-text/11-chrome-extensions/
+  - /Courses/programming-with-text/11-chrome-extensions/index.html
 ---
 
 This course focuses on programming strategies and techniques behind procedural analysis and generation of text-based data.
