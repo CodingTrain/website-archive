@@ -13,10 +13,10 @@ topics:
     url: "/beginners/p5js/7.5-removing-objects-from-array"
   - title: "p5.Speech text to speech"
     time: "1:48:31"
-    url: "/Courses/programming-with-text/10-chatbots/10.3-text-to-speech"
+    url: "/learning/programming-with-text/10.3-text-to-speech"
   - title: "p5.Speech speech recognition"
     time: "2:23:14"
-    url: "/Courses/programming-with-text/10-chatbots/10.4-speech-recognition"
+    url: "/learning/programming-with-text/10.4-speech-recognition"
   - title: "Coding Challenge: Speech to text"
     time: "2:58:26"
     url: "/CodingChallenges/080-voice-chatbot"
@@ -43,7 +43,7 @@ links:
 
 videos:
   - title: "Programming with Text playlist"
-    url: "/Courses/programming-with-text"
+    url: "/learning/programming-with-text"
   - title: "Video on objects storing their own path"
     url: "/CodingChallenges/064.1-forward-kinematics"
   - title: "Simple Particle System Coding Challenge"
