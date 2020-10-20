@@ -19,7 +19,7 @@ videos:
   - title: "Videos on working with data and APIs"
     url: /Tutorials/10-working-with-data
   - title: "Regular Expression playlist"
-    url: /Courses/programming-with-text/2-regular-expressions
+    url: /learning/programming-with-text/2.1-introduction
 
 contributions:
   - title: "3D Globe in P5.JS"
