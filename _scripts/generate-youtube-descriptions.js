@@ -196,7 +196,7 @@ This description was auto-generated. If you see a problem, please open an issue:
 
 }
 
-(async () => {
+(() => {
 
   console.log("💫 Generating YouTube Descriptions 💫")
 
