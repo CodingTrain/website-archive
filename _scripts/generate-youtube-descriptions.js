@@ -20,8 +20,14 @@ function findVideoFilesRecursive(dir, arrayOfFiles) {
   return arrayOfFiles;
 }
 
-getPlaylist(file) {
-  console.log(file);
+function getPlaylist(file) {
+  const series = file.substring(0, file.lastIndexOf('/')) + '/index.md';
+  const content = fs.readFileSync(series);
+  const parsed = yaml.loadFront(content);
+  if (parsed.playlist_id) {
+    return parsed.playlist_id;
+  }
+  return false;
 }
 
 function getVideoData() {
@@ -102,11 +108,11 @@ function writeDescriptions(videos) {
 
   primeDirectory('./descriptions');
 
-  for (const video of videos) {
+  for (let i = 0; i < videos.length; i++) {
 
-    const data = video.data;
-    const pageURL = video.pageURL;
-    const playlist = video.playlist;
+    const data = videos[i].data;
+    const pageURL = videos[i].pageURL;
+    const playlist = videos[i].playlist;
 
     let description = "";
 
@@ -120,10 +126,25 @@ function writeDescriptions(videos) {
     }
 
     // Next Video / Playlist
-    // const next = getNext(video);
-    // const playlist = getPlaylist(video);
-    if (next || playlist) {
+    let nextID;
+    if (i !== videos.length - 1) {
+      if (pageURL.substring(0, pageURL.lastIndexOf('/')) === videos[i + 1].pageURL.substring(0, videos[i + 1].pageURL.lastIndexOf('/'))) {
+        nextID = videos[i + 1].data.video_id;
+      } else {
+        nextID = false;
+      }
+    } else {
+      nextID = false;
+    }
 
+    if (playlist || nextID) {
+      description += '\n';
+      if (nextID) {
+        description += `🎥 Next video: https://youtu.be/${nextID}\n`;
+      }
+      if (playlist) {
+        description += `🎥 All videos: https://www.youtube.com/playlist?list=${playlist}\n`;
+      }
     }
 
     // Links
