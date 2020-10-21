@@ -1,6 +1,7 @@
 ---
 title: Code! Programming with p5.js
 layout: series-index
+playlist_id: PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA
 redirect_from:
   - /p5js
 ---
