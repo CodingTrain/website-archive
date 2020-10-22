@@ -83,6 +83,6 @@ contributions:
       name: "Shekhar Tyagi"
       url: https://github.com/notshekhar
     url: https://notshekhar.github.io/Conway-s-Game-of-Life-Simulation
-    source: https://github.com/notshekhar/Conway-s-Game-of-Life-Simulation   
+    source: https://github.com/notshekhar/Conway-s-Game-of-Life-Simulation
 ---
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.
