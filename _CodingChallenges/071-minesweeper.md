@@ -98,6 +98,12 @@ contributions:
       url: "https://github.com/jc1812"
     url: "https://lucid-villani-c69bfc.netlify.app/"
     source: "https://github.com/jc1812/3DMineSweeper"
+  - title: "Minesweeper using Processing.py"
+    author:
+      name: "Bhaswar Chakraborty"
+      url: https://github.com/Ivan-Denisovich-py
+    url: https://www.youtube.com/watch?v=yCPmRfIEzZ4&feature=youtu.be
+    source: https://github.com/Ivan-Denisovich-py/Minesweeper
 ---
 
 In this challenge, I attempt to code the classic game Minesweeper in JavaScript with the p5.js library. This video builds on some previous tutorials related to the Prototypes and multi-dimensional arrays in JavaScript.
