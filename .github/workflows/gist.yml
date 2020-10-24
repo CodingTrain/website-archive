@@ -2,7 +2,7 @@ name: Updating Code Variations GitHub Issue
 on:
   push:
     branches:    
-      - master  
+      - main  
 jobs:
   build:
     runs-on: ubuntu-latest
