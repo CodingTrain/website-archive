@@ -84,5 +84,10 @@ contributions:
       url: "https://github.com/notshekhar"
     url: "https://notshekhar.github.io/Conway-s-Game-of-Life-Simulation"
     source: "https://github.com/notshekhar/Conway-s-Game-of-Life-Simulation"
+ - title: "HoneyBee's Game of Life (With React)"
+  author: "Melissa Longenberger"
+  url: http://game-of-life-by-melissa.vercel.app/
+  source: https://github.com/melissa-24/game-of-life-by-melissa 
+  
 ---
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.
