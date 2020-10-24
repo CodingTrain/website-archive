@@ -19,9 +19,9 @@ links:
 
 videos:
   - title: "Programming with Text playlist"
-    url: "/Courses/programming-with-text"
+    url: "/learning/programming-with-text"
   - title: "Video on the RiveScript library"
-    url: "/Courses/programming-with-text/10-chatbots/10.2-rivescript"
+    url: "/learning/programming-with-text/10.2-rivescript"
 
 contributions:
   - title: "Guess the number"
