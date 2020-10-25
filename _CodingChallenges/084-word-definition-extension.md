@@ -14,7 +14,7 @@ links:
     url: "https://www.wordnik.com/"
 videos:
   - title: "My Video on Cross-Browser Extensions"
-    url: "/Courses/programming-with-text/11-chrome-extensions/11.8-cross-browser-extensions"
+    url: "/learning/programming-with-text/11.8-cross-browser-extensions"
 ---
 
 In this coding challenge, I attempt to make a chrome extension that looks up a selected word's definition using the Wordnik API.

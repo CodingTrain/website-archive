@@ -138,6 +138,7 @@ const series = (module.exports.series = exact({
   layout: PropTypes.oneOf(["series-index"]),
   series_number: PropTypes.number,
   reverse: PropTypes.bool,
+  playlist_id: PropTypes.string,
 }));
 
 const questionBase = exact({

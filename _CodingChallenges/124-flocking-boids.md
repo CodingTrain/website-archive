@@ -18,9 +18,9 @@ videos:
   - title: "Craig Reynolds - Original 1986 Boids simulation"
     video_id: "86iQiV3-3IA"
   - title: "Vectors - The Nature of Code"
-    video_id: "mWJkvxQXIa8"
+    video_id: "/more/archive/nature-of-code/1-Vectors/1.1-Vectors"
   - title: "Combining Steering Behaviors: Flocking - The Nature of Code"
-    video_id: "IoKfQrlQ7rA"
+    video_id: "/more/archive/nature-of-code/6-Autonomous-Agents/6.8-Combining-Steering-Behaviors-Flocking"
 
 contributions:
   - title: "QuadTree Optimization"

@@ -20,6 +20,18 @@ contributions:
       url: https://github.com/omareq
     url: https://omareq.github.io/snowman
     source: https://github.com/omareq/omareq.github.io/tree/master/snowman
+  - title: "Snowfall with a picture of my teammates"
+    author:
+      name: "MarcoVela"
+      url: https://github.com/MarcoVela
+    url: https://marcovela.github.io/SnowAnimation
+    source: https://github.com/MarcoVela/SnowAnimation
+  - title: "Beerfall celebrating Hacktoberfest"
+    author:
+      name: "wooooooood"
+      url: https://github.com/wooooooood
+    url: https://editor.p5js.org/wooooooood/full/vbIe54vYK
+    source: https://editor.p5js.org/wooooooood/sketches/vbIe54vYK
 ---
 
 In this special holiday season coding challenge, I attempt to create a snowfall simulation using p5.js, sprite sheets and Perlin noise wind.

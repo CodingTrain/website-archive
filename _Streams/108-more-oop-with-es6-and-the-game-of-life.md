@@ -45,7 +45,7 @@ videos:
   - title: "ITP 2017 Spring Show"
     video_id: "Q_SbbqpoMnM"
   - title: "My Video on The Game of Life"
-    video_id: "tENSCEO-LEc"
+    video_id: "/more/archive/nature-of-code/7-Cellular-Automata/7.3-The-Game-of-Life"
   - title: "2D Arrays in JavaScript"
     url: "/Tutorials/9-additional-topics/9.15-2d-arrays-in-javascript"
   - title: "The Modulo Operator with Golan Levin"

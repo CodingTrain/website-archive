@@ -14,7 +14,7 @@ links:
     url: "https://processing.org/reference/noise_.html"
 videos:
   - title: "My Video on Perlin Noise"
-    video_id: "8ZEMLCnn8v0"
+    video_id: "/more/archive/nature-of-code/0-Introduction/0.5-Perlin-Noise"
 contributions:
   - title: "Three.JS Implementation"
     author:
@@ -64,5 +64,11 @@ contributions:
       url: "https://github.com/abangfarhan"
     video_id: 2N-t3u2dtXs
     source: "https://github.com/abangfarhan/processing-terrain"
+  - title: "Synthwave"
+    author:
+      name: "dzson"
+      url: "https://github.com/dzson"
+    url: "https://dzson.github.io/TerrainGeneration/index.html"
+    source: "https://github.com/dzson/TerrainGeneration"
 ---
 In this coding challenge, I create a 3D procedural terrain using Perlin Noise and the beginShape() function in Processing.

@@ -54,5 +54,11 @@ contributions:
       url: "https://github.com/GypsyDangerous"
     url: "https://editor.p5js.org/D_Snyder/full/3lvx56LMc"
     source: "https://editor.p5js.org/D_Snyder/sketches/3lvx56LMc"
+  - title: "Generative Snowflake"
+    author:
+      name: "Steven Kligman"
+      url: "https://github.com/kligmasn"
+    url: "https://editor.p5js.org/kligmasn/sketches/iHfiFEQ61"
+    source: "https://editor.p5js.org/kligmasn/sketches/iHfiFEQ61"
 ---
 Happy holidays! #SupportP5! This video shows an attempt to make a snowflake from a "kaleidoscope painting" effect.

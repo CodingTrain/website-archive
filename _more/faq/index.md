@@ -54,4 +54,10 @@ faq:
         url: "https://code.visualstudio.com/"
       - title: "Visual Studio Code Workflow Video"
         url: "/more/workflow/2-vscode"
+  - question: "Where can I download the Coding Train wallpapers?"
+    answer: "I've created a shared google drive with wallpapers and character designs. You can find the wallpapers in the wallpaper folder in the drive."
+    section: "Tools"
+    links:
+      - title: "Shared Google Drive with Characters and Wallpapers"
+        url: "https://drive.google.com/drive/folders/1BYFpEiw6lgxcuPug4EBjWMZzYs9iXWml"
 ---
