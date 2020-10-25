@@ -57,6 +57,11 @@ contributions:
       name: "Adithi Narayan"
     url: "https://github.com/Tvashta/Sort"
     source: "https://github.com/Tvashta/Sort"
+  - title: "Quicksort with pygame"
+    author:
+      name: "Bhaswar Chakraborty"
+      url: "https://github.com/Ivan-Denisovich-py"
+    source: "https://github.com/Ivan-Denisovich-py/Quick-Sort-Visualisation"
 links:
   - title: "Quicksort on Wikipedia"
     url: "https://en.wikipedia.org/wiki/Quicksort"
