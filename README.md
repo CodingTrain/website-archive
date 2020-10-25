@@ -27,4 +27,4 @@ We are currently in the process of migrating videos and community contributions 
 
 # Hacktoberfest
 
-If you're here for [Hacktoberfest](https://hacktoberfest.digitalocean.com/) please check out this issue: https://github.com/CodingTrain/website/issues/2615.
+If you are here for [Hacktoberfest](https://hacktoberfest.digitalocean.com/) please check out this issue: https://github.com/CodingTrain/website/issues/2615.
