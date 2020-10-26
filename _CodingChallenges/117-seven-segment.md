@@ -117,6 +117,10 @@ contributions:
       name: "Bhaswar Chakraborty & Anusha Tripathi"
     url: "https://ivan-denisovich-py.github.io/rainbow-clock/"
     source: "https://github.com/Ivan-Denisovich-py/rainbow-clock"
+  - title: "Editable appearance"
+    author: "Nathan Connery"
+    url: "https://editor.p5js.org/NC_Productions/full/_bNJgU6kF"
+    source: "https://editor.p5js.org/NC_Productions/sketches/_bNJgU6kF"
 ---
 
 In this coding challenge, I make a Seven-Segment Display with p5.js. This video is inspired by Tom Scott's: [What's The Longest Word You Can Write With Seven-Segment Displays?](https://youtu.be/zp4BMR88260).
