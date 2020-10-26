@@ -107,5 +107,17 @@ contributions:
       url: "https://github.com/worldbiomusic"
     url: "https://worldbiomusic.github.io/star-field/."
     source: "https://github.com/worldbiomusic/star-field"
+  - title: "Rainbow Starfield"
+    author:
+      name: "Ezwann"
+      url: "https://github.com/Ezwann"
+    url: "https://ezwann.github.io/starfield-p5/index.html"
+    source: "https://github.com/Ezwann/starfield-p5"
+  - title: "Hyperjump"
+    author:
+      name: "Athul Vinod"
+      url: "https://github.com/PlaidDroid"
+    url: "https://plaiddroid.github.io/sketchbook/star-field/index.html"
+    source: "https://github.com/PlaidDroid/sketchbook/tree/main/star-field"
 ---
 This is the first in a new series of videos.  In this video I attempt to program a "star field" or "warp speed" visualization in Processing.  
