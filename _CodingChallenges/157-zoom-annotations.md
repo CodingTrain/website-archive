@@ -2,7 +2,7 @@
 title: "Zoom Annotations"
 video_number: 157
 date: 2020-10-25
-video_id: Ewvjmu40v14
+video_id: 
 repository: CC_157_Zoom_Annotations
 
 variations:
