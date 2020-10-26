@@ -87,5 +87,11 @@ contributions:
       url: "https://github.com/gautam-bits"
     url: "https://github.com/gautam-bits/TicTacToe"
     source: "https://github.com/gautam-bits/TicTacToe"
+  - title: "Tic Tac Toe MiniMax Galaxy"
+    author:
+      name: "Anja Khan"
+      url: "https://github.com/anjakhan"
+    url: "https://anjakhan.github.io/TicTacToe_Challenge/"
+    source: "https://github.com/anjakhan/TicTacToe_Challenge"
 ---
 In this challenge I take the Tic Tac Toe game from coding challenge #149 and add an AI opponent for a human player by implenenting the Minimax algorithm.
