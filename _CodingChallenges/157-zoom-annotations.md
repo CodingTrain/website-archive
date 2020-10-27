@@ -37,4 +37,5 @@ videos:
     author: "The Coding Train"
     url: "/TeachableMachine/1-teachable-machine"
 ---
-In this coding challenge I use p5.js, ml5.js, Teachable Machine, and OBS Studio to create my own zoom annotations for video calls.
+
+Liven up your video calls with p5.js, ml5.js, Teachable Machine, and and OBS Studio!
