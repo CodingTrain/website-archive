@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "Coding Train Website",
   "main": "none",
-  "dependencies": {},
+  "dependencies": {
+    "twit": "^2.2.11"
+  },
   "devDependencies": {
     "dotenv": "^8.2.0",
     "eslint": "^7.12.0",
@@ -19,16 +21,16 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "test-html": "bundle exec htmlproofer ./_site --assume-extension --check-html --disable-external --url-ignore '/#.*/'",
     "lint": "npm run lint-cc && npm run lint-cabana && npm run lint-beginners && npm run lint-tutorials && npm run lint-courses",
-    "lint-cc": "./node_modules/.bin/eslint ./CodingChallenges/",
-    "lint-cabana": "./node_modules/.bin/eslint ./challenges/coding-in-the-cabana/",
-    "lint-beginners": "./node_modules/.bin/eslint ./beginners",
-    "lint-tutorials": "./node_modules/.bin/eslint ./Tutorials/",
-    "lint-courses": "./node_modules/.bin/eslint ./Courses/",
+    "lint-cc": "eslint ./CodingChallenges/",
+    "lint-cabana": "eslint ./challenges/coding-in-the-cabana/",
+    "lint-beginners": "eslint ./beginners",
+    "lint-tutorials": "eslint ./Tutorials/",
+    "lint-courses": "eslint ./Courses/",
     "lint-fix": "npm run lint-cc-fix && npm run lint-cabana-fix && npm run lint-tutorials-fix && npm run lint-courses-fix",
-    "lint-cc-fix": "./node_modules/.bin/eslint ./CodingChallenges/ --fix",
-    "lint-cabana-fix": "./node_modules/.bin/eslint ./CodingInTheCabana/ --fix",
-    "lint-tutorials-fix": "./node_modules/.bin/eslint ./Tutorials/ --fix",
-    "lint-courses-fix": "./node_modules/.bin/eslint ./Courses/ --fix",
+    "lint-cc-fix": "eslint ./CodingChallenges/ --fix",
+    "lint-cabana-fix": "eslint ./CodingInTheCabana/ --fix",
+    "lint-tutorials-fix": "eslint ./Tutorials/ --fix",
+    "lint-courses-fix": "eslint ./Courses/ --fix",
     "yt-descriptions": "node ./_scripts/generate-youtube-descriptions.js"
   },
   "repository": {
