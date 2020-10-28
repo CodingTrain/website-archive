@@ -6,9 +6,9 @@
   "dependencies": {},
   "devDependencies": {
     "dotenv": "^8.2.0",
-    "eslint": "^7.12.0",
+    "eslint": "^7.12.1",
     "eslint-config-p5js": "^1.0.1",
-    "eslint-config-prettier": "^6.14.0",
+    "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
     "octocat": "^1.2.1",
     "prettier": "^1.19.1",
