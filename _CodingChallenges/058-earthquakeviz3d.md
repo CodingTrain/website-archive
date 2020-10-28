@@ -31,6 +31,10 @@ contributions:
   - title: "Tadimon's aligned texture"
     author: "Tadimon"
     source: https://github.com/tadimon/Rainbow-Code/tree/master/challenges/CC_058_EarthQuakeViz3D
+  - title: "COVID-19 in 3D map"
+    author: "JacobGeoGeek"
+    url: "https://editor.p5js.org/JacobGeoGeek/full/RjkCQVEU8"
+    source: "https://github.com/JacobGeoGeek/covid-19-visualisation-3D"   
 ---
 
 In this coding challenge, I follow up on the Earthquake Data Visualization challenge and create a 3D version in Processing(Java) using spherical coordinates. I also discuss some 3D vector math including the cross product.
