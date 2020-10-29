@@ -15,7 +15,7 @@ links:
 
 videos:
   - title: "My Video on The Game of Life"
-    video_id: "tENSCEO-LEc"
+    video_id: "/more/archive/nature-of-code/7-Cellular-Automata/7.3-The-Game-of-Life"
   - title: "2D Arrays in JavaScript"
     url: "/Tutorials/9-additional-topics/9.15-2d-arrays-in-javascript"
   - title: "The Modulo Operator with Golan Levin"
@@ -52,5 +52,41 @@ contributions:
     author: "Ryosuke Osaki"
     url: https://www.openprocessing.org/sketch/805872
     source: https://github.com/Sakio1535/Life-Game-Canvas
+  - title: "Game of Life in C"
+    author:
+      name: "Thomas Weichhart"
+      url: "https://www.instagram.com/thomas_weichhart"
+    video_id: "TZifuj5G8yI"
+    source: "https://github.com/ThomasW2005/game-of-life"
+  - title: "Conway's Game of Life in ReactJS"
+    author: "Saswat Dash"
+    url: https://sdtrain.github.io/conway-game-of-life/
+    source: https://github.com/sdtrain/conway-game-of-life/
+  - title: "Game of Life with Terminal Commands"
+    author:
+      name: "Andrew Y"
+      url: "https://github.com/YushchenkoAndrew/"
+    url: "http://mortis-grimreaper.ddns.net/projects/GameOfLife/"
+    source: "https://github.com/YushchenkoAndrew/template/tree/master/JS/GameOfLife"
+  - title: "Photo to cellular automata"
+    author:
+      name: "Lenoir Christopher"
+      url: https://github.com/xLeDocteurx
+    url: https://xledocteurx.github.io/photo-to-cellular-automata-2/
+    source: https://github.com/xLeDocteurx/photo-to-cellular-automata-2
+  - title: "Yet Another Life (in ps.js using sparse arrays)"
+    author: "Rick Sidwell"
+    url: https://sidwellr.github.io/Yet-Another-Life/
+    source: https://github.com/sidwellr/Yet-Another-Life
+  - title: "Game of Life with vanilla JS"
+    author:
+      name: "Shekhar Tyagi"
+      url: "https://github.com/notshekhar"
+    url: "https://notshekhar.github.io/Conway-s-Game-of-Life-Simulation"
+    source: "https://github.com/notshekhar/Conway-s-Game-of-Life-Simulation"
+  - title: "HoneyBee's Game of Life (With React)"
+    author: "Melissa Longenberger"
+    url: http://game-of-life-by-melissa.vercel.app/
+    source: https://github.com/melissa-24/game-of-life-by-melissa
 ---
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.

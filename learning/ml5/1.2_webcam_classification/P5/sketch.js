@@ -19,7 +19,8 @@ function gotResults(error, results) {
     console.error(error);
   } else {
     //console.log(results);
-    label = results[0].className;
+    //label = results[0].className;
+    label = results[0].label;
     mobilenet.predict(gotResults);
   }
 }

@@ -14,11 +14,11 @@ links:
 
 videos:
   - title: "Programming with Text playlist"
-    url: "/Courses/programming-with-text"
+    url: "/learning/programming-with-text"
   - title: "Text-to-Speech with p5.Speech"
-    url: "/Courses/programming-with-text/10-chatbots/10.3-text-to-speech"
+    url: "/learning/programming-with-text/10.3-text-to-speech"
   - title: "Speech Recognition with p5.Speech"
-    url: "/Courses/programming-with-text/10-chatbots/10.4-speech-recognition"
+    url: "/learning/programming-with-text/10.4-speech-recognition"
 
 contributions:
   - title: "Stupid Nonsense Spoken Sentences V2"

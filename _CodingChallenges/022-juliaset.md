@@ -38,6 +38,17 @@ contributions:
       url: "https://jcponce.github.io"
     url: "https://jcponce.github.io/complex/mandelbrotjulia/"
     source: "https://github.com/jcponce/complex/tree/gh-pages/mandelbrotjulia"
+  - title: "Julia & Mandelbrot Sets of Different Functions in WebGL"
+    author:
+      name: "Elizabeth Hudnott"
+      url: "https://github.com/elizabethhudnott"
+    url: "https://mathematical-art.github.io/?gen=julia-set"
+    source: "https://github.com/mathematical-art/mathematical-art.github.io/tree/master/sketch"
+  - title: "P5 Julia Set Explorer"
+    author:
+      name: "Raime Carroll"
+    url: "https://editor.p5js.org/chromatic.waltz/present/bckJH7R39"
+    source: "https://editor.p5js.org/chromatic.waltz/sketches/bckJH7R39"
 ---
 
 In this coding challenge, I program from the Julia Set fractal in Processing (Java).

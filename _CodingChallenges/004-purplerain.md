@@ -49,5 +49,29 @@ contributions:
       url: "https://www.linkedin.com/in/cassiofb-dev/"
     url: "https://cassiofb-dev.github.io/purple-rain/"
     source: "https://github.com/cassiofb-dev/purple-rain"
+  - title: "Thunderstorm"
+    author:
+      name: "Suraj K"
+      url: "https://github.com/Suraj07"
+    url: "https://suraj07.github.io/p5js-code-challenges/challenges/thunderstorm/"
+    source: "https://github.com/Suraj07/p5js-code-challenges/tree/master/challenges/thunderstorm"
+  - title: "Snow and rain"
+    author:
+      name: "Dmitry Dergunov"
+      url: "https://github.com/ddwebdevv"
+    url: "https://editor.p5js.org/ddwebdev/full/isq-7UK7f"
+    source: "https://editor.p5js.org/ddwebdev/sketches/isq-7UK7f"
+  - title: "Midnight Colorful Rain"
+    author:
+      name: "Akash Y"
+      url: "https://www.linkedin.com/in/aky91"
+    url: "https://editor.p5js.org/aky91/full/IUxpPJnaK"
+    source: "https://editor.p5js.org/aky91/sketches/IUxpPJnaK"
+  - title: "Shooting Stars"
+    author:
+      name: "Amninder Singh"
+      url: "https://github.com/amnindersingh12"
+    url: "https://amnindersingh12.github.io/Shooting-Stars/"
+    source: "https://github.com/amnindersingh12/Shooting-Stars"
 ---
 In this viewer submitted coding challenge, I attempt to code a Purple Rain Simulator in Processing.

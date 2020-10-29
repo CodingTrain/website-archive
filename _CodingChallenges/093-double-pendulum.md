@@ -13,7 +13,7 @@ links:
 
 videos:
   - title: "Pendulum Simulation"
-    video_id: "9iaEqGOh5WM"
+    video_id: "/more/archive/nature-of-code/3-Oscillation/3.4-Pendulum-Simulation"
 
 contributions:
   - title: "p5.js Double Pendulum with drag+drop and sliders"
@@ -64,5 +64,17 @@ contributions:
       url: "https://github.com/martif1202/processing/blob/master/triple_pendulum.pde"
     url: "https://github.com/martif1202/processing/blob/master/triple_pendulum.pde"
     source: "https://github.com/martif1202/processing/blob/master/triple_pendulum.pde"
+  - title: "Double Spherical Pendulum"
+    author:
+      name: "Samuel Cobb"
+      url: "http://physicshub.herokuapp.com"
+    url: "https://editor.p5js.org/sjcobb/present/9G-6bVdbr"
+    source: "https://editor.p5js.org/sjcobb/sketches/9G-6bVdbr"
+  - title: "Double Pendulum with p5 and Matter.js"
+    author:
+      name: "Dipam Sen"
+      url: "http://github.com/dipamsen"
+    url: "https://dipamsen.github.io/double-pendulum-p5-matter/index.html"
+    source: "https://github.com/dipamsen/double-pendulum-p5-matter"
 ---
 In this coding challenge, I create a double pendulum simulation in Processing.

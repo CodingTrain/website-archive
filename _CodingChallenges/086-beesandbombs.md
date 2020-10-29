@@ -15,7 +15,7 @@ links:
 
 videos:
   - title: "Simple Harmonic Motion"
-    video_id: "GvwPwIUSYqE"
+    video_id: "/more/archive/nature-of-code/3-Oscillation/3.3-Simple-Harmonic-Motion"
 
 contributions:
   - title: "Cube Wave"
@@ -32,6 +32,14 @@ contributions:
     author: "Gareth Williams (Gaweph)"
     url: https://gaweph.github.io/p5-live-examples/CodingChallenges/CC_086_beesandbombs/
     source: https://github.com/Gaweph/p5-live-examples/tree/master/CodingChallenges/CC_086_beesandbombs
+  - title: "Oscillating Cube in Python"
+    author: "Chris Oliver"
+    url: https://github.com/chrisoliver345/Python-Processing/tree/master/Oscillating_Cube
+    source: https://github.com/chrisoliver345/Python-Processing/tree/master/Oscillating_Cube
+  - title: "Dancing cube with mouse interaction"
+    author: "Borrus-sudo"
+    url: https://editor.p5js.org/DeathChargRocks21/sketches/oA7R9pZxY
+    source: https://editor.p5js.org/DeathChargRocks21/sketches/oA7R9pZxY
 ---
 
 In this coding challenge, I attempt recreate a 3D @beesandbombs GIF with p5.js and the WebGL renderer.

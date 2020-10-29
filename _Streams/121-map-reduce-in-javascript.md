@@ -29,9 +29,9 @@ videos:
   - title: "ES6 Arrow Function"
     url: "/Tutorials/16-javascript-es6/16.3-arrow-function"
   - title: "Closure in JavaScript"
-    video_id: "-jysK0nlz7A"
+    video_id: /Tutorials/9-additional-topics/9.6-javascript-closure
   - title: "Prototypes in JavaScript"
-    video_id: "hS_WqkyUah8"
+    video_id: /Tutorials/9-additional-topics/9.19-Prototypes-in-javascript
 ---
 
 In this live stream, I cover higher order functions in JavaScript and discuss them in the context of arrays: `map()` and `reduce()`

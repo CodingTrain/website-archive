@@ -28,6 +28,11 @@ contributions:
       url: "https://twitter.com/benjaminhabert"
     url: "https://www.rand-on.com/projects/2018_tax_evasion/tax_evasion.html"
     source: "https://github.com/BenjaminHabert/rand-on/blob/master/_projects/2018_tax_evasion/tax.js"
+  - title: "COVID-19 Map"
+    author:
+      name: "JacobGeoGeek"
+      url: "https://editor.p5js.org/JacobGeoGeek/full/AZaXEefqr"
+    source: "https://github.com/JacobGeoGeek/code-train-challenge-visualizing-COVID"
 ---
 
 Celebrating the 500,000 subscribers milestone, I create a map visualization of Coding Train subscriber locations around the world!

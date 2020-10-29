@@ -1,0 +1,29 @@
+name: Ping FeaturePeek for Build
+on: [push, pull_request]
+jobs:
+  jekyll:
+    name: "Build and Ping FeaturePeek"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Ruby 2.6
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.6.x
+      - uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gem-
+      - name: Installing ruby gems
+        run: |
+          bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
+      - name: Building Site
+        run: |
+          bundle exec jekyll build
+      - name: Running htmlproofer
+        run: |
+          bundle exec htmlproofer ./_site --assume-extension --check-html --disable-external --url-ignore "/#.*/"
+      - name: Ping FeaturePeek
+        run: bash <(curl -s https://peek.run/ci) 

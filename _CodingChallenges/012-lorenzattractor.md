@@ -34,5 +34,11 @@ contributions:
       url: "https://www.instagram.com/alejo_rgb/?hl=es-la"
     url: "https://github.com/alejoRGB/Lorenz-Atractor-Resolume-Arena-Plugin"
     source: "https://github.com/alejoRGB/Lorenz-Atractor-Resolume-Arena-Plugin"
+  - title: "Lorenz attractor with butterflies flying around"
+    author:
+      name: "Juan Carlos Ponce Campuzano"
+      url: "https://jcponce.github.io/"
+    url: "https://editor.p5js.org/jcponce/present/WUmXSTPvr"
+    source: "https://editor.p5js.org/jcponce/sketches/WUmXSTPvr"
 ---
 In this coding challenge, I show you how to visualization the Lorenz Attractor in Processing (Java).

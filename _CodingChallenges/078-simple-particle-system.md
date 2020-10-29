@@ -20,6 +20,13 @@ videos:
     url: "https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Z9hI4mSgx2FlE5w8zvjmEy"
 
 contributions:
+  - title: "Colorful Flower Pot Cracker"
+    author:
+      name: "Som Shekhar Mukherjee"
+      url: https://github.com/ssmkhrj
+    url: "https://codepen.io/ssmkhrj/full/gOPmBBz"
+    source: https://codepen.io/ssmkhrj/pen/gOPmBBz
+
   - title: "Audio and Color Gradient Particle System"
     author:
       name: "Riccardo Zaffalon"

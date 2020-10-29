@@ -3,6 +3,7 @@
 
   Parameters:
     repositoryBasePath  string  Base path to the repository (without the suffixes).
+    pageVariations      page.variations[] Array of code variations that are specified at page level.
 
   Returns:
     out_codeVariations  site.code_variations[]  Array of found code variations.
@@ -11,14 +12,23 @@
 
 {% assign out_codeVariations = '' | split: '' %}
 
+{% assign possibleVariations = site.code_variations %}
+
+{% comment %} Combine site.code_variations and pageVariations if pageVariations is not null. {% endcomment %}
+{% if pageVariations != null %}
+  {% for int_variation in pageVariations %}
+    {% assign possibleVariations = possibleVariations | push: int_variation %}
+  {% endfor %}
+{% endif %}
+
 {% comment %} For every possible code variation ... {% endcomment %}
-{% for int_variation in site.code_variations %}
+{% for int_variation in possibleVariations %}
 
   {% comment %} ... get the exact repository path and count the files inside. {% endcomment %}
   {% assign int_repositoryPath = include.repositoryBasePath | append: '/' | append: int_variation.folder %}
   {% assign int_fileCount = site.static_files | where_exp: 'file', 'file.path contains int_repositoryPath' | size %}
 
-  {% comment %} If there are files inside, mark this variation as availabe by adding it to the array. {% endcomment %}
+  {% comment %} If there are files inside, mark this variation as available by adding it to the array. {% endcomment %}
   {% if int_fileCount > 0 %}
     {% assign out_codeVariations = out_codeVariations | push: int_variation %}
   {% endif %}

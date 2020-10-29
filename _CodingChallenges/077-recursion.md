@@ -27,10 +27,6 @@ contributions:
     author: "Alca"
     url: https://codepen.io/Alca/full/pWaZaX/
     source: https://codepen.io/Alca/pen/pWaZaX/right
-  - title: "Fractal Ball"
-    author: "jjwkdl"
-    url: https://jjwkdl.github.io/wordpress-content/javascript/fractal-ball/
-    source: https://github.com/jjwkdl/wordpress-content/tree/master/javascript/fractal-ball
   - title: "Recursive Remix"
     author: "Justin Riley"
     url: https://recursion.glitch.me/
@@ -47,6 +43,10 @@ contributions:
     author: "Trevor Clarke"
     url: https://trevorc.ca/recursionPyramid/
     source: https://github.com/Tr3v0rC/recursionPyramid
+  - title: "Sierpinski Triangle"
+    author: "Chris Oliver"
+    url: https://github.com/chrisoliver345/Sierpinski-Triangle
+    source: https://github.com/chrisoliver345/Sierpinski-Triangle/blob/master/Sierpinski.pde
 ---
 
 In this coding challenge, I explore the concept of recursion to create fractal patterns in JavaScript HTML5 canvas with the p5.js library.

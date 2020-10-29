@@ -36,7 +36,7 @@ videos:
   - title: "p5-manager"
     url: "/Tutorials/9-additional-topics/9.21-p5-manager"
   - title: "Simple Harmonic Motion"
-    video_id: "GvwPwIUSYqE"
+    video_id: "/more/archive/nature-of-code/3-Oscillation/3.3-Simple-Harmonic-Motion"
 ---
 In this live session, I explore the p5.js WEBGL renderer.
 I cover some fundamentals and attempt a viewer-suggested coding challenge to recreate a classic beesandbombs GIF.

@@ -14,7 +14,7 @@ The code in the repository should match the code written in the YouTube tutorial
 
 To make a contribution, fork this repository and create a pull request.
 
-If it is a "commmunity contribution" please try to **include a link to a running demo** (or video / gif / 
+If it is a "community contribution" please try to **include a link to a running demo** (or video / gif / 
 screen capture) in the pull request's description. This makes it easy to quickly view the contribution and provide feedback! [Here is a guide with more instructions](https://thecodingtrain.com/Guides/community-contribution-guide.html).
 
 If you are just editing a single file, you may click the pencil when viewing the file to edit in the browser.

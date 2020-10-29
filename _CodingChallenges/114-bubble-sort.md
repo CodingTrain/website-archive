@@ -11,6 +11,12 @@ links:
     url: "https://bost.ocks.org/mike/algorithms/"
 
 contributions:
+  - title: "BubbleSort Visualizer (with variable bar density)"
+    author:
+      name: "Som Shekhar Mukherjee"
+      url: "https://github.com/ssmkhrj"
+    url: "http://codepen.io/ssmkhrj/full/WNroXOo"
+    source: "https://codepen.io/ssmkhrj/pen/WNroXOo"
   - title: "P5.js Bubblesort Visualizer"
     author:
       name: "David"
@@ -34,8 +40,8 @@ contributions:
   - title: "Sketch Algorithms Bubble Sort"
     author:
       name: "Subesh Bhandari"
-      url: "https://github.com/subeshb1"
-    url: "https://www.sketchalgorithms.com/sorting/bubble-sort"
+      url: "https://subeshbhandari.com"
+    url: "https://subeshbhandari.com/app/sorting/bubble-sort"
   - title: "Rainbow Bubble Sort"
     author:
       name: "The_Coder"
@@ -64,6 +70,23 @@ contributions:
       url: "https://chief141.github.io/chiefdev"
     url: "https://repl.it/@chief141/Bubble-sorting-visualize"
     source: "https://github.com/chief141/Coding-Train-Challenges-python/tree/master/bubble_sorting_visualize"
+  - title: "Sorting Visualization using a Picture"
+    author:
+      name: "Akshay"
+      url: "https://github.com/9Nine-Tails"
+    url: "https://9nine-tails.github.io/Sorting-Algorithms-Visualized/"
+    source: "https://github.com/9Nine-Tails/Sorting-Algorithms-Visualized"
+  - title: "Sorting Algorithms visualized as a Spectrum"
+    author:
+      name: "Adithi Narayan"
+    url: "https://github.com/Tvashta/Sort"
+    source: "https://github.com/Tvashta/Sort"
+  - title: "Sorting Visualizations - quick sort, bubble sort and insertion sort"
+    author:
+      name: "Gal Elmalah"
+      url: "https://github.com/galElmalah"
+    url: "https://galelmalah.github.io/sorting-visualisations/"
+    source: "https://github.com/galElmalah/sorting-visualisations"
 ---
 
 In this coding challenge, I implement a "bubble sort" algorithm in Processing (Java) and sort randomly generated lines. [#SortingTrain](https://twitter.com/hashtag/SortingTrain)

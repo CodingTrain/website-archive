@@ -12,6 +12,12 @@ links:
     url: https://en.wikipedia.org/wiki/Snake_(video_game)
 
 contributions:
+  - title: "Vanilla JS Snake Game"
+    author:
+      name: "Som Shekhar Mukherjee"
+      url: https://github.com/ssmkhrj
+    url: https://codepen.io/ssmkhrj/full/Vwapvjw
+    source: hhttps://codepen.io/ssmkhrj/pen/Vwapvjw
   - title: "P5.JS Snake Game"
     author:
       name: "strikemike2k"
@@ -115,5 +121,34 @@ contributions:
       url: "https://www.linkedin.com/in/cassiofb-dev/"
     url: "https://cassiofb-dev.github.io/snake-game/"
     source: "https://github.com/cassiofb-dev/snake-game"
+  - title: "Snake with Pseudo AI"
+    author:
+      name: "Bruno Rodrigues"
+      url: "https://www.linkedin.com/in/brunorodrigues355/"
+    url: "https://lughapp.github.io/p5-snake-game/"
+    source: "https://github.com/lughapp/p5-snake-game/"
+  - title: "Snake in C"
+    author:
+      name: "Thomas Weichhart"
+      url: "https://www.instagram.com/thomas_weichhart/?hl=de"
+    video_id: "r7KOiF8WrQ8"
+    url: "https://github.com/ThomasW2005/snake/blob/master/snake.exe"
+    source: "https://github.com/ThomasW2005/snake"
+  - title: "Snake Game With Obstacles"
+    author:
+      name: "Sanjana"
+      url: https://github.com/sanjana-mukherjee
+    url: https://sanjana-mukherjee.github.io/Snake-Game/
+    source: https://github.com/sanjana-mukherjee/Snake-Game
+  - title: "Billeh"
+    author: "Cole Snow"
+    url: https://editor.p5js.org/snowcol008/full/odG4k9NG_
+    source: https://github.com/Coles-Code-Dump/Billeh-full
+  - title: "Hanzi Snake Game"
+    author:
+      name: "Adrienne Rio"
+      url: "https://idea456.github.io/adrienne-rio"
+    url: "http://fun-mandarin.herokuapp.com/"
+    source: "https://github.com/idea456/fun-mandarin-games"
 ---
 In this coding challenge, I attempt to code a p5.js version of the Snake Game.

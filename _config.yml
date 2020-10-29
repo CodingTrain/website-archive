@@ -18,11 +18,11 @@ baseurl: /
 repository: CodingTrain/website
 
 # Prefix for download links (downloads only the relevant code from GitHub).
-github_download_prefix: https://minhaskamal.github.io/DownGit/#/home?url=
+github_download_prefix: https://codingtrain.github.io/DownGit/#/home?url=
 
 # Prefixes for editor.p5js.org
 web_editor_sketch_prefix: https://editor.p5js.org/codingtrain/sketches/
-web_editor_fullscreen_prefix: https://editor.p5js.org/full/
+web_editor_fullscreen_prefix: https://editor.p5js.org/codingtrain/full/
 
 # Suffixes for auto-detecting the video's code that's available for download/preview.
 #
@@ -32,17 +32,14 @@ web_editor_fullscreen_prefix: https://editor.p5js.org/full/
 #                       The first match is used. If the video has the `web_editor`
 #                       property, a link to the P5 Web Editor will be used instead.
 code_variations:
-  - name: "P5.JS"
+  - lang: "p5js"
     folder: "P5"
-    live_example: true
-  - name: "Processing"
+  - lang: "Processing"
     folder: "Processing"
-  - name: "JavaScript"
+  - lang: "Javascript"
     folder: "JavaScript"
-  - name: "Node.js"
+  - lang: "Nodejs"
     folder: "Node"
-  - name: "P5.JS"
-    folder: "p5-multi"
 
 # Links to other platforms.
 links:
@@ -61,13 +58,27 @@ links:
   # Link to the Amazon store.
   amazon: https://www.amazon.com/shop/thecodingtrain
 
+# SEO data for twitter
+twitter:
+  username: thecodingtrain
+
 # --- Build Settings ---
 
 # Use Kramdown as the preferred Markdown parser.
 markdown: kramdown
 
 # Exclude code for Node.js and Q_and_A
-exclude: ["Node", "Q_and_A", "unit_testing", "node_modules", "vendor/bundle/", "vendor/cache/", "vendor/gems/", "vendor/ruby/"]
+exclude:
+  [
+    "Node",
+    "Q_and_A",
+    "unit_testing",
+    "node_modules",
+    "vendor/bundle/",
+    "vendor/cache/",
+    "vendor/gems/",
+    "vendor/ruby/",
+  ]
 
 # Include future videos (used for 'Upcoming Streams' section).
 future: true
@@ -84,6 +95,7 @@ sass: { sass_dir: "assets/css" }
 # Use jekyll-redirect-from to allow redirections
 plugins:
   - jekyll-redirect-from
+  - jekyll-seo-tag
 
 # --- Jekyll Locations ---
 layouts_dir: _jekyll/layouts
@@ -94,12 +106,12 @@ collections:
   Streams: { output: true }
   CodingChallenges: { output: true }
   Tutorials: { output: true }
-  CodingInTheCabana: { output: true }
   GuestTutorials: { output: true }
   Courses: { output: true }
   Guides: { output: true }
   TeachableMachine: { output: true }
   beginners: { output: true }
+  challenges: { output: true }
   learning: { output: true }
   more: { output: true }
 
@@ -142,12 +154,11 @@ defaults:
       video_type: "Lesson"
       can_contribute: false
 
-  # Coding in the Cabana
-  - scope: { path: "", type: "CodingInTheCabana" }
+  # challenges
+  - scope: { path: "", type: "challenges" }
     values:
       layout: "video"
-      video_type: "Coding in the Cabana"
-      video_type_short: "Cabana"
+      video_type: "Challenge"
       can_contribute: true
 
   # Guest Tutorials

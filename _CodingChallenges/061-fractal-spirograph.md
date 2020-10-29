@@ -13,7 +13,7 @@ links:
 
 videos:
   - title: "My Video on Polar Coordinates"
-    video_id: "znOBmOrtz_M"
+    video_id: "/more/archive/nature-of-code/3-Oscillation/3.2-Trigonometry-and-Polar-Coordinates"
   - title: "My Coding Challenge on 2D Solar System"
     url: "/CodingChallenges/007-solarsystemgenerator"
 
@@ -33,6 +33,11 @@ contributions:
   - title: "Multiple colored in Fractals"
     author: "ColeNOXyd2nd"
     source: https://github.com/ColeNOXyd2nd/fractal
+  - title: "Custom Fractal Spirograph in p5"
+    author: "Raime Carroll"
+    url: https://editor.p5js.org/chromatic.waltz/present/3U4VpZ1Ee
+    source: https://editor.p5js.org/chromatic.waltz/sketches/3U4VpZ1Ee
 ---
 
 In this coding challenge, I attempt to create a "Fractal Spirograph" with Processing (Java). The visuals are inspired by images and explanation on C. J. Chen's blog.
+

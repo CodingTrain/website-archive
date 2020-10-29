@@ -18,9 +18,9 @@ videos:
   - title: "Craig Reynolds - Original 1986 Boids simulation"
     video_id: "86iQiV3-3IA"
   - title: "Vectors - The Nature of Code"
-    video_id: "mWJkvxQXIa8"
+    video_id: "/more/archive/nature-of-code/1-Vectors/1.1-Vectors"
   - title: "Combining Steering Behaviors: Flocking - The Nature of Code"
-    video_id: "IoKfQrlQ7rA"
+    video_id: "/more/archive/nature-of-code/6-Autonomous-Agents/6.8-Combining-Steering-Behaviors-Flocking"
 
 contributions:
   - title: "QuadTree Optimization"
@@ -142,5 +142,27 @@ contributions:
       url: "https://chief141.github.io/"
     url: "https://repl.it/@chief141/Boids-using-python"
     source: "https://github.com/chief141/Boids-using-python"
+  - title: "Pixi JS boids with color gradient"
+    author:
+      name: "Kevin Logue"
+      url: "https://github.com/loguek"
+    url: "https://coderadical.com/flocking/"
+    source: "https://github.com/loguek/flocking-pixi"
+  - title: "3D flocking in C++ and compute shaders with octree and regular grid"
+    author:
+      name: "Vojtěch Tomas"
+      url: "https://vojtatom.cz/"
+    url: "https://www.vojtatom.cz/flocking/"
+    source: "https://github.com/vojtatom/flocking-cpp"
+  - title: "Triangles instead of circles"
+    author: "Prem Naik"
+    url: "https://editor.p5js.org/TheSleepingAssassin/full/LVvPlIvzC"
+    source: "https://editor.p5js.org/TheSleepingAssassin/sketches/LVvPlIvzC"
+  - title: "3D flocking (WEBGL): Colorful Butterflies and Flowers"
+    author:
+      name: "Juan Carlos Ponce Campuzano"
+      url: "https://jcponce.github.io/"
+    url: "https://editor.p5js.org/jcponce/present/fwsX61dRa"
+    source: "https://editor.p5js.org/jcponce/sketches/fwsX61dRa"
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.

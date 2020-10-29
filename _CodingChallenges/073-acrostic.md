@@ -27,7 +27,7 @@ videos:
   - title: "FunFunFunction's video on let/var/const"
     video_id: "sjyJBL5fkp8"
   - title: "My Video on Closures"
-    video_id: "-jysK0nlz7A"
+    video_id: /Tutorials/9-additional-topics/9.6-javascript-closure
 ---
 
 In this coding challenge, I create an acrostic generator with the Wordnik API and p5.js. This challenge is part of my "Programming with Text" series.

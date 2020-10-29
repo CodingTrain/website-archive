@@ -19,21 +19,21 @@ videos:
   - title: "Videos on working with data and APIs"
     url: /Tutorials/10-working-with-data
   - title: "Regular Expression playlist"
-    url: /Courses/programming-with-text/2-regular-expressions
+    url: /learning/programming-with-text/2.1-introduction
 
 contributions:
-  - title: "TOR IP Map"
-    author:
-      name: "Lugsole"
-      url: https://github.com/Lugsole
-    url: https://lugsole.github.io/TOR_MAP/
-    source: https://github.com/Lugsole/TOR_MAP
   - title: "3D Globe in P5.JS"
     author: "Dollee"
     source: https://github.com/dolleebhatia/p5.js-EarthquakeDataVisualization-3D
   - title: "Current weather API"
     author: "kubo550"
     source: https://github.com/kubo550/Current-Weather-API
+  - title: "Recoveries: COVID19"
+    author:
+      name: "Ashik Paul"
+      url: "https://github.com/AshikPaul"
+    url: "https://ashikpaul.github.io/COVID19_Recoveries/"
+    source: "https://github.com/Ashikpaul/COVID19_Recoveries"
 ---
 In this coding challenge, I visualize earthquake data from the [USGS](http://earthquake.usgs.gov/data/) by mapping the latitude, longitude and the magnitude of earthquakes with p5.js.
 
