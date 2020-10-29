@@ -1,7 +1,7 @@
 ---
-title: "Zoom Annotations"
+title: "Zoom Annotations with Machine Learning and p5.js"
 video_number: 157
-date: 2020-10-25
+date: 2020-10-28
 video_id: 9z9mbiOZqSs
 repository: CC_157_Zoom_Annotations
 
