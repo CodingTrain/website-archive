@@ -33,6 +33,11 @@ contributions:
       name: "JacobGeoGeek"
       url: "https://editor.p5js.org/JacobGeoGeek/full/AZaXEefqr"
     source: "https://github.com/JacobGeoGeek/code-train-challenge-visualizing-COVID"
+  - title: "Post Covid Flights"
+    author:
+      name: "Anja Khan"
+      url: "https://github.com/anjakhan"
+    source: "https://anjakhan.github.io/PostCovidFlights_Challenge/"
 ---
 
 Celebrating the 500,000 subscribers milestone, I create a map visualization of Coding Train subscriber locations around the world!
