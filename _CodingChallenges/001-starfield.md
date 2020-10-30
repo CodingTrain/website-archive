@@ -119,5 +119,9 @@ contributions:
       url: "https://github.com/PlaidDroid"
     url: "https://plaiddroid.github.io/sketchbook/star-field/index.html"
     source: "https://github.com/PlaidDroid/sketchbook/tree/main/star-field"
+  - title: "Rainbow Ride"
+    author: "Michalina Jablonska"
+    url: "https://codepen.io/michasia/project/editor/DPJjOK"
+    source: "https://github.com/michalinaj/Rainbow-ride"
 ---
 This is the first in a new series of videos.  In this video I attempt to program a "star field" or "warp speed" visualization in Processing.  
