@@ -114,6 +114,7 @@ collections:
   challenges: { output: true }
   learning: { output: true }
   more: { output: true }
+  redirects: { output: true }
 
 # --- Defaults ---
 
@@ -192,3 +193,8 @@ defaults:
       video_type: "Teachable Machine"
       video_type_short: "Tutorial"
       can_contribute: true
+
+  # Redirects
+  - scope: { path: "", type: "redirect" }
+    values:
+      layout: "external-redirect"
