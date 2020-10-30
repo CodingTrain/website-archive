@@ -60,5 +60,11 @@ contributions:
       url: "https://github.com/kligmasn"
     url: "https://editor.p5js.org/kligmasn/sketches/iHfiFEQ61"
     source: "https://editor.p5js.org/kligmasn/sketches/iHfiFEQ61"
+  - title: "Kaleidoscope Simulation with Processing"
+    author:
+      name: "Bhaswar Chakraborty"
+      url: "https://github.com/Ivan-Denisovich-py"
+    video_id: BD4Y-88ryvE
+    source: "https://github.com/Ivan-Denisovich-py/kaleidoscope-simulation"
 ---
 Happy holidays! #SupportP5! This video shows an attempt to make a snowflake from a "kaleidoscope painting" effect.
