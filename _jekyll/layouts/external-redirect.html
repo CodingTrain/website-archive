@@ -1,0 +1,14 @@
+---
+layout: base
+---
+
+<div class="redirect">
+  <p>Redirecting you to {{ page.title }}...</p>
+  <a href="{{ page.redirect_to }}">Click here if you have redirects turned off.</a>
+  <script>
+    function redirect() {
+      window.location.replace("{{ page.redirect_to }}");
+    }
+    setTimeout(redirect, 200);
+  </script>
+</div>
