@@ -3,7 +3,7 @@
 
 
 ### Link to source code to Coding Challenge #38: 
-* [Word Interactor](https://github.com/CodingTrain/Rainbow-Code/tree/master/challenges/CC_038_word_interactor)
+* [Word Interactor](https://github.com/CodingTrain/website/tree/main/CodingChallenges/CC_038_word_interactor/P5)
 
 ### Questions? Need Support?
 * Join: http://patreon.com/codingtrain
