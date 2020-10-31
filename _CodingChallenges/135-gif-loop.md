@@ -22,7 +22,7 @@ contributions:
       name: "Pilar Mera"
       url: "https://github.com/decrecementofeliz"
     source: "https://github.com/decrecementofeliz/processing-midibus/blob/main/processing-midi.gif"
-    url: "https://github.com/decrecementofeliz/processing-midibus"    
+    url: "https://github.com/decrecementofeliz/processing-midibus"
 
 links:
   - title: "Daily Art"
