@@ -17,6 +17,12 @@ contributions:
       url: "https://github.com/chief141"
     source: "https://github.com/chief141/Coding-Train-Challenges-python/tree/master/making-GIF-loop"
     url: "https://repl.it/@chief141/making-GIF-loop"
+  - title: "MIDI controlled gif loop"
+    author:
+      name: "Pilar Mera"
+      url: "https://github.com/decrecementofeliz"
+    source: "https://github.com/decrecementofeliz/processing-midibus/blob/main/processing-midi.gif"
+    url: "https://github.com/decrecementofeliz/processing-midibus"    
 
 links:
   - title: "Daily Art"
