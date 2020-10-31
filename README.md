@@ -3,7 +3,7 @@
 </p>
 </br>
 
-Hello and welcome to the GitHub repository for The Coding Train website! This houses all of the content at <a href="https://thecodingtrain.com/">thecodingtrain.com</a> as well as source code for corresponding videos. The site welcomes contributions from the community in a variety of ways! More information at <a href="CONTRIBUTING.md">CONTRIBUTING.md</a>.
+Hello and welcome to the gitHub repository for "The Coding Train website".This includes all of the content at <a href="https://thecodingtrain.com/">thecodingtrain.com</a> as well as source code for corresponding videos. The site welcomes contribution from the community in a variety of ways! For More information visit <a href="CONTRIBUTING.md">CONTRIBUTING.md</a>.
 
 # Other links
 
@@ -15,7 +15,7 @@ Hello and welcome to the GitHub repository for The Coding Train website! This ho
 
 # Live Streams
 
-Live streams are announced as events on YouTube, [please subscribe to receive notifications for events](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw/subscribe)!
+Live streams are announced as events on YouTube, [please subscribe to receive notifications for events](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw/subscribe).
 
 # Add your own variation
 
