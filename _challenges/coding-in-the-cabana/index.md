@@ -8,4 +8,4 @@ redirect_from:
   - /CodingInTheCabana/index.html
 ---
 
-The sun out is, the birds are chirping, it's a beautiful day to code a generative algorithm. Choo choo!
+The sun is out, The birds are chirping and it's a beautiful day to code a generative algorithm. Choo Choo!
