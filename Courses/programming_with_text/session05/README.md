@@ -3,9 +3,9 @@
 
 
 ### Link to source code to Coding Challenge #40 Part 1,Part 2 and Part 3: 
-* [Word Counter in JavaScript](https://github.com/CodingTrain/Rainbow-Code/tree/master/challenges/CC_040_1_wordcounts_p5)
-* [Word Counter in Processing](https://github.com/CodingTrain/Rainbow-Code/tree/master/challenges/CC_040_2_wordcounts)
-* [TF-IDF](https://github.com/CodingTrain/Rainbow-Code/tree/master/challenges/CC_040_3_tf-idf)
+* [Word Counter in JavaScript](https://github.com/CodingTrain/website/tree/main/CodingChallenges/CC_040.1_wordcounts/P5)
+* [Word Counter in Processing](https://github.com/CodingTrain/website/tree/main/CodingChallenges/CC_040.1_wordcounts/Processing/CC_040_1_wordcounts)
+* [TF-IDF](https://github.com/CodingTrain/website/tree/main/CodingChallenges/CC_040.3_tf-idf/P5)
 
 ### Questions? Need Support?
 * Join: http://patreon.com/codingtrain

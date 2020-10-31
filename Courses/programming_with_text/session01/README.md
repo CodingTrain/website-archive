@@ -3,7 +3,7 @@
 
 
 ### Link to source code to Coding Challenge #37: 
-* [Diastic Machine](https://github.com/CodingTrain/Rainbow-Code/tree/master/challenges/CC_037_diastic)
+* [Diastic Machine](https://github.com/CodingTrain/website/tree/main/CodingChallenges/CC_037_diastic/P5)
 
 ### Questions? Need Support?
 * Join: http://patreon.com/codingtrain
