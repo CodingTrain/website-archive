@@ -70,5 +70,11 @@ contributions:
       url: "https://github.com/dzson"
     url: "https://dzson.github.io/TerrainGeneration/index.html"
     source: "https://github.com/dzson/TerrainGeneration"
+  - title: "2D Perlin landscape"
+    author:
+      name: "Tahsin Tariq"
+      url: "https://github.com/TahsinTariq"
+    url: "https://tahsintariq.github.io/p5js/P5_Sketches/P5_Web_Collection/perlin_basic/"
+    source: "https://github.com/TahsinTariq/p5js/tree/master/P5_Sketches/P5_Web_Collection/perlin_basic"
 ---
 In this coding challenge, I create a 3D procedural terrain using Perlin Noise and the beginShape() function in Processing.
