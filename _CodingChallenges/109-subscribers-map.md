@@ -33,6 +33,11 @@ contributions:
       name: "JacobGeoGeek"
       url: "https://editor.p5js.org/JacobGeoGeek/full/AZaXEefqr"
     source: "https://github.com/JacobGeoGeek/code-train-challenge-visualizing-COVID"
+  - title: "Bay Wheels 2020 Station Activity"
+    author:
+      name: "iccir919"
+      url: "https://editor.p5js.org/iccir919/full/RFuSwIS0S"
+    source: "https://editor.p5js.org/iccir919/sketches/RFuSwIS0S"
 ---
 
 Celebrating the 500,000 subscribers milestone, I create a map visualization of Coding Train subscriber locations around the world!
