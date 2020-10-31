@@ -82,5 +82,11 @@ contributions:
       name: "Rodrigo Kulb"
       url: "http://rodrigo-kulb.com.br/alexKidd/"
     source: "https://github.com/rodrigoKulb/alexKidd"
+  - title: "Classic Chrome Dinosaur Game"
+    author:
+      name: "Bhaswar Chakraborty"
+      url: "https://github.com/Ivan-Denisovich-py"
+    url: "https://editor.p5js.org/Ivan-Denisovich-py/full/HheYX4_2P"
+    source: "https://editor.p5js.org/Ivan-Denisovich-py/sketches/HheYX4_2P"
 ---
 In this challenge, I attempt to make my own version of Google's Dinosaur Game (T-Rex run!) with a unique twist -- controlling the dinosaur (unicorn, in this case) with a machine learning Speech Commands model! 
