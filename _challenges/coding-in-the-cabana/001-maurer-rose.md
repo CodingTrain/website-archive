@@ -69,6 +69,12 @@ contributions:
       url: "https://github.com/AshikPaul"
     url: "https://ashikpaul.github.io/Maurer-Rose/"
     source: "https://github.com/Ashikpaul/Maurer-Rose"
+  - title: "Starr Rose in Processing"
+    author:
+      name: "Liam Hillery"
+      url: "https://github.com/Lemmings42/"
+    url: "https://github.com/Lemmings42/Starr_Rose/blob/main/output/Star%206.0%2C%2018.0%2C%2018.0.pdf"
+    source: "https://github.com/Lemmings42/Starr_Rose"
 ---
 
 In this pilot episode of Coding in the Cabana, I code a visualization of the Maurer Rose pattern.
