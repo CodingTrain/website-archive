@@ -93,7 +93,7 @@ function advect(b, d, d0, velocX, velocY, dt) {
   let s0, s1, t0, t1;
   let tmp1, tmp2, tmp3, x, y;
 
-  let Nfloat = N;
+  let Nfloat = N - 2;
   let ifloat, jfloat;
   let i, j, k;
 
