@@ -38,4 +38,9 @@ videos:
     url: "/TeachableMachine/1-teachable-machine"
 ---
 
+contributions:
+  - title: Mirror
+    author: Itay Naveh
+    url: https://itaynaveh.github.io/mirror/index.html
+
 Liven up your video calls with p5.js, ml5.js, Teachable Machine, and and OBS Studio!
