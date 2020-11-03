@@ -26,11 +26,6 @@ contributions:
       name: "Nico Finkernagel"
       url: "https://www.gruselhaus.com"
     url: "https://cdn.gruselhaus.com/static/p5/pong/"
-  - title: "Play against an AI based on Shiffman's Neural Network Class."
-    author:
-      name: "Nico Finkernagel"
-      url: "https://www.gruselhaus.com"
-    url: "https://cdn.gruselhaus.com/static/p5/pong_nn/"
   - title: "Pong"
     author:
       name: "alok"
