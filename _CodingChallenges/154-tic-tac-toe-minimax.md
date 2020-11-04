@@ -93,5 +93,10 @@ contributions:
       url: "https://github.com/anjakhan"
     url: "https://anjakhan.github.io/TicTacToe_Challenge/"
     source: "https://github.com/anjakhan/TicTacToe_Challenge"
+  - title: "Tic Tac Toe Minimax in Processing"
+    author:
+      name: "Saraansh Rawat"
+    url: "https://www.openprocessing.org/sketch/1005276"
+    source: "https://www.openprocessing.org/user/242833"
 ---
 In this challenge I take the Tic Tac Toe game from coding challenge #149 and add an AI opponent for a human player by implenenting the Minimax algorithm.
