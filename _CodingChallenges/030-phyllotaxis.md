@@ -82,5 +82,9 @@ contributions:
       url: "https://cspears1110.github.io"
     url: "https://editor.p5js.org/cspears1110/full/livw7t_es"
     source: "https://editor.p5js.org/cspears1110/sketches/livw7t_es"
+  - title: "Animating growth angle"
+    author: "Nathan Connery"
+    url: "https://editor.p5js.org/NC_Productions/full/Ui4ns_1c-"
+    source: "https://editor.p5js.org/NC_Productions/sketches/Ui4ns_1c-"
 ---
 In this coding challenge, I continue one of my favorite subjects: Algorithmic botany! This video covers the subject of Phyllotaxis, what it is and how it can be used to generate sunflower-like patterns inspired by nature.
