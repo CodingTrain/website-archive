@@ -55,11 +55,9 @@ contributions:
     author: "marvszl"
     url: "https://editor.p5js.org/szloszjar.marvin@gmail.com/full/jE8DQY1Zd"
     source: "https://editor.p5js.org/szloszjar.marvin@gmail.com/sketches/jE8DQY1Zd"
-- title: "Flappy bird"
-  author: ""
-    name: "Syon"
-
-  url: "ikittycode.github.io/flappy-bird"
-  source: "https://github.com/iKittyCode/snake-game"    
+  - title: "Flappy bird"
+    author: "Syon"
+    url: "ikittycode.github.io/flappy-bird"
+    source: "https://github.com/iKittyCode/snake-game"
 ---
 In this coding challenge, I attempt to program in JavaScript (using the p5.js framework) a clone of the game Flappy Bird.
