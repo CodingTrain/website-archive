@@ -94,7 +94,8 @@ contributions:
     url: "https://anjakhan.github.io/TicTacToe_Challenge/"
     source: "https://github.com/anjakhan/TicTacToe_Challenge"
   - title: "Tic Tac Toe Minimax in Processing"
-    name: "Saraansh Rawat"
+    author:
+      name: "Saraansh Rawat"
     url: "https://www.openprocessing.org/sketch/1005276"
     source: "https://www.openprocessing.org/user/242833"
 ---
