@@ -2,7 +2,7 @@
 title: Discord Developer Portal
 video_number: 2
 date: 2020-11-05
-video_id: zzz
+video_id: ibtXXoMxaho
 
 links:
   - title: "Discord (Website)"

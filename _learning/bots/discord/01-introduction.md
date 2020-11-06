@@ -2,7 +2,7 @@
 title: Introduction
 video_number: 1
 date: 2020-11-05
-video_id: zzz
+video_id: 7A-bnPlxj4k
 
 links:
   - title: "The Coding Train Discord"

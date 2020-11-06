@@ -1,7 +1,7 @@
 ---
 title: Discord Bot
 layout: series-index
-playlist_id:
+playlist_id: PLRqwX-V7Uu6avBYxeBSwF48YhAnSn_sA4
 redirect_from:
   - /discord-bot
 ---
