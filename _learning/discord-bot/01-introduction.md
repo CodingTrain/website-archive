@@ -24,4 +24,4 @@ videos:
     author: "The Coding Train"
     url: /more/workflow/5-node
 ---
-In this video I talk about the tools you'll need to create a discord bot.
+Introducing a new series: How to Make a Discord bot! This video covers the tools I plan to use to create and code a Discord bot.
