@@ -6,4 +6,4 @@ redirect_from:
   - /discord-bot
 ---
 
-These videos show how to make a discord bot with discord.js.
+🤖 How to create a Discord bot with discord.js! 🤖 
