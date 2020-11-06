@@ -27,4 +27,4 @@ videos:
     author: "Coding Garden"
     video_id: gzM7kj6gV5I
 ---
-Here I work on coding a the Coding Train Choo Choo bot using discord.js.
+It's finally time to write some code! In this video, I demonstrate the very basics of coding a "hello world"-style bot with discord.js.
