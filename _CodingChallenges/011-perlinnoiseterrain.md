@@ -76,5 +76,11 @@ contributions:
       url: "https://github.com/TahsinTariq"
     url: "https://tahsintariq.github.io/p5js/P5_Sketches/P5_Web_Collection/perlin_basic/"
     source: "https://github.com/TahsinTariq/p5js/tree/master/P5_Sketches/P5_Web_Collection/perlin_basic"
+  - title: "3D Terrain Mirror"
+    author:
+      name: "Yağız İpekçi"
+      url: "https://github.com/ygzipekci"
+    url: "https://editor.p5js.org/mortuish/present/rikkujW-e"
+    source: "https://editor.p5js.org/mortuish/sketches/rikkujW-e"
 ---
 In this coding challenge, I create a 3D procedural terrain using Perlin Noise and the beginShape() function in Processing.
