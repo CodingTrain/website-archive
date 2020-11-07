@@ -126,7 +126,7 @@ contributions:
       name: "Daan Breur"
       url: "https://github.daanbreur.systems/"
     url: "https://github.daanbreur.systems/P5js-Projects?id=SevenSegmentDisplay"
-    source: "https://github.com/daanbreur/P5js-Projects/tree/master/SevenSegmentDisplay"   
+    source: "https://github.com/daanbreur/P5js-Projects/tree/master/SevenSegmentDisplay"
 ---
 
 In this coding challenge, I make a Seven-Segment Display with p5.js. This video is inspired by Tom Scott's: [What's The Longest Word You Can Write With Seven-Segment Displays?](https://youtu.be/zp4BMR88260).
