@@ -26,7 +26,7 @@ contributions:
     author:
       name: "tht-jxny"
     url: "https://editor.p5js.org/tht-jxny/full/HJXcWqoW4"
-    - title: "Ulam Warburton Version"
+  - title: "Ulam Warburton Version"
     author:
       name: "Mertcan Çezik"
     url: "https://editor.p5js.org/cezikmertcan/full/JiW8l-bCu"
