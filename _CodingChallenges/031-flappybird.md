@@ -57,7 +57,7 @@ contributions:
     source: "https://editor.p5js.org/szloszjar.marvin@gmail.com/sketches/jE8DQY1Zd"
   - title: "Flappy bird"
     author: "Syon"
-    url: "ikittycode.github.io/flappy-bird"
+    url: "https://ikittycode.github.io/flappy-bird"
     source: "https://github.com/iKittyCode/flappy-bird"
 ---
 In this coding challenge, I attempt to program in JavaScript (using the p5.js framework) a clone of the game Flappy Bird.
