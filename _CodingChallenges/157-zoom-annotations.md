@@ -41,5 +41,9 @@ contributions:
   - title: Mirror
     author: Itay Naveh
     url: https://itaynaveh.github.io/mirror/index.html
+  - title: Rock Paper Scissors
+    author: Lukas Marschall
+    url: https://rpsml5.herokuapp.com/
+    source: https://github.com/lmarschall/rockpaperscissors
 ---
 Liven up your video calls with p5.js, ml5.js, Teachable Machine, and and OBS Studio!
