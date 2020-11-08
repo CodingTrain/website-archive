@@ -2,7 +2,10 @@ console.log('Beep beep! 🤖');
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
-client.login('NzY0MTQxODAzODA4MDk2MzA5.X4B8gw.PqLWbrrjFD761g_Btba_5AUdr_U');
+// I recommend using dotenv, you can see how the project is setup here: 
+// https://github.com/CodingTrain/Discord-Bot-Choo-Choo
+// dotenv will be covered in a future video
+client.login('YOUR_BOT_TOKEN_HERE');
 
 client.on('ready', readyDiscord);
 
