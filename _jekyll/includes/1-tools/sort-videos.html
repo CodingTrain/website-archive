@@ -36,14 +36,18 @@
                                     | where_exp: 'video', 'video.video_id' %}
 {% endunless %}
 
-{% comment %} Filter out the index pages. {% endcomment %}
-{% if include.sortByDate %}
-  {% assign out_sortedVideos = int_videos | where: 'layout', 'video' | sort: 'date' %}
-{% else %}
-  {% assign out_sortedVideos = int_videos | where: 'layout', 'video' | sort: 'video_number' %}
-{% endif %}
+{% if int_videos.size > 0 %}
 
-{% comment %} Reverse video order if include.reverse is set to true. {% endcomment %}
-{% if include.reverse %}
-  {% assign out_sortedVideos = out_sortedVideos | reverse %}
+  {% comment %} Filter out the index pages. {% endcomment %}
+  {% if include.sortByDate %}
+    {% assign out_sortedVideos = int_videos | where: 'layout', 'video' | sort: 'date' %}
+  {% else %}
+    {% assign out_sortedVideos = int_videos | where: 'layout', 'video' | sort: 'video_number' %}
+  {% endif %}
+
+  {% comment %} Reverse video order if include.reverse is set to true. {% endcomment %}
+  {% if include.reverse %}
+    {% assign out_sortedVideos = out_sortedVideos | reverse %}
+  {% endif %}
+
 {% endif %}
