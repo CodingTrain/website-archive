@@ -138,6 +138,11 @@ contributions:
       name: "Adrian Carrillo"
       url: "https://github.com/oropher"
     source: "https://github.com/oropher/MazeGame"
+  - title: "2D Ray-casting with p5py"
+    author:
+      name: "Param Patidar"
+      url: "https://github.com/parampatidar"
+    source: "https://github.com/parampatidar/2D-Ray-casting-with-p5py"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"
