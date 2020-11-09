@@ -1,0 +1,23 @@
+{
+  "name": "discord-bot-a2z",
+  "version": "1.0.0",
+  "description": "A discord bot example for A2Z",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shiffman/Discord-Bot-A2Z.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shiffman/Discord-Bot-A2Z/issues"
+  },
+  "homepage": "https://github.com/shiffman/Discord-Bot-A2Z#readme",
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "dotenv": "^8.2.0"
+  }
+}
