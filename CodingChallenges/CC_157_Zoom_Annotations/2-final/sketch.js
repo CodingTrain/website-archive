@@ -18,40 +18,42 @@ let flippedVideo;
 // To store the classification
 let label = '';
 
-let question;
-let questionFade = 0;
+class Gesture {
+  constructor() {
+    this.icon;
+    this.fade = 0;
+  }
+  
+  show() {
+    tint(255, this.fade);
+    imageMode(CENTER);
+    image(this.icon, width / 2, height / 2, 720, 720);
+    this.fade -= 10;  
+  }
+}
 
-let yes;
-let yesFade = 0;
-
-let no;
-let noFade = 0;
-
-let love;
-let loveFade = 0;
-
-let laugh;
-let laughFade = 0;
+let gestures ={
+  question: new Gesture(),
+  yes: new Gesture(),
+  no: new Gesture(),
+  love: new Gesture(),
+  laugh: new Gesture()
+}
 
 // Load the model first
 function preload() {
   classifier = ml5.imageClassifier(imageModelURL + 'model.json');
-  question = loadImage('question.png');
-  yes = loadImage('yes.png');
-  no = loadImage('no.png');
-  laugh = loadImage('laugh.png');
-  love = createVideo('love.mp4');
+  gestures['question'].icon = loadImage('question.png');
+  gestures['yes'].icon = loadImage('yes.png');
+  gestures['no'].icon = loadImage('no.png');
+  gestures['laugh'].icon = loadImage('laugh.png');
+  gestures['love'].icon = createVideo('love.mp4');
 }
-
-// function mousePressed() {
-//     love.hide();
-//   love.loop();
-// }
 
 function setup() {
   createCanvas(1280, 720);
-  love.hide();
-  love.loop();
+  gestures['love'].icon.hide();
+  gestures['love'].icon.loop();
   // Create the video
   video = createCapture(VIDEO);
   video.size(160, 120);
@@ -69,54 +71,9 @@ function draw() {
   // Draw the video
   // tint(255);
   // image(flippedVideo, 0, 0);
-  if (label == 'question') {
-    questionFade = 255;
-  } else if (label == 'yes') {
-    yesFade = 255;
-  } else if (label == 'no') {
-    noFade = 255;
-  } else if (label == 'love') {
-    loveFade = 255;
-  } else if (label == 'funny') {
-    laughFade = 255;
-  }
-
-  if (questionFade > 0) {
-    tint(255, questionFade);
-    image(question, 0, 0);
-    questionFade -= 10;
-  }
-
-  if (yesFade > 0) {
-    tint(255, yesFade);
-    image(yes, 0, 0);
-    yesFade -= 10;
-  }
-
-  if (loveFade > 0) {
-    tint(255, loveFade);
-    image(love, 0, 0, width, height);
-    loveFade -= 10;
-  }
-
-  if (noFade > 0) {
-    tint(255, noFade);
-    image(no, 0, 0);
-    noFade -= 10;
-  }
-
-  if (laughFade > 0) {
-    tint(255, laughFade);
-    imageMode(CENTER);
-    image(laugh, width / 2, height / 2, 720, 720);
-    laughFade -= 10;
-  }
-
-  // Draw the label
-  // fill(255);
-  // textSize(16);
-  // textAlign(CENTER);
-  // text(label, width / 2, height - 4);
+  if (!gestures[label]) return;
+  gestures[label].fade = 255;
+  if (gestures[label].fade > 0) gestures[label].show();
 }
 
 // Get a prediction for the current video frame
@@ -133,7 +90,6 @@ function gotResult(error, results) {
     return;
   }
   // The results are in an array ordered by confidence.
-  // console.log(results[0]);
   label = results[0].label;
   // Classifiy again!
   classifyVideo();
