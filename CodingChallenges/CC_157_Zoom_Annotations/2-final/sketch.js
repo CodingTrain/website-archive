@@ -32,13 +32,13 @@ class Gesture {
   }
 }
 
-let gestures ={
+let gestures = {
   question: new Gesture(),
   yes: new Gesture(),
   no: new Gesture(),
   love: new Gesture(),
   laugh: new Gesture()
-}
+};
 
 // Load the model first
 function preload() {
