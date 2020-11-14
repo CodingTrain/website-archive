@@ -80,6 +80,12 @@ contributions:
       url: "http://mortis-grimreaper.ddns.net/projects/"
     url: "http://mortis-grimreaper.ddns.net/projects/Raycasting3DAdvAdv/"
     source: "https://github.com/YushchenkoAndrew/template/tree/master/JS/Raycasting3DAdvAdv"
+  - title: "DOOM made out of Checkboxes (Wolfenstein 3D style raycasting)"
+    author:
+      name: "Alex Wagner (Health Potion Studios)"
+      url: "https://github.com/healthpotionstudios"
+    url: "https://healthpotionstudios.com/messingaround/checkbox_game/11-doom/game.html"
+    source: "https://github.com/healthpotionstudios/healthpotionstudios.github.io/tree/master/messingaround/checkbox_game/11-doom"
 
 community_references:
   - title: "Code-It-Yourself! First Person Shooter (Quick and Simple C++)"
