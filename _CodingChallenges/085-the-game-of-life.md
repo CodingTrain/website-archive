@@ -88,5 +88,9 @@ contributions:
     author: "Melissa Longenberger"
     url: http://game-of-life-by-melissa.vercel.app/
     source: https://github.com/melissa-24/game-of-life-by-melissa
+  - title: "Conway's Game of Life Step by Step (With p5.js)"
+    author: "Stéphane Roncin"
+    url: https://editor.p5js.org/stephane.roncin/full/EVAPcOrd7
+    source: https://editor.p5js.org/stephane.roncin/sketches/EVAPcOrd7
 ---
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.
