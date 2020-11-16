@@ -33,6 +33,14 @@ contributions:
       url: "https://codepen.io/leimapapa/"
     url: "https://codepen.io/leimapapa/full/GPKYpo"
     source: "https://codepen.io/leimapapa/pen/GPKYpo"
+     - title: "ANGRY BIRDS REBUILT"
+    author:
+      name: "SARVAGYA SINGH"
+      url: "https://github.com/sarvagya230/angrybirds.git"
+      source:"https://github.com/sarvagya230/angrybirds"
+  
+  
+  
 ---
 
 An attempt to implement the basic mechanics of Angry Birds in JavaScript using p5.js and the matter.js physics engine.
