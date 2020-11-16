@@ -35,8 +35,8 @@ contributions:
     source: "https://codepen.io/leimapapa/pen/GPKYpo"
      - title: "ANGRY BIRDS REBUILT"
     author:
-      name: "SARVAGYA SINGH"
-      url: "https://github.com/sarvagya230/angrybirds.git"
+      name:"SARVAGYA SINGH"
+      url:"https://github.com/sarvagya230/angrybirds.git"
       source:"https://github.com/sarvagya230/angrybirds"
   
   
