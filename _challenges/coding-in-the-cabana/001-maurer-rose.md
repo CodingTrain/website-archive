@@ -75,6 +75,12 @@ contributions:
       url: "https://github.com/Lemmings42/"
     url: "https://github.com/Lemmings42/Starr_Rose/blob/main/output/Star%206.0%2C%2018.0%2C%2018.0.pdf"
     source: "https://github.com/Lemmings42/Starr_Rose"
+  - title: "Maurer Rose Generator"
+    author:
+      name: "Athul Vinod"
+      url: "https://github.com/PlaidDroid"
+    url: "https://plaiddroid.github.io/sketchbook/maurer-rose/index.html"
+    source: "https://github.com/PlaidDroid/sketchbook/tree/main/maurer-rose"
 ---
 
 In this pilot episode of Coding in the Cabana, I code a visualization of the Maurer Rose pattern.
