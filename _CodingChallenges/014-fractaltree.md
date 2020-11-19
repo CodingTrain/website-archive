@@ -54,7 +54,7 @@ contributions:
       url: "https://graphicalpatterns.blogspot.com"
     url: "https://editor.p5js.org/DeathChargRocks21/sketches/SdTA9HXZr"
     source: "https://editor.p5js.org/DeathChargRocks21/sketches/SdTA9HXZr"
-   - title: "Fractal tree dynamics with mouse movement"
+  - title: "Fractal tree dynamics with mouse movement"
     author:
       name: "cipher dot"
       url: "https://github.com/cipherDOT"
