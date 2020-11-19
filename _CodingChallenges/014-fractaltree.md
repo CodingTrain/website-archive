@@ -54,5 +54,11 @@ contributions:
       url: "https://graphicalpatterns.blogspot.com"
     url: "https://editor.p5js.org/DeathChargRocks21/sketches/SdTA9HXZr"
     source: "https://editor.p5js.org/DeathChargRocks21/sketches/SdTA9HXZr"
+  - title: "Fractal tree dynamics with mouse movement"
+    author:
+      name: "cipher dot"
+      url: "https://github.com/cipherDOT"
+    url: "https://cipherdot.github.io/coding-train-fractal-tree-contribution/"
+    source: "https://github.com/cipherDOT/coding-train-fractal-tree-contribution/blob/main/sketch.js"
 ---
 In this coding challenge, I'm going to show you how to create a Fractal Tree with a recursive algorithm in p5.js.
