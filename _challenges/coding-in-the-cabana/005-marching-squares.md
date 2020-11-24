@@ -169,5 +169,10 @@ contributions:
       url: "https://github.com/YushchenkoAndrew"
     url: "http://mortis-grimreaper.ddns.net/projects/Metaballs/"
     source: "https://github.com/YushchenkoAndrew/template/tree/master/JS/Metaballs"
+  - title: "Loose Thread"
+    author:
+      name: "Cyberia"
+      url: "https://www.instagram.com/cyberia_2020/"
+    url: "https://loosethread.xyz/"
 ---
 In this episode of Coding in the Cabana, Gloria Pickle and I investigate the Marching Squares algorithm and apply it to Open Simplex Noise in Processing.
