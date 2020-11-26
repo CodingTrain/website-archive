@@ -150,5 +150,11 @@ contributions:
       url: "https://idea456.github.io/adrienne-rio"
     url: "http://fun-mandarin.herokuapp.com/"
     source: "https://github.com/idea456/fun-mandarin-games"
+  - title: "Snake Game for Android and PC"
+    author:
+      name: "Yash Gupta"
+      url: "https://github.com/Mind0Bender"
+    url: "https://editor.p5js.org/mrcircuit1234/full/mHiZuBfxVB"
+    source: "https://editor.p5js.org/mrcircuit1234/sketches/mHiZuBfxVB"
 ---
 In this coding challenge, I attempt to code a p5.js version of the Snake Game.
