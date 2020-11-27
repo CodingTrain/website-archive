@@ -92,10 +92,11 @@ contributions:
     author: "Stéphane Roncin"
     url: https://editor.p5js.org/stephane.roncin/full/EVAPcOrd7
     source: https://editor.p5js.org/stephane.roncin/sketches/EVAPcOrd7
-    - title: "Simple Game of Life"
+  - title: "Simple Game of Life"
+    author:
       name: "UnOriginalPun"
-      url: da091005.github.io/
-    url: da091005.github.io/Life/life.html
-    source: https://github.com/da091005/da091005.github.io/tree/master/Life
+      url: "da091005.github.io"
+    url: "da091005.github.io/Life/life.html"
+    source: "https://github.com/da091005/da091005.github.io/tree/master/Life"
 ---
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.
