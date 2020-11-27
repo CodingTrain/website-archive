@@ -95,8 +95,8 @@ contributions:
   - title: "Simple Game of Life"
     author:
       name: "UnOriginalPun"
-      url: "da091005.github.io"
-    url: "da091005.github.io/Life/life.html"
+      url: "https://da091005.github.io"
+    url: "https://da091005.github.io/Life/life.html"
     source: "https://github.com/da091005/da091005.github.io/tree/master/Life"
 ---
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.
