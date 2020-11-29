@@ -65,10 +65,10 @@ contributions:
     author: "Rodrigo Kulb"
     url: "https://rodrigo-kulb.com.br/webcam/webcam.html"
     source: "https://github.com/rodrigoKulb/pongWebCamControl"
-  - title: "Ping Pong for Android and PC"
+  - title: "Pong for Android and PC"
     author:
       name: "Yash Gupta"
-      url: "https://github.com/Mind0Bender"
+      url: "https://github.com/mind0bender"
     url: "https://editor.p5js.org/mrcircuit1234/full/zGvcNLjD3"
     source: "https://editor.p5js.org/mrcircuit1234/sketches/zGvcNLjD3"
 ---
