@@ -68,7 +68,7 @@ contributions:
   - title: "Ping Pong for Android and PC"
     author:
       name: "Yash Gupta"
-      url:"https://github.com/Mind0Bender"
+      url: "https://github.com/Mind0Bender"
     url: "https://editor.p5js.org/mrcircuit1234/full/zGvcNLjD3"
     source: "https://editor.p5js.org/mrcircuit1234/sketches/zGvcNLjD3"
 ---
