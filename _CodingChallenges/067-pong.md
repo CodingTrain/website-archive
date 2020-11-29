@@ -65,5 +65,11 @@ contributions:
     author: "Rodrigo Kulb"
     url: "https://rodrigo-kulb.com.br/webcam/webcam.html"
     source: "https://github.com/rodrigoKulb/pongWebCamControl"
+  - title: "Ping Pong for Android and PC"
+    author:
+      name: "Yash Gupta"
+      url: "https://github.com/Mind0Bender"
+    url: "https://editor.p5js.org/mrcircuit1234/full/zGvcNLjD3"
+    source: "https://editor.p5js.org/mrcircuit1234/sketches/zGvcNLjD3"
 ---
 In this challenge, I attempt (emphasis on the word "attempt") to program the classic video game Pong in Processing (Java).
