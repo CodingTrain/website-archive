@@ -6,6 +6,16 @@ video_id: 3MqJzMvHE3E
 repository: CC_158_Shape_Classifier
 
 variations:
+  - name: "Generate Dataset"
+    lang: "Processing"
+    folder: "dataset"
+  - name: "Generate Dataset"
+    lang: "p5js"
+    folder: "dataset-p5"
+    web_editor: 7leVIzy5l
+  - name: "Train Model"
+    lang: "p5js"
+    folder: "training"
   - name: "Mouse"
     lang: "p5js"
     folder: mouse
