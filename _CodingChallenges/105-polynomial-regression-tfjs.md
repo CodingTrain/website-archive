@@ -46,6 +46,12 @@ contributions:
       url: "https://github.com/giacomoschiavo"
     url: "https://giacomoschiavo.github.io/projects/polynomial-regression-tf/"
     source: "https://github.com/giacomoschiavo/projects/tree/master/polynomial-regression-tf"
+  - title: "Automatic best-fit polynomial regression with visualized costs and variable learning rate"
+    author:
+      name: "Ishaq Ibrahim"
+      url: "https://github.com/ishaqibrahimbot"
+    url: "https://ishaqibrahimbot.github.io/"
+    source: "https://github.com/ishaqibrahimbot/ishaqibrahimbot.github.io"
 ---
 
 In this challenge, I expand the [linear example](https://youtu.be/dLp10CFIvxI) into polynomial regression!
