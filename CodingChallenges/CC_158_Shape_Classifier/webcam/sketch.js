@@ -20,22 +20,22 @@ function setup() {
   video.size(64, 64);
   let options = {
     inputs: [64, 64, 4],
-    task: "imageClassification",
+    task: 'imageClassification',
   };
   shapeClassifier = ml5.neuralNetwork(options);
   const modelDetails = {
-    model: "model/model.json",
-    metadata: "model/model_meta.json",
-    weights: "model/model.weights.bin",
+    model: 'model/model.json',
+    metadata: 'model/model_meta.json',
+    weights: 'model/model.weights.bin',
   };
   background(255);
-  resultsDiv = createDiv("loading model");
+  resultsDiv = createDiv('loading model');
   inputImage = createGraphics(64, 64);
   shapeClassifier.load(modelDetails, modelLoaded);
 }
 
 function modelLoaded() {
-  console.log("model ready!");
+  console.log('model ready!');
   classifyImage();
 }
 
