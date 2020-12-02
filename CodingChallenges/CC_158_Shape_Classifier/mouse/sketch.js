@@ -17,13 +17,13 @@ function setup() {
   canvas = createCanvas(400, 400);
   let options = {
     inputs: [64, 64, 4],
-    task: 'imageClassification',
+    task: 'imageClassification'
   };
   shapeClassifier = ml5.neuralNetwork(options);
   const modelDetails = {
     model: 'model/model.json',
     metadata: 'model/model_meta.json',
-    weights: 'model/model.weights.bin',
+    weights: 'model/model.weights.bin'
   };
   background(255);
   clearButton = createButton('clear');
@@ -45,7 +45,7 @@ function classifyImage() {
   //image(inputImage, 0, 0);
   shapeClassifier.classify(
     {
-      image: inputImage,
+      image: inputImage
     },
     gotResults
   );
