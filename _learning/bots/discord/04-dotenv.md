@@ -10,4 +10,4 @@ links:
   - title: "Choo choo bot on Glitch"
     url: https://glitch.com/~choo-choo-bot-discord
 ---
-In this video I show you how to use a .env file to keep your bot token secret.
+In this video I demonstrate how to use the node dotenv package along with a .env file to store (and hide!) API keys outside of the source code.
