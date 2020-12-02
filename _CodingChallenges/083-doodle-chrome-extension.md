@@ -12,6 +12,11 @@ links:
   - title: "p5.js Instance Mode reference"
     url: "https://github.com/processing/p5.js/wiki/Instantiation-Cases"
 
+contributions:
+  - title: "Website-Doodler (Multi-color)(Extension)"
+    author: "Chaitanya Singh"
+    url: "https://github.com/ChaitanyaSingh11/Doodler-Chrome"
+
 videos:
   - title: "Instance Mode"
     url: "/Tutorials/9-additional-topics/9.11-instance-mode"
