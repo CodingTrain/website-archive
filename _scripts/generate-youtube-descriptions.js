@@ -151,7 +151,12 @@ function writeDescriptions(videos) {
     if (data.links) {
       description += "\nLinks discussed in this video:\n";
       for (let i = 0; i < data.links.length; ++i) {
-        description += `🔗 ${data.links[i].title}: ${data.links[i].url}\n`
+        const url = data.links[i].url;
+        if (/https?:\/\/.*/.test(url)) { // starts with http:// or https://
+          description += `🔗 ${data.links[i].title}: ${url}\n`
+        } else { // assume relative link in thecodingtrain.com
+          description += `🔗 ${data.links[i].title}: https://thecodingtrain.com${url}\n`
+        }
       }
     }
 
@@ -164,6 +169,14 @@ function writeDescriptions(videos) {
         } else if (data.videos[i].url) {
           description += `🎥 ${data.videos[i].title}: ${getVideoID(data.videos[i].url)}\n`
         }
+      }
+    }
+
+    // Timestamps
+    if (data.topics) {
+      description += "\nTimestamps:\n";
+      for (let i = 0; i < data.topics.length; ++i) {
+        description += `${data.topics[i].time} ${data.topics[i].title}\n`
       }
     }
 
