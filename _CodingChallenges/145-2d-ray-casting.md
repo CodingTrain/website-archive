@@ -147,7 +147,7 @@ contributions:
     author: 
       name: "Paulo Fraga"
       url: "https://editor.p5js.org/PauloFraga/full/z9UL3sKVg"
-    source: "https://github.com/PauloNFraga"
+    source: "https://editor.p5js.org/PauloFraga/full/z9UL3sKVg"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"
