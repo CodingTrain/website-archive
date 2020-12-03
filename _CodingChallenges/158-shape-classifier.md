@@ -97,4 +97,4 @@ topics:
   - title: "What's next?"
     time: "34:33"
 ---
-In this challenge I walk through the entire process of training and deploying a machine learning classification model -- data collection, model training, and prediction! Using Processing, p5.js, ml5.js the model classifies drawings of shapes as circles, squares, and triangles!
+In this challenge, I demonstrate the entire process of training and deploying a machine learning classification model in JavaScript -- data collection, model training, and prediction!
