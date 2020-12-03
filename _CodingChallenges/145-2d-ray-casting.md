@@ -144,10 +144,10 @@ contributions:
       url: "https://github.com/parampatidar"
     source: "https://github.com/parampatidar/2D-Ray-casting-with-p5py"
   - title: "kind of (Sight & Light) Ray Casting"
-    author: 
+    author:
       name: "Paulo Fraga"
       url: "https://editor.p5js.org/PauloFraga/full/z9UL3sKVg"
-    source: "https://editor.p5js.org/PauloFraga/full/z9UL3sKVg"
+    source: "https://editor.p5js.org/PauloFraga/sketches/z9UL3sKVg"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"
