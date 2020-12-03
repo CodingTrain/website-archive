@@ -97,4 +97,4 @@ topics:
   - title: "What's next?"
     time: "34:33"
 ---
-In this coding challenge I make a shape classifier! It classifies circles, squares, and triangles using ml5.js and p5.js.
+In this challenge I walk through the entire process of training and deploying a machine learning classification model -- data collection, model training, and prediction! Using Processing, p5.js, ml5.js the model classifies drawings of shapes as circles, squares, and triangles!
