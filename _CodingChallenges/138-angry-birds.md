@@ -33,7 +33,6 @@ contributions:
       url: "https://codepen.io/leimapapa/"
     url: "https://codepen.io/leimapapa/full/GPKYpo"
     source: "https://codepen.io/leimapapa/pen/GPKYpo"
----
  - title: "angrybirds rebuit"
     author:
       name: "Sarvagya singh"
