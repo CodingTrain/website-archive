@@ -57,7 +57,7 @@ function draw() {
 
   const scene = particle.look(walls);
   const w = sceneW / scene.length;
-  const distProjPlane = (sceneW/2.0) / tan(particle.fov/2.0);
+  const distProjPlane = sceneW / 2.0 / tan(particle.fov / 2.0);
 
   push();
   translate(sceneW, 0);
