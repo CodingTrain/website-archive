@@ -7,7 +7,8 @@
 
 class Particle {
   constructor() {
-    this.fov = 45;
+    //this.fov = 45; // original code
+    this.fov = 60; // fisheye fix
     this.pos = createVector(sceneW / 2, sceneH / 2);
     this.rays = [];
     this.heading = 0;
