@@ -55,9 +55,9 @@ function draw() {
   }
   particle.show();
 
+  const distProjPlane = sceneW / 2.0 / tan(particle.fov / 2.0); // projection plane is required for fisheye fix
   const scene = particle.look(walls);
   const w = sceneW / scene.length;
-  const distProjPlane = sceneW / 2.0 / tan(particle.fov / 2.0);
 
   push();
   translate(sceneW, 0);
@@ -66,7 +66,8 @@ function draw() {
     const sq = scene[i] * scene[i];
     const wSq = sceneW * sceneW;
     const b = map(sq, 0, wSq, 255, 0);
-    let h = (sceneW / scene[i]) * distProjPlane; // proper fisheye fix
+    //const h = map(scene[i], 0, sceneW, sceneH, 0); // original code
+    const h = (sceneW / scene[i]) * distProjPlane; // fisheye fix
     fill(b);
     rectMode(CENTER);
     rect(i * w + w / 2, sceneH / 2, w + 1, h);
