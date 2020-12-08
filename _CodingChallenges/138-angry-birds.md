@@ -26,7 +26,6 @@ contributions:
      url: "https://github.com/abhay2008"
    url: "https://abhay2008.github.io/c32_project_TowerSiege3/"
    source: "https://github.com/abhay2008/c32_project_TowerSiege3"
-   
   - title: "Koji version"
     :
       name: "Miles Exner"
