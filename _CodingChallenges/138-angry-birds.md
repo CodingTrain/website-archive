@@ -21,7 +21,7 @@ videos:
     url: "/GuestTutorials/008-catt-small-phaser-game-development"
 
 contributions:
-      name: "Abhay Kashyap"
+      name:  "Abhay Kashyap"
       url: "https://github.com/abhay2008"
     url: "https://abhay2008.github.io/c32_project_towerSiege3/"
     source: "https://github.com/abhay2008/c32_project_TowerSiege3"
