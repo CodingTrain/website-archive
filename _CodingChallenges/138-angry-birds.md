@@ -39,6 +39,7 @@ contributions:
       url: "https://github.com/sarvagya230/angrybirds.git"
     url: "https://github.com/sarvagya230/angrybirds.git"
     source: "https://github.com/sarvagya230/angrybirds"
+    :
       name: "Abhay Kashyap"
       url: "https://github.com/abhay2008"
     url: "https://abhay2008.github.io/c32_project_towerSiege3/"
