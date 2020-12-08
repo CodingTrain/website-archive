@@ -21,24 +21,6 @@ videos:
     url: "/GuestTutorials/008-catt-small-phaser-game-development"
 
 contributions:
-  - title: "Koji version"
-    :
-      name: "Miles Exner"
-      url: "https://www.milesexner.com"
-    url: "https://angrybird.withkoji.com/"
-    source: "https://withkoji.com/~Dizolivemint/p5-and-matter-js-coding-train-angry-birds-tutorial"
-  - title: "OU vs. Texas   Version"
-    :
-      name: "Sam Lee"
-      url: "https://codepen.io/leimapapa/"
-    url: "https://codepen.io/leimapapa/full/GPKYpo"
-    source: "https://codepen.io/leimapapa/pen/GPKYpo"
-  - title: "angrybirds rebuit"
-    :
-      name: "Sarvagya singh"
-      url: "https://github.com/sarvagya230/angrybirds.git"
-    url: "https://github.com/sarvagya230/angrybirds.git"
-    source: "https://github.com/sarvagya230/angrybirds"
   - title: "hexagonal shooter"
     :
       name: "Abhay Kashyap"
