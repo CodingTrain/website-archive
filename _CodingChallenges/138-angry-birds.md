@@ -40,10 +40,10 @@ contributions:
     url: "https://github.com/sarvagya230/angrybirds.git"
     source: "https://github.com/sarvagya230/angrybirds"
   - title: "Hexagonal shooter"
-     author:
-       name: "Abhay Kashyap"
-       url: "https://github.com/abhay2008"
-     url: "https://abhay2008.github.io/c32_project_TowerSiege3/"
-     source: "https://github.com/abhay2008/c32_project_TowerSiege3"
+    author:
+      name: "Abhay Kashyap"
+      url: "https://github.com/abhay2008"
+    url: "https://abhay2008.github.io/c32_project_TowerSiege3/"
+    source: "https://github.com/abhay2008/c32_project_TowerSiege3"
 ---
 An attempt to implement the basic mechanics of Angry Birds in JavaScript using p5.js and the matter.js physics engine.
