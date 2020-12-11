@@ -88,5 +88,11 @@ contributions:
       url: "https://github.com/Ivan-Denisovich-py"
     url: "https://editor.p5js.org/Ivan-Denisovich-py/full/HheYX4_2P"
     source: "https://editor.p5js.org/Ivan-Denisovich-py/sketches/HheYX4_2P"
+  - title: "Triangle runner"
+    author:
+      name: "Abhay Kashyap"
+      url: "https://github.com/abhay2008"
+    url: "https://abhay2008.github.io/infinite_runner/"
+    source: "https://github.com/abhay2008/infinite_runner"
 ---
 In this challenge, I attempt to make my own version of Google's Dinosaur Game (T-Rex run!) with a unique twist -- controlling the dinosaur (unicorn, in this case) with a machine learning Speech Commands model! 
