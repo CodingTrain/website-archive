@@ -1,75 +1,57 @@
 ---
-title: "Pong!"
-redirect_from: CodingChallenges/67-pong.html
-video_number: 67
-date: 2017-03-27
-video_id: IIrC5Qcb2G4
-repository: CC_067_Pong
-web_editor: CKCwTIm3S
+title: "Menger Sponge Fractal"
+redirect_from: CodingChallenges/02-mengersponge.html
+video_number: 2
+date: 2016-04-17
+video_id: LG8ZK-rRkXo
+repository: CC_002_MengerSponge
+web_editor: 5kcBUriAy
 
 links:
-  - title: "Pong on Wikipedia"
-    url: "https://en.wikipedia.org/wiki/Pong"
-  - title: "Paddle angles drawing"
-    url: "https://i1.wp.com/zekechan.net/wp-content/uploads/2015/07/pong-05b.png?resize=600%2C500"
-videos:
-  - title: "My Video on Polar Coordinates"
-    url: "/Tutorials/9-additional-topics/9.20-polar-coordinates"
+  - title: "Menger Sponge on Wikipedia"
+    url: "https://en.wikipedia.org/wiki/Menger_sponge"
+  - title: "P3D Tutorial"
+    author: "Daniel Shiffman"
+    url: "https://processing.org/tutorials/p3d/"
+  - title: "ArrayList in Processing"
+    url: "https://processing.org/reference/ArrayList.html"
+
 contributions:
-  - title: "Single Player Version"
+  - title: "Swifty Menger sponge"
     author:
-      name: "Gustavo Shigueo"
-    url: "https://editor.p5js.org/gustavo.gsmn/full/pu9rQeanT"
-    source: "https://editor.p5js.org/gustavo.gsmn/sketches/pu9rQeanT"
-  - title: "Single Player Edition"
+      name: "Bob Voorneveld"
+      url: "https://www.bobvoorneveld.nl"
+    source: "https://github.com/bobvoorneveld/Coding-Challenges/tree/master/CC002-Menger%20Sponge%20Fractal"
+  - title: "ES6 Merger sponge"
     author:
-      name: "Nico Finkernagel"
-      url: "https://www.gruselhaus.com"
-    url: "https://cdn.gruselhaus.com/static/p5/pong/"
-  - title: "Pong"
+      name: "Bjorn Van Acker"
+      url: "https://bjorvack.github.io/code-challenges/"
+    url: "https://bjorvack.github.io/code-challenges/challenges/cc-002-menger-sponge/"
+    source: "https://github.com/bjorvack/code-challenges/tree/master/challenges/cc-002-menger-sponge"
+  - title: "Sponge Plus"
     author:
-      name: "alok"
-    url: "https://aloksbd.github.io/Game-Sprint/2-pong/index.html"
-    source: "https://github.com/aloksbd/Game-Sprint/tree/master/2-pong"
-  - title: "Pong with AI"
-    author: "Carlsen66"
-    url: "https://carlsen66.github.io/CC_067_Pong%20AI/"
-    source: "https://github.com/carlsen66/carlsen66.github.io/tree/master/CC_067_Pong%20AI"
-  - title: "A Classic Pong Game, Single Player Edition With Tiles"
-    author: "Aryan Chharia"
-    url: "https://editor.p5js.org/aryan.chharia@gmail.com/full/lP_zBPh_l"
-    source: "https://editor.p5js.org/aryan.chharia@gmail.com/sketches/lP_zBPh_l"
-  - title: "Original Looking Pong"
-    author: "James W"
-    url: "https://editor.p5js.org/JamesW/full/1dTQC21fd"
-    source: "https://editor.p5js.org/JamesW/sketches/1dTQC21fd"
-  - title: "Pong Atari version"
-    author: "Marc N"
-    url: "https://editor.p5js.org/mragonias/full/yTDYn8pt"
-    source: "https://editor.p5js.org/mragonias/sketches/yTDYn8pt"
-  - title: "Pong AI x Computer"
-    author: "Rodrigo Kulb"
-    url: "http://rodrigo-kulb.com.br/pong"
-    source: "https://github.com/rodrigoKulb/pongAI"
-  - title: "Pong in Processing"
-    author: "Abdullah Al-Sabbagh"
-    url: "https://github.com/CleverEngage/pong"
-    source: "https://github.com/CleverEngage/pong"
-  - title: "Python3.6 implementaion using Pygame1.9"
+      name: "Amin Ahmad Ahmadi"
+      url: "https://twitter.com/AminAhmadAhmadi"
+    url: "https://editor.p5js.org/AminCodingChallenge/full/3S1QjYwAy"
+    source: "https://editor.p5js.org/AminCodingChallenge/sketches/3S1QjYwAy"
+  - title: "Inside the Sponge"
     author:
-      name: "Chief141"
-      url: "https://chief141.github.io/chiefdev"
-    url: "https://repl.it/@chief141/pong-game"
-    source: "https://github.com/chief141/Coding-Train-Challenges-python/tree/master/Pong_game"
-  - title: "Pong Webcam Control p5js"
-    author: "Rodrigo Kulb"
-    url: "https://rodrigo-kulb.com.br/webcam/webcam.html"
-    source: "https://github.com/rodrigoKulb/pongWebCamControl"
-  - title: "Pong for Android and PC"
+      name: "Cássio Fernando Brito de Souza"
+      url: "https://www.linkedin.com/in/cassiofb-dev/"
+    url: "https://cassiofb-dev.github.io/menger-sponge-fractal/"
+    source: "https://github.com/cassiofb-dev/menger-sponge-fractal"
+  - title: "Menger sponge via Processing/Python"
     author:
-      name: "Yash Gupta"
-      url: "https://github.com/mind0bender"
-    url: "https://editor.p5js.org/mrcircuit1234/full/zGvcNLjD3"
-    source: "https://editor.p5js.org/mrcircuit1234/sketches/zGvcNLjD3"
+      name: "Maksim Kurchevskiy"
+      url: "https://www.patreon.com/thienxxn"
+    url: "https://github.com/thienxxn/coding_challenges/tree/master/CC_002_Menger_Sponge_Python"
+    source: "https://github.com/thienxxn/coding_challenges/tree/master/CC_002_Menger_Sponge_Python"
+  - title: "Air Hockey Battle"
+    author:
+      name: "Abhay Kashyap"
+      url: "https://studio.code.org/home"
+    url: "https://studio.code.org/projects/gamelab/1gFcP3dU8yHSkHD2pTV_6CL1BuIbsQ3HlpLLDeo6Yj0"
+    source: "https://studio.code.org/projects/gamelab/1gFcP3dU8yHSkHD2pTV_6CL1BuIbsQ3HlpLLDeo6Yj0"
 ---
-In this challenge, I attempt (emphasis on the word "attempt") to program the classic video game Pong in Processing (Java).
+
+In this coding challenge, I attempt to code the Menger Sponge (fractals) using Processing.
