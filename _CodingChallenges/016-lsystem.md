@@ -35,6 +35,12 @@ contributions:
       name: "Raime Carroll"
     url: "https://editor.p5js.org/chromatic.waltz/full/8ZTGSAjrm"
     source: "https://editor.p5js.org/chromatic.waltz/sketches/8ZTGSAjrm"
+  - title: "Interactive L-System"
+    author:
+      name: "Daan Breur"
+      url: "https://github.daanbreur.systems/"
+    url: "https://github.daanbreur.systems/P5js-Projects?id=L-SystemFractal"
+    source: "https://github.com/daanbreur/P5js-Projects/tree/master/L-SystemFractal"
 ---
 
 In this third installment of my series on algorithmic botany, I discuss L-systems and how they can be used to generate tree and other fractal patterns in p5.js.
