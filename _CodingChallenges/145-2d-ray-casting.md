@@ -148,6 +148,11 @@ contributions:
       name: "Paulo Fraga"
       url: "https://editor.p5js.org/PauloFraga/full/z9UL3sKVg"
     source: "https://editor.p5js.org/PauloFraga/sketches/z9UL3sKVg"
+  - title: "Ray Casting W/ Adjustable Ray Fidelity and Mouse Easing"
+    author:
+      name: "Jacob Bender"
+      url: "https://github.com/ThatBenderGuy"
+    source: "https://github.com/ThatBenderGuy/ProcessingRayCasting"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"
