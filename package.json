@@ -13,7 +13,7 @@
     "octocat": "^1.2.1",
     "prettier": "^1.19.1",
     "replace-in-file": "^6.1.0",
-    "yaml-front-matter": "^4.1.0"
+    "yaml-front-matter": "^4.1.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
