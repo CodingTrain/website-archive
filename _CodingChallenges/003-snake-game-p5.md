@@ -156,5 +156,11 @@ contributions:
       url: "https://github.com/Mind0Bender"
     url: "https://editor.p5js.org/mrcircuit1234/full/mHiZuBfxVB"
     source: "https://editor.p5js.org/mrcircuit1234/sketches/mHiZuBfxVB"
+  - title: "Outdated Snake"
+    author:
+      name: "OutdatedGuy"
+      url: "https://github.com/OutdatedGuy"
+    url: "https://outdated-snake.herokuapp.com"
+    source: "https://github.com/OutdatedGuy/Outdated-Snake"
 ---
 In this coding challenge, I attempt to code a p5.js version of the Snake Game.
