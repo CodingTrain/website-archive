@@ -68,4 +68,5 @@ topics:
   - title: "Wrap up! Choo Choo"
     time: "14:15"
 ---
-Welcome! In this discord bot video I demonstrate using the Tenor API to make our ChooChooBot post GIFs.
+
+In this video, I demonstrate how to post GIFs to Discord from a bot.
