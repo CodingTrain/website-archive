@@ -2,7 +2,7 @@
 title: Posting GIFs
 video_number: 5
 date: 2020-12-14
-video_id: Q6nWCGUVC6s
+video_id: 9P1rB2MY4ZA
 can_contribute: true
 repository: bots/discord/05-posting-gifs
 
