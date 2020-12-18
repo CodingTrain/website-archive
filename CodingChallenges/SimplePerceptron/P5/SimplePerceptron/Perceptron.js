@@ -8,34 +8,34 @@
 // Video: https://youtu.be/ntKn5TPHHAk
 
 class Perceptron {
+  // Constructor
+  constructor() {
     weights = [0, 0];
     lr = 0.1;
-    // Constructor
-    constructor() {
-        // Initialize the weights randomly
-        for (var i = 0; i < this.weights.length; i++) {
-            this.weights[i] = random(-1, 1);
-        }
+    // Initialize the weights randomly
+    for (var i = 0; i < this.weights.length; i++) {
+      this.weights[i] = random(-1, 1);
     }
+  }
 
-    guess(inputs) {
-        let sum = 0;
-        for (var i = 0; i < this.weights.length; i++) {
-            sum += inputs[i] * this.weights[i];
-        }
-        if (sum >= 0) {
-            return 1;
-        } else {
-            return -1;
-        }
+  guess(inputs) {
+    let sum = 0;
+    for (var i = 0; i < this.weights.length; i++) {
+      sum += inputs[i] * this.weights[i];
     }
+    if (sum >= 0) {
+      return 1;
+    } else {
+      return -1;
+    }
+  }
 
-    train(inputs, target) {
-        let guess = this.guess(inputs);
-        let error = target - guess;
-        // Tune all the weights
-        for (var i = 0; i < this.weights.length; i++) {
-            this.weights[i] += error * inputs[i] * this.lr;
-        }
+  train(inputs, target) {
+    let guess = this.guess(inputs);
+    let error = target - guess;
+    // Tune all the weights
+    for (var i = 0; i < this.weights.length; i++) {
+      this.weights[i] += error * inputs[i] * this.lr;
     }
+  }
 }
