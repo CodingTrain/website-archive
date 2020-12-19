@@ -100,5 +100,11 @@ contributions:
       url: "https://editor.p5js.org/aabhay.kashyap/sketches"
     url: "https://editor.p5js.org/aabhay.kashyap/full/GP-2rF_0i"
     source: "https://editor.p5js.org/aabhay.kashyap/sketches/GP-2rF_0i"
+  - title: "Trex game with desert background and camera for trex"
+    author:
+      name: "Abhay Kashyap"
+      url: "https://github.com/abhay2008"
+    url: "https://abhay2008.github.io/The_End-TREX_RUNNER-/index.html"
+    source: "https://github.com/abhay2008/The_End-TREX_RUNNER-"
 ---
 In this challenge, I attempt to make my own version of Google's Dinosaur Game (T-Rex run!) with a unique twist -- controlling the dinosaur (unicorn, in this case) with a machine learning Speech Commands model! 
