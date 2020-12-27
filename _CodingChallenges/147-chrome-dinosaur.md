@@ -106,5 +106,11 @@ contributions:
       url: "https://github.com/abhay2008"
     url: "https://abhay2008.github.io/The_End-TREX_RUNNER-/index.html"
     source: "https://github.com/abhay2008/The_End-TREX_RUNNER-"
+  - title: "Monkey runner game!!"
+    author:
+      name: "Abhay Kashyap"
+      url: "https://github.com/abhay2008"
+    url: "https://abhay2008.github.io/monkey-go-happy/"
+    source: "https://github.com/abhay2008/monkey-go-happy"
 ---
 In this challenge, I attempt to make my own version of Google's Dinosaur Game (T-Rex run!) with a unique twist -- controlling the dinosaur (unicorn, in this case) with a machine learning Speech Commands model! 
