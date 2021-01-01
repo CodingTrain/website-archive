@@ -138,5 +138,11 @@ contributions:
     author:
       name: "Borrus-sudo"
     source: "https://editor.p5js.org/DeathChargRocks21/sketches/fm0U3lBBE"
+      - title: "Whirly Noise"
+    author:
+      name: "ChromicQuanta"
+      url: "https://github.com/ChromicQuanta/xtra-tct-whirlynoise"
+    url: "https://codepen.io/chromicquanta/pen/zYKRgPx"
+    source: "https://github.com/ChromicQuanta/xtra-tct-whirlynoise/blob/main/tctCont.html"
 ---
 It's the fourth episode of Coding in the Cabana! Quarantined at home I explore the beauty of Worley noise.
