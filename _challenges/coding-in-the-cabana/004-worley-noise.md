@@ -138,7 +138,7 @@ contributions:
     author:
       name: "Borrus-sudo"
     source: "https://editor.p5js.org/DeathChargRocks21/sketches/fm0U3lBBE"
-      - title: "Whirly Noise"
+  - title: "Whirly Noise"
     author:
       name: "ChromicQuanta"
       url: "https://codepen.io/chromicquanta/pen/zYKRgPx"
