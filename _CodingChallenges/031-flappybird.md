@@ -12,6 +12,10 @@ links:
     url: "https://en.wikipedia.org/wiki/Flappy_Bird"
 
 contributions:
+ - title: "Flappy Batarang"
+    author: "Shameek Baranwal"
+    url: https://shameekbaranwal.github.io/Flappy_Batarang/
+    source: https://github.com/shameekbaranwal/Flappy_Batarang
   - title: "No Man's Flappycraft"
     author:
       name: "Red Hen Dev"
