@@ -12,10 +12,6 @@ links:
     url: "https://en.wikipedia.org/wiki/Flappy_Bird"
 
 contributions:
- - title: "Flappy Batarang"
-    author: "Shameek Baranwal"
-    url: https://shameekbaranwal.github.io/Flappy_Batarang/
-    source: https://github.com/shameekbaranwal/Flappy_Batarang
   - title: "No Man's Flappycraft"
     author:
       name: "Red Hen Dev"
@@ -63,5 +59,9 @@ contributions:
     author: "Syon"
     url: "https://ikittycode.github.io/flappy-bird"
     source: "https://github.com/iKittyCode/flappy-bird"
+  - title: "Flappy Batarang"
+    author: "Shameek Baranwal"
+    url: https://shameekbaranwal.github.io/Flappy_Batarang/
+    source: https://github.com/shameekbaranwal/Flappy_Batarang
 ---
 In this coding challenge, I attempt to program in JavaScript (using the p5.js framework) a clone of the game Flappy Bird.
