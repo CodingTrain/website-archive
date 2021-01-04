@@ -45,5 +45,11 @@ contributions:
       url: "https://github.com/abhay2008"
     url: "https://abhay2008.github.io/c32_project_TowerSiege3/"
     source: "https://github.com/abhay2008/c32_project_TowerSiege3"
+  - title: "Mango Throwing Contest"
+    author:
+      name: "Abhay Kashyap"
+      url: "https://github.com/abhay2008"
+    url: "https://abhay2008.github.io/c28_project_mango_contest/"
+    source: "https://github.com/abhay2008/c28_project_mango_contest"
 ---
 An attempt to implement the basic mechanics of Angry Birds in JavaScript using p5.js and the matter.js physics engine.

@@ -71,6 +71,12 @@ contributions:
       url: "https://github.com/abhay2008"
     url: "https://abhay2008.github.io/GhostInvader_skull_game/"
     source: "https://github.com/abhay2008/GhostInvader_skull_game"
+  - title: "Space Invadors Arcade Version"
+    author:
+      name: "Stéphane Roncin"
+      url: "https://www.linkedin.com/in/roncin-stephane/"
+    url: "https://editor.p5js.org/stephane.roncin/full/1SqybgJe6"
+    source: "https://editor.p5js.org/stephane.roncin/sketches/1SqybgJe6"
 ---
 
 In this viewer submitted coding challenge, I take on the task of coding a Space Invaders game to play in browser in JavaScript/HTML and the p5.js library.
