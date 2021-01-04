@@ -10,17 +10,17 @@
 class Perceptron {
   // Constructor
   constructor() {
-    weights = [0, 0];
-    lr = 0.1;
+    this.weights = [0, 0];
+    this.lr = 0.1;
     // Initialize the weights randomly
-    for (var i = 0; i < this.weights.length; i++) {
+    for (let i = 0; i < this.weights.length; i++) {
       this.weights[i] = random(-1, 1);
     }
   }
 
   guess(inputs) {
     let sum = 0;
-    for (var i = 0; i < this.weights.length; i++) {
+    for (let i = 0; i < this.weights.length; i++) {
       sum += inputs[i] * this.weights[i];
     }
     if (sum >= 0) {
