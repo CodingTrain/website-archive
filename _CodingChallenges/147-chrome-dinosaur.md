@@ -112,11 +112,11 @@ contributions:
       url: "https://github.com/abhay2008"
     url: "https://abhay2008.github.io/monkey-go-happy/"
     source: "https://github.com/abhay2008/monkey-go-happy"
-    - title: "Dino game rebuilt"
+  - title: "Dino game rebuilt"
     author:
       name: "Sarvagya singh"
       url: "https://editor.p5js.org/sarvagyasingh260508/full/hsaadz92r"
     url: "https://editor.p5js.org/sarvagyasingh260508/sketches/hsaadz92r"
     source: "https://editor.p5js.org/sarvagyasingh260508/sketches/hsaadz92r"
 ---
-In this challenge, I attempt to make my own version of Google's Dinosaur Game (T-Rex run!) with a unique twist -- controlling the dinosaur (unicorn, in this case) with a machine learning Speech Commands model! 
+In this challenge, I attempt to make my own version of Google's Dinosaur Game (T-Rex run!) with a unique twist -- controlling the dinosaur (unicorn, in this case) with a machine learning Speech Commands model!
