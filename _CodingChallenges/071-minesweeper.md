@@ -105,7 +105,7 @@ contributions:
     video_id: yCPmRfIEzZ4
     source: https://github.com/Ivan-Denisovich-py/Minesweeper
   - title: "BOMBSWEEPER!!!"
-      author: "Abhay Kashyap and Simon Tiger"
+    author: "Abhay Kashyap and Simon Tiger"
     url: https://abhay2008.github.io/Minesweeper-/
     source: https://github.com/abhay2008/Minesweeper-
 ---
