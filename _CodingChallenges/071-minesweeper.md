@@ -104,6 +104,10 @@ contributions:
       url: https://github.com/Ivan-Denisovich-py
     video_id: yCPmRfIEzZ4
     source: https://github.com/Ivan-Denisovich-py/Minesweeper
+  - title: "BOMBSWEEPER!!!"
+      author: "Abhay Kashyap and Simon Tiger"
+    url : https://abhay2008.github.io/Minesweeper-/
+    source: https://github.com/abhay2008/Minesweeper-
 ---
 
 In this challenge, I attempt to code the classic game Minesweeper in JavaScript with the p5.js library. This video builds on some previous tutorials related to the Prototypes and multi-dimensional arrays in JavaScript.
