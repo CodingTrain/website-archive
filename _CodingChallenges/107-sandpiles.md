@@ -44,6 +44,12 @@ contributions:
       url: "https://github.com/amaralis"
     url: "https://amaralis.github.io/sandpiles/"
     source: "https://github.com/amaralis/sandpiles"
+      - title: "Javascript version with optimizations"
+    author:
+      name: "Oddbjørn Sjøgren"
+      url: "https://github.com/yaybjorn"
+    url: "https://editor.p5js.org/yaybjorn/full/pBYrUp8-0"
+    source: "https://editor.p5js.org/yaybjorn/sketches/pBYrUp8-0"
 ---
 
 In this coding challenge, inspired by Numberphile I visualize "sandpiles" with Processing (Java).
