@@ -44,7 +44,7 @@ contributions:
       url: "https://github.com/amaralis"
     url: "https://amaralis.github.io/sandpiles/"
     source: "https://github.com/amaralis/sandpiles"
-      - title: "Javascript version with optimizations"
+  - title: "Javascript version with optimizations"
     author:
       name: "Oddbjørn Sjøgren"
       url: "https://github.com/yaybjorn"
