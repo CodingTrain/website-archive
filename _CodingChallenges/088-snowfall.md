@@ -32,6 +32,12 @@ contributions:
       url: https://github.com/wooooooood
     url: https://editor.p5js.org/wooooooood/full/vbIe54vYK
     source: https://editor.p5js.org/wooooooood/sketches/vbIe54vYK
+  - title: "Snowflakes precipitation"
+    author:
+      name: "Juan Carlos Ponce Campuzano"
+      url: https://jcponce.github.io
+    url: https://editor.p5js.org/jcponce/full/tA94Ptb-f
+    source: https://editor.p5js.org/jcponce/sketches/tA94Ptb-f
 ---
 
 In this special holiday season coding challenge, I attempt to create a snowfall simulation using p5.js, sprite sheets and Perlin noise wind.
