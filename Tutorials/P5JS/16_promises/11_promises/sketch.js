@@ -20,7 +20,7 @@ function setup() {
     })
     .then(response => response.json())
     .then(json => {
-      createImg(json.data[0].images['fixed_height_small'].url);
+      createImg(json.data[0].images.fixed_height_small.url);
     })
     .catch(err => console.log(err));
 }
