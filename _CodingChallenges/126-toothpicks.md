@@ -31,6 +31,11 @@ contributions:
       name: "Mertcan Çezik"
     url: "https://editor.p5js.org/cezikmertcan/full/JiW8l-bCu"
     source: "https://editor.p5js.org/cezikmertcan/sketches/JiW8l-bCu"
+  - title: "Fredkin Replicator"
+    author:
+      name: "Oddbjørn Sjøgren"
+    url: "https://editor.p5js.org/yaybjorn/full/pTcbkZ4R6"
+    source: "https://editor.p5js.org/yaybjorn/sketches/pTcbkZ4R6"
 ---
 
 In this coding challenge, I implement Omar Pol's fractal toothpick sequence.
