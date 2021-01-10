@@ -13,6 +13,12 @@ links:
   - title: "Space Colonization Algorithm"
     url: "http://paulbourke.net/geometry/supershape/"
     author: "Paul Bourke"
+    
+contributions:
+  - title: "Sweet Jane"
+    author: "Josh Kenzer"
+    url: "https://editor.p5js.org/jkenzer/full/nPbnDYnsI"
+    source: "https://editor.p5js.org/jkenzer/sketches/nPbnDYnsI"
 ---
 
 In this coding challenge, I'm going to use superformulas to create a superellipse in p5.js.
