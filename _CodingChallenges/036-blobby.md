@@ -23,7 +23,7 @@ contributions:
   - title: "Rings and Rings"
     author: "Josh Kenzer"
     url: "https://editor.p5js.org/jkenzer/full/WcnOg0z74"
-    source: "https://editor.p5js.org/jkenzer/sketches/WcnOg0z74"    
+    source: "https://editor.p5js.org/jkenzer/sketches/WcnOg0z74"
 ---
 
 In this coding challenge, I simulate a blob-like shape with wobbly edges using `beginShape()`, `endShape()`, polar coordinates, and perlin noise.
