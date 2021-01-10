@@ -13,7 +13,6 @@ links:
   - title: "Space Colonization Algorithm"
     url: "http://paulbourke.net/geometry/supershape/"
     author: "Paul Bourke"
-    
 contributions:
   - title: "Sweet Jane"
     author: "Josh Kenzer"
