@@ -171,6 +171,12 @@ contributions:
     author: "dzson"
     url: https://dzson.github.io/FibonacciClock/index.html
     source: https://github.com/dzson/FibonacciClock
+  - title: "A Whole Bunch O'Clocks"
+    author:
+      name: "Rob Owen King"
+      url: http://www.robowenking.com/
+    url: http://www.robowenking.com/clocks
+    source: https://github.com/RobOwenKing/personal_site/blob/master/app/javascript/packs/projects/clocks.js
 ---
 
 In this coding challenge, I attempt to program a clock in HTML5 canvas with the p5.js library.
