@@ -56,4 +56,4 @@ topics:
     time: "17:56"
 ---
 
-Welcome back! In this video I demonstrate how to create a command handler for our discord bot.
+In this video I demonstrate how to manage multiple Discord bot commands with "a command handler" built with CommonJS and require() in node.js.
