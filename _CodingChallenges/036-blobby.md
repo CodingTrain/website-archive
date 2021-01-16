@@ -24,6 +24,10 @@ contributions:
     author: "Josh Kenzer"
     url: "https://editor.p5js.org/jkenzer/full/WcnOg0z74"
     source: "https://editor.p5js.org/jkenzer/sketches/WcnOg0z74"
+  - title: "Blob White Rose"
+    author: "Tika"
+    url: "https://openprocessing.org/sketch/1063256"
+    source: "https://openprocessing.org/sketch/1063256#code"
 ---
 
 In this coding challenge, I simulate a blob-like shape with wobbly edges using `beginShape()`, `endShape()`, polar coordinates, and perlin noise.
