@@ -96,5 +96,13 @@ topics:
     time: "33:49"
   - title: "What's next?"
     time: "34:33"
+
+contributions:
+  - title: "Handwriting Digits"
+    author:
+      name: "Andrew Y"
+      url: "http://mortis-grimreaper.ddns.net/projects/"
+    url: "https://mortis-grimreaper.ddns.net/projects/HandwrittenDigit/"
+    source: "https://github.com/YushchenkoAndrew/template/tree/master/JS/HandwrittenDigit"
 ---
 In this challenge, I demonstrate the entire process of training and deploying a machine learning classification model in JavaScript -- data collection, model training, and prediction!
