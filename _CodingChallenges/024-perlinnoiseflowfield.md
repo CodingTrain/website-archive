@@ -56,6 +56,11 @@ contributions:
       url: "https://graphicaldesigns.blogsot.com"
     url: "https://editor.p5js.org/DeathChargRocks21/sketches/SjYAyzrr6"
     source: "https://editor.p5js.org/DeathChargRocks21/sketches/SjYAyzrr6"
+  - title: "flow field playground"
+    author:
+      name: "Gil Lianni"
+      url: "https://editor.p5js.org/Gil/present/9T-_t8Y0H"
+    source: "https://editor.p5js.org/Gil/sketches/9T-_t8Y0H"
 ---
 
 In this coding challenge, I use Perlin noise to create a two-dimensional flow field with the p5.js library
