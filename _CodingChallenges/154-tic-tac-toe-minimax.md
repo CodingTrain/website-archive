@@ -98,7 +98,7 @@ contributions:
       name: "Saraansh Rawat"
     url: "https://www.openprocessing.org/sketch/1005276"
     source: "https://www.openprocessing.org/user/242833"
-      - title: "Connect 4 with MiniMax Java"
+  - title: "Connect 4 with MiniMax with alpha-beta pruning Java"
     author:
       name: "ITEMan Zero"
     url: "https://github.com/ITManZero/Connect4"
