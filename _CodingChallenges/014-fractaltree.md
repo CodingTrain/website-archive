@@ -60,5 +60,11 @@ contributions:
       url: "https://github.com/cipherDOT"
     url: "https://cipherdot.github.io/coding-train-fractal-tree-contribution/"
     source: "https://github.com/cipherDOT/coding-train-fractal-tree-contribution/blob/main/sketch.js"
+  - title: "Pine fractal tree"
+    author:
+      name: "Juan Carlos Ponce Campuzano"
+      url: "https://jcponce.github.io"
+    url: "https://editor.p5js.org/jcponce/present/vJ5XRkjm7"
+    source: "https://editor.p5js.org/jcponce/sketches/vJ5XRkjm7"
 ---
 In this coding challenge, I'm going to show you how to create a Fractal Tree with a recursive algorithm in p5.js.
