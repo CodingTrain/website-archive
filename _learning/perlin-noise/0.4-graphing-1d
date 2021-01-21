@@ -1,0 +1,34 @@
+---
+title: Graphing 1D Perlin Noise
+video_number: 0.4
+date: 2016-06-24
+video_id: y7sgcFhk6ZM
+repository: perlin-noise/0.4-graphing-1d
+
+variations:
+  - name: "Add Y axis"
+    folder: "y-axis"z
+    lang: "p5js"
+    web_editor: nCYG2SCNq
+  - name: "1D Noise Graph"
+    folder: "noise-graph"
+    lang: "p5js"
+    web_editor: EZeHXBhei
+  - name: "Noisy Sin"
+    folder: "noisy-sin"
+    lang: "p5js"
+    web_editor: M_kuAXwV2
+
+links:
+  - title: "p5.js noise() reference"
+    url: https://p5js.org/reference/#/p5/noise
+  - title: "p5.js random() reference"
+    url: https://p5js.org/reference/#/p5/random
+  - title: "The Nature of Code"
+    url: https://natureofcode.com/book/
+  - title: "NOC Github"
+    url: https://github.com/nature-of-code
+  - title: "NOC Examples p5.js"
+    url: https://github.com/nature-of-code/noc-examples-p5.js
+---
+In Part I.4 of my Perlin Noise Tutorial, I graph the values of one-dimensional perlin noise and compare to randomness.
