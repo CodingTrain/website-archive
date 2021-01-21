@@ -5,7 +5,6 @@
 // XOR with tf.js
 // https://youtu.be/N3ZnNa01BPM
 
-let nn;
 let model;
 
 let resolution = 20;
