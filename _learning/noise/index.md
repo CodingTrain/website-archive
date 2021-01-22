@@ -3,6 +3,7 @@ title: Perlin Noise
 layout: series-index
 playlist_id: PLRqwX-V7Uu6bgPNQAdxQZpJuJCjeOr7VD
 redirect_from:
+  - /noise
   - /perlin-noise
 ---
 

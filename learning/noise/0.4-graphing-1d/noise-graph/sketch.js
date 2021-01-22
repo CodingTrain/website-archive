@@ -1,6 +1,6 @@
 // Graphing 1D Perlin Noise (1D Noise Graph)
 // The Coding Train / Daniel Shiffman
-// https://thecodingtrain.com/learning/perlin-noise/0.4-graphing-1d.html
+// https://thecodingtrain.com/learning/noise/0.4-graphing-1d.html
 // https://youtu.be/y7sgcFhk6ZM
 
 // Adding Y-Axis: https://editor.p5js.org/codingtrain/sketches/nCYG2SCNq

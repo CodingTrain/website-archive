@@ -1,6 +1,6 @@
 // noise() vs random()
 // The Coding Train / Daniel Shiffman
-// https://thecodingtrain.com/learning/perlin-noise/0.3-noise-vs-random.html
+// https://thecodingtrain.com/learning/noise/0.3-noise-vs-random.html
 // https://youtu.be/YcdldZ1E9gU
 // https://editor.p5js.org/codingtrain/sketches/u6Te_XMF5
 

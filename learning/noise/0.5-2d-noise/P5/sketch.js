@@ -1,6 +1,6 @@
 // 2D Noise
 // The Coding Train / Daniel Shiffman
-// https://thecodingtrain.com/learning/perlin-noise/0.5-2d-noise.html
+// https://thecodingtrain.com/learning/noise/0.5-2d-noise.html
 // https://youtu.be/ikwNrFvnL3g
 // https://editor.p5js.org/codingtrain/sketches/2_hBcOBrF
 
