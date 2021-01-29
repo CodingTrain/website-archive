@@ -69,7 +69,7 @@ contributions:
     author:
       name: "Casey Labrack"
     url: "https://www.instagram.com/p/CJy88MkBQgX/"
-    source: "https://github.com/caseylabrack/caseylabrack.github.io/tree/master/sketches/hypercube"    
+    source: "https://github.com/caseylabrack/caseylabrack.github.io/tree/master/sketches/hypercube"
 ---
 
 In this coding challenge, I visualize a 4D Hypercube (aka "Tesseract") in Processing (Java).
