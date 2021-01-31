@@ -98,5 +98,11 @@ contributions:
       url: "https://da091005.github.io"
     url: "https://da091005.github.io/Life/life.html"
     source: "https://github.com/da091005/da091005.github.io/tree/master/Life"
+  - title: "Game of Life With Patterns"
+    author:
+      name: "HoangTran"
+      url: "https://github.com/HoangTran0410"
+    url: "https://hoangtran0410.github.io/game-of-life/"
+    source: "https://github.com/HoangTran0410/game-of-life"
 ---
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.
