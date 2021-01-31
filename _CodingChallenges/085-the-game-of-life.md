@@ -98,7 +98,7 @@ contributions:
       url: "https://da091005.github.io"
     url: "https://da091005.github.io/Life/life.html"
     source: "https://github.com/da091005/da091005.github.io/tree/master/Life"
-    - title: "Game of Life With Patterns"
+  - title: "Game of Life With Patterns"
     author:
       name: "HoangTran"
       url: "https://github.com/HoangTran0410"
