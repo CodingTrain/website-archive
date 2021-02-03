@@ -13,9 +13,9 @@ jobs:
       - uses: actions/cache@v1
         with:
           path: vendor/bundle
-          key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}-new
+          key: ${{ runner.os }}-gem-new-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
-            ${{ runner.os }}-gem-
+            ${{ runner.os }}-gem-new-
       - name: Installing ruby gems
         run: |
           bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
