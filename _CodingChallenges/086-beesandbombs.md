@@ -40,6 +40,10 @@ contributions:
     author: "Borrus-sudo"
     url: https://editor.p5js.org/DeathChargRocks21/sketches/oA7R9pZxY
     source: https://editor.p5js.org/DeathChargRocks21/sketches/oA7R9pZxY
+  - title: "Replica but in Roblox"
+    author: "mawesome4ever"
+    url: https://www.roblox.com/games/6011930452/Cube-Wave-Challenge
+    source: https://github.com/mawesome4ever/Cube_Wave_Challenge-Roblox
 ---
 
 In this coding challenge, I attempt recreate a 3D @beesandbombs GIF with p5.js and the WebGL renderer.
