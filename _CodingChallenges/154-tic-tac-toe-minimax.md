@@ -103,5 +103,11 @@ contributions:
       name: "ITEMan Zero"
     url: "https://github.com/ITManZero/Connect4"
     source: "https://github.com/ITManZero/Connect4/tree/master/src/main/java"
+  - title: "Chess AI with alpha-beta pruning in javascript"
+    author:
+      name: "reddragonnm"
+      url: "https://github.com/reddragonnm"
+    url: "https://reddragonnm.github.io/chess-ai/"
+    source: "https://github.com/reddragonnm/chess-ai"
 ---
 In this challenge I take the Tic Tac Toe game from coding challenge #149 and add an AI opponent for a human player by implenenting the Minimax algorithm.
