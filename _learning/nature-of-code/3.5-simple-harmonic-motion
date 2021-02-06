@@ -6,6 +6,32 @@ video_id: m463X1cqV6s
 repository: nature-of-code/3.5-simple-harmonic-motion
 can_contribute: true
 
+variations:
+  - name: "Basic"
+    folder: "basic"
+    lang: "p5js"
+    web_editor: Fn1feR81W
+  - name: "Approximate Time"
+    folder: "approximate-time"
+    lang: "p5js"
+    web_editor: uGCYH4-PN
+  - name: "Exact Time Exercise"
+    folder: "exact-time-exercise"
+    lang: "p5js"
+    web_editor: jp2B-0Wkg
+  - name: "Main"
+    folder: "main"
+    lang: "p5js"
+    web_editor: MfvyVULHT
+  - name: "Yoyo"
+    folder: "yoyo"
+    lang: "p5js"
+    web_editor: qBhVjZ0pn
+  - name: "2-axes Exercise"
+    folder: "2-axes-exercise"
+    lang: "p5js"
+    web_editor: _ir7-suNG
+
 videos:
   - title: "The map() Function - p5.js Tutorial"
     author: The Coding Train
