@@ -16,7 +16,7 @@ let r = 4;
 function setup() {
   createCanvas(600, 400);
   let total = floor(width / (r * 2));
-  for (let i = 0; i < total + 1; i++) {
+  for (let i = 0; i <= total; i++) {
     angles[i] = map(i, 0, total, 0, 2 * TWO_PI);
     // angleV[i] = 0.01 + i / 100;
   }
