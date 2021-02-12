@@ -106,7 +106,7 @@ function getVideoID(url) {
 
 function writeDescriptions(videos) {
 
-  primeDirectory('./descriptions');
+  primeDirectory('./_descriptions');
 
   for (let i = 0; i < videos.length; i++) {
 
@@ -118,14 +118,42 @@ function writeDescriptions(videos) {
 
     // Description
     let content = data.__content;
-    description += `${content.trim()}\n`;
+    description += `${content.trim()}`;
 
     // Code
     if (data.repository || data.web_editor) {
-      description += `\n💻 Code: https://thecodingtrain.com/${pageURL}.html\n`;
+      description += ` https://thecodingtrain.com/${pageURL}.html`;
     }
 
-    // Next Video / Playlist
+    description += '\n';
+
+    // Web Editor Links
+    let hasWebEditorVariations = false;
+    if (data.variations) {
+      for (let j = 0; j < data.variations.length; ++j) {
+        if (data.variations[j].web_editor) {
+
+          if (!hasWebEditorVariations) {
+            description += '\np5.js Web Editor Sketches:\n';
+
+            if (data.web_editor) {
+              description += `🕹️ Main Sketch: https://editor.p5js.org/codingtrain/sketches/${data.web_editor}\n`;
+            }
+          }
+
+          description += `🕹️ ${data.variations[j].name}: https://editor.p5js.org/codingtrain/sketches/${data.variations[j].web_editor}\n`;
+
+          hasWebEditorVariations = true;
+
+        }
+      }
+    }
+
+    if (!hasWebEditorVariations && data.web_editor) {
+      description += `\n🕹️ p5.js Web Editor Sketch: https://editor.p5js.org/codingtrain/sketches/${data.web_editor}\n`;
+    }
+
+    // Next Video / Previous Video / Playlist
     let nextID;
     if (i !== videos.length - 1) {
       if (pageURL.substring(0, pageURL.lastIndexOf('/')) === videos[i + 1].pageURL.substring(0, videos[i + 1].pageURL.lastIndexOf('/'))) {
@@ -137,11 +165,32 @@ function writeDescriptions(videos) {
       nextID = false;
     }
 
+    let previousID;
+    if (i !== 0) {
+      if (pageURL.substring(0, pageURL.lastIndexOf('/')) === videos[i - 1].pageURL.substring(0, videos[i - 1].pageURL.lastIndexOf('/'))) {
+        previousID = videos[i - 1].data.video_id;
+      } else {
+        previousID = false;
+      }
+    } else {
+      previousID = false;
+    }
+
     if (playlist || nextID) {
       description += '\n';
-      if (nextID) {
+
+      if (previousID && playlist) {
+        description += `🎥 Previous video: https://youtu.be/${previousID}?list=${playlist}\n`;
+      } else if (previousID) {
+        description += `🎥 Previous video: https://youtu.be/${previousID}\n`;
+      }
+
+      if (nextID && playlist) {
+        description += `🎥 Next video: https://youtu.be/${nextID}?list=${playlist}\n`;
+      } else if (nextID) {
         description += `🎥 Next video: https://youtu.be/${nextID}\n`;
       }
+
       if (playlist) {
         description += `🎥 All videos: https://www.youtube.com/playlist?list=${playlist}\n`;
       }
@@ -204,7 +253,7 @@ function writeDescriptions(videos) {
 
 This description was auto-generated. If you see a problem, please open an issue: https://github.com/CodingTrain/website/issues/new`;
 
-    fs.writeFileSync(`descriptions/${data.video_id}.txt`, description);
+    fs.writeFileSync(`_descriptions/${data.video_id}.txt`, description);
   }
 
 }
