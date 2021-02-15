@@ -46,7 +46,6 @@ void draw() {
   background(255);
   fill(0);
   text("Generate", width * 0.5, height * 0.5);
-  // Only here so mouseClicked() will work
 }
 
 void mouseClicked() {
