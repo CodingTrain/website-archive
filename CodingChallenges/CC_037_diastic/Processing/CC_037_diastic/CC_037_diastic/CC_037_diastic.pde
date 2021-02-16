@@ -8,7 +8,20 @@
 
 String diastic(String seed, String[] words) {
   String phrase = "";
+  int currentWord = 0;
   
+  for (int i = currentWord; i < seed.length(); i++) {
+    char c = seed.charAt(i);
+    
+    for (int j = 0; j < words.length; j++) {
+      if (words[j].length() >= i + 1 && words[j].charAt(i) == c) {
+        phrase += words[j];
+        phrase += " ";
+        currentWord = j + 1;
+        break;
+      }
+    }
+  }
   return phrase;
 }
 
@@ -39,6 +52,7 @@ void draw() {
 void keyPressed() {
   if (key == '\n') {
     String phrase = diastic(seed, words);
+    println(phrase);
   } else {
     seed += key;
   }
