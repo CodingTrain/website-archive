@@ -9,9 +9,11 @@ repository: CC_159_simple_pendulum_simulation
 variations:
   - name: "Pendulum OOP"
     lang: "p5js"
+    folder: pendulum-oop
     web_editor: lJz1cmMp4
   - name: "Array of Pendulums"
     lang: "p5js"
+    folder: array-of-pendulums
     web_editor: Bj82tUlIO
 
 links:
