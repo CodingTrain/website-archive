@@ -70,4 +70,4 @@ topics:
     time: "20:21"
 ---
 
-Welcome to this coding challenge! In this one, I demonstrate how to use angular motion to make a simple pendulum simulation in p5.js.
+Choo choo! In this challenge, I build on chapter 3 (Oscillating Motion) of the Nature of Code series and simulate a simple pendulum in p5.js via angular acceleration.
