@@ -7,12 +7,12 @@ web_editor: SN-39sHAC
 repository: CC_159_simple_pendulum_simulation
 
 contributions:
-- title: "Pendulum on a cart with PID controller"
-  author:
-    name: "Ewoud Dronkert"
-    url: "https://ednl.github.io"
-  url: "https://ednl.github.io/pidcart/"
-  source: "https://github.com/ednl/pidcart"
+  - title: "Pendulum on a cart with PID controller"
+    author:
+      name: "Ewoud Dronkert"
+      url: "https://ednl.github.io"
+    url: "https://ednl.github.io/pidcart/"
+    source: "https://github.com/ednl/pidcart"
 
 variations:
   - name: "Pendulum OOP "
