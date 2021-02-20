@@ -6,6 +6,14 @@ video_id: NBWMtlbbOag
 web_editor: SN-39sHAC
 repository: CC_159_simple_pendulum_simulation
 
+variations:
+  - name: "Pendulum OOP "
+    lang: "p5js"
+    web_editor: lJz1cmMp4
+  - name: "Array of Pendulums"
+    lang: "p5js"
+    web_editor: Bj82tUlIO
+
 links:
   - title: "Nature of Code Playlist"
     url: /learning/nature-of-code/index
