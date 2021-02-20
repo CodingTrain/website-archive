@@ -6,16 +6,8 @@ video_id: NBWMtlbbOag
 web_editor: SN-39sHAC
 repository: CC_159_simple_pendulum_simulation
 
-contributions:
-  - title: "Pendulum on a cart with PID controller"
-    author:
-      name: "Ewoud Dronkert"
-      url: "https://ednl.github.io"
-    url: "https://ednl.github.io/pidcart/"
-    source: "https://github.com/ednl/pidcart"
-
 variations:
-  - name: "Pendulum OOP "
+  - name: "Pendulum OOP"
     lang: "p5js"
     web_editor: lJz1cmMp4
   - name: "Array of Pendulums"
@@ -84,6 +76,14 @@ topics:
     time: "19:54"
   - title: "Ideas! What could you do next?"
     time: "20:21"
+
+contributions:
+  - title: "Pendulum on a cart with PID controller"
+    author:
+      name: "Ewoud Dronkert"
+      url: "https://ednl.github.io"
+    url: "https://ednl.github.io/pidcart/"
+    source: "https://github.com/ednl/pidcart"
 ---
 
 Choo choo! In this challenge, I build on chapter 3 (Oscillating Motion) of the Nature of Code series and simulate a simple pendulum in p5.js via angular acceleration.
