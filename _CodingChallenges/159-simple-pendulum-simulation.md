@@ -80,17 +80,16 @@ topics:
     time: "20:21"
 
 contributions:
-  -title:"Colourful Pendulum in CodePen"
-   author:
-   name:"Indrayudh Chakraborty"
-  url:"https://codepen.io/indra737/full/oNYeOQx"
-  source:"https://codepen.io/indra737/pen/oNYeOQx"
   - title: "Pendulum on a cart with PID controller"
     author:
       name: "Ewoud Dronkert"
       url: "https://ednl.github.io"
     url: "https://ednl.github.io/pidcart/"
     source: "https://github.com/ednl/pidcart"
+  - title: "Colourful Pendulum in CodePen"
+    author: "Indrayudh Chakraborty"
+    url: "https://codepen.io/indra737/full/oNYeOQx"
+    source: "https://codepen.io/indra737/pen/oNYeOQx"
 ---
 
 Choo choo! In this challenge, I build on chapter 3 (Oscillating Motion) of the Nature of Code series and simulate a simple pendulum in p5.js via angular acceleration.
