@@ -86,6 +86,13 @@ contributions:
       url: "https://ednl.github.io"
     url: "https://ednl.github.io/pidcart/"
     source: "https://github.com/ednl/pidcart"
+    
+  - title: "Simple Pendulum Simulation using Python"
+    author:
+      name: "Karan Kinariwala"
+      url: "https://github.com/kkin1995"
+    video_id: "G7EJsikYbrs"
+    source: "https://github.com/kkin1995/simulations/tree/main/simple-pendulum"
 ---
 
 Choo choo! In this challenge, I build on chapter 3 (Oscillating Motion) of the Nature of Code series and simulate a simple pendulum in p5.js via angular acceleration.
