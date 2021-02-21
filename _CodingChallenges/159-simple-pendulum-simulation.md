@@ -86,6 +86,10 @@ contributions:
       url: "https://ednl.github.io"
     url: "https://ednl.github.io/pidcart/"
     source: "https://github.com/ednl/pidcart"
+  - title: "Colourful Pendulum in CodePen"
+    author: "Indrayudh Chakraborty"
+    url: "https://codepen.io/indra737/full/oNYeOQx"
+    source: "https://codepen.io/indra737/pen/oNYeOQx"
   - title: "Simple Pendulum Simulation using Python"
     author:
       name: "Karan Kinariwala"
