@@ -80,6 +80,11 @@ topics:
     time: "20:21"
 
 contributions:
+  -title:"Colourful Pendulum in CodePen"
+   author:
+   name:"Indrayudh Chakraborty"
+  url:"https://codepen.io/indra737/full/oNYeOQx"
+  source:"https://codepen.io/indra737/pen/oNYeOQx"
   - title: "Pendulum on a cart with PID controller"
     author:
       name: "Ewoud Dronkert"
