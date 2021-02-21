@@ -90,6 +90,12 @@ contributions:
     author: "Indrayudh Chakraborty"
     url: "https://codepen.io/indra737/full/oNYeOQx"
     source: "https://codepen.io/indra737/pen/oNYeOQx"
+  - title: "Simple Pendulum Simulation using Python"
+    author:
+      name: "Karan Kinariwala"
+      url: "https://github.com/kkin1995"
+    video_id: "G7EJsikYbrs"
+    source: "https://github.com/kkin1995/simulations/tree/main/simple-pendulum"
 ---
 
 Choo choo! In this challenge, I build on chapter 3 (Oscillating Motion) of the Nature of Code series and simulate a simple pendulum in p5.js via angular acceleration.
