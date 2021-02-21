@@ -86,7 +86,6 @@ contributions:
       url: "https://ednl.github.io"
     url: "https://ednl.github.io/pidcart/"
     source: "https://github.com/ednl/pidcart"
-    
   - title: "Simple Pendulum Simulation using Python"
     author:
       name: "Karan Kinariwala"
