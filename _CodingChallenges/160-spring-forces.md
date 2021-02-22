@@ -92,4 +92,4 @@ topics:
     time: "31:07"
 ---
 
-Welcome to another coding challenge! This one is about spring forces. I use the ideas covered in Chapter 3 of The Nature of Code to demonstrate how to make a number of spring simulations in p5.js.
+Boing! Time to simulate a spring force! This challenge fits into chapters 2 and 3 of the Nature of Code and demonstrates how to simulate the oscillating motion of a spring using vectors and forces.
