@@ -52,6 +52,13 @@ videos:
   - title: "Simple Particle System - Coding Challenge #78"
     author: "The Coding Train"
     url: /CodingChallenges/078-simple-particle-system
+    
+contributions:
+  - title: "Grab Any Spring Particle"
+    author:
+      name: "Galitan"
+    url: "https://editor.p5js.org/Galitan-dev/present/tMm6zujat"
+    source: "https://editor.p5js.org/Galitan-dev/sketches/tMm6zujat"
 
 topics:
   - title: "Choo choo!! Springs Coding Challenge!"
