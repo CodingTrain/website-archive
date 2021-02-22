@@ -52,12 +52,6 @@ videos:
   - title: "Simple Particle System - Coding Challenge #78"
     author: "The Coding Train"
     url: /CodingChallenges/078-simple-particle-system
-  - title: "Double Pendulum - Coding Challenge #93"
-    author: "The Coding Train"
-    url: /CodingChallenges/093-double-pendulum
-  - title: "Coding Train Live! (February 6th 2021)"
-    author: "The Coding Train"
-    video_id: dpqNqyQCcbY
 
 topics:
   - title: "Choo choo!! Springs Coding Challenge!"
