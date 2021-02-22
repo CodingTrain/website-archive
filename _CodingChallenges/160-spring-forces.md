@@ -52,7 +52,7 @@ videos:
   - title: "Simple Particle System - Coding Challenge #78"
     author: "The Coding Train"
     url: /CodingChallenges/078-simple-particle-system
-    
+
 contributions:
   - title: "Grab Any Spring Particle"
     author:
