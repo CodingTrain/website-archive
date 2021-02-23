@@ -99,7 +99,7 @@ contributions:
   - title: "Up Down Left Right"
     author: "Josh Kenzer"
     url: https://editor.p5js.org/jkenzer/full/a-l3Gxark
-    source: "https://editor.p5js.org/jkenzer/sketches/a-l3Gxark"    
+    source: "https://editor.p5js.org/jkenzer/sketches/a-l3Gxark"
 ---
 
 Choo choo! In this challenge, I build on chapter 3 (Oscillating Motion) of the Nature of Code series and simulate a simple pendulum in p5.js via angular acceleration.
