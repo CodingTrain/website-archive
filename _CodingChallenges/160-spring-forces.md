@@ -61,7 +61,7 @@ contributions:
     source: "https://editor.p5js.org/Galitan-dev/sketches/tMm6zujat"
   - title: "Spring Force Contribution - Grass"
     author: "Leonardo Lewandowski"
-    url: https://editor.p5js.org/leolewan/full/g_Dh6JvL1 
+    url: https://editor.p5js.org/leolewan/full/g_Dh6JvL1
     source: https://editor.p5js.org/leolewan/sketches/g_Dh6JvL1
 
 topics:
