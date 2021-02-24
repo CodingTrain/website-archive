@@ -100,7 +100,7 @@ contributions:
     author: "Josh Kenzer"
     url: https://editor.p5js.org/jkenzer/full/a-l3Gxark
     source: "https://editor.p5js.org/jkenzer/sketches/a-l3Gxark"
-     - title: "Pendulum website"
+  - title: "Pendulum website"
     author: "Sarvagya singh"
     url: "https://pendulums-sarvagya.glitch.me/"
     source: "https://pendulums-sarvagya.glitch.me/
