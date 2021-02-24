@@ -103,8 +103,7 @@ contributions:
   - title: "Pendulum website"
     author: "Sarvagya singh"
     url: "https://pendulums-sarvagya.glitch.me/"
-    source: "https://pendulums-sarvagya.glitch.me/
-    "
+    source: "https://pendulums-sarvagya.glitch.me/"
 ---
 
 Choo choo! In this challenge, I build on chapter 3 (Oscillating Motion) of the Nature of Code series and simulate a simple pendulum in p5.js via angular acceleration.
