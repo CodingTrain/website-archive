@@ -100,6 +100,10 @@ contributions:
     author: "Josh Kenzer"
     url: https://editor.p5js.org/jkenzer/full/a-l3Gxark
     source: "https://editor.p5js.org/jkenzer/sketches/a-l3Gxark"
+  - title: "Pendulum website"
+    author: "Sarvagya singh"
+    url: "https://pendulums-sarvagya.glitch.me/"
+    source: "https://pendulums-sarvagya.glitch.me/"
 ---
 
 Choo choo! In this challenge, I build on chapter 3 (Oscillating Motion) of the Nature of Code series and simulate a simple pendulum in p5.js via angular acceleration.
