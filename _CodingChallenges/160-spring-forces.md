@@ -34,11 +34,6 @@ variations:
   - name: "Soft Spring (Port)"
     lang: "Processing"
     folder: soft-spring-port
-  - name: "Mistake are beautiful"
-    lang: "p5js"
-    author: "Joseph gabriel"
-    source : https://editor.p5js.org/josephgabriel666/full/ATtE9vhUE
-    url: https://editor.p5js.org/josephgabriel666/full/ATtE9vhUE
 
 links:
   - title: "Nature of Code 3.10 Spring Forces"
@@ -68,6 +63,10 @@ contributions:
     author: "Leonardo Lewandowski"
     url: https://editor.p5js.org/leolewan/full/g_Dh6JvL1
     source: https://editor.p5js.org/leolewan/sketches/g_Dh6JvL1
+  - title: "Mistake are beautiful"
+    author: "Joseph Gabriel"
+    source : https://editor.p5js.org/josephgabriel666/full/ATtE9vhUE
+    url: https://editor.p5js.org/josephgabriel666/full/ATtE9vhUE
 
 topics:
   - title: "Choo choo!! Springs Coding Challenge!"
