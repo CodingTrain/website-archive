@@ -77,6 +77,12 @@ contributions:
       url: "https://www.linkedin.com/in/roncin-stephane/"
     url: "https://editor.p5js.org/stephane.roncin/full/1SqybgJe6"
     source: "https://editor.p5js.org/stephane.roncin/sketches/1SqybgJe6"
+  - title: "Ghost Invaders"
+    author:
+      name: "Tasfiqul Tapu"
+      url: "https://www.twitter.com/TasfiqulTapu"
+    url: "https://tapu.itch.io/Ghost-Invaders"
+    source: "https://github.com/TasfiqulTapu/Ghost-Invaders"
 ---
 
 In this viewer submitted coding challenge, I take on the task of coding a Space Invaders game to play in browser in JavaScript/HTML and the p5.js library.
