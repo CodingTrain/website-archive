@@ -21,6 +21,6 @@ function draw() {
   background(0);
   noStroke();
   fill(255);
-  circle(width/2, height/2, circleR*2);
+  circle(width / 2, height / 2, circleR * 2);
   circleR = circleR + 1;
 }
