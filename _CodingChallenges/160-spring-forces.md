@@ -67,6 +67,10 @@ contributions:
     author: "Joseph Gabriel"
     source : https://editor.p5js.org/josephgabriel666/full/ATtE9vhUE
     url: https://editor.p5js.org/josephgabriel666/full/ATtE9vhUE
+  - title: "Simplified Wilberforce Pendulum"
+    author: "Yile Xu"
+    url: https://editor.p5js.org/YileXu/sketches/nNc0tDl9t
+    source : https://editor.p5js.org/YileXu/sketches/nNc0tDl9t
 
 topics:
   - title: "Choo choo!! Springs Coding Challenge!"
