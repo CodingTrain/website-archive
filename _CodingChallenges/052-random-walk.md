@@ -21,6 +21,10 @@ contributions:
     author: "zorkmaster57"
     url: "https://editor.p5js.org/zorkmaster57/full/JbbWCv-0n"
     source: "https://editor.p5js.org/zorkmaster57/full/JbbWCv-0n"
+      - title: "Random Walker With Spacing"
+    author: "Krishanth"
+    url: "https://editor.p5js.org/Krishanth2020/full/Q57_khQCp"
+    source: "https://editor.p5js.org/Krishanth2020/full/Q57_khQCp"
 ---
 
 In this coding challenge, I simulate a "random walk" with the p5.js library. This video is part of the course Nature of Code at ITP, Tisch, NYU.
