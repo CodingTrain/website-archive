@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "Coding Train Website",
   "main": "none",
-  "dependencies": {},
   "devDependencies": {
     "dotenv": "^8.2.0",
     "eslint": "^7.21.0",
@@ -29,7 +28,8 @@
     "lint-cabana-fix": "./node_modules/.bin/eslint ./CodingInTheCabana/ --fix",
     "lint-tutorials-fix": "./node_modules/.bin/eslint ./Tutorials/ --fix",
     "lint-courses-fix": "./node_modules/.bin/eslint ./Courses/ --fix",
-    "yt-descriptions": "node ./_scripts/generate-youtube-descriptions.js"
+    "yt-descriptions": "node ./_scripts/generate-youtube-descriptions.js",
+    "tags-generate": "node ./_scripts/generate-tags.js"
   },
   "repository": {
     "type": "git",
