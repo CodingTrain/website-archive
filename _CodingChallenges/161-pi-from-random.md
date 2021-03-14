@@ -32,7 +32,7 @@ videos:
 
 contributions:
   - title: "π day 2021!"
-    author: 
+    author:
       name: "juancer"
       url: "https://github.com/ajuancer"
     url: https://editor.p5js.org/ajuancer/sketches/iYPEDgo_v
