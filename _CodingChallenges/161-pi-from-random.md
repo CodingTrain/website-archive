@@ -2,7 +2,7 @@
 title: "Estimating π from Random Numbers with Euclid's Algorithm"
 video_number: 161
 date: 2021-03-14
-video_id: aaa
+video_id: EvS_a921dBo
 repository: CC_161_pi_from_random
 
 variations:
@@ -57,4 +57,4 @@ topics:
     time: "22:54"
 ---
 
-🥧 Happy Pi Day 2021! In this challenge, I estimate the digits of Pi with random numbers and the probability of two integers being co-prime.
+🥧 Happy Pi Day 2021! This year I estimate the digits of π with random numbers and the probability of two integers being co-prime., I estimate the digits of Pi with random numbers and the probability of two integers being co-prime.
