@@ -37,6 +37,12 @@ contributions:
       url: "https://github.com/ajuancer"
     url: https://editor.p5js.org/ajuancer/sketches/iYPEDgo_v
     source: https://editor.p5js.org/ajuancer/sketches/iYPEDgo_v
+  - title: "PI estimate evolution"
+    author:
+      name: "Jos Gielen"
+      url: "https://github.com/JosGielen/Coding_Train_CSharp"
+    url: "https://github.com/JosGielen/Coding_Train_CSharp/blob/master/CC161%20PI%20from%20Random%20Numbers/Results/Pi%20from%20Random%20numbers.html"
+    source: "https://github.com/JosGielen/Coding_Train_CSharp/tree/master/CC161%20PI%20from%20Random%20Numbers"
 
 topics:
   - title: "Happy Pi Day!"
