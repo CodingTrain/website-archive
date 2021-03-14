@@ -164,5 +164,11 @@ contributions:
       url: "https://jcponce.github.io/"
     url: "https://editor.p5js.org/jcponce/present/fwsX61dRa"
     source: "https://editor.p5js.org/jcponce/sketches/fwsX61dRa"
+  - title: "Color flocking"
+    author:
+      name: "Jeremy Muller"
+      url: "https://jeremymuller.com/"
+    url: "https://jeremymuller.com/color-flocking-using-p5js/"
+    source: "https://github.com/jeremymuller/colorflocking"
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
