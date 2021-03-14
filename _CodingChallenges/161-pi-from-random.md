@@ -30,6 +30,14 @@ videos:
     author: "Stand-up Maths"
     video_id: RZBhSi_PwHU
 
+contributions:
+  - title: "π day 2021!"
+    author:
+      name: "juancer"
+      url: "https://github.com/ajuancer"
+    url: https://editor.p5js.org/ajuancer/sketches/iYPEDgo_v
+    source: https://editor.p5js.org/ajuancer/sketches/iYPEDgo_v
+
 topics:
   - title: "Happy Pi Day!"
     time: "0:00"
