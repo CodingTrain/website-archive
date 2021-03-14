@@ -3,7 +3,7 @@ title: "Estimating π from Random Numbers with Euclid's Algorithm"
 video_number: 161
 date: 2021-03-14
 video_id: aaa
-repository: CC_160_pi_from_random
+repository: CC_161_pi_from_random
 
 variations:
   - name: "Estimating π from Random Numbers"
