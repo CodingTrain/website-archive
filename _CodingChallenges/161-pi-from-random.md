@@ -41,7 +41,7 @@ contributions:
     author:
       name: "Jos Gielen"
       url: "https://github.com/JosGielen/Coding_Train_CSharp"
-    url: "https://github.com/JosGielen/Coding_Train_CSharp/blob/master/CC161%20PI%20from%20Random%20Numbers/Results/Pi%20from%20Random%20numbers.html"
+    url: "https://github.com/JosGielen/Coding_Train_CSharp/blob/master/CC161%20PI%20from%20Random%20Numbers/Results/PI_Estimate1.jpg"
     source: "https://github.com/JosGielen/Coding_Train_CSharp/tree/master/CC161%20PI%20from%20Random%20Numbers"
 
 topics:
