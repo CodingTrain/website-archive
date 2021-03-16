@@ -43,6 +43,12 @@ contributions:
       url: "https://github.com/JosGielen/Coding_Train_CSharp"
     url: "https://github.com/JosGielen/Coding_Train_CSharp/blob/master/CC161%20PI%20from%20Random%20Numbers/Results/PI_Estimate1.jpg"
     source: "https://github.com/JosGielen/Coding_Train_CSharp/tree/master/CC161%20PI%20from%20Random%20Numbers"
+  - title: "π value prediction with graph visulization"
+    author:
+      name: "PhoenixCreation"
+      url: "https://github.com/PhoenixCreation"
+    url: "https://editor.p5js.org/PhoenixCreation/sketches/s7nPBmL94"
+    source: "https://editor.p5js.org/PhoenixCreation/sketches/s7nPBmL94"
 
 topics:
   - title: "Happy Pi Day!"
