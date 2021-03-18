@@ -49,9 +49,9 @@ contributions:
       url: "https://github.com/PhoenixCreation"
     url: "https://editor.p5js.org/PhoenixCreation/sketches/s7nPBmL94"
     source: "https://editor.p5js.org/PhoenixCreation/sketches/s7nPBmL94"
-    - title: "π day Website!"
+  - title: "π day Website!"
     author:
-      name: "Sarvagya singh "
+      name: "Sarvagya singh"
       url: "https://github.com/sarvagya230"
     url: https://peak-inside-pi.glitch.me
     source: https://peak-inside-pi.glitch.me/
