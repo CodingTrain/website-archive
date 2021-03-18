@@ -53,7 +53,7 @@ contributions:
     author:
       name: "Sarvagya singh "
       url: "https://github.com/sarvagya230"
-    url: https://peak-inside-pi.glitch.me/
+    url: https://peak-inside-pi.glitch.me
     source: https://peak-inside-pi.glitch.me/
 
 topics:
