@@ -1,4 +1,3 @@
-
 // The random() Function (Random House Exercise)
 // Code! Programming with p5.js
 // The Coding Train / Daniel Shiffman
