@@ -67,5 +67,9 @@ contributions:
       url: "https://github.com/YushchenkoAndrew"
     url: "http://mortis-grimreaper.ddns.net/projects/SteeringBehavior/"
     source: "https://github.com/YushchenkoAndrew/template/tree/master/JS/SteeringBehavior"
+  - title: "Simple clock"
+    author: "lpreams"
+    url: "https://lpreams.github.io/clock/"
+    source: "https://github.com/lpreams/lpreams.github.io/tree/master/clock"
 ---
 In this coding challenge, I look at extracting font path points from text in p5.js with p5.Font.textToPoints().  I render the text as particles with steering behaviors that react to the mouse.
