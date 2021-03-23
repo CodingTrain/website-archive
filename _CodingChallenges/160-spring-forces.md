@@ -59,6 +59,22 @@ contributions:
       name: "Galitan"
     url: "https://editor.p5js.org/Galitan-dev/present/tMm6zujat"
     source: "https://editor.p5js.org/Galitan-dev/sketches/tMm6zujat"
+  - title: "Spring Force Contribution - Grass"
+    author: "Leonardo Lewandowski"
+    url: https://editor.p5js.org/leolewan/full/g_Dh6JvL1
+    source: https://editor.p5js.org/leolewan/sketches/g_Dh6JvL1
+  - title: "Mistake are beautiful"
+    author: "Joseph Gabriel"
+    source : https://editor.p5js.org/josephgabriel666/full/ATtE9vhUE
+    url: https://editor.p5js.org/josephgabriel666/full/ATtE9vhUE
+  - title: "Simplified Wilberforce Pendulum"
+    author: "Yile Xu"
+    url: https://editor.p5js.org/YileXu/sketches/nNc0tDl9t
+    source : https://editor.p5js.org/YileXu/sketches/nNc0tDl9t
+  - title: "Spring Forces Playground"
+    author: "HoangTran"
+    url: https://hoangtran0410.github.io/SpringForces/
+    source : https://github.com/HoangTran0410/SpringForces
 
 topics:
   - title: "Choo choo!! Springs Coding Challenge!"

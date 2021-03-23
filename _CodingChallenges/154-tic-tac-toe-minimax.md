@@ -21,6 +21,12 @@ videos:
     url: "/CodingChallenges/149-tic-tac-toe"
 
 contributions:
+  - title: "Impossible TicTacToe Ai"
+    author:
+      name: "Ikram Hasan"
+      url: "https://github.com/ikramhasan"
+    url: "https://impossible-tictactoe.web.app/"
+    source: "https://github.com/ikramhasan/Impossible-TicTacToe-Ai"
   - title: "Tic Tac Toe With Alpha Beta Pruning"
     author:
       name: "Rino Vetha Moses"

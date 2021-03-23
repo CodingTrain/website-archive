@@ -87,6 +87,12 @@ contributions:
       url: "https://github.com/galElmalah"
     url: "https://galelmalah.github.io/sorting-visualisations/"
     source: "https://github.com/galElmalah/sorting-visualisations"
+  - title: "Sorting Visualizations - bubble sort"
+    author:
+      name: "Paramjot Singh"
+      url: "https://github.com/ParamjotSingh5"
+    url: "https://paramjotsingh5.github.io/SortingVisualisationJS/Index.html"
+    source: "https://github.com/ParamjotSingh5/SortingVisualisationJS"
 ---
 
 In this coding challenge, I implement a "bubble sort" algorithm in Processing (Java) and sort randomly generated lines. [#SortingTrain](https://twitter.com/hashtag/SortingTrain)
