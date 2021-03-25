@@ -170,5 +170,11 @@ contributions:
       url: "https://jeremymuller.com/"
     url: "https://jeremymuller.com/color-flocking-using-p5js/"
     source: "https://github.com/jeremymuller/colorflocking"
+  - title: "Customizable, optimized boids simulation"
+    author:
+      name: "Daniel Huang"
+      url: "https://cubedhuang.com/"
+    url: "https://boids.cubedhuang.com/"
+    source: "https://github.com/cubeDhuang/boids"
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
