@@ -177,6 +177,10 @@ contributions:
       url: http://www.robowenking.com/
     url: http://www.robowenking.com/clocks
     source: https://github.com/RobOwenKing/personal_site/blob/master/app/javascript/packs/projects/clocks.js
+  - title: "Clock with trails"
+    author: "The Exceptionist"
+    url: https://editor.p5js.org/The_Exceptionist/full/WHBCQIck2
+    source: https://editor.p5js.org/The_Exceptionist/sketches/WHBCQIck2
 ---
 
 In this coding challenge, I attempt to program a clock in HTML5 canvas with the p5.js library.
