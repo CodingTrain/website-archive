@@ -90,6 +90,12 @@ contributions:
       url: "https://github.com/jaredschiltz"
     url: "https://jaredschiltz.github.io/3D-Lissajous-Pattern-Generator/"
     source: "https://github.com/jaredschiltz/3D-Lissajous-Pattern-Generator"
+  - title: "Colorful Version of Lissajous Pattern"
+    author:
+      name: "Tanmay"
+      url: "https://github.com/Tams-Tams"
+    url: "https://github.com/TamsP/Processing/tree/main/Lissajous_Curve"
+    source: "https://github.com/TamsP/Processing/blob/main/Lissajous_Curve/Lissajous_Curve.pde"
 ---
 
 In this Coding Challenge, I visualize a "Lissajous Curve Table" with Processing (Java).
