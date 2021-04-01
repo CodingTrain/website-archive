@@ -108,6 +108,10 @@ contributions:
     author: "Pieter De Schepper"
     url: "https://editor.p5js.org/pieterdeschepper/full/6oL3cR2Ve"
     source: "https://editor.p5js.org/pieterdeschepper/sketches/6oL3cR2Ve"
+  - title: "Fun Pendulum Patterns"
+    author: "basti486"
+    url: "https://editor.p5js.org/8asti/full/39ZfCPZe8"
+    source: "https://editor.p5js.org/8asti/sketches/39ZfCPZe8"
 ---
 
 Choo choo! In this challenge, I build on chapter 3 (Oscillating Motion) of the Nature of Code series and simulate a simple pendulum in p5.js via angular acceleration.
