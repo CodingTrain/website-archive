@@ -16,7 +16,7 @@ videos:
   - title: "Introduction to Matter.js"
     video_id: "/more/archive/nature-of-code/5-Physics-Libraries/5.17-Introduction-to-Matter.js"
   - title: "Inheritance in JavaScript"
-    video_id: "MfxBfRD0FVU"
+    url: /Tutorials/16-javascript-es6/16.17-inheritance
   - title: "Phaser Game Development with Catt Small"
     url: "/GuestTutorials/008-catt-small-phaser-game-development"
 
