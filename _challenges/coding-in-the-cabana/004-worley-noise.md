@@ -144,5 +144,9 @@ contributions:
       url: "https://codepen.io/chromicquanta/pen/zYKRgPx"
     url: "https://github.com/ChromicQuanta/xtra-tct-whirlynoise"
     source: "https://github.com/ChromicQuanta/xtra-tct-whirlynoise/blob/main/tctCont.html"
+  - title: "Worley Noise with Pygame"
+    author:
+      name: "Toby W"
+    source: "https://github.com/TWallage/Generate_Worley_Noise"
 ---
 It's the fourth episode of Coding in the Cabana! Quarantined at home I explore the beauty of Worley noise.
