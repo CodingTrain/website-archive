@@ -176,5 +176,9 @@ contributions:
       url: "https://cubedhuang.com/"
     url: "https://boids.cubedhuang.com/"
     source: "https://github.com/cubeDhuang/boids"
+  - title: "Boid Simulation with Sliders"
+    author: "Rich Smith"
+    url: "https://editor.p5js.org/richfearon6/full/VHepEgHpV"
+    source: "https://editor.p5js.org/richfearon6/sketches/VHepEgHpV"
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
