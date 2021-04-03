@@ -34,8 +34,8 @@ contributions:
   - title: "Smart Rockets learning multiple times"
     author:
       name: "Heinrich Xiao"
-      url: https://github.com/Heinrichxiao/CC_029_SmartRockets/blob/main/CC_029_SmartRockets.pde
-    url: https://github.com/Heinrichxiao/CC_029_SmartRockets/blob/main/CC_029_SmartRockets.pde
+      url: "https://github.com/Heinrichxiao/"
+    url: "https://github.com/Heinrichxiao/CC_029_SmartRockets/blob/main/CC_029_SmartRockets.pde"
 ---
 
 In this (very long) coding challenge, I implement a genetic algorithm from scratch and create "smart rockets" (based on a simulation by Jer Thorp).  The rockets evolve the "best" path to a target, moving around obstacles.
