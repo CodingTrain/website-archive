@@ -18,19 +18,16 @@ contributions:
       name: "Ashar Khan"
       url: https://github.com/se7enA/
     url: https://github.com/se7enA/smart-rockets
-
   - title: "Processing Port with extra Features"
     author:
       name: "Alexander Kraus"
       url: https://github.com/akraus53/
     url: https://github.com/akraus53/SmartRockets
-
   - title: "Smart Rockets in Logo"
     author:
       name: "Sam Lee"
       url: https://codepen.io/leimapapa
     url: https://codepen.io/leimapapa/full/QJwjwE
-    
   - title: "Smart Rockets learning multiple times"
     author:
       name: "Heinrich Xiao"
