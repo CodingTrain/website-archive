@@ -30,6 +30,12 @@ contributions:
       name: "Sam Lee"
       url: https://codepen.io/leimapapa
     url: https://codepen.io/leimapapa/full/QJwjwE
+    
+  - title: "Smart Rockets in Logo"
+    author:
+      name: "Heinrich Xiao"
+      url: https://github.com/Heinrichxiao/CC_029_SmartRockets/blob/main/CC_029_SmartRockets.pde
+    url: https://github.com/Heinrichxiao/CC_029_SmartRockets/blob/main/CC_029_SmartRockets.pde
 ---
 
 In this (very long) coding challenge, I implement a genetic algorithm from scratch and create "smart rockets" (based on a simulation by Jer Thorp).  The rockets evolve the "best" path to a target, moving around obstacles.
