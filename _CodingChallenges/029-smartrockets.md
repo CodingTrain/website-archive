@@ -31,7 +31,7 @@ contributions:
       url: https://codepen.io/leimapapa
     url: https://codepen.io/leimapapa/full/QJwjwE
     
-  - title: "Smart Rockets in Logo"
+  - title: "Smart Rockets learning multiple times"
     author:
       name: "Heinrich Xiao"
       url: https://github.com/Heinrichxiao/CC_029_SmartRockets/blob/main/CC_029_SmartRockets.pde
