@@ -1,3 +1,4 @@
+# other crap
 <p align="center">
   <img width="800" alt="The Coding Train Logo" src="https://github.com/CodingTrain/website/blob/main/.github/logo.png?raw=true">
 </p>
