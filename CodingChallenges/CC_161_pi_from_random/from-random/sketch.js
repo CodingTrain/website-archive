@@ -22,7 +22,7 @@ function setup() {
   while (digits.length > 0) {
     let num = digits.slice(0, 5);
     digits = digits.slice(5);
-    randomSequence.push(parseInt(num));
+    randomSequence.push(parseInt(num, 10));
   }
 }
 
