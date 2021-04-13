@@ -86,5 +86,10 @@ contributions:
     author: "Nathan Connery"
     url: "https://editor.p5js.org/NC_Productions/full/Ui4ns_1c-"
     source: "https://editor.p5js.org/NC_Productions/sketches/Ui4ns_1c-"
+  - title: "Play with Algorithmic Botany"
+    author: "Nicolás Garitagoitia"
+    url: "https://editor.p5js.org/Chudroy/sketches/s8XZ3Nsu-"
+    source: "https://editor.p5js.org/Chudroy/sketches/s8XZ3Nsu-"
+    
 ---
 In this coding challenge, I continue one of my favorite subjects: Algorithmic botany! This video covers the subject of Phyllotaxis, what it is and how it can be used to generate sunflower-like patterns inspired by nature.
