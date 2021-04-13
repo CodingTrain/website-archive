@@ -90,6 +90,5 @@ contributions:
     author: "Nicolás Garitagoitia"
     url: "https://editor.p5js.org/Chudroy/sketches/s8XZ3Nsu-"
     source: "https://editor.p5js.org/Chudroy/sketches/s8XZ3Nsu-"
-    
 ---
 In this coding challenge, I continue one of my favorite subjects: Algorithmic botany! This video covers the subject of Phyllotaxis, what it is and how it can be used to generate sunflower-like patterns inspired by nature.
