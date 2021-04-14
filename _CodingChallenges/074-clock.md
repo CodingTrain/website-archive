@@ -16,10 +16,6 @@ links:
     url: "https://github.com/ITPNYU/ICM-2017"
 
 contributions:
-  - title: "Apple_gen5_watch styled analog+digital smooth System Clock"
-    author: "Abhinav Mishra (Amsters')"
-    url: https://editor.p5js.org/Abhinav_programmer/full/l-AgllorM
-    source: https://editor.p5js.org/Abhinav_programmer/sketches/l-AgllorM
   - title: "Simple Analog Clock With Minute And Hour Smoothing"
     author: "Abhijeet S. Mankani"
     url: https://editor.p5js.org/abhijeetmankani/full/WKtYu4-Cd
@@ -189,6 +185,10 @@ contributions:
     author: "Mukund"
     url: https://editor.p5js.org/TheCodingWorld/present/fOIz-4b9n
     source: https://editor.p5js.org/TheCodingWorld/sketches/fOIz-4b9n
+  - title: "Apple_gen5_watch styled analog+digital smooth System Clock"
+    author: "Abhinav Mishra (Amsters')"
+    url: https://editor.p5js.org/Abhinav_programmer/full/l-AgllorM
+    source: https://editor.p5js.org/Abhinav_programmer/sketches/l-AgllorM
 ---
 
 In this coding challenge, I attempt to program a clock in HTML5 canvas with the p5.js library.
