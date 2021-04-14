@@ -16,6 +16,10 @@ links:
     url: "https://github.com/ITPNYU/ICM-2017"
 
 contributions:
+  - title: "Apple_gen5_watch styled analog+digital smooth System Clock"
+    author: "Abhinav Mishra (Amsters')"
+    url: https://editor.p5js.org/Abhinav_programmer/full/l-AgllorM
+    source: https://editor.p5js.org/Abhinav_programmer/sketches/l-AgllorM
   - title: "Simple Analog Clock With Minute And Hour Smoothing"
     author: "Abhijeet S. Mankani"
     url: https://editor.p5js.org/abhijeetmankani/full/WKtYu4-Cd
