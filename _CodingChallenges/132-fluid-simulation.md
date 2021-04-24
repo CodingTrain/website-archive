@@ -47,6 +47,10 @@ contributions:
       name: "Simon Thalén"
       url: "https://github.com/SuperSimon81"
     url: "https://github.com/SuperSimon81/FluidParty/tree/master"
+  - title: "Quadtree in a Lava Lamp Particle System Simulation"
+    author: "Peikai Tan"
+    url: https://catkane-doodles.github.io/lava-lamp/
+    source: https://github.com/catkane-doodles/lava-lamp
 ---
 
 In this video, I attempt to follow Mike Ash's guide to Fluid Simulation and port Jos Stam's "Real-Time Fluid Dynamics for Games" algorithm and code in Processing (Java).
