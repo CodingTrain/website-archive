@@ -1,0 +1,122 @@
+---
+layout: base
+---
+
+
+<div class="video">
+
+  {% comment %} Video subtitle. {% endcomment %}
+  <div class="subtitle">
+    {{ course.title | default: series.title }}
+  </div>
+
+  <div>
+    <img style="max-width: 100%" src={{page.img_path}} alt={{page.img_alt}}>
+  </div>
+
+  <div class="add-bars">
+    <p>
+      {{ content }}
+    </p>
+  </div>
+
+  <!-- <div class="player-and-topics">
+    <div class="player">
+
+      {% comment %} Include YouTube video player. {% endcomment %}
+      {% include 3-modules/video-player.html video_id=page.video_id %}
+
+      {% comment %} Previous/Next buttons and 'Watch all' button. {% endcomment %}
+      <div class="player-controls">
+        <a href="{{ out_previousVideo.url | relative_url | default: '#' }}" class="jump-control {% if out_previousVideo == null %}disabled{% endif %}" aria-label="Previous video">❰</a>
+        <a href="{{ series.url | default: page.collection | relative_url }}" class="watch-all-videos">Watch all videos</a>
+        <a href="{{ out_nextVideo.url | relative_url | default: '#' }}" class="jump-control {% if out_nextVideo == null %}disabled{% endif %}" aria-label="Next video">❱</a>
+      </div>
+    </div>
+
+    <div class="topics">
+      {{ content }}
+
+      {% comment %} Show video topics (used for streams). {% endcomment %}
+      {% if page.topics %}
+        {% include 3-modules/link-list.html links=page.topics title='Topics' class='topics' %}
+      {% endif %}
+      
+    </div>
+  </div> -->
+
+  {% comment %} Show links for live example and code download. {% endcomment %}
+  {% if page.repository != null or page.web_editor != null %}
+    <div class="code-actions">
+
+      {% comment %} Detect code variations. {% endcomment %}
+      {% comment %} If repository is (probably) an external link. {% endcomment %}
+      {% if page.repository contains '://' %}
+        {% assign repositoryURL = page.repository %}
+
+      {% comment %} If repository is a path to a folder in the repository. {% endcomment %}
+      {% elsif page.repository != null %}
+        {% comment %} Ask for code variations {% endcomment %}
+        {% assign repositoryBasePath = '/' | append: page.collection | append: '/' | append: page.repository %}
+        {% assign repositoryBaseURL = site.github.repository_url | append: '/tree/' | append: site.github.source.branch | append: repositoryBasePath %}
+
+        {% comment %} If page has defined it's own variations create pageVariations for code variation tool. {% endcomment %}
+        {% if page.variations != null %}
+          {% assign pageVariations = page.variations %}
+        {% else %}
+          {% assign pageVariations = null %}
+        {% endif %}
+
+        {% include 1-tools/code-variations.html repositoryBasePath=repositoryBasePath pageVariations=pageVariations %}
+        {% assign codeVariations = out_codeVariations %}
+        {% assign numberOfVariations = codeVariations | size %}
+
+        {% assign downloadBaseURL = site.github_download_prefix | append: repositoryBaseURL %}
+
+        {% for variation in codeVariations %}
+          {% include 3-modules/code-variation.html baseURL=repositoryBaseURL downloadURL=downloadBaseURL variation=variation %}
+        {% endfor %}
+
+      {% endif %}
+
+    </div>
+  {% endif %}
+
+  <div class="links-and-books">
+
+    {% comment %} List of related parts. {% endcomment %}
+    {% if page.parts %}
+      {% capture partsTitle %}Other parts of this {{ page.video_type | downcase }}{% endcapture %}
+      {% include 3-modules/link-list.html links=page.parts title=partsTitle %}
+    {% endif %}
+
+    {% comment %} Links of discussed books/articles/papers. {% endcomment %}
+    {% if page.books %}
+      {% include 3-modules/link-list.html links=page.books title='Artists' %}
+    {% endif %}
+
+    {% comment %} List of discussed links. {% endcomment %}
+    {% if page.links %}
+      {% capture linksTitle %}Bibliography{% endcapture %}
+      {% include 3-modules/link-list.html links=page.links title=linksTitle %}
+    {% endif %}
+
+    {% comment %} Links of discussed videos. {% endcomment %}
+    {% if page.videos %}
+      {% capture videosTitle %}Videos discussed in this {{ page.video_type | downcase }}{% endcapture %}
+      {% include 3-modules/link-list.html links=page.videos title=videosTitle %}
+    {% endif %}
+
+    {% comment %} Links of discussed tools. {% endcomment %}
+    {% if page.tools %}
+      {% capture toolsTitle %}Tools discussed in this {{ page.video_type | downcase }}{% endcapture %}
+      {% include 3-modules/link-list.html links=page.tools title=toolsTitle %}
+    {% endif %}
+
+    {% comment %} Custom link lists. {% endcomment %}
+    {% for section in page.custom_sections %}
+      {% include 3-modules/link-list.html links=section.items title=section.title class=section.class %}
+    {% endfor %}
+  </div>
+
+</div>
