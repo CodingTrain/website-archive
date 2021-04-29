@@ -51,12 +51,24 @@ links:
     url: https://www.telegraph.co.uk/technology/news/10174366/Briton-I-invented-the-computer-mouse-20-years-before-the-Americans.html
   - title: "This (blank) Does Not Exist Website"
     url: https://thisxdoesnotexist.com/
+  - title: "Generative Adversarial Networks"
+    author: "Ian J. Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, Yoshua Bengio"
+    url: https://arxiv.org/abs/1406.2661
+  - title: "(StyleGAN arxiv.org)"
+    author: "Tero Karras, Samuli Laine, Timo Aila"
+    url: https://arxiv.org/abs/1812.04948
   - title: "StyleGAN (Papers with Code)"
     author: "Tero Karras, Samuli Laine, Timo Aila"
     url: https://www.paperswithcode.com/method/stylegan
+  - title: "Analyzing and Improving the Image Quality of StyleGAN (StyleGAN2 arxiv.org)"
+    author: "Tero Karras, Samuli Laine, Miika Aittala, Janne Hellsten, Jaakko Lehtinen, Timo Aila"
+    url: https://arxiv.org/abs/1912.04958
   - title: "StyleGAN2 (Papers with Code)"
     author: "Tero Karras, Samuli Laine, Miika Aittala, Janne Hellsten, Jaakko Lehtinen, Timo Aila"
     url: https://paperswithcode.com/method/stylegan2
+  - title: "StyleGAN2 Video"
+    author: " Tero Karras"
+    video_id: c-NJtV9Jvp0
   - title: "'Coded Bias' Review: When the Bots Are Racist"
     author: "Devika Girish"
     url: https://www.nytimes.com/2020/11/11/movies/coded-bias-review.html
@@ -87,6 +99,9 @@ links:
   - title: "The MNIST Database"
     author: "Yann LeCun, Corinna Cortes, Christopher J.C. Burges"
     url: http://yann.lecun.com/exdb/mnist/
+  - title: "Fashion-MNIST"
+    author: "Zalando Research"
+    url: https://github.com/zalandoresearch/fashion-mnist
 
 variations:
   - name: "MouseGAN"
