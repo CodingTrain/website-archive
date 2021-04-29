@@ -62,6 +62,6 @@ links:
     url: https://runwayml.com/
 ---
 
-This is information for a talk I gave at the 2021 Computer Mouse Conference!
+This is information for a talk I'm giving at the 2021 Computer Mouse Conference!
 
-You can view the talk at <a href="#">___</a>.
+You can view the talk at the conference! Get tickets at <a href="https://www.eventbrite.com/e/computer-mouse-conference-tickets-142771943727">https://www.eventbrite.com/e/computer-mouse-conference-tickets-142771943727</a>. A recording of the talk will also be posted on the Coding Train youtube within a week.
