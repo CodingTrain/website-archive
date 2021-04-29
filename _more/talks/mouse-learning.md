@@ -12,7 +12,7 @@ img_alt: "An image showing a still from the mouse learning talk. Dan stands in t
 books:
   - title: "Wekinator"
     author: "Dr. Rebecca Fiebrink"
-    url: "www.wekinator.org"
+    url: http://www.wekinator.org
   - title: "Selected Works"
     author: "Dr. Nettrice R. Gaskins"
     url: https://www.nettricegaskins.com/gallery
