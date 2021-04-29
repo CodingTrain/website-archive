@@ -5,6 +5,7 @@ date: 2021-04-29
 redirect_from:
   - /mouse-learning
   - /mouselearning
+repository: /talks/mouse-learning
 
 img_path: "/assets/images/mouselearning.png"
 img_alt: "An image showing a still from the mouse learning talk. Dan stands in the middle of a garden surrounded by mac windows. The one behind his head says Mouse Learning. The window on the left says 'a video for the 2021 computer mouse conference by The Coding Train'. And the last one says 'inspired by The Dada of All Demos by emma rae bruml norton'."
@@ -104,6 +105,14 @@ links:
     url: https://github.com/zalandoresearch/fashion-mnist
 
 variations:
+  - name: "if/else background"
+    web_editor: yFaE6qQyO
+    folder: "if-else-background"
+    lang: "p5js"
+  - name: "Mouse Learns"
+    web_editor: kWjDFS51O
+    folder: "mouse-learns"
+    lang: "p5js"
   - name: "MouseGAN"
     url: https://github.com/CodingTrain/Computer-MouseGAN
     lang: "repository"
