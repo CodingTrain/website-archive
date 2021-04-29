@@ -45,42 +45,30 @@ layout: base
     </div>
   </div> -->
 
-  {% comment %} Show links for live example and code download. {% endcomment %}
-  {% if page.repository != null or page.web_editor != null %}
-    <div class="code-actions">
+  <div class="code-actions">
 
-      {% comment %} Detect code variations. {% endcomment %}
-      {% comment %} If repository is (probably) an external link. {% endcomment %}
-      {% if page.repository contains '://' %}
-        {% assign repositoryURL = page.repository %}
+    {% comment %} Ask for code variations {% endcomment %}
+    {% assign repositoryBasePath = '' %}
+    <!-- {% assign repositoryBasePath = '/' | append: page.collection | append: '/' | append: page.repository %}
+    {% assign repositoryBaseURL = site.github.repository_url | append: '/tree/' | append: site.github.source.branch | append: repositoryBasePath %} -->
 
-      {% comment %} If repository is a path to a folder in the repository. {% endcomment %}
-      {% elsif page.repository != null %}
-        {% comment %} Ask for code variations {% endcomment %}
-        {% assign repositoryBasePath = '/' | append: page.collection | append: '/' | append: page.repository %}
-        {% assign repositoryBaseURL = site.github.repository_url | append: '/tree/' | append: site.github.source.branch | append: repositoryBasePath %}
+    {% comment %} If page has defined it's own variations create pageVariations for code variation tool. {% endcomment %}
+    {% if page.variations != null %}
+      {% assign pageVariations = page.variations %}
+    {% else %}
+      {% assign pageVariations = null %}
+    {% endif %}
 
-        {% comment %} If page has defined it's own variations create pageVariations for code variation tool. {% endcomment %}
-        {% if page.variations != null %}
-          {% assign pageVariations = page.variations %}
-        {% else %}
-          {% assign pageVariations = null %}
-        {% endif %}
+    {% assign codeVariations = pageVariations %}
+    {% assign numberOfVariations = codeVariations | size %}
 
-        {% include 1-tools/code-variations.html repositoryBasePath=repositoryBasePath pageVariations=pageVariations %}
-        {% assign codeVariations = out_codeVariations %}
-        {% assign numberOfVariations = codeVariations | size %}
+    {% assign downloadBaseURL = site.github_download_prefix | append: repositoryBaseURL %}
 
-        {% assign downloadBaseURL = site.github_download_prefix | append: repositoryBaseURL %}
+    {% for variation in codeVariations %}
+      {% include 3-modules/code-variation.html baseURL=repositoryBaseURL downloadURL=downloadBaseURL variation=variation %}
+    {% endfor %}
 
-        {% for variation in codeVariations %}
-          {% include 3-modules/code-variation.html baseURL=repositoryBaseURL downloadURL=downloadBaseURL variation=variation %}
-        {% endfor %}
-
-      {% endif %}
-
-    </div>
-  {% endif %}
+  </div>
 
   <div class="links-and-books">
 

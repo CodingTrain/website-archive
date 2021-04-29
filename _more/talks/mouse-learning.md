@@ -60,6 +60,20 @@ links:
     url: https://techcrunch.com/2018/08/23/what-is-this-weird-twitter-army-of-amazon-drones-cheerfully-defending-warehouse-work/
   - title: "Runway ML"
     url: https://runwayml.com/
+
+variations:
+  - name: "MouseGAN"
+    url: https://github.com/CodingTrain/Computer-MouseGAN
+    lang: "repository"
+  - name: "Collect and Visualize Mouse Data"
+    url: https://github.com/CodingTrain/Computer-Mouse-Data
+    lang: "repository"
+  - name: "Predict Mouse Movement"
+    url: https://github.com/CodingTrain/Computer-Mouse-Training
+    lang: "repository"
+  - name: "A Bot for the Computer Mouse Conference"
+    url: https://github.com/CodingTrain/Computer-Mouse-Bot
+    lang: "repository"
 ---
 
 This is information for a talk I'm giving at the 2021 Computer Mouse Conference!
