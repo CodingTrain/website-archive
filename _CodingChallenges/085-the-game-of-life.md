@@ -110,6 +110,5 @@ contributions:
       url: "https://github.com/tonysln"
     video_id: "Oz4Q70smZSs"
     source: "https://github.com/tonysln/GameOfLife"
-
 ---
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.
