@@ -80,7 +80,7 @@ contributions:
     url: https://editor.p5js.org/nicholas-wilcox/full/urb4z3jxP
     source : https://editor.p5js.org/nicholas-wilcox/sketches/urb4z3jxP
   - title: "Springy pendulum"
-    author: 
+    author:
       name: "Ángel Carvajal Ruiz"
       url: https://editor.p5js.org/Angul/sketches
     source: https://editor.p5js.org/Angul/sketches/CV_d01Y3K
