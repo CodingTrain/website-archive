@@ -21,6 +21,12 @@ videos:
     url: "/CodingChallenges/149-tic-tac-toe"
 
 contributions:
+  - title: "Impossible TicTacToe Ai"
+    author:
+      name: "Ikram Hasan"
+      url: "https://github.com/ikramhasan"
+    url: "https://impossible-tictactoe.web.app/"
+    source: "https://github.com/ikramhasan/Impossible-TicTacToe-Ai"
   - title: "Tic Tac Toe With Alpha Beta Pruning"
     author:
       name: "Rino Vetha Moses"
@@ -109,5 +115,17 @@ contributions:
       url: "https://github.com/reddragonnm"
     url: "https://reddragonnm.github.io/chess-ai/"
     source: "https://github.com/reddragonnm/chess-ai"
+  - title: "TicTacToe MiniMax"
+    author:
+      name: "Linus Stalder"
+      url: "https://github.com/linstald"
+    url: "https://editor.p5js.org/linstald/full/rH9vPGABt"
+    source: "https://editor.p5js.org/linstald/sketches/rH9vPGABt"
+  - title: "Connect 4 - variable difficulty"
+    author:
+      name: "Linus Stalder"
+      url: "https://github.com/linstald"
+    url: "https://editor.p5js.org/linstald/full/Em1FbSVqq"
+    source: "https://editor.p5js.org/linstald/sketches/Em1FbSVqq"
 ---
 In this challenge I take the Tic Tac Toe game from coding challenge #149 and add an AI opponent for a human player by implenenting the Minimax algorithm.

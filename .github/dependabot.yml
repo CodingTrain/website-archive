@@ -1,0 +1,29 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  assignees:
+  - Gruselhaus
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  assignees:
+  - Gruselhaus
+  labels:
+  - Website
+  - Jekyll
+- package-ecosystem: npm
+  directory: "/unit_testing"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  assignees:
+  - Gruselhaus
+  labels:
+  - CI
+  - Unit Testing

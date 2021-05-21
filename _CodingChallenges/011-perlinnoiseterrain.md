@@ -88,5 +88,11 @@ contributions:
       url: "https://github.com/ygzipekci"
     url: "https://editor.p5js.org/broezer/present/GTJ3Z40oO"
     source: "https://editor.p5js.org/broezer/sketches/GTJ3Z40oO"
+  - title: "Scroll through this place"
+    author:
+      name: "Heinrich Xiao"
+      url: "https://github.com/Heinrichxiao"
+    url: "https://editor.p5js.org/Heinrichxiao/present/NVWENYzLf"
+    source: "https://editor.p5js.org/Heinrichxiao/sketches/NVWENYzLf"
 ---
 In this coding challenge, I create a 3D procedural terrain using Perlin Noise and the beginShape() function in Processing.

@@ -118,7 +118,7 @@ class YAMLFile {
       }
       const yamlContents = contents.split("---")[1];
       checkYAMLFormat(yamlContents);
-      this._data = yaml.safeLoad(yamlContents);
+      this._data = yaml.load(yamlContents);
     } catch(e) {
       this._error = e;
       throw e;
