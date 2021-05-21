@@ -26,7 +26,7 @@ function setup() {
 }
 
 function newCat() {
-  let apiKey = 'AIzaSyCLxdiMV5-46xuFWFbdDhVoJi7DMwe-H9Q'; // keyInput.value();
+  let apiKey = ''; // keyInput.value();
   loadJSON(url + apiKey, gotCat);
 }
 
