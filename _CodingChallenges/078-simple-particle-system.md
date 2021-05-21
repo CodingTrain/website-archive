@@ -103,6 +103,10 @@ contributions:
       url: https://www.openprocessing.org/user/98765
     url: https://www.openprocessing.org/sketch/459864
     source: https://www.openprocessing.org/sketch/459864
+  - title: "Quadtree in a Lava Lamp Particle System Simulation"
+    author: "Peikai Tan"
+    url: https://catkane-doodles.github.io/lava-lamp/
+    source: https://github.com/catkane-doodles/lava-lamp
 ---
 
 In this coding challenge, I explore the concept of a simple particle system and attempt to create a smoke effect with the p5.js library.

@@ -61,6 +61,11 @@ contributions:
       name: "Gil Lianni"
       url: "https://editor.p5js.org/Gil/present/9T-_t8Y0H"
     source: "https://editor.p5js.org/Gil/sketches/9T-_t8Y0H"
+  - title: "Velocity based Color Perlin Flow Field"
+    author:
+      name: "Peikai Tan"
+      url: "https://catkane-doodles.github.io/perlin-flow-field/"
+    source: "https://github.com/catkane-doodles/perlin-flow-field"
 ---
 
 In this coding challenge, I use Perlin noise to create a two-dimensional flow field with the p5.js library

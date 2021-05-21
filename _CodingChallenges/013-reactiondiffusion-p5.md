@@ -31,6 +31,11 @@ contributions:
     author:
       name: "Soilstack"
     url: "https://github.com/soilstack/react_diffuse"
+  - title: "Reaction diffusion blog and THREE.js implementation (interactive simulation at the end of the blog)"
+    author:
+      name: "Michiel Braat"
+    url: "http://www.michielbraat.nl/blog/reaction-diffusion/"
+    source: "https://github.com/Proinn/reaction_diffusion_three_js"
 ---
 
 In this coding challenge, I visualize a Reaction Diffusion simulation using the Gray Scott model in JavaScript (with the p5.js library).
