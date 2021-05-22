@@ -61,10 +61,10 @@ permalink: /
     {% include 3-modules/hero-item.html image=merchStoreImage title='Coding Train Store'
     content='Visit the Coding Train store with a small selection of high quality items' url=site.links.merch cta='Shop for Merchandise' class='merch-store' %}
 
-    {% capture amazonStoreImage %}<img alt='The Coding Train Amazon Store' src="{{ '/assets/images/amazon-store.png' | relative_url }}" />{%
+    {% comment %} {% capture amazonStoreImage %}<img alt='The Coding Train Amazon Store' src="{{ '/assets/images/amazon-store.png' | relative_url }}" />{%
     endcapture %}
     {% include 3-modules/hero-item.html image=amazonStoreImage title="Love to read?" content='Find
     books and other products featured on The Coding Train!' url=site.links.amazon cta='Shop for Books and more'
-    class='amazon-store' %}
+    class='amazon-store' %} {% endcomment %}
   </div>
 </div>

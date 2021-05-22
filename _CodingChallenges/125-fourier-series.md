@@ -78,6 +78,12 @@ contributions:
       url: "https://github.com/meznak"
     video_id: "d173h4fVxD8"
     source: "https://github.com/meznak/fourier-vis"
+  - title: "Visualization using vanilla javascript"
+    author:
+      name: "Suhel Makkad"
+      url: "https://github.com/SuhelMakkad"
+    url: "https://suhelmakkad.github.io/Fourier-Series-Visualization/"
+    source: "https://github.com/SuhelMakkad/Fourier-Series-Visualization"
 ---
 
 In this coding challenge, I visualize a Fourier series for a square wave in JavaScript with p5.js.

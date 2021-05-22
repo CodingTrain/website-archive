@@ -104,5 +104,11 @@ contributions:
       url: "https://github.com/HoangTran0410"
     url: "https://hoangtran0410.github.io/game-of-life/"
     source: "https://github.com/HoangTran0410/game-of-life"
+  - title: "Game Of Life with Additional Controls"
+    author:
+      name: "Anton Slavin"
+      url: "https://github.com/tonysln"
+    video_id: "Oz4Q70smZSs"
+    source: "https://github.com/tonysln/GameOfLife"
 ---
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.

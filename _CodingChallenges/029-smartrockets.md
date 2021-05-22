@@ -18,18 +18,21 @@ contributions:
       name: "Ashar Khan"
       url: https://github.com/se7enA/
     url: https://github.com/se7enA/smart-rockets
-
   - title: "Processing Port with extra Features"
     author:
       name: "Alexander Kraus"
       url: https://github.com/akraus53/
     url: https://github.com/akraus53/SmartRockets
-
   - title: "Smart Rockets in Logo"
     author:
       name: "Sam Lee"
       url: https://codepen.io/leimapapa
     url: https://codepen.io/leimapapa/full/QJwjwE
+  - title: "Smart Rockets learning multiple times"
+    author:
+      name: "Heinrich Xiao"
+      url: "https://github.com/Heinrichxiao/"
+    url: "https://github.com/Heinrichxiao/CC_029_SmartRockets/blob/main/CC_029_SmartRockets.pde"
 ---
 
 In this (very long) coding challenge, I implement a genetic algorithm from scratch and create "smart rockets" (based on a simulation by Jer Thorp).  The rockets evolve the "best" path to a target, moving around obstacles.

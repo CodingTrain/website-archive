@@ -32,11 +32,18 @@
       {% endunless %}
     {% endif %}
 
-    {% assign variationURL = include.baseURL | append: '/' | append: include.variation.folder %}
-    <li><a href="{{ variationURL }}" target="_blank" aria-label="View {{ include.variation.lang }} Code">View Code</a></li>
+    {% if include.variation.lang != "repository" %}
+      {% assign variationURL = include.baseURL | append: '/' | append: include.variation.folder %}
+      <li><a href="{{ variationURL }}" target="_blank" aria-label="View {{ include.variation.lang }} Code">View Code</a></li>
 
-    {% assign downloadFrom = include.downloadURL | append: '/' | append: include.variation.folder %}
-    <li><a href="{{ downloadFrom }}" target="_blank" aria-label="Download {{ include.variation.lang }} Code">Download Code</a></li>
+    
+      {% assign downloadFrom = include.downloadURL | append: '/' | append: include.variation.folder %}
+      <li><a href="{{ downloadFrom }}" target="_blank" aria-label="Download {{ include.variation.lang }} Code">Download Code</a></li>
+    {% else %}
+
+      <li><a href="{{ variation.url }}" target="_blank" aria-label="View {{ include.variation.lang }} Code">View Repository</a></li>
+
+    {% endif %}
 
   </ul>
 
