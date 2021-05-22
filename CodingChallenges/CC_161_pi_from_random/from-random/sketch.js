@@ -22,7 +22,9 @@ function setup() {
   while (digits.length > 0) {
     let num = digits.slice(0, 5);
     digits = digits.slice(5);
-    randomSequence.push(parseInt(num));
+    // Original code was randomSequence.push(parseInt(num));
+    // JavaScript will default to reading number as base 8 if it begins with a 0
+    randomSequence.push(parseInt(num, 10));
   }
 }
 
