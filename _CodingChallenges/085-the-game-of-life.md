@@ -110,5 +110,11 @@ contributions:
       url: "https://github.com/tonysln"
     video_id: "Oz4Q70smZSs"
     source: "https://github.com/tonysln/GameOfLife"
+  - title: "Game Of Life more object oriented"
+    author:
+      name: "Loïc Rico"
+      url: "https://github.com/ricoloic"
+    source: "https://github.com/ricoloic/game-of-life"
+    url: "https://editor.p5js.org/ricoloic/present/bLSOAUNGT"
 ---
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.
