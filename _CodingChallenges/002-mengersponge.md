@@ -46,6 +46,12 @@ contributions:
       url: "https://www.patreon.com/thienxxn"
     url: "https://github.com/thienxxn/coding_challenges/tree/master/CC_002_Menger_Sponge_Python"
     source: "https://github.com/thienxxn/coding_challenges/tree/master/CC_002_Menger_Sponge_Python"
+  - title: "Menger sponge in OpenGL"
+    author:
+      name: "Marco Rosa"
+      url: "https://github.com/rosamarco/"
+    url: "https://github.com/rosamarco/menger-sponge"
+    source: "https://github.com/rosamarco/menger-sponge"
 ---
 
 In this coding challenge, I attempt to code the Menger Sponge (fractals) using Processing.
