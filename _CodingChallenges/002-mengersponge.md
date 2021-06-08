@@ -46,7 +46,7 @@ contributions:
       url: "https://www.patreon.com/thienxxn"
     url: "https://github.com/thienxxn/coding_challenges/tree/master/CC_002_Menger_Sponge_Python"
     source: "https://github.com/thienxxn/coding_challenges/tree/master/CC_002_Menger_Sponge_Python"
-    - title: "Menger sponge in OpenGL"
+  - title: "Menger sponge in OpenGL"
     author:
       name: "Marco Rosa"
       url: "https://github.com/rosamarco/"
