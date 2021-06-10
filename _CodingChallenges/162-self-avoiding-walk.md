@@ -2,7 +2,7 @@
 title: "Self Avoiding Walk"
 video_number: 162
 date: 2021-06-03
-video_id: 
+video_id: m6-cm6GZ1iw
 repository: CC_162_self_avoiding_walk
 
 variations:
