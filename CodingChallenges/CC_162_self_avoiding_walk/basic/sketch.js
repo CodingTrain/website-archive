@@ -14,7 +14,7 @@ let allOptions = [
   { dx: 1, dy: 0 },
   { dx: -1, dy: 0 },
   { dx: 0, dy: 1 },
-  { dx: 0, dy: -1 },
+  { dx: 0, dy: -1 }
 ];
 
 let x;
@@ -82,7 +82,7 @@ function draw() {
     endShape();
     grid[x][y] = true;
   } else {
-    console.log(`I'm stuck!`);
+    console.log('Stuck!');
     noLoop();
   }
 }
