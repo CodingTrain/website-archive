@@ -91,4 +91,4 @@ topics:
     time: "32:22"
 ---
 
-In this coding challenge, I demonstrate how to make a self avoiding walk in p5.js. I also look at backtracking to avoid the walker getting stuck.
+It's finally time to attempt a Self-Avoiding Walk! In this video, I quickly visualize a simple JavaScript p5.js implementation of a self-avoiding walk. I then tackle the more complex problem of backtracking to find a solution to a space-filling self-avoiding walk. 
