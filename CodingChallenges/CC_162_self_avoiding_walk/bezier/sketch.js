@@ -64,7 +64,7 @@ function draw() {
   }
 
   if (path.length === cols * rows) {
-    console.log("Solved!");
+    console.log('Solved!');
     noLoop();
     // break;
   }
