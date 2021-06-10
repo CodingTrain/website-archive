@@ -98,7 +98,7 @@ function draw() {
   }
 
   if (path.length === cols * rows * depth) {
-    console.log("Solved!");
+    console.log('Solved!');
     noLoop();
     // break;
   }
