@@ -26,7 +26,7 @@ function allOptions() {
     new Step(0, 1, 0),
     new Step(0, -1, 0),
     new Step(0, 0, 1),
-    new Step(0, 0, -1),
+    new Step(0, 0, -1)
   ];
 }
 
