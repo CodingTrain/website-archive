@@ -26,10 +26,10 @@ function selfAvoidingWalk(desiredLength, rows, cols, start) {
 
   let path = [];
   if (selfAvoidingWalkHelper(path, visited, desiredLength, start.x, start.y)) {
-    console.log("found self avoiding walk!");
+    console.log('found self avoiding walk!');
     return path;
   } else {
-    console.log("no self avoiding walk found.");
+    console.log('no self avoiding walk found.');
     return undefined;
   }
 }
