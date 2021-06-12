@@ -118,7 +118,7 @@ contributions:
     url: "https://editor.p5js.org/ricoloic/present/bLSOAUNGT"
   - title: "John Conway's Game of Life Simulation"
     author:
-      name: "Adiya D.S."
+      name: "Aditya D.S."
       url: https://aditya-ds-1806.github.io/
     url: https://aditya-ds-1806.github.io/coding-challenges/game-of-life/
     source: https://github.com/Aditya-ds-1806/coding-challenges/tree/main/game-of-life
