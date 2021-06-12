@@ -22,6 +22,12 @@ videos:
     url: "/GuestTutorials/006-golan-levin-modulo-operator"
 
 contributions:
+  - title: "John Conway's Game of Life Simulation"
+    author: 
+      name: "Adiya D.S."
+      url: https://aditya-ds-1806.github.io/
+    url: https://aditya-ds-1806.github.io/coding-challenges/game-of-life/
+    source: https://github.com/Aditya-ds-1806/coding-challenges/tree/main/game-of-life
   - title: "Game of Life"
     author: "Alexandru Nastase"
     url: https://alexandrunst.github.io/Game-of-Life/
