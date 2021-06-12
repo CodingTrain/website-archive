@@ -92,3 +92,11 @@ topics:
 ---
 
 It's finally time to attempt a Self-Avoiding Walk! In this video, I quickly visualize a simple JavaScript p5.js implementation of a self-avoiding walk. I then tackle the more complex problem of backtracking to find a solution to a space-filling self-avoiding walk. 
+contributions:
+  - title: "Random walk with random colours, random alpha and random size!"
+    author:'Arnav
+      name: "Arnav"
+      url:'https://github.com/SwirlingYoungCoder'
+    url: "https://editor.p5js.org/arnavraspberrypi/present/-RI1f2-__"
+    source: "https://github.com/SwirlingYoungCoder/Nature-Of-Code"
+---
