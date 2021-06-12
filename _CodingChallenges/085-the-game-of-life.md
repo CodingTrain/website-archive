@@ -116,5 +116,11 @@ contributions:
       url: "https://github.com/ricoloic"
     source: "https://github.com/ricoloic/game-of-life"
     url: "https://editor.p5js.org/ricoloic/present/bLSOAUNGT"
+  - title: "John Conway's Game of Life Simulation"
+    author:
+      name: "Adiya D.S."
+      url: https://aditya-ds-1806.github.io/
+    url: https://aditya-ds-1806.github.io/coding-challenges/game-of-life/
+    source: https://github.com/Aditya-ds-1806/coding-challenges/tree/main/game-of-life
 ---
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.
