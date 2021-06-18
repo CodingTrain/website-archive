@@ -66,6 +66,12 @@ contributions:
       url: "https://github.com/ricoloic"
     url: "https://invincible-ivy-coffee.glitch.me/"
     source: "https://github.com/ricoloic/snake-game"
+  - title: "Snake Game, using ml5 facemesh to play on and with your face"
+    author:
+      name: "apsyll"
+      url: "https://editor.p5js.org/apsyll/full/q6cS3yGRF"
+    url: "https://editor.p5js.org/apsyll/full/q6cS3yGRF"
+    source: "https://editor.p5js.org/apsyll/sketches/q6cS3yGRF"
 ---
 
 Snake Game!? Again!? Now with the p5.js Web Editor!
