@@ -1,7 +1,7 @@
 // More Steering Behaviors! (Wander)
 // The Nature of Code
 // The Coding Train / Daniel Shiffman
-// https://youtu.be/
+// https://youtu.be/Q4MU7pkDYmQ
 // https://thecodingtrain.com/learning/nature-of-code/5.3-flee-pursue-evade.html
 
 // Flee: https://editor.p5js.org/codingtrain/sketches/v-VoQtETO
