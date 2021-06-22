@@ -25,5 +25,5 @@ jobs:
       - name: Running htmlproofer
         run: |
           bundle exec htmlproofer ./_site --assume-extension --check-html --disable-external --url-ignore "/#.*/"
-      - name: Ping FeaturePeek
-        run: bash <(curl -s https://peek.run/ci)
+#      - name: Ping FeaturePeek
+#        run: bash <(curl -s https://peek.run/ci)
