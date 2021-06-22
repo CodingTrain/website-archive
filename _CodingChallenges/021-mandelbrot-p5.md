@@ -56,7 +56,8 @@ contributions:
   - title: "Mandelbrot - an other explorer"
     author:
       name: "Bas Vogel"
-      url: "https://editor.p5js.org/Basz/present/RNzUk1pLn"
+      url: "https://basvogel.nl"
+    url: "https://editor.p5js.org/Basz/present/RNzUk1pLn"
     source: "https://editor.p5js.org/Basz/sketches/RNzUk1pLn"
 ---
 In this coding challenge, I program from scratch the Mandelbrot set with p5.js
