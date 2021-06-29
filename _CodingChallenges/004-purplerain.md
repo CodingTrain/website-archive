@@ -73,7 +73,7 @@ contributions:
       url: "https://github.com/amnindersingh12"
     url: "https://amnindersingh12.github.io/Shooting-Stars/"
     source: "https://github.com/amnindersingh12/Shooting-Stars"
-    - title: "Controling the rain"
+  - title: "Controling the rain"
     author:
       name: "Drea007"
       url: "https://github.com/Drea007"
