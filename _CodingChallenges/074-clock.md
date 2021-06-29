@@ -188,7 +188,11 @@ contributions:
   - title: "Apple_gen5_watch styled analog+digital smooth System Clock"
     author: "Abhinav Mishra (Amsters')"
     url: https://editor.p5js.org/Abhinav_programmer/full/l-AgllorM
-    source: https://editor.p5js.org/Abhinav_programmer/sketches/l-AgllorM
+    source: https://editor.p5js.org/Abhinav_programmer/sketches/l-AgllorM    
+     - title: "Black & White analog clock"
+    author: "Drea007"
+    url: https://editor.p5js.org/Drea007/full/ICxxEXm69
+    source: https://editor.p5js.org/Drea007/sketches/ICxxEXm69
 ---
 
 In this coding challenge, I attempt to program a clock in HTML5 canvas with the p5.js library.
