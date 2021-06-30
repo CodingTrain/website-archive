@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "Coding Train Website",
   "main": "none",
-  "dependencies": {},
   "devDependencies": {
     "dotenv": "^10.0.0",
     "eslint": "^7.28.0",
