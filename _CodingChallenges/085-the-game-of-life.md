@@ -122,5 +122,11 @@ contributions:
       url: https://aditya-ds-1806.github.io/
     url: https://aditya-ds-1806.github.io/coding-challenges/game-of-life/
     source: https://github.com/Aditya-ds-1806/coding-challenges/tree/main/game-of-life
+  - title: "Conway's Game of Life with user interactions!"
+    author:
+      name: "Sungyoung Kim"
+      url: "https://github.com/unta1337"
+    url: "https://unta1337.github.io/p5Thingys/GameOfLife/index.html"
+    source: "https://github.com/unta1337/p5Thingys/tree/master/GameOfLife"
 ---
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.
