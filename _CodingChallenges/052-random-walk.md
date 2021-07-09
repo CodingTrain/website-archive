@@ -25,7 +25,7 @@ contributions:
     author: "Krishanth"
     url: "https://editor.p5js.org/Krishanth2020/full/Q57_khQCp"
     source: "https://editor.p5js.org/Krishanth2020/full/Q57_khQCp"
-    - title: "Your version's title (choose a nice one!)"
+    - title: "Random Walkers Color Combo"
   author:
     name: "Ayaan Surkhi"
     url: "https://github.com/Ayaan-Surkhi"
