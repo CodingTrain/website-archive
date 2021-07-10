@@ -97,6 +97,12 @@ contributions:
       url: "https://github.com/SwirlingYoungCoder"
     url: "https://editor.p5js.org/arnavraspberrypi/present/-RI1f2-__"
     source: "https://github.com/SwirlingYoungCoder/Nature-Of-Code"
+   - title: "Quasi self avoiding walk, coloring most visited sites!"
+    author:
+      name: "Renan Butkeraites"
+      url: "https://github.com/butkeraites"
+    url: "https://editor.p5js.org/butkeraites/full/AWcZE5WBI"
+    source: "https://editor.p5js.org/butkeraites/sketches/AWcZE5WBI"
 ---
 
 It's finally time to attempt a Self-Avoiding Walk! In this video, I quickly visualize a simple JavaScript p5.js implementation of a self-avoiding walk. I then tackle the more complex problem of backtracking to find a solution to a space-filling self-avoiding walk. 
