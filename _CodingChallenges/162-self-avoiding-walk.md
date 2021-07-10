@@ -97,7 +97,7 @@ contributions:
       url: "https://github.com/SwirlingYoungCoder"
     url: "https://editor.p5js.org/arnavraspberrypi/present/-RI1f2-__"
     source: "https://github.com/SwirlingYoungCoder/Nature-Of-Code"
-   - title: "Quasi self avoiding walk, coloring most visited sites!"
+  - title: "Quasi self avoiding walk, coloring most visited sites!"
     author:
       name: "Renan Butkeraites"
       url: "https://github.com/butkeraites"
