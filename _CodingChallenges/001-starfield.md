@@ -135,5 +135,9 @@ contributions:
     author: "Onur Demir"
     url: "https://editor.p5js.org/Maxwell-sDaemon/sketches/aB3-PWv5k"
     source: "https://editor.p5js.org/Maxwell-sDaemon/sketches/aB3-PWv5k"
+  - title: "Controling the shape of the stars"
+    author: "Andrea Suárez"
+    url: "https://editor.p5js.org/Drea007/full/CMNe5j1Kt"
+    source: "https://editor.p5js.org/Drea007/sketches/CMNe5j1Kt"
 ---
 This is the first in a new series of videos.  In this video I attempt to program a "star field" or "warp speed" visualization in Processing.
