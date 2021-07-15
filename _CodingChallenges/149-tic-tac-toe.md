@@ -178,5 +178,11 @@ contributions:
     author: "FEDQK"
     url: "https://editor.p5js.org/FEDQK/full/-Pv-iJu4j"
     source: "https://editor.p5js.org/FEDQK/sketches/-Pv-iJu4j"
+  - title: "Tic Tac Toe of variable size with React and Typescript"
+    author:
+      name: "Irtiaz"
+      url: "https://github.com/Irtiaz"
+    url: "https://tic-tac-toe-resizable.netlify.app/"
+    source: "https://github.com/Irtiaz/tic-tac-toe-with-variable-size"
 ---
 This is a beginner-friendly challenge where I attempt to code a basic version of the game Tic-Tac-Toe using JavaScript and the p5.js library.
