@@ -43,7 +43,7 @@ contributions:
       name: "Ayaan Surkhi"
       url: "https://github.com/Ayaan-Surkhi"
     url: "https://ayaan-surkhi.github.io/Approximating-Pi/"
-    source: "https://github.com/Ayaan-Surkhi/Approximating-Pi"    
+    source: "https://github.com/Ayaan-Surkhi/Approximating-Pi"
 ---
 
 In this coding challenge, I use use a "monte carlo" method to approximate the value of Pi in Processing (Java).
