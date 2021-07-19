@@ -162,7 +162,7 @@ contributions:
       url: "https://github.com/OutdatedGuy"
     url: "https://outdated-snake.herokuapp.com"
     source: "https://github.com/OutdatedGuy/Outdated-Snake"
-    - title: "Snake game in C that runs in browser!"
+  - title: "Snake game in C that runs in browser!"
     author:
       name: "Imtiaz Kabir"
       url: "https://github.com/ImtiazKabir"
