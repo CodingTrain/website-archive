@@ -132,9 +132,7 @@ contributions:
     author:
       name: "Pathik Ghugare"
       url: "https://github.com/PatrickBro13"
-    url: "https://youtu.be/y41E_EzUJ0M"
+    video_id: "y41E_EzUJ0M"
     source: "https://github.com/Patrickbro13/Game-Of-Life"
-    
-    
 ---
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.
