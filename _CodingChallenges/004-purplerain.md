@@ -85,5 +85,12 @@ contributions:
       url: "https://github.com/Irtiaz"
     url: "https://relaxing-rain.netlify.app/"
     source: "https://github.com/Irtiaz/rain"
+  - title: "Relaxing rain with generative lightning":
+    author:
+      name: "Atul Hegde"
+      url: "https://github.com/tuffstuff2k7"
+    url: "https://tuffstuff2k7.github.io/Rain/"
+    source: "https://github.com/tuffstuff2k7/Rain"    
+    
 ---
 In this viewer submitted coding challenge, I attempt to code a Purple Rain Simulator in Processing.
