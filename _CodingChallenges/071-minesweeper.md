@@ -108,5 +108,12 @@ contributions:
     author: "Abhay Kashyap and Simon Tiger"
     url: https://abhay2008.github.io/Minesweeper-/
     source: https://github.com/abhay2008/Minesweeper-
+  - title: "clasic bomb-sweeper"
+    author:
+      name: "Loïc Rico"
+      url: https://github.com/ricoloic/
+    video_id: m4FEp0jb0RA
+    url: https://ricoloic.github.io/mine-sweeper/
+    source: https://github.com/ricoloic/mine-sweeper/
 ---
 In this challenge, I attempt to code the classic game Minesweeper in JavaScript with the p5.js library. This video builds on some previous tutorials related to the Prototypes and multi-dimensional arrays in JavaScript.
