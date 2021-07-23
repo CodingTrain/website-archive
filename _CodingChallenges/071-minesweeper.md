@@ -112,7 +112,6 @@ contributions:
     author:
       name: "Loïc Rico"
       url: https://github.com/ricoloic/
-    video_id: m4FEp0jb0RA
     url: https://ricoloic.github.io/mine-sweeper/
     source: https://github.com/ricoloic/mine-sweeper/
 ---
