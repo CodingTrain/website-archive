@@ -48,6 +48,12 @@ contributions:
       url: "https://codepen.io/rajatkantinandi"
     url: "https://codepen.io/rajatkantinandi/full/QWWVrmB"
     source: "https://codepen.io/rajatkantinandi/pen/QWWVrmB"
+  - title: "Rainbow Snowflake - In Processing - Python mode"
+    author:
+      name: "M87K452b"
+      url: "https://github.com/M87K452b"
+    url: "https://github.com/M87K452b/learning-processing-py-mode/blob/main/snowflakes/flakes.gif"
+    source: "https://github.com/M87K452b/learning-processing-py-mode/tree/main/snowflakes"
 ---
 
 In this holiday coding challenge, I create a "Brownian Tree Snowflake" in Processing (Java). This video was recorded as part of a fundraiser for the [Processing Foundation](https://processingfoundation.org/support/).
