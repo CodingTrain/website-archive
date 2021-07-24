@@ -36,6 +36,11 @@ contributions:
       name: "Michiel Braat"
     url: "http://www.michielbraat.nl/blog/reaction-diffusion/"
     source: "https://github.com/Proinn/reaction_diffusion_three_js"
+  - title: "The Reaction-Diffusion algorithm with Tensorflow"
+    author:
+      name: "juancer"
+      url: "https://github.com/ajuancer/"
+    source: "https://editor.p5js.org/ajuancer/sketches/fwyetGiSp"
 ---
 
 In this coding challenge, I visualize a Reaction Diffusion simulation using the Gray Scott model in JavaScript (with the p5.js library).
