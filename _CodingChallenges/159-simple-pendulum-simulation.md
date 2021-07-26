@@ -112,6 +112,10 @@ contributions:
     author: "basti486"
     url: "https://editor.p5js.org/8asti/full/39ZfCPZe8"
     source: "https://editor.p5js.org/8asti/sketches/39ZfCPZe8"
+  - title: "Opposite pendulums simulation adding damping force"
+    author: "Andrea Suárez (Drea007)"
+    url: "https://editor.p5js.org/Drea007/full/M06hVV_ZF"
+    source: "https://editor.p5js.org/Drea007/sketches/M06hVV_ZF"
 ---
 
 Choo choo! In this challenge, I build on chapter 3 (Oscillating Motion) of the Nature of Code series and simulate a simple pendulum in p5.js via angular acceleration.
