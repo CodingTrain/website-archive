@@ -38,7 +38,7 @@ contributions:
     source: "https://github.com/mathematical-art/mathematical-art.github.io/tree/master/sketch"
   - title: "Spirograph Art-Maker"
     author: "Steve's Makerspace"
-    video id: "jNWaAh3Irjw&t=1s"
+    video_id: "jNWaAh3Irjw&t=1s"
     source: "https://editor.p5js.org/StevesMakerspace/sketches/dqCrfr642"
 ---
 
