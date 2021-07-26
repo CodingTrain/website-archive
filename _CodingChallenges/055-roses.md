@@ -36,9 +36,9 @@ contributions:
       url: "https://github.com/elizabethhudnott"
     url: "https://mathematical-art.github.io/?gen=graphing-calculator&preset=rose"
     source: "https://github.com/mathematical-art/mathematical-art.github.io/tree/master/sketch"
- - title: "Spirograph Art-Maker"     
-     author: "Steve's Makerspace"
-      video id: "jNWaAh3Irjw&t=1s"
+  - title: "Spirograph Art-Maker"
+    author: "Steve's Makerspace"
+    video id: "jNWaAh3Irjw&t=1s"
     source: "https://editor.p5js.org/StevesMakerspace/sketches/dqCrfr642"
 ---
 
