@@ -49,6 +49,11 @@ contributions:
       name: "Raime Carroll"
     url: "https://editor.p5js.org/chromatic.waltz/present/bckJH7R39"
     source: "https://editor.p5js.org/chromatic.waltz/sketches/bckJH7R39"
+  - title: "Oscillating Julia set"
+    author:
+      name: "M87K452b(Harivinay)"
+    url: "https://github.com/M87K452b/julia-set-with-shaders/blob/main/render/julia-set-render-1280x720.gif"
+    source: "https://github.com/M87K452b/julia-set-with-shaders"
 ---
 
 In this coding challenge, I program from the Julia Set fractal in Processing (Java).
