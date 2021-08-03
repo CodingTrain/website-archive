@@ -91,7 +91,7 @@ contributions:
       url: "https://github.com/tuffstuff2k7"
     url: "https://tuffstuff2k7.github.io/Rain/"
     source: "https://github.com/tuffstuff2k7/Rain"
-  - title: "My try to re-create the purple rain with some etra features"
+  - title: "My try to re-create the purple rain with some extra features"
     author:
       name: "Krish"
       url: "https://github.com/KrishAgarwal2811"
