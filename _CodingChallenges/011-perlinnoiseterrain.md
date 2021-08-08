@@ -94,7 +94,7 @@ contributions:
       url: "https://github.com/Heinrichxiao"
     url: "https://editor.p5js.org/Heinrichxiao/present/NVWENYzLf"
     source: "https://editor.p5js.org/Heinrichxiao/sketches/NVWENYzLf"
-   - title: "Into the sanddunes"
+  - title: "Into the sanddunes"
     author:
       name: "Venkatakrishnan.R"
       url: "https://github.com/Cody-coder017"
