@@ -18,6 +18,11 @@ contributions:
       url: "https://github.com/abangfarhan"
     video_id: LZfmCuEPRIM
     source: "https://github.com/abangfarhan/metaballs-pshaders"
+  - title: "Metaballs"
+    author:
+      name: "e4494s"
+      url: https://e4494s.neocities.org
+    url: https://e4494s.neocities.org/metaballs.html
 ---
 
 In this coding challenge, I show you how to code from scratch Metaballs(Isosurfaces) in Processing and how to control them using the Blob Detection method from my previous computer vision video.
