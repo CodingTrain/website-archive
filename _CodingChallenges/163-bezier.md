@@ -64,7 +64,7 @@ topics:
     time: "0:00"
   - title: "Explain! What is the bezier() function?"
     time: "1:03"
-  - title: "Explain! The difference between linear, quadratic, and cubic bezier curves?"d
+  - title: "Explain! The difference between linear, quadratic, and cubic bezier curves?"
     time: "2:02"
   - title: "Explain! What is a control point?"
     time: "2:34"
