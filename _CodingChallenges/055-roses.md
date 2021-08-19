@@ -36,6 +36,10 @@ contributions:
       url: "https://github.com/elizabethhudnott"
     url: "https://mathematical-art.github.io/?gen=graphing-calculator&preset=rose"
     source: "https://github.com/mathematical-art/mathematical-art.github.io/tree/master/sketch"
+  - title: "Spirograph Art-Maker"
+    author: "Steve's Makerspace"
+    video_id: "jNWaAh3Irjw&t=1s"
+    source: "https://editor.p5js.org/StevesMakerspace/sketches/dqCrfr642"
 ---
 
 In this coding challenge, I attempt to create rose (rhodonea) curves using trigonometry function and polar coordinates.

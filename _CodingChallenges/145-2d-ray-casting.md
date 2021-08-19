@@ -141,8 +141,8 @@ contributions:
   - title: "2D Ray-casting with p5py"
     author:
       name: "Param Patidar"
-      url: "https://github.com/parampatidar"
-    source: "https://github.com/parampatidar/2D-Ray-casting-with-p5py"
+      url: "https://github.com/astroparam"
+    source: "https://github.com/astroparam/2D-Ray-casting-with-p5py"
   - title: "kind of (Sight & Light) Ray Casting"
     author:
       name: "Paulo Fraga"

@@ -162,5 +162,17 @@ contributions:
       url: "https://github.com/OutdatedGuy"
     url: "https://outdated-snake.herokuapp.com"
     source: "https://github.com/OutdatedGuy/Outdated-Snake"
+  - title: "Snake game in C that runs in browser!"
+    author:
+      name: "Imtiaz Kabir"
+      url: "https://github.com/ImtiazKabir"
+    url: "https://csnake.netlify.app"
+    source: "https://github.com/ImtiazKabir/Yet-Another-Snake-Game"
+  - title: "Snake toward eye of agimotto"
+    author:
+      name: "Venkatakrishnan.R"
+      url:  "https://github.com/Cody-coder017/Generative_art"
+    url: "https://editor.p5js.org/venkatkrishnan2003/full/7xVyo6_Wv"
+    source: "https://github.com/Cody-coder017/Generative_art/tree/main/Snake_Game_(The%20eye%20of%20agimoto)"
 ---
 In this coding challenge, I attempt to code a p5.js version of the Snake Game.
