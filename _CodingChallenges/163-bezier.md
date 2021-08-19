@@ -46,11 +46,10 @@ links:
     url: https://p5js.org/reference/#/p5/bezier
   - title: "Bézier curve (Wikipedia)"
     url: https://en.wikipedia.org/wiki/B%C3%A9zier_curve
-  - title: "Custom shapes - Programming Design Systems by Rune Madsen" 
+  - title: "Custom shapes - Programming Design Systems by Rune Madsen"
     url: https://www.programmingdesignsystems.com/shape/custom-shapes/index.html#custom-shapes-pANLh0l
   - title: "lerp() - p5.js Reference"
     url: https://p5js.org/reference/#/p5/lerp
-
 
 videos:
   - title: "Self Avoiding Walk - Coding Challenge 162"
