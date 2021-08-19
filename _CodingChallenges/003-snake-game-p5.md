@@ -168,7 +168,7 @@ contributions:
       url: "https://github.com/ImtiazKabir"
     url: "https://csnake.netlify.app"
     source: "https://github.com/ImtiazKabir/Yet-Another-Snake-Game"
-   - title: "Snake toward eye of agimotto"
+  - title: "Snake toward eye of agimotto"
     author:
       name: "Venkatakrishnan.R"
       url: https://editor.p5js.org/venkatkrishnan2003/full/7xVyo6_Wv
