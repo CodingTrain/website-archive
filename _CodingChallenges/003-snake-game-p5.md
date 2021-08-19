@@ -171,8 +171,8 @@ contributions:
   - title: "Snake toward eye of agimotto"
     author:
       name: "Venkatakrishnan.R"
-      url: https://editor.p5js.org/venkatkrishnan2003/full/7xVyo6_Wv
-    url: https://github.com/Cody-coder017/Generative_art
-    source: https://github.com/Cody-coder017/Generative_art/tree/main/Snake_Game_(The%20eye%20of%20agimoto)
+      url:  "https://github.com/Cody-coder017/Generative_art"
+    url: "https://editor.p5js.org/venkatkrishnan2003/full/7xVyo6_Wv"
+    source: "https://github.com/Cody-coder017/Generative_art/tree/main/Snake_Game_(The%20eye%20of%20agimoto)"
 ---
 In this coding challenge, I attempt to code a p5.js version of the Snake Game.
