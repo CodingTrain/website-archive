@@ -21,11 +21,11 @@ let controlMode;
 let exported;
 let settings = {
   closed: false,
-  controlMode: "",
+  controlMode: '',
   controlSpacing: 0.5,
   export: {
     export: (_) => exported.setValue(path.serialize()),
-    exported: "",
+    exported: '',
   },
 };
 
@@ -33,19 +33,19 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   path = new Path();
   gui = new dat.GUI();
-  gui.add(settings, "closed").onChange((_) => path.toggleClosed());
+  gui.add(settings, 'closed').onChange((_) => path.toggleClosed());
   controlMode = gui
-    .add(settings, "controlMode", {
-      Aligned: "A",
-      Mirrored: "B",
-      Free: "C",
-      Automatic: "D",
+    .add(settings, 'controlMode', {
+      Aligned: 'A',
+      Mirrored: 'B',
+      Free: 'C',
+      Automatic: 'D',
     })
-    .setValue("A");
-  controlSpacing = gui.add(settings, "controlSpacing", 0, 1, 0.01);
-  const exprt = gui.addFolder("export");
-  exprt.add(settings.export, "export");
-  exported = exprt.add(settings.export, "exported");
+    .setValue('A');
+  controlSpacing = gui.add(settings, 'controlSpacing', 0, 1, 0.01);
+  const exprt = gui.addFolder('export');
+  exprt.add(settings.export, 'export');
+  exported = exprt.add(settings.export, 'exported');
 }
 
 function keyPressed() {
@@ -83,7 +83,7 @@ function mouseReleased() {
 
 function draw() {
   background(128);
-  if (controlMode.getValue() == "D") {
+  if (controlMode.getValue() == 'D') {
     path.auto = true;
     path.autoSetAllControlPoints(controlSpacing.getValue());
   } else {
@@ -170,20 +170,20 @@ class Path {
       if (i + 1 < this.points.length || this.closed) {
         this.points[this.loopIndex(i + 1)].add(dx, dy);
       }
-      if (mode == "D") this.autoSetAllControlPoints();
-    } else if (mode != "D") {
+      if (mode == 'D') this.autoSetAllControlPoints();
+    } else if (mode != 'D') {
       point.set(x, y);
       const anchorI = i % 3 == 1 ? i - 1 : i + 1;
       const otherI = i % 3 == 1 ? i - 2 : i + 2;
       if ((otherI >= 0 && otherI < this.points.length) || this.closed) {
         const anchor = this.points[this.loopIndex(anchorI)];
         const other = this.points[this.loopIndex(otherI)];
-        if (mode == "A") {
+        if (mode == 'A') {
           const dist = p5.Vector.dist(anchor, other);
           const disp = p5.Vector.sub(anchor, point);
           disp.setMag(dist);
           other.set(p5.Vector.add(anchor, disp));
-        } else if (mode == "B") {
+        } else if (mode == 'B') {
           other.set(p5.Vector.lerp(anchor, point, -1));
         }
       }
