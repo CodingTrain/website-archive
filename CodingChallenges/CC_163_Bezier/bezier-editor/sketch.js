@@ -24,22 +24,22 @@ let settings = {
   controlMode: '',
   controlSpacing: 0.5,
   export: {
-    export: (_) => exported.setValue(path.serialize()),
-    exported: '',
-  },
+    export: _ => exported.setValue(path.serialize()),
+    exported: ''
+  }
 };
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   path = new Path();
   gui = new dat.GUI();
-  gui.add(settings, 'closed').onChange((_) => path.toggleClosed());
+  gui.add(settings, 'closed').onChange(_ => path.toggleClosed());
   controlMode = gui
     .add(settings, 'controlMode', {
       Aligned: 'A',
       Mirrored: 'B',
       Free: 'C',
-      Automatic: 'D',
+      Automatic: 'D'
     })
     .setValue('A');
   controlSpacing = gui.add(settings, 'controlSpacing', 0, 1, 0.01);
@@ -105,10 +105,10 @@ class Path {
 
   serialize() {
     return JSON.stringify({
-      points: this.points.map((p) => {
+      points: this.points.map(p => {
         return { x: p.x - width / 2, y: p.y - height / 2 };
       }),
-      closed: this.closed,
+      closed: this.closed
     });
   }
 
@@ -142,7 +142,7 @@ class Path {
       this.points[this.loopIndex(i * 3 + 0)],
       this.points[this.loopIndex(i * 3 + 1)],
       this.points[this.loopIndex(i * 3 + 2)],
-      this.points[this.loopIndex(i * 3 + 3)],
+      this.points[this.loopIndex(i * 3 + 3)]
     ];
   }
 
