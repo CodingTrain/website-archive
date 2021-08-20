@@ -92,6 +92,12 @@ topics:
     time: "20:17"
   - title: "Wrap up. What will you create?"
     time: "21:40"
+
+contributions:
+  - title: "Bezier Arch Synthwave Animation"
+    author: "Chris Sears"
+    url: https://editor.p5js.org/Prof-Sears/full/3zStiATFL
+    source: https://editor.p5js.org/Prof-Sears/sketches/3zStiATFL
 ---
 
 Have you ever wanted to know more about bézier curves in p5.js? Thanks to a generous donation from Jason Oswald, I do a deep dive exploring the bézier curve function and the math behind the algorithm?
