@@ -54,6 +54,11 @@ contributions:
       url: "https://github.com/M87K452b"
     url: "https://github.com/M87K452b/learning-processing-py-mode/blob/main/snowflakes/flakes.gif"
     source: "https://github.com/M87K452b/learning-processing-py-mode/tree/main/snowflakes"
+  - title: "Customizable Brownian Snowflake Generator"
+    author:
+      name: "e4494s"
+      url: "https://e4494s.neocities.org"
+    url: "https://e4494s.neocities.org/snowflake.html"
 ---
 
 In this holiday coding challenge, I create a "Brownian Tree Snowflake" in Processing (Java). This video was recorded as part of a fundraiser for the [Processing Foundation](https://processingfoundation.org/support/).
