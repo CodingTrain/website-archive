@@ -92,7 +92,6 @@ topics:
     time: "20:17"
   - title: "Wrap up. What will you create?"
     time: "21:40"
----
 
 contributions:
   - title: "Bezier Arch Synthwave Animation"
