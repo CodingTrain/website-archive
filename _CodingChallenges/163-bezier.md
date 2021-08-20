@@ -1,5 +1,5 @@
 ---
-title: "What's the secret of this curve drawing algorithm made by a french car designer? - p5.js Bezier Curve Function - Coding Challenge 163"
+title: "What is the secret behind the famous curve algorithm invented by a French car maker Pierre Bézier? - p5.js Bézier Curve - Coding Challenge 163"
 video_number: 163
 date: 2021-08-19
 video_id: zUgsYaUQNBk
@@ -94,4 +94,4 @@ topics:
     time: "21:40"
 ---
 
-Have you ever wanted to know more about the p5.js bezier function? Well I have good news for you! Thanks to the generous donation of Jason Oswald I do a deep dive exploring the bezier function.
+Have you ever wanted to know more about bézier curves in p5.js? Thanks to a generous donation from Jason Oswald, I do a deep dive exploring the bézier curve function and the math behind the algorithm?
