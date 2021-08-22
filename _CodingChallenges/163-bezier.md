@@ -1,5 +1,5 @@
 ---
-title: "What is the secret behind the famous curve algorithm invented by a French car maker Pierre Bézier? - p5.js Bézier Curve - Coding Challenge 163"
+title: "Coding Challenge 163: Bézier Curves"
 video_number: 163
 date: 2021-08-22
 video_id: enNfb6p3j_g
