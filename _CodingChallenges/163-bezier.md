@@ -98,6 +98,10 @@ contributions:
     author: "Chris Sears"
     url: https://editor.p5js.org/Prof-Sears/full/3zStiATFL
     source: https://editor.p5js.org/Prof-Sears/sketches/3zStiATFL
+  - title: "Bezier Curve Road Editor"
+    author: "David Snyder"
+    url: https://preview.p5js.org/D_Snyder/present/F5rWBZZ4r
+    source: https://editor.p5js.org/D_Snyder/sketches/F5rWBZZ4r
 ---
 
 Have you ever wanted to know more about bézier curves in p5.js? Thanks to a generous donation from Jason Oswald, I do a deep dive exploring the bézier curve function and the math behind the algorithm?
