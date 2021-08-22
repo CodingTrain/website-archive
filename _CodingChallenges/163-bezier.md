@@ -1,5 +1,5 @@
 ---
-title: "Coding Challenge 163: Bézier Curves"
+title: "Bézier Curves"
 video_number: 163
 date: 2021-08-22
 video_id: enNfb6p3j_g
