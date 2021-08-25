@@ -84,6 +84,12 @@ contributions:
       url: "https://github.com/SuhelMakkad"
     url: "https://suhelmakkad.github.io/Fourier-Series-Visualization/"
     source: "https://github.com/SuhelMakkad/Fourier-Series-Visualization"
+  - title: "Customizable Fourier Series"
+    author:
+      name: "Spi3lot"
+      url: "https://github.com/spi3lot"
+    url: "https://editor.p5js.org/spi3lot/full/bSVAd9Aol"
+    source: "https://editor.p5js.org/spi3lot/sketches/bSVAd9Aol"
 ---
 
 In this coding challenge, I visualize a Fourier series for a square wave in JavaScript with p5.js.
