@@ -34,13 +34,13 @@ void setup() {
 
 void draw() {
   // Updating FOV relative to mouseX since Processing has no support for sliders
-  int FOVvalue = 45;
+  float FOVvalue = 45;
   if (mouseX <= 2) {
     FOVvalue = 2;
   } else if (mouseX >= width / 2) {
     FOVvalue = 360;
   } else {
-    FOVvalue = (int)map(mouseX, 0, width / 2, 0, 360);
+    FOVvalue = map(mouseX, 0, width / 2, 0, 360);
   }
   particle.updateFOV(FOVvalue);
   

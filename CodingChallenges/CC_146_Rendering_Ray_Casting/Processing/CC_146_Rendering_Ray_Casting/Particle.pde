@@ -6,7 +6,7 @@
 // https://editor.p5js.org/codingtrain/sketches/yEzlR0_zq
 
 class Particle {
-  int fov;
+  float fov;
   PVector pos;
   ArrayList<Ray> rays;
   float heading;
@@ -17,15 +17,15 @@ class Particle {
     pos = new PVector(sceneW / 2, sceneH / 2);
     rays = new ArrayList<>();;
     heading = 0;
-    for (int a = -fov / 2; a < fov / 2; a++) {
+    for (float a = -fov / 2; a < fov / 2; a++) {
       rays.add(new Ray(pos, radians(a)));
     }
   }
 
-  void updateFOV(int fov) {
+  void updateFOV(float fov) {
     this.fov = fov;
     rays = new ArrayList<>();
-    for (int a = -fov / 2; a < fov / 2; a++) {
+    for (float a = -fov / 2; a < fov / 2; a++) {
       rays.add(new Ray(pos, radians(a) + heading));
     }
   }
@@ -33,7 +33,7 @@ class Particle {
   void rotate(float angle) {
     heading += angle;
     int index = 0;
-    for (int a = -fov / 2; a < fov / 2; a++) {
+    for (float a = -fov / 2; a < fov / 2; a++) {
       rays.get(index).setAngle(radians(a) + heading);
       index++;
     }
