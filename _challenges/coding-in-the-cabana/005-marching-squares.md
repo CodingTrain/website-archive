@@ -30,7 +30,7 @@ variations:
   - name: "Cave Generation"
     lang: "p5js"
     folder: "P5_cave"
-    web_editor: z4U3Luf7ohEB4588QC
+    web_editor: z4U3Luf7o
   - name: "Metaballs Interpolation"
     lang: "p5js"
     folder: "P5_metaballs_interpolation"
