@@ -44,6 +44,10 @@ contributions:
     author: "mawesome4ever"
     url: https://www.roblox.com/games/6011930452/Cube-Wave-Challenge
     source: https://github.com/mawesome4ever/Cube_Wave_Challenge-Roblox
+  - title: "Cube Wave with FFT sound analysis "
+    author: "Ttete Does Coding"
+    url: https://www.youtube.com/watch?v=vy3mbFi7UOA
+    source: https://github.com/Oscar-FV/FFT-sound-visualizer-C-
 ---
 
 In this coding challenge, I attempt recreate a 3D @beesandbombs GIF with p5.js and the WebGL renderer.
