@@ -120,6 +120,10 @@ contributions:
     author: "Alex Hunter"
     url: https://editor.p5js.org/alonjazz/full/pHoT3Nfh0
     source: https://editor.p5js.org/alonjazz/sketches/pHoT3Nfh0
+  - title: "Moving on an Infinite Loop using Bézier curves"
+    author: "jaipack17"
+    url: https://editor.p5js.org/jaipack17/full/M99fmswxg
+    source: https://editor.p5js.org/jaipack17/sketches/M99fmswxg
 ---
 
 Have you ever wanted to know more about bézier curves in p5.js? Thanks to a generous donation from Jason Oswald, I do a deep dive exploring the bézier curve function and the math behind the algorithm?
