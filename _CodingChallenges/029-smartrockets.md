@@ -33,6 +33,12 @@ contributions:
       name: "Heinrich Xiao"
       url: "https://github.com/Heinrichxiao/"
     url: "https://github.com/Heinrichxiao/CC_029_SmartRockets/blob/main/CC_029_SmartRockets.pde"
+  - title: "Smart darts with rejection sampling"
+    author:
+      name: "Ayaan Surkhi"
+      url: "https://github.com/Ayaan-Surkhi"
+    url: "https://ayaan-surkhi.github.io/Smart-Darts/"
+    source: "https://github.com/Ayaan-Surkhi/Smart-Darts"
 ---
 
 In this (very long) coding challenge, I implement a genetic algorithm from scratch and create "smart rockets" (based on a simulation by Jer Thorp).  The rockets evolve the "best" path to a target, moving around obstacles.
