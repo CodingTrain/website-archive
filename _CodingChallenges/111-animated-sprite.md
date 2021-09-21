@@ -33,8 +33,9 @@ contributions:
       name: "kawaiipantsu"
       url: "https://github.com/kawaiipantsu"
     url: "https://editor.p5js.org/kawaiipantsu/present/uULTDdG0Q"
-    source: "https://editor.p5js.org/kawaiipantsu/sketches/uULTDdG0Q"
-     name: "NIXIE TUBE CLOCK SIMULATION"
+  - title: "NIXIE TUBE CLOCK SIMULATION"
+    author:
+      name: "pepe-alegre"
       url: "https://github.com/pepe-alegre"
     url: "https://editor.p5js.org/utopianssuck@gmail.com/full/PfXLLS_Ox"
     source: "https://editor.p5js.org/utopianssuck@gmail.com/sketches/PfXLLS_Ox"
