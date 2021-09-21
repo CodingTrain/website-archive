@@ -125,5 +125,8 @@ contributions:
     url: https://editor.p5js.org/jaipack17/full/M99fmswxg
     source: https://editor.p5js.org/jaipack17/sketches/M99fmswxg
 ---
-
+  - title: "animated n control point Bézier curve"
+    author: "Monique GOBRIAL"
+    url: https://youtu.be/4GVd-JtaizE
+    source: https://editor.p5js.org/MGOBRIAL/sketches/imSjRRYpM
 Have you ever wanted to know more about bézier curves in p5.js? Thanks to a generous donation from Jason Oswald, I do a deep dive exploring the bézier curve function and the math behind the algorithm?
