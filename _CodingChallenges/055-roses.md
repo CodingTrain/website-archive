@@ -42,7 +42,7 @@ contributions:
     source: "https://editor.p5js.org/StevesMakerspace/sketches/dqCrfr642"
   - title: "Music Visualizer - MaurerRose"
     author: "Monique GOBRIAL"
-    video_id: "https://youtu.be/JoDbCtVBJBI"
+    video_id: "JoDbCtVBJBI"
     source: "https://editor.p5js.org/MGOBRIAL/sketches/9_4EGEnOA"
 ---
 
