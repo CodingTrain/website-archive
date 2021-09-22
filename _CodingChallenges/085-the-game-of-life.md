@@ -134,5 +134,11 @@ contributions:
       url: "https://github.com/PatrickBro13"
     video_id: "y41E_EzUJ0M"
     source: "https://github.com/Patrickbro13/Game-Of-Life"
+  - title: "A C implementation that runs in browser"
+    author:
+      name: "Imtiaz Kabir"
+      url: "https://github.com/ImtiazKabir"
+    url: "https://imtiazkabir.github.io/Game-of-Life/"
+    source: "https://github.com/ImtiazKabir/Game-of-Life"
 ---
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.
