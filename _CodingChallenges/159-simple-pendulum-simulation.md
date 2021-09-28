@@ -116,6 +116,12 @@ contributions:
     author: "Andrea Suárez (Drea007)"
     url: "https://editor.p5js.org/Drea007/full/M06hVV_ZF"
     source: "https://editor.p5js.org/Drea007/sketches/M06hVV_ZF"
+  - title: "Rainbow pendulum waves (GeoGebra)"
+    author:
+      name: "Juan Carlos Ponce Campuzano"
+      url: "https://jcponce.github.io"
+    url: "https://www.geogebra.org/material/iframe/id/yz4sy6kg/width/605/height/600/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+    source: "https://www.geogebra.org/m/bd5drkcu"
 ---
 
 Choo choo! In this challenge, I build on chapter 3 (Oscillating Motion) of the Nature of Code series and simulate a simple pendulum in p5.js via angular acceleration.
