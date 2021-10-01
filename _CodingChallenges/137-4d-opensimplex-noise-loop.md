@@ -26,8 +26,8 @@ contributions:
     author:
       name: "Juan Carlos Ponce Campuzano"
       url: "https://jcponce.github.io/"
-    url: "https://jcponce.github.io/sketches/flockknots/"
-    source: "https://github.com/jcponce/jcponce.github.io/tree/master/sketches/flockknots"
+    url: "https://preview.p5js.org/jcponce/present/4cmRPWfF"
+    source: "https://editor.p5js.org/jcponce/sketches/4cmRPWfF"
 ---
 
 It's groundhog day on the coding train as I demonstrate another noise loop GIF technique, this time with 4D Open Simple Noise in Processing (Java).
