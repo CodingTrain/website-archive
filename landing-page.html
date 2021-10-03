@@ -33,7 +33,7 @@ permalink: /
       <p>All aboard the Coding Train with Daniel Shiffman, a YouTube channel dedicated to beginner-friendly creative
         coding tutorials and challenges.</p>
       <div class="ctas">
-        <div><a href="{{ site.links.youtube }}?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="youtube">Subscribe on
+        <div><a href="{{ site.links.youtube }}?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="youtube">Subscribe us on
           YouTube</a></div>
         <div><a href="{{ site.links.youtube }}join" target="_blank" rel="noopener noreferrer" class="patreon">Become a Member</a></div>
         <div><a href="{{ site.links.discord }}" target="_blank" rel="noopener noreferrer" class="discord">Join the Discord</a></div>
@@ -44,13 +44,13 @@ permalink: /
 
   </div>
 
-  <h2>Latest Videos</h2>
+  <h1>Newest Videos</h1>
   <div class="featured-videos">
     {% include 3-modules/video-list.html sortedVideos=featuredVideos %}
     <a href="{{ site.links.youtube }}" target="_blank" rel="noopener noreferrer" class="more-videos">Watch more videos</a>
   </div>
 
-  <h2>Support The Coding Train</h2>
+  <h2>Support-The Coding Train</h2>
   <div class="support">
     {% capture memberLogo %}{% include 4-vector-graphics/squarebrackets.svg %}{% endcapture %}
     {% include 3-modules/hero-item.html image=memberLogo title='Consider supporting?' content='Join the Coding Train
@@ -58,7 +58,7 @@ permalink: /
 
     {% capture merchStoreImage %}<img alt='The Coding Train Merchandise Store' src="{{ '/assets/images/standardtv-store.jpg' | relative_url }}" style="border-radius: 50%;"/>{%
     endcapture %}
-    {% include 3-modules/hero-item.html image=merchStoreImage title='Coding Train Store'
+    {% include 3-modules/hero-item.html image=merchStoreImage title='Coding Train supply'
     content='Visit the Coding Train store with a small selection of high quality items' url=site.links.merch cta='Shop for Merchandise' class='merch-store' %}
 
     {% comment %} {% capture amazonStoreImage %}<img alt='The Coding Train Amazon Store' src="{{ '/assets/images/amazon-store.png' | relative_url }}" />{%
