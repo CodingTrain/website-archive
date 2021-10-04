@@ -128,5 +128,9 @@ contributions:
     author: "Monique GOBRIAL"
     video_id: 4GVd-JtaizE
     source: https://editor.p5js.org/MGOBRIAL/sketches/imSjRRYpM
+  - title: "N Degree/Points Bezier Curves"
+    author: "Ayush Koul"
+    url: https://editor.p5js.org/ayushkoul00/full/t1POcpzme
+    source: https://editor.p5js.org/ayushkoul00/sketches/t1POcpzme
 ---
 Have you ever wanted to know more about bézier curves in p5.js? Thanks to a generous donation from Jason Oswald, I do a deep dive exploring the bézier curve function and the math behind the algorithm?
