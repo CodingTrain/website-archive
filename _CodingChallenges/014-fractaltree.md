@@ -73,7 +73,7 @@ contributions:
     url: "https://editor.p5js.org/davAn/full/m8vYPHUEL"
     source: "https://editor.p5js.org/davAn/sketches/m8vYPHUEL"
   - title: "Animated Fractal Trees with Generator Functions"
-    author: 
+    author:
       name: "Thomas P."
       url: "https://eluni.co/"
     url: "https://editor.p5js.org/tompov227/full/aehOoXa8K"
