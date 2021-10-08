@@ -6,4 +6,4 @@ redirect_from:
   - /discord-bot
 ---
 
-🤖 How to create a Discord bot with discord.js! 🤖 
+🤖 In this lesson we'll learn how to create a Discord bot using the Node module discord.js! 🤖 
