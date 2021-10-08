@@ -7,4 +7,5 @@ redirect_from:
   - /perlin-noise
 ---
 
-A collection of videos about noise algorithms in p5.js (JavaScript) and Processing (Java).
+This series is about the topic of noise algorithms in p5.js (JavaScript) and Processing (Java).
+In particular we'll take a look at the Perlin Noise. We'll start with an introduction and explanation of Perlin Noise and dive deeper from there.
