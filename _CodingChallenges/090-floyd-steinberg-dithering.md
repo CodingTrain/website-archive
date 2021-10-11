@@ -55,6 +55,12 @@ contributions:
       url: "https://github.com/aymanmh"
     url: "https://github.com/aymanmh/cinder/tree/master/FloydSteinbergDithering"
     source: "https://github.com/aymanmh/cinder/tree/master/FloydSteinbergDithering"
+  - title: "Vintage Map Generator"
+    author:
+      name: "Denisovich"
+      url: "https://ivan-denisovich-py.github.io/link-tree/"
+    url: "https://ivan-denisovich-py.github.io/weekly-challenge/maps/"
+    source: "https://github.com/Ivan-Denisovich-py/weekly-challenge/tree/main/maps"
 
 community_references:
   - title: "DHALF.txt"
