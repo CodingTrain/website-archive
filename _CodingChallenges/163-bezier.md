@@ -94,6 +94,10 @@ topics:
     time: "21:40"
 
 contributions:
+  - title: "Complete N point/degree Bezier Curve Editor"
+    author: "Ayush Koul"
+    url: https://preview.p5js.org/ayushkoul00/present/sDkHTR6r2d
+    source: https://editor.p5js.org/ayushkoul00/sketches/sDkHTR6r2d
   - title: "Bezier Arch Synthwave Animation"
     author: "Chris Sears"
     url: https://editor.p5js.org/Prof-Sears/full/3zStiATFL
