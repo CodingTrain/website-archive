@@ -14,7 +14,7 @@
   "license": "MIT",
   "devDependencies": {
     "check-prop-types": "^1.1.2",
-    "jest": "^27.2.5",
+    "jest": "^27.3.0",
     "prop-types": "^15.7.2",
     "prop-types-exact": "^1.2.0",
     "js-yaml": "^4.1.0"
