@@ -132,5 +132,11 @@ contributions:
     author: "Monique GOBRIAL"
     video_id: 4GVd-JtaizE
     source: https://editor.p5js.org/MGOBRIAL/sketches/imSjRRYpM
+  - title: "Bezier Flowers"
+    author:
+      name: "Denisovich"
+      url: "https://ivan-denisovich-py.github.io/link-tree/"
+    url: "https://openprocessing.org/sketch/1319370"
+    source: "https://openprocessing.org/sketch/1319370#code"
 ---
 Have you ever wanted to know more about bézier curves in p5.js? Thanks to a generous donation from Jason Oswald, I do a deep dive exploring the bézier curve function and the math behind the algorithm?
