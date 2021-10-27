@@ -197,6 +197,10 @@ contributions:
     author: "Bixbite"
     url: https://preview.p5js.org/Bixbite/present/0fKTF6EnX
     source: https://editor.p5js.org/Bixbite/sketches/0fKTF6EnX
+  - title: "Fractal Clock - a combination of this coding challenge and CC14"
+    author: "LoganDungeon"
+    url: https://editor.p5js.org/LoganDungeon/present/_6kYTtiJZ
+    source: https://editor.p5js.org/LoganDungeon/sketches/_6kYTtiJZ
 ---
 
 In this coding challenge, I attempt to program a clock in HTML5 canvas with the p5.js library.
