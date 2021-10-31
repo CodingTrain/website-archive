@@ -138,5 +138,11 @@ contributions:
       url: "https://ivan-denisovich-py.github.io/link-tree/"
     url: "https://openprocessing.org/sketch/1319370"
     source: "https://openprocessing.org/sketch/1319370#code"
+  - title: "Bezier Curve by Mavyfaby"
+    author:
+      name: "Maverick G. Fabroa"
+      url: "https://mavyfaby.ml"
+    url: "https://mavyfaby.ml/projects/bezier-curve"
+    source: "https://github.com/mavyfaby/bezier-curve"
 ---
 Have you ever wanted to know more about bézier curves in p5.js? Thanks to a generous donation from Jason Oswald, I do a deep dive exploring the bézier curve function and the math behind the algorithm?
