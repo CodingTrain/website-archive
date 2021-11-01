@@ -144,5 +144,10 @@ contributions:
       url: "https://mavyfaby.ml"
     url: "https://mavyfaby.ml/projects/bezier-curve"
     source: "https://github.com/mavyfaby/bezier-curve"
+  - title: "3D Beziercurves"
+    author:
+      name: "Chenne Bicken"
+    url: "https://editor.p5js.org/bewies/full/ZDIWpyv1Z"
+    source: "https://editor.p5js.org/bewies/sketches/ZDIWpyv1Z"
 ---
 Have you ever wanted to know more about bézier curves in p5.js? Thanks to a generous donation from Jason Oswald, I do a deep dive exploring the bézier curve function and the math behind the algorithm?
