@@ -135,7 +135,7 @@ contributions:
   - title: "Bezier Flowers"
     author:
       name: "Denisovich"
-      url: "https://ivan-denisovich-py.github.io/link-tree/"
+      url: "https://DenisovichDev.github.io/link-tree/"
     url: "https://openprocessing.org/sketch/1319370"
     source: "https://openprocessing.org/sketch/1319370#code"
   - title: "Bezier Curve by Mavyfaby"

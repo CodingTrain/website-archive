@@ -34,7 +34,7 @@ contributions:
   - title: "Bacterial Growth Simulation"
     author:
       name: "Denisovich"
-      url: "https://ivan-denisovich-py.github.io/link-tree/"
+      url: "https://DenisovichDev.github.io/link-tree/"
     url: "https://openprocessing.org/sketch/1294491"
     source: "https://openprocessing.org/sketch/1294491#code"
 ---
