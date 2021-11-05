@@ -85,9 +85,9 @@ contributions:
   - title: "Classic Chrome Dinosaur Game"
     author:
       name: "Bhaswar Chakraborty"
-      url: "https://github.com/Ivan-Denisovich-py"
-    url: "https://editor.p5js.org/Ivan-Denisovich-py/full/HheYX4_2P"
-    source: "https://editor.p5js.org/Ivan-Denisovich-py/sketches/HheYX4_2P"
+      url: "https://denisovichdev.github.io/link-tree/"
+    url: "https://denisovichdev.github.io/ChromeDinoGame/"
+    source: "https://editor.p5js.org/DenisovichDev/sketches/HheYX4_2P"
   - title: "Triangle runner"
     author:
       name: "Abhay Kashyap"

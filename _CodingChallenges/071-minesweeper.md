@@ -101,7 +101,7 @@ contributions:
   - title: "Minesweeper using Processing.py"
     author:
       name: "Bhaswar Chakraborty"
-      url: https://github.com/Ivan-Denisovich-py
+      url: "https://denisovichdev.github.io/link-tree"
     video_id: yCPmRfIEzZ4
     source: https://github.com/Ivan-Denisovich-py/Minesweeper
   - title: "BOMBSWEEPER!!!"

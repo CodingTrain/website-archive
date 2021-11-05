@@ -63,8 +63,8 @@ contributions:
   - title: "Kaleidoscope Simulation with Processing"
     author:
       name: "Bhaswar Chakraborty"
-      url: "https://github.com/Ivan-Denisovich-py"
+      url: "https://denisovichdev.github.io/link-tree/"
     video_id: BD4Y-88ryvE
-    source: "https://github.com/Ivan-Denisovich-py/kaleidoscope-simulation"
+    source: "https://github.com/DenisovichDev/kaleidoscope-simulation"
 ---
 Happy holidays! #SupportP5! This video shows an attempt to make a snowflake from a "kaleidoscope painting" effect.
