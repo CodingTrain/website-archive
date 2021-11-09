@@ -149,5 +149,10 @@ contributions:
       name: "Chenne Bicken"
     url: "https://editor.p5js.org/bewies/full/ZDIWpyv1Z"
     source: "https://editor.p5js.org/bewies/sketches/ZDIWpyv1Z"
+  - title: "N Control Points Bézier With Draggable points"
+    author:
+      name: "Tushar Upadhyay"
+    url: "https://editor.p5js.org/tusharpg/full/rOxi9XjZi"
+    source: "https://editor.p5js.org/tusharpg/sketches/rOxi9XjZi"
 ---
 Have you ever wanted to know more about bézier curves in p5.js? Thanks to a generous donation from Jason Oswald, I do a deep dive exploring the bézier curve function and the math behind the algorithm?
