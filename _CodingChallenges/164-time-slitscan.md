@@ -42,6 +42,5 @@ videos:
   - title: 'The Modulo Operator with Golan Levin'
     author: 'The Coding Train'
     url: https://youtu.be/YqVbuMPIRwY
-
 ---
 In this video I explore the wonders of the copy() function in the creative coding platform Processing, simulating slit-scan photography and bending time itself! This video is thanks to Tim Rodenbröker's generous donation to The Processing Foundation!
