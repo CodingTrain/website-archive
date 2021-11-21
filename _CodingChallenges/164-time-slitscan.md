@@ -25,7 +25,7 @@ variations:
 links:
   - title: '#SupportP5 2020'
     url: https://donorbox.org/supportp52020
-  - title: 'Ti\m Rodenbroeker Creative Coding'
+  - title: 'Tim Rodenbroeker Creative Coding'
     url: https://timrodenbroeker.de/
   - title: 'Processing Foundation'
     url: https://processingfoundation.org/
