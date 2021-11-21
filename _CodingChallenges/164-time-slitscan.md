@@ -35,10 +35,10 @@ links:
 videos:
   - title: 'Simple Harmonic Motion - Nature of Code Lesson #3.5'
     author: 'The Coding Train'
-    url: /learning/nature-of-code/3.5-simple-harmonic-motion.html
+    url: /learning/nature-of-code/3.5-simple-harmonic-motion
   - title: 'The Modulo Operator with Golan Levin'
     author: 'The Coding Train'
-    url: /GuestTutorials/006-golan-levin-modulo-operator.html
+    url: /GuestTutorials/006-golan-levin-modulo-operator
   - title: 'The Modulo Operator with Golan Levin'
     author: 'The Coding Train'
     url: https://youtu.be/YqVbuMPIRwY
