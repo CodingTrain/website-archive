@@ -63,7 +63,7 @@ void draw() {
           boolean ok = true;
           for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
-              int index = (col + i) + (row + j) * cols;
+              int index = constrain((col + i) + ((row + j) * cols), 0, cols * rows - 1);
               PVector neighbor = grid[index];
               if (neighbor != null) {
                 float d = PVector.dist(sample, neighbor);
@@ -85,7 +85,7 @@ void draw() {
       }
 
       if (!found) {
-        //active.remove(randIndex);
+        active.remove(randIndex);
       }
 
     }
@@ -98,10 +98,10 @@ void draw() {
   }
   //println(active);
 
-  // for (var i = 0; i < active.length; i++) {
+  // for (var i = 0; i < active.size(); i++) {
   //   stroke(255, 0, 255);
   //   strokeWeight(1);
-  //   point(active[i].x, active[i].y);
+  //   point(active.get(i).x, active.get(i).y);
   // }
-  //console.log(active.length);
+  //println(active.size());
 }
