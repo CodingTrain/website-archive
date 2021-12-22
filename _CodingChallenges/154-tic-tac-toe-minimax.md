@@ -127,5 +127,11 @@ contributions:
       url: "https://github.com/linstald"
     url: "https://editor.p5js.org/linstald/full/Em1FbSVqq"
     source: "https://editor.p5js.org/linstald/sketches/Em1FbSVqq"
+  - title: "Animated Tic Tac Toe"
+    author:
+      name: "Abhishek Choudhary"
+      url: "https://theabbie.github.io"
+    url: "https://theabbie.github.io/TicTacToe/"
+    source: "https://github.com/theabbie/TicTacToe"
 ---
 In this challenge I take the Tic Tac Toe game from coding challenge #149 and add an AI opponent for a human player by implenenting the Minimax algorithm.
