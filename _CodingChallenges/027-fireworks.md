@@ -18,6 +18,11 @@ links:
     author: "Jonathan Feinberg"
 
 contributions:
+  - title: "Fireworks rendered in 3D"
+    author: lenti.js
+      name: "Louis Gray"
+    url: https://editor.p5js.org/louisjamesgray2000/full/o8HbsCH60
+    source: https://editor.p5js.org/louisjamesgray2000/full/o8HbsCH60
   - title: "Rainbow Fireworks"
     author:
       name: "Caitlin (10 yrs old, using her Dad's Github)"
