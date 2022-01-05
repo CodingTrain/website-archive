@@ -180,5 +180,9 @@ contributions:
     author: "Rich Smith"
     url: "https://editor.p5js.org/richfearon6/full/VHepEgHpV"
     source: "https://editor.p5js.org/richfearon6/sketches/VHepEgHpV"
+  - title: "Multi Cellular Organisms Using Flocking"
+    author: "Sponky Blox"
+    url: "https://editor.p5js.org/sponkyblox/full/Nbs8fr1nX"
+    source: "https://editor.p5js.org/sponkyblox/sketches/Nbs8fr1nX"
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
