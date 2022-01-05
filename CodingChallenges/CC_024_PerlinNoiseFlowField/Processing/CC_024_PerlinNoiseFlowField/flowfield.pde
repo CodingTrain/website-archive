@@ -19,11 +19,11 @@ public class FlowField {
     vectors = new PVector[cols * rows];
   }
   void update() {
-    float xoff = 0;
+    float yoff = 0;
     for (int y = 0; y < rows; y++) { 
-      float yoff = 0;
+      float xoff = 0;
       for (int x = 0; x < cols; x++) {
-        float angle = noise(xoff, yoff, zoff) * TWO_PI * 4;
+        float angle = noise(xoff, yoff, zoff) * TWO_PI;
         
         PVector v = PVector.fromAngle(angle);
         v.setMag(1);
