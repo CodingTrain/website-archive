@@ -184,5 +184,9 @@ contributions:
     author: "Sponky Blox"
     url: "https://editor.p5js.org/sponkyblox/full/Nbs8fr1nX"
     source: "https://editor.p5js.org/sponkyblox/sketches/Nbs8fr1nX"
+  - title: "Colorful fish in a dark tank"
+    author: "Yunus Can Erol"
+    url: "https://ycaneroltests.github.io/flocking.html"
+    
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
