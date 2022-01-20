@@ -187,6 +187,5 @@ contributions:
   - title: "Colorful fish in a dark tank"
     author: "Yunus Can Erol"
     url: "https://ycaneroltests.github.io/flocking.html"
-    
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
