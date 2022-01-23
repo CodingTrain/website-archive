@@ -184,5 +184,9 @@ contributions:
     author: "Sponky Blox"
     url: "https://editor.p5js.org/sponkyblox/full/Nbs8fr1nX"
     source: "https://editor.p5js.org/sponkyblox/sketches/Nbs8fr1nX"
+  - title: "Flocking Simulation with QuadTrees with UI controls and Video Capture"
+    author: "Harivinay"
+    url: "https://m87k452b.github.io/flocking-quadtree/"
+    source: "https://github.com/M87K452b/flocking-quadtree"
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
