@@ -75,6 +75,21 @@ contributions:
     author: "HoangTran"
     url: https://hoangtran0410.github.io/SpringForces/
     source : https://github.com/HoangTran0410/SpringForces
+  - title: "Spring System"
+    author: "Nick Wilcox"
+    url: https://editor.p5js.org/nicholas-wilcox/full/urb4z3jxP
+    source : https://editor.p5js.org/nicholas-wilcox/sketches/urb4z3jxP
+  - title: "Springy pendulum"
+    author:
+      name: "Ángel Carvajal Ruiz"
+      url: https://editor.p5js.org/Angul/sketches
+    source: https://editor.p5js.org/Angul/sketches/CV_d01Y3K
+    url: https://editor.p5js.org/Angul/full/CV_d01Y3K
+  - title: "Bunch Of Jelly THings"
+    author:
+      name: "Harsha Addanki"
+    source: https://editor.p5js.org/harsha7addanki/collections/oY3htXGgG
+    url: https://editor.p5js.org/harsha7addanki/collections/oY3htXGgG
 
 topics:
   - title: "Choo choo!! Springs Coding Challenge!"

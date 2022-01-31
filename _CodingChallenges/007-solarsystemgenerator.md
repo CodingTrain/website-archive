@@ -30,6 +30,12 @@ contributions:
       url: "https://github.io/dipamsen"
     url: "https://editor.p5js.org/dipam2006/full/cH9EHZ0Wp"
     source: "https://editor.p5js.org/dipam2006/sketches/cH9EHZ0Wp"
+  - title: "2D Solar System Simulator - differents speeds at the same orbit"
+    author:
+      name: "Drea007"
+      url: "https://github.com/Drea007"
+    url: "https://editor.p5js.org/Drea007/full/5-vqHY3Te"
+    source: "https://editor.p5js.org/Drea007/sketches/5-vqHY3Te"
 ---
 
 In this viewer submitted coding challenge, I make a 2D Solar System Generator in Processing.

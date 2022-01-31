@@ -115,8 +115,8 @@ contributions:
   - title: "Rainbow Clock"
     author:
       name: "Bhaswar Chakraborty & Anusha Tripathi"
-    url: "https://ivan-denisovich-py.github.io/rainbow-clock/"
-    source: "https://github.com/Ivan-Denisovich-py/rainbow-clock"
+    url: "https://denisovichdev.github.io/rainbow-clock/"
+    source: "https://github.com/denisovichdev/rainbow-clock"
   - title: "Editable appearance"
     author: "Nathan Connery"
     url: "https://editor.p5js.org/NC_Productions/full/_bNJgU6kF"

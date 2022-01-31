@@ -61,6 +61,23 @@ contributions:
       name: "Gil Lianni"
       url: "https://editor.p5js.org/Gil/present/9T-_t8Y0H"
     source: "https://editor.p5js.org/Gil/sketches/9T-_t8Y0H"
+  - title: "Velocity based Color Perlin Flow Field"
+    author:
+      name: "Peikai Tan"
+      url: "https://catkane-doodles.github.io/perlin-flow-field/"
+    source: "https://github.com/catkane-doodles/perlin-flow-field"
+  - title: "Processing Logo Flowfield"
+    author:
+      name: "Denisovich"
+      url: "https://DenisovichDev.github.io/link-tree/"
+    url: "https://openprocessing.org/sketch/1247705/"
+    source: "https://github.com/DenisovichDev/weekly-challenge/tree/main/p5logo"
+  - title: "Flowfield with personalized colors and controls"
+    author:
+      name: "LOÏC RICO"
+      url: "https://github.com/ricoloic"
+    url: "https://rico.studio/sketches/flow-field"
+    source: "https://github.com/ricoloic/personal-webpage/blob/master/src/routes/sketches/flow-field/FlowField.jsx"
 ---
 
 In this coding challenge, I use Perlin noise to create a two-dimensional flow field with the p5.js library

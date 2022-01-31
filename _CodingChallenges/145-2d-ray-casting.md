@@ -141,8 +141,8 @@ contributions:
   - title: "2D Ray-casting with p5py"
     author:
       name: "Param Patidar"
-      url: "https://github.com/parampatidar"
-    source: "https://github.com/parampatidar/2D-Ray-casting-with-p5py"
+      url: "https://github.com/astroparam"
+    source: "https://github.com/astroparam/2D-Ray-casting-with-p5py"
   - title: "kind of (Sight & Light) Ray Casting"
     author:
       name: "Paulo Fraga"
@@ -153,6 +153,12 @@ contributions:
       name: "Jacob Bender"
       url: "https://github.com/ThatBenderGuy"
     source: "https://github.com/ThatBenderGuy/ProcessingRayCasting"
+  - title: "Ray Casting W/ editable boundaries"
+    author:
+      name: "LOÏC RICO"
+      url: "https://github.com/ricoloic"
+    url: "https://rico.studio/sketches/ray-casting"
+    source: "https://github.com/ricoloic/personal-webpage/tree/master/src/routes/sketches/ray-casting"
 videos:
   - title: "Coding Adventure: Ray Marching"
     author: "Sebastian Lague"

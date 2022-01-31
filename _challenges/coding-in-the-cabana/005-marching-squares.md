@@ -30,7 +30,7 @@ variations:
   - name: "Cave Generation"
     lang: "p5js"
     folder: "P5_cave"
-    web_editor: z4U3Luf7ohEB4588QC
+    web_editor: z4U3Luf7o
   - name: "Metaballs Interpolation"
     lang: "p5js"
     folder: "P5_metaballs_interpolation"
@@ -174,5 +174,11 @@ contributions:
       name: "Cyberia"
       url: "https://www.instagram.com/cyberia_2020/"
     url: "https://loosethread.xyz/"
+  - title: "Marching Cubes in P5"
+    author:
+      name: "Nasir Khalid"
+      url: "https://github.com/NasirKhalid24"
+    url: "https://nasirkhalid24.github.io/P5-Computational-Geometry/"
+    source: "https://github.com/NasirKhalid24/P5-Computational-Geometry"
 ---
 In this episode of Coding in the Cabana, Gloria Pickle and I investigate the Marching Squares algorithm and apply it to Open Simplex Noise in Processing.
