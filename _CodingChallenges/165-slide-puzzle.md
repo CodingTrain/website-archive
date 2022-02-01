@@ -70,3 +70,11 @@ topics:
 ---
 
 Let's make a slide puzzle in p5.js together! We'll be using images, nested loops, and arrays, and by the end of our journey, we'll have a fully playable game!
+
+
+contributions:
+  - title: "Sliding Puzzle with Mushy Men"
+    author: "Kathy McGuiness"
+    url: https://editor.p5js.org/kfahn/full/QFe-ulhZS
+    source: https://editor.p5js.org/kfahn/sketches/QFe-ulhZS
+
