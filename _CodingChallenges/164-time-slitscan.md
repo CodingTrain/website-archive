@@ -3,7 +3,7 @@ title: 'Slitscan Time Displacement Effect'
 video_number: 164
 date: 2021-11-20
 video_id: hckvHFDGiJk
-repository: CC_164_Time_Slitscan
+repository: CC_164_Slitscan
 
 variations:
   - name: 'Time Slitscan Horizontal'
