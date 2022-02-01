@@ -154,5 +154,10 @@ contributions:
       name: "Tushar Upadhyay"
     url: "https://editor.p5js.org/tusharpg/full/rOxi9XjZi"
     source: "https://editor.p5js.org/tusharpg/sketches/rOxi9XjZi"
+  - title: "P5.js N Point Bézier Curve showing auxiliar Lines"
+    author:
+      name: "Cássio Souza"
+    url: "https://codepen.io/cassiofb-dev/full/yLzbOKK"
+    source: "https://codepen.io/cassiofb-dev/pen/yLzbOKK"
 ---
 Have you ever wanted to know more about bézier curves in p5.js? Thanks to a generous donation from Jason Oswald, I do a deep dive exploring the bézier curve function and the math behind the algorithm?
