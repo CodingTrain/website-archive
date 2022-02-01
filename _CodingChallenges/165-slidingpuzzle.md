@@ -24,8 +24,6 @@ links:
         url: "https://bost.ocks.org/mike/shuffle/"
     -  title: "p5.js copy() reference"
         url: "https://p5js.org/reference/#/p5/copy"
-    -  title: "Coding Challenge 164: Bending Time Slitscan"
-        url: "/challenges/164-slitscan"
 
 videos:
   - title: 'Coding Challenge 164 Bending Time SlitScan'
@@ -71,4 +69,5 @@ topics:
       time: "24:27"
     
 ---
-In this coding journey(not sure if we're changing the name on YT descriptions yet?), we'll make a slide puzzle in p5.js together! We'll be using images, nested loops, and arrays, and by the end of our journey, we'll have a fully playable game! Sign up for the CuriosityStream + Nebula bundle with a 26% exclusive discount ($14.79 for a full year!) at https://curiositystream.com/codingtrain
+
+Let's make a slide puzzle in p5.js together! We'll be using images, nested loops, and arrays, and by the end of our journey, we'll have a fully playable game!
