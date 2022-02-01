@@ -2,7 +2,7 @@
 title: 'Slide Puzzle'
 video_number: 165
 date: 2022-01-31
-video_id: PbPUgyql5p4
+video_id: uQZLzhrzEs4
 repository: CC_165_Slide_Puzzle
 
 variations:
