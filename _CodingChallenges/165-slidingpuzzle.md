@@ -28,7 +28,7 @@ links:
 videos:
   - title: 'Coding Challenge 164 Bending Time SlitScan'
     author: 'The Coding Train'
-    url: /CodingChallenges/164-time-slitscan.html
+    url: /CodingChallenges/164-time-slitscan
 
 topics:
   - title: 'Welcome!'
