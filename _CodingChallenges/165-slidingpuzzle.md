@@ -20,15 +20,15 @@ variations:
       web_editor: "MVCd9trLw"
           
 links:
-    -  title: "Fisher-Yates Shuffle"
-        url: "https://bost.ocks.org/mike/shuffle/"
-    -  title: "p5.js copy() reference"
-        url: "https://p5js.org/reference/#/p5/copy"
+    - title: "Fisher-Yates Shuffle"
+      url: "https://bost.ocks.org/mike/shuffle/"
+    - title: "p5.js copy() reference"
+      url: "https://p5js.org/reference/#/p5/copy"
 
 videos:
-  - title: 'Coding Challenge 164 Bending Time SlitScan'
-    author: 'The Coding Train'
-    url: /CodingChallenges/164-time-slitscan.html
+    - title: 'Coding Challenge 164 Bending Time SlitScan'
+      author: 'The Coding Train'
+      url: /CodingChallenges/164-time-slitscan.html
 
 topics:
     - title: "Welcome!"
