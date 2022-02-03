@@ -5,8 +5,8 @@
 const replace = require("replace-in-file");
 
 //Specify the release you want to update to
-const old_release = "1.3.1";
-const release = "1.4.0";
+const old_release = "1.4.0";
+const release = "1.4.1";
 
 const paths = ["./**/index.html"];
 const ignored_files = ["./_site/**/*.html"];
