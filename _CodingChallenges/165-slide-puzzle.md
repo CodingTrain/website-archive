@@ -73,6 +73,10 @@ contributions:
     author: "Kathy McGuiness"
     url: https://editor.p5js.org/kfahn/full/QFe-ulhZS
     source: https://editor.p5js.org/kfahn/sketches/QFe-ulhZS
+  - title: "Slide Puzzle with move animations"
+    author: "David Sullivan"
+    url: https://editor.p5js.org/tkroo/full/Q5UG6tR6c
+    source: https://editor.p5js.org/tkroo/sketches/Q5UG6tR6c
 ---
 
 Let's make a slide puzzle in p5.js together! We'll be using images, nested loops, and arrays, and by the end of our journey, we'll have a fully playable game!
