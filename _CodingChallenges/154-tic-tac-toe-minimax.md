@@ -133,5 +133,11 @@ contributions:
       url: "https://theabbie.github.io"
     url: "https://theabbie.github.io/TicTacToe/"
     source: "https://github.com/theabbie/TicTacToe"
+  - title: "Best of 3 Tic Tac Toe"
+    author:
+      name: "Gilmar Andrade"
+      url: "https://github.com/gilmarandrade"
+    url: "https://mess-zone.github.io/ai-tic-tac-toe/index.html"
+    source: "https://github.com/mess-zone/ai-tic-tac-toe"
 ---
 In this challenge I take the Tic Tac Toe game from coding challenge #149 and add an AI opponent for a human player by implenenting the Minimax algorithm.
