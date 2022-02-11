@@ -2,7 +2,7 @@
 title: 'Image to Ascii'
 video_number: 166
 date: 2022-02-11
-video_id: OGmynQ-jd-U
+video_id:
 repository: CC_166_Ascii_Image
 
 variations:
@@ -28,4 +28,4 @@ variations:
     web_editor: 'DhdqcoWn4'
 ---
 
-Let's make Ascii image art in p5.js together! We'll be using ascii characters to display images, weather info, and camera input!
+Let's make ASCII art in p5.js together! In this video, I demonstrate a variety of techniques for translating the pixels of an image into text and finish with rendering video as text ASCII characters in a DOM.
