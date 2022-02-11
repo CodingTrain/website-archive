@@ -26,8 +26,6 @@ variations:
     lang: 'p5js'
     folder: 'ascii-weather-api'
     web_editor: 'DhdqcoWn4'
-  
-
 ---
 
 Let's make Ascii image art in p5.js together! We'll be using ascii characters to display images, weather info, and camera input!
