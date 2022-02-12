@@ -2,7 +2,7 @@
 title: 'Image to Ascii'
 video_number: 166
 date: 2022-02-11
-video_id:
+video_id: 55iwMYv8tGI
 repository: CC_166_Ascii_Image
 
 variations:
