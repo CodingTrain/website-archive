@@ -44,13 +44,13 @@ links:
 videos:
   - title: 'The Pixel Array'
     author: 'The Coding Train'
-    url: https://youtu.be/nMUMZ5YRxHI
+    video_id: nMUMZ5YRxHI
   - title: 'Basics of CSS'
     author: 'The Coding Train'
-    url: Tutorials/8-html-css-dom/8.7-css-basics
+    url: /Tutorials/8-html-css-dom/8.7-css-basics
   - title: 'p5.js Web Editor - Uploading Media Files'
     author: 'The Coding Train'
-    url: https://youtu.be/rO6M5hj0V-o
+    video_id: rO6M5hj0V-o
 
 topics:
   - title: 'Welcome! Choo choo!'
@@ -61,6 +61,10 @@ topics:
     time: '1:39'
   - title: 'Pixelating an image'
     time: '4:52'
+  - title: 'Pixel Array Explanation'
+    time: '7:03'
+  - title: 'Back to the code'
+    time: '8:40'
   - title: 'Adding Text'
     time: '10:18'
   - title: 'Mapping Brightness to Characters'
@@ -69,7 +73,7 @@ topics:
     time: '13:26'
   - title: 'Real-time ASCII video'
     time: '18:10'
-  - title: 'Some refinemens'
+  - title: 'Some refinements'
     time: '20:10'
   - title: 'See you next time!'
     time: '21:29'
