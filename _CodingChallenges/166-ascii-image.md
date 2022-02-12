@@ -26,6 +26,57 @@ variations:
     lang: 'p5js'
     folder: 'ascii-weather-api'
     web_editor: 'DhdqcoWn4'
+
+links:
+  - title: 'ASCII play by ertdfgcvb'
+    url: 'https://play.ertdfgcvb.xyz/'
+  - title: 'HTML Entity'
+    url: 'https://developer.mozilla.org/en-US/docs/Glossary/Entity'
+  - title: 'HTML div'
+    url: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div'
+  - title: 'p5.js loadPixels()'
+    url: 'https://p5js.org/reference/#/p5/loadPixels'
+  - title: 'p5.js brightness()'
+    url: 'https://p5js.org/reference/#/p5/brightness'
+  - title: 'CodingTrainChooChoo on Twitch'
+    url: 'https://www.twitch.tv/codingtrainchoochoo'
+
+videos:
+  - title: 'The Pixel Array'
+    author: 'The Coding Train'
+    video_id: nMUMZ5YRxHI
+  - title: 'Basics of CSS'
+    author: 'The Coding Train'
+    url: /Tutorials/8-html-css-dom/8.7-css-basics
+  - title: 'p5.js Web Editor - Uploading Media Files'
+    author: 'The Coding Train'
+    video_id: rO6M5hj0V-o
+
+topics:
+  - title: 'Welcome! Choo choo!'
+    time: '0:00'
+  - title: 'Introducing Today’s Topic'
+    time: '0:28'
+  - title: 'Pixel to ASCII'
+    time: '1:39'
+  - title: 'Pixelating an image'
+    time: '4:52'
+  - title: 'Pixel Array Explanation'
+    time: '7:03'
+  - title: 'Back to the code'
+    time: '8:40'
+  - title: 'Adding Text'
+    time: '10:18'
+  - title: 'Mapping Brightness to Characters'
+    time: '11:04'
+  - title: 'Switching from canvas to DOM'
+    time: '13:26'
+  - title: 'Real-time ASCII video'
+    time: '18:10'
+  - title: 'Some refinements'
+    time: '20:10'
+  - title: 'See you next time!'
+    time: '21:29'
 ---
 
 Let's make ASCII art in p5.js together! In this video, I demonstrate a variety of techniques for translating the pixels of an image into text and finish with rendering video as text ASCII characters in a DOM.
