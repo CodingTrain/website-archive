@@ -70,6 +70,10 @@ contributions:
     author: "Louis Gray"
     url: https://editor.p5js.org/louisjamesgray2000/full/o8HbsCH60
     source: https://editor.p5js.org/louisjamesgray2000/full/o8HbsCH60
+  - title: "Heartworks!"
+    author: "CodeFish"
+    url: https://editor.p5js.org/Codefish/full/Gcm6FA8l7
+    source: https://editor.p5js.org/Codefish/sketches/Gcm6FA8l7
 ---
 
 In this 4th of July themed coding challenge, I build an HTML5 canvas fireworks simulation from scratch using the p5.js JavaScript library. I also show how to use Processing to create 3D Fireworks.
