@@ -71,7 +71,8 @@ contributions:
     url: https://editor.p5js.org/louisjamesgray2000/full/o8HbsCH60
     source: https://editor.p5js.org/louisjamesgray2000/full/o8HbsCH60
   - title: "Heartworks!"
-    author: "CodeFish"
+    author:
+      name: "CodeFish"
     url: https://editor.p5js.org/Codefish/full/Gcm6FA8l7
     source: https://editor.p5js.org/Codefish/sketches/Gcm6FA8l7
 ---
