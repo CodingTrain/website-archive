@@ -41,6 +41,12 @@ links:
   - title: 'CodingTrainChooChoo on Twitch'
     url: 'https://www.twitch.tv/codingtrainchoochoo'
 
+contributions:
+  - title: "ASCII art from Image in java"
+    author: "Navjot Singh Rakhra"
+    video_id: "fJMaec6zi9k"
+    source: "https://github.com/NavjotSRakhra/ASCIIArtCreator"
+
 videos:
   - title: 'The Pixel Array'
     author: 'The Coding Train'
