@@ -77,13 +77,12 @@ topics:
     time: '20:10'
   - title: 'See you next time!'
     time: '21:29'
-    
+
 contributions:
   - title: "ASCII Webcam"
     author:
       name: "Bas Mulder"
       url: "https://github.com/basmulder03"
-    url: "https://youtu.be/5d9iUctUTWs"
     video id: "5d9iUctUTWs"
     source: "https://github.com/basmulder03/ascii_webcam"
 ---
