@@ -5,7 +5,7 @@ date: 2022-02-20
 video_id: a35KWEjRvc0
 
 variations:
-  - name: 'Prime (Ulam) Spiral'
+  - name: 'Prime Spiral'
     lang: 'p5js'
     web_editor: '0Ud-XsaYb'
   - name: 'Number Spiral'
