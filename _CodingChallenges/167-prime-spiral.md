@@ -24,7 +24,7 @@ variations:
 links:
   - title: 'CodingTrainChooChoo on Twitch'
     url: 'https://www.twitch.tv/codingtrainchoochoo'
-  - title: 'Mathematical Games: The remarkable lore of the prime numbers by Martin Gardner (1964)'
+  - title: 'Mathematical Games: The remarkable lore of the prime numbers (1964)'
     url: 'https://www.scientificamerican.com/article/mathematical-games-1964-03/'
   - title: 'An Observation on the Distribution of Primes, M. Stein and S. M. Ulam'
     url: 'https://doi.org/10.2307/2314055'
