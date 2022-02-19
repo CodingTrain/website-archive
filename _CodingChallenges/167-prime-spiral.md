@@ -1,11 +1,11 @@
 ---
-title: 'Image to Ascii'
+title: 'The Prime (Ulam) Spiral'
 video_number: 166
 date: 2022-02-20
-video_id:
+video_id: a35KWEjRvc0
 
 variations:
-  - name: 'Prime Spiral'
+  - name: 'Prime (Ulam) Spiral'
     lang: 'p5js'
     web_editor: '0Ud-XsaYb'
   - name: 'Number Spiral'
@@ -43,6 +43,30 @@ videos:
 topics:
   - title: 'Welcome! Choo choo!'
     time: '0:00'
+  - title: 'History of Ulam Spiral'
+    time: '0:23'
+  - title: 'Diagramming the Spiral'
+    time: '1:16'
+  - title: 'Starting to Code'
+    time: '2:18'
+  - title: 'How and when do I rotate?'
+    time: '3:25'
+  - title: 'Coding the number spiral'
+    time: '4:25'
+  - title: 'Debugging!'
+    time: '7:00'
+  - title: 'Visualizing the spiral'
+    time: '9:40'
+  - title: 'What is a prime number?'
+    time: '12:22'
+  - title: 'Code to check if a number is prime.'
+    time: '14:31'
+  - title: 'Marking primes in the spiral'
+    time: '18:57'
+  - title: 'Porting to Processing (Java)!'
+    time: '19:40'
+  - title: 'More references and examples'
+    time: '22:46'
 ---
 
-Let's make ASCII art in p5.js together! In this video, I demonstrate a variety of techniques for translating the pixels of an image into text and finish with rendering video as text ASCII characters in a DOM.
+Why do prime numbers show up as diagonals in a spiral? In this video, I create a visualization in JavaScript (p5.js) of the Ulam Spiral (aka Prime Spiral) named for Polish Mathematician Stanislav Ulan.
