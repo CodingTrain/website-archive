@@ -122,12 +122,7 @@ class YAMLFile {
 
   load() {
     try {
-      console.log(this.path);
-      if (this.path.indexOf('.DS_Store') > -1) {
-        return;
-      }
       const contents = fs.readFileSync(this.path, 'utf8');
-      console.log(contents);
       const splitContents = contents.split('---');
       if (splitContents.length !== 3) {
         throw new Error('Incorrect number of "---" deperators in file');
