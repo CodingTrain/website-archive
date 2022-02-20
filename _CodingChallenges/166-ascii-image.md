@@ -77,7 +77,7 @@ topics:
     time: '20:10'
   - title: 'See you next time!'
     time: '21:29'
-    
+
 contributions:
   - title: "Text Visual Density Sorter"
     author:
