@@ -52,6 +52,14 @@ videos:
     author: 'The Coding Train'
     video_id: rO6M5hj0V-o
 
+contributions:
+  - title: "ASCII art from image generator"
+    author:
+      name: "Navjot Singh Rakhra"
+      url: "https://github.com/NavjotSRakhra"
+    video_id: "fJMaec6zi9k"
+    source: "https://github.com/NavjotSRakhra/ASCIIArtCreator"
+
 topics:
   - title: 'Welcome! Choo choo!'
     time: '0:00'
