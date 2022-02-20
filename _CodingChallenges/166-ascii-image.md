@@ -57,7 +57,7 @@ contributions:
     author:
       name: "Navjot Singh Rakhra"
       url: "https://github.com/NavjotSRakhra"
-    video_id: "fJMaec6zi9k"
+    video_id: fJMaec6zi9k
     source: "https://github.com/NavjotSRakhra/ASCIIArtCreator"
   - title: "Text Visual Density Sorter"
     author:
@@ -65,6 +65,12 @@ contributions:
       url: "https://hort.onl"
     url: "https://editor.p5js.org/jhrtn/full/a2pibVqFZ"
     source: "https://editor.p5js.org/jhrtn/sketches/a2pibVqFZ"
+  - title: "ASCII Webcam"
+    author:
+      name: "Bas Mulder"
+      url: "https://github.com/basmulder03"
+    video_id: "5d9iUctUTWs"
+    source: "https://github.com/basmulder03/ascii_webcam"
 
 topics:
   - title: 'Welcome! Choo choo!'
@@ -93,4 +99,4 @@ topics:
     time: '21:29'
 ---
 
-Let's make ASCII art in p5.js together! In this video, I demonstrate a variety of techniques for translating the pixels of an image into text and finish with rendering video as text ASCII characters in a DOM.
+Let's make ASCII art in p5.js together! In this video, I demonstrate a variety of techniques for translating the pixels of an image into ASCII characters and finish with rendering video as texts in a DOM element.
