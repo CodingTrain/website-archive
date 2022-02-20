@@ -59,6 +59,12 @@ contributions:
       url: "https://github.com/NavjotSRakhra"
     video_id: fJMaec6zi9k
     source: "https://github.com/NavjotSRakhra/ASCIIArtCreator"
+  - title: "Text Visual Density Sorter"
+    author:
+      name: "Joseph Horton"
+      url: "https://hort.onl"
+    url: "https://editor.p5js.org/jhrtn/full/a2pibVqFZ"
+    source: "https://editor.p5js.org/jhrtn/sketches/a2pibVqFZ"
 
 topics:
   - title: 'Welcome! Choo choo!'
