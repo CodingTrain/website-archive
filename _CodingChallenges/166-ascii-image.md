@@ -65,6 +65,12 @@ contributions:
       url: "https://hort.onl"
     url: "https://editor.p5js.org/jhrtn/full/a2pibVqFZ"
     source: "https://editor.p5js.org/jhrtn/sketches/a2pibVqFZ"
+  - title: "ASCII Webcam"
+    author:
+      name: "Bas Mulder"
+      url: "https://github.com/basmulder03"
+    video_id: "5d9iUctUTWs"
+    source: "https://github.com/basmulder03/ascii_webcam"
 
 topics:
   - title: 'Welcome! Choo choo!'
@@ -92,13 +98,6 @@ topics:
   - title: 'See you next time!'
     time: '21:29'
 
-contributions:
-  - title: "ASCII Webcam"
-    author:
-      name: "Bas Mulder"
-      url: "https://github.com/basmulder03"
-    video_id: "5d9iUctUTWs"
-    source: "https://github.com/basmulder03/ascii_webcam"
 ---
 
 Let's make ASCII art in p5.js together! In this video, I demonstrate a variety of techniques for translating the pixels of an image into text and finish with rendering video as text ASCII characters in a DOM.
