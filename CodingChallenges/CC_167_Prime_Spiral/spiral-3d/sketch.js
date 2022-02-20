@@ -9,19 +9,17 @@
 // Shapes and Color: https://editor.p5js.org/codingtrain/sketches/mCvvSKpZ5
 // Prime Spiral 3D: https://editor.p5js.org/codingtrain/sketches/-eX078HZ5
 
-// State of spiral
 let x, y;
 let px, py;
 let step = 1;
-let state = 0;
+let stepSize = 20;
 let numSteps = 1;
+let state = 0;
 let turnCounter = 1;
-
-// Scale / resolution
-let stepSize = 5;
 let totalSteps;
 
-// Function to test if number is prime
+const spots = [];
+
 function isPrime(value) {
   if (value == 1) return false;
   for (let i = 2; i <= sqrt(value); i++) {
@@ -33,60 +31,98 @@ function isPrime(value) {
 }
 
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(500, 500, WEBGL);
 
-  // set up spiral
   const cols = width / stepSize;
   const rows = height / stepSize;
   totalSteps = cols * rows;
-  x = width / 2;
-  y = height / 2;
+
+  x = 0;
+  y = 0;
   px = x;
   py = y;
   background(0);
 }
 
-function draw() {
-  // If prime draw circle
-  if (isPrime(step)) {
-    fill(255);
-    stroke(255);
-    circle(x, y, stepSize * 0.5);
+class Spot {
+  constructor(x, y, step) {
+    this.x = x;
+    this.y = y;
+    this.step = step;
+    this.isPrime = isPrime(step);
   }
-
-  // Connect current to previous with a line
-  line(x, y, px, py);
-  px = x;
-  py = y;
-
-  // Move according to state
-  switch (state) {
-    case 0:
-      x += stepSize;
-      break;
-    case 1:
-      y -= stepSize;
-      break;
-    case 2:
-      x -= stepSize;
-      break;
-    case 3:
-      y += stepSize;
-      break;
-  }
-
-  // Change state
-  if (step % numSteps == 0) {
-    state = (state + 1) % 4;
-    turnCounter++;
-    if (turnCounter % 2 == 0) {
-      numSteps++;
+  show() {
+    if (!this.isPrime) {
+      fill(45, 197, 244);
+      rectMode(CENTER);
+      push();
+      translate(this.x, this.y);
+      rect(0, 0, stepSize * 0.5);
+      pop();
+    } else {
+      let r = stepSize * 0.5;
+      fill(240, 99, 164);
+      push();
+      translate(this.x, this.y);
+      rotate(-PI / 4);
+      let h = 24 + sqrt(this.step);
+      translate(0, 0, h / 2);
+      box(r, r, h);
+      pop();
     }
   }
-  step++;
+}
 
-  // Are we done?
-  if (step > totalSteps) {
-    noLoop();
+function draw() {
+  // textSize(stepSize);
+  // textAlign(CENTER, CENTER);
+  //text(step, x, y);
+  background(0);
+  noStroke();
+  translate(0, 0, -width / 2);
+  rotateX(PI / 3);
+  rotateZ(frameCount * 0.01);
+  specularMaterial(255);
+  lights();
+
+  for (let s of spots) {
+    s.show();
   }
+
+  for (let n = 0; n < 2; n++) {
+    spots.push(new Spot(x, y, step));
+
+    px = x;
+    py = y;
+
+    switch (state) {
+      case 0:
+        x += stepSize;
+        break;
+      case 1:
+        y -= stepSize;
+        break;
+      case 2:
+        x -= stepSize;
+        break;
+      case 3:
+        y += stepSize;
+        break;
+    }
+
+    if (step % numSteps == 0) {
+      state = (state + 1) % 4;
+      turnCounter++;
+      if (turnCounter % 2 == 0) {
+        numSteps++;
+      }
+    }
+    step++;
+  }
+
+  //   if (step > totalSteps) {
+  //     noLoop();
+  //   }
+
+  //frameRate(1);
 }

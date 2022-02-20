@@ -9,19 +9,15 @@
 // Shapes and Color: https://editor.p5js.org/codingtrain/sketches/mCvvSKpZ5
 // Prime Spiral 3D: https://editor.p5js.org/codingtrain/sketches/-eX078HZ5
 
-// State of spiral
 let x, y;
 let px, py;
 let step = 1;
-let state = 0;
+let stepSize = 50;
 let numSteps = 1;
+let state = 0;
 let turnCounter = 1;
-
-// Scale / resolution
-let stepSize = 5;
 let totalSteps;
 
-// Function to test if number is prime
 function isPrime(value) {
   if (value == 1) return false;
   for (let i = 2; i <= sqrt(value); i++) {
@@ -33,12 +29,12 @@ function isPrime(value) {
 }
 
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(550, 550);
 
-  // set up spiral
   const cols = width / stepSize;
   const rows = height / stepSize;
   totalSteps = cols * rows;
+
   x = width / 2;
   y = height / 2;
   px = x;
@@ -47,19 +43,24 @@ function setup() {
 }
 
 function draw() {
-  // If prime draw circle
-  if (isPrime(step)) {
-    fill(255);
-    stroke(255);
-    circle(x, y, stepSize * 0.5);
-  }
-
-  // Connect current to previous with a line
-  line(x, y, px, py);
+  textSize(stepSize * 0.5);
+  textAlign(CENTER, CENTER);
+  fill(255);
+  //stroke(255);
+  noStroke();
+  text(step, x, y);
+  stroke(255);
+  strokeWeight(0.5);
+  noFill();
+  rectMode(CENTER);
+  rect(x, y, stepSize);
+  // if (isPrime(step)) {
+  //   circle(x, y, stepSize * 0.5);
+  // }
+  // line(x, y, px, py);
   px = x;
   py = y;
 
-  // Move according to state
   switch (state) {
     case 0:
       x += stepSize;
@@ -75,7 +76,6 @@ function draw() {
       break;
   }
 
-  // Change state
   if (step % numSteps == 0) {
     state = (state + 1) % 4;
     turnCounter++;
@@ -84,8 +84,6 @@ function draw() {
     }
   }
   step++;
-
-  // Are we done?
   if (step > totalSteps) {
     noLoop();
   }
