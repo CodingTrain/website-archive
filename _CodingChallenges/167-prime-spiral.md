@@ -3,10 +3,12 @@ title: 'The Prime (Ulam) Spiral'
 video_number: 167
 date: 2022-02-20
 video_id: a35KWEjRvc0
+repository: CC_167_Prime_Spiral
 
 variations:
   - name: 'Prime Spiral'
     lang: 'p5js'
+    folder: 'prime-spiral'
     web_editor: '0Ud-XsaYb'
   - name: 'Number Spiral'
     lang: 'p5js'
@@ -24,6 +26,8 @@ variations:
 links:
   - title: 'CodingTrainChooChoo on Twitch'
     url: 'https://www.twitch.tv/codingtrainchoochoo'
+  - title: 'Coding Train Twitch Archive'
+    url: 'https://www.youtube.com/channel/UCcNasmuTD4kb_HC1Z5lcuxg'
   - title: 'Mathematical Games: The remarkable lore of the prime numbers (1964)'
     url: 'https://www.scientificamerican.com/article/mathematical-games-1964-03/'
   - title: 'An Observation on the Distribution of Primes, M. Stein and S. M. Ulam'
