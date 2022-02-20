@@ -97,7 +97,6 @@ topics:
     time: '20:10'
   - title: 'See you next time!'
     time: '21:29'
-
 ---
 
 Let's make ASCII art in p5.js together! In this video, I demonstrate a variety of techniques for translating the pixels of an image into text and finish with rendering video as text ASCII characters in a DOM.
