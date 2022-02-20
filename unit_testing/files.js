@@ -18,17 +18,15 @@ const yamlFolders = [
   '_more/archive',
 ];
 
-
-const checkYAMLFormat = format => {
-
+const checkYAMLFormat = (format) => {
   /**
    * @type {Array<{
-    *  error:string,
-    *  line:number,
-    *  index:number,
-    *  example:string
-    * }>}
-    */
+   *  error:string,
+   *  line:number,
+   *  index:number,
+   *  example:string
+   * }>}
+   */
   const errors = [];
 
   const checkRegex = (regexString, errorDescription) => {
@@ -36,7 +34,7 @@ const checkYAMLFormat = format => {
 
     const regexp = RegExp(regexString, 'gm');
 
-    while((match = regexp.exec(format)) !== null) {
+    while ((match = regexp.exec(format)) !== null) {
       /**@type {string} */
       const indexString = format.substr(0, match.index);
 
@@ -47,21 +45,26 @@ const checkYAMLFormat = format => {
       const index = lines[lines.length - 1].length;
 
       const encasedFormat =
-        format.substring(0, match.index - 1) + "[" +
-        format.substring(match.index, match.index + match[0].length) + "]" +
+        format.substring(0, match.index - 1) +
+        '[' +
+        format.substring(match.index, match.index + match[0].length) +
+        ']' +
         format.substring(match.index + match[0].length);
 
       const globalLines = encasedFormat.split('\n');
 
-      const example = "\n----------------------------------------\n" + globalLines.slice(lineCount - 2, lineCount + 1).join('\n') + "\n----------------------------------------";
+      const example =
+        '\n----------------------------------------\n' +
+        globalLines.slice(lineCount - 2, lineCount + 1).join('\n') +
+        '\n----------------------------------------';
       errors.push({
         error: errorDescription,
         line: lineCount,
         index,
-        example
+        example,
       });
     }
-  }
+  };
 
   checkRegex(' \\n', 'Extra space at the end of line');
 
@@ -75,29 +78,40 @@ const checkYAMLFormat = format => {
   // Requires a single space after starting an entry with -
   checkRegex('\\n( *)-( {2,})?[^ ][^\\n]*\\n', `Incorrect spacing after entry '-'. Use one space`);
 
-
-  if(errors.length > 0) {
-    const stringified = JSON.stringify(errors, undefined, 4).replace(/\\n/gm, "\n")
+  if (errors.length > 0) {
+    const stringified = JSON.stringify(errors, undefined, 4).replace(/\\n/gm, '\n');
     throw new Error(stringified);
   }
   let regex;
 
   // Indentation on consecutive lines, ignoring blank spacers
   regex = /\n( *)[^ \-\n][^\n]*[^:\n]\n+(\1 [^\n]*)\n/;
-  if(format.match(regex)) {
-    throw new Error(`Incorrect indentation (Expected ${format.match(regex)[1].length} spaces): '${format.match(regex)[2]}'`);
+  if (format.match(regex)) {
+    throw new Error(
+      `Incorrect indentation (Expected ${format.match(regex)[1].length} spaces): '${
+        format.match(regex)[2]
+      }'`
+    );
   }
   // Indentation on lines after ones starting with - need two extra spaces
   regex = /\n( *)- [^\n]*\n+(\1( {0,1}| {3,})[^ -][^\n]*)/;
-  if(format.match(regex)) {
-    throw new Error(`Incorrect indentation (Expected ${format.match(regex)[1].length + 2} spaces): '${format.match(regex)[2]}'`);
+  if (format.match(regex)) {
+    throw new Error(
+      `Incorrect indentation (Expected ${format.match(regex)[1].length + 2} spaces): '${
+        format.match(regex)[2]
+      }'`
+    );
   }
   // Indentation on lines ending in : require two extra spaces
   regex = /\n( *)[^ \n][^\n]*:\n+(\1( {0,1}| {3,})[^\n ][^\n]*)/;
-  if(format.match(regex)) {
-    throw new Error(`Incorrect indentation (Expected ${format.match(regex)[1].length + 2} spaces): '${format.match(regex)[2]}'`);
+  if (format.match(regex)) {
+    throw new Error(
+      `Incorrect indentation (Expected ${format.match(regex)[1].length + 2} spaces): '${
+        format.match(regex)[2]
+      }'`
+    );
   }
-}
+};
 
 class YAMLFile {
   constructor(path) {
@@ -109,17 +123,17 @@ class YAMLFile {
   load() {
     try {
       const contents = fs.readFileSync(this.path, 'utf8');
-      const splitContents = contents.split("---");
-      if(splitContents.length !== 3) {
+      const splitContents = contents.split('---');
+      if (splitContents.length !== 3) {
         throw new Error('Incorrect number of "---" deperators in file');
       }
-      if(splitContents[0].length !== 0) {
+      if (splitContents[0].length !== 0) {
         throw new Error('File should start with "---"');
       }
-      const yamlContents = contents.split("---")[1];
+      const yamlContents = contents.split('---')[1];
       checkYAMLFormat(yamlContents);
       this._data = yaml.load(yamlContents);
-    } catch(e) {
+    } catch (e) {
       this._error = e;
       throw e;
     }
@@ -130,7 +144,7 @@ class YAMLFile {
   }
 
   get content() {
-    if(!this._data) {
+    if (!this._data) {
       this.load();
     }
     return this._data;
@@ -145,9 +159,9 @@ const exploreDirectory = (folderName) => {
   const directories = {};
   const files = {};
 
-  for(const filename of fs.readdirSync(folderName)) {
+  for (const filename of fs.readdirSync(folderName)) {
     let fullPath = path.join(folderName, filename);
-    if(fs.lstatSync(fullPath).isDirectory()) {
+    if (fs.lstatSync(fullPath).isDirectory()) {
       directories[filename] = exploreDirectory(fullPath);
     } else {
       files[filename] = new YAMLFile(fullPath);
@@ -159,14 +173,14 @@ const exploreDirectory = (folderName) => {
     files,
     folderName,
   };
-}
+};
 
 let allFilesCache = null;
 
 module.exports.getAllFiles = function() {
-  if(!allFilesCache) {
+  if (!allFilesCache) {
     allFilesCache = {};
-    for(const directory of yamlFolders) {
+    for (const directory of yamlFolders) {
       allFilesCache[directory] = exploreDirectory(`../${directory}`);
     }
   }
