@@ -57,7 +57,7 @@ contributions:
     author:
       name: "Navjot Singh Rakhra"
       url: "https://github.com/NavjotSRakhra"
-    video_id: "fJMaec6zi9k"
+    video_id: fJMaec6zi9k
     source: "https://github.com/NavjotSRakhra/ASCIIArtCreator"
 
 topics:
