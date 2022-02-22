@@ -75,6 +75,15 @@ topics:
     time: '19:40'
   - title: 'More references and examples'
     time: '22:46'
+    
+contributions:
+  - title: "Ulam Prime Spiral in green"
+    author:
+      name: "Zane Dax (She/They)"
+      url: ""
+    url: "https://editor.p5js.org/unicornCoder/sketches/visQt71NI"
+    source: "https://github.com/codingtrain/Rainbow-Code"
+
 ---
 
 Why do prime numbers show up as diagonals in a spiral? In this video, I create a visualization in JavaScript (p5.js) of the Ulam Spiral (aka Prime Spiral) named for Polish Mathematician Stanislav Ulan.
