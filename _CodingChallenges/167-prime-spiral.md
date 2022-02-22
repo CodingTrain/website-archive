@@ -75,7 +75,7 @@ topics:
     time: '19:40'
   - title: 'More references and examples'
     time: '22:46'
-    
+
 contributions:
   - title: "My old and simple version of this challange"
     author:
