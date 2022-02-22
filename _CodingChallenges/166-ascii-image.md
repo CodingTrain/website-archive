@@ -71,6 +71,12 @@ contributions:
       url: "https://github.com/basmulder03"
     video_id: "5d9iUctUTWs"
     source: "https://github.com/basmulder03/ascii_webcam"
+  - title: "Image2ASCII in Rust"
+    author:
+      name: "Karthik Iyer"
+      url: "https://github.com/KarthikRIyer"
+    url: "https://raw.githubusercontent.com/KarthikRIyer/image2ascii/91e8471dbb2ebe98701aca7d4d24769e79091aa0/image.svg"
+    source: "https://github.com/KarthikRIyer/image2ascii"
 
 topics:
   - title: 'Welcome! Choo choo!'
