@@ -88,6 +88,11 @@ contributions:
       name: "Zane Dax (She/They)"
     url: "https://editor.p5js.org/unicornCoder/full/visQt71NI"
     source: "https://editor.p5js.org/unicornCoder/sketches/visQt71NI"
+  - title: "Ulam Prime Spiral in Python with pyglet"
+    author:
+      name: "cenkt"
+    url: "https://github.com/cenkt/codingtrain/blob/main/prime-spiral.py"
+    source: "https://github.com/cenkt/codingtrain/blob/main/prime-spiral.py"
 ---
 
 Why do prime numbers show up as diagonals in a spiral? In this video, I create a visualization in JavaScript (p5.js) of the Ulam Spiral (aka Prime Spiral) named for Polish Mathematician Stanislav Ulan.
