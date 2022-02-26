@@ -40,6 +40,12 @@ contributions:
       url: "http://jjteijema.nl"
     url: "https://media.giphy.com/media/5eFEP2B6ytv0aGQDup/giphy.gif"
     source: "https://github.com/JTeijema/QuickFLow"
+  - title: "Colored Water"
+    author:
+      name: "Yatharth"
+      url: "https://github.com/yathy2007"
+    url: "https://editor.p5js.org/yathy2007/full/DmLzhWYPc"
+    source: "https://editor.p5js.org/yathy2007/sketches/DmLzhWYPc"
 ---
 
 In this coding challenge, I attempt to simulate 2D water ripples using Processing (Java).
