@@ -26,10 +26,10 @@ void setup() {
 void draw() {
   // textSize(stepSize);
   // textAlign(CENTER, CENTER);
-  //text(step, x, y);
-  //frameRate(1);
+  // text(step, x, y);
+  // frameRate(1);
   for (int i = 0; i < 10; i++) {
-    spiral1.update(false);
-    spiral2.update(true);
+    spiral1.update(false);  //isRandom = false -> prime spiral
+    spiral2.update(true);   //isRandome = true -> random spiral
   }
 }
