@@ -35,10 +35,9 @@ void draw() {
   //text(step, x, y);
   background(0);
   noStroke();
-  translate(0, 0, -width / 2);
+  translate(width / 2, width / 2, -width);
   rotateX(PI / 3);
   rotateZ(frameCount * 0.01);
-  //specularMaterial(255);
   lights();
 
   for (Spot s : spots) {

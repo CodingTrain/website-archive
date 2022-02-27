@@ -14,16 +14,16 @@ class Spot {
       fill(45, 197, 244);
       rectMode(CENTER);
       push();
-      translate(this.x, this.y);
+      translate(x, y);
       square(0, 0, stepSize * 0.5);
       pop();
     } else {
       float r = stepSize * 0.5;
       fill(240, 99, 164);
       push();
-      translate(this.x, this.y);
+      translate(x, y);
       rotate(-PI / 4);
-      float h = 24 + sqrt(this.step);
+      float h = 24 + sqrt(step);
       translate(0, 0, h / 2);
       box(r, r, h);
       pop();
