@@ -93,7 +93,7 @@ contributions:
       name: "cenkt"
     url: "https://github.com/cenkt/codingtrain/blob/main/prime-spiral.py"
     source: "https://github.com/cenkt/codingtrain/blob/main/prime-spiral.py"
-     - title: "Ulam Prime Spiral in c++ on the command line"
+  - title: "Ulam Prime Spiral in c++ on the command line"
     author:
       name: "Shivansh Agrawal"
       url: "https://github.com/coastademigod"
