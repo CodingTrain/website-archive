@@ -88,6 +88,17 @@ contributions:
       name: "Zane Dax (She/They)"
     url: "https://editor.p5js.org/unicornCoder/full/visQt71NI"
     source: "https://editor.p5js.org/unicornCoder/sketches/visQt71NI"
+  - title: "Ulam Prime Spiral in python with pylance"
+    author:
+      name: "cenkt"
+    url: "https://github.com/cenkt/codingtrain/blob/main/prime-spiral.py"
+    source: "https://github.com/cenkt/codingtrain/blob/main/prime-spiral.py"
+  - title: "Ulam Prime Spiral in c++ on the command line"
+    author:
+      name: "Shivansh Agrawal"
+      url: "https://github.com/coastademigod"
+    url: "https://github.com/coastaldemigod/creative-coding/blob/main/prime-spiral/ulam-spiral-ss.jpg"
+    source: "https://github.com/coastaldemigod/creative-coding/blob/main/prime-spiral/ulam-spiral.cpp"
 ---
 
 Why do prime numbers show up as diagonals in a spiral? In this video, I create a visualization in JavaScript (p5.js) of the Ulam Spiral (aka Prime Spiral) named for Polish Mathematician Stanislav Ulan.
