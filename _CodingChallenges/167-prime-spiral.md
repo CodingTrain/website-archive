@@ -99,6 +99,12 @@ contributions:
       url: "https://github.com/coastademigod"
     url: "https://github.com/coastaldemigod/creative-coding/blob/main/prime-spiral/ulam-spiral-ss.jpg"
     source: "https://github.com/coastaldemigod/creative-coding/blob/main/prime-spiral/ulam-spiral.cpp"
+  - title: "Easy Traversal of Ulam Prime Spiral in TypeScript"
+    author:
+      name: "Jack Hodgkiss"
+      url: "https://github.com/jackhodgkiss"
+    url: "https://jackhodgkiss.github.io/prime-spiral/"
+    source: "https://github.com/jackhodgkiss/prime-spiral/blob/main/src/main.ts"
 ---
 
 Why do prime numbers show up as diagonals in a spiral? In this video, I create a visualization in JavaScript (p5.js) of the Ulam Spiral (aka Prime Spiral) named for Polish Mathematician Stanislav Ulan.
