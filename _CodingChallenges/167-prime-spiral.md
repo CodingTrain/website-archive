@@ -88,6 +88,11 @@ contributions:
       name: "Zane Dax (She/They)"
     url: "https://editor.p5js.org/unicornCoder/full/visQt71NI"
     source: "https://editor.p5js.org/unicornCoder/sketches/visQt71NI"
+  - title: "Hexagonal Ulam Prime Spiral"
+    author:
+      name: "David van Deijk (dedavidd)"
+    url: "https://editor.p5js.org/unicornCoder/full/0Ud-XsaYb"
+    source: "https://editor.p5js.org/unicornCoder/sketches/0Ud-XsaYb"
   - title: "Ulam Prime Spiral in python with pylance"
     author:
       name: "cenkt"
