@@ -33,7 +33,7 @@ links:
     url: 'https://mrfeinberg.com/peasycam/'
   - title: 'Inigo Quilez website'
     url: 'https://iquilezles.org/'
-  
+
 videos:
   - title: 'Mandelbulb (raymarched SDF)'
     author: 'Inigo Quilez'
