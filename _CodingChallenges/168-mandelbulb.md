@@ -1,5 +1,5 @@
 ---
-title: 'The Prime (Ulam) Spiral'
+title: 'The Mandelbulb'
 video_number: 168
 date: 2022-03-09
 video_id: TBD
@@ -25,11 +25,26 @@ variations:
 links:
   - title: 'The Unraveling of the Real 3D Mandelbulb'
     url: 'https://www.skytopia.com/project/fractal/mandelbulb.html'
+  - title: 'Processing'
+    url: 'https://processing.org'
+  - title: 'MandelBulb wikipedia'
+    url: 'https://en.wikipedia.org/wiki/Mandelbulb'
+  - title: 'PeasyCam'
+    url: 'https://mrfeinberg.com/peasycam/'
+  - title: 'Inigo Quilez website'
+    url: 'https://iquilezles.org/'
+  
 
 videos:
   - title: 'Mandelbulb (raymarched SDF)'
     author: 'Inigo Quilez'
     video_id: eKUh4nkmQbc
+  - title: 'Mandelbrot Set with p5.js'
+    author: 'The Coding Train'
+    url: /CodingChallenges/021-mandelbrot-p5
+  - title: 'Spherical Geometry'
+    author: 'The Coding Train'
+    url: /CodingChallenges/025-spheregeometry
 
 topics:
   - title: Introducing Today’s Topic
