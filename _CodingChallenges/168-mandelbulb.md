@@ -34,7 +34,6 @@ links:
   - title: 'Inigo Quilez website'
     url: 'https://iquilezles.org/'
   
-
 videos:
   - title: 'Mandelbulb (raymarched SDF)'
     author: 'Inigo Quilez'
