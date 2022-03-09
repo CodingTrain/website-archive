@@ -135,8 +135,29 @@ contributions:
   - title: "Bezier Flowers"
     author:
       name: "Denisovich"
-      url: "https://ivan-denisovich-py.github.io/link-tree/"
+      url: "https://DenisovichDev.github.io/link-tree/"
     url: "https://openprocessing.org/sketch/1319370"
     source: "https://openprocessing.org/sketch/1319370#code"
+  - title: "Bezier Curve by Mavyfaby"
+    author:
+      name: "Maverick G. Fabroa"
+      url: "https://mavyfaby.ml"
+    url: "https://mavyfaby.ml/projects/bezier-curve"
+    source: "https://github.com/mavyfaby/bezier-curve"
+  - title: "3D Beziercurves"
+    author:
+      name: "Chenne Bicken"
+    url: "https://editor.p5js.org/bewies/full/ZDIWpyv1Z"
+    source: "https://editor.p5js.org/bewies/sketches/ZDIWpyv1Z"
+  - title: "N Control Points Bézier With Draggable points"
+    author:
+      name: "Tushar Upadhyay"
+    url: "https://editor.p5js.org/tusharpg/full/rOxi9XjZi"
+    source: "https://editor.p5js.org/tusharpg/sketches/rOxi9XjZi"
+  - title: "P5.js N Point Bézier Curve showing auxiliar Lines"
+    author:
+      name: "Cássio Souza"
+    url: "https://codepen.io/cassiofb-dev/full/yLzbOKK"
+    source: "https://codepen.io/cassiofb-dev/pen/yLzbOKK"
 ---
 Have you ever wanted to know more about bézier curves in p5.js? Thanks to a generous donation from Jason Oswald, I do a deep dive exploring the bézier curve function and the math behind the algorithm?

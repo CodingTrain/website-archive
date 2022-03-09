@@ -66,6 +66,10 @@ contributions:
     author: "Andrea Suárez"
     url: https://editor.p5js.org/Drea007/full/K5d-XiOWM
     source: https://editor.p5js.org/Drea007/sketches/K5d-XiOWM
+  - title: "Fireworks rendered in 3D"
+    author: "Louis Gray"
+    url: https://editor.p5js.org/louisjamesgray2000/full/o8HbsCH60
+    source: https://editor.p5js.org/louisjamesgray2000/full/o8HbsCH60
 ---
 
 In this 4th of July themed coding challenge, I build an HTML5 canvas fireworks simulation from scratch using the p5.js JavaScript library. I also show how to use Processing to create 3D Fireworks.

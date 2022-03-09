@@ -58,9 +58,9 @@ contributions:
   - title: "Vintage Map Generator"
     author:
       name: "Denisovich"
-      url: "https://ivan-denisovich-py.github.io/link-tree/"
-    url: "https://ivan-denisovich-py.github.io/weekly-challenge/maps/"
-    source: "https://github.com/Ivan-Denisovich-py/weekly-challenge/tree/main/maps"
+      url: "https://DenisovichDev.github.io/link-tree/"
+    url: "https://DenisovichDev.github.io/weekly-challenge/maps/"
+    source: "https://github.com/DenisovichDev/weekly-challenge/tree/main/maps"
 
 community_references:
   - title: "DHALF.txt"

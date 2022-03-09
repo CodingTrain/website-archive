@@ -180,5 +180,16 @@ contributions:
     author: "Rich Smith"
     url: "https://editor.p5js.org/richfearon6/full/VHepEgHpV"
     source: "https://editor.p5js.org/richfearon6/sketches/VHepEgHpV"
+  - title: "Multi Cellular Organisms Using Flocking"
+    author: "Sponky Blox"
+    url: "https://editor.p5js.org/sponkyblox/full/Nbs8fr1nX"
+    source: "https://editor.p5js.org/sponkyblox/sketches/Nbs8fr1nX"
+  - title: "Colorful fish in a dark tank"
+    author: "Yunus Can Erol"
+    url: "https://ycaneroltests.github.io/flocking.html"
+  - title: "Flocking Simulation with QuadTrees with UI controls and Video Capture"
+    author: "Harivinay"
+    url: "https://m87k452b.github.io/flocking-quadtree/"
+    source: "https://github.com/M87K452b/flocking-quadtree"
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
