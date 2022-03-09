@@ -92,7 +92,7 @@ contributions:
     author:
       name: "David van Deijk"
     url: "https://editor.p5js.org/dedavidd/full/29KAvMpSx"
-    source: "https://editor.p5js.org/dedavidd/sketches/29KAvMpSx"  
+    source: "https://editor.p5js.org/dedavidd/sketches/29KAvMpSx"
   - title: "Ulam Prime Spiral in python with pylance"
     author:
       name: "cenkt"
