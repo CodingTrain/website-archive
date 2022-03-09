@@ -107,6 +107,10 @@ contributions:
     author: "Peikai Tan"
     url: https://catkane-doodles.github.io/lava-lamp/
     source: https://github.com/catkane-doodles/lava-lamp
+  - title: "Campfire with Occasional Breeze"
+    author: "Vikram Bhat"
+    url: https://github.com/Vikram-Bhat/CodingChallengeContributions/blob/main/particlesystem.pde
+    source: https://github.com/Vikram-Bhat/CodingChallengeContributions/blob/main/particlesystem.pde
 ---
 
 In this coding challenge, I explore the concept of a simple particle system and attempt to create a smoke effect with the p5.js library.

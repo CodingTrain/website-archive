@@ -36,6 +36,10 @@ contributions:
       name: "Oddbjørn Sjøgren"
     url: "https://editor.p5js.org/yaybjorn/full/pTcbkZ4R6"
     source: "https://editor.p5js.org/yaybjorn/sketches/pTcbkZ4R6"
+  - title: "Toothpicks on LÖVE2D"
+    author:
+      name: "vinnyI-afk"
+    source: "https://github.com/vinnyI-afk/Toothpicks-Coding-Challenge"
 ---
 
 In this coding challenge, I implement Omar Pol's fractal toothpick sequence.
