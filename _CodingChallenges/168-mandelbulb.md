@@ -23,8 +23,10 @@ variations:
     lang: 'Processing'
 
 links:
-  - title: 'The Unraveling of the Real 3D Mandelbulb'
+  - title: 'The Unraveling of the Real 3D Mandelbulb 1'
     url: 'https://www.skytopia.com/project/fractal/mandelbulb.html'
+  - title: 'The Unraveling of the Real 3D Mandelbulb 2'
+    url: 'https://www.skytopia.com/project/fractal/2mandelbulb.html'
   - title: 'Processing'
     url: 'https://processing.org'
   - title: 'MandelBulb wikipedia'
@@ -80,4 +82,4 @@ topics:
     time: 27:31
 ---
 
-It's the Mandelbulb! What happens when you take the original fractal (The Mandelbrot Set) and extend it into 3D space. And how do you visualize it in Processing (Java) as a point cloud?
+It's the Mandelbulb! What happens when you take the original fractal (The Mandelbrot Set) and extend it into 3D space? And how do you visualize it in Processing (Java) as a point cloud?
