@@ -2,7 +2,7 @@
 title: 'The Mandelbulb'
 video_number: 168
 date: 2022-03-09
-video_id: dS6kCCZ-vzY
+video_id: NJCiUVGiNyA
 repository: CC_168_Mandelbulb
 
 variations:
