@@ -84,4 +84,11 @@ topics:
     time: '27:31'
 ---
 
+contributions:
+  - title: "Mandelbulb with better edge detection"
+    author:
+      name: "Cor van Essen"
+      url: "https://www.corvanessen.nl/"    
+      source: "https://github.com/corvanessen/MandelBulb_CloudEdgeFinding"
+
 It's the Mandelbulb! What happens when you take the original fractal (The Mandelbrot Set) and extend it into 3D space? And how do you visualize it in Processing (Java) as a point cloud?
