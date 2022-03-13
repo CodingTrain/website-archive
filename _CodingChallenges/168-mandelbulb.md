@@ -82,6 +82,13 @@ topics:
     time: '27:04'
   - title: 'See you next time!'
     time: '27:31'
+    
+contributions:
+  - title: "Mandelbulb Ray Marching in p5.js based on shadertoy.com/view/wdjGWR"
+    author: "Waiel Al"
+    url: https://editor.p5js.org/waielal/full/GrWBkw95a
+    source: https://editor.p5js.org/waielal/sketches/GrWBkw95a
+
 ---
 
 It's the Mandelbulb! What happens when you take the original fractal (The Mandelbrot Set) and extend it into 3D space? And how do you visualize it in Processing (Java) as a point cloud?
