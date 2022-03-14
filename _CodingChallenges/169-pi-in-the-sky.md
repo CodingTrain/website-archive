@@ -12,7 +12,7 @@ variations:
     web_editor: '0Ud-XsaYb'
 
 links:
-  - title: '1 Million Digits of Pi collected by Eve Andersson'     '
+  - title: '1 Million Digits of Pi collected by Eve Andersson'
     url: 'http://www.eveandersson.com/pi/digits/1000000'
 
 videos:
@@ -31,7 +31,7 @@ videos:
   - title: 'Removing Objects from Arrays'
     author: 'The Coding Train'
     video_id: tA_ZgruFF9k
-  
+
 topics:
   - title: 'Happy Pi Day'
     time: '0:00'
