@@ -9,7 +9,7 @@ variations:
   - name: 'Pi in the Sky'
     lang: 'p5js'
     folder: 'pi_in_the_sky'
-    web_editor: '0Ud-XsaYb'
+    web_editor: 'U11UYbgVc'
 
 links:
   - title: '1 Million Digits of Pi collected by Eve Andersson'
