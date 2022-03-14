@@ -5,7 +5,7 @@ let pi;
 let piShow = '';
 
 let digitsDiv;
-let digits = "3.";
+let digits = '3.';
 let piCounter = 0;
 
 let gameOver = false;
@@ -19,7 +19,7 @@ function setup() {
   createCanvas(800, 400);
   plate = new Plate(width / 2, 50);
   digitsDiv = createDiv(digits);
-  digitsDiv.style("font-size", "64pt");
+  digitsDiv.style('font-size', '64pt');
   piShow = pi.substring(0, 2);
 }
 
@@ -28,20 +28,18 @@ function draw() {
     background(255, 0, 0);
     fill(255);
     textAlign(CENTER, CENTER);
-    text("Game Over.\nGo and Enjoy Some Pie! 🥧", width/2, height/2);
+    text('Game Over.\nGo and Enjoy Some Pie! 🥧', width / 2, height / 2);
     return;
   }
-  
+
   background(0);
-  
+
   fill(255);
   textSize(48);
-  text(piShow, width-64, 50);
-  fill(0,255,0);
-  text(piShow.charAt(0), width-64, 50);
+  text(piShow, width - 64, 50);
+  fill(0, 255, 0);
+  text(piShow.charAt(0), width - 64, 50);
 
-  
-  
   if (random(1) < 0.1) {
     pies.push(new Pie(random(width), random(-100, -20)));
   }
@@ -56,10 +54,10 @@ function draw() {
       // catch the pie
       // Check what digit was caught and deal with score!
       let digit = pies[i].digit;
-      
-      let correctDigit = pi.charAt(piCounter)
+
+      let correctDigit = pi.charAt(piCounter);
       if (correctDigit == digit) {
-        console.log("🥧");
+        console.log('🥧');
         digits += digit;
         piCounter++;
         piShow = pi.substring(piCounter, piCounter + 2);

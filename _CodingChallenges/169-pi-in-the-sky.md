@@ -18,19 +18,19 @@ links:
 videos:
   - title: 'Coding Challenge 3: The Snake Game'
     author: 'The Coding Train'
-    video_id: AaGK-fj-BAM
+    url: /CodingChallenges/003-snake-game-p5
   - title: 'Coding Challenge 4: Purple Rain'
     author: 'The Coding Train'
-    video_id: KkyIDI6rQJI
+    url: /CodingChallenges/004-purplerain
   - title: 'Code! Programming for Beginners with p5.js'
     author: 'The Coding Train'
-    video_id: yPWkPOfnGsw
+    url: /beginners/p5js/
   - title: 'Transformations in p5.js'
     author: 'The Coding Train'
-    video_id: o9sgjuh-CBM
+    url: /Tutorials/9-additional-topics/9.1-transformations-part-1
   - title: 'Removing Objects from Arrays'
     author: 'The Coding Train'
-    video_id: tA_ZgruFF9k
+    url: /beginners/p5js/7.5-removing-objects-from-array
 
 topics:
   - title: 'Happy Pi Day'
