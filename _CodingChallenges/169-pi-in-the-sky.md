@@ -14,6 +14,8 @@ variations:
 links:
   - title: '1 Million Digits of Pi collected by Eve Andersson'
     url: 'http://www.eveandersson.com/pi/digits/1000000'
+  - title: '1 Million Digits of Pi collected by Eve Andersson'
+    url: 'http://www.eveandersson.com/pi/digits/1000000'
 
 videos:
   - title: 'Coding Challenge 3: The Snake Game'
