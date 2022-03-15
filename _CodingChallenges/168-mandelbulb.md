@@ -49,6 +49,14 @@ videos:
     author: 'The Coding Train'
     url: /CodingChallenges/025-spheregeometry
 
+contributions:
+  - title: "MandelBulb in p5 with slider controls"
+    author:
+      name: "Raj Jaiswal"
+      url: "https://portfolio-rajjaiswal.glitch.me"
+    url: "https://exceptional.glitch.me/MandelBulb.html"
+    source: "https://glitch.com/edit/#!/exceptional?path=MandelBulb.html"
+
 topics:
   - title: 'Introducing Today’s Topic'
     time: '0:00'
