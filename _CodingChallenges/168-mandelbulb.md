@@ -49,6 +49,14 @@ videos:
     author: 'The Coding Train'
     url: /CodingChallenges/025-spheregeometry
 
+contributions:
+  - title: "Rainbow Mandelbulb Cloud in p5js"
+    author:
+      name: "Juan Carlos Ponce Campuzano"
+      url: "https://jcponce.github.io"
+    url: "https://editor.p5js.org/jcponce/full/5AamBLmvM"
+    source: "https://editor.p5js.org/jcponce/sketches/5AamBLmvM"
+
 topics:
   - title: 'Introducing Today’s Topic'
     time: '0:00'
