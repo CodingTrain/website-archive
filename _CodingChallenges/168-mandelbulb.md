@@ -5,6 +5,13 @@ date: 2022-03-09
 video_id: NJCiUVGiNyA
 repository: CC_168_Mandelbulb
 
+contributions:
+  - title: "Mandelbulb with raymarching and shaders"
+    author:
+      name: "Taxen99"
+    url: "https://editor.p5js.org/Taxen99/full/47CDg5-nV"
+    source: "https://editor.p5js.org/Taxen99/sketches/47CDg5-nV"
+
 variations:
   - name: 'MandelBulb Point Cloud'
     folder: 'MandelBulb_Cloud'
