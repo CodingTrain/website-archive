@@ -5,6 +5,13 @@ date: 2022-03-14
 video_id: _H9JIwWP7HQ
 repository: CC_169_Pi_Day
 
+contributions:
+  - title: "In Processing Animated"
+    author:
+      name: "Radek Titera"
+    url: "https://github.com/Rodak123/PI-In-The-Sky/tree/main"
+    source: "https://github.com/Rodak123/PI-In-The-Sky/tree/main"
+
 variations:
   - name: 'Pi in the Sky'
     lang: 'p5js'
