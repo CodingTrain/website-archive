@@ -85,3 +85,4 @@ topics:
 ---
 
 It's the Mandelbulb! What happens when you take the original fractal (The Mandelbrot Set) and extend it into 3D space? And how do you visualize it in Processing (Java) as a point cloud?
+![cinderella_mandelbulb](https://user-images.githubusercontent.com/65121394/159178590-4297290f-ba36-4d75-acb5-77d1e2e723fe.png)
