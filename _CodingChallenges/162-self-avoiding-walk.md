@@ -103,6 +103,12 @@ contributions:
       url: "https://github.com/butkeraites"
     url: "https://editor.p5js.org/butkeraites/full/AWcZE5WBI"
     source: "https://editor.p5js.org/butkeraites/sketches/AWcZE5WBI"
+    - title: "Self avoiding walk on a non rectangular lattice"
+    author:
+      name: "Omar Essilfie-Quaye"
+      url: "https://github.com/omareq"
+    url: "https://omareq.github.io/random-walk/"
+    source: "https://github.com/omareq/omareq.github.io/tree/master/random-walk/"
 ---
 
 It's finally time to attempt a Self-Avoiding Walk! In this video, I quickly visualize a simple JavaScript p5.js implementation of a self-avoiding walk. I then tackle the more complex problem of backtracking to find a solution to a space-filling self-avoiding walk. 
