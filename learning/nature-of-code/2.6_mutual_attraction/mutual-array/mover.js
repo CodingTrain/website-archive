@@ -22,6 +22,7 @@ class Mover {
   attract(mover) {
     let force = p5.Vector.sub(this.pos, mover.pos);
     let distanceSq = constrain(force.magSq(), 100, 1000);
+    let G = 1;
     let strength = (G * (this.mass * mover.mass)) / distanceSq;
     force.setMag(strength);
     mover.applyForce(force);
@@ -30,16 +31,13 @@ class Mover {
   update() {
     this.vel.add(this.acc);
     this.pos.add(this.vel);
-    this.vel.limit(15);
     this.acc.set(0, 0);
   }
 
   show() {
-    noStroke();
-    strokeWeight(8);
-    //fill(255, 200);
-    //ellipse(this.pos.x, this.pos.y, this.r);
     stroke(255);
-    point(this.pos.x, this.pos.y);
+    strokeWeight(2);
+    fill(255, 100);
+    ellipse(this.pos.x, this.pos.y, this.r * 2);
   }
 }
