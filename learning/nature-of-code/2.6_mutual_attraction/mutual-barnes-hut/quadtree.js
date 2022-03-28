@@ -1,8 +1,13 @@
-// Daniel Shiffman
-// http://codingtra.in
-// http://patreon.com/codingtrain
+// Mutual Attraction (N-Body Simulation)
+// The Nature of Code
+// The Coding Train / Daniel Shiffman
+// https://youtu.be/GjbKsOkN1Oc?list=PLRqwX-V7Uu6ZV4yEcW3uDwOgGXKUUsPOM
+// https://thecodingtrain.com/learning/nature-of-code/2.6-mutual-attraction.html
 
-// QuadTree
+// QuadTree from: https://github.com/CodingTrain/QuadTree
+
+// N-Body: https://editor.p5js.org/codingtrain/sketches/bEt7eLZ6Y
+// N-Body w/ Barnes-Hut: https://editor.p5js.org/codingtrain/sketches/joXNoi9WL
 
 class Point {
   constructor(x, y, data) {
@@ -57,28 +62,28 @@ class Rectangle {
 
   subdivide(quadrant) {
     switch (quadrant) {
-      case "ne":
+      case 'ne':
         return new Rectangle(
           this.x + this.w / 4,
           this.y - this.h / 4,
           this.w / 2,
           this.h / 2
         );
-      case "nw":
+      case 'nw':
         return new Rectangle(
           this.x - this.w / 4,
           this.y - this.h / 4,
           this.w / 2,
           this.h / 2
         );
-      case "se":
+      case 'se':
         return new Rectangle(
           this.x + this.w / 4,
           this.y + this.h / 4,
           this.w / 2,
           this.h / 2
         );
-      case "sw":
+      case 'sw':
         return new Rectangle(
           this.x - this.w / 4,
           this.y + this.h / 4,
@@ -170,18 +175,18 @@ class QuadTree {
 
   constructor(boundary, capacity = this.DEFAULT_CAPACITY, _depth = 0) {
     if (!boundary) {
-      throw TypeError("boundary is null or undefined");
+      throw TypeError('boundary is null or undefined');
     }
     if (!(boundary instanceof Rectangle)) {
-      throw TypeError("boundary should be a Rectangle");
+      throw TypeError('boundary should be a Rectangle');
     }
-    if (typeof capacity !== "number") {
+    if (typeof capacity !== 'number') {
       throw TypeError(
         `capacity should be a number but is a ${typeof capacity}`
       );
     }
     if (capacity < 1) {
-      throw RangeError("capacity must be greater than 0");
+      throw RangeError('capacity must be greater than 0');
     }
 
     this.boundary = boundary;
@@ -202,11 +207,11 @@ class QuadTree {
 
   static create() {
     if (arguments.length === 0) {
-      if (typeof width === "undefined") {
-        throw new TypeError("No global width defined");
+      if (typeof width === 'undefined') {
+        throw new TypeError('No global width defined');
       }
-      if (typeof height === "undefined") {
-        throw new TypeError("No global height defined");
+      if (typeof height === 'undefined') {
+        throw new TypeError('No global height defined');
       }
       let bounds = new Rectangle(width / 2, height / 2, width, height);
       return new QuadTree(bounds, this.DEFAULT_CAPACITY);
@@ -216,10 +221,10 @@ class QuadTree {
       return new QuadTree(arguments[0], capacity);
     }
     if (
-      typeof arguments[0] === "number" &&
-      typeof arguments[1] === "number" &&
-      typeof arguments[2] === "number" &&
-      typeof arguments[3] === "number"
+      typeof arguments[0] === 'number' &&
+      typeof arguments[1] === 'number' &&
+      typeof arguments[2] === 'number' &&
+      typeof arguments[3] === 'number'
     ) {
       let capacity = arguments[4] || this.DEFAULT_CAPACITY;
       return new QuadTree(
@@ -227,7 +232,7 @@ class QuadTree {
         capacity
       );
     }
-    throw new TypeError("Invalid parameters");
+    throw new TypeError('Invalid parameters');
   }
 
   toJSON() {
@@ -262,8 +267,8 @@ class QuadTree {
   }
 
   static fromJSON(obj, x, y, w, h, capacity, depth) {
-    if (typeof x === "undefined") {
-      if ("x" in obj) {
+    if (typeof x === 'undefined') {
+      if ('x' in obj) {
         x = obj.x;
         y = obj.y;
         w = obj.w;
@@ -271,7 +276,7 @@ class QuadTree {
         capacity = obj.capacity;
         depth = 0;
       } else {
-        throw TypeError("JSON missing boundary information");
+        throw TypeError('JSON missing boundary information');
       }
     }
 
@@ -280,13 +285,13 @@ class QuadTree {
     qt.points = obj.points ?? null;
     qt.divided = qt.points === null; // points are set to null on subdivide
 
-    if ("ne" in obj || "nw" in obj || "se" in obj || "sw" in obj) {
+    if ('ne' in obj || 'nw' in obj || 'se' in obj || 'sw' in obj) {
       const x = qt.boundary.x;
       const y = qt.boundary.y;
       const w = qt.boundary.w / 2;
       const h = qt.boundary.h / 2;
 
-      if ("ne" in obj) {
+      if ('ne' in obj) {
         qt.northeast = QuadTree.fromJSON(
           obj.ne,
           x + w / 2,
@@ -298,12 +303,12 @@ class QuadTree {
         );
       } else {
         qt.northeast = new QuadTree(
-          qt.boundary.subdivide("ne"),
+          qt.boundary.subdivide('ne'),
           capacity,
           depth + 1
         );
       }
-      if ("nw" in obj) {
+      if ('nw' in obj) {
         qt.northwest = QuadTree.fromJSON(
           obj.nw,
           x - w / 2,
@@ -315,12 +320,12 @@ class QuadTree {
         );
       } else {
         qt.northwest = new QuadTree(
-          qt.boundary.subdivide("nw"),
+          qt.boundary.subdivide('nw'),
           capacity,
           depth + 1
         );
       }
-      if ("se" in obj) {
+      if ('se' in obj) {
         qt.southeast = QuadTree.fromJSON(
           obj.se,
           x + w / 2,
@@ -332,12 +337,12 @@ class QuadTree {
         );
       } else {
         qt.southeast = new QuadTree(
-          qt.boundary.subdivide("se"),
+          qt.boundary.subdivide('se'),
           capacity,
           depth + 1
         );
       }
-      if ("sw" in obj) {
+      if ('sw' in obj) {
         qt.southwest = QuadTree.fromJSON(
           obj.sw,
           x - w / 2,
@@ -349,7 +354,7 @@ class QuadTree {
         );
       } else {
         qt.southwest = new QuadTree(
-          qt.boundary.subdivide("sw"),
+          qt.boundary.subdivide('sw'),
           capacity,
           depth + 1
         );
@@ -361,22 +366,22 @@ class QuadTree {
 
   subdivide() {
     this.northeast = new QuadTree(
-      this.boundary.subdivide("ne"),
+      this.boundary.subdivide('ne'),
       this.capacity,
       this.depth + 1
     );
     this.northwest = new QuadTree(
-      this.boundary.subdivide("nw"),
+      this.boundary.subdivide('nw'),
       this.capacity,
       this.depth + 1
     );
     this.southeast = new QuadTree(
-      this.boundary.subdivide("se"),
+      this.boundary.subdivide('se'),
       this.capacity,
       this.depth + 1
     );
     this.southwest = new QuadTree(
-      this.boundary.subdivide("sw"),
+      this.boundary.subdivide('sw'),
       this.capacity,
       this.depth + 1
     );
@@ -394,7 +399,7 @@ class QuadTree {
         this.southwest.insert(p);
 
       if (!inserted) {
-        throw RangeError("capacity must be greater than 0");
+        throw RangeError('capacity must be greater than 0');
       }
     }
 
@@ -450,7 +455,7 @@ class QuadTree {
   }
 
   closest(searchPoint, maxCount = 1, maxDistance = Infinity) {
-    if (typeof searchPoint === "undefined") {
+    if (typeof searchPoint === 'undefined') {
       throw TypeError("Method 'closest' needs a point");
     }
 
@@ -567,6 +572,6 @@ class QuadTree {
   }
 }
 
-if (typeof module !== "undefined") {
+if (typeof module !== 'undefined') {
   module.exports = { Point, Rectangle, QuadTree, Circle };
 }

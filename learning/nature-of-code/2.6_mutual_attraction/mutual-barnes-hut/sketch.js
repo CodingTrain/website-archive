@@ -1,4 +1,11 @@
-// Mutual Attract// The Nature of Code
+// Mutual Attraction (N-Body Simulation)
+// The Nature of Code
+// The Coding Train / Daniel Shiffman
+// https://youtu.be/GjbKsOkN1Oc?list=PLRqwX-V7Uu6ZV4yEcW3uDwOgGXKUUsPOM
+// https://thecodingtrain.com/learning/nature-of-code/2.6-mutual-attraction.html
+
+// N-Body: https://editor.p5js.org/codingtrain/sketches/bEt7eLZ6Y
+// N-Body w/ Barnes-Hut: https://editor.p5js.org/codingtrain/sketches/joXNoi9WL
 
 let movers = [];
 let sun;
@@ -100,12 +107,7 @@ function show(qtree) {
   noFill();
   strokeWeight(0.25);
   rectMode(CENTER);
-  rect(
-    qtree.boundary.x,
-    qtree.boundary.y,
-    qtree.boundary.w,
-    qtree.boundary.h
-  );
+  rect(qtree.boundary.x, qtree.boundary.y, qtree.boundary.w, qtree.boundary.h);
 
   if (qtree.divided) {
     show(qtree.northeast);
