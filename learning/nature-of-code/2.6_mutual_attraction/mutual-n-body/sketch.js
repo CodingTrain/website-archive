@@ -1,36 +1,37 @@
-// Mutual Attract// The Nature of Code
+// Mutual Attraction (N-Body Simulation)
+// The Nature of Code
+// The Coding Train / Daniel Shiffman
+// https://youtu.be/GjbKsOkN1Oc?list=PLRqwX-V7Uu6ZV4yEcW3uDwOgGXKUUsPOM
+// https://thecodingtrain.com/learning/nature-of-code/2.6-mutual-attraction.html
+
+// N-Body: https://editor.p5js.org/codingtrain/sketches/bEt7eLZ6Y
+// N-Body w/ Barnes-Hut: https://editor.p5js.org/codingtrain/sketches/joXNoi9WL
 
 let movers = [];
 let sun;
 let qtree;
-let G = 0.35;
+let G = 0.05;
 
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(1200, 1200);
 
-  for (let i = 0; i < 350; i++) {
+  for (let i = 0; i < 800; i++) {
     let pos = p5.Vector.random2D();
     let vel = pos.copy();
     vel.setMag(random(10, 15));
-    pos.setMag(random(150, 200));
+    pos.setMag(random(100, 150));
     vel.rotate(PI / 2);
     let m = random(10, 15);
     movers[i] = new Mover(pos.x, pos.y, vel.x, vel.y, m);
   }
   sun = new Mover(0, 0, 0, 0, 500);
-  // movers[0] = new Mover(300, 200, 0, 5, 10);
-  // movers[1] = new Mover(100, 200, 0, -5, 10);
-  // movers[2] = new Mover(200, 300, -5, 0, 10);
-  // movers[3] = new Mover(200, 100, 5, 0, 10);
   background(0);
 }
 
 function draw() {
-  clear();
-  background(0);
-  blendMode(ADD);
-  let boundary = new Rectangle(0, 0, width, height);
-  qtree = QuadTree.create(boundary, 8);
+  background(0, 10);
+  let boundary = new Rectangle(0, 0, width / 2, height / 2);
+  qtree = QuadTree.create(boundary, 12);
 
   // Display and move all Things
   for (let m of movers) {
@@ -59,9 +60,13 @@ function draw() {
     mover.show();
   }
 
-  show(qtree);
+  //show(qtree);
   pop();
   //sun.show();
+}
+
+function mousePressed() {
+  save('thumb.png');
 }
 
 function attract(m, qtree) {
@@ -98,13 +103,13 @@ function attract(m, qtree) {
 function show(qtree) {
   stroke(255);
   noFill();
-  strokeWeight(0.25);
+  strokeWeight(0.5);
   rectMode(CENTER);
   rect(
     qtree.boundary.x,
     qtree.boundary.y,
-    qtree.boundary.w,
-    qtree.boundary.h
+    qtree.boundary.w * 2,
+    qtree.boundary.h * 2
   );
 
   if (qtree.divided) {

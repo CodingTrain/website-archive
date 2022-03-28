@@ -1,9 +1,11 @@
-// Gravitational Attraction
+// Mutual Attraction (N-Body Simulation)
 // The Nature of Code
 // The Coding Train / Daniel Shiffman
-// https://youtu.be/EpgB3cNhKPM
-// https://thecodingtrain.com/learning/nature-of-code/2.5-gravitational-attraction.html
-// https://editor.p5js.org/codingtrain/sketches/MkLraatd
+// https://youtu.be/GjbKsOkN1Oc?list=PLRqwX-V7Uu6ZV4yEcW3uDwOgGXKUUsPOM
+// https://thecodingtrain.com/learning/nature-of-code/2.6-mutual-attraction.html
+
+// N-Body: https://editor.p5js.org/codingtrain/sketches/bEt7eLZ6Y
+// N-Body w/ Barnes-Hut: https://editor.p5js.org/codingtrain/sketches/joXNoi9WL
 
 class Mover {
   constructor(x, y, vx, vy, m) {
