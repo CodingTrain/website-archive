@@ -191,5 +191,9 @@ contributions:
     author: "Harivinay"
     url: "https://m87k452b.github.io/flocking-quadtree/"
     source: "https://github.com/M87K452b/flocking-quadtree"
+  - title: "Flocking With Chunk Optimisation"
+    author: Ben Maltby
+    url: "https://editor.p5js.org/BenMaltby/full/E_LRLKP8S"
+    source: "https://editor.p5js.org/BenMaltby/sketches/E_LRLKP8S"
 ---
 In this coding challenge, I create a flocking simulation in JavaScript based on Craig Reynolds "boids" algorithm.
