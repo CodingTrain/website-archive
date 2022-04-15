@@ -47,6 +47,10 @@ contributions:
     author: "Chris Oliver"
     url: https://github.com/chrisoliver345/Sierpinski-Triangle
     source: https://github.com/chrisoliver345/Sierpinski-Triangle/blob/master/Sierpinski.pde
+  - title: "Sierpinski Comet"
+    author: "fanbyprinciple"
+    url: https://editor.p5js.org/fanbyprinciple/full/kYZ4V2E9A
+    source: https://github.com/fanbyprinciple/noc-fanbyprinciple/tree/master/extra_projects/comet_serpinski
 ---
 
 In this coding challenge, I explore the concept of recursion to create fractal patterns in JavaScript HTML5 canvas with the p5.js library.
