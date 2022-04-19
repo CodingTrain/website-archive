@@ -35,5 +35,10 @@ contributions:
       url: "https://chief141.github.io"
     url: "https://repl.it/@chief141/visualizing-pi"
     source: "https://github.com/chief141/Coding-Train-Challenges-python/tree/master/visualizing-pi"
+  - title: "Pi Tunnel"
+    author:
+      name: "Bixbite"
+    url: "https://preview.p5js.org/Bixbite/present/srdgzC2d3"
+    source: "https://editor.p5js.org/Bixbite/sketches/srdgzC2d3"
 ---
 In this second Pi Day coding challenge, I attempt to "visualize" the digits of Pi. [#PiTrain](https://twitter.com/hashtag/PiTrain)
