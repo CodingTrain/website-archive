@@ -38,6 +38,12 @@ contributions:
       url: https://jcponce.github.io
     url: https://editor.p5js.org/jcponce/full/tA94Ptb-f
     source: https://editor.p5js.org/jcponce/sketches/tA94Ptb-f
+  - title: "Skating Music Box"
+  author:
+    name: "Kora Lee"
+    url: https://leekora.wixsite.com/artportfo
+  url: https://editor.p5js.org/Kora-Lee/full/uyvc7UpAo
+  source: https://editor.p5js.org/Kora-Lee/sketches/uyvc7UpAo
 ---
 
 In this special holiday season coding challenge, I attempt to create a snowfall simulation using p5.js, sprite sheets and Perlin noise wind.
