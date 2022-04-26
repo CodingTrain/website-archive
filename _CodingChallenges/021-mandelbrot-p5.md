@@ -59,7 +59,7 @@ contributions:
       url: "https://basvogel.nl"
     url: "https://editor.p5js.org/Basz/present/RNzUk1pLn"
     source: "https://editor.p5js.org/Basz/sketches/RNzUk1pLn"
-  - title: "Interactive Mandelbort Set with Shaders."
+  - title: "Interactive Mandelbrot Set with Shaders."
     author:
       name: "Harivinay"
       url: "https://vharivinay.github.io"
