@@ -59,9 +59,8 @@ class Puck {
   }
 
   edges() {
-    if (this.y < 0 || this.y > height) {
-      this.yspeed *= -1;
-    }
+    this.yspeed *= (this.y < 0 || this.y > height) ?
+      -1 : 1;
 
     if (this.x - this.r > width) {
       ding.play();
