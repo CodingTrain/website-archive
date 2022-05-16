@@ -98,7 +98,7 @@ contributions:
     author:
       name: "Cor van Essen"
       url: "https://www.corvanessen.nl/"
-      source: "https://github.com/corvanessen/MandelBulb_CloudEdgeFinding"
+    source: "https://github.com/corvanessen/MandelBulb_CloudEdgeFinding"
   - title: "Crystal Mandelbulb"
     author: "Kathy McGuiness"
     url: 'https://editor.p5js.org/kfahn/full/o5sX5O0cF'
