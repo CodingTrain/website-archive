@@ -91,4 +91,11 @@ contributions:
 
 ---
 
+contributions:
+  - title: "Crystal Mandelbulb"
+    author: "Kathy McGuiness"
+    url: 'https://editor.p5js.org/kfahn/full/o5sX5O0cF'
+    source: 'https://editor.p5js.org/kfahn/sketches/o5sX5O0cF'
+    
+    
 It's the Mandelbulb! What happens when you take the original fractal (The Mandelbrot Set) and extend it into 3D space? And how do you visualize it in Processing (Java) as a point cloud?
