@@ -14,6 +14,8 @@ variations:
 links:
   - title: '1 Million Digits of Pi collected by Eve Andersson'
     url: 'http://www.eveandersson.com/pi/digits/1000000'
+  - title: 'Pi in the Sky song by Will from America'
+    url: 'https://twitter.com/WillFromAmerica'
 
 videos:
   - title: 'Coding Challenge 3: The Snake Game'
