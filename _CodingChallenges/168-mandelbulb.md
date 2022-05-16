@@ -105,4 +105,10 @@ contributions:
     source: 'https://editor.p5js.org/kfahn/sketches/o5sX5O0cF'
 ---
 
+
+ - title: ""Cinderella" mandelbulb rendered in p5.js with phong illumination lighting"
+    author: "Kathy McGuiness"
+    https://editor.p5js.org/kfahn/full/vt00q_BhB
+   https://editor.p5js.org/kfahn/sketches/vt00q_BhB
+   
 It's the Mandelbulb! What happens when you take the original fractal (The Mandelbrot Set) and extend it into 3D space? And how do you visualize it in Processing (Java) as a point cloud?
