@@ -104,5 +104,9 @@ contributions:
     author: "cshep99"
     url: "https://editor.p5js.org/cshep99/present/DtAf8BXc-"
     source: "https://editor.p5js.org/cshep99/sketches/DtAf8BXc-"
+  - title: "Recreation of image seen in numberphile video"
+    author: "Miir"
+    url: "https://editor.p5js.org/blazej.szyszko/full/8RpI8VCNm"
+    source: "https://editor.p5js.org/blazej.szyszko/sketches/8RpI8VCNm"
 ---
 It's the second episode of Coding in the Cabana! Here I attempt to visualize the Collatz Conjecture in Processing.
