@@ -82,7 +82,7 @@ contributions:
       url: "https://theabbie.github.io"
     url: "https://theabbie.github.io/DoublePendulum/"
     source: "https://github.com/theabbie/DoublePendulum"
-      - title: "Double Pendulum with elastic bars"
+  - title: "Double Pendulum with elastic bars"
     author: "Gonzalo Mereb"
     url: "https://github.com/gonzam95/DPS"
     source: "https://github.com/gonzam95/DPS"
