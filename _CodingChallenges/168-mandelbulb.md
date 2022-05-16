@@ -97,7 +97,7 @@ contributions:
   - title: "Mandelbulb with better edge detection"
     author:
       name: "Cor van Essen"
-      url: "https://www.corvanessen.nl/"    
+      url: "https://www.corvanessen.nl/"
       source: "https://github.com/corvanessen/MandelBulb_CloudEdgeFinding"
   - title: "Crystal Mandelbulb"
     author: "Kathy McGuiness"
