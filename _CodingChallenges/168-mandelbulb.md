@@ -112,7 +112,6 @@ contributions:
     author: "Kathy McGuiness"
     source: 'https://editor.p5js.org/kfahn/full/vt00q_BhB'
     link: 'https://editor.p5js.org/kfahn/sketches/vt00q_BhB'
-
 ---
    
 It's the Mandelbulb! What happens when you take the original fractal (The Mandelbrot Set) and extend it into 3D space? And how do you visualize it in Processing (Java) as a point cloud?
