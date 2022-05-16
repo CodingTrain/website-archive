@@ -59,5 +59,17 @@ contributions:
       url: "https://basvogel.nl"
     url: "https://editor.p5js.org/Basz/present/RNzUk1pLn"
     source: "https://editor.p5js.org/Basz/sketches/RNzUk1pLn"
+  - title: "Mandeldarm - Interactive p5 Mandelbrot explorer with dynamic rendering and notable locations"
+    author:
+      name: "Diese Kartoffel"
+      url: "https://github.com/DieseKartoffel"
+    url: "https://bratp.fun/mandelbrot"
+    source: "https://github.com/DieseKartoffel/mandelbrot"
+  - title: "Interactive Mandelbrot Set with Shaders."
+    author:
+      name: "Harivinay"
+      url: "https://vharivinay.github.io"
+    url: "https://vharivinay.github.io/mandelbrot-wShaders/"
+    source: "https://github.com/vharivinay/mandelbrot-wShaders"
 ---
 In this coding challenge, I program from scratch the Mandelbrot set with p5.js
