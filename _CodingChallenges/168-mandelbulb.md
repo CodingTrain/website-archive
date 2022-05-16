@@ -82,6 +82,24 @@ topics:
     time: '27:04'
   - title: 'See you next time!'
     time: '27:31'
+
+contributions:
+  - title: "Rainbow Mandelbulb Cloud (p5js)"
+    author:
+      name: "Juan Carlos Ponce Campuzano"
+      url: "https://jcponce.github.io"
+    url: "https://editor.p5js.org/jcponce/full/5AamBLmvM"
+    source: "https://editor.p5js.org/jcponce/sketches/5AamBLmvM"
 ---
 
+contributions:
+  - title: "Mandelbulb with better edge detection"
+    author:
+      name: "Cor van Essen"
+      url: "https://www.corvanessen.nl/"    
+      source: "https://github.com/corvanessen/MandelBulb_CloudEdgeFinding"
+  - title: "Crystal Mandelbulb"
+    author: "Kathy McGuiness"
+    url: 'https://editor.p5js.org/kfahn/full/o5sX5O0cF'
+    source: 'https://editor.p5js.org/kfahn/sketches/o5sX5O0cF'
 It's the Mandelbulb! What happens when you take the original fractal (The Mandelbrot Set) and extend it into 3D space? And how do you visualize it in Processing (Java) as a point cloud?
