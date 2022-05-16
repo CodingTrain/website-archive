@@ -38,6 +38,12 @@ contributions:
       url: "https://github.com/chief141"
     url: "https://repl.it/@chief141/Approximating-PI"
     source: "https://github.com/chief141/Coding-Train-Challenges-python/tree/master/Approximating-pi"
+  - title: "Approximating Pi using Circumference"
+    author:
+      name: "Ayaan Surkhi"
+      url: "https://github.com/Ayaan-Surkhi"
+    url: "https://ayaan-surkhi.github.io/Approximating-Pi/"
+    source: "https://github.com/Ayaan-Surkhi/Approximating-Pi"
 ---
 
 In this coding challenge, I use use a "monte carlo" method to approximate the value of Pi in Processing (Java).

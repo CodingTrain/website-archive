@@ -4,7 +4,6 @@
 // Code for: https://youtu.be/jrk_lOg_pVA
 
 import toxi.geom.*;
-import toxi.physics.*;
 import toxi.physics2d.*;
 import toxi.physics2d.behaviors.*;
 import toxi.physics2d.constraints.*;
@@ -25,7 +24,7 @@ void setup() {
 
   physics = new VerletPhysics2D();
   Vec2D gravity = new Vec2D(0, 1);
-  GravityBehavior gb = new GravityBehavior(gravity);
+  GravityBehavior2D gb = new GravityBehavior2D(gravity);
   physics.addBehavior(gb);
 
   float x = 100;

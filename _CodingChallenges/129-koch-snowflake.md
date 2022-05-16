@@ -34,6 +34,12 @@ contributions:
       url: "http://anuraghazra.github.io"
     url: "https://anuraghazra.github.io/CanvasFun/KochStar/"
     source: "https://github.com/anuraghazra/CanvasFun/tree/master/KochStar"
+  - title: "Heinrich"
+    author:
+      name: "Heinrich Xiao"
+      url: "https://github.com/Heinrichxiao"
+    url: "https://github.com/Heinrichxiao/CC_129_Koch_Snowflake"
+    source: "https://github.com/Heinrichxiao/CC_129_Koch_Snowflake"
 ---
 
 Snowflake Challenge #3! In this video, I draw the Koch Fractal Curve in Processing (Java).

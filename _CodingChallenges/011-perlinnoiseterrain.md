@@ -94,5 +94,17 @@ contributions:
       url: "https://github.com/Heinrichxiao"
     url: "https://editor.p5js.org/Heinrichxiao/present/NVWENYzLf"
     source: "https://editor.p5js.org/Heinrichxiao/sketches/NVWENYzLf"
+  - title: "Into the sanddunes"
+    author:
+      name: "Venkatakrishnan.R"
+      url: "https://github.com/Cody-coder017"
+    url: "https://github.com/Cody-coder017/Generative_art/tree/main/Into_the_sanddunes"
+    source: "https://github.com/Cody-coder017/Generative_art/tree/main/Into_the_sanddunes"
+  - title: "3D terrian Nature View"
+    author:
+      name: "Hussain Salih"
+      url: "https://github.com/Shubbair"
+    url: "https://github.com/Shubbair/CodingFlow/blob/main/PerlinNoise3D/docs/src.gif"
+    source: "https://github.com/Shubbair/CodingFlow/tree/main/PerlinNoise3D/Processing"
 ---
 In this coding challenge, I create a 3D procedural terrain using Perlin Noise and the beginShape() function in Processing.

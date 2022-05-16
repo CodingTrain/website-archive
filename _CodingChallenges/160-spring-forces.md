@@ -85,6 +85,16 @@ contributions:
       url: https://editor.p5js.org/Angul/sketches
     source: https://editor.p5js.org/Angul/sketches/CV_d01Y3K
     url: https://editor.p5js.org/Angul/full/CV_d01Y3K
+  - title: "Bunch Of Jelly THings"
+    author:
+      name: "Harsha Addanki"
+    source: https://editor.p5js.org/harsha7addanki/collections/oY3htXGgG
+    url: https://editor.p5js.org/harsha7addanki/collections/oY3htXGgG
+  - title: "Cloth Simulation"
+    author:
+      name: "CodeFish"
+    source: https://editor.p5js.org/Codefish/sketches/y9mXtyz6g
+    url: https://editor.p5js.org/Codefish/full/y9mXtyz6g
 
 topics:
   - title: "Choo choo!! Springs Coding Challenge!"

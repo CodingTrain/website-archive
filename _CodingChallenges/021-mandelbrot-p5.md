@@ -53,5 +53,11 @@ contributions:
       url: "https://github.com/AirtonBorges"
     url: "https://twitter.com/ArtoBorg/status/1288692756886573058?s=19"
     source: "https://www.github.com/AirtonBorges/Python_POO_and_graphics_experiments/tree/master/Scripts%2Fmandelbrot%20set%20Class%20Methods%20and%20Static%20Methods.py"
+  - title: "Mandelbrot - an other explorer"
+    author:
+      name: "Bas Vogel"
+      url: "https://basvogel.nl"
+    url: "https://editor.p5js.org/Basz/present/RNzUk1pLn"
+    source: "https://editor.p5js.org/Basz/sketches/RNzUk1pLn"
 ---
 In this coding challenge, I program from scratch the Mandelbrot set with p5.js

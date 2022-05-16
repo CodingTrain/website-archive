@@ -59,10 +59,10 @@ contributions:
     source: "https://github.com/n6a1t4e/Celestial-Gravitation-Simulator"
   - title: "3D Black Hole in p5js"
     author:
-      name: "Carlos Ponce"
+      name: "Juan Carlos Ponce Campuzano"
       url: "https://jcponce.github.io/"
-    url: "https://jcponce.github.io/sketches/blackhole/"
-    source: "https://github.com/jcponce/jcponce.github.io/tree/master/sketches/blackhole"
+    url: "https://preview.p5js.org/jcponce/present/3_CNC1u3W"
+    source: "https://editor.p5js.org/jcponce/sketches/3_CNC1u3W"
   - title: "Relativistic Black Hole Sim with Highlited shadow (made in VB.net)"
     author:
       name: "Jos Gielen"

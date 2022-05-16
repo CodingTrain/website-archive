@@ -31,5 +31,11 @@ contributions:
       url: "https://www.linkedin.com/in/cassiofb-dev/"
     url: "https://cassiofb-dev.github.io/mitosis/"
     source: "https://github.com/cassiofb-dev/mitosis/tree/master"
+  - title: "Bacterial Growth Simulation"
+    author:
+      name: "Denisovich"
+      url: "https://DenisovichDev.github.io/link-tree/"
+    url: "https://openprocessing.org/sketch/1294491"
+    source: "https://openprocessing.org/sketch/1294491#code"
 ---
 In this viewer submitted coding challenge, I program a cellular mitosis simulation in p5.js.

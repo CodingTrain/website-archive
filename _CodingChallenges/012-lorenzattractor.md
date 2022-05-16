@@ -40,5 +40,11 @@ contributions:
       url: "https://jcponce.github.io/"
     url: "https://editor.p5js.org/jcponce/present/WUmXSTPvr"
     source: "https://editor.p5js.org/jcponce/sketches/WUmXSTPvr"
+  - title: "Strange Attractors"
+    author:
+      name: "David Beale"
+      url: "https://david-beale.github.io/portfolio/"
+    url: "https://david-beale.github.io/Attractors/"
+    source: "https://github.com/David-Beale/Attractors"
 ---
 In this coding challenge, I show you how to visualization the Lorenz Attractor in Processing (Java).

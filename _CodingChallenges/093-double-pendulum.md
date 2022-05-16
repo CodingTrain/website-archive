@@ -76,5 +76,11 @@ contributions:
       url: "http://github.com/dipamsen"
     url: "https://dipamsen.github.io/double-pendulum-p5-matter/index.html"
     source: "https://github.com/dipamsen/double-pendulum-p5-matter"
+  - title: "Interactive Double Pendulum Playground Using SVG"
+    author:
+      name: "Abhishek Choudhary"
+      url: "https://theabbie.github.io"
+    url: "https://theabbie.github.io/DoublePendulum/"
+    source: "https://github.com/theabbie/DoublePendulum"
 ---
 In this coding challenge, I create a double pendulum simulation in Processing.

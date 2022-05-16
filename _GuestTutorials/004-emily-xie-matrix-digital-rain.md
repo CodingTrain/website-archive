@@ -24,6 +24,10 @@ contributions:
     author: "Gil Lianni"
     url: https://editor.p5js.org/Gil/present/UsW9zPgNL
     source: https://editor.p5js.org/Gil/sketches/UsW9zPgNL
+  - title: "Raining food emojis in p5js"
+    author: "M87K452b(Harivinay)"
+    url: "https://github.com/M87K452b/raining-food/blob/main/render/rainingFood.gif"
+    source: "https://github.com/M87K452b/raining-food"
 ---
 In this guest tutorial, Emily Xie uses the p5.js library to recreate the digital rain effect from the movie The Matrix.
 

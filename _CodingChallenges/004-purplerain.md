@@ -73,5 +73,29 @@ contributions:
       url: "https://github.com/amnindersingh12"
     url: "https://amnindersingh12.github.io/Shooting-Stars/"
     source: "https://github.com/amnindersingh12/Shooting-Stars"
+  - title: "Controling the rain"
+    author:
+      name: "Drea007"
+      url: "https://github.com/Drea007"
+    url: "https://editor.p5js.org/andreasuarezsanchez027/full/LdnrGDnLz"
+    source: "https://editor.p5js.org/andreasuarezsanchez027/sketches/LdnrGDnLz"
+  - title: "Rain with perlin noise wind using typescript"
+    author:
+      name: "Irtiaz"
+      url: "https://github.com/Irtiaz"
+    url: "https://relaxing-rain.netlify.app/"
+    source: "https://github.com/Irtiaz/rain"
+  - title: "Relaxing rain with generative lightning"
+    author:
+      name: "Atul Hegde"
+      url: "https://github.com/tuffstuff2k7"
+    url: "https://tuffstuff2k7.github.io/Rain/"
+    source: "https://github.com/tuffstuff2k7/Rain"
+  - title: "My try to re-create the purple rain with some extra features"
+    author:
+      name: "Krish"
+      url: "https://github.com/KrishAgarwal2811"
+    url: "https://editor.p5js.org/Krish2811/full/ZKmu9Zml7"
+    source: "https://editor.p5js.org/Krish2811/sketches/ZKmu9Zml7"
 ---
 In this viewer submitted coding challenge, I attempt to code a Purple Rain Simulator in Processing.

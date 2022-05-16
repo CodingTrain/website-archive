@@ -16,6 +16,10 @@ links:
     url: "https://github.com/ITPNYU/ICM-2017"
 
 contributions:
+  - title: "Simple gradient + arc digital clock"
+    author: "rafaelimao"
+    url: https://editor.p5js.org/rafaelimao/full/4IVuGJe4f
+    source: https://editor.p5js.org/rafaelimao/sketches/4IVuGJe4f
   - title: "Simple Analog Clock With Minute And Hour Smoothing"
     author: "Abhijeet S. Mankani"
     url: https://editor.p5js.org/abhijeetmankani/full/WKtYu4-Cd
@@ -189,6 +193,22 @@ contributions:
     author: "Abhinav Mishra (Amsters')"
     url: https://editor.p5js.org/Abhinav_programmer/full/l-AgllorM
     source: https://editor.p5js.org/Abhinav_programmer/sketches/l-AgllorM
+  - title: "Black & White analog clock"
+    author: "Drea007"
+    url: https://editor.p5js.org/Drea007/full/ICxxEXm69
+    source: https://editor.p5js.org/Drea007/sketches/ICxxEXm69
+  - title: "Neon Digital (inspired by one of Maeda's 12 o'clocks)"
+    author: "Bixbite"
+    url: https://preview.p5js.org/Bixbite/present/0fKTF6EnX
+    source: https://editor.p5js.org/Bixbite/sketches/0fKTF6EnX
+  - title: "Fractal Clock - a combination of this coding challenge and CC14"
+    author: "LoganDungeon"
+    url: https://editor.p5js.org/LoganDungeon/present/_6kYTtiJZ
+    source: https://editor.p5js.org/LoganDungeon/sketches/_6kYTtiJZ
+  - title: "Rubik's clock!"
+    author: "Simon (& abhay color change)"
+    url: https://editor.p5js.org/aabhay.kashyap/full/mIJWfElwi
+    source: https://editor.p5js.org/aabhay.kashyap/sketches/mIJWfElwi
 ---
 
 In this coding challenge, I attempt to program a clock in HTML5 canvas with the p5.js library.

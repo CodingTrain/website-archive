@@ -110,5 +110,47 @@ contributions:
       url: "https://github.com/tonysln"
     video_id: "Oz4Q70smZSs"
     source: "https://github.com/tonysln/GameOfLife"
+  - title: "Game Of Life more object oriented"
+    author:
+      name: "Loïc Rico"
+      url: "https://github.com/ricoloic"
+    source: "https://github.com/ricoloic/game-of-life"
+    url: "https://editor.p5js.org/ricoloic/present/bLSOAUNGT"
+  - title: "John Conway's Game of Life Simulation"
+    author:
+      name: "Aditya D.S."
+      url: https://aditya-ds-1806.github.io/
+    url: https://aditya-ds-1806.github.io/coding-challenges/game-of-life/
+    source: https://github.com/Aditya-ds-1806/coding-challenges/tree/main/game-of-life
+  - title: "Conway's Game of Life with user interactions!"
+    author:
+      name: "Sungyoung Kim"
+      url: "https://github.com/unta1337"
+    url: "https://unta1337.github.io/p5Thingys/GameOfLife/index.html"
+    source: "https://github.com/unta1337/p5Thingys/tree/master/GameOfLife"
+  - title: "Conway's Game of Life in Pygame Python"
+    author:
+      name: "Pathik Ghugare"
+      url: "https://github.com/PatrickBro13"
+    video_id: "y41E_EzUJ0M"
+    source: "https://github.com/Patrickbro13/Game-Of-Life"
+  - title: "A C implementation that runs in browser"
+    author:
+      name: "Imtiaz Kabir"
+      url: "https://github.com/ImtiazKabir"
+    url: "https://imtiazkabir.github.io/Game-of-Life/"
+    source: "https://github.com/ImtiazKabir/Game-of-Life"
+  - title: "Game of Life - Editable, Playable and with brief info"
+    author:
+      name: "Ayush Koul"
+      url: "https://github.com/AyushKoul00"
+    url: "https://editor.p5js.org/ayushkoul00/full/SYY6dGfm5"
+    source: "https://editor.p5js.org/ayushkoul00/sketches/SYY6dGfm5"
+  - title: "Game of Life : Customizable grid"
+    author:
+      name: "Ashwath"
+      url: "https://github.com/Ash205"
+    url: "https://ash205.github.io/Game-of-life/"
+    source: "https://github.com/Ash205/Game-of-life"
 ---
 In this coding challenge, I attempt to code Conway's Game of Life cellular automata simulation in JavaScript using the p5.js library.
