@@ -118,7 +118,5 @@ contributions:
       url: "https://hort.onl"
     url: "https://mandelbulb-three-r3f.vercel.app/"
     source: "https://github.com/jhrtn/mandelbulb-three-r3f"
-
 ---
-   
 It's the Mandelbulb! What happens when you take the original fractal (The Mandelbrot Set) and extend it into 3D space? And how do you visualize it in Processing (Java) as a point cloud?
