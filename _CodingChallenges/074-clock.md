@@ -16,6 +16,10 @@ links:
     url: "https://github.com/ITPNYU/ICM-2017"
 
 contributions:
+  - title: "Simple gradient + arc digital clock"
+    author: "rafaelimao"
+    url: https://editor.p5js.org/rafaelimao/full/4IVuGJe4f
+    source: https://editor.p5js.org/rafaelimao/sketches/4IVuGJe4f
   - title: "Simple Analog Clock With Minute And Hour Smoothing"
     author: "Abhijeet S. Mankani"
     url: https://editor.p5js.org/abhijeetmankani/full/WKtYu4-Cd
