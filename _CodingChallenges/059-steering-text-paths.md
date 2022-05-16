@@ -75,6 +75,5 @@ contributions:
     author: "anexas5"
     url: "https://editor.p5js.org/anexas/full/aXiqSXfht"
     source: "https://editor.p5js.org/anexas/sketches/aXiqSXfht"
-   
 ---
 In this coding challenge, I look at extracting font path points from text in p5.js with p5.Font.textToPoints().  I render the text as particles with steering behaviors that react to the mouse.
