@@ -112,6 +112,11 @@ contributions:
     author: "Kathy McGuiness"
     source: "https://editor.p5js.org/kfahn/full/vt00q_BhB"
     url: "https://editor.p5js.org/kfahn/sketches/vt00q_BhB"
+  - title: "Three.js (React) Mandelbulb Port using Web Worker"
+    author:
+      name: "Joseph Horton"
+      url: "https://hort.onl"
+    url: "https://mandelbulb-three-r3f.vercel.app/"
+    source: "https://github.com/jhrtn/mandelbulb-three-r3f"
 ---
-   
 It's the Mandelbulb! What happens when you take the original fractal (The Mandelbrot Set) and extend it into 3D space? And how do you visualize it in Processing (Java) as a point cloud?
