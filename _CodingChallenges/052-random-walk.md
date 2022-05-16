@@ -31,6 +31,12 @@ contributions:
       url: "https://github.com/Ayaan-Surkhi"
     url: "https://ayaan-surkhi.github.io/Random-Walkers_Color-Combo/"
     source: "https://github.com/Ayaan-Surkhi/Random-Walkers_Color-Combo"
+  - title: "Random Walkers Portrait Sketch"
+    author:
+      name: "Ahmed Almubarak"
+      url: "https://github.com/Almunarak"
+    url: "https://editor.p5js.org/en.almubarak/sketches/pAKAPAJBX"
+    source: "https://editor.p5js.org/en.almubarak/sketches/pAKAPAJBX"
 ---
 
 In this coding challenge, I simulate a "random walk" with the p5.js library. This video is part of the course Nature of Code at ITP, Tisch, NYU.

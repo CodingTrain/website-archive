@@ -4,7 +4,7 @@ const yaml = require('yaml-front-matter');
 
 function findVideoFilesRecursive(dir, arrayOfFiles) {
   const files = fs.readdirSync(dir);
-  
+
   arrayOfFiles = arrayOfFiles || [];
 
   for (const file of files) {
@@ -31,28 +31,27 @@ function getPlaylist(file) {
 }
 
 function getVideoData() {
-
   const directories = [
-    '_learning',
-    '_beginners',
-    '_more',
-    '_challenges',
+    // '_learning',
+    // '_beginners',
+    // '_more',
+    // '_challenges',
     '_CodingChallenges',
-    '_Courses',
-    '_GuestTutorials',
-    '_Streams',
-    '_TeachableMachine',
-    '_Tutorials',
+    // '_Courses',
+    // '_GuestTutorials',
+    // '_Streams',
+    // '_TeachableMachine',
+    // '_Tutorials',
   ];
 
   let files = [];
   for (const dir of directories) {
     findVideoFilesRecursive(dir, files);
   }
-  
-  const videos = [];
 
+  const videos = [];
   for (const file of files) {
+    console.log(file);
     const content = fs.readFileSync(`./${file}`, 'UTF8');
     const parsed = yaml.loadFront(content);
     let url = file.substring(1);
@@ -68,19 +67,17 @@ function getVideoData() {
 }
 
 function primeDirectory(dir) {
-
   fs.rmdirSync(dir, { recursive: true }, (err) => {
     if (err) {
-        throw err;
-    }
-  });
-  
-  fs.mkdirSync(dir, err => {
-    if(err) {
       throw err;
     }
   });
 
+  fs.mkdirSync(dir, (err) => {
+    if (err) {
+      throw err;
+    }
+  });
 }
 
 function getVideoID(url) {
@@ -88,13 +85,13 @@ function getVideoID(url) {
   let page;
   try {
     // link to page on the site
-    page = fs.readFileSync(`./_${location}.md`, "UTF8");
+    page = fs.readFileSync(`./_${location}.md`, 'UTF8');
   } catch (err) {
     try {
       // link to series on site
       const files = fs.readdirSync(`./_${location}`);
       // get first page in series
-      page = fs.readFileSync(`./_${location}/${files[0]}.md`, "UTF8");
+      page = fs.readFileSync(`./_${location}/${files[0]}.md`, 'UTF8');
     } catch (e) {
       // link to youtube playlist
       return url;
@@ -105,16 +102,14 @@ function getVideoID(url) {
 }
 
 function writeDescriptions(videos) {
-
   primeDirectory('./_descriptions');
 
   for (let i = 0; i < videos.length; i++) {
-
     const data = videos[i].data;
     const pageURL = videos[i].pageURL;
     const playlist = videos[i].playlist;
 
-    let description = "";
+    let description = '';
 
     // Description
     let content = data.__content;
@@ -132,7 +127,6 @@ function writeDescriptions(videos) {
     if (data.variations) {
       for (let j = 0; j < data.variations.length; ++j) {
         if (data.variations[j].web_editor) {
-
           if (!hasWebEditorVariations) {
             description += '\np5.js Web Editor Sketches:\n';
 
@@ -144,7 +138,6 @@ function writeDescriptions(videos) {
           description += `🕹️ ${data.variations[j].name}: https://editor.p5js.org/codingtrain/sketches/${data.variations[j].web_editor}\n`;
 
           hasWebEditorVariations = true;
-
         }
       }
     }
@@ -156,7 +149,10 @@ function writeDescriptions(videos) {
     // Next Video / Previous Video / Playlist
     let nextID;
     if (i !== videos.length - 1) {
-      if (pageURL.substring(0, pageURL.lastIndexOf('/')) === videos[i + 1].pageURL.substring(0, videos[i + 1].pageURL.lastIndexOf('/'))) {
+      if (
+        pageURL.substring(0, pageURL.lastIndexOf('/')) ===
+        videos[i + 1].pageURL.substring(0, videos[i + 1].pageURL.lastIndexOf('/'))
+      ) {
         nextID = videos[i + 1].data.video_id;
       } else {
         nextID = false;
@@ -167,7 +163,10 @@ function writeDescriptions(videos) {
 
     let previousID;
     if (i !== 0) {
-      if (pageURL.substring(0, pageURL.lastIndexOf('/')) === videos[i - 1].pageURL.substring(0, videos[i - 1].pageURL.lastIndexOf('/'))) {
+      if (
+        pageURL.substring(0, pageURL.lastIndexOf('/')) ===
+        videos[i - 1].pageURL.substring(0, videos[i - 1].pageURL.lastIndexOf('/'))
+      ) {
         previousID = videos[i - 1].data.video_id;
       } else {
         previousID = false;
@@ -198,34 +197,36 @@ function writeDescriptions(videos) {
 
     // Links
     if (data.links) {
-      description += "\nLinks discussed in this video:\n";
+      description += '\nLinks discussed in this video:\n';
       for (let i = 0; i < data.links.length; ++i) {
         const url = data.links[i].url;
-        if (/https?:\/\/.*/.test(url)) { // starts with http:// or https://
-          description += `🔗 ${data.links[i].title}: ${url}\n`
-        } else { // assume relative link in thecodingtrain.com
-          description += `🔗 ${data.links[i].title}: https://thecodingtrain.com${url}\n`
+        if (/https?:\/\/.*/.test(url)) {
+          // starts with http:// or https://
+          description += `🔗 ${data.links[i].title}: ${url}\n`;
+        } else {
+          // assume relative link in thecodingtrain.com
+          description += `🔗 ${data.links[i].title}: https://thecodingtrain.com${url}\n`;
         }
       }
     }
 
     // Videos
     if (data.videos) {
-      description += "\nOther videos mentioned in this video:\n";
+      description += '\nOther videos mentioned in this video:\n';
       for (let i = 0; i < data.videos.length; ++i) {
         if (data.videos[i].video_id) {
-          description += `🎥 ${data.videos[i].title}: https://youtu.be/${data.videos[i].video_id}\n`
+          description += `🎥 ${data.videos[i].title}: https://youtu.be/${data.videos[i].video_id}\n`;
         } else if (data.videos[i].url) {
-          description += `🎥 ${data.videos[i].title}: ${getVideoID(data.videos[i].url)}\n`
+          description += `🎥 ${data.videos[i].title}: ${getVideoID(data.videos[i].url)}\n`;
         }
       }
     }
 
     // Timestamps
     if (data.topics) {
-      description += "\nTimestamps:\n";
+      description += '\nTimestamps:\n';
       for (let i = 0; i < data.topics.length; ++i) {
-        description += `${data.topics[i].time} ${data.topics[i].title}\n`
+        description += `${data.topics[i].time} ${data.topics[i].title}\n`;
       }
     }
 
@@ -253,15 +254,15 @@ function writeDescriptions(videos) {
 
 This description was auto-generated. If you see a problem, please open an issue: https://github.com/CodingTrain/website/issues/new`;
 
-    fs.writeFileSync(`_descriptions/${data.video_id}.txt`, description);
-  }
+    //fs.writeFileSync(`_descriptions/${data.video_id}.txt`, description);
 
+    let filename = /\/((?:.(?!\/))+)$/.exec(pageURL)[1];
+    fs.writeFileSync(`_descriptions/${filename}.txt`, description);
+  }
 }
 
 (() => {
-
-  console.log("💫 Generating YouTube Descriptions 💫")
+  console.log('💫 Generating YouTube Descriptions 💫');
 
   writeDescriptions(getVideoData());
-
 })();

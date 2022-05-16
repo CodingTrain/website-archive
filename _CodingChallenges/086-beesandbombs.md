@@ -48,6 +48,10 @@ contributions:
     author: "Ttete Does Coding"
     video_id: vy3mbFi7UOA
     source: https://github.com/Oscar-FV/FFT-sound-visualizer-C-
+  - title: "Random Cube Wave"
+    author: "Samuel G"
+    url: https://editor.p5js.org/samg/full/IFHqmteq_
+    source: https://editor.p5js.org/samg/sketches/IFHqmteq_
 ---
 
 In this coding challenge, I attempt recreate a 3D @beesandbombs GIF with p5.js and the WebGL renderer.
