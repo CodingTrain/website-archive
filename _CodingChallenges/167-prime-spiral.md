@@ -110,6 +110,12 @@ contributions:
       url: "https://github.com/jackhodgkiss"
     url: "https://jackhodgkiss.github.io/prime-spiral/"
     source: "https://github.com/jackhodgkiss/prime-spiral/blob/main/src/main.ts"
+  - title: "Musical Prime Spiral"
+    author:
+      name: "Paul Selley"
+      url: "https://editor.p5js.org/LightSpeed123/sketches/APJ85H3MT"
+    url: "https://editor.p5js.org/LightSpeed123/sketches/APJ85H3MT"
+    source: "https://editor.p5js.org/LightSpeed123/sketches/APJ85H3MT"
   - title: "Colourful Prime Spiral"
     author:
       name: "Dipam Sen"
