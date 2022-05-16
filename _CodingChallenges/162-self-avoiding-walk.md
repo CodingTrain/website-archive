@@ -103,7 +103,7 @@ contributions:
       url: "https://github.com/butkeraites"
     url: "https://editor.p5js.org/butkeraites/full/AWcZE5WBI"
     source: "https://editor.p5js.org/butkeraites/sketches/AWcZE5WBI"
-    - title: "Self avoiding walk on a non rectangular lattice"
+  - title: "Self avoiding walk on a non rectangular lattice"
     author:
       name: "Omar Essilfie-Quaye"
       url: "https://github.com/omareq"
