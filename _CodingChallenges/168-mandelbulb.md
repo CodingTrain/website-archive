@@ -111,8 +111,8 @@ contributions:
     author: "Kathy McGuiness"
     url: 'https://editor.p5js.org/kfahn/full/o5sX5O0cF'
     source: 'https://editor.p5js.org/kfahn/sketches/o5sX5O0cF'
-  - title: ""Cinderella" mandelbulb rendered in p5.js with phong illumination lighting"
-    author: "Kathy McGuiness"
+  - title: 'Cinderella mandelbulb rendered in p5.js with phong illumination lighting'
+    author: 'Kathy McGuiness'
     source: 'https://editor.p5js.org/kfahn/full/vt00q_BhB'
     link: 'https://editor.p5js.org/kfahn/sketches/vt00q_BhB'
 ---
