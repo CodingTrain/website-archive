@@ -87,4 +87,4 @@ contributions:
     url: "https://github.com/gonzam95/DPS"
     source: "https://github.com/gonzam95/DPS"
 ---
-In this coding challenge, I create a double pendulum with elastics bars simulation in Processing.
+In this coding challenge, I create a double pendulum simulation in Processing.
