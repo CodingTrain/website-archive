@@ -23,6 +23,10 @@ contributions:
     author: "Diego de la Fuente Curaqueo"
     url: https://www.openprocessing.org/sketch/457282
     source: https://github.com/diegodelaefe/Fractaloid
+  - title: "Sierpinski Comet"
+    author: "fanbyprinciple"
+    url: https://editor.p5js.org/fanbyprinciple/full/kYZ4V2E9A
+    source: https://github.com/fanbyprinciple/noc-fanbyprinciple/tree/master/extra_projects/comet_serpinski
   - title: "#RecursiveTrain"
     author: "Alca"
     url: https://codepen.io/Alca/full/pWaZaX/
