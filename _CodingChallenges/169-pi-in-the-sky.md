@@ -5,6 +5,13 @@ date: 2022-03-14
 video_id: _H9JIwWP7HQ
 repository: CC_169_Pi_Day
 
+contributions:
+  - title: "In Processing Animated"
+    author:
+      name: "Radek Titera"
+    url: "https://github.com/Rodak123/PI-In-The-Sky/tree/main"
+    source: "https://github.com/Rodak123/PI-In-The-Sky/tree/main"
+
 variations:
   - name: 'Pi in the Sky'
     lang: 'p5js'
@@ -14,6 +21,8 @@ variations:
 links:
   - title: '1 Million Digits of Pi collected by Eve Andersson'
     url: 'http://www.eveandersson.com/pi/digits/1000000'
+  - title: 'Pi in the Sky song by Will from America'
+    url: 'https://twitter.com/WillFromAmerica'
 
 videos:
   - title: 'Coding Challenge 3: The Snake Game'
