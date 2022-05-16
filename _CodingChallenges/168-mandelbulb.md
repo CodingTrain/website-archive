@@ -82,8 +82,14 @@ topics:
     time: '27:04'
   - title: 'See you next time!'
     time: '27:31'
-    
+
 contributions:
+  - title: "Rainbow Mandelbulb Cloud (p5js)"
+    author:
+      name: "Juan Carlos Ponce Campuzano"
+      url: "https://jcponce.github.io"
+    url: "https://editor.p5js.org/jcponce/full/5AamBLmvM"
+    source: "https://editor.p5js.org/jcponce/sketches/5AamBLmvM"
   - title: "Mandelbulb Ray Marching in p5.js based on shadertoy.com/view/wdjGWR"
     author: "Waiel Al"
     url: https://editor.p5js.org/waielal/full/GrWBkw95a
