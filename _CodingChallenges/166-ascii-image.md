@@ -77,7 +77,7 @@ contributions:
       url: "https://github.com/KarthikRIyer"
     url: "https://raw.githubusercontent.com/KarthikRIyer/image2ascii/91e8471dbb2ebe98701aca7d4d24769e79091aa0/image.svg"
     source: "https://github.com/KarthikRIyer/image2ascii"
- - title: "Asciifier - Slider-Controlled Char Size"
+  - title: "Asciifier - Slider-Controlled Char Size"
     author:
       name: "Josh Vickers"
     url: "https://editor.p5js.org/thejoshvickers/full/9_8ozyPMV"
