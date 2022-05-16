@@ -70,6 +70,10 @@ contributions:
     author: "Louis Gray"
     url: https://editor.p5js.org/louisjamesgray2000/full/o8HbsCH60
     source: https://editor.p5js.org/louisjamesgray2000/full/o8HbsCH60
+  - title: "Colorful Fireworks"
+    author: "Marvyn B"
+    url: https://editor.p5js.org/Nostrada/full/vIjcEqrzn
+    source: https://editor.p5js.org/Nostrada/sketches/vIjcEqrzn
 ---
 
 In this 4th of July themed coding challenge, I build an HTML5 canvas fireworks simulation from scratch using the p5.js JavaScript library. I also show how to use Processing to create 3D Fireworks.

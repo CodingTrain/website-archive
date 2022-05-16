@@ -23,6 +23,10 @@ contributions:
     author: "Diego de la Fuente Curaqueo"
     url: https://www.openprocessing.org/sketch/457282
     source: https://github.com/diegodelaefe/Fractaloid
+  - title: "Sierpinski Comet"
+    author: "fanbyprinciple"
+    url: https://editor.p5js.org/fanbyprinciple/full/kYZ4V2E9A
+    source: https://github.com/fanbyprinciple/noc-fanbyprinciple/tree/master/extra_projects/comet_serpinski
   - title: "#RecursiveTrain"
     author: "Alca"
     url: https://codepen.io/Alca/full/pWaZaX/
@@ -47,6 +51,10 @@ contributions:
     author: "Chris Oliver"
     url: https://github.com/chrisoliver345/Sierpinski-Triangle
     source: https://github.com/chrisoliver345/Sierpinski-Triangle/blob/master/Sierpinski.pde
+  - title: "Recursion Geometric Shape"
+    author: "Hussain Salih Mahdi"
+    url: https://editor.p5js.org/hussainsalih.github@gmail.com/sketches/ByUM10Q-x
+    source: https://github.com/Shubbair/CreativeCoding/tree/main/Recursion
 ---
 
 In this coding challenge, I explore the concept of recursion to create fractal patterns in JavaScript HTML5 canvas with the p5.js library.
