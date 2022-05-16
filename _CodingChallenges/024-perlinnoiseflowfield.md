@@ -78,6 +78,12 @@ contributions:
       url: "https://github.com/ricoloic"
     url: "https://rico.studio/sketches/flow-field"
     source: "https://github.com/ricoloic/personal-webpage/blob/master/src/routes/sketches/flow-field/FlowField.jsx"
+  - title: "Interactive Flowfield visualization using noise"
+    author:
+      name: "Harivinay"
+      url: "https://vharivinay.github.io"
+    url: "https://vharivinay.github.io/Flow-field-using-noise/"
+    source: "https://github.com/vharivinay/Flow-field-using-noise"
 ---
 
 In this coding challenge, I use Perlin noise to create a two-dimensional flow field with the p5.js library
