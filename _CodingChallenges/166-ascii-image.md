@@ -81,6 +81,10 @@ contributions:
     author: "Josh Vickers"
     url: "https://editor.p5js.org/thejoshvickers/full/9_8ozyPMV"
     source: "https://editor.p5js.org/thejoshvickers/sketches/9_8ozyPMV"
+  - title: "Color Ascii video with monospace characters"
+    author: "Joshua Fernandes"
+    url: "https://editor.p5js.org/lazyRunner14/sketches/_M8e0TeLP"
+    source: "https://editor.p5js.org/lazyRunner14/sketches/_M8e0TeLP"
 topics:
   - title: 'Welcome! Choo choo!'
     time: '0:00'
