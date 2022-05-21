@@ -55,6 +55,11 @@ contributions:
     author: "Hussain Salih Mahdi"
     url: https://editor.p5js.org/hussainsalih.github@gmail.com/sketches/ByUM10Q-x
     source: https://github.com/Shubbair/CreativeCoding/tree/main/Recursion
+  - title: "Dual Recursion for Tiles"
+    author: "Damon Leverett"
+    url: https://editor.p5js.org/leverett22/full/JbOtrHZqG
+    source: https://editor.p5js.org/leverett22/sketches/JbOtrHZqG
+    
 ---
 
 In this coding challenge, I explore the concept of recursion to create fractal patterns in JavaScript HTML5 canvas with the p5.js library.
