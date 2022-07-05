@@ -3,6 +3,12 @@
 </p>
 </br>
 
+# Current Status
+
+This repository is no longer maintained as we have moved to <a href="https://thecodingtrain.com">a new website</a> and <a href="https://github.com/CodingTrain/thecodingtrain.com">repo</a>. Please note it is still accessable through <a href= "https://codingtrain.github.io/website-archive/">github.io</a> but should only be used for archive purposes.
+
+
+# Repository Content
 Hello and welcome to the GitHub repository for The Coding Train website! This houses all of the content at <a href="https://thecodingtrain.com/">thecodingtrain.com</a> as well as source code for corresponding videos. The site welcomes contributions from the community in a variety of ways! More information at <a href="CONTRIBUTING.md">CONTRIBUTING.md</a>.
 
 # Other links
