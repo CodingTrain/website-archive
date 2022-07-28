@@ -122,6 +122,14 @@ contributions:
       url: "https://github.com/dipamsen/"
     url: "https://editor.p5js.org/funplanet/full/sHq2rfZuv"
     source: "https://editor.p5js.org/funplanet/sketches/sHq2rfZuv"
----
+   - title: "Ulam hexagon spiral variant in python"
+    author:
+      name: "Paula Wilson"
+      url: "https://github.com/PWilson-1978"
+    url: "https://github.com/PWilson-1978/ulam-hex-spiral"
+    source: "7thwHM0Yj_U"
+
+    
+  
 
 Why do prime numbers show up as diagonals in a spiral? In this video, I create a visualization in JavaScript (p5.js) of the Ulam Spiral (aka Prime Spiral) named for Polish Mathematician Stanislav Ulan.
